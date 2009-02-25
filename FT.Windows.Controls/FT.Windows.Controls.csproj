@@ -1,0 +1,133 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FT.Windows.Controls</RootNamespace>
+    <AssemblyName>FT.Windows.Controls</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonEx\MyButtonObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonEx\SimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBoxEx\SimpleComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridEx\SimpleGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ISkinControl.cs" />
+    <Compile Include="LabelEx\SimpleLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MenuEx\OutlookMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pager\SimplePagerEx.cs" />
+    <Compile Include="PanelEx\DataSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\DataSearch.Designer.cs">
+      <DependentUpon>DataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SimpleLine.Designer.cs">
+      <DependentUpon>SimpleLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleSkinType.cs" />
+    <Compile Include="SkinFactory.cs" />
+    <Compile Include="StateLamp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StateLamp.Designer.cs">
+      <DependentUpon>StateLamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabControlEx\SimpleTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxEx\TextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+    <None Include="Resources\Search_16_16.png" />
+    <None Include="Resources\Save_16_16.png" />
+    <None Include="Resources\Printer_16_16.png" />
+    <None Include="Resources\Password_16_16.png" />
+    <None Include="Resources\pagesetting_16_16.png" />
+    <None Include="Resources\Home_16_16.png" />
+    <None Include="Resources\Excel_16_16.png" />
+    <None Include="Resources\Edit_16_16.png" />
+    <None Include="Resources\Cut_16_16.png" />
+    <None Include="Resources\Close_16_16.png" />
+    <None Include="Resources\close.bmp" />
+    <None Include="Resources\clear_16_16.png" />
+    <None Include="Resources\Arrow-Up_16_16.png" />
+    <None Include="Resources\Arrow-Right_16_16.png" />
+    <None Include="Resources\Arrow-Left_16_16.png" />
+    <None Include="Resources\Arrow-Down_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PanelEx\DataSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FormEx\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
