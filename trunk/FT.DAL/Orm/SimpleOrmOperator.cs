@@ -1,0 +1,241 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Collections;
+using System.Data;
+using System.Reflection;
+
+namespace FT.DAL.Orm
+{
+    /// <summary>
+    /// 简单的Orm操纵类
+    /// 现仅仅支持DateTime类型，所有的插入语句都使用字符串
+    /// 实体对象都只是一些vo对象才可正常使用
+    /// </summary>
+    public class SimpleOrmOperator
+    {
+        #region 处理连接,唯一连接
+        private static IDataAccess dataAccess;
+
+        /// <summary>
+        /// 初始化取数据的链接，唯一连接
+        /// </summary>
+        /// <param name="access">数据源链接</param>
+        public void InitDataAccess(IDataAccess access)
+        {
+            dataAccess = access;
+        }
+
+        /// <summary>
+        /// 判断数据库连接，默认调用配置的连接
+        /// </summary>
+        private static void CheckConn()
+        {
+            if (dataAccess == null)
+            {
+                dataAccess = DAL.DataAccessFactory.GetDataAccess();
+                //throw new ArgumentException("请先执行InitDataAccess来初始化链接！");
+            }
+        }
+        #endregion
+
+        #region 增删改
+        /// <summary>
+        /// 更新一个实体对象
+        /// </summary>
+        /// <param name="obj">实体对象</param>
+        /// <returns>是否更新成功</returns>
+        public static bool Update(object obj)
+        {
+            CheckConn();
+            Type type = obj.GetType();
+            StringBuilder sql = new StringBuilder(SimpleOrmCache.GetUpdateSql(type));
+            Hashtable table = SimpleOrmCache.GetUpdateField(type);
+            System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
+            string field = string.Empty;
+            object value = null;
+            while (enumerator.MoveNext())
+            {
+                field = enumerator.Key.ToString();
+                value = type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
+                sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(value.ToString()));
+            }
+            sql.Append(type.GetField(SimpleOrmCache.GetPK(type),BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj).ToString());
+            return dataAccess.ExecuteSql(sql.ToString());
+        }
+
+        /// <summary>
+        /// 创建一个对象到数据库中
+        /// </summary>
+        /// <param name="obj">实体对象</param>
+        /// <returns>是否插入成功</returns>
+        public static bool Create(object obj)
+        {
+            CheckConn();
+            Type type = obj.GetType();
+            StringBuilder sql = new StringBuilder(SimpleOrmCache.GetInsertSql(type));
+            Hashtable table = SimpleOrmCache.GetInsertField(type);
+            System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
+            string field=string.Empty;
+            object value=null;
+            while (enumerator.MoveNext())
+            {
+               field=enumerator.Key.ToString();
+               value=type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
+               sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(value.ToString()));
+            }
+            return dataAccess.ExecuteSql(sql.ToString());
+
+        }
+
+        /// <summary>
+        /// 删除一个实体对象
+        /// </summary>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <param name="pk">主键id</param>
+        /// <returns>是否成功删除</returns>
+        public static bool Delete<T>(object pk)
+        {
+            CheckConn();
+            if (pk == null || pk.ToString().Length == 0)
+            {
+                throw new ArgumentException("删除的PK主键不得为空！");
+                //return null;
+            }
+
+            string sql = "delete from "+SimpleOrmCache.GetTableName(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" + pk.ToString();
+            return dataAccess.ExecuteSql(sql);
+        }
+
+        /// <summary>
+        /// 查询一个对象出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="pk">主键值</param>
+        /// <returns>一个对象</returns>
+        public static T Query<T>(object pk)
+        {
+            CheckConn();
+            if (pk == null || pk.ToString().Length == 0)
+            {
+                throw new ArgumentException("查询的PK主键不得为空！");
+                //return null;
+            }
+
+            string sql = SimpleOrmCache.GetSelectSql(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" + pk.ToString();
+            DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(typeof(T)));
+            if (dt!=null&&dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return CreateFromDataRow<T>(dr);
+            }
+            else
+            {
+                return default(T);
+            }
+
+        }
+        #endregion
+        #region 条件查询方法
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <param name="condition">条件语句</param>
+        /// <param name="pager">分页对象</param>
+        /// <param name="order">排序列</param>
+        /// <param name="isDesc">是否降序</param>
+        /// <returns></returns>
+        public List<T> Query<T>(string condition, Pager pager,string order ,bool isDesc)
+        {
+            CheckConn();
+            List<T> result = new List<T>();
+            string sql = dataAccess.GetPageSql(SimpleOrmCache.GetSelectSql(typeof(T)) + condition,pager,order,isDesc);
+            
+            DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(typeof(T)));
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    result.Add(CreateFromDataRow<T>(dr));
+                }
+               
+            }
+            return result;
+        }
+        public List<T> Query<T>(string condition, Pager pager)
+        {
+            return this.Query<T>(condition,pager,"id",true);
+        }
+         
+        #endregion
+
+
+
+        #region 辅助方法
+        /// <summary>
+        /// 根据datarow创建一个对象出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="dr">datarow</param>
+        /// <returns>创建一个对象</returns>
+        private static T CreateFromDataRow<T>(DataRow dr)
+        {
+            T result = (T)System.Reflection.Assembly.GetAssembly(typeof(T)).CreateInstance(typeof(T).ToString());
+            Hashtable table = SimpleOrmCache.GetSelectField(typeof(T));
+            System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
+            object drvalue = null;
+            FieldInfo fieldInfo = null;
+            while (enumerator.MoveNext())
+            {
+                drvalue = dr[enumerator.Key.ToString()];
+                fieldInfo = result.GetType().GetField(enumerator.Value.ToString(), BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Instance);
+                SetValueToField(result, fieldInfo, drvalue);
+            }
+            return result;
+        }
+        /// <summary>
+        /// 根据字段的类型，进行赋值
+        /// </summary>
+        /// <param name="obj">实体对象</param>
+        /// <param name="field">字段</param>
+        /// <param name="value">具体的值</param>
+        private static void SetValueToField(object obj,FieldInfo field,object value)
+        {
+            if (Convert.IsDBNull(value))
+            {
+                value = null;
+            }
+            if (value != null)
+            {
+                Type fieldType = field.FieldType;
+                if (typeof(string) == fieldType)
+                {
+                    field.SetValue(obj, value.ToString());
+                }
+                else if (typeof(int) == fieldType)
+                {
+                    field.SetValue(obj, Convert.ToInt32(value));
+                }
+                else if (typeof(bool) == fieldType)
+                {
+                    field.SetValue(obj, Convert.ToBoolean(value));
+                }
+                else if (typeof(decimal) == fieldType)
+                {
+                    field.SetValue(obj, Convert.ToDecimal(value));
+                }
+                else if (typeof(DateTime) == fieldType)
+                {
+                    field.SetValue(obj, Convert.ToDateTime(value));
+                }
+            }
+            else
+            {
+                field.SetValue(obj, value);
+            }
+        }
+        #endregion
+    }
+}
