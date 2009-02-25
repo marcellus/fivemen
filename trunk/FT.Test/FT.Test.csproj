@@ -28,10 +28,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.Excel, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Fm.Common\UseDlls\Interop.Excel.dll</HintPath>
-    </Reference>
     <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Products\release\IrisSkin2.dll</HintPath>
@@ -141,13 +137,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fm.Common\Fm.csproj">
-      <Project>{542111A8-2438-474F-82AE-A619DF3FAF64}</Project>
-      <Name>Fm</Name>
+    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
       <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
       <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
+      <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
+      <Name>FT.Windows.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

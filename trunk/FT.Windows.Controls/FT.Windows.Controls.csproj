@@ -120,6 +120,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="FormEx\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
