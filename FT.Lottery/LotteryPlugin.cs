@@ -25,8 +25,8 @@ namespace FT.Lottery
             }
             ToolStripMenuItem item = new ToolStripMenuItem();
             item.Text = "自助博彩";
-            item.DropDownItems.Add(this.BuildToolStripItem("联赛队伍管理",typeof()));
-            item.DropDownItems.Add(this.BuildToolStripItem("彩票分析",typeof()));
+           // item.DropDownItems.Add(this.BuildToolStripItem("联赛队伍管理",typeof()));
+           // item.DropDownItems.Add(this.BuildToolStripItem("彩票分析",typeof()));
             
             MenuStrip menus=form.GetMenuStrip();
             menus.Items.Add(item);
@@ -36,7 +36,7 @@ namespace FT.Lottery
         {
             ToolStripItem item = new ToolStripMenuItem();
             item.Text = text;
-            item.Tag = typeof(paneltype).FullName;
+            item.Tag = paneltype.FullName;
             item.Click += new EventHandler(item_Click);
             return item;
         }
@@ -48,7 +48,7 @@ namespace FT.Lottery
             {
                 this.form.GetSimpleTabControl().TabPages.Add(item.Text);
                 TabPage tb=this.form.GetSimpleTabControl().TabPages[this.form.GetSimpleTabControl().TabPages.Count];
-                Panel panel=ReflectHelper.CreateInstance(item.Tag.ToString());
+                Panel panel=(Panel)ReflectHelper.CreateInstance(item.Tag.ToString());
                 panel.Dock=DockStyle.Fill;
                 tb.Controls.Add(panel);
             }

@@ -83,7 +83,7 @@ namespace FT.Lottery
         /// 赛果
         /// </summary>
         [SimpleColumn(Column = "int_result")]
-        public int Result = string.Empty;
+        public int Result = 0;
 
         /// <summary>
         /// 是否冷门
