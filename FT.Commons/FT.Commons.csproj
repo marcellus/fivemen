@@ -1,0 +1,327 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FT.Commons</RootNamespace>
+    <AssemblyName>FT.Commons</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Products\release\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Products\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bar\Code39.cs" />
+    <Compile Include="Cache\IRefreshCache.cs" />
+    <Compile Include="Cache\StaticCacheManager.cs" />
+    <Compile Include="Com\Excels\ExcelBorderEnum.cs" />
+    <Compile Include="Com\Excels\ListExcel.cs" />
+    <Compile Include="Com\Excels\SimpleExcel.cs" />
+    <Compile Include="Com\WordSupport\SimpleWord.cs" />
+    <Compile Include="Printer\CommonPrinter.cs" />
+    <Compile Include="Printer\IPrinter.cs" />
+    <Compile Include="Printer\ObjectPrinter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ISecurity.cs" />
+    <Compile Include="Security\KeySecurity.cs" />
+    <Compile Include="Security\MD5Security.cs" />
+    <Compile Include="Security\SecurityFactory.cs" />
+    <Compile Include="Security\SimpleSecurity.cs" />
+    <Compile Include="SkinProcessor\IrisSkin2Processor.cs" />
+    <Compile Include="SkinProcessor\SkinType.cs" />
+    <Compile Include="Tools\BaseHelper.cs" />
+    <Compile Include="Tools\ComboBoxHelper.cs" />
+    <Compile Include="Tools\ConfigLoader.cs" />
+    <Compile Include="Tools\DateTimeHelper.cs" />
+    <Compile Include="Tools\Dragger.cs" />
+    <Compile Include="Tools\FileDialogHelper.cs" />
+    <Compile Include="Tools\FileHelper.cs" />
+    <Compile Include="Tools\FormHelper.cs" />
+    <Compile Include="Tools\HardwareManager.cs" />
+    <Compile Include="Tools\IDCardHelper.cs" />
+    <Compile Include="Tools\MessageBoxHelper.cs" />
+    <Compile Include="Tools\OperateHabitHelper.cs" />
+    <Compile Include="Tools\ProgramState.cs" />
+    <Compile Include="Tools\ReflectHelper.cs" />
+    <Compile Include="Tools\RegisterHelper.cs" />
+    <Compile Include="Tools\SerializeHelper.cs" />
+    <Compile Include="Tools\ValidatorHelper.cs" />
+    <Compile Include="Tools\XmlHelper.cs" />
+    <Compile Include="WebCatcher\ICatcher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tools\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Calmness.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\CalmnessColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\CalmnessColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\DeepCyan.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\DeepGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\DeepOrange.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\DiamondBlue.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\DiamondGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Eighteen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\EighteenColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\EighteenColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Emerald.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\EmeraldColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\EmeraldColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\EmeraldColor3.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\GlassBrown.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\GlassGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\GlassOrange.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Longhorn.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MacOS.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Midsummer.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MidsummerColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MidsummerColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MidsummerColor3.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MP10.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\MSN.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\OneBlue.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\OneCyan.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\OneGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\OneOrange.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Page.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\PageColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\PageColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\RealOne.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Silver.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SilverColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SilverColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SportsBlack.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SportsBlue.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SportsCyan.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SportsGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SportsOrange.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SteelBlack.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\SteelBlue.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista1Green.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color3.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color4.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color5.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color6.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Vista2Color7.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Warm.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\WarmColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\WarmColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\WarmColor3.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\Wave.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\WaveColor1.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\WaveColor2.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\XPBlue.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\XPGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\XPOrange.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SkinProcessor\Skins\XPSilver.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Com\Chm\" />
+    <Folder Include="Com\Pdf\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
