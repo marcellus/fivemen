@@ -54,7 +54,7 @@ namespace FT.Commons.Tools
 
             XmlNode node1 = doc.SelectSingleNode(@"//add[@key='" + connKey + "']");
             XmlElement ele1 = (XmlElement)node1;
-            ele1.SetAttribute("value", Fm.Common.Security.SecurityFactory.GetSecurity().Encrypt("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\" + this.txtIp.Text.Trim() + "\\db\\db.mdb;User Id=admin;Password=;"));
+            ele1.SetAttribute("value", FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\" + this.txtIp.Text.Trim() + "\\db\\db.mdb;User Id=admin;Password=;"));
             doc.Save(Application.ExecutablePath + ".config");
             MessageBoxHelper.Show("保存成功，请退出重进！");
         }
