@@ -52,6 +52,26 @@
     <Compile Include="Com\Excels\ListExcel.cs" />
     <Compile Include="Com\Excels\SimpleExcel.cs" />
     <Compile Include="Com\WordSupport\SimpleWord.cs" />
+    <Compile Include="PrinterEx\BatchPrintConfig.cs" />
+    <Compile Include="PrinterEx\IPrinter.cs" />
+    <Compile Include="PrinterEx\PageMargin.cs" />
+    <Compile Include="PrinterEx\PagePrinter.cs" />
+    <Compile Include="PrinterEx\SupportObject\BaseDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\BordersEdgeStyle.cs" />
+    <Compile Include="PrinterEx\SupportObject\ColumnHeaderDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\FooterDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\IDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\ImageDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrintCommonSetting.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterComposite.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterContent.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterHint.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterRow.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterTable.cs" />
+    <Compile Include="PrinterEx\SupportObject\PrinterTableFactory.cs" />
+    <Compile Include="PrinterEx\SupportObject\RecetangleDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\TextDraw.cs" />
+    <Compile Include="PrinterEx\SupportObject\TitleDraw.cs" />
     <Compile Include="Printer\CommonPrinter.cs" />
     <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Printer\ObjectPrinter.cs" />
@@ -84,6 +104,7 @@
     <Compile Include="WebCatcher\ICatcher.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PrinterEx\readme.txt" />
     <Content Include="Tools\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
