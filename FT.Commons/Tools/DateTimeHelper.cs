@@ -4,6 +4,9 @@ using System.Text;
 
 namespace FT.Commons.Tools
 {
+    /// <summary>
+    /// 时间操作工具
+    /// </summary>
     public class DateTimeHelper : BaseHelper
     {
         /// <summary>

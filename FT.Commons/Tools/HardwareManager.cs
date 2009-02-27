@@ -12,6 +12,9 @@ using System.Net;
 using log4net;
 namespace FT.Commons.Tools
 {
+    /// <summary>
+    /// 硬件辅助工具类
+    /// </summary>
     public class HardwareManager : BaseHelper
 	{
         /// <summary>

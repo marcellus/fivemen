@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace FT.Commons.Tools
 {
+    /// <summary>
+    /// 拖曳控件
+    /// </summary>
     public class Dragger : BaseHelper
     {
         Control parent;
