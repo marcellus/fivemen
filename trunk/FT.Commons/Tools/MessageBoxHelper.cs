@@ -34,7 +34,7 @@ namespace FT.Commons.Tools
         /// <returns>如果点击了是返回true</returns>
         public static bool Confirm(string text)
         {
-           DialogResult result= MessageBox.Show(text, "窗口提示", MessageBoxButtons.YesNo);
+           DialogResult result= MessageBox.Show(text, "窗体消息提示", MessageBoxButtons.YesNo);
            return DialogResult.Yes == result;
         }
 
@@ -54,7 +54,7 @@ namespace FT.Commons.Tools
         /// <param name="text">提示文本</param>
         public static void ShowDb(string text)
         {
-            ShowMessage(text, "数据库提示");
+            ShowMessage(text, "数据库消息提示");
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace FT.Commons.Tools
         /// <param name="text">提示文本</param>
         public static void ShowPrinter(string text)
         {
-            ShowMessage(text, "打印提示");
+            ShowMessage(text, "打印消息提示");
         }
 
 
@@ -73,7 +73,7 @@ namespace FT.Commons.Tools
         /// <param name="text">提示文本</param>
         public static void Show(string text)
         {
-            ShowMessage(text,"窗口提示");
+            ShowMessage(text,"窗口消息提示");
         }
     }
 }

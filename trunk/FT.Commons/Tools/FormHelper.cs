@@ -57,6 +57,12 @@ namespace FT.Commons.Tools
             }
         }
 
+        /// <summary>
+        /// 从控件跟实体对应的缓存中设置数据到一个对象实体上
+        /// </summary>
+        /// <param name="ctr">具体的控件，一般用在form上</param>
+        /// <param name="controls">缓存的hashtable</param>
+        /// <param name="obj">对象实体</param>
         private static void GetDataFromControl(Control ctr, Hashtable controls,object obj)
         {
             int count = ctr.Controls.Count;
@@ -284,6 +290,12 @@ namespace FT.Commons.Tools
 
         }
 
+        /// <summary>
+        ///  从窗体控件获取跟某一类类型对应的实例
+        /// </summary>
+        /// <param name="ctr">控件，一般指窗体</param>
+        /// <param name="type">类型</param>
+        /// <param name="controls">缓存的hashtable</param>
         private static void InitControl(Control ctr,Type type,Hashtable controls)
         {
             int count=ctr.Controls.Count;
@@ -303,9 +315,14 @@ namespace FT.Commons.Tools
                 }
             }
         }
-
+        /// <summary>
+        /// 从窗体控件获取跟某一类类型对应的实例
+        /// </summary>
+        /// <param name="form">窗体实例</param>
+        /// <param name="type">对象类型</param>
         private static void InitFormType(Form form, Type type)
         {
+            
             string prop = string.Empty;
             Hashtable table = new Hashtable();
             Hashtable controls = new Hashtable();
