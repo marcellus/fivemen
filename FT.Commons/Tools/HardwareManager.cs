@@ -18,24 +18,25 @@ namespace FT.Commons.Tools
     public class HardwareManager : BaseHelper
 	{
         /// <summary>
-        /// 获取机器码，先获取cpu，如果获取cpu出错，再获取disk序列号，如果获取disk也出错
-        /// 获取mac地址
+        /// 获取机器码，先获取mac，如果获取mac出错，再获取disk序列号，如果获取disk也出错
+        /// 获取cpu地址
         /// </summary>
         /// <returns>机器码</returns>
         public static string GetMachineCode()
         {
-            string tmp = GetCpu();
-            if (tmp == null || tmp == string.Empty || tmp == "cantgetcpu")
+            //cantgetmac
+            string tmp = GetMac();
+            if (tmp == null || tmp == string.Empty || tmp == "cantgetmac")
             {
-                tmp=GetDisk();
+                tmp = GetDisk();
                 if (tmp == null || tmp == string.Empty || tmp == "cantgetdisk")
                 {
-                    tmp = GetMac();
+                    tmp = GetCpu();
                 }
             }
-            return tmp;
+            FT.Commons.Security.ISecurity md5= new FT.Commons.Security.MD5Security();
+            return md5.Encrypt(tmp);
         }
-
         /// <summary>
         /// 获取本机的第一个IP
         /// </summary>

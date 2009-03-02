@@ -30,7 +30,7 @@ namespace FT.Commons.Tools
         public void SaveConfig()
         {
             T config = StaticCacheManager.GetConfig<T>();
-            FormHelper.GetData(this.parent, config);
+            FormHelper.GetDataFromForm(this.parent, config);
             StaticCacheManager.SaveConfig<T>(config);
 
         }
@@ -38,7 +38,7 @@ namespace FT.Commons.Tools
         public void Load()
         {
             T config = StaticCacheManager.GetConfig<T>();
-            FormHelper.LoadData(this.parent, config);
+            FormHelper.SetDataToForm(this.parent, config);
             
         }
 

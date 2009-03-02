@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using FT.Commons.Print;
+using FT.Commons.PrinterEx;
 using FT.DAL.Orm;
 
 namespace FT.DAL.Entity
@@ -44,17 +44,13 @@ namespace FT.DAL.Entity
         [SimpleColumn(Column = "c_description")]
         public string Description;
 
-        public override int GetTotalPage()
+
+        public virtual System.Drawing.Image Paint()
         {
             throw new Exception("The method or operation is not implemented.");
         }
 
-        public override System.Drawing.Image Paint()
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public override void PaintPrinter()
+        public virtual void PaintPrinter()
         {
             throw new Exception("The method or operation is not implemented.");
         }

@@ -34,6 +34,7 @@ namespace FT.Windows.Forms
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -46,9 +47,9 @@ namespace FT.Windows.Forms
             this.columnHeader4,
             this.columnHeader5});
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(24, 22);
+            this.listView1.Location = new System.Drawing.Point(26, 51);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(511, 362);
+            this.listView1.Size = new System.Drawing.Size(511, 370);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,15 +77,26 @@ namespace FT.Windows.Forms
             // 
             this.columnHeader5.Text = "状态";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "现使用中的插件";
+            // 
             // PluginManageForm
             // 
-            this.ClientSize = new System.Drawing.Size(570, 406);
+            this.ClientSize = new System.Drawing.Size(570, 446);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Name = "PluginManageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "插件管理";
+            this.Text = "现有插件";
             this.Load += new System.EventHandler(this.PluginManageForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +108,6 @@ namespace FT.Windows.Forms
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Label label1;
     }
 }

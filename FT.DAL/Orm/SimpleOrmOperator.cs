@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections;
 using System.Data;
 using System.Reflection;
+using FT.Commons.Tools;
 
 namespace FT.DAL.Orm
 {
@@ -21,7 +22,7 @@ namespace FT.DAL.Orm
         /// 初始化取数据的链接，唯一连接
         /// </summary>
         /// <param name="access">数据源链接</param>
-        public void InitDataAccess(IDataAccess access)
+        public static void InitDataAccess(IDataAccess access)
         {
             dataAccess = access;
         }
@@ -84,7 +85,20 @@ namespace FT.DAL.Orm
                value=type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
                sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(value.ToString()));
             }
-            return dataAccess.ExecuteSql(sql.ToString());
+            bool result= dataAccess.ExecuteSql(sql.ToString());
+            if (result)//执行把主键赋给对象
+            {
+                string pk = SimpleOrmCache.GetPK(type);
+                object objtmp = dataAccess.SelectScalar("select max("+pk+") from "+SimpleOrmCache.GetTableName(type));
+                if (objtmp != null)
+                {
+                    FormHelper.SetDataToObject(obj, pk, objtmp);
+                    //FormHelper.SetDataToObject(obj,pk,FormHelper.ParseFieldInfo(obj,objtmp);
+                    //FieldInfo fieldtmp=type.GetField(pk);
+                    //fieldtmp.SetValue(obj, FormHelper.ParseFieldInfo(fieldtmp, objtmp));
+                }
+            }
+            return result;
 
         }
 

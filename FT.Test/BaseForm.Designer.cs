@@ -29,41 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
-            this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
-            this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
-            this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
+            this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
+            this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // simpleComboBox1
-            // 
-            this.simpleComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.simpleComboBox1.FormattingEnabled = true;
-            this.simpleComboBox1.Items.AddRange(new object[] {
-            resources.GetString("simpleComboBox1.Items"),
-            resources.GetString("simpleComboBox1.Items1")});
-            resources.ApplyResources(this.simpleComboBox1, "simpleComboBox1");
-            this.simpleComboBox1.Name = "simpleComboBox1";
-            this.simpleComboBox1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
-            this.simpleComboBox1.SelectedIndexChanged += new System.EventHandler(this.simpleComboBox1_SelectedIndexChanged);
-            // 
-            // simpleButton1
-            // 
-            resources.ApplyResources(this.simpleButton1, "simpleButton1");
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
-            this.simpleButton1.UseVisualStyleBackColor = true;
-            // 
-            // simpleButton3
-            // 
-            resources.ApplyResources(this.simpleButton3, "simpleButton3");
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
-            this.simpleButton3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -100,10 +78,68 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            resources.ApplyResources(this.button6, "button6");
+            this.button6.Name = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.Name = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            resources.ApplyResources(this.button8, "button8");
+            this.button8.Name = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // simpleButton3
+            // 
+            resources.ApplyResources(this.simpleButton3, "simpleButton3");
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
+            this.simpleButton3.UseVisualStyleBackColor = true;
+            // 
+            // simpleComboBox1
+            // 
+            this.simpleComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.simpleComboBox1.FormattingEnabled = true;
+            this.simpleComboBox1.Items.AddRange(new object[] {
+            resources.GetString("simpleComboBox1.Items"),
+            resources.GetString("simpleComboBox1.Items1")});
+            resources.ApplyResources(this.simpleComboBox1, "simpleComboBox1");
+            this.simpleComboBox1.Name = "simpleComboBox1";
+            this.simpleComboBox1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
+            this.simpleComboBox1.SelectedIndexChanged += new System.EventHandler(this.simpleComboBox1_SelectedIndexChanged);
+            // 
+            // simpleButton1
+            // 
+            resources.ApplyResources(this.simpleButton1, "simpleButton1");
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
+            this.simpleButton1.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            resources.ApplyResources(this.button9, "button9");
+            this.button9.Name = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // BaseForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -128,5 +164,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }

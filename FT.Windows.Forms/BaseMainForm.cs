@@ -54,7 +54,13 @@ namespace FT.Windows.Forms
 
         private void BaseMainForm_Load(object sender, EventArgs e)
         {
+            //this.IsMdiContainer = true;
             PluginManager.LoadAllPluginToMainForm(this);
+        }
+
+        public void LoadPluginDebug(string filename)
+        {
+            //PluginManager.EmmitFromFile(this,filename);
         }
     }
 }

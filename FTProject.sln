@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.Controls", "FT.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.Forms", "FT.Windows.Forms\FT.Windows.Forms.csproj", "{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.CommonsPlugin", "FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj", "{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

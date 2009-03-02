@@ -43,6 +43,7 @@ namespace FT.Test
                     btn.Click += new EventHandler(btn_Click);
                 }
             }
+            //FT.Commons.SkinProcessor.IrisSkin2Proccssor.InitSkinEngine();
         }
 
         void btn_Click(object sender, EventArgs e)
@@ -97,7 +98,41 @@ namespace FT.Test
         private void button5_Click(object sender, EventArgs e)
         {
             FT.Windows.Forms.BaseMainForm form = new BaseMainForm();
+            string path = FT.Commons.Tools.ReflectHelper.GetStartUpPath("plugins1\\FT.Lottery.dll");
+            Console.WriteLine("the path is->"+path);
+            //form.LoadPluginDebug(path);
             form.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form form = new EntityForm();
+            form.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            EncrptForm form = new EncrptForm();
+            form.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Show(typeof(TestNameForm));
+        }
+
+        private void Show(Type type)
+        {
+            if (type.BaseType == typeof(Form))
+            {
+                Form form=System.Reflection.Assembly.GetExecutingAssembly().CreateInstance(type.FullName) as Form;
+                form.Show();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Show(typeof(ReflectTestForm));
         }
 
     }
