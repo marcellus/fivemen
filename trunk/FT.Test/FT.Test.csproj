@@ -61,6 +61,18 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGridViewRolloverCell.cs" />
+    <Compile Include="EncrptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncrptForm.Designer.cs">
+      <DependentUpon>EncrptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm.Designer.cs">
+      <DependentUpon>EntityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,14 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="EncrptForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EncrptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EntityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Form1.cs</DependentUpon>
@@ -112,14 +132,23 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReflectTestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ReflectTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TabControlExTest.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TabControlExTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNameForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestNameForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,17 +158,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ReflectTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReflectTestForm.Designer.cs">
+      <DependentUpon>ReflectTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TabControlExTest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TabControlExTest.Designer.cs">
       <DependentUpon>TabControlExTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNameForm.Designer.cs">
+      <DependentUpon>TestNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Lottery\FT.Lottery.csproj">
+      <Project>{81CC8F56-BEDD-4573-85A3-8091A11D693C}</Project>
+      <Name>FT.Lottery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
+      <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
+      <Name>FT.Windows.CommonsPlugin</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
       <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>

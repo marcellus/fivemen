@@ -53,6 +53,12 @@
     </Compile>
     <Compile Include="Domain\CompanyInfo.cs" />
     <Compile Include="Domain\ProgramRegConfig.cs" />
+    <Compile Include="PluginConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PluginConfigForm.Designer.cs">
+      <DependentUpon>PluginConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PluginDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +71,13 @@
     <Compile Include="PluginManageForm.Designer.cs">
       <DependentUpon>PluginManageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plugins\AbstractWindowPlugin.cs" />
     <Compile Include="Plugins\AppUnitAttribute.cs" />
     <Compile Include="Plugins\IAppUnit.cs" />
     <Compile Include="Plugins\IPlugin.cs" />
     <Compile Include="Plugins\PluginAttribute.cs" />
     <Compile Include="Plugins\PluginManager.cs" />
+    <Compile Include="Plugins\PluginsFileConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -121,6 +129,10 @@
     <EmbeddedResource Include="DataBrowseForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginConfigForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PluginConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PluginDetailForm.resx">
       <DependentUpon>PluginDetailForm.cs</DependentUpon>

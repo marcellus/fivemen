@@ -54,6 +54,7 @@
     <Compile Include="Com\WordSupport\SimpleWord.cs" />
     <Compile Include="PrinterEx\BatchPrintConfig.cs" />
     <Compile Include="PrinterEx\IPrinter.cs" />
+    <Compile Include="PrinterEx\ObjectPrinter.cs" />
     <Compile Include="PrinterEx\PageMargin.cs" />
     <Compile Include="PrinterEx\PagePrinter.cs" />
     <Compile Include="PrinterEx\SupportObject\BaseDraw.cs" />

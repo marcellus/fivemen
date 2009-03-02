@@ -39,16 +39,16 @@ namespace FT.Windows.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbTel = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lbUrl = new System.Windows.Forms.Label();
             this.lbIsGlobalization = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lbRelatationId = new System.Windows.Forms.Label();
-            this.lbChangeLogPath = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbEmail = new System.Windows.Forms.LinkLabel();
+            this.lbChangeLogPath = new System.Windows.Forms.LinkLabel();
+            this.lbUrl = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,16 +162,6 @@ namespace FT.Windows.Forms
             this.lbTel.TabIndex = 1;
             this.lbTel.Text = "label2";
             // 
-            // lbEmail
-            // 
-            this.lbEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(85, 283);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(41, 12);
-            this.lbEmail.TabIndex = 1;
-            this.lbEmail.Text = "label2";
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -192,21 +182,11 @@ namespace FT.Windows.Forms
             this.label12.TabIndex = 0;
             this.label12.Text = "¹ú¼Ê»¯£º";
             // 
-            // lbUrl
-            // 
-            this.lbUrl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbUrl.AutoSize = true;
-            this.lbUrl.Location = new System.Drawing.Point(85, 113);
-            this.lbUrl.Name = "lbUrl";
-            this.lbUrl.Size = new System.Drawing.Size(41, 12);
-            this.lbUrl.TabIndex = 1;
-            this.lbUrl.Text = "label2";
-            // 
             // lbIsGlobalization
             // 
             this.lbIsGlobalization.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbIsGlobalization.AutoSize = true;
-            this.lbIsGlobalization.Location = new System.Drawing.Point(85, 318);
+            this.lbIsGlobalization.Location = new System.Drawing.Point(85, 181);
             this.lbIsGlobalization.Name = "lbIsGlobalization";
             this.lbIsGlobalization.Size = new System.Drawing.Size(41, 12);
             this.lbIsGlobalization.TabIndex = 1;
@@ -242,16 +222,6 @@ namespace FT.Windows.Forms
             this.lbRelatationId.TabIndex = 1;
             this.lbRelatationId.Text = "label2";
             // 
-            // lbChangeLogPath
-            // 
-            this.lbChangeLogPath.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lbChangeLogPath.AutoSize = true;
-            this.lbChangeLogPath.Location = new System.Drawing.Point(85, 181);
-            this.lbChangeLogPath.Name = "lbChangeLogPath";
-            this.lbChangeLogPath.Size = new System.Drawing.Size(41, 12);
-            this.lbChangeLogPath.TabIndex = 1;
-            this.lbChangeLogPath.Text = "label2";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
@@ -261,10 +231,8 @@ namespace FT.Windows.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.lbName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbChangeLogPath, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lbUrl, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 3);
@@ -277,9 +245,11 @@ namespace FT.Windows.Forms
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.lbMainVersion, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbDeveloper, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.lbEmail, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.lbIsGlobalization, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lbIsGlobalization, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lbEmail, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lbChangeLogPath, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lbUrl, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -296,6 +266,42 @@ namespace FT.Windows.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(326, 343);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(85, 283);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(65, 12);
+            this.lbEmail.TabIndex = 3;
+            this.lbEmail.TabStop = true;
+            this.lbEmail.Text = "linkLabel1";
+            this.lbEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbEmail_LinkClicked);
+            // 
+            // lbChangeLogPath
+            // 
+            this.lbChangeLogPath.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbChangeLogPath.AutoSize = true;
+            this.lbChangeLogPath.Location = new System.Drawing.Point(85, 318);
+            this.lbChangeLogPath.Name = "lbChangeLogPath";
+            this.lbChangeLogPath.Size = new System.Drawing.Size(65, 12);
+            this.lbChangeLogPath.TabIndex = 4;
+            this.lbChangeLogPath.TabStop = true;
+            this.lbChangeLogPath.Text = "linkLabel1";
+            this.lbChangeLogPath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbChangeLogPath_LinkClicked);
+            // 
+            // lbUrl
+            // 
+            this.lbUrl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbUrl.AutoSize = true;
+            this.lbUrl.Location = new System.Drawing.Point(85, 113);
+            this.lbUrl.Name = "lbUrl";
+            this.lbUrl.Size = new System.Drawing.Size(65, 12);
+            this.lbUrl.TabIndex = 5;
+            this.lbUrl.TabStop = true;
+            this.lbUrl.Text = "linkLabel1";
+            this.lbUrl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbUrl_LinkClicked);
             // 
             // PluginDetailForm
             // 
@@ -325,15 +331,15 @@ namespace FT.Windows.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbTel;
-        private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lbUrl;
         private System.Windows.Forms.Label lbIsGlobalization;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lbRelatationId;
-        private System.Windows.Forms.Label lbChangeLogPath;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.LinkLabel lbEmail;
+        private System.Windows.Forms.LinkLabel lbChangeLogPath;
+        private System.Windows.Forms.LinkLabel lbUrl;
     }
 }

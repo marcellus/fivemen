@@ -11,27 +11,6 @@ namespace FT.Commons.PrinterEx
     public interface IPrinter
     {
         /// <summary>
-        /// 获取打印的当前页，一个对象也许可以分多页打印
-        /// </summary>
-        /// <returns>当前页数</returns>
-        int GetCurrentPage();
-
-        /// <summary>
-        /// 获取一个打印对象能打印多少页，计算出来的
-        /// </summary>
-        /// <returns></returns>
-        int GetTotalPage();
-       
-        /// <summary>
-        /// 判断是否有更多的页
-        /// </summary>
-        /// <returns>
-        /// 	<c>true</c> 如果有更多的页; 否则, <c>false</c>.
-        /// </returns>
-        bool HasMorePage();
-
-
-        /// <summary>
         /// 直接执行打印
         /// </summary>
         void Print();
