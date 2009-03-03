@@ -111,6 +111,7 @@ namespace FT.Windows.Forms.Plugins
         protected ToolStripButton AddTopTool(Image image, string text)
         {
             System.Windows.Forms.ToolStripButton tool = new System.Windows.Forms.ToolStripButton();
+            tool.DisplayStyle = ToolStripItemDisplayStyle.Image;
             tool.Text = tool.ToolTipText = text;
             tool.Image = image;
             this.form.GetToolStrip().Items.Add(tool);
@@ -183,7 +184,7 @@ namespace FT.Windows.Forms.Plugins
             {
                 //Console.WriteLine("form Îª£º"+form);
                 object paneltmp = ReflectHelper.CreateInstance(item.Tag.ToString());
-                if (paneltmp.GetType().BaseType == typeof(Form))
+                if ((typeof(Form)).IsAssignableFrom(paneltmp.GetType()))
                 {
                     Form form = paneltmp as Form;
                     form.ShowInTaskbar = false;

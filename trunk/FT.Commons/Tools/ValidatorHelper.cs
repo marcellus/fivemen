@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Windows.Forms.Design;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 
 namespace FT.Commons.Tools
@@ -26,6 +27,67 @@ namespace FT.Commons.Tools
         private ValidatorHelper()
         {
         }
+        #region 一些常用的验证工具
+        public static bool ValidateMobile(string text,bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^0?[1][35][0-9]{9}$");
+        }
+        public static bool ValidatePhone(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^((0[1-9]{3})?(0[12][0-9])?[-])?\d{6,8}$");
+            
+        }
+
+        public static bool ValidatePostCode(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^\d{6}$");
+        }
+
+        
+
+        public static bool ValidateEmail(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$");
+        }
+        public static bool ValidateUrl(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i");
+        }
+        public static bool ValidateNumber(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^\d+$");
+        }
+        public static bool ValidateChinese(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^[\u4e00-\u9fa5]+$");
+        }
+        public static bool ValidateAlapha(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^[a-zA-Z]+$");
+        }
+        public static bool ValidateIp(string text, bool allowBlank)
+        {
+            return ValidateRegex(text, allowBlank, @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+        }
+        public static bool ValidateRegex(string text, bool allowBlank, string pattern)
+        {
+            text = text.Trim();
+            if (allowBlank && text.Length == 0)
+            {
+                return true;
+
+            }
+            else if (text.Length == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return Regex.IsMatch(text, pattern);
+
+            }
+        }
+        #endregion
 
         /// <summary>
         ///验证TextBox非空
