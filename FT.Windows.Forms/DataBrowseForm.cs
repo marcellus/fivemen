@@ -20,10 +20,26 @@ namespace FT.Windows.Forms
         {
             InitializeComponent();
         }
-
-        public DataBrowseForm(object entity)
+/// <summary>
+/// 为控件设置text错误信息
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="text"></param>
+        protected void SetError(object sender, string text)
         {
-            InitializeComponent();
+            this.errorProvider1.SetError((Control)sender, text);
+        }
+/// <summary>
+/// 清空某控件上的错误信息
+/// </summary>
+/// <param name="sender"></param>
+        protected void ClearError(object sender)
+        {
+            SetError(sender, string.Empty);
+        }
+
+        public DataBrowseForm(object entity):this()
+        {
             FormHelper.SetDataToForm(this, entity);
         }
 
