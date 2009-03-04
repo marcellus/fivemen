@@ -100,6 +100,7 @@ namespace FT.Test
             FT.Windows.Forms.BaseMainForm form = new BaseMainForm();
             string path = FT.Commons.Tools.ReflectHelper.GetStartUpPath("plugins1\\FT.Lottery.dll");
             Console.WriteLine("the path is->"+path);
+            form.GetStatusStrip().Visible = false;
             //form.LoadPluginDebug(path);
             form.Show();
         }
