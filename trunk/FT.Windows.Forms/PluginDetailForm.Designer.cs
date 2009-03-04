@@ -307,6 +307,9 @@ namespace FT.Windows.Forms
             // 
             this.ClientSize = new System.Drawing.Size(326, 343);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PluginDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "²å¼þÏêÏ¸ÐÅÏ¢";

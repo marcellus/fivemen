@@ -135,5 +135,17 @@ namespace FT.Test
             this.Show(typeof(ReflectTestForm));
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form form = new FT.Windows.Forms.ConditionBuildForm(typeof(FT.Plugins.PersonCard.Card));
+            form.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Form form = new FT.Windows.Forms.ConditionBuildForm(typeof(TestUsers));
+            form.Show();
+        }
+
     }
 }

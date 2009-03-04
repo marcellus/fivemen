@@ -23,6 +23,35 @@ namespace FT.Commons.Tools
     /// </summary>
     public class FormHelper:BaseHelper
     {
+        /// <summary>
+        /// 初始化所有控件的系统操作方式
+        /// </summary>
+        /// <param name="frm">窗体</param>
+        public static void InitHabitToForm(Form frm)
+        {
+            InitHabitToControl(frm);
+        }
+
+        private static void InitHabitToControl(Control ctr)
+        {
+            if (ctr.Controls.Count == 0)
+            {
+                ctr.KeyDown += new KeyEventHandler(EnterToTab);
+            }
+            foreach (Control tmp in ctr.Controls)
+            {
+                InitHabitToControl(tmp);
+            }
+        }
+
+        public static void EnterToTab(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{Tab}");
+                e.Handled = true;
+            }
+        }
 
         private static Hashtable caches = new Hashtable();
 
@@ -296,7 +325,14 @@ namespace FT.Commons.Tools
             
             else if (ctr is ComboBox)
             {
-                result = ((ComboBox)ctr).Text.ToString();
+                if (ctr.Name.EndsWith("Value"))
+                {
+                    result = ((ComboBox)ctr).SelectedValue.ToString();
+                }
+                else
+                {
+                    result = ((ComboBox)ctr).Text.ToString();
+                }
             }
             else if (ctr is DateTimePicker)
             {
@@ -341,7 +377,15 @@ namespace FT.Commons.Tools
             
             else if (ctr is ComboBox)
             {
-                ((ComboBox)ctr).Text = value.ToString();
+                if (ctr.Name.EndsWith("Value"))
+                {
+                    ((ComboBox)ctr).SelectedValue = value.ToString();
+
+                }
+                else
+                {
+                    ((ComboBox)ctr).Text = value.ToString();
+                }
             }
             else if (ctr is DateTimePicker)
             {
@@ -389,7 +433,15 @@ namespace FT.Commons.Tools
             
             else if (ctr is ComboBox)
             {
-                result = name.Substring(2);
+                if (name.EndsWith("Value"))
+                {
+                    ///这个是否正确
+                    result = name.Substring(2, name.Length - 7);
+                }
+                else
+                {
+                    result = name.Substring(2);
+                }
             }
             else if (ctr is DateTimePicker)
             {

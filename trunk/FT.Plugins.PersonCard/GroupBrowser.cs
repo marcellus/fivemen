@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using FT.Windows.Forms;
 
 namespace FT.Plugins.PersonCard
 {
@@ -13,12 +14,23 @@ namespace FT.Plugins.PersonCard
         public GroupBrowser()
         {
             InitializeComponent();
+            
+
+            //this.InitHabit();
         }
         public GroupBrowser(object entity)
-            : this()
+            : base(entity)
         {
-            this.LoadData(entity);
+            InitializeComponent();
         }
+        public GroupBrowser(object entity, IRefreshParent refresher)
+            : base(entity, refresher)
+        {
+            InitializeComponent();
+            //MessageBoxHelper.Show("子类的构造函数！");
+            //this.LoadData(entity);
+        }
+
 
         /// <summary>
         /// 关联实体的类别,该实体必须有一个Id的属性

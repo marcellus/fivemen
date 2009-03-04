@@ -11,6 +11,8 @@ using FT.DAL.Orm;
 
 namespace FT.Windows.Forms
 {
+    ///初始化顺序，父类构造，子类构造，父类load，子类load
+    /// 所以操作习惯可在父类的load方法实现
     /// <summary>
     /// 浏览实体对象的窗体，如果碰到date和combo怎么处理
     /// </summary>
@@ -19,28 +21,56 @@ namespace FT.Windows.Forms
         public DataBrowseForm()
         {
             InitializeComponent();
+            this.lbId.Text = string.Empty;
+            //MessageBoxHelper.Show("父类的空构造函数！");
         }
-/// <summary>
-/// 为控件设置text错误信息
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="text"></param>
+        private object entity;
+
+        public DataBrowseForm(object entity):this()
+        {
+            //MessageBoxHelper.Show("父类的带参构造函数！");
+            this.entity = entity;
+            //InitializeComponent();
+            //MessageBoxHelper.Show("父类的构造函数！");
+        }
+
+        private IRefreshParent refresher;
+
+        public DataBrowseForm(object entity, IRefreshParent refresher):this()
+        {
+            this.entity = entity;
+            this.refresher = refresher;
+        }
+
+        public DataBrowseForm(IRefreshParent refresher)
+            : this()
+        {
+            this.refresher = refresher;
+        }
+
+        /// <summary>
+        /// 初始化操作习惯，比如按回车等效于Tab
+        /// </summary>
+        protected void InitHabit()
+        {
+            FormHelper.InitHabitToForm(this);
+        }
+        /// <summary>
+        /// 为控件设置text错误信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="text"></param>
         protected void SetError(object sender, string text)
         {
             this.errorProvider1.SetError((Control)sender, text);
         }
-/// <summary>
-/// 清空某控件上的错误信息
-/// </summary>
-/// <param name="sender"></param>
+        /// <summary>
+        /// 清空某控件上的错误信息
+        /// </summary>
+        /// <param name="sender"></param>
         protected void ClearError(object sender)
         {
             SetError(sender, string.Empty);
-        }
-
-        public DataBrowseForm(object entity):this()
-        {
-            FormHelper.SetDataToForm(this, entity);
         }
 
         /// <summary>
@@ -54,11 +84,11 @@ namespace FT.Windows.Forms
 
         protected void GetData(object entity)
         {
-            FormHelper.SetDataToForm(this, entity);
+            FormHelper.GetDataFromForm(this, entity);
         }
 
         /// <summary>
-        /// 清理控件的值
+        /// 清理控件的值,只清理textbox的值
         /// </summary>
         /// <param name="ctr">The CTR.</param>
         protected void ClearControl(Control ctr)
@@ -108,7 +138,10 @@ namespace FT.Windows.Forms
 
         protected virtual void Save()
         {
-            object entity = this.GetEntity();
+            if (this.entity == null)
+            {
+                this.entity = this.GetEntity();
+            }
             FormHelper.GetDataFromForm(this, entity);
             
             if (this.lbId.Text.Length==0)
@@ -117,6 +150,10 @@ namespace FT.Windows.Forms
                 {
                     FormHelper.SetDataToForm(this, entity);
                     MessageBoxHelper.Show("添加成功！");
+                    if (refresher != null)
+                    {
+                        refresher.Add(entity);
+                    }
                    
                 }
                 else
@@ -129,6 +166,10 @@ namespace FT.Windows.Forms
                 if (SimpleOrmOperator.Update(entity))
                 {
                     MessageBoxHelper.Show("修改成功！");
+                    if (refresher != null)
+                    {
+                        refresher.Update(entity);
+                    }
                 }
                 else
                 {
@@ -164,7 +205,7 @@ namespace FT.Windows.Forms
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-           
+            //this.entity=
             this.ClearAdd();
 
         }
@@ -185,6 +226,7 @@ namespace FT.Windows.Forms
             this.ClearValidateError();
             this.ClearControl(this);
             this.lbId.Text= string.Empty;
+            this.entity = null;
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
@@ -198,6 +240,16 @@ namespace FT.Windows.Forms
         {
             SimpleAbout form = new SimpleAbout();
             form.ShowDialog();
+        }
+
+        private void DataBrowseForm_Load(object sender, EventArgs e)
+        {
+            //MessageBoxHelper.Show("父类的Load！");
+            this.InitHabit();
+            if (this.entity != null)
+            {
+                this.LoadData(entity);
+            }
         }
     }
 }

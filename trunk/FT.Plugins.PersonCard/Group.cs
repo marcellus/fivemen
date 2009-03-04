@@ -12,10 +12,28 @@ namespace FT.Plugins.PersonCard
         [SimplePK]
         public int Id;
 
-        [SimpleColumn(Column = "c_name")]
+        public int 编号
+        {
+            get { return Id; }
+            set { Id = value; }
+        }
+
+        [SimpleColumn(Column = "c_name", Alias = "分组名称")]
         public String Name;
 
-        [SimpleColumn(Column = "c_description")]
+        public String 分组名称
+        {
+            get { return Name; }
+            set { Name = value; }
+        }
+
+        [SimpleColumn(Column = "c_description", Alias = "分组描述")]
         public String Description;
+
+        public String 分组描述
+        {
+            get { return Description; }
+            set { Description = value; }
+        }
     }
 }
