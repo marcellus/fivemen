@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Windows.Forms;
+using System.Collections;
 
 namespace FT.Plugins.PersonCard
 {
@@ -15,6 +16,7 @@ namespace FT.Plugins.PersonCard
         public PersonCardBrowser()
         {
             InitializeComponent();
+            this.InitComBox();
             //this.InitHabit();
             //MessageBoxHelper.Show("子类的构造函数！");
         }
@@ -23,6 +25,7 @@ namespace FT.Plugins.PersonCard
         public PersonCardBrowser(object entity):base(entity)
         {
             InitializeComponent();
+            this.InitComBox();
             //MessageBoxHelper.Show("子类的构造函数！");
             //this.LoadData(entity);
         }
@@ -30,8 +33,25 @@ namespace FT.Plugins.PersonCard
             : base(entity, refresher)
         {
             InitializeComponent();
+            this.InitComBox();
             //MessageBoxHelper.Show("子类的构造函数！");
             //this.LoadData(entity);
+        }
+
+        private void InitComBox()
+        {
+            if (!this.DesignMode)
+            {
+                ArrayList lists=FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(Group));
+                if (lists.Count > 0)
+                {
+                    //this.cbGroup
+                    this.cbGroup.DataSource = lists;
+                    this.cbGroup.DisplayMember = "分组名称";
+                    this.cbGroup.ValueMember = "编号";
+                }
+            }
+            this.cbSex.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -118,6 +138,7 @@ namespace FT.Plugins.PersonCard
         private void PersonCardBrowser_Load(object sender, EventArgs e)
         {
             //MessageBoxHelper.Show("子类的Load！");
+            
         }
 
        

@@ -22,7 +22,7 @@ namespace FT.Plugins.PersonCard
             ToolStripMenuItem top= this.AddToMenu("我的名片夹");
             ToolStripMenuItem tmp = this.BuildSubMenu("添加名片", typeof(FT.Plugins.PersonCard.PersonCardBrowser));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("名片管理", typeof(FT.Plugins.PersonCard.PersonCardSearch));
+            tmp = this.BuildSubMenu("名片管理", typeof(FT.Plugins.PersonCard.PersonCardManager));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 

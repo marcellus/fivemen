@@ -39,14 +39,14 @@
             this.lbRecordCount = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtGoPages = new System.Windows.Forms.ToolStripTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnFirstPage = new System.Windows.Forms.ToolStripButton();
             this.btnPrePage = new System.Windows.Forms.ToolStripButton();
             this.btnNextPage = new System.Windows.Forms.ToolStripButton();
             this.btnLastPage = new System.Windows.Forms.ToolStripButton();
+            this.txtGoPages = new System.Windows.Forms.ToolStripTextBox();
             this.btnGo = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -104,7 +104,7 @@
             this.btnGo});
             this.toolStrip2.Location = new System.Drawing.Point(3, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(447, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(478, 25);
             this.toolStrip2.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -159,42 +159,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // txtGoPages
-            // 
-            this.txtGoPages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGoPages.Name = "txtGoPages";
-            this.txtGoPages.ShortcutsEnabled = false;
-            this.txtGoPages.Size = new System.Drawing.Size(25, 25);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(646, 427);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAdd,
-            this.btnUpdate,
-            this.btnDelete,
-            this.btnExport,
-            this.btnSearch});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(321, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
             // btnFirstPage
             // 
             this.btnFirstPage.Image = global::FT.Windows.Forms.Properties.Resources.Arrow_Up_16_16;
@@ -231,6 +195,14 @@
             this.btnLastPage.Text = "尾页";
             this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
             // 
+            // txtGoPages
+            // 
+            this.txtGoPages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGoPages.Name = "txtGoPages";
+            this.txtGoPages.ShortcutsEnabled = false;
+            this.txtGoPages.Size = new System.Drawing.Size(25, 25);
+            this.txtGoPages.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGoPages_KeyDown);
+            // 
             // btnGo
             // 
             this.btnGo.Image = global::FT.Windows.Forms.Properties.Resources.Search_16_16;
@@ -239,6 +211,38 @@
             this.btnGo.Size = new System.Drawing.Size(51, 22);
             this.btnGo.Text = "跳转";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(646, 427);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAdd,
+            this.btnUpdate,
+            this.btnDelete,
+            this.btnExport,
+            this.btnSearch});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(290, 25);
+            this.toolStrip1.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -327,7 +331,6 @@
         private System.Windows.Forms.ToolStripButton btnNextPage;
         private System.Windows.Forms.ToolStripTextBox txtGoPages;
         private System.Windows.Forms.ToolStripButton btnGo;
-        protected System.Windows.Forms.DataGridView dataGridView1;
         protected System.Windows.Forms.ToolStripButton btnAdd;
         protected System.Windows.Forms.ToolStripButton btnUpdate;
         protected System.Windows.Forms.ToolStripButton btnDelete;
@@ -335,5 +338,6 @@
         protected System.Windows.Forms.ToolStripButton btnSearch;
         protected System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnLastPage;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

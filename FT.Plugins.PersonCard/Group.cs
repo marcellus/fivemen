@@ -12,10 +12,10 @@ namespace FT.Plugins.PersonCard
         [SimplePK]
         public int Id;
 
-        public int ±àºÅ
+        public string ±àºÅ
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return Id.ToString(); }
+           //set { Id = value; }
         }
 
         [SimpleColumn(Column = "c_name", Alias = "·Ö×éÃû³Æ")]
