@@ -234,6 +234,11 @@ namespace FT.DAL.Orm
 
         }
 
+        public static ArrayList QueryListAll(Type type)
+        {
+           return QueryList(type, "select * from " + SimpleOrmCache.GetTableName(type));
+        }
+
         /// <summary>
         /// 返回查询条件的记录总数
         /// </summary>

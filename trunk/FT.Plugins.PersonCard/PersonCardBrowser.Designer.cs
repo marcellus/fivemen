@@ -99,6 +99,7 @@ namespace FT.Plugins.PersonCard
             // 
             // cbGroup
             // 
+            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
             this.cbGroup.Location = new System.Drawing.Point(81, 172);
             this.cbGroup.Name = "cbGroup";
@@ -217,6 +218,7 @@ namespace FT.Plugins.PersonCard
             // 
             // cbSex
             // 
+            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSex.FormattingEnabled = true;
             this.cbSex.Items.AddRange(new object[] {
             "ÄÐ",

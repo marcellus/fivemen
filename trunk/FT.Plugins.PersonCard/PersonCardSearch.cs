@@ -21,7 +21,7 @@ namespace FT.Plugins.PersonCard
             base.InitPager();
             this.pager.EntityType=typeof(Card);
             this.pager.OrderField = "id";
-            this.pager.PageSize = 3;
+            //this.pager.PageSize = 3;
            // DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
             //col1.HeaderText = "ÐÕÃû";
             //col1.DataPropertyName = "Name1";

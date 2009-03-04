@@ -17,7 +17,7 @@ namespace FT.Windows.Forms
     /// <summary>
     /// 查询数据实体控件
     /// </summary>
-    public partial class DataSearchControl : UserControl,IRefreshParent
+    public partial class DataSearchControl : UserControl, IRefreshParent
     {
         protected Pager pager = new Pager();
         //private 
@@ -55,7 +55,7 @@ namespace FT.Windows.Forms
             }
             else
             {
-               // BindingSource bindingSource1 = new BindingSource();
+                // BindingSource bindingSource1 = new BindingSource();
                 this.dataGridView1.DataSource = pager.Lists;
             }
             this.lbCurrentPage.Text = pager.CurrentPage.ToString();
@@ -75,17 +75,17 @@ namespace FT.Windows.Forms
             this.dataGridView1.DataSource = null;
             for (int i = 0; i < pager.Lists.Count; i++)
             {
-                if(SimpleOrmOperator.EntityIsEqual(entity,pager.Lists[i]))
+                if (SimpleOrmOperator.EntityIsEqual(entity, pager.Lists[i]))
                 {
                     pager.Lists.RemoveAt(i);
-                    pager.Lists.Insert(i,entity);
+                    pager.Lists.Insert(i, entity);
                     break;
                 }
             }
             this.dataGridView1.DataSource = pager.Lists;
 
             //
-           // throw new Exception("The method or operation is not implemented.");
+            // throw new Exception("The method or operation is not implemented.");
         }
 
         public void Add(object entity)
@@ -99,9 +99,13 @@ namespace FT.Windows.Forms
             //throw new Exception("The method or operation is not implemented.");
         }
 
+        /// <summary>
+        /// conditions不带where关键字，可由ConditionBuildForm来生成
+        /// </summary>
+        /// <param name="conditions"></param>
         public void SetConditions(string conditions)
         {
-            pager.Condition = conditions==string.Empty?conditions:" where "+conditions;
+            pager.Condition = conditions == string.Empty ? conditions : " where " + conditions;
             this.ReBinding();
             //pager.Search();
             //throw new Exception("The method or operation is not implemented.");
@@ -162,7 +166,7 @@ namespace FT.Windows.Forms
 
         protected virtual void ShowDetail(int index)
         {
-            if (this.detailFormType != null&&this.pager!=null)
+            if (this.detailFormType != null && this.pager != null)
             {
                 Form form = this.CreateDataBrowserForm(pager.Lists[index]);
                 form.ShowInTaskbar = false;
@@ -178,14 +182,14 @@ namespace FT.Windows.Forms
         protected Form CreateDataBrowserForm(object entity)
         {
             ConstructorInfo info = this.detailFormType.GetConstructor(new Type[] { typeof(object), typeof(IRefreshParent) });
-            Form form=info.Invoke(new object[] {entity,this }) as Form;
+            Form form = info.Invoke(new object[] { entity, this }) as Form;
             return form;
             //return CreateInstance(type.FullName);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int count=this.dataGridView1.SelectedRows.Count;
+            int count = this.dataGridView1.SelectedRows.Count;
             if (count == 0)
             {
                 MessageBoxHelper.Show("请选择需要删除的记录行！");
@@ -197,12 +201,12 @@ namespace FT.Windows.Forms
                 if (result)
                 {
                     int tmp = 0;
-                    for (int i = count-1; i >=0; i--)
+                    for (int i = count - 1; i >= 0; i--)
                     {
                         tmp = this.dataGridView1.SelectedRows[i].Index;
                         FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]);
                         this.dataGridView1.DataSource = null;
-                        pager.Lists.RemoveAt(tmp) ;
+                        pager.Lists.RemoveAt(tmp);
                         this.dataGridView1.DataSource = pager.Lists;
                     }
                     //this.ReBinding();
@@ -272,7 +276,7 @@ namespace FT.Windows.Forms
                 MessageBoxHelper.Show("跳转页必须是整数！");
                 this.txtGoPages.Text = "1";
             }
-           
+
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -318,7 +322,7 @@ namespace FT.Windows.Forms
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable("select " + this.GetExportField() + " from " +SimpleOrmCache.GetTableName(this.entityType)+pager.Condition,"tmptable");
+            DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable("select " + this.GetExportField() + " from " + SimpleOrmCache.GetTableName(this.entityType) + pager.Condition, "tmptable");
             if (dt != null && dt.Rows.Count > 0)
             {
                 string path = FileDialogHelper.SaveExcel();
@@ -327,7 +331,7 @@ namespace FT.Windows.Forms
                     if (File.Exists(path))
                         File.Delete(path);
                     ListExcel ls = new ListExcel(path, dt);
-                    ls.Title=this.GetExportTitle();
+                    ls.Title = this.GetExportTitle();
                     ls.GetExcelReport();
                     this.Cursor = Cursors.WaitCursor;
                     MessageBoxHelper.Show("导出成功！");
@@ -337,6 +341,28 @@ namespace FT.Windows.Forms
             else
             {
                 MessageBoxHelper.Show("没有找到可导出的数据！");
+            }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X,
+       e.RowBounds.Location.Y,
+        dataGridView1.RowHeadersWidth - 4,
+        e.RowBounds.Height);
+
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+            dataGridView1.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+        }
+
+        private void txtGoPages_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnGo_Click(null, null);
             }
         }
     }
