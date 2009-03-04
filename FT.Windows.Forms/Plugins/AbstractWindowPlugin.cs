@@ -188,12 +188,24 @@ namespace FT.Windows.Forms.Plugins
                 {
                     Form form = paneltmp as Form;
                     form.ShowInTaskbar = false;
+                    form.StartPosition = FormStartPosition.CenterScreen;
                     //form.MdiParent = this.form;
                     //form.IsMdiChild = true;
                     form.ShowDialog();
                 }
                 else
                 {
+                    int count=this.form.GetSimpleTabControl().TabPages.Count;
+                    for(int i=0;i<count;i++)
+                    {
+                        if (this.form.GetSimpleTabControl().TabPages[i].Text.StartsWith(item.Text))
+                        {
+                            this.form.GetSimpleTabControl().SelectedIndex = i;
+                            //tab.Select();
+                           // tab.Focus();
+                           return;
+                        }
+                    }
                     this.form.GetSimpleTabControl().TabPages.Add(item.Text + "    ");
                     //TabPage tb = new TabPage();
                     //this.form.GetSimpleTabControl().TabPages.Add(tb);
@@ -203,6 +215,7 @@ namespace FT.Windows.Forms.Plugins
                     Control panel = (Control)paneltmp;
                     panel.Dock = DockStyle.Fill;
                     tb.Controls.Add(panel);
+                    this.form.GetSimpleTabControl().SelectedIndex = this.form.GetSimpleTabControl().TabCount - 1;
                 }
             }
         }

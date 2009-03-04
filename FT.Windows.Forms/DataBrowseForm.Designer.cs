@@ -36,9 +36,9 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lbId = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -107,26 +107,27 @@
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 51);
+            this.label1.Location = new System.Drawing.Point(10, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "记录编号：";
+            this.label1.Text = "记录编号";
             // 
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(84, 50);
+            this.lbId.Location = new System.Drawing.Point(66, 41);
             this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(0, 12);
+            this.lbId.Size = new System.Drawing.Size(41, 12);
             this.lbId.TabIndex = 2;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
+            this.lbId.Text = "label2";
             // 
             // DataBrowseForm
             // 
@@ -137,9 +138,14 @@
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DataBrowseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据浏览窗口";
+            this.Load += new System.EventHandler(this.DataBrowseForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -156,9 +162,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbId;
         protected System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Label label1;
 
     }
 }

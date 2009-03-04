@@ -30,10 +30,20 @@ namespace FT.DAL.Orm
 
         private bool alllowSelect = true;
 
-        public bool AlllowSelect
+        public bool AllowSelect
         {
             get { return alllowSelect; }
             set { alllowSelect = value; }
+        }
+        private string alias;
+
+        /// <summary>
+        /// 别名，查询用
+        /// </summary>
+        public string Alias
+        {
+            get { return alias; }
+            set { alias = value; }
         }
 
         private string column;

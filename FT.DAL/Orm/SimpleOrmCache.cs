@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 using System.Reflection;
+using System.Data;
 
 namespace FT.DAL.Orm
 {
@@ -15,7 +16,7 @@ namespace FT.DAL.Orm
     ///                             对应的insert字段
     /// object  2、insert.field;    对应的insert字段
     /// 
-    ///         3、select.sql       对应的select字段
+    ///         3、select.field       对应的select字段
     ///                             
     ///         4、select.sql
     ///         5、update.sql
@@ -23,10 +24,18 @@ namespace FT.DAL.Orm
     /// 
     ///         7、tablename
     ///         8、pkcolumn
+    ///         9、select.conditions//查询条件用到的别名和列实际名对应的datatable
     /// </summary>
     public class SimpleOrmCache
     {
         private static Hashtable caches = new Hashtable();
+
+        public static DataTable GetConditionDT(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            return (DataTable)second["select.conditions"];
+        }
 
         public static Hashtable GetUpdateField(Type type)
         {
@@ -104,6 +113,9 @@ namespace FT.DAL.Orm
             Hashtable updates = new Hashtable();
             Hashtable inserts = new Hashtable();
             Hashtable selects = new Hashtable();
+            DataTable selectsAlias = new DataTable();//字段别名
+            selectsAlias.Columns.Add("value");
+            selectsAlias.Columns.Add("text");
            
             SimpleTableAttribute tableAtt = Attribute.GetCustomAttribute(type, typeof(SimpleTableAttribute)) as SimpleTableAttribute;
             string tablename=tableAtt == null ? type.Name.ToLower() : tableAtt.Table;
@@ -151,10 +163,18 @@ namespace FT.DAL.Orm
                         inserttmp.Append("'#" + columnname + "#',");
                         inserts.Add(columnname, columnname);
                     }
-                    if (columnAtt.AlllowSelect)
+                    if (columnAtt.AllowSelect)
                     {
                         selectSql.Append(tmpstr + ",");
                         selects.Add(tmpstr, columnname);
+                        if (columnAtt.Alias != null && columnAtt.Alias.Length > 0)
+                        {
+                            selectsAlias.Rows.Add(new string[] { tmpstr, columnAtt.Alias });
+                        }
+                        else
+                        {
+                            selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+                        }
                     }
                 }
                 else
@@ -167,6 +187,7 @@ namespace FT.DAL.Orm
                     inserts.Add(tmpstr, tmpstr);
                     selects.Add(columnname, columnname);
                     selectSql.Append(tmpstr + ",");
+                    selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                 }
                 
                 
@@ -178,6 +199,7 @@ namespace FT.DAL.Orm
             second.Add("insert.field", inserts);
             second.Add("select.sql","select "+selectSql.ToString()+pk+" from "+tablename);
             second.Add("select.field", selects);
+            second.Add("select.conditions", selectsAlias);
             Console.WriteLine("插入语句结果为：" + second["insert.sql"].ToString());
             Console.WriteLine("插入语句字段个数为：" + inserts.Count);
             Loop(inserts);

@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -199,7 +199,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="button4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -226,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="button5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -253,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -280,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="button7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="button8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -334,88 +334,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="simpleButton3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="simpleButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 41</value>
-  </data>
-  <data name="simpleButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 23</value>
-  </data>
-  <data name="simpleButton3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="simpleButton3.Text" xml:space="preserve">
-    <value>TabControlExTest</value>
-  </data>
-  <data name="&gt;&gt;simpleButton3.Name" xml:space="preserve">
-    <value>simpleButton3</value>
-  </data>
-  <data name="&gt;&gt;simpleButton3.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3347.32999, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;simpleButton3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleButton3.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="simpleComboBox1.Items" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="simpleComboBox1.Items1" xml:space="preserve">
-    <value>中文</value>
-  </data>
-  <data name="simpleComboBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 130</value>
-  </data>
-  <data name="simpleComboBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
-  </data>
-  <data name="simpleComboBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;simpleComboBox1.Name" xml:space="preserve">
-    <value>simpleComboBox1</value>
-  </data>
-  <data name="&gt;&gt;simpleComboBox1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ComboBoxEx.SimpleComboBox, FT.Windows.Controls, Version=1.0.3347.32999, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;simpleComboBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleComboBox1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="simpleButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="button9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 41</value>
-  </data>
-  <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 23</value>
-  </data>
-  <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="simpleButton1.Text" xml:space="preserve">
-    <value>GridViewTest</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Name" xml:space="preserve">
-    <value>simpleButton1</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3347.32999, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="button9.Location" type="System.Drawing.Point, System.Drawing">
     <value>279, 41</value>
@@ -439,6 +361,138 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="button10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 82</value>
+  </data>
+  <data name="button10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 23</value>
+  </data>
+  <data name="button10.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="button10.Text" xml:space="preserve">
+    <value>CardConditionBuilder</value>
+  </data>
+  <data name="&gt;&gt;button10.Name" xml:space="preserve">
+    <value>button10</value>
+  </data>
+  <data name="&gt;&gt;button10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button10.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="simpleButton3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="simpleButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 41</value>
+  </data>
+  <data name="simpleButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 23</value>
+  </data>
+  <data name="simpleButton3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="simpleButton3.Text" xml:space="preserve">
+    <value>TabControlExTest</value>
+  </data>
+  <data name="&gt;&gt;simpleButton3.Name" xml:space="preserve">
+    <value>simpleButton3</value>
+  </data>
+  <data name="&gt;&gt;simpleButton3.Type" xml:space="preserve">
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3349.40656, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;simpleButton3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButton3.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="simpleComboBox1.Items" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="simpleComboBox1.Items1" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="simpleComboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 130</value>
+  </data>
+  <data name="simpleComboBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
+  </data>
+  <data name="simpleComboBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;simpleComboBox1.Name" xml:space="preserve">
+    <value>simpleComboBox1</value>
+  </data>
+  <data name="&gt;&gt;simpleComboBox1.Type" xml:space="preserve">
+    <value>FT.Windows.Controls.ComboBoxEx.SimpleComboBox, FT.Windows.Controls, Version=1.0.3349.40656, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;simpleComboBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleComboBox1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="simpleButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 41</value>
+  </data>
+  <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 23</value>
+  </data>
+  <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="simpleButton1.Text" xml:space="preserve">
+    <value>GridViewTest</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Name" xml:space="preserve">
+    <value>simpleButton1</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3349.40656, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 81</value>
+  </data>
+  <data name="button11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 23</value>
+  </data>
+  <data name="button11.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="button11.Text" xml:space="preserve">
+    <value>TestUsersConditionBuilder</value>
+  </data>
+  <data name="&gt;&gt;button11.Name" xml:space="preserve">
+    <value>button11</value>
+  </data>
+  <data name="&gt;&gt;button11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button11.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -449,9 +503,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>411, 350</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>BaseForm</value>

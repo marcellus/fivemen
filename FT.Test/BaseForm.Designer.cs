@@ -37,10 +37,12 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
             this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
             this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -99,6 +101,20 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // button9
+            // 
+            resources.ApplyResources(this.button9, "button9");
+            this.button9.Name = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            resources.ApplyResources(this.button10, "button10");
+            this.button10.Name = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // simpleButton3
             // 
             resources.ApplyResources(this.simpleButton3, "simpleButton3");
@@ -125,17 +141,19 @@
             this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
             this.simpleButton1.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // button11
             // 
-            resources.ApplyResources(this.button9, "button9");
-            this.button9.Name = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            resources.ApplyResources(this.button11, "button11");
+            this.button11.Name = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // BaseForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -168,5 +186,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

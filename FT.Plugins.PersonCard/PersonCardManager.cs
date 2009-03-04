@@ -14,5 +14,11 @@ namespace FT.Plugins.PersonCard
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PersonCardBrowser form = new PersonCardBrowser(new Card());
+            form.ShowDialog();
+        }
     }
 }

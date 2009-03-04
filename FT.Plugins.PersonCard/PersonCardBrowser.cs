@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
+using FT.Windows.Forms;
 
 namespace FT.Plugins.PersonCard
 {
@@ -14,11 +15,23 @@ namespace FT.Plugins.PersonCard
         public PersonCardBrowser()
         {
             InitializeComponent();
+            //this.InitHabit();
+            //MessageBoxHelper.Show("子类的构造函数！");
         }
 
-        public PersonCardBrowser(object entity):this()
+        #region 子类必须实现的
+        public PersonCardBrowser(object entity):base(entity)
         {
-            this.LoadData(entity);
+            InitializeComponent();
+            //MessageBoxHelper.Show("子类的构造函数！");
+            //this.LoadData(entity);
+        }
+        public PersonCardBrowser(object entity, IRefreshParent refresher)
+            : base(entity, refresher)
+        {
+            InitializeComponent();
+            //MessageBoxHelper.Show("子类的构造函数！");
+            //this.LoadData(entity);
         }
 
         /// <summary>
@@ -30,6 +43,7 @@ namespace FT.Plugins.PersonCard
             return new Card();
             //   return null;
         }
+        #endregion
 
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
@@ -47,9 +61,9 @@ namespace FT.Plugins.PersonCard
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidatorHelper.ValidatePhone(this.txtPhone.Text,true))
+            if (!ValidatorHelper.ValidatePhone(this.txtPhone.Text,true))
             {
-                this.SetError(sender, "电话号码格式错误，必须为区号-号码！");
+                this.SetError(sender, "电话号码格式错误,格式是12345678或010-12345678！");
                 e.Cancel = true;
             }
             else
@@ -61,7 +75,7 @@ namespace FT.Plugins.PersonCard
 
         private void txtMobile_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidatorHelper.ValidateMobile(this.txtPhone.Text, true))
+            if (!ValidatorHelper.ValidateMobile(this.txtMobile.Text, true))
             {
                 this.SetError(sender, "手机号码格式错误！");
                 e.Cancel = true;
@@ -75,9 +89,9 @@ namespace FT.Plugins.PersonCard
 
         private void txtUrl_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidatorHelper.ValidateUrl(this.txtPhone.Text, true))
+            if (!ValidatorHelper.ValidateUrl(this.txtUrl.Text, true))
             {
-                this.SetError(sender, "URL格式错误，必须是HTTP://！");
+                this.SetError(sender, "URL格式错误，必须是http://或者ftp，https开头！");
                 e.Cancel = true;
             }
             else
@@ -89,7 +103,7 @@ namespace FT.Plugins.PersonCard
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidatorHelper.ValidateEmail(this.txtPhone.Text, true))
+            if (!ValidatorHelper.ValidateEmail(this.txtEmail.Text, true))
             {
                 this.SetError(sender, "Email格式错误，必须为example@site.com！");
                 e.Cancel = true;
@@ -99,6 +113,11 @@ namespace FT.Plugins.PersonCard
                 this.ClearError(sender);
                 e.Cancel = false;
             }
+        }
+
+        private void PersonCardBrowser_Load(object sender, EventArgs e)
+        {
+            //MessageBoxHelper.Show("子类的Load！");
         }
 
        

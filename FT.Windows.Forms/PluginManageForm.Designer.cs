@@ -91,6 +91,9 @@ namespace FT.Windows.Forms
             this.ClientSize = new System.Drawing.Size(570, 446);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PluginManageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ÏÖÓÐ²å¼þ";

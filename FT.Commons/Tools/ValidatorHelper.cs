@@ -34,7 +34,9 @@ namespace FT.Commons.Tools
         }
         public static bool ValidatePhone(string text, bool allowBlank)
         {
-            return ValidateRegex(text, allowBlank, @"^((0[1-9]{3})?(0[12][0-9])?[-])?\d{6,8}$");
+            //^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$
+            //^((0[1-9]{3})?(0[12][0-9])?[-])?\d{6,8}$
+            return ValidateRegex(text, allowBlank, @"^(\d{3,4}-)?\d{7,8}$");
             
         }
 
@@ -47,11 +49,13 @@ namespace FT.Commons.Tools
 
         public static bool ValidateEmail(string text, bool allowBlank)
         {
-            return ValidateRegex(text, allowBlank, @"^\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$");
+            return ValidateRegex(text, allowBlank, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
         public static bool ValidateUrl(string text, bool allowBlank)
         {
-            return ValidateRegex(text, allowBlank, @"^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i");
+            //
+            //^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i
+            return ValidateRegex(text, allowBlank, @"^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$");
         }
         public static bool ValidateNumber(string text, bool allowBlank)
         {
@@ -67,6 +71,7 @@ namespace FT.Commons.Tools
         }
         public static bool ValidateIp(string text, bool allowBlank)
         {
+            //@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
             return ValidateRegex(text, allowBlank, @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
         }
         public static bool ValidateRegex(string text, bool allowBlank, string pattern)

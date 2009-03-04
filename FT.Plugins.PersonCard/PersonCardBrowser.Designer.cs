@@ -63,10 +63,10 @@ namespace FT.Plugins.PersonCard
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(14, 81);
+            this.tabControl1.Location = new System.Drawing.Point(12, 69);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(412, 234);
+            this.tabControl1.Size = new System.Drawing.Size(396, 246);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -92,7 +92,7 @@ namespace FT.Plugins.PersonCard
             this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(404, 209);
+            this.tabPage1.Size = new System.Drawing.Size(388, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -100,31 +100,31 @@ namespace FT.Plugins.PersonCard
             // cbGroup
             // 
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(70, 172);
+            this.cbGroup.Location = new System.Drawing.Point(81, 172);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(100, 20);
-            this.cbGroup.TabIndex = 17;
+            this.cbGroup.TabIndex = 9;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 176);
+            this.label10.Location = new System.Drawing.Point(9, 171);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 12);
+            this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 16;
-            this.label10.Text = "分组";
+            this.label10.Text = "分组名称";
             // 
             // txtNickName
             // 
-            this.txtNickName.Location = new System.Drawing.Point(251, 17);
+            this.txtNickName.Location = new System.Drawing.Point(262, 17);
             this.txtNickName.Name = "txtNickName";
             this.txtNickName.Size = new System.Drawing.Size(100, 21);
-            this.txtNickName.TabIndex = 15;
+            this.txtNickName.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(201, 26);
+            this.label9.Location = new System.Drawing.Point(212, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 14;
@@ -132,16 +132,16 @@ namespace FT.Plugins.PersonCard
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(70, 141);
+            this.txtEmail.Location = new System.Drawing.Point(81, 141);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(281, 21);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 8;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 146);
+            this.label8.Location = new System.Drawing.Point(21, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 12;
@@ -149,33 +149,33 @@ namespace FT.Plugins.PersonCard
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(70, 110);
+            this.txtUrl.Location = new System.Drawing.Point(81, 110);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(281, 21);
-            this.txtUrl.TabIndex = 11;
+            this.txtUrl.TabIndex = 7;
             this.txtUrl.Validating += new System.ComponentModel.CancelEventHandler(this.txtUrl_Validating);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 116);
+            this.label7.Location = new System.Drawing.Point(9, 113);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(23, 12);
+            this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Url";
+            this.label7.Text = "个人主页";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(70, 79);
+            this.txtPhone.Location = new System.Drawing.Point(81, 79);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 21);
-            this.txtPhone.TabIndex = 9;
+            this.txtPhone.TabIndex = 5;
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 86);
+            this.label6.Location = new System.Drawing.Point(33, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 8;
@@ -183,16 +183,16 @@ namespace FT.Plugins.PersonCard
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(251, 78);
+            this.txtMobile.Location = new System.Drawing.Point(262, 78);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(100, 21);
-            this.txtMobile.TabIndex = 7;
+            this.txtMobile.TabIndex = 6;
             this.txtMobile.Validating += new System.ComponentModel.CancelEventHandler(this.txtMobile_Validating);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(201, 86);
+            this.label5.Location = new System.Drawing.Point(212, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 6;
@@ -201,15 +201,15 @@ namespace FT.Plugins.PersonCard
             // dateBirthday
             // 
             this.dateBirthday.CustomFormat = "yyyy-MM-dd";
-            this.dateBirthday.Location = new System.Drawing.Point(70, 48);
+            this.dateBirthday.Location = new System.Drawing.Point(81, 48);
             this.dateBirthday.Name = "dateBirthday";
             this.dateBirthday.Size = new System.Drawing.Size(100, 21);
-            this.dateBirthday.TabIndex = 5;
+            this.dateBirthday.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 56);
+            this.label4.Location = new System.Drawing.Point(33, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 4;
@@ -221,15 +221,15 @@ namespace FT.Plugins.PersonCard
             this.cbSex.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbSex.Location = new System.Drawing.Point(251, 48);
+            this.cbSex.Location = new System.Drawing.Point(262, 48);
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(100, 20);
-            this.cbSex.TabIndex = 3;
+            this.cbSex.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(201, 56);
+            this.label3.Location = new System.Drawing.Point(212, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
@@ -237,7 +237,7 @@ namespace FT.Plugins.PersonCard
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(70, 17);
+            this.txtName.Location = new System.Drawing.Point(81, 17);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 21);
             this.txtName.TabIndex = 1;
@@ -246,7 +246,7 @@ namespace FT.Plugins.PersonCard
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 26);
+            this.label2.Location = new System.Drawing.Point(33, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 0;
@@ -261,7 +261,7 @@ namespace FT.Plugins.PersonCard
             this.tabPage2.Location = new System.Drawing.Point(4, 21);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(404, 209);
+            this.tabPage2.Size = new System.Drawing.Size(388, 221);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "附加信息";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -303,10 +303,11 @@ namespace FT.Plugins.PersonCard
             // PersonCardBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(452, 337);
+            this.ClientSize = new System.Drawing.Size(424, 337);
             this.Controls.Add(this.tabControl1);
             this.Name = "PersonCardBrowser";
             this.Text = "名片浏览";
+            this.Load += new System.EventHandler(this.PersonCardBrowser_Load);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tabControl1.ResumeLayout(false);

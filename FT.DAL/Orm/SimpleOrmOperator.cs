@@ -40,6 +40,30 @@ namespace FT.DAL.Orm
         }
         #endregion
 
+        /// <summary>
+        /// 比较两实体的主键是否一致，一致认为是一个对象
+        /// </summary>
+        /// <param name="obj1"></param>
+        /// <param name="obj2"></param>
+        /// <returns></returns>
+        public static bool EntityIsEqual(object obj1, object obj2)
+        {
+            if (obj1.GetType() != obj2.GetType())
+            {
+                return false;
+            }
+            else
+            {
+                Type type = obj1.GetType();
+                string pk = SimpleOrmCache.GetPK(type);
+                object value1 = type.GetField(pk, BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj1);
+                object value2 = type.GetField(pk, BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj2);
+                return value1.ToString() == value2.ToString();
+
+
+            }
+        }
+
         #region 增删改
         /// <summary>
         /// 更新一个实体对象
@@ -121,6 +145,22 @@ namespace FT.DAL.Orm
             return dataAccess.ExecuteSql(sql);
         }
 
+        public static bool Delete(object entity)
+        {
+            if (entity == null)
+            {
+                //throw new ArgumentException("删除的PK主键不得为空！");
+                return false;
+            }
+            CheckConn();
+            
+            Type type = entity.GetType();
+            string pk=SimpleOrmCache.GetPK(type);
+            object value = type.GetField(pk, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(entity);
+            string sql = "delete from " + SimpleOrmCache.GetTableName(type) + " where " + pk + "=" + value.ToString();
+            return dataAccess.ExecuteSql(sql);
+        }
+
         /// <summary>
         /// 查询一个对象出来
         /// </summary>
@@ -149,6 +189,92 @@ namespace FT.DAL.Orm
             }
 
         }
+
+        /// <summary>
+        /// 查询一个对象列表出来出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="pk">主键值</param>
+        /// <returns>一个对象</returns>
+        public static ArrayList QueryList<T>(string sql)
+        {
+            return QueryList(typeof(T),sql);
+
+        }
+
+        /// <summary>
+        /// 查询一个对象列表出来出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="pk">主键值</param>
+        /// <returns>一个对象</returns>
+        public static ArrayList QueryList(Type type,string sql)
+        {
+            CheckConn();
+            ArrayList list = new ArrayList();
+            CheckConn();
+            if (sql == null || sql.ToString().Length == 0)
+            {
+                throw new ArgumentException("查询的语句不得为空！");
+                //return null;
+            }
+
+            // string sql = SimpleOrmCache.GetSelectSql(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" + pk.ToString();
+            DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(type));
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow dr=null;
+                for(int i=0;i<dt.Rows.Count;i++)
+                {
+                    dr= dt.Rows[i];
+                    list.Add(CreateFromDataRow(type,dr));
+                }
+            }
+            return list;
+
+        }
+
+        /// <summary>
+        /// 返回查询条件的记录总数
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static int QueryCounts<T>(string condition)
+        {
+            return QueryCounts(typeof(T), condition);
+        }
+
+        /// <summary>
+        /// 返回查询条件的记录总数
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static int QueryCounts(Type type,string condition)
+        {
+            CheckConn();
+            string sql = "select count(*) from " + SimpleOrmCache.GetTableName(type) + condition;
+            object obj = dataAccess.SelectScalar(sql);
+            return Convert.ToInt32(obj);
+
+        }
+
+        /// <summary>
+        /// 返回查询条件的记录总数
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static int QueryCounts(string table,string condition)
+        {
+            CheckConn();
+            string sql = "select count(*) from " + table + condition;
+            object obj = dataAccess.SelectScalar(sql);
+            return Convert.ToInt32(obj);
+
+        }
+
         #endregion
         #region 条件查询方法
 
@@ -198,6 +324,29 @@ namespace FT.DAL.Orm
         {
             T result = (T)System.Reflection.Assembly.GetAssembly(typeof(T)).CreateInstance(typeof(T).ToString());
             Hashtable table = SimpleOrmCache.GetSelectField(typeof(T));
+            System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
+            object drvalue = null;
+            FieldInfo fieldInfo = null;
+            while (enumerator.MoveNext())
+            {
+                drvalue = dr[enumerator.Key.ToString()];
+                fieldInfo = result.GetType().GetField(enumerator.Value.ToString(), BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Instance);
+                SetValueToField(result, fieldInfo, drvalue);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 根据datarow创建一个对象出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="dr">datarow</param>
+        /// <returns>创建一个对象</returns>
+        private static object CreateFromDataRow(Type type,DataRow dr)
+        {
+            
+            object result = ReflectHelper.CreateInstance(type);
+            Hashtable table = SimpleOrmCache.GetSelectField(type);
             System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
             object drvalue = null;
             FieldInfo fieldInfo = null;

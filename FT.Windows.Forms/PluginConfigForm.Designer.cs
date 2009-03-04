@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listViewNow = new System.Windows.Forms.ListView();
-            this.listViewAll = new System.Windows.Forms.ListView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listViewAll = new System.Windows.Forms.ListView();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -50,16 +50,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "现有插件";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.listViewAll);
-            this.groupBox2.Location = new System.Drawing.Point(13, 218);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 126);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "所有有效插件";
             // 
             // listViewNow
             // 
@@ -75,6 +65,26 @@
             this.listViewNow.View = System.Windows.Forms.View.Details;
             this.listViewNow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listViewNow_KeyDown);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "插件名称";
+            this.columnHeader1.Width = 433;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "类型名";
+            this.columnHeader3.Width = 295;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.listViewAll);
+            this.groupBox2.Location = new System.Drawing.Point(13, 218);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(450, 126);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "所有有效插件";
+            // 
             // listViewAll
             // 
             this.listViewAll.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -89,6 +99,16 @@
             this.listViewAll.View = System.Windows.Forms.View.Details;
             this.listViewAll.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listViewAll_KeyDown);
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "插件名称";
+            this.columnHeader2.Width = 432;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "类型名";
+            this.columnHeader4.Width = 285;
+            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(193, 173);
@@ -99,26 +119,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "插件名称";
-            this.columnHeader1.Width = 433;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "插件名称";
-            this.columnHeader2.Width = 432;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "类型名";
-            this.columnHeader3.Width = 295;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "类型名";
-            this.columnHeader4.Width = 285;
-            // 
             // PluginConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -127,6 +127,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PluginConfigForm";
             this.Text = "插件配置";
             this.Load += new System.EventHandler(this.PluginConfigForm_Load);

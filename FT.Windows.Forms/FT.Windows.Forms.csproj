@@ -45,14 +45,28 @@
     <Compile Include="BaseMainForm.Designer.cs">
       <DependentUpon>BaseMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConditionBuildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConditionBuildForm.Designer.cs">
+      <DependentUpon>ConditionBuildForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataBrowseForm.Designer.cs">
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataSearchControl.Designer.cs">
+      <DependentUpon>DataSearchControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\CompanyInfo.cs" />
     <Compile Include="Domain\ProgramRegConfig.cs" />
+    <Compile Include="IRefreshParent.cs" />
+    <Compile Include="Pager.cs" />
     <Compile Include="PluginConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +140,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>BaseMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConditionBuildForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConditionBuildForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataBrowseForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataSearchControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataSearchControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PluginConfigForm.resx">
       <SubType>Designer</SubType>
@@ -185,6 +207,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico\home.ico" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\grid.png" />
+    <None Include="Resources\database_add.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\table_refresh.png" />
     <None Include="Resources\Preview_16_16.JPG" />
     <None Include="Resources\Search_16_16.png" />
     <None Include="Resources\Save_16_16.png" />
