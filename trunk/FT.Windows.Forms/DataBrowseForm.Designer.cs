@@ -114,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 42);
+            this.label1.Location = new System.Drawing.Point(45, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
@@ -123,7 +123,7 @@
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(66, 41);
+            this.lbId.Location = new System.Drawing.Point(104, 154);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(41, 12);
             this.lbId.TabIndex = 2;
@@ -138,7 +138,6 @@
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -163,8 +162,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         protected System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.Label lbId;
 
     }
 }

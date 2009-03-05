@@ -29,6 +29,23 @@ namespace FT.Plugins.PersonCard
            // this.dataGridView1.Columns.Add(col1);
             
         }
+
+
+
+        protected override void SettingGridStyle()
+        {
+            
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.CreateColumn("姓名",80);
+            this.CreateColumn("昵称", 80);
+            this.CreateColumn("性别", 80);
+            this.CreateColumn("出生年月", 100);
+            this.CreateColumn("固话", 80);
+            this.CreateColumn("手机", 80);
+            this.CreateColumn("联系邮箱", 160);
+            this.CreateColumn("分组名称");
+            
+        }
     }
 }
 

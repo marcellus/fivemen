@@ -106,6 +106,9 @@ namespace FT.Windows.Forms
             this.dataGridView1.DataSource = null;
             pager.Lists.Insert(0, entity);
             this.dataGridView1.DataSource = pager.Lists;
+            int count = Convert.ToInt32(this.lbRecordCount.Text);
+            count++;
+            this.lbRecordCount.Text = count.ToString();
 
             //
             //throw new Exception("The method or operation is not implemented.");
@@ -225,6 +228,9 @@ namespace FT.Windows.Forms
                         this.dataGridView1.DataSource = null;
                         pager.Lists.RemoveAt(tmp);
                         this.dataGridView1.DataSource = pager.Lists;
+                        int recordCount = Convert.ToInt32(this.lbRecordCount.Text);
+                        recordCount--;
+                        this.lbRecordCount.Text = recordCount.ToString();
                     }
                     //this.ReBinding();
                 }
@@ -305,18 +311,62 @@ namespace FT.Windows.Forms
         {
             try
             {
-                string text = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                Clipboard.SetText(text);
+                object obj=this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if(obj!=null)
+                {
+                    Clipboard.SetText(obj.ToString());
+                }
             }
             catch
             {
             }
         }
 
+        /// <summary>
+        /// 设置Grid的样式
+        /// </summary>
+        protected  virtual void SettingGridStyle()
+        {
+        }
+
+        public void ClearColumns()
+        {
+            this.dataGridView1.Columns.Clear();
+        }
+
+        public void CreateColumn(string prop)
+        {
+            CreateColumn(prop, prop);
+        }
+
+        public void CreateColumn(string prop, string header)
+        {
+            DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
+            tmp.DataPropertyName = prop;
+            tmp.HeaderText = header;
+            tmp.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridView1.Columns.Add(tmp);
+        }
+
+        public void CreateColumn(string prop, int width)
+        {
+            this.CreateColumn(prop, prop, width);
+        }
+
+        public void CreateColumn(string prop, string header, int width)
+        {
+            DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
+            tmp.DataPropertyName = prop;
+            tmp.HeaderText = header;
+            tmp.Width = width;
+            this.dataGridView1.Columns.Add(tmp);
+        }
+
         private void DataSearchControl_Load(object sender, EventArgs e)
         {
             if (!this.DesignMode)
             {
+                this.SettingGridStyle();
                 this.btnSearch.Visible = this.allowCustomeSearch;
                 pager.Search();
                 //if()

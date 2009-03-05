@@ -1,0 +1,104 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAEC7C52-7FC6-484C-9199-DBAB71E19222}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DS.Plugins.Car</RootNamespace>
+    <AssemblyName>DS.Plugins.Car</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CarBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarBrowser.Designer.cs">
+      <DependentUpon>CarBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarInfo.cs" />
+    <Compile Include="CarOwner.cs" />
+    <Compile Include="CarOwnerBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarOwnerBrowser.Designer.cs">
+      <DependentUpon>CarOwnerBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarOwnerPlugin.cs" />
+    <Compile Include="CarOwnerSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarOwnerSearch.Designer.cs">
+      <DependentUpon>CarOwnerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarSearch.Designer.cs">
+      <DependentUpon>CarSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
+      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
+      <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
+      <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
+      <Name>FT.Windows.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CarBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CarBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarOwnerBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CarOwnerBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -46,9 +46,11 @@
     <Compile Include="DataAccessHelper.cs" />
     <Compile Include="DBDialect.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\Person.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="Oracle\OracleDataHelper.cs" />
+    <Compile Include="Orm\AliasAttribute.cs" />
     <Compile Include="Orm\SimpleColumnAttribute.cs" />
     <Compile Include="Orm\SimpleOrmCache.cs" />
     <Compile Include="Orm\SimpleOrmOperator.cs" />

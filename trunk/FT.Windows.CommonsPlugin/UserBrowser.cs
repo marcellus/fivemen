@@ -39,11 +39,11 @@ namespace FT.Windows.CommonsPlugin
         {
             return new Entity.User();
         }
-        
-        protected override void BeforeSave(object entity)
+
+        protected override void BeforeCreateEntity(object entity)
         {
 
-            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Password", FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt(this.txtPassword.Text.Trim()));
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Password", FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt("123456"));
         }
       
         #endregion
@@ -53,20 +53,6 @@ namespace FT.Windows.CommonsPlugin
             if (this.txtName.Text.Trim().Length == 0)
             {
                 this.SetError(sender, "登录名不能为空！");
-                e.Cancel = true;
-            }
-            else
-            {
-                this.ClearError(sender);
-                e.Cancel = false;
-            }
-        }
-
-        private void txtPassword_Validating(object sender, CancelEventArgs e)
-        {
-            if (this.txtPassword.Text.Trim().Length < 6)
-            {
-                this.SetError(sender, "密码至少必须6位！");
                 e.Cancel = true;
             }
             else

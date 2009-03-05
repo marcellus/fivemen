@@ -18,7 +18,8 @@ namespace FT.Plugins.PersonCard
            //set { Id = value; }
         }
 
-        [SimpleColumn(Column = "c_name", Alias = "分组名称")]
+        [SimpleColumn(Column = "c_name")]
+        [Alias("分组名称")]
         public String Name;
 
         public String 分组名称
@@ -27,7 +28,8 @@ namespace FT.Plugins.PersonCard
             set { Name = value; }
         }
 
-        [SimpleColumn(Column = "c_description", Alias = "分组描述")]
+        [SimpleColumn(Column = "c_description")]
+        [Alias("分组描述")]
         public String Description;
 
         public String 分组描述

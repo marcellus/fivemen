@@ -180,6 +180,10 @@
     <Compile Include="TestUsers.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DS.Plugins.Car\DS.Plugins.Car.csproj">
+      <Project>{EAEC7C52-7FC6-484C-9199-DBAB71E19222}</Project>
+      <Name>DS.Plugins.Car</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>

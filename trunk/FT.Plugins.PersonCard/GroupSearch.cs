@@ -33,6 +33,15 @@ namespace FT.Plugins.PersonCard
             this.pager.EntityType = typeof(Group);
             this.pager.OrderField = "id";
         }
+
+        protected override void SettingGridStyle()
+        {
+
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.CreateColumn("编号", 80);
+            this.CreateColumn("分组描述", 80);
+            this.CreateColumn("分组描述");
+        }
         #endregion
     }
 }

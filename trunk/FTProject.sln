@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.CommonsPlugin", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Plugins.PersonCard", "FT.Plugins.PersonCard\FT.Plugins.PersonCard.csproj", "{D5EC5557-52D2-4FEC-B635-4E1502BB98F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.Plugins.Car", "DS.Plugins.Car\DS.Plugins.Car.csproj", "{EAEC7C52-7FC6-484C-9199-DBAB71E19222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D5EC5557-52D2-4FEC-B635-4E1502BB98F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5EC5557-52D2-4FEC-B635-4E1502BB98F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5EC5557-52D2-4FEC-B635-4E1502BB98F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
