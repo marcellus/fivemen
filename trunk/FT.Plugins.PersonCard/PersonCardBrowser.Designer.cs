@@ -208,6 +208,7 @@ namespace FT.Plugins.PersonCard
             this.dateBirthday.Name = "dateBirthday";
             this.dateBirthday.Size = new System.Drawing.Size(100, 21);
             this.dateBirthday.TabIndex = 3;
+            this.dateBirthday.Value = new System.DateTime(2009, 3, 5, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -312,6 +313,7 @@ namespace FT.Plugins.PersonCard
             this.Name = "PersonCardBrowser";
             this.Text = "√˚∆¨‰Ø¿¿";
             this.Load += new System.EventHandler(this.PersonCardBrowser_Load);
+            this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tabControl1.ResumeLayout(false);

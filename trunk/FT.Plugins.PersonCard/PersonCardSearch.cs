@@ -39,11 +39,13 @@ namespace FT.Plugins.PersonCard
             this.CreateColumn("姓名",80);
             this.CreateColumn("昵称", 80);
             this.CreateColumn("性别", 80);
-            this.CreateColumn("出生年月", 100);
+            this.CreateColumn("出生年月", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
             this.CreateColumn("固话", 80);
             this.CreateColumn("手机", 80);
             this.CreateColumn("联系邮箱", 160);
             this.CreateColumn("分组名称");
+
+
             
         }
     }

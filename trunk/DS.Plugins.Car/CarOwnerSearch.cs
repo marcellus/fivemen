@@ -29,7 +29,7 @@ namespace DS.Plugins.Car
             this.dataGridView1.AutoGenerateColumns = false;
             this.CreateColumn("姓名", 80);
             this.CreateColumn("性别", 80);
-            this.CreateColumn("出生年月", 100);
+            this.CreateColumn("出生年月", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
             this.CreateColumn("固话", 80);
             this.CreateColumn("手机", 80);
             this.CreateColumn("身份证号", 160);

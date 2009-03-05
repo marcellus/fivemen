@@ -32,14 +32,13 @@ namespace DS.Plugins.Car
             this.CreateColumn("号码号牌", 80);
             this.CreateColumn("车辆类型", 80);
             this.CreateColumn("车辆状态", 80);
-            this.CreateColumn("车保险日期", 100);
-            this.CreateColumn("年检时间", 100);
-            this.CreateColumn("转入时间", 100);
-            this.CreateColumn("路费购买日期", 130);
-            this.CreateColumn("合同签订时间", 130);
+            this.CreateColumn("车保险日期", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
+            this.CreateColumn("年检时间", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
+            this.CreateColumn("转入时间", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
+            this.CreateColumn("路费购买日期", 130).DefaultCellStyle.Format = "yyyy-MM-dd";
+            this.CreateColumn("合同签订时间", 130).DefaultCellStyle.Format = "yyyy-MM-dd";
             this.CreateColumn("是否教练车");
             this.CreateColumn("是否考试车");
-
         }
     }
 }

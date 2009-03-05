@@ -334,32 +334,34 @@ namespace FT.Windows.Forms
             this.dataGridView1.Columns.Clear();
         }
 
-        public void CreateColumn(string prop)
+        public DataGridViewTextBoxColumn CreateColumn(string prop)
         {
-            CreateColumn(prop, prop);
+            return CreateColumn(prop, prop);
         }
 
-        public void CreateColumn(string prop, string header)
+        public DataGridViewTextBoxColumn CreateColumn(string prop, string header)
         {
             DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
             tmp.DataPropertyName = prop;
             tmp.HeaderText = header;
             tmp.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridView1.Columns.Add(tmp);
+            return tmp;
         }
 
-        public void CreateColumn(string prop, int width)
+        public DataGridViewTextBoxColumn CreateColumn(string prop, int width)
         {
-            this.CreateColumn(prop, prop, width);
+           return  this.CreateColumn(prop, prop, width);
         }
 
-        public void CreateColumn(string prop, string header, int width)
+        public DataGridViewTextBoxColumn CreateColumn(string prop, string header, int width)
         {
             DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
             tmp.DataPropertyName = prop;
             tmp.HeaderText = header;
             tmp.Width = width;
             this.dataGridView1.Columns.Add(tmp);
+            return tmp;
         }
 
         private void DataSearchControl_Load(object sender, EventArgs e)
