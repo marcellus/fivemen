@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("这里是描述\r\n这里还是描述")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Fivemen company")]
-[assembly: AssemblyProduct("FT.Test")]
+[assembly: AssemblyProduct("驾校预录入系统")]
 [assembly: AssemblyCopyright("Fivemen company 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
