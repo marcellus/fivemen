@@ -17,31 +17,40 @@ namespace FT.DAL.Entity
         [SimplePK]
         public int Id;
 
-        [SimpleColumn(Column="c_creator_ip",AllowUpdate = false,Alias="创建者IP")]
+        [SimpleColumn(Column="c_creator_ip",AllowUpdate = false)]
+        [Alias("创建者IP")]
         public string CreatorIp;
 
-        [SimpleColumn(Column = "time_create_time", AllowUpdate = false, Alias = "创建时间")]
+        [SimpleColumn(Column = "time_create_time", AllowUpdate = false)]
+        [Alias("创建时间")]
         public DateTime CreateTime = System.DateTime.Now;
 
-        [SimpleColumn(Column = "c_creator", AllowUpdate = false, Alias = "创建者")]
+        [SimpleColumn(Column = "c_creator", AllowUpdate = false)]
+        [Alias("创建者")]
         public string Creator;
 
-        [SimpleColumn(Column = "c_modifier_ip", AllowInsert = false, Alias = "修改者IP")]
+        [SimpleColumn(Column = "c_modifier_ip", AllowInsert = false)]
+        [Alias("修改者IP")]
         public string ModifierIp;
 
-        [SimpleColumn(Column = "time_modify_time", AllowInsert = false, Alias = "修改时间")]
+        [SimpleColumn(Column = "time_modify_time", AllowInsert = false)]
+        [Alias("修改时间")]
         public DateTime ModifyTime = System.DateTime.Now;
 
-        [SimpleColumn(Column = "c_modifier", AllowInsert = false, Alias = "修改者")]
+        [SimpleColumn(Column = "c_modifier", AllowInsert = false)]
+        [Alias("修改者")]
         public string Modifier;
 
-        [SimpleColumn(Column = "bool_isvalided", Alias = "有效性")]
+        [SimpleColumn(Column = "bool_isvalided")]
+        [Alias("有效性")]
         public bool IsValided = true;
 
-        [SimpleColumn(Column = "c_keywords", Alias = "关键字")]
+        [SimpleColumn(Column = "c_keywords")]
+        [Alias("关键字")]
         public string KeyWords;
 
-        [SimpleColumn(Column = "c_description", Alias = "备注")]
+        [SimpleColumn(Column = "c_description")]
+        [Alias("备注")]
         public string Description;
 
 

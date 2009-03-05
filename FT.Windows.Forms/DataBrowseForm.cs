@@ -254,16 +254,21 @@ namespace FT.Windows.Forms
         protected virtual void ShowAbout()
         {
             SimpleAbout form = new SimpleAbout();
+            form.ShowInTaskbar = false;
+            
             form.ShowDialog();
         }
 
         private void DataBrowseForm_Load(object sender, EventArgs e)
         {
             //MessageBoxHelper.Show("¸¸ÀàµÄLoad£¡");
-            this.InitHabit();
-            if (this.entity != null)
+            if (!this.DesignMode)
             {
-                this.LoadData(entity);
+                this.InitHabit();
+                if (this.entity != null)
+                {
+                    this.LoadData(entity);
+                }
             }
         }
     }

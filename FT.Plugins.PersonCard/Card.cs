@@ -17,7 +17,8 @@ namespace FT.Plugins.PersonCard
             get { return Id; }
             set { Id = value; }
         }
-        [SimpleColumn(Column = "c_name", Alias = "姓名")]
+        [SimpleColumn(Column = "c_name")]
+        [Alias("姓名")]
         public String Name;
 
         /// <summary>
@@ -29,7 +30,8 @@ namespace FT.Plugins.PersonCard
             set { Name = value; }
         }
 
-        [SimpleColumn(Column = "c_nickname", Alias = "昵称")]
+        [SimpleColumn(Column = "c_nickname")]
+        [Alias("昵称")]
         public String NickName;
 
         public String 昵称
@@ -38,7 +40,8 @@ namespace FT.Plugins.PersonCard
             set { NickName = value; }
         }
 
-        [SimpleColumn(Column = "c_sex", Alias = "性别")]
+        [SimpleColumn(Column = "c_sex")]
+        [Alias("性别")]
         public String Sex;
 
         public String 性别
@@ -47,7 +50,8 @@ namespace FT.Plugins.PersonCard
             set { Sex = value; }
         }
 
-        [SimpleColumn(Column = "c_birthday", Alias = "出生年月")]
+        [SimpleColumn(Column = "c_birthday")]
+        [Alias("出生年月")]
         public String Birthday;
 
         public String 出生年月
@@ -56,7 +60,8 @@ namespace FT.Plugins.PersonCard
             set { Birthday = value; }
         }
 
-        [SimpleColumn(Column = "c_phone", Alias = "固话")]
+        [SimpleColumn(Column = "c_phone")]
+        [Alias("固话")]
         public String Phone;
 
         public String 固话
@@ -65,7 +70,8 @@ namespace FT.Plugins.PersonCard
             set { Phone = value; }
         }
 
-        [SimpleColumn(Column = "c_mobile",Alias="手机")]
+        [SimpleColumn(Column = "c_mobile")]
+        [Alias("手机")]
         public String Mobile;
 
         public String 手机
@@ -74,17 +80,27 @@ namespace FT.Plugins.PersonCard
             set { Mobile = value; }
         }
 
-        [SimpleColumn(Column = "c_description", Alias = "备注")]
+        [SimpleColumn(Column = "c_description")]
+        [Alias("备注")]
         public String Description;
 
-        [SimpleColumn(Column = "c_interest", Alias = "兴趣爱好")]
+        [SimpleColumn(Column = "c_interest")]
+        [Alias("兴趣爱好")]
         public String Interest;
 
-        [SimpleColumn(Column = "c_url", Alias = "个人主页")]
+        [SimpleColumn(Column = "c_url")]
+        [Alias("个人主页")]
         public String Url;
-        [SimpleColumn(Column = "c_email", Alias = "联系邮箱")]
+        [SimpleColumn(Column = "c_email")]
+        [Alias("联系邮箱")]
         public String Email;
-        [SimpleColumn(Column = "c_classical", Alias = "分组名称")]
+
+        public String 联系邮箱
+        {
+            get { return Email; }
+        }
+        [SimpleColumn(Column = "c_classical")]
+        [Alias("分组名称")]
         public String Group;
 
         public String 分组名称

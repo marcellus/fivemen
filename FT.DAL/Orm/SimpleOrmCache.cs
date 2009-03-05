@@ -167,13 +167,15 @@ namespace FT.DAL.Orm
                     {
                         selectSql.Append(tmpstr + ",");
                         selects.Add(tmpstr, columnname);
-                        if (columnAtt.Alias != null && columnAtt.Alias.Length > 0)
+
+                        AliasAttribute aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                        if (aliasAtt != null)
                         {
-                            selectsAlias.Rows.Add(new string[] { tmpstr, columnAtt.Alias });
+                            selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
                         }
                         else
                         {
-                            selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+                            //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                         }
                     }
                 }

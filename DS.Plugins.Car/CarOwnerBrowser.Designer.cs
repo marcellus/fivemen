@@ -1,6 +1,6 @@
-namespace FT.Plugins.PersonCard
+namespace DS.Plugins.Car
 {
-    partial class PersonCardBrowser
+    partial class CarOwnerBrowser
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -30,13 +30,11 @@ namespace FT.Plugins.PersonCard
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cbGroup = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtNickName = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.txtIdCard = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,14 +47,10 @@ namespace FT.Plugins.PersonCard
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtInterest = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -64,22 +58,22 @@ namespace FT.Plugins.PersonCard
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(424, 301);
+            this.tabControl1.Size = new System.Drawing.Size(589, 301);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.cbGroup);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.txtNickName);
+            this.tabPage1.Controls.Add(this.txtDescription);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.txtEmail);
+            this.tabPage1.Controls.Add(this.txtAddress);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.txtUrl);
+            this.tabPage1.Controls.Add(this.txtIdCard);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.txtPhone);
             this.tabPage1.Controls.Add(this.label6);
@@ -94,128 +88,110 @@ namespace FT.Plugins.PersonCard
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(416, 273);
+            this.tabPage1.Size = new System.Drawing.Size(581, 273);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本信息";
+            this.tabPage1.Text = "车主信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // cbGroup
+            // txtDescription
             // 
-            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(81, 172);
-            this.cbGroup.Name = "cbGroup";
-            this.cbGroup.Size = new System.Drawing.Size(100, 20);
-            this.cbGroup.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 171);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "分组名称";
-            // 
-            // txtNickName
-            // 
-            this.txtNickName.Location = new System.Drawing.Point(262, 17);
-            this.txtNickName.Name = "txtNickName";
-            this.txtNickName.Size = new System.Drawing.Size(100, 21);
-            this.txtNickName.TabIndex = 2;
+            this.txtDescription.Location = new System.Drawing.Point(78, 149);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(306, 87);
+            this.txtDescription.TabIndex = 23;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(212, 26);
+            this.label9.Location = new System.Drawing.Point(34, 142);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "昵称";
+            this.label9.TabIndex = 30;
+            this.label9.Text = "备注";
             // 
-            // txtEmail
+            // txtAddress
             // 
-            this.txtEmail.Location = new System.Drawing.Point(81, 141);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(281, 21);
-            this.txtEmail.TabIndex = 8;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            this.txtAddress.Location = new System.Drawing.Point(78, 114);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(306, 21);
+            this.txtAddress.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 142);
+            this.label8.Location = new System.Drawing.Point(10, 112);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "E-mail";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "联系地址";
             // 
-            // txtUrl
+            // txtIdCard
             // 
-            this.txtUrl.Location = new System.Drawing.Point(81, 110);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(281, 21);
-            this.txtUrl.TabIndex = 7;
-            this.txtUrl.Validating += new System.ComponentModel.CancelEventHandler(this.txtUrl_Validating);
+            this.txtIdCard.Location = new System.Drawing.Point(78, 78);
+            this.txtIdCard.Name = "txtIdCard";
+            this.txtIdCard.Size = new System.Drawing.Size(125, 21);
+            this.txtIdCard.TabIndex = 20;
+            this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 113);
+            this.label7.Location = new System.Drawing.Point(10, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "个人主页";
+            this.label7.TabIndex = 26;
+            this.label7.Text = "身份证号";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(81, 79);
+            this.txtPhone.Location = new System.Drawing.Point(259, 50);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(100, 21);
-            this.txtPhone.TabIndex = 5;
+            this.txtPhone.Size = new System.Drawing.Size(125, 21);
+            this.txtPhone.TabIndex = 19;
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 84);
+            this.label6.Location = new System.Drawing.Point(219, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 8;
+            this.label6.TabIndex = 25;
             this.label6.Text = "固话";
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(262, 78);
+            this.txtMobile.Location = new System.Drawing.Point(259, 79);
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(100, 21);
-            this.txtMobile.TabIndex = 6;
+            this.txtMobile.Size = new System.Drawing.Size(125, 21);
+            this.txtMobile.TabIndex = 21;
             this.txtMobile.Validating += new System.ComponentModel.CancelEventHandler(this.txtMobile_Validating);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(212, 86);
+            this.label5.Location = new System.Drawing.Point(219, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 6;
+            this.label5.TabIndex = 23;
             this.label5.Text = "手机";
             // 
             // dateBirthday
             // 
             this.dateBirthday.CustomFormat = "yyyy-MM-dd";
-            this.dateBirthday.Location = new System.Drawing.Point(81, 48);
+            this.dateBirthday.Location = new System.Drawing.Point(78, 49);
             this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.Size = new System.Drawing.Size(100, 21);
-            this.dateBirthday.TabIndex = 3;
+            this.dateBirthday.Size = new System.Drawing.Size(125, 21);
+            this.dateBirthday.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 55);
+            this.label4.Location = new System.Drawing.Point(34, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 20;
             this.label4.Text = "生日";
             // 
             // cbSex
@@ -225,100 +201,70 @@ namespace FT.Plugins.PersonCard
             this.cbSex.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbSex.Location = new System.Drawing.Point(262, 48);
+            this.cbSex.Location = new System.Drawing.Point(259, 18);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(100, 20);
-            this.cbSex.TabIndex = 4;
+            this.cbSex.Size = new System.Drawing.Size(125, 20);
+            this.cbSex.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(212, 56);
+            this.label3.Location = new System.Drawing.Point(219, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 17;
             this.label3.Text = "性别";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(81, 17);
+            this.txtName.Location = new System.Drawing.Point(78, 18);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 21);
-            this.txtName.TabIndex = 1;
+            this.txtName.Size = new System.Drawing.Size(125, 21);
+            this.txtName.TabIndex = 16;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 26);
+            this.label2.Location = new System.Drawing.Point(34, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 15;
             this.label2.Text = "姓名";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.txtDescription);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.txtInterest);
-            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(416, 273);
+            this.tabPage2.Size = new System.Drawing.Size(437, 273);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "附加信息";
+            this.tabPage2.Text = "车辆信息";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtDescription
+            // tabPage3
             // 
-            this.txtDescription.Location = new System.Drawing.Point(11, 125);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(378, 69);
-            this.txtDescription.TabIndex = 3;
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(437, 273);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "教练信息";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 109);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "备注";
-            // 
-            // txtInterest
-            // 
-            this.txtInterest.Location = new System.Drawing.Point(11, 30);
-            this.txtInterest.Multiline = true;
-            this.txtInterest.Name = "txtInterest";
-            this.txtInterest.Size = new System.Drawing.Size(378, 69);
-            this.txtInterest.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 15);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "兴趣爱好";
-            // 
-            // PersonCardBrowser
+            // CarOwnerBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(424, 337);
+            this.ClientSize = new System.Drawing.Size(589, 337);
             this.Controls.Add(this.tabControl1);
-            this.Name = "PersonCardBrowser";
-            this.Text = "名片浏览";
-            this.Load += new System.EventHandler(this.PersonCardBrowser_Load);
+            this.Name = "CarOwnerBrowser";
+            this.Text = "车主浏览";
+            this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,6 +275,10 @@ namespace FT.Plugins.PersonCard
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateBirthday;
         private System.Windows.Forms.Label label4;
@@ -336,20 +286,11 @@ namespace FT.Plugins.PersonCard
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbGroup;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNickName;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtMobile;
+        private System.Windows.Forms.TextBox txtIdCard;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtInterest;
-        private System.Windows.Forms.Label label11;
     }
 }

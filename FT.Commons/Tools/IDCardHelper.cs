@@ -10,7 +10,7 @@ namespace FT.Commons.Tools
     /// <summary>
     /// 身份证辅助类
     /// </summary>
-    public class IDCardHelper : BaseHelper
+    public class IDCardHelper:BaseHelper
     {
         private static DataTable dt_IdType;
         static IDCardHelper()
@@ -29,7 +29,7 @@ namespace FT.Commons.Tools
             dt_Bus_IdType.Columns.Add("text");
             dt_Bus_IdType.Columns.Add("value");
             dt_Bus_IdType.Rows.Add(new object[] { "组织机构代码证书", "B" });
-         
+
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace FT.Commons.Tools
         /// <param name="cb">The cb.</param>
         public static void InitIdType(ComboBox cb)
         {
-            cb.DataSource=dt_IdType;
-            cb.DisplayMember="text";
-            cb.ValueMember="value";
-            cb.DropDownStyle=ComboBoxStyle.DropDownList;
+            cb.DataSource = dt_IdType;
+            cb.DisplayMember = "text";
+            cb.ValueMember = "value";
+            cb.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace FT.Commons.Tools
         }
 
         private static DataTable dt_Bus_IdType;
-        
+
         /// <summary>
         /// 绑定经营证书类别的名称
         /// </summary>
@@ -84,6 +84,10 @@ namespace FT.Commons.Tools
         /// <returns>正确的时候返回string.Empty</returns>
         public static string Validate(string idcard)
         {
+            if (idcard.Length > 18)
+            {
+                return "身份证明号码不得超过18位！";
+            }
             Regex rg = new Regex(@"^\d{17}(\d|X)$");
             if (!rg.Match(idcard).Success)
             {
@@ -93,8 +97,22 @@ namespace FT.Commons.Tools
             {
                 idcard = IdCard15To18(idcard);
             }
-            
-           
+            else if (idcard.Length == 18)
+            {
+                int ll_sum = 0, tmp = 0;
+                for (int i = 0; i < 17; i++)
+                {
+                    tmp = int.Parse(idcard.Substring(i, 1));
+                    ll_sum += tmp * li_quan[i];
+                }
+                ll_sum = ll_sum % 11;
+                if (idcard.Substring(17, 1) != ls_jy[ll_sum])
+                {
+                    return "身份证号码最后一位应该是" + ls_jy[ll_sum] + "！";
+                }
+            }
+
+
             try
             {
                 DateTime.Parse(idcard.Substring(6, 4) + "-" + idcard.Substring(10, 2) + "-" + idcard.Substring(12, 2));
@@ -105,6 +123,8 @@ namespace FT.Commons.Tools
             }
             return string.Empty;
         }
+
+
 
         private static string[] ls_jy ={ "1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2" };
         private static int[] li_quan =  { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 };
@@ -199,7 +219,7 @@ return ls_sfzmhm
             }
             else if (id.Length == 18)
             {
-                sexStr = Convert.ToInt32(id.Substring(16,1));
+                sexStr = Convert.ToInt32(id.Substring(16, 1));
             }
             else
             {
@@ -218,7 +238,7 @@ return ls_sfzmhm
             string result = string.Empty;
             if (id.Length == 15)
             {
-                result = "19"+id.Substring(6, 2) + "-" + id.Substring(8, 2) + "-" + id.Substring(10, 2);
+                result = "19" + id.Substring(6, 2) + "-" + id.Substring(8, 2) + "-" + id.Substring(10, 2);
             }
             else if (id.Length == 18)
             {

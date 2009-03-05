@@ -16,7 +16,8 @@ namespace FT.Windows.CommonsPlugin.Entity
             get { return Id; }
             set { Id = value; }
         }
-        [SimpleColumn(Column = "c_name", Alias = "登录名")]
+        [SimpleColumn(Column = "c_name")]
+        [Alias("登录名")]
         public String Name;
 
         /// <summary>
@@ -28,10 +29,11 @@ namespace FT.Windows.CommonsPlugin.Entity
             set { Name = value; }
         }
 
-        [SimpleColumn(Column = "c_password", Alias = "密码")]
+        [SimpleColumn(Column = "c_password")]
         public String Password;
 
-        [SimpleColumn(Column = "c_valid", Alias = "是否有效")]
+        [SimpleColumn(Column = "c_valid")]
+        [Alias("是否有效")]
         public String Valid;
 
         public String 是否有效
@@ -40,7 +42,8 @@ namespace FT.Windows.CommonsPlugin.Entity
             set { Valid = value; }
         }
 
-        [SimpleColumn(Column = "c_description", Alias = "备注")]
+        [SimpleColumn(Column = "c_description")]
+        [Alias("备注")]
         public String Description;
 
         public String 备注

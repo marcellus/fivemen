@@ -327,7 +327,11 @@ namespace FT.Commons.Tools
             {
                 if (ctr.Name.EndsWith("Value"))
                 {
-                    result = ((ComboBox)ctr).SelectedValue.ToString();
+                    object cbtmp=((ComboBox)ctr).SelectedValue;
+                    if (cbtmp != null)
+                        result = cbtmp.ToString();
+                    else
+                        result = string.Empty;
                 }
                 else
                 {
@@ -336,11 +340,11 @@ namespace FT.Commons.Tools
             }
             else if (ctr is DateTimePicker)
             {
-                result = ((DateTimePicker)ctr).Value;
+                result = ((DateTimePicker)ctr).Value.ToString("yyyy-MM-dd");
             }
             else if (ctr is CheckBox)
             {
-                result = ((CheckBox)ctr).Checked;
+                result = ((CheckBox)ctr).Checked?"ÊÇ":"·ñ";
             }
             else if (ctr is PictureBox)
             {
@@ -393,7 +397,7 @@ namespace FT.Commons.Tools
             }
             else if (ctr is CheckBox)
             {
-                ((CheckBox)ctr).Checked = Convert.ToBoolean(value);
+                ((CheckBox)ctr).Checked = (value.ToString()=="ÊÇ"?true:false);
             }
             else if (ctr is PictureBox)
             {

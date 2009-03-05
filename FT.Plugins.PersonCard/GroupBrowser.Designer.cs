@@ -40,7 +40,7 @@ namespace FT.Plugins.PersonCard
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 45);
+            this.label2.Location = new System.Drawing.Point(32, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -48,7 +48,7 @@ namespace FT.Plugins.PersonCard
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(144, 41);
+            this.txtName.Location = new System.Drawing.Point(96, 29);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(202, 21);
             this.txtName.TabIndex = 4;
@@ -57,7 +57,7 @@ namespace FT.Plugins.PersonCard
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 64);
+            this.label3.Location = new System.Drawing.Point(32, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 5;
@@ -65,7 +65,7 @@ namespace FT.Plugins.PersonCard
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(82, 83);
+            this.txtDescription.Location = new System.Drawing.Point(34, 71);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(264, 76);
@@ -77,9 +77,10 @@ namespace FT.Plugins.PersonCard
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDescription);
-            this.groupBox1.Location = new System.Drawing.Point(14, 80);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 200);
+            this.groupBox1.Size = new System.Drawing.Size(331, 177);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
@@ -87,7 +88,7 @@ namespace FT.Plugins.PersonCard
             // GroupBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(452, 337);
+            this.ClientSize = new System.Drawing.Size(331, 213);
             this.Controls.Add(this.groupBox1);
             this.Name = "GroupBrowser";
             this.Text = "分组浏览窗口";
