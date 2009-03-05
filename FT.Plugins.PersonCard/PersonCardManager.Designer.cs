@@ -30,8 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.personCardSearch1 = new FT.Plugins.PersonCard.PersonCardSearch();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.personCardSearch1 = new FT.Plugins.PersonCard.PersonCardSearch();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +42,9 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(587, 456);
             this.tabControl1.TabIndex = 0;
@@ -53,20 +55,10 @@
             this.tabPage1.Controls.Add(this.personCardSearch1);
             this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(579, 431);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // personCardSearch1
-            // 
-            this.personCardSearch1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.personCardSearch1.EntityType = typeof(FT.Plugins.PersonCard.Card);
-            this.personCardSearch1.Location = new System.Drawing.Point(3, 3);
-            this.personCardSearch1.Name = "personCardSearch1";
-            this.personCardSearch1.Size = new System.Drawing.Size(573, 425);
-            this.personCardSearch1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -77,11 +69,22 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // personCardSearch1
+            // 
+            this.personCardSearch1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.personCardSearch1.EntityType = typeof(FT.Plugins.PersonCard.Card);
+            this.personCardSearch1.Location = new System.Drawing.Point(0, 0);
+            this.personCardSearch1.Margin = new System.Windows.Forms.Padding(0);
+            this.personCardSearch1.Name = "personCardSearch1";
+            this.personCardSearch1.Size = new System.Drawing.Size(579, 431);
+            this.personCardSearch1.TabIndex = 0;
+            // 
             // PersonCardManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PersonCardManager";
             this.Size = new System.Drawing.Size(587, 456);
             this.Load += new System.EventHandler(this.PersonCardManager_Load);

@@ -136,6 +136,19 @@ namespace FT.Windows.Forms
          //   return null;
         }
 
+        protected virtual void BeforeCreateEntity(object entity)
+        {
+
+        }
+
+        protected virtual void BeforeUpdateEntity(object entity)
+        {
+
+        }
+        protected virtual void BeforeSave(object entity)
+        {
+        }
+
         protected virtual void Save()
         {
             if (this.entity == null)
@@ -143,9 +156,10 @@ namespace FT.Windows.Forms
                 this.entity = this.GetEntity();
             }
             FormHelper.GetDataFromForm(this, entity);
-            
+            this.BeforeSave(entity);
             if (this.lbId.Text.Length==0)
             {
+                this.BeforeCreateEntity(entity);
                 if (SimpleOrmOperator.Create(entity))
                 {
                     FormHelper.SetDataToForm(this, entity);
@@ -163,6 +177,7 @@ namespace FT.Windows.Forms
             }
             else
             {
+                this.BeforeUpdateEntity(entity);
                 if (SimpleOrmOperator.Update(entity))
                 {
                     MessageBoxHelper.Show("ÐÞ¸Ä³É¹¦£¡");

@@ -148,5 +148,18 @@ namespace FT.Test
             form.Show();
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Form form = new FT.Windows.CommonsPlugin.LoginForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                FT.Windows.Forms.BaseMainForm form1 = new BaseMainForm();
+                
+                form1.GetStatusStrip().Visible = false;
+                //form.LoadPluginDebug(path);
+                form1.Show();
+            }
+        }
+
     }
 }

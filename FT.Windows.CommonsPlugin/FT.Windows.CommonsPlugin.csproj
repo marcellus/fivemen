@@ -40,14 +40,48 @@
   -->
   <ItemGroup>
     <Compile Include="AboutPlugin.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UserManager.cs" />
+    <Compile Include="LockSystemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LockSystemForm.Designer.cs">
+      <DependentUpon>LockSystemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPlugin.cs" />
+    <Compile Include="PwdChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PwdChangeForm.Designer.cs">
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ToolsPlugin.cs" />
+    <Compile Include="UserBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserBrowser.Designer.cs">
+      <DependentUpon>UserBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserSearchControl.Designer.cs">
+      <DependentUpon>UserSearchControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -77,10 +111,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="LockSystemForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LockSystemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PwdChangeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserBrowser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

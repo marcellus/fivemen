@@ -12,7 +12,7 @@ using System.Windows.Forms.Design;
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Fm.Windows.Controls.Menu
+namespace FT.Windows.Controls.MenuEx
 {
     ///<summary>
     ///Class <c>OutlookMenu</c>

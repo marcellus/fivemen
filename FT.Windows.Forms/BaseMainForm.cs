@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Windows.Controls.TabControlEx;
 using FT.Windows.Forms.Plugins;
+using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
@@ -16,6 +17,13 @@ namespace FT.Windows.Forms
         {
             InitializeComponent();
         }
+        private ProgramState state;
+        public BaseMainForm(ProgramState state):this()
+        {
+            this.state = state;
+        }
+
+        
         /// <summary>
         /// 供注入的插件页面使用
         /// </summary>
@@ -55,7 +63,24 @@ namespace FT.Windows.Forms
         private void BaseMainForm_Load(object sender, EventArgs e)
         {
             //this.IsMdiContainer = true;
-            PluginManager.LoadAllPluginToMainForm(this);
+            if (!this.DesignMode)
+            {
+                PluginManager.LoadAllPluginToMainForm(this);
+                this.Text = Application.ProductName + Application.ProductVersion;
+                if (this.state == ProgramState.Trial)
+                {
+                    this.Text += "-试用版";
+                }
+                else if (this.state == ProgramState.Registed)
+                {
+                    this.Text += "-正式版";
+                }
+
+                else 
+                {
+                    this.Text += "-Beta版";
+                }
+            }
         }
 
         public void LoadPluginDebug(string filename)
