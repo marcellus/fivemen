@@ -19,7 +19,7 @@ namespace FT.Plugins.PersonCard
         public override void EmmitMenu()
         {
             //throw new Exception("The method or operation is not implemented.");
-            ToolStripMenuItem top= this.AddToMenu("我的名片夹");
+            ToolStripMenuItem top= this.AddToMenu("我的名片夹(&C)");
             ToolStripMenuItem tmp = this.BuildSubMenu("添加名片", typeof(FT.Plugins.PersonCard.PersonCardBrowser));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("名片管理", typeof(FT.Plugins.PersonCard.PersonCardManager));
@@ -36,7 +36,7 @@ namespace FT.Plugins.PersonCard
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Plugins.PersonCard.Properties.Resource.Buddy_Blue, "名片管理", typeof(FT.Plugins.PersonCard.PersonCardManager));
+            this.AddTopTool(FT.Plugins.PersonCard.Properties.Resource.Address_Book, "名片管理", typeof(FT.Plugins.PersonCard.PersonCardManager));
             //throw new Exception("The method or operation is not implemented.");
         }
     }

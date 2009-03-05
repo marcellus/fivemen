@@ -19,7 +19,19 @@ namespace FT.Windows.Forms
     /// </summary>
     public partial class DataSearchControl : UserControl, IRefreshParent
     {
+        public event ProcessObjectDelegate InitBeforeAdd;
         protected Pager pager = new Pager();
+
+        private bool allowCustomeSearch = true;
+
+        /// <summary>
+        /// 是否允许自定义查询
+        /// </summary>
+        public bool AllowCustomeSearch
+        {
+            get { return allowCustomeSearch; }
+            set { allowCustomeSearch = value; }
+        }
         //private 
         public DataSearchControl()
         {
@@ -71,7 +83,7 @@ namespace FT.Windows.Forms
 
         public void Update(object entity)
         {
-            Console.WriteLine("success update");
+            //Console.WriteLine("success update");
             this.dataGridView1.DataSource = null;
             for (int i = 0; i < pager.Lists.Count; i++)
             {
@@ -90,7 +102,7 @@ namespace FT.Windows.Forms
 
         public void Add(object entity)
         {
-            Console.WriteLine("success add");
+            //Console.WriteLine("success add");
             this.dataGridView1.DataSource = null;
             pager.Lists.Insert(0, entity);
             this.dataGridView1.DataSource = pager.Lists;
@@ -144,7 +156,12 @@ namespace FT.Windows.Forms
         {
             if (this.detailFormType != null)
             {
-                Form form = CreateDataBrowserForm(null) as Form;
+                object entity = null;
+                if (this.InitBeforeAdd != null)
+                {
+                    this.InitBeforeAdd(ref entity);
+                }
+                Form form = CreateDataBrowserForm(entity) as Form;
                 form.ShowInTaskbar = false;
                 form.ShowDialog();
             }
@@ -300,6 +317,7 @@ namespace FT.Windows.Forms
         {
             if (!this.DesignMode)
             {
+                this.btnSearch.Visible = this.allowCustomeSearch;
                 pager.Search();
                 //if()
                 this.ReBinding();

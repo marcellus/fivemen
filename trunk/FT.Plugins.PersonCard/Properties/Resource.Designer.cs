@@ -60,9 +60,9 @@ namespace FT.Plugins.PersonCard.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Buddy_Blue {
+        internal static System.Drawing.Bitmap Address_Book {
             get {
-                object obj = ResourceManager.GetObject("Buddy_Blue", resourceCulture);
+                object obj = ResourceManager.GetObject("Address_Book", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

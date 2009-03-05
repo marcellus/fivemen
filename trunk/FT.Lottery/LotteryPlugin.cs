@@ -18,7 +18,7 @@ namespace FT.Lottery
 
         public override void EmmitMenu()
         {
-            this.AddToMenu("×ÔÖú²©²Ê").DropDownItems.Add(this.BuildSubMenu("²ÊÆ±·ÖÎö",typeof(LotteryParse)));
+            this.AddToMenu("×ÔÖú²©²Ê(&L)").DropDownItems.Add(this.BuildSubMenu("²ÊÆ±·ÖÎö",typeof(LotteryParse)));
             this.IsEmmitSeparator = true;
         }
 

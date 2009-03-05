@@ -15,6 +15,16 @@ namespace FT.Plugins.PersonCard
         public PersonCardManager()
         {
             InitializeComponent();
+            this.personCardSearch1.InitBeforeAdd += new FT.Windows.Forms.ProcessObjectDelegate(personCardSearch1_InitBeforeAdd);
+            //this.personCardSearch1.AllowCustomeSearch = false;
+        }
+
+        void personCardSearch1_InitBeforeAdd(ref object entity)
+        {
+            Card tmp = new Card();
+            tmp.Group = this.tabControl1.SelectedTab.Text;
+            entity = tmp;
+            //throw new Exception("The method or operation is not implemented.");
         }
 
         private void button1_Click(object sender, EventArgs e)

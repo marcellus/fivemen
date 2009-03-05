@@ -18,7 +18,7 @@ namespace FT.Windows.CommonsPlugin
     {
         public override void EmmitMenu()
         {
-            ToolStripMenuItem top= this.AddToMenu("帮助");
+            ToolStripMenuItem top= this.AddToMenu("帮助(&H)");
             //top.
             ToolStripMenuItem tmp = this.BuildSubMenu("现有插件...", typeof(FT.Windows.Forms.PluginManageForm));
 
@@ -71,6 +71,9 @@ namespace FT.Windows.CommonsPlugin
         
         public override void EmmitToolBar()
         {
+            
+           // ToolStripButton btn= this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "帮助");
+            //btn.Click += new EventHandler(help_Click);
             this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "关于", typeof(FT.Windows.Forms.SimpleAbout));
             //throw new Exception("The method or operation is not implemented.");
         }

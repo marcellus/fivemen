@@ -67,6 +67,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.Image = global::FT.Windows.Forms.Properties.Resources.Save_16_16;
             resources.ApplyResources(this.simpleButton1, "simpleButton1");
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;

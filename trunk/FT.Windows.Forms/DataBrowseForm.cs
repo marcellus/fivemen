@@ -157,7 +157,7 @@ namespace FT.Windows.Forms
             }
             FormHelper.GetDataFromForm(this, entity);
             this.BeforeSave(entity);
-            if (this.lbId.Text.Length==0)
+            if (this.lbId.Text.Length==0||this.lbId.Text.Trim()=="0")
             {
                 this.BeforeCreateEntity(entity);
                 if (SimpleOrmOperator.Create(entity))
