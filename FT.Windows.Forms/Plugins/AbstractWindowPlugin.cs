@@ -188,7 +188,7 @@ namespace FT.Windows.Forms.Plugins
                 {
                     Form form = paneltmp as Form;
                     form.ShowInTaskbar = false;
-                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.StartPosition = FormStartPosition.CenterParent;
                     //form.MdiParent = this.form;
                     //form.IsMdiChild = true;
                     form.ShowDialog();

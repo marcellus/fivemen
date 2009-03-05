@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnUnlock = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,16 +45,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入解锁密码：";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(18, 21);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(162, 21);
-            this.txtPassword.TabIndex = 0;
-            // 
             // btnUnlock
             // 
+            this.btnUnlock.Image = global::FT.Windows.CommonsPlugin.Resource.Login;
+            this.btnUnlock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnlock.Location = new System.Drawing.Point(54, 61);
             this.btnUnlock.Name = "btnUnlock";
             this.btnUnlock.Size = new System.Drawing.Size(75, 23);
@@ -63,8 +57,17 @@
             this.btnUnlock.UseVisualStyleBackColor = true;
             this.btnUnlock.Click += new System.EventHandler(this.btnUnlock_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(18, 21);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(162, 21);
+            this.txtPassword.TabIndex = 0;
+            // 
             // LockSystemForm
             // 
+            this.AcceptButton = this.btnUnlock;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 120);
@@ -74,7 +77,7 @@
             this.MinimizeBox = false;
             this.Name = "LockSystemForm";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "系统锁定";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

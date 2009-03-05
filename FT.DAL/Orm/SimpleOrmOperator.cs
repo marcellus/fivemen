@@ -90,7 +90,7 @@ namespace FT.DAL.Orm
         }
 
         /// <summary>
-        /// 创建一个对象到数据库中
+        /// 创建一个对象到数据库中,成功后通过select max()来返回主键
         /// </summary>
         /// <param name="obj">实体对象</param>
         /// <returns>是否插入成功</returns>

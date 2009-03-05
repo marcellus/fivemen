@@ -56,6 +56,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Image = global::FT.Windows.Forms.Properties.Resources.Save_16_16;
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = true;

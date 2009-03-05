@@ -31,7 +31,19 @@ namespace FT.Windows.CommonsPlugin
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("锁定系统", typeof(FT.Windows.CommonsPlugin.LockSystemForm));
             top.DropDownItems.Add(tmp);
+            tmp = this.BuildTopMenu("退出系统");
+            tmp.Click += new EventHandler(quit_Click);
+            top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        void quit_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxHelper.Confirm("确定退出本系统吗？"))
+            {
+                Application.Exit();
+            }
             //throw new Exception("The method or operation is not implemented.");
         }
 
@@ -65,7 +77,8 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "关于", typeof(FT.Windows.Forms.SimpleAbout));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.WLM, "用户管理", typeof(FT.Windows.CommonsPlugin.UserSearchControl));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Locker, "锁定系统", typeof(FT.Windows.CommonsPlugin.LockSystemForm));
             //throw new Exception("The method or operation is not implemented.");
         }
     }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleAbout));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbProduct = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbVersion = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbCopyRight = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -39,6 +38,7 @@
             this.simpleLabel6 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel7 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel8 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,14 +56,6 @@
             this.tableLayoutPanel1.Controls.Add(this.simpleLabel7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.simpleLabel8, 0, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // pictureBox1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::FT.Windows.Forms.Properties.Resources.about;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // lbProduct
             // 
@@ -112,6 +104,14 @@
             resources.ApplyResources(this.simpleLabel8, "simpleLabel8");
             this.simpleLabel8.Name = "simpleLabel8";
             this.simpleLabel8.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
+            // 
+            // pictureBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::FT.Windows.Forms.Properties.Resources.about;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // SimpleAbout
             // 

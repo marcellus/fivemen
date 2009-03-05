@@ -17,7 +17,7 @@ namespace FT.Windows.CommonsPlugin
     {
         public override void EmmitMenu()
         {
-            ToolStripMenuItem top = this.AddToMenu("工具");
+            ToolStripMenuItem top = this.AddToMenu("工具(&T)");
             //top.
             ToolStripMenuItem tmp = this.BuildTopMenu("数据库备份");
             tmp.Click += new EventHandler(dbbak_Click);
@@ -35,6 +35,7 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildTopMenu("记事本");
             tmp.Click += new EventHandler(notepad_Click);
             top.DropDownItems.Add(tmp);
+            this.IsEmmitSeparator = true;
         }
 
         void calc_Click(object sender, EventArgs e)
@@ -92,6 +93,8 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "基础数据管理");
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Notepad, "记事本").Click += new EventHandler(notepad_Click);
             //throw new Exception("The method or operation is not implemented.");
         }
     }

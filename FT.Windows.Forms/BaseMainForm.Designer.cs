@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseMainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.simpleTabControl1 = new FT.Windows.Controls.TabControlEx.SimpleTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.simpleTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -62,7 +61,7 @@
             // 
             // simpleTabControl1
             // 
-            this.simpleTabControl1.Controls.Add(this.tabPage1);
+            this.simpleTabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.simpleTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.simpleTabControl1.ItemSize = new System.Drawing.Size(60, 25);
@@ -71,16 +70,6 @@
             this.simpleTabControl1.SelectedIndex = 0;
             this.simpleTabControl1.Size = new System.Drawing.Size(292, 202);
             this.simpleTabControl1.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(284, 169);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1        ";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // BaseMainForm
             // 
@@ -91,12 +80,12 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BaseMainForm";
             this.Text = "BaseMainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BaseMainForm_Load);
-            this.simpleTabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +97,5 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private FT.Windows.Controls.TabControlEx.SimpleTabControl simpleTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
     }
 }
