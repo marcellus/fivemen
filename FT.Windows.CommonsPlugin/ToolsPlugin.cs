@@ -26,7 +26,9 @@ namespace FT.Windows.CommonsPlugin
             tmp.Click+=new EventHandler(dbrestore_Click);
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
-            tmp = this.BuildTopMenu("基础数据管理");
+            tmp = this.BuildSubMenu("添加基础数据",typeof(DictBrower));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("基础数据管理", typeof(DictSearch));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
             tmp = this.BuildTopMenu("计算器");
@@ -93,7 +95,7 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "基础数据管理");
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "基础数据管理",typeof(DictSearch));
             this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Notepad, "记事本").Click += new EventHandler(notepad_Click);
             //throw new Exception("The method or operation is not implemented.");
         }

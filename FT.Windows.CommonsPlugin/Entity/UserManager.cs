@@ -32,7 +32,7 @@ namespace FT.Windows.CommonsPlugin.Entity
         public static int Login(string name, string pwd)
         {
 
-            ArrayList users = FT.DAL.Orm.SimpleOrmOperator.QueryList(typeof(User), "select * from table_users where c_name='"+name+"'");
+            ArrayList users = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList(typeof(User), " where c_name='"+name+"'");
             if(users.Count>0)
             {
                 loginUser = users[0] as User;

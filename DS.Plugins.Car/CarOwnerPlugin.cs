@@ -34,6 +34,20 @@ namespace DS.Plugins.Car
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("车辆管理", typeof(CarSearch));
             top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("添加出车记录", typeof(CarOutBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("出车记录管理", typeof(CarOutSearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("添加车辆费用", typeof(CarFeeBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("车辆费用管理", typeof(CarFeeSearch));
+            top.DropDownItems.Add(tmp);
         }
 
         public override void EmmitToolBar()

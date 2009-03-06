@@ -40,6 +40,21 @@
   -->
   <ItemGroup>
     <Compile Include="AboutPlugin.cs" />
+    <Compile Include="DictBrower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DictBrower.Designer.cs">
+      <DependentUpon>DictBrower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DictSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DictSearch.Designer.cs">
+      <DependentUpon>DictSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Dict.cs" />
+    <Compile Include="Entity\DictManager.cs" />
+    <Compile Include="Entity\DictType.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserManager.cs" />
     <Compile Include="LockSystemForm.cs">
@@ -111,6 +126,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DictBrower.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DictBrower.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LockSystemForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LockSystemForm.cs</DependentUpon>

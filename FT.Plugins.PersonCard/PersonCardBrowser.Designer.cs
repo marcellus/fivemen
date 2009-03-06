@@ -311,7 +311,7 @@ namespace FT.Plugins.PersonCard
             this.ClientSize = new System.Drawing.Size(424, 337);
             this.Controls.Add(this.tabControl1);
             this.Name = "PersonCardBrowser";
-            this.Text = "名片浏览";
+            this.Text = "名片信息";
             this.Load += new System.EventHandler(this.PersonCardBrowser_Load);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);

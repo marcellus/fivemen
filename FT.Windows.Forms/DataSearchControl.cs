@@ -24,6 +24,9 @@ namespace FT.Windows.Forms
 
         private bool allowCustomeSearch = true;
 
+        BindingSource bindingSource = new BindingSource();
+
+
         /// <summary>
         /// 是否允许自定义查询
         /// </summary>
@@ -68,7 +71,9 @@ namespace FT.Windows.Forms
             else
             {
                 // BindingSource bindingSource1 = new BindingSource();
-                this.dataGridView1.DataSource = pager.Lists;
+                bindingSource.DataSource = pager.Lists;
+                bindingSource.ResetBindings(false);
+                //this.dataGridView1.DataSource = pager.Lists;
             }
             this.lbCurrentPage.Text = pager.CurrentPage.ToString();
             this.lbPages.Text = pager.PageCount.ToString();
@@ -84,7 +89,7 @@ namespace FT.Windows.Forms
         public void Update(object entity)
         {
             //Console.WriteLine("success update");
-            this.dataGridView1.DataSource = null;
+            //this.dataGridView1.DataSource = null;
             for (int i = 0; i < pager.Lists.Count; i++)
             {
                 if (SimpleOrmOperator.EntityIsEqual(entity, pager.Lists[i]))
@@ -94,7 +99,8 @@ namespace FT.Windows.Forms
                     break;
                 }
             }
-            this.dataGridView1.DataSource = pager.Lists;
+            bindingSource.ResetBindings(false);            
+            //this.dataGridView1.DataSource = pager.Lists;
 
             //
             // throw new Exception("The method or operation is not implemented.");
@@ -103,9 +109,19 @@ namespace FT.Windows.Forms
         public void Add(object entity)
         {
             //Console.WriteLine("success add");
-            this.dataGridView1.DataSource = null;
+            //this.dataGridView1.DataSource = null;
             pager.Lists.Insert(0, entity);
-            this.dataGridView1.DataSource = pager.Lists;
+            if (pager.Lists.Count > 1)
+            {
+                bindingSource.ResetBindings(false);
+            }
+            else
+            {
+                bindingSource.ResetBindings(true);
+            }
+            
+            //this.dataGridView1.DataSource = pager.Lists;
+            //this.dataGridView1.Rows[0].Selected=true;
             int count = Convert.ToInt32(this.lbRecordCount.Text);
             count++;
             this.lbRecordCount.Text = count.ToString();
@@ -186,7 +202,7 @@ namespace FT.Windows.Forms
 
         protected virtual void ShowDetail(int index)
         {
-            if (this.detailFormType != null && this.pager != null)
+            if (this.detailFormType != null && this.pager != null&&index<pager.Lists.Count)
             {
                 Form form = this.CreateDataBrowserForm(pager.Lists[index]);
                 form.ShowInTaskbar = false;
@@ -217,21 +233,35 @@ namespace FT.Windows.Forms
             }
             else
             {
-                bool result = MessageBoxHelper.Confirm("确定删除吗？");
+                bool result = MessageBoxHelper.Confirm("确定删除这些记录吗？");
                 if (result)
                 {
                     int tmp = 0;
+                    //this.dataGridView1.DataSource = null;
+                    int[] deletes = new int[count];
+                    
+                    for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
+                    {
+                        if (this.dataGridView1.Rows[i].Selected)
+                        {
+                            deletes[tmp++] = i;
+                        }
+                    }
                     for (int i = count - 1; i >= 0; i--)
                     {
-                        tmp = this.dataGridView1.SelectedRows[i].Index;
-                        FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]);
-                        this.dataGridView1.DataSource = null;
-                        pager.Lists.RemoveAt(tmp);
-                        this.dataGridView1.DataSource = pager.Lists;
-                        int recordCount = Convert.ToInt32(this.lbRecordCount.Text);
-                        recordCount--;
-                        this.lbRecordCount.Text = recordCount.ToString();
-                    }
+                            tmp = deletes[i];
+                            if (FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]))
+                            {
+                                pager.Lists.RemoveAt(tmp);
+                            }
+
+                     }
+                    bindingSource.ResetBindings(false);
+                    //this.dataGridView1.DataSource = null;
+                    //this.dataGridView1.DataSource = pager.Lists;
+                    int recordCount = Convert.ToInt32(this.lbRecordCount.Text);
+                    recordCount-=count;
+                    this.lbRecordCount.Text = recordCount.ToString();
                     //this.ReBinding();
                 }
                 //this.ShowDetail(this.dataGridView1.SelectedRows[0].Index);
@@ -302,19 +332,20 @@ namespace FT.Windows.Forms
 
         }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            this.ShowDetail(e.RowIndex);
-        }
-
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
-                object obj=this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                if(obj!=null)
+                //Console.WriteLine("col:" + e.ColumnIndex + "|rows:" + e.RowIndex);
+                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
                 {
-                    Clipboard.SetText(obj.ToString());
+
+
+                    object obj = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                    if (obj != null)
+                    {
+                        Clipboard.SetText(obj.ToString());
+                    }
                 }
             }
             catch
@@ -370,6 +401,7 @@ namespace FT.Windows.Forms
             {
                 this.SettingGridStyle();
                 this.btnSearch.Visible = this.allowCustomeSearch;
+                this.dataGridView1.DataSource = bindingSource;
                 pager.Search();
                 //if()
                 this.ReBinding();
@@ -435,5 +467,40 @@ namespace FT.Windows.Forms
                 btnGo_Click(null, null);
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (this.dataGridView1.Rows.Count > 0)
+            //{
+            //    try
+            //    {
+            //        //Console.WriteLine("col:" + e.ColumnIndex + "|rows:" + e.RowIndex);
+            //        //if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            //        //{
+
+
+            //        //    object obj = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            //        //    if (obj != null)
+            //        //    {
+            //        //        Clipboard.SetText(obj.ToString());
+            //        //    }
+            //        //}
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBoxHelper.Show(ex.Message);
+            //    }
+            //    catch
+            //    {
+            //        MessageBoxHelper.Show("未知错误");
+            //    }
+            //}
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.ShowDetail(e.RowIndex);
+        }
+
     }
 }

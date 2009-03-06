@@ -91,7 +91,8 @@ namespace FT.Plugins.PersonCard
             this.ClientSize = new System.Drawing.Size(331, 213);
             this.Controls.Add(this.groupBox1);
             this.Name = "GroupBrowser";
-            this.Text = "分组浏览窗口";
+            this.Text = "分组信息";
+            this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
