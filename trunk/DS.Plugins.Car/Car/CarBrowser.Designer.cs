@@ -28,7 +28,6 @@ namespace DS.Plugins.Car
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkIsExamCar = new System.Windows.Forms.CheckBox();
             this.checkIsTeacherCar = new System.Windows.Forms.CheckBox();
             this.dateZrDate = new System.Windows.Forms.DateTimePicker();
@@ -61,55 +60,19 @@ namespace DS.Plugins.Car
             this.label3 = new System.Windows.Forms.Label();
             this.txtHmhp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkIsExamCar);
-            this.groupBox1.Controls.Add(this.checkIsTeacherCar);
-            this.groupBox1.Controls.Add(this.dateZrDate);
-            this.groupBox1.Controls.Add(this.dateContractDate);
-            this.groupBox1.Controls.Add(this.dateYearCheckDate);
-            this.groupBox1.Controls.Add(this.dateRoadFeeBuyDate);
-            this.groupBox1.Controls.Add(this.dateInsuranceDate);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.cbState);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtContractPerson);
-            this.groupBox1.Controls.Add(this.txtPinPai);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.cbOwnerIdValue);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cbCarType);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.cbThirdColor);
-            this.groupBox1.Controls.Add(this.cbSecondColor);
-            this.groupBox1.Controls.Add(this.cbFirstColor);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtFdjh);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtIdentify);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtHmhp);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(627, 235);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
             // 
             // checkIsExamCar
             // 
             this.checkIsExamCar.AutoSize = true;
-            this.checkIsExamCar.Location = new System.Drawing.Point(141, 196);
+            this.checkIsExamCar.Location = new System.Drawing.Point(142, 185);
             this.checkIsExamCar.Name = "checkIsExamCar";
             this.checkIsExamCar.Size = new System.Drawing.Size(84, 16);
             this.checkIsExamCar.TabIndex = 18;
@@ -119,7 +82,7 @@ namespace DS.Plugins.Car
             // checkIsTeacherCar
             // 
             this.checkIsTeacherCar.AutoSize = true;
-            this.checkIsTeacherCar.Location = new System.Drawing.Point(32, 196);
+            this.checkIsTeacherCar.Location = new System.Drawing.Point(33, 185);
             this.checkIsTeacherCar.Name = "checkIsTeacherCar";
             this.checkIsTeacherCar.Size = new System.Drawing.Size(84, 16);
             this.checkIsTeacherCar.TabIndex = 17;
@@ -128,35 +91,35 @@ namespace DS.Plugins.Car
             // 
             // dateZrDate
             // 
-            this.dateZrDate.Location = new System.Drawing.Point(469, 122);
+            this.dateZrDate.Location = new System.Drawing.Point(470, 111);
             this.dateZrDate.Name = "dateZrDate";
             this.dateZrDate.Size = new System.Drawing.Size(109, 21);
             this.dateZrDate.TabIndex = 13;
             // 
             // dateContractDate
             // 
-            this.dateContractDate.Location = new System.Drawing.Point(287, 157);
+            this.dateContractDate.Location = new System.Drawing.Point(288, 146);
             this.dateContractDate.Name = "dateContractDate";
             this.dateContractDate.Size = new System.Drawing.Size(109, 21);
             this.dateContractDate.TabIndex = 15;
             // 
             // dateYearCheckDate
             // 
-            this.dateYearCheckDate.Location = new System.Drawing.Point(287, 122);
+            this.dateYearCheckDate.Location = new System.Drawing.Point(288, 111);
             this.dateYearCheckDate.Name = "dateYearCheckDate";
             this.dateYearCheckDate.Size = new System.Drawing.Size(109, 21);
             this.dateYearCheckDate.TabIndex = 12;
             // 
             // dateRoadFeeBuyDate
             // 
-            this.dateRoadFeeBuyDate.Location = new System.Drawing.Point(101, 157);
+            this.dateRoadFeeBuyDate.Location = new System.Drawing.Point(102, 146);
             this.dateRoadFeeBuyDate.Name = "dateRoadFeeBuyDate";
             this.dateRoadFeeBuyDate.Size = new System.Drawing.Size(109, 21);
             this.dateRoadFeeBuyDate.TabIndex = 14;
             // 
             // dateInsuranceDate
             // 
-            this.dateInsuranceDate.Location = new System.Drawing.Point(101, 122);
+            this.dateInsuranceDate.Location = new System.Drawing.Point(102, 111);
             this.dateInsuranceDate.Name = "dateInsuranceDate";
             this.dateInsuranceDate.Size = new System.Drawing.Size(109, 21);
             this.dateInsuranceDate.TabIndex = 11;
@@ -164,7 +127,7 @@ namespace DS.Plugins.Car
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(414, 126);
+            this.label12.Location = new System.Drawing.Point(415, 115);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 16;
@@ -173,7 +136,7 @@ namespace DS.Plugins.Car
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(211, 161);
+            this.label14.Location = new System.Drawing.Point(212, 150);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 12);
             this.label14.TabIndex = 16;
@@ -182,7 +145,7 @@ namespace DS.Plugins.Car
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(219, 126);
+            this.label11.Location = new System.Drawing.Point(220, 115);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 16;
@@ -191,7 +154,7 @@ namespace DS.Plugins.Car
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 161);
+            this.label13.Location = new System.Drawing.Point(7, 150);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 12);
             this.label13.TabIndex = 16;
@@ -200,7 +163,7 @@ namespace DS.Plugins.Car
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 126);
+            this.label10.Location = new System.Drawing.Point(19, 115);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 16;
@@ -209,7 +172,7 @@ namespace DS.Plugins.Car
             // cbState
             // 
             this.cbState.FormattingEnabled = true;
-            this.cbState.Location = new System.Drawing.Point(469, 83);
+            this.cbState.Location = new System.Drawing.Point(470, 72);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(109, 20);
             this.cbState.TabIndex = 10;
@@ -217,7 +180,7 @@ namespace DS.Plugins.Car
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(414, 88);
+            this.label9.Location = new System.Drawing.Point(415, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 14;
@@ -225,14 +188,14 @@ namespace DS.Plugins.Car
             // 
             // txtContractPerson
             // 
-            this.txtContractPerson.Location = new System.Drawing.Point(469, 157);
+            this.txtContractPerson.Location = new System.Drawing.Point(470, 146);
             this.txtContractPerson.Name = "txtContractPerson";
             this.txtContractPerson.Size = new System.Drawing.Size(109, 21);
             this.txtContractPerson.TabIndex = 16;
             // 
             // txtPinPai
             // 
-            this.txtPinPai.Location = new System.Drawing.Point(101, 52);
+            this.txtPinPai.Location = new System.Drawing.Point(102, 41);
             this.txtPinPai.Name = "txtPinPai";
             this.txtPinPai.Size = new System.Drawing.Size(109, 21);
             this.txtPinPai.TabIndex = 4;
@@ -240,7 +203,7 @@ namespace DS.Plugins.Car
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(402, 161);
+            this.label15.Location = new System.Drawing.Point(403, 150);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 12;
@@ -249,7 +212,7 @@ namespace DS.Plugins.Car
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 56);
+            this.label8.Location = new System.Drawing.Point(31, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 12;
@@ -258,7 +221,7 @@ namespace DS.Plugins.Car
             // cbOwnerIdValue
             // 
             this.cbOwnerIdValue.FormattingEnabled = true;
-            this.cbOwnerIdValue.Location = new System.Drawing.Point(469, 52);
+            this.cbOwnerIdValue.Location = new System.Drawing.Point(470, 41);
             this.cbOwnerIdValue.Name = "cbOwnerIdValue";
             this.cbOwnerIdValue.Size = new System.Drawing.Size(109, 20);
             this.cbOwnerIdValue.TabIndex = 6;
@@ -266,7 +229,7 @@ namespace DS.Plugins.Car
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(438, 55);
+            this.label7.Location = new System.Drawing.Point(439, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 10;
@@ -275,7 +238,7 @@ namespace DS.Plugins.Car
             // cbCarType
             // 
             this.cbCarType.FormattingEnabled = true;
-            this.cbCarType.Location = new System.Drawing.Point(287, 53);
+            this.cbCarType.Location = new System.Drawing.Point(288, 42);
             this.cbCarType.Name = "cbCarType";
             this.cbCarType.Size = new System.Drawing.Size(109, 20);
             this.cbCarType.TabIndex = 5;
@@ -283,7 +246,7 @@ namespace DS.Plugins.Car
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(219, 56);
+            this.label6.Location = new System.Drawing.Point(220, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 8;
@@ -292,7 +255,7 @@ namespace DS.Plugins.Car
             // cbThirdColor
             // 
             this.cbThirdColor.FormattingEnabled = true;
-            this.cbThirdColor.Location = new System.Drawing.Point(302, 85);
+            this.cbThirdColor.Location = new System.Drawing.Point(303, 74);
             this.cbThirdColor.Name = "cbThirdColor";
             this.cbThirdColor.Size = new System.Drawing.Size(75, 20);
             this.cbThirdColor.TabIndex = 9;
@@ -300,7 +263,7 @@ namespace DS.Plugins.Car
             // cbSecondColor
             // 
             this.cbSecondColor.FormattingEnabled = true;
-            this.cbSecondColor.Location = new System.Drawing.Point(206, 85);
+            this.cbSecondColor.Location = new System.Drawing.Point(207, 74);
             this.cbSecondColor.Name = "cbSecondColor";
             this.cbSecondColor.Size = new System.Drawing.Size(75, 20);
             this.cbSecondColor.TabIndex = 8;
@@ -308,7 +271,7 @@ namespace DS.Plugins.Car
             // cbFirstColor
             // 
             this.cbFirstColor.FormattingEnabled = true;
-            this.cbFirstColor.Location = new System.Drawing.Point(101, 85);
+            this.cbFirstColor.Location = new System.Drawing.Point(102, 74);
             this.cbFirstColor.Name = "cbFirstColor";
             this.cbFirstColor.Size = new System.Drawing.Size(75, 20);
             this.cbFirstColor.TabIndex = 7;
@@ -316,7 +279,7 @@ namespace DS.Plugins.Car
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 91);
+            this.label5.Location = new System.Drawing.Point(31, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 6;
@@ -324,7 +287,7 @@ namespace DS.Plugins.Car
             // 
             // txtFdjh
             // 
-            this.txtFdjh.Location = new System.Drawing.Point(469, 17);
+            this.txtFdjh.Location = new System.Drawing.Point(470, 6);
             this.txtFdjh.Name = "txtFdjh";
             this.txtFdjh.Size = new System.Drawing.Size(109, 21);
             this.txtFdjh.TabIndex = 3;
@@ -332,7 +295,7 @@ namespace DS.Plugins.Car
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(414, 21);
+            this.label4.Location = new System.Drawing.Point(415, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 4;
@@ -340,7 +303,7 @@ namespace DS.Plugins.Car
             // 
             // txtIdentify
             // 
-            this.txtIdentify.Location = new System.Drawing.Point(287, 17);
+            this.txtIdentify.Location = new System.Drawing.Point(288, 6);
             this.txtIdentify.Name = "txtIdentify";
             this.txtIdentify.Size = new System.Drawing.Size(109, 21);
             this.txtIdentify.TabIndex = 2;
@@ -348,7 +311,7 @@ namespace DS.Plugins.Car
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(216, 21);
+            this.label3.Location = new System.Drawing.Point(217, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 2;
@@ -356,7 +319,7 @@ namespace DS.Plugins.Car
             // 
             // txtHmhp
             // 
-            this.txtHmhp.Location = new System.Drawing.Point(101, 17);
+            this.txtHmhp.Location = new System.Drawing.Point(102, 6);
             this.txtHmhp.Name = "txtHmhp";
             this.txtHmhp.Size = new System.Drawing.Size(109, 21);
             this.txtHmhp.TabIndex = 1;
@@ -365,23 +328,100 @@ namespace DS.Plugins.Car
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 21);
+            this.label2.Location = new System.Drawing.Point(31, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 0;
             this.label2.Text = "号码号牌";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 36);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(627, 241);
+            this.tabControl1.TabIndex = 4;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.checkIsExamCar);
+            this.tabPage1.Controls.Add(this.txtPinPai);
+            this.tabPage1.Controls.Add(this.checkIsTeacherCar);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.dateZrDate);
+            this.tabPage1.Controls.Add(this.txtHmhp);
+            this.tabPage1.Controls.Add(this.dateContractDate);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.dateYearCheckDate);
+            this.tabPage1.Controls.Add(this.txtIdentify);
+            this.tabPage1.Controls.Add(this.dateRoadFeeBuyDate);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.dateInsuranceDate);
+            this.tabPage1.Controls.Add(this.txtFdjh);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.cbFirstColor);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.cbSecondColor);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.cbThirdColor);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.cbState);
+            this.tabPage1.Controls.Add(this.cbCarType);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.txtContractPerson);
+            this.tabPage1.Controls.Add(this.cbOwnerIdValue);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(619, 213);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "基本信息";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(619, 213);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "车辆费用";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(619, 213);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "出车记录";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // CarBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(627, 271);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(627, 277);
+            this.Controls.Add(this.tabControl1);
             this.Name = "CarBrowser";
             this.Text = "车辆信息";
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.lbId, 0);
+            this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,7 +429,6 @@ namespace DS.Plugins.Car
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtFdjh;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtIdentify;
@@ -422,5 +461,9 @@ namespace DS.Plugins.Car
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkIsExamCar;
         private System.Windows.Forms.CheckBox checkIsTeacherCar;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

@@ -149,7 +149,7 @@ namespace FT.Windows.Forms
         {
         }
 
-        protected virtual void Save()
+        protected virtual bool Save()
         {
             if (this.entity == null)
             {
@@ -173,6 +173,7 @@ namespace FT.Windows.Forms
                 else
                 {
                     MessageBoxHelper.Show("Ìí¼ÓÊ§°Ü£¡");
+                    return false;
                 }
             }
             else
@@ -189,8 +190,10 @@ namespace FT.Windows.Forms
                 else
                 {
                     MessageBoxHelper.Show("ÐÞ¸ÄÊ§°Ü£¡");
+                    return false;
                 }
             }
+            return true;
         }
 
         private void toolStripButton10_Click(object sender, EventArgs e)

@@ -114,7 +114,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 154);
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(0, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
@@ -123,7 +125,9 @@
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(104, 154);
+            this.lbId.BackColor = System.Drawing.SystemColors.Control;
+            this.lbId.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbId.Location = new System.Drawing.Point(12, 281);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(41, 12);
             this.lbId.TabIndex = 2;
@@ -135,9 +139,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(452, 337);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -116,7 +116,7 @@ namespace FT.Windows.CommonsPlugin
             this.ClientSize = new System.Drawing.Size(364, 243);
             this.Controls.Add(this.groupBox1);
             this.Name = "UserBrowser";
-            this.Text = "用户信息浏览";
+            this.Text = "用户信息";
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

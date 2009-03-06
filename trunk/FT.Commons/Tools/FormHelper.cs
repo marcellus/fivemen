@@ -340,7 +340,15 @@ namespace FT.Commons.Tools
             }
             else if (ctr is DateTimePicker)
             {
-                result = ((DateTimePicker)ctr).Value.ToString("yyyy-MM-dd");
+                DateTimePicker dtp=(DateTimePicker)ctr;
+                if (dtp.Format == DateTimePickerFormat.Custom)
+                {
+                    result = dtp.Value.ToString(dtp.CustomFormat);
+                }
+                else
+                {
+                    result = dtp.Value.ToString("yyyy-MM-dd");
+                }
             }
             else if (ctr is CheckBox)
             {

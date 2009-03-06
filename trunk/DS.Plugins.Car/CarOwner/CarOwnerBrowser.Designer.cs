@@ -238,7 +238,7 @@ namespace DS.Plugins.Car
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(437, 273);
+            this.tabPage2.Size = new System.Drawing.Size(581, 273);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "车辆信息";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@ namespace DS.Plugins.Car
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(437, 273);
+            this.tabPage3.Size = new System.Drawing.Size(581, 273);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "教练信息";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@ namespace DS.Plugins.Car
             this.ClientSize = new System.Drawing.Size(589, 337);
             this.Controls.Add(this.tabControl1);
             this.Name = "CarOwnerBrowser";
-            this.Text = "车主浏览";
+            this.Text = "车主信息";
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -11,21 +11,20 @@ using System.Collections;
 
 namespace DS.Plugins.Car
 {
-    public partial class CarBrowser : FT.Windows.Forms.DataBrowseForm
+    public partial class CarFeeBrowser : FT.Windows.Forms.DataBrowseForm
     {
-        public CarBrowser()
+        public CarFeeBrowser()
         {
             InitializeComponent();
             this.InitComBox();
         }
-
         #region 子类必须实现的
-        public CarBrowser(object entity):base(entity)
+        public CarFeeBrowser(object entity):base(entity)
         {
             InitializeComponent();
             this.InitComBox();
         }
-        public CarBrowser(object entity, IRefreshParent refresher)
+        public CarFeeBrowser(object entity, IRefreshParent refresher)
             : base(entity, refresher)
         {
             InitializeComponent();
@@ -36,16 +35,18 @@ namespace DS.Plugins.Car
         {
             if (!this.DesignMode)
             {
-                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarOwner));
+                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarInfo));
                 if (lists.Count > 0)
                 {
                     //this.cbGroup
-                    this.cbOwnerIdValue.DataSource = lists;
-                    this.cbOwnerIdValue.DisplayMember = "姓名";
-                    this.cbOwnerIdValue.ValueMember = "编号";
+                    this.cbHmhp.DataSource = lists;
+                    this.cbHmhp.DisplayMember = "号码号牌";
+                    this.cbHmhp.ValueMember = "号码号牌";
                 }
+
+                FT.Windows.CommonsPlugin.Entity.DictManager.BindToCombox(this.cbFeeType, "车辆费用类型"); 
             }
-            this.cbOwnerIdValue.SelectedIndex = 0;
+            this.cbHmhp.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -54,28 +55,32 @@ namespace DS.Plugins.Car
         /// <returns>实体类别</returns>
         protected override object GetEntity()
         {
-            return new CarInfo();
+            return new CarFee();
             //   return null;
         }
         #endregion
 
-        protected override void BeforeSave(object entity)
+        private void txtFee_Validating(object sender, CancelEventArgs e)
         {
-            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "OwnerName", this.cbOwnerIdValue.Text);
-            //base.BeforeSave(entity);
-        }
-
-        private void txtHmhp_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtHmhp.Text.Trim().Length == 0)
+            if (this.txtFee.Text.Trim().Length == 0)
             {
-                this.SetError(sender, "号码号牌不得为空！");
+                this.SetError(sender, "必须输入费用金额！");
                 e.Cancel = true;
             }
             else
             {
-                this.SetError(sender, "");
-                e.Cancel = false;
+                try
+                {
+                    Convert.ToDouble(this.txtFee.Text.Trim());
+                    this.ClearError(sender);
+                    e.Cancel = false;
+
+                }
+                catch (Exception ex)
+                {
+                    this.SetError(sender, "费用金额必须是数字！");
+                    e.Cancel = true;
+                }
             }
         }
     }

@@ -194,11 +194,11 @@ namespace FT.DAL.Orm
         /// 查询一个对象列表出来出来
         /// </summary>
         /// <typeparam name="T">泛型</typeparam>
-        /// <param name="pk">主键值</param>
+        /// <param name="condition">带有where的条件</param>
         /// <returns>一个对象</returns>
-        public static ArrayList QueryList<T>(string sql)
+        public static ArrayList QueryConditionList<T>(string condition)
         {
-            return QueryList(typeof(T),sql);
+            return QueryConditionList(typeof(T), condition);
 
         }
 
@@ -206,37 +206,51 @@ namespace FT.DAL.Orm
         /// 查询一个对象列表出来出来
         /// </summary>
         /// <typeparam name="T">泛型</typeparam>
-        /// <param name="pk">主键值</param>
+        /// <param name="condition">带有where的条件</param>
         /// <returns>一个对象</returns>
-        public static ArrayList QueryList(Type type,string sql)
+        public static ArrayList QueryList(Type type, string sql)
         {
             CheckConn();
             ArrayList list = new ArrayList();
             CheckConn();
-            if (sql == null || sql.ToString().Length == 0)
+            if (sql == null&&sql.Length==0)
             {
                 throw new ArgumentException("查询的语句不得为空！");
                 //return null;
             }
 
             // string sql = SimpleOrmCache.GetSelectSql(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" + pk.ToString();
-            DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(type));
+            string tablename = SimpleOrmCache.GetTableName(type);
+            DataTable dt = dataAccess.SelectDataTable(sql, tablename);
             if (dt != null && dt.Rows.Count > 0)
             {
-                DataRow dr=null;
-                for(int i=0;i<dt.Rows.Count;i++)
+                DataRow dr = null;
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dr= dt.Rows[i];
-                    list.Add(CreateFromDataRow(type,dr));
+                    dr = dt.Rows[i];
+                    list.Add(CreateFromDataRow(type, dr));
                 }
             }
             return list;
 
         }
 
+        /// <summary>
+        /// 查询一个对象列表出来出来
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="condition">带有where的条件</param>
+        /// <returns>一个对象</returns>
+        public static ArrayList QueryConditionList(Type type,string condition)
+        {
+            string sql = "select * from " + SimpleOrmCache.GetTableName(type) + " " + condition;
+            return QueryList(type,sql);
+
+        }
+
         public static ArrayList QueryListAll(Type type)
         {
-           return QueryList(type, "select * from " + SimpleOrmCache.GetTableName(type));
+            return QueryConditionList(type, string.Empty);
         }
 
         /// <summary>
