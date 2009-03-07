@@ -50,7 +50,7 @@
             this.groupBox1.Size = new System.Drawing.Size(253, 100);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "登陆";
+            this.groupBox1.Text = "请输入";
             // 
             // cbName
             // 

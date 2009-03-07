@@ -185,6 +185,10 @@
       <Project>{EAEC7C52-7FC6-484C-9199-DBAB71E19222}</Project>
       <Name>DS.Plugins.Car</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DS.Plugins.Student\DS.Plugins.Student.csproj">
+      <Project>{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}</Project>
+      <Name>DS.Plugins.Student</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
@@ -208,6 +212,10 @@
     <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
       <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
       <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj">
+      <Project>{78DF4A96-58A9-442F-B047-ED8D56196172}</Project>
+      <Name>FT.Windows.ExternalTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
       <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>

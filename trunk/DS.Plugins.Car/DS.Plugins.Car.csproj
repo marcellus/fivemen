@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingHelper.cs" />
     <Compile Include="Car\CarBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +90,7 @@
       <DependentUpon>CarSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="CarOut\CarOut.cs" />
+    <Compile Include="CoachPlugin.cs" />
     <Compile Include="Coach\CoachBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +114,10 @@
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Device\FT.Device.csproj">
+      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
+      <Name>FT.Device</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
       <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>

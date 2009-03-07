@@ -13,7 +13,7 @@ using System.IO;
 namespace FT.Windows.CommonsPlugin
 {
     [Plugin(ChangeLogPath = "LoginPlugin-ChangeLog.txt", Company = "Fight Together", Developer = "deadshot123",
-        Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "登陆插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
+       Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "系统用户插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
     public class LoginPlugin : AbstractWindowPlugin
     {
         public override void EmmitMenu()

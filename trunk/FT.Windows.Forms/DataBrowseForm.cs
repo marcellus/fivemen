@@ -162,6 +162,8 @@ namespace FT.Windows.Forms
                 this.BeforeCreateEntity(entity);
                 if (SimpleOrmOperator.Create(entity))
                 {
+
+                    this.AfterSuccessCreate();
                     FormHelper.SetDataToForm(this, entity);
                     MessageBoxHelper.Show("添加成功！");
                     if (refresher != null)
@@ -181,6 +183,7 @@ namespace FT.Windows.Forms
                 this.BeforeUpdateEntity(entity);
                 if (SimpleOrmOperator.Update(entity))
                 {
+                    this.AfterSuccessUpdate();
                     MessageBoxHelper.Show("修改成功！");
                     if (refresher != null)
                     {
@@ -194,6 +197,15 @@ namespace FT.Windows.Forms
                 }
             }
             return true;
+        }
+
+        protected virtual void AfterSuccessUpdate()
+        {
+
+        }
+        protected virtual void AfterSuccessCreate()
+        {
+
         }
 
         private void toolStripButton10_Click(object sender, EventArgs e)

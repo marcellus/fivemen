@@ -42,6 +42,12 @@ namespace FT.Plugins.PersonCard
             //   return null;
         }
 
+        protected override void AfterSuccessUpdate()
+        {
+            base.AfterSuccessUpdate();
+            FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update table_cards set c_group='"+this.txtName.Text.Trim()+"' where c_groupid='"+this.lbId.Text+"'");
+        }
+
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
             if (txtName.Text.Trim().Length == 0)

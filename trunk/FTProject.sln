@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Plugins.PersonCard", "FT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.Plugins.Car", "DS.Plugins.Car\DS.Plugins.Car.csproj", "{EAEC7C52-7FC6-484C-9199-DBAB71E19222}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.Plugins.Student", "DS.Plugins.Student\DS.Plugins.Student.csproj", "{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.ExternalTool", "FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj", "{78DF4A96-58A9-442F-B047-ED8D56196172}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAEC7C52-7FC6-484C-9199-DBAB71E19222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78DF4A96-58A9-442F-B047-ED8D56196172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78DF4A96-58A9-442F-B047-ED8D56196172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78DF4A96-58A9-442F-B047-ED8D56196172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78DF4A96-58A9-442F-B047-ED8D56196172}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

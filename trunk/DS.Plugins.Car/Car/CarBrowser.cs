@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Windows.Forms;
 using System.Collections;
+using FT.Windows.CommonsPlugin.Entity;
 
 namespace DS.Plugins.Car
 {
@@ -36,16 +37,16 @@ namespace DS.Plugins.Car
         {
             if (!this.DesignMode)
             {
-                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarOwner));
-                if (lists.Count > 0)
-                {
-                    //this.cbGroup
-                    this.cbOwnerIdValue.DataSource = lists;
-                    this.cbOwnerIdValue.DisplayMember = "ÐÕÃû";
-                    this.cbOwnerIdValue.ValueMember = "±àºÅ";
-                }
+                BindingHelper.BindOwner(this.cbOwnerIdValue);
+                DictManager.BindCarType(this.cbCarType);
+                DictManager.BindCarPinPai(this.cbPinPai);
+                DictManager.BindCarState(this.cbState);
+                DictManager.BindCarColorDynamic(this.cbFirstColor);
+                DictManager.BindCarColorDynamic(this.cbSecondColor);
+
+                DictManager.BindCarColorDynamic(this.cbThirdColor);
             }
-            this.cbOwnerIdValue.SelectedIndex = 0;
+            
         }
 
         /// <summary>

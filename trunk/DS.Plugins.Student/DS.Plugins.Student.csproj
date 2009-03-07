@@ -1,0 +1,163 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DS.Plugins.Student</RootNamespace>
+    <AssemblyName>DS.Plugins.Student</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AllPrinterConfig.cs" />
+    <Compile Include="Config\ApplyPrinterConfig.cs" />
+    <Compile Include="Config\F2PrinterConfig.cs" />
+    <Compile Include="Config\F3PrinterConfig.cs" />
+    <Compile Include="Config\F4PrinterConfig.cs" />
+    <Compile Include="Config\F6PrinterConfig.cs" />
+    <Compile Include="Config\PrintSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\PrintSettingForm.designer.cs">
+      <DependentUpon>PrintSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ShareDbConfig.cs" />
+    <Compile Include="Config\SystemConfig.cs" />
+    <Compile Include="Printer\AllPrinter.cs" />
+    <Compile Include="Printer\BaseStudentPrinter.cs" />
+    <Compile Include="Printer\F2Printer.cs" />
+    <Compile Include="Printer\F3Printer.cs" />
+    <Compile Include="Printer\F4Printer.cs" />
+    <Compile Include="Printer\F5Printer.cs" />
+    <Compile Include="Printer\F6Printer.cs" />
+    <Compile Include="Printer\F7Printer.cs" />
+    <Compile Include="StudentExam\StudentExamBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentExam\StudentExamBrowser.Designer.cs">
+      <DependentUpon>StudentExamBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentExam\StudentExamSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentExam\StudentExamSearch.Designer.cs">
+      <DependentUpon>StudentExamSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFee\StudentFeeBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentFee\StudentFeeBrowser.Designer.cs">
+      <DependentUpon>StudentFeeBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFee\StudentFeeSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentFee\StudentFeeSearch.Designer.cs">
+      <DependentUpon>StudentFeeSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\StudentBrowser.Designer.cs">
+      <DependentUpon>StudentBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentExam\StudentExam.cs" />
+    <Compile Include="StudentFee\StudentFee.cs" />
+    <Compile Include="Student\StudentSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\StudentSearch.Designer.cs">
+      <DependentUpon>StudentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentInfo.cs" />
+    <Compile Include="StudentPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DS.Plugins.Car\DS.Plugins.Car.csproj">
+      <Project>{EAEC7C52-7FC6-484C-9199-DBAB71E19222}</Project>
+      <Name>DS.Plugins.Car</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Device\FT.Device.csproj">
+      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
+      <Name>FT.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
+      <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
+      <Name>FT.Windows.CommonsPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
+      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
+      <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
+      <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
+      <Name>FT.Windows.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\PrintSettingForm.resx">
+      <DependentUpon>PrintSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentExam\StudentExamBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StudentExamBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentFee\StudentFeeBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StudentFeeBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\StudentBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StudentBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\StudentSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StudentSearch.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
