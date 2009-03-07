@@ -57,7 +57,13 @@ namespace FT.Windows.CommonsPlugin
                 this.txtPwd.Text = string.Empty;
                 this.txtPwd.Focus();
             }
-            else
+            else if (result == 3)
+            {
+                MessageBoxHelper.Show("对不起，该用户名被锁定,请联系本系统管理员！");
+                this.txtPwd.Text = string.Empty;
+                this.txtPwd.Focus();
+            }
+            else 
             {
                 MessageBoxHelper.Show("用户名错误，请重新输入！");
                 //this.txtName.Text.Trim();
