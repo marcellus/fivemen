@@ -19,7 +19,12 @@ namespace FT.Test
             Form form = new FT.Windows.CommonsPlugin.LoginForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FT.Windows.Forms.BaseMainForm());
+                FT.Windows.Forms.BaseMainForm main = new FT.Windows.Forms.BaseMainForm();
+                TabPage tb=new TabPage("欢迎您   ");
+                tb.BackgroundImage=FT.Test.Properties.Resources.bg;
+                tb.BackgroundImageLayout = ImageLayout.Stretch;
+                main.GetSimpleTabControl().TabPages.Add(tb);
+                Application.Run(main);
             }
         }
     }

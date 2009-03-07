@@ -28,7 +28,7 @@ namespace FT.Windows.CommonsPlugin.Entity
         /// </summary>
         /// <param name="name">用户名</param>
         /// <param name="pwd">未加密的密码</param>
-        /// <returns>是否登陆成功,0 代表成功，1代表密码错误，2代表用户名不存在</returns>
+        /// <returns>是否登陆成功,0 代表成功，1代表密码错误，2代表用户名不存在 3代表账户被锁定</returns>
         public static int Login(string name, string pwd)
         {
 
@@ -37,8 +37,11 @@ namespace FT.Windows.CommonsPlugin.Entity
             {
                 loginUser = users[0] as User;
                 pwd = FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt(pwd);
-                if (pwd == loginUser.Password)
+                if (loginUser.Valid == "无效")
+                    return 3;
+                else if (pwd == loginUser.Password)
                     return 0;
+
                 else
                     return 1;
             }
