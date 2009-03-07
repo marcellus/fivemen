@@ -189,7 +189,16 @@ namespace FT.DAL.Orm
                     inserts.Add(tmpstr, tmpstr);
                     selects.Add(columnname, columnname);
                     selectSql.Append(tmpstr + ",");
-                    selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+                    AliasAttribute aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                    if (aliasAtt != null)
+                    {
+                        selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
+                    }
+                    else
+                    {
+                        //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+                    }
+                    //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                 }
                 
                 

@@ -43,7 +43,6 @@ namespace DS.Plugins.Car
             this.cbState = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtContractPerson = new System.Windows.Forms.TextBox();
-            this.txtPinPai = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbOwnerIdValue = new System.Windows.Forms.ComboBox();
@@ -64,6 +63,7 @@ namespace DS.Plugins.Car
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbPinPai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -136,7 +136,7 @@ namespace DS.Plugins.Car
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(212, 150);
+            this.label14.Location = new System.Drawing.Point(209, 150);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 12);
             this.label14.TabIndex = 16;
@@ -145,7 +145,7 @@ namespace DS.Plugins.Car
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(220, 115);
+            this.label11.Location = new System.Drawing.Point(233, 115);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 16;
@@ -193,13 +193,6 @@ namespace DS.Plugins.Car
             this.txtContractPerson.Size = new System.Drawing.Size(109, 21);
             this.txtContractPerson.TabIndex = 16;
             // 
-            // txtPinPai
-            // 
-            this.txtPinPai.Location = new System.Drawing.Point(102, 41);
-            this.txtPinPai.Name = "txtPinPai";
-            this.txtPinPai.Size = new System.Drawing.Size(109, 21);
-            this.txtPinPai.TabIndex = 4;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -246,7 +239,7 @@ namespace DS.Plugins.Car
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 45);
+            this.label6.Location = new System.Drawing.Point(233, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 8;
@@ -311,7 +304,7 @@ namespace DS.Plugins.Car
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(217, 10);
+            this.label3.Location = new System.Drawing.Point(221, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 2;
@@ -350,8 +343,8 @@ namespace DS.Plugins.Car
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cbPinPai);
             this.tabPage1.Controls.Add(this.checkIsExamCar);
-            this.tabPage1.Controls.Add(this.txtPinPai);
             this.tabPage1.Controls.Add(this.checkIsTeacherCar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.dateZrDate);
@@ -409,6 +402,14 @@ namespace DS.Plugins.Car
             this.tabPage3.Text = "³ö³µ¼ÇÂ¼";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // cbPinPai
+            // 
+            this.cbPinPai.FormattingEnabled = true;
+            this.cbPinPai.Location = new System.Drawing.Point(102, 42);
+            this.cbPinPai.Name = "cbPinPai";
+            this.cbPinPai.Size = new System.Drawing.Size(109, 20);
+            this.cbPinPai.TabIndex = 4;
+            // 
             // CarBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -445,7 +446,6 @@ namespace DS.Plugins.Car
         private System.Windows.Forms.ComboBox cbOwnerIdValue;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtPinPai;
         private System.Windows.Forms.ComboBox cbState;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateInsuranceDate;
@@ -465,5 +465,6 @@ namespace DS.Plugins.Car
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox cbPinPai;
     }
 }

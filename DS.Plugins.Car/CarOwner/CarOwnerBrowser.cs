@@ -128,6 +128,45 @@ namespace DS.Plugins.Car
             {
                 this.ViewCars();
             }
+
+            if (this.tabControl1.SelectedIndex == 2)
+            {
+                this.ViewCoaches();
+            }
+        }
+
+        private void ViewCoaches()
+        {
+            if (this.lbId.Text.Trim().Length > 0 && this.lbId.Text.Trim() != "0")
+            {
+                TabPage tb = this.tabControl1.TabPages[2];
+                if (tb.Controls.Count == 0)
+                {
+                    CoachSearch coaches = new CoachSearch();
+                    coaches.AllowCustomeSearch = false;
+                    coaches.Dock = DockStyle.Fill;
+                    coaches.InitBeforeAdd += new ProcessObjectDelegate(coaches_InitBeforeAdd);
+                    tb.Controls.Add(coaches);
+                    coaches.ClearColumns();
+                    coaches.CreateColumn("姓名", 80);
+                    coaches.CreateColumn("身份证号",120);
+                    coaches.CreateColumn("准教车型", 80);
+                    coaches.CreateColumn("号码号牌", 80);
+                    coaches.CreateColumn("教练证号", 80);
+                    coaches.CreateColumn("驾驶证编号");
+                    // this.Width += 30;
+                    coaches.SetConditions("c_hmhp in (select c_hmhp from table_cars where i_ownerid='" + this.lbId.Text + "')");
+
+                }
+            }
+        }
+
+        void coaches_InitBeforeAdd(ref object entity)
+        {
+            //Coach tmp = new Coach();
+            //tmp.CoachId
+            //entity = tmp;
+            //throw new Exception("The method or operation is not implemented.");
         }
 
         private void ViewCars()

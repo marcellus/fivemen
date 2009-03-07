@@ -39,7 +39,7 @@ namespace FT.Plugins.PersonCard
 
             this.dataGridView1.AutoGenerateColumns = false;
             this.CreateColumn("编号", 80);
-            this.CreateColumn("分组描述", 80);
+            this.CreateColumn("分组名称", 80);
             this.CreateColumn("分组描述");
         }
         #endregion

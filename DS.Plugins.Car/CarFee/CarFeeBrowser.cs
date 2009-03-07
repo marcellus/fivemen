@@ -35,18 +35,9 @@ namespace DS.Plugins.Car
         {
             if (!this.DesignMode)
             {
-                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarInfo));
-                if (lists.Count > 0)
-                {
-                    //this.cbGroup
-                    this.cbHmhp.DataSource = lists;
-                    this.cbHmhp.DisplayMember = "号码号牌";
-                    this.cbHmhp.ValueMember = "号码号牌";
-                }
-
-                FT.Windows.CommonsPlugin.Entity.DictManager.BindToCombox(this.cbFeeType, "车辆费用类型"); 
+                BindingHelper.BindCars(this.cbHmhp);
+                FT.Windows.CommonsPlugin.Entity.DictManager.BindCarFeeType(this.cbFeeType); 
             }
-            this.cbHmhp.SelectedIndex = 0;
         }
 
         /// <summary>

@@ -36,16 +36,9 @@ namespace DS.Plugins.Car
         {
             if (!this.DesignMode)
             {
-                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarInfo));
-                if (lists.Count > 0)
-                {
-                    //this.cbGroup
-                    this.cbHmhp.DataSource = lists;
-                    this.cbHmhp.DisplayMember = "∫≈¬Î∫≈≈∆";
-                    this.cbHmhp.ValueMember = "∫≈¬Î∫≈≈∆";
-                }
+                BindingHelper.BindCars(this.cbHmhp);
             }
-            this.cbHmhp.SelectedIndex = 0;
+            
         }
 
         /// <summary>

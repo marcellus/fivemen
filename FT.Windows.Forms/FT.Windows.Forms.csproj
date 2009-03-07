@@ -67,6 +67,12 @@
     <Compile Include="Domain\ProgramRegConfig.cs" />
     <Compile Include="IRefreshParent.cs" />
     <Compile Include="Pager.cs" />
+    <Compile Include="CommonPanel\PersonDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonPanel\PersonDetail.Designer.cs">
+      <DependentUpon>PersonDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="PluginConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,10 @@
     <EmbeddedResource Include="DataSearchControl.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonPanel\PersonDetail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PersonDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PluginConfigForm.resx">
       <SubType>Designer</SubType>

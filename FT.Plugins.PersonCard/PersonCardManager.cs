@@ -40,7 +40,7 @@ namespace FT.Plugins.PersonCard
 
                 TabPage tb = this.tabControl1.TabPages[this.tabControl1.SelectedIndex];
                 tb.Controls.Add(this.personCardSearch1);
-                this.personCardSearch1.SetConditions("c_classical='" + tb.Text + "'");
+                this.personCardSearch1.SetConditions("c_groupid='" + tb.Tag.ToString() + "'");
             }
         }
 
@@ -57,12 +57,13 @@ namespace FT.Plugins.PersonCard
                     {
                         group = lists[i] as Group;
                         this.tabControl1.TabPages.Add(group.Name);
+                        this.tabControl1.TabPages[this.tabControl1.TabCount - 1].Tag = group.Id;
 
                     }
 
                     TabPage tb = this.tabControl1.TabPages[0];
                     tb.Controls.Add(this.personCardSearch1);
-                    this.personCardSearch1.SetConditions("c_classical='" + tb.Text + "'");
+                    this.personCardSearch1.SetConditions("c_groupid='" + tb.Tag.ToString() + "'");
                 }
             }
 

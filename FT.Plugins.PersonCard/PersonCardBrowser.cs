@@ -21,6 +21,12 @@ namespace FT.Plugins.PersonCard
             //MessageBoxHelper.Show("子类的构造函数！");
         }
 
+        protected override void BeforeSave(object entity)
+        {
+            base.BeforeSave(entity);
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "GroupId", this.cbGroup.SelectedValue.ToString());
+        }
+
         #region 子类必须实现的
         public PersonCardBrowser(object entity):base(entity)
         {

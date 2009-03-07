@@ -99,7 +99,11 @@ namespace FT.Plugins.PersonCard
         {
             get { return Email; }
         }
-        [SimpleColumn(Column = "c_classical")]
+
+        [SimpleColumn(Column = "c_groupid")]
+        public String GroupId;
+
+        [SimpleColumn(Column = "c_group")]
         [Alias("·Ö×éÃû³Æ")]
         public String Group;
 
