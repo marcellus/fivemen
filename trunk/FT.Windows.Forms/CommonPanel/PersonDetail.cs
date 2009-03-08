@@ -107,5 +107,26 @@ namespace FT.Windows.Forms
                 e.Cancel = false;
             }
         }
+
+        private void txtIdCard_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string id = this.txtIdCard.Text.Trim();
+                if(id.Length!=0)
+                {
+                    try
+                    {
+                        this.dateBirthday.Value=IDCardHelper.GetBirthday(id);
+                        this.cbSex.Text=IDCardHelper.GetSexName(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        //this.SetError(sender, "手机号码格式错误！");
+                        //MessageBoxHelper.Show("错误:"+ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

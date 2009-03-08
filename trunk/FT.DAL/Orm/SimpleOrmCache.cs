@@ -25,6 +25,8 @@ namespace FT.DAL.Orm
     ///         7、tablename
     ///         8、pkcolumn
     ///         9、select.conditions//查询条件用到的别名和列实际名对应的datatable
+    ///         10、tablealiasname 表的别名
+    ///         11、export.sql 导出excel需要导出的别名
     /// </summary>
     public class SimpleOrmCache
     {
@@ -79,6 +81,22 @@ namespace FT.DAL.Orm
             return second["select.sql"].ToString();
         }
 
+        public static string GetExportSql(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            return second["export.sql"].ToString();
+        }
+
+        public static string GetExportTitle(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            return second["tablealiasname"].ToString();
+        }
+
+        
+
         public static string GetTableName(Type type)
         {
             InitType(type);
@@ -116,10 +134,15 @@ namespace FT.DAL.Orm
             DataTable selectsAlias = new DataTable();//字段别名
             selectsAlias.Columns.Add("value");
             selectsAlias.Columns.Add("text");
+
+            //DataTable selectsAlias = new DataTable();
            
             SimpleTableAttribute tableAtt = Attribute.GetCustomAttribute(type, typeof(SimpleTableAttribute)) as SimpleTableAttribute;
+            AliasAttribute tableAliasAtt = Attribute.GetCustomAttribute(type, typeof(AliasAttribute)) as AliasAttribute;
             string tablename=tableAtt == null ? type.Name.ToLower() : tableAtt.Table;
+            string tableAliasName = tableAliasAtt == null ? tablename : tableAliasAtt.Name;
             second.Add("tablename",tablename);
+            second.Add("tablealiasname", tableAliasName);
             StringBuilder updateSql = new StringBuilder("update "+tablename+" set ");
             StringBuilder insertSql = new StringBuilder("insert into "+tablename+" (");
             StringBuilder selectSql = new StringBuilder("");
@@ -131,7 +154,8 @@ namespace FT.DAL.Orm
             string columnname = string.Empty;
             string tmpstr = string.Empty;
             StringBuilder inserttmp = new StringBuilder();
-           
+            StringBuilder exporttmp = new StringBuilder();
+            AliasAttribute aliasAtt=null;
             for (int i = 0; i < fields.Length;i++ )
             {
                 
@@ -145,6 +169,11 @@ namespace FT.DAL.Orm
                         pk = columnname;
                         findPk = true;
                         second.Add("pkcolumn",pk);
+                        aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                        if (aliasAtt != null)
+                        {
+                            exporttmp.Append(pk + " as " + aliasAtt.Name + ",");
+                        }
                         continue;
                     }
                 }
@@ -168,13 +197,15 @@ namespace FT.DAL.Orm
                         selectSql.Append(tmpstr + ",");
                         selects.Add(tmpstr, columnname);
 
-                        AliasAttribute aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                        aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
                         if (aliasAtt != null)
                         {
                             selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
+                            exporttmp.Append(tmpstr + " as " + aliasAtt.Name+",");
                         }
                         else
                         {
+                            
                             //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                         }
                     }
@@ -189,10 +220,11 @@ namespace FT.DAL.Orm
                     inserts.Add(tmpstr, tmpstr);
                     selects.Add(columnname, columnname);
                     selectSql.Append(tmpstr + ",");
-                    AliasAttribute aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                    aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
                     if (aliasAtt != null)
                     {
                         selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
+                        exporttmp.Append(tmpstr + " as " + aliasAtt.Name+",");
                     }
                     else
                     {
@@ -210,15 +242,16 @@ namespace FT.DAL.Orm
             second.Add("insert.field", inserts);
             second.Add("select.sql","select "+selectSql.ToString()+pk+" from "+tablename);
             second.Add("select.field", selects);
+            second.Add("export.sql", exporttmp.ToString().TrimEnd(','));
             second.Add("select.conditions", selectsAlias);
-            Console.WriteLine("插入语句结果为：" + second["insert.sql"].ToString());
-            Console.WriteLine("插入语句字段个数为：" + inserts.Count);
-            Loop(inserts);
-            Console.WriteLine("更新语句结果为：" + second["update.sql"].ToString());
-            Console.WriteLine("更新语句字段个数为：" + updates.Count);
-            Loop(updates);
-            Console.WriteLine("查询语句结果为："+second["select.sql"].ToString());
-            Loop(selects);
+            //Console.WriteLine("插入语句结果为：" + second["insert.sql"].ToString());
+            //Console.WriteLine("插入语句字段个数为：" + inserts.Count);
+            //Loop(inserts);
+            //Console.WriteLine("更新语句结果为：" + second["update.sql"].ToString());
+            //Console.WriteLine("更新语句字段个数为：" + updates.Count);
+            //Loop(updates);
+            //Console.WriteLine("查询语句结果为："+second["select.sql"].ToString());
+            //Loop(selects);
             caches.Add(type.FullName,second);
             
         }

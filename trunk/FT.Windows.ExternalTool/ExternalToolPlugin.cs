@@ -24,6 +24,8 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("运行时查看器", typeof(RuntimeView));
             top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("程序使用情况", typeof(ProgramRegConfigForm));
+            top.DropDownItems.Add(tmp);
 
         }
 

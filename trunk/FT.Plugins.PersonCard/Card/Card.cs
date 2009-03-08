@@ -7,9 +7,11 @@ using FT.DAL.Orm;
 namespace FT.Plugins.PersonCard
 {
     [SimpleTable("table_cards")]
+    [Alias("ÃûÆ¬±í")]
     public class Card
     {
         [SimplePK]
+        [Alias("±àºÅ")]
         public int Id;
 
         public int ±àºÅ

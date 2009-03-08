@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppicationHelper.cs" />
     <Compile Include="BaseMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,16 +52,16 @@
     <Compile Include="ConditionBuildForm.Designer.cs">
       <DependentUpon>ConditionBuildForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataBrowseForm.cs">
+    <Compile Include="Control\DataBrowseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataBrowseForm.Designer.cs">
+    <Compile Include="Control\DataBrowseForm.Designer.cs">
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSearchControl.cs">
+    <Compile Include="Control\DataSearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DataSearchControl.Designer.cs">
+    <Compile Include="Control\DataSearchControl.Designer.cs">
       <DependentUpon>DataSearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\CompanyInfo.cs" />
@@ -73,22 +74,22 @@
     <Compile Include="CommonPanel\PersonDetail.Designer.cs">
       <DependentUpon>PersonDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="PluginConfigForm.cs">
+    <Compile Include="Tools\PluginConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PluginConfigForm.Designer.cs">
+    <Compile Include="Tools\PluginConfigForm.Designer.cs">
       <DependentUpon>PluginConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PluginDetailForm.cs">
+    <Compile Include="Tools\PluginDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PluginDetailForm.Designer.cs">
+    <Compile Include="Tools\PluginDetailForm.Designer.cs">
       <DependentUpon>PluginDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PluginManageForm.cs">
+    <Compile Include="Tools\PluginManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PluginManageForm.Designer.cs">
+    <Compile Include="Tools\PluginManageForm.Designer.cs">
       <DependentUpon>PluginManageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Plugins\AbstractWindowPlugin.cs" />
@@ -99,28 +100,34 @@
     <Compile Include="Plugins\PluginManager.cs" />
     <Compile Include="Plugins\PluginsFileConfig.cs" />
     <Compile Include="ProcessObjectDelegate.cs" />
+    <Compile Include="Help\ProgramRegConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\ProgramRegConfigForm.Designer.cs">
+      <DependentUpon>ProgramRegConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SimpleAbout.cs">
+    <Compile Include="Help\SimpleAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleAbout.Designer.cs">
+    <Compile Include="Help\SimpleAbout.Designer.cs">
       <DependentUpon>SimpleAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleCompany.cs">
+    <Compile Include="Help\SimpleCompany.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleCompany.Designer.cs">
+    <Compile Include="Help\SimpleCompany.Designer.cs">
       <DependentUpon>SimpleCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleRegister.cs">
+    <Compile Include="Help\SimpleRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleRegister.Designer.cs">
+    <Compile Include="Help\SimpleRegister.Designer.cs">
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -151,11 +158,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>ConditionBuildForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataBrowseForm.resx">
+    <EmbeddedResource Include="Control\DataBrowseForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataSearchControl.resx">
+    <EmbeddedResource Include="Control\DataSearchControl.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataSearchControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,16 +170,20 @@
       <SubType>Designer</SubType>
       <DependentUpon>PersonDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PluginConfigForm.resx">
+    <EmbeddedResource Include="Tools\PluginConfigForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PluginConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PluginDetailForm.resx">
+    <EmbeddedResource Include="Tools\PluginDetailForm.resx">
       <DependentUpon>PluginDetailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PluginManageForm.resx">
+    <EmbeddedResource Include="Tools\PluginManageForm.resx">
       <DependentUpon>PluginManageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\ProgramRegConfigForm.resx">
+      <DependentUpon>ProgramRegConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -180,35 +191,35 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleAbout.en.resx">
+    <EmbeddedResource Include="Help\SimpleAbout.en.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleAbout.resx">
+    <EmbeddedResource Include="Help\SimpleAbout.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleAbout.zh-CN.resx">
+    <EmbeddedResource Include="Help\SimpleAbout.zh-CN.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleCompany.en.resx">
+    <EmbeddedResource Include="Help\SimpleCompany.en.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleCompany.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleCompany.resx">
+    <EmbeddedResource Include="Help\SimpleCompany.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleCompany.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleRegister.en.resx">
+    <EmbeddedResource Include="Help\SimpleRegister.en.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleRegister.resx">
+    <EmbeddedResource Include="Help\SimpleRegister.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleRegister.zh-CN.resx">
+    <EmbeddedResource Include="Help\SimpleRegister.zh-CN.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </EmbeddedResource>

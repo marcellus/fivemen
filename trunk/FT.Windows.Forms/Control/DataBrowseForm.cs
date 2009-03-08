@@ -18,6 +18,7 @@ namespace FT.Windows.Forms
     /// </summary>
     public partial class DataBrowseForm : Form
     {
+       
         public DataBrowseForm()
         {
             InitializeComponent();
@@ -55,6 +56,223 @@ namespace FT.Windows.Forms
         {
             FormHelper.InitHabitToForm(this);
         }
+
+        protected void ValidateIdCard(object sender, CancelEventArgs e,  bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                string tmp=txt.Text.Trim();
+                if (allowBlank)
+                {
+                    if (tmp.Length == 0)
+                    {   
+                        this.errorProvider1.SetError(txt, string.Empty);
+                        e.Cancel = false;
+                    }
+                    else
+                    {
+                        tmp = IDCardHelper.Validate(tmp);
+                        if (tmp.Length != 0)
+                        {
+                            this.errorProvider1.SetError(txt, tmp);
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            this.errorProvider1.SetError(txt, string.Empty);
+                            e.Cancel = false;
+                        }
+                    }
+                }
+                else if (tmp.Length == 0)
+                {
+                    this.errorProvider1.SetError(txt, "请输入身份证号!");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tmp = IDCardHelper.Validate(tmp);
+                    if (tmp.Length != 0)
+                    {
+                        this.errorProvider1.SetError(txt, tmp);
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        this.errorProvider1.SetError(txt, string.Empty);
+                        e.Cancel = false;
+                    }
+                }
+                
+                
+            }
+        }
+
+        protected void ValidateAlapha(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateAlapha(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateUrl(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateUrl(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateEmail(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateEmail(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateIp(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateIp(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidatePostCode(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidatePostCode(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+
+
+        protected void ValidateNotNull(object sender, CancelEventArgs e, string text)
+        {
+            TextBox txt=sender as TextBox;
+            if (txt != null)
+            {
+                if (txt.Text.Trim().Length == 0)
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateNumber(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateNumber(txt.Text.Trim(),allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidatePhone(object sender, CancelEventArgs e, string text,bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidatePhone(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateMobile(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateMobile(txt.Text.Trim(),allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
         /// <summary>
         /// 为控件设置text错误信息
         /// </summary>

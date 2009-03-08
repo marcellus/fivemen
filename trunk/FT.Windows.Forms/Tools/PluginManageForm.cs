@@ -67,6 +67,7 @@ namespace FT.Windows.Forms
             if (this.listView1.SelectedIndices.Count > 0)
             {
                 Form form = new PluginDetailForm(this.listView1.SelectedItems[0].Tag as PluginAttribute);
+                form.ShowInTaskbar = false;
                 form.ShowDialog();
             }
         }

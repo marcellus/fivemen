@@ -26,6 +26,10 @@ namespace FT.Test
                 main.GetSimpleTabControl().TabPages.Add(tb);
                 Application.Run(main);
             }
+
+            
         }
+
+       
     }
 }

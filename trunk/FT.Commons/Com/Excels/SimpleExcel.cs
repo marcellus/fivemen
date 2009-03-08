@@ -305,6 +305,7 @@ namespace FT.Commons.Com.Excels
         protected void Create()
         {
             m_objExcel = new Application();
+            m_objExcel.Application.DisplayAlerts = false;
             m_objBooks = (Workbooks)m_objExcel.Workbooks;
             m_objBook = (_Workbook)(m_objBooks.Add(m_objOpt));
 
