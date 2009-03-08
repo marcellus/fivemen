@@ -13,13 +13,13 @@ namespace FT.Windows.CommonsPlugin
         public UserSearchControl()
         {
             InitializeComponent();
-            this.EntityType = typeof(Entity.User);
+            this.EntityType = typeof(User);
             this.DetailFormType=typeof(UserBrowser);
         }
         protected override void InitPager()
         {
             base.InitPager();
-            this.pager.EntityType = typeof(Entity.User);
+            this.pager.EntityType = typeof(User);
             this.pager.OrderField = "id";
             //this.pager.PageSize = 3;
            // DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();

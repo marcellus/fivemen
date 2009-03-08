@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using FT.Commons.Tools;
-using FT.Windows.CommonsPlugin.Entity;
 using System.Reflection;
 
 namespace FT.Windows.CommonsPlugin
@@ -23,7 +22,7 @@ namespace FT.Windows.CommonsPlugin
         {
             if (!this.DesignMode)
             {
-                ArrayList users=FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(FT.Windows.CommonsPlugin.Entity.User));
+                ArrayList users=FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(FT.Windows.CommonsPlugin.User));
                 if (users.Count > 0)
                 {
                     //this.cbGroup

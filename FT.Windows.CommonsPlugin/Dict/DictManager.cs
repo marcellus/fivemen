@@ -5,7 +5,7 @@ using System.Collections;
 using System.Windows.Forms;
 using FT.Commons.Cache;
 
-namespace FT.Windows.CommonsPlugin.Entity
+namespace FT.Windows.CommonsPlugin
 {
     public class DictManager
     {

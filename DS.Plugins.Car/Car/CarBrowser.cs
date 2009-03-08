@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Windows.Forms;
 using System.Collections;
-using FT.Windows.CommonsPlugin.Entity;
+using FT.Windows.CommonsPlugin;
 
 namespace DS.Plugins.Car
 {

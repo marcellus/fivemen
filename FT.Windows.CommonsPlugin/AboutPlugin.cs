@@ -20,14 +20,9 @@ namespace FT.Windows.CommonsPlugin
         {
             ToolStripMenuItem top= this.AddToMenu("帮助(&H)");
             //top.
-            ToolStripMenuItem tmp = this.BuildSubMenu("现有插件...", typeof(FT.Windows.Forms.PluginManageForm));
-
-            top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("配置插件...", typeof(FT.Windows.Forms.PluginConfigForm));
-
-            top.DropDownItems.Add(tmp);
+            
             this.AddSeparatorToMenu(top);
-            tmp = this.BuildSubMenu("注册...",typeof(FT.Windows.Forms.SimpleRegister));
+            ToolStripMenuItem tmp = this.BuildSubMenu("注册...", typeof(FT.Windows.Forms.SimpleRegister));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("使用单位配置...", typeof(FT.Windows.Forms.SimpleCompany));
             top.DropDownItems.Add(tmp);

@@ -37,7 +37,7 @@ namespace FT.Windows.CommonsPlugin
         }
         protected override object GetEntity()
         {
-            return new Entity.User();
+            return new User();
         }
 
         protected override void BeforeCreateEntity(object entity)

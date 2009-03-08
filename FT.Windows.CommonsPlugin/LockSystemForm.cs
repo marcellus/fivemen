@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using FT.Windows.CommonsPlugin.Entity;
 using FT.Commons.Tools;
 
 namespace FT.Windows.CommonsPlugin
