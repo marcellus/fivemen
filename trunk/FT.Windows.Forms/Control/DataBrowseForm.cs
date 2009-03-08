@@ -25,7 +25,7 @@ namespace FT.Windows.Forms
             this.lbId.Text = string.Empty;
             //MessageBoxHelper.Show("父类的空构造函数！");
         }
-        private object entity;
+        protected object entity;
 
         public DataBrowseForm(object entity):this()
         {

@@ -10,21 +10,21 @@ using System.Collections;
 
 namespace FT.Windows.CommonsPlugin
 {
-    public partial class DictBrower : FT.Windows.Forms.DataBrowseForm
+    public partial class DictBrowser : FT.Windows.Forms.DataBrowseForm
     {
-        public DictBrower()
+        public DictBrowser()
         {
             InitializeComponent();
             this.InitComBox();
         }
         #region 子类必须实现的
-        public DictBrower(object entity):base(entity)
+        public DictBrowser(object entity):base(entity)
         {
             InitializeComponent();
             this.InitComBox();
            
         }
-        public DictBrower(object entity, IRefreshParent refresher)
+        public DictBrowser(object entity, IRefreshParent refresher)
             : base(entity, refresher)
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace FT.Windows.CommonsPlugin
         {
             if (!this.DesignMode)
             {
-                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(Entity.DictType));
+                ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(DictType));
                 if (lists.Count > 0)
                 {
                     //this.cbGroup
@@ -55,7 +55,7 @@ namespace FT.Windows.CommonsPlugin
         /// <returns>实体类别</returns>
         protected override object GetEntity()
         {
-            return new Entity.Dict();
+            return new Dict();
             //   return null;
         }
         #endregion
@@ -65,7 +65,7 @@ namespace FT.Windows.CommonsPlugin
             bool result=base.Save();
             if (result)
             {
-                Entity.DictManager.RefreshDicts(this.cbGroupType.Text);
+                DictManager.RefreshDicts(this.cbGroupType.Text);
             }
             return result;
         }

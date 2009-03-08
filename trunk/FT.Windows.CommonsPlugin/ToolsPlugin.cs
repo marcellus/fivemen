@@ -26,10 +26,41 @@ namespace FT.Windows.CommonsPlugin
             tmp.Click+=new EventHandler(dbrestore_Click);
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
-            tmp = this.BuildSubMenu("添加基础数据",typeof(DictBrower));
+            tmp = this.BuildSubMenu("添加基础数据",typeof(DictBrowser));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("基础数据管理", typeof(DictSearch));
             top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("添加省份信息", typeof(ProvinceBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("省份信息管理", typeof(ProvinceSearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("添加市区信息", typeof(CityBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("市区信息管理", typeof(CitySearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("添加县市信息", typeof(AreaBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("县市信息管理", typeof(AreaSearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("添加乡镇信息", typeof(XiangBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("乡镇信息管理", typeof(XiangSearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("添加村居委信息", typeof(CunBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("村居委信息管理", typeof(CunSearch));
+            top.DropDownItems.Add(tmp);
+
             this.AddSeparatorToMenu(top);
             tmp = this.BuildTopMenu("计算器");
             tmp.Click += new EventHandler(calc_Click);

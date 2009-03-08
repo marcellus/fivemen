@@ -206,7 +206,7 @@ namespace FT.DAL.Orm
         /// 查询一个对象列表出来出来
         /// </summary>
         /// <typeparam name="T">泛型</typeparam>
-        /// <param name="condition">带有where的条件</param>
+        /// <param name="sql">完整的sql语句</param>
         /// <returns>一个对象</returns>
         public static ArrayList QueryList(Type type, string sql)
         {

@@ -40,23 +40,62 @@
   -->
   <ItemGroup>
     <Compile Include="AboutPlugin.cs" />
-    <Compile Include="DictBrower.cs">
+    <Compile Include="Area\AreaBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DictBrower.Designer.cs">
-      <DependentUpon>DictBrower.cs</DependentUpon>
+    <Compile Include="Area\AreaBrowser.Designer.cs">
+      <DependentUpon>AreaBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="DictSearch.cs">
+    <Compile Include="Area\AreaSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DictSearch.Designer.cs">
+    <Compile Include="Area\AreaSearch.Designer.cs">
+      <DependentUpon>AreaSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Area\Area.cs" />
+    <Compile Include="City\CityBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="City\CityBrowser.Designer.cs">
+      <DependentUpon>CityBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="City\CitySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="City\CitySearch.Designer.cs">
+      <DependentUpon>CitySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="City\City.cs" />
+    <Compile Include="Cun\CunBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cun\CunBrowser.Designer.cs">
+      <DependentUpon>CunBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cun\CunSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cun\CunSearch.Designer.cs">
+      <DependentUpon>CunSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cun\Cun.cs" />
+    <Compile Include="Dict\DictBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dict\DictBrowser.Designer.cs">
+      <DependentUpon>DictBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dict\DictSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dict\DictSearch.Designer.cs">
       <DependentUpon>DictSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Dict.cs" />
-    <Compile Include="Entity\DictManager.cs" />
-    <Compile Include="Entity\DictType.cs" />
-    <Compile Include="Entity\User.cs" />
-    <Compile Include="Entity\UserManager.cs" />
+    <Compile Include="Dict\Dict.cs" />
+    <Compile Include="Dict\DictManager.cs" />
+    <Compile Include="Dict\DictType.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="User\UserManager.cs" />
     <Compile Include="LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +109,19 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginPlugin.cs" />
+    <Compile Include="Province\ProvinceSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Province\ProvinceSearch.Designer.cs">
+      <DependentUpon>ProvinceSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Province\ProvinceBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Province\ProvinceBrowser.Designer.cs">
+      <DependentUpon>ProvinceBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Province\Province.cs" />
     <Compile Include="PwdChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,18 +134,31 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ToolsPlugin.cs" />
-    <Compile Include="UserBrowser.cs">
+    <Compile Include="User\UserBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserBrowser.Designer.cs">
+    <Compile Include="User\UserBrowser.Designer.cs">
       <DependentUpon>UserBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSearchControl.cs">
+    <Compile Include="User\UserSearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserSearchControl.Designer.cs">
+    <Compile Include="User\UserSearchControl.Designer.cs">
       <DependentUpon>UserSearchControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xiang\XiangSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Xiang\XiangSearch.Designer.cs">
+      <DependentUpon>XiangSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xiang\XiangBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xiang\XiangBrowser.Designer.cs">
+      <DependentUpon>XiangBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xiang\Xiang.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
@@ -126,9 +191,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DictBrower.resx">
+    <EmbeddedResource Include="Area\AreaBrowser.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>DictBrower.cs</DependentUpon>
+      <DependentUpon>AreaBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="City\CityBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CityBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cun\CunBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CunBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dict\DictBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DictBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LockSystemForm.resx">
       <SubType>Designer</SubType>
@@ -137,6 +214,10 @@
     <EmbeddedResource Include="LoginForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Province\ProvinceBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ProvinceBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChangeForm.resx">
       <SubType>Designer</SubType>
@@ -147,9 +228,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserBrowser.resx">
+    <EmbeddedResource Include="User\UserBrowser.resx">
       <SubType>Designer</SubType>
       <DependentUpon>UserBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xiang\XiangBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>XiangBrowser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

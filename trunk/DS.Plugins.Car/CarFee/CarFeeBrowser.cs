@@ -36,7 +36,7 @@ namespace DS.Plugins.Car
             if (!this.DesignMode)
             {
                 BindingHelper.BindCars(this.cbHmhp);
-                FT.Windows.CommonsPlugin.Entity.DictManager.BindCarFeeType(this.cbFeeType); 
+                FT.Windows.CommonsPlugin.DictManager.BindCarFeeType(this.cbFeeType); 
             }
         }
 

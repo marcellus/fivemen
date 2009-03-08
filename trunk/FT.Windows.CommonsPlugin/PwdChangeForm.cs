@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Commons.Security;
-using FT.Windows.CommonsPlugin.Entity;
 
 namespace FT.Windows.CommonsPlugin
 {

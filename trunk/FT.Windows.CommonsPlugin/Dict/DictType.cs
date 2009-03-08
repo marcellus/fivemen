@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FT.DAL.Orm;
 
-namespace FT.Windows.CommonsPlugin.Entity
+namespace FT.Windows.CommonsPlugin
 {
     [SimpleTable("table_dicttype")]
     public class DictType

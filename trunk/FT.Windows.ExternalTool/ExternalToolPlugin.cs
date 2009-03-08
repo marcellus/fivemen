@@ -20,7 +20,13 @@ namespace FT.Windows.ExternalTool
         {
             //throw new Exception("The method or operation is not implemented.");
             ToolStripMenuItem top = this.AddToMenu("开发工具(&D)");
-            ToolStripMenuItem tmp = this.BuildSubMenu("加密解密", typeof(SecurityForm));
+            ToolStripMenuItem tmp = this.BuildSubMenu("现有插件...", typeof(FT.Windows.Forms.PluginManageForm));
+
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("配置插件...", typeof(FT.Windows.Forms.PluginConfigForm));
+
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("加密解密", typeof(SecurityForm));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("运行时查看器", typeof(RuntimeView));
             top.DropDownItems.Add(tmp);

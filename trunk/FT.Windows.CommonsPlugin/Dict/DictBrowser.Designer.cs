@@ -1,6 +1,6 @@
 namespace FT.Windows.CommonsPlugin
 {
-    partial class DictBrower
+    partial class DictBrowser
     {
         /// <summary>
         /// 必需的设计器变量。

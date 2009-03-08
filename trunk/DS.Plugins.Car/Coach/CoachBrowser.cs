@@ -38,7 +38,7 @@ namespace DS.Plugins.Car
             if (!this.DesignMode)
             {
                 BindingHelper.BindCars(this.cbHmhp);
-                FT.Windows.CommonsPlugin.Entity.DictManager.BindCarType(this.cbCarType);
+                FT.Windows.CommonsPlugin.DictManager.BindCarType(this.cbCarType);
             }
             //this.cbSex.SelectedIndex = 0;
         }

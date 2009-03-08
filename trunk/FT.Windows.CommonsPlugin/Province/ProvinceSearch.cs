@@ -8,31 +8,27 @@ using System.Windows.Forms;
 
 namespace FT.Windows.CommonsPlugin
 {
-    public partial class DictSearch : FT.Windows.Forms.DataSearchControl
+    public partial class ProvinceSearch : FT.Windows.Forms.DataSearchControl
     {
-        public DictSearch()
+        public ProvinceSearch()
         {
             InitializeComponent();
-            this.EntityType = typeof(Entity.Dict);
-            this.DetailFormType = typeof(DictBrower);
+            this.EntityType = typeof(Province);
+            this.DetailFormType = typeof(ProvinceBrowser);
         }
         protected override void InitPager()
         {
             base.InitPager();
-            this.pager.EntityType = typeof(Entity.Dict);
+            this.pager.EntityType = typeof(Province);
             this.pager.OrderField = "id";
         }
 
         protected override void SettingGridStyle()
         {
-
             this.dataGridView1.AutoGenerateColumns = false;
-            this.CreateColumn("数据类别", 100);
-            this.CreateColumn("数据文本");
-            this.CreateColumn("数据代码", 100);
-            this.CreateColumn("是否有效", 100);
-            this.CreateColumn("备注");
-
+            this.CreateColumn("省份名称");
+            this.CreateColumn("省份代码");
+            
         }
     }
 }
