@@ -36,45 +36,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="Group.cs" />
-    <Compile Include="GroupBrowser.cs">
+    <Compile Include="Card\Card.cs" />
+    <Compile Include="Card\PersonCardBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GroupBrowser.Designer.cs">
-      <DependentUpon>GroupBrowser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GroupManageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GroupManageForm.Designer.cs">
-      <DependentUpon>GroupManageForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GroupSearch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GroupSearch.Designer.cs">
-      <DependentUpon>GroupSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PersonCardBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PersonCardBrowser.Designer.cs">
+    <Compile Include="Card\PersonCardBrowser.Designer.cs">
       <DependentUpon>PersonCardBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonCardManager.cs">
+    <Compile Include="Card\PersonCardManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PersonCardManager.Designer.cs">
+    <Compile Include="Card\PersonCardManager.Designer.cs">
       <DependentUpon>PersonCardManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonCardPlugin.cs" />
-    <Compile Include="PersonCardSearch.cs">
+    <Compile Include="Card\PersonCardSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PersonCardSearch.Designer.cs">
+    <Compile Include="Card\PersonCardSearch.Designer.cs">
       <DependentUpon>PersonCardSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Group\Group.cs" />
+    <Compile Include="Group\GroupBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\GroupBrowser.Designer.cs">
+      <DependentUpon>GroupBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\GroupManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\GroupManageForm.Designer.cs">
+      <DependentUpon>GroupManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\GroupSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Group\GroupSearch.Designer.cs">
+      <DependentUpon>GroupSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonCardPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resource.Designer.cs">
       <DependentUpon>Resource.resx</DependentUpon>
@@ -105,21 +105,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GroupBrowser.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>GroupBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GroupManageForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>GroupManageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PersonCardBrowser.resx">
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="Card\PersonCardBrowser.resx">
       <DependentUpon>PersonCardBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PersonCardManager.resx">
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Card\PersonCardManager.resx">
       <DependentUpon>PersonCardManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\GroupBrowser.resx">
+      <DependentUpon>GroupBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\GroupManageForm.resx">
+      <DependentUpon>GroupManageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
