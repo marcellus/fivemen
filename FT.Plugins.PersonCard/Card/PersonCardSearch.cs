@@ -30,6 +30,16 @@ namespace FT.Plugins.PersonCard
             
         }
 
+        //protected override string GetExportField()
+        //{
+        //    return "id as ±àºÅ,c_name as ĞÕÃû,c_nickname as êÇ³Æ,c_sex as ĞÔ±ğ,c_name as ĞÕÃû,c_nickname as êÇ³Æ,id as ±àºÅ,c_name as ĞÕÃû,c_nickname as êÇ³Æ,id as ±àºÅ,c_name as ĞÕÃû,c_nickname as êÇ³Æ";
+        //}
+
+        //protected override string GetExportTitle()
+        //{
+        //    return "ÃûÆ¬ÏêÏ¸Çé¿ö";
+        //}
+
 
 
         protected override void SettingGridStyle()

@@ -35,8 +35,11 @@ namespace FT.Commons.Tools
 
         }
 
+
+
         public void Load()
         {
+            
             T config = StaticCacheManager.GetConfig<T>();
             FormHelper.SetDataToForm(this.parent, config);
             

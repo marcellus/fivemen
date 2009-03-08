@@ -115,6 +115,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SimpleRegister";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SimpleRegister_FormClosing);
             this.Load += new System.EventHandler(this.SimpleRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

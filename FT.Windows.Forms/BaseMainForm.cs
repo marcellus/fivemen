@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using FT.Windows.Controls.TabControlEx;
 using FT.Windows.Forms.Plugins;
 using FT.Commons.Tools;
+using FT.Commons.Cache;
+using FT.Windows.Forms.Domain;
 
 namespace FT.Windows.Forms
 {
@@ -86,6 +88,14 @@ namespace FT.Windows.Forms
         public void LoadPluginDebug(string filename)
         {
             //PluginManager.EmmitFromFile(this,filename);
+        }
+
+        private void BaseMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
+            config.LastDate = System.DateTime.Now;
+            config.UseCount++;
+            StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
         }
     }
 }

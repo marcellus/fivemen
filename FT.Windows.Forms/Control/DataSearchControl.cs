@@ -414,17 +414,22 @@ namespace FT.Windows.Forms
         /// <returns></returns>
         protected virtual string GetExportField()
         {
-            return "*";
+            return SimpleOrmCache.GetExportSql(this.entityType);
         }
 
         protected virtual string GetExportTitle()
         {
-            return "默认的Excel标题";
+            return SimpleOrmCache.GetExportTitle(this.entityType);
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
             DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable("select " + this.GetExportField() + " from " + SimpleOrmCache.GetTableName(this.entityType) + pager.Condition, "tmptable");
+            this.ExportExcel(dt);
+        }
+
+        private void ExportExcel(DataTable dt)
+        {
             if (dt != null && dt.Rows.Count > 0)
             {
                 string path = FileDialogHelper.SaveExcel();
@@ -500,6 +505,42 @@ namespace FT.Windows.Forms
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.ShowDetail(e.RowIndex);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.ExportExcel(this.GetTableFromGrid());
+            //FT.Commons.Com.Excels.ExcelHelper.ExportExcel(this.dataGridView1, this.GetExportTitle());
+        }
+
+        private DataTable GetTableFromGrid()
+        {
+            int rows=this.dataGridView1.Rows.Count;
+            int cols=this.dataGridView1.Columns.Count;
+            if(rows==0)
+            {
+                return null;
+            }
+            DataTable dt = new DataTable();
+
+            for (int i = 0; i < cols; i++)
+            {
+                dt.Columns.Add(this.dataGridView1.Columns[i].HeaderText);
+            }
+            DataRow dr = null;
+            object tmp=null;
+            for (int i = 0; i < rows; i++)
+            {
+                dr = dt.NewRow();
+                for (int j = 0; j < cols; j++)
+                {
+                     tmp=dataGridView1.Rows[i].Cells[j].Value;
+                     dr[j] = tmp == null ? "" : tmp.ToString();
+                    
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
 
     }

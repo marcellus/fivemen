@@ -103,7 +103,7 @@ namespace FT.Windows.CommonsPlugin.Entity
             ArrayList list = StaticCacheManager.Get(key) as ArrayList;
             if (list == null)
             {
-                list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_grouptype='" + group + "'");
+                list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
                 StaticCacheManager.Add(key, list);
             }
             cb.DisplayMember = "数据文本";
@@ -122,7 +122,7 @@ namespace FT.Windows.CommonsPlugin.Entity
         {
             cb.DropDownStyle = ComboBoxStyle.DropDownList;
             string key = "dict_" + group;
-            ArrayList list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_grouptype='" + group + "'");
+            ArrayList list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
             cb.DisplayMember = "数据文本";
             cb.ValueMember = "数据代码";
             cb.DataSource = list;
@@ -137,7 +137,7 @@ namespace FT.Windows.CommonsPlugin.Entity
         /// <param name="group"></param>
         public static void RefreshDicts(string group)
         {
-            ArrayList list= FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_grouptype='" + group + "'");
+            ArrayList list= FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
             StaticCacheManager.Add("dict_" + group, list);
 
         }

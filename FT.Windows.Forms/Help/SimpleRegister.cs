@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Windows.Forms.Domain;
 using FT.Commons.Tools;
 using FT.Commons.Security;
+using FT.Commons.Cache;
 
 namespace FT.Windows.Forms
 {
@@ -32,20 +33,38 @@ namespace FT.Windows.Forms
             }
             if (this.txtKeyCode.Text.Trim().Length > 0)
             {
-                if (this.txtKeyCode.Text.Trim() != md5.Encrypt(sec.Encrypt(this.txtMachineCode.Text+this.txtCompany.Text.Trim()+this.txtMachineCode.Text)))
+                if (this.txtKeyCode.Text.Trim() != md5.Encrypt(sec.Encrypt(this.txtMachineCode.Text + this.txtCompany.Text.Trim() + this.txtMachineCode.Text)))
                 {
                     this.txtKeyCode.Focus();
                     MessageBoxHelper.Show("注册码错误，请重新输入！");
                     return;
                 }
             }
+            else
+            {
+                MessageBoxHelper.Show("没有注册码，将使用试用版！");
+                this.DialogResult = DialogResult.OK;
+            }
+            ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
+            config.RegDate = System.DateTime.Now;
+            
             loader.SaveConfig();
             MessageBoxHelper.Show("保存成功！");
         }
 
         private void SimpleRegister_Load(object sender, EventArgs e)
         {
+            if (!this.DesignMode)
+            {
+
+            }
             this.txtMachineCode.Text = FT.Commons.Tools.HardwareManager.GetMachineCode();
+        }
+
+        private void SimpleRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult != DialogResult.Cancel && this.DialogResult != DialogResult.OK)
+                e.Cancel = true;
         }
 
        

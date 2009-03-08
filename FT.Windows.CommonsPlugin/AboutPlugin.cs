@@ -35,6 +35,8 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildTopMenu("帮助文档");
             tmp.Click += new EventHandler(help_Click);
             top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("使用情况", typeof(FT.Windows.Forms.ProgramRegConfigForm));
+            top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("关于...", typeof(FT.Windows.Forms.SimpleAbout));
             top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;

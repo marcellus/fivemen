@@ -59,7 +59,7 @@ namespace FT.Commons.Tools
         }
         public static bool ValidateNumber(string text, bool allowBlank)
         {
-            return ValidateRegex(text, allowBlank, @"^\d+$");
+            return ValidateRegex(text, allowBlank, @"^[\d\.]+$");
         }
         public static bool ValidateChinese(string text, bool allowBlank)
         {
@@ -74,6 +74,13 @@ namespace FT.Commons.Tools
             //@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
             return ValidateRegex(text, allowBlank, @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
         }
+        /// <summary>
+        /// 验证成功返回true
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="allowBlank"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         public static bool ValidateRegex(string text, bool allowBlank, string pattern)
         {
             text = text.Trim();

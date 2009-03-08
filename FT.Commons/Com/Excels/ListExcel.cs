@@ -24,17 +24,17 @@ namespace FT.Commons.Com.Excels
         /// <param name="end">The end.</param>
         /// <param name="filename">The filename.</param>
         /// deadshot123 modify at 2007-4-10 13:55
-        public ListExcel(string filename,System.Data.DataTable dt)
+        public ListExcel(string filename, System.Data.DataTable dt)
             : base(filename)
         {
             this.Title = "默认程序导出标题";
             this.HeaderHeight = 40;
             this.ColLength = dt.Columns.Count;
             this.dt = dt;
-            this.Bottom = "Create at {0} by FmSystem.";
+            this.Bottom = "Create at {0} by FtSystem.";
 
         }
-        
+
         /// <summary>
         /// Draws the data row.
         /// </summary>
@@ -60,7 +60,7 @@ namespace FT.Commons.Com.Excels
                 {
                     temp = "'" + temp;
                 }
-                
+
                 this.SetRangeText(rang, temp);
             }
         }
@@ -74,11 +74,52 @@ namespace FT.Commons.Com.Excels
             System.Data.DataTable dt = this.dt;
             if (dt != null)
             {
-                foreach (DataRow dr in dt.Rows)
+                int rowcount = dt.Rows.Count;
+                int colcount = dt.Columns.Count;
+                // 创建缓存数据
+                object[,] objData = new object[rowcount, colcount];
+                // 获取列标题datagrid用
+                //foreach(DataGridColumnStyle cs in ts.GridColumnStyles)
+                //{
+                //     objData[RowIndex,colIndex++] = cs.HeaderText;    
+                // }            
+                // 获取数据
+                for (int row = 0; row < rowcount; row++)
                 {
-                    this.CurrentRowIndex++;
-                    this.DrawDataRow(this.CurrentRowIndex, dr);
+                    for (int col = 0; col < colcount; col++)
+                    {
+                        if (dt.Columns[col].Caption.IndexOf("出生年月") != -1 || dt.Columns[col].Caption.IndexOf("日期") != -1)
+                        {
+                            try
+                            {
+                                objData[row, col] = "'" + Convert.ToDateTime(dt.Rows[row][col]).ToString("yyyy-MM-dd");
+                            }
+                            catch
+                            {
+                            }
+
+                        }
+                        else
+                        {
+
+                            objData[row, col] = dt.Rows[row][col] == null ? string.Empty : "'" + dt.Rows[row][col].ToString();
+                        }
+                        //objData[row, col] = dt[row, col];
+                    }
+                    System.Windows.Forms.Application.DoEvents();
                 }
+                this.CurrentRowIndex++;
+                // 写入Excel
+                Range range = this.GetRange(this.CurrentRowIndex, 1, this.CurrentRowIndex + rowcount, this.ColLength);
+                range.Value2 = objData;
+                this.CurrentRowIndex += rowcount - 1;
+                /*速度慢*/
+                //foreach (DataRow dr in dt.Rows)
+                //{
+                //    this.CurrentRowIndex++;
+                //    this.DrawDataRow(this.CurrentRowIndex, dr);
+                //}
+                /*速度慢*/
             }
             //base.DrawContent();
         }
@@ -126,7 +167,7 @@ namespace FT.Commons.Com.Excels
             this.SetRangAlign(rangHeader, ExcelAlign.Center);
             this.SetRangBackColor(rangHeader, 40);
             this.CurrentRowIndex = 2;
-             
+
 
         }
     }

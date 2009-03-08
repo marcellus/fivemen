@@ -52,6 +52,7 @@
             this.btnLastPage = new System.Windows.Forms.ToolStripButton();
             this.txtGoPages = new System.Windows.Forms.ToolStripTextBox();
             this.btnGo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -66,7 +67,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dataGridView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(852, 452);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(852, 427);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -76,8 +77,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // dataGridView1
             // 
@@ -91,7 +92,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(852, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(852, 427);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
@@ -105,11 +106,12 @@
             this.btnAdd,
             this.btnUpdate,
             this.btnDelete,
+            this.toolStripButton1,
             this.btnExport,
             this.btnSearch});
-            this.toolStrip1.Location = new System.Drawing.Point(450, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(290, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(407, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // btnAdd
@@ -144,8 +146,8 @@
             this.btnExport.Image = global::FT.Windows.Forms.Properties.Resources.excel;
             this.btnExport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(76, 22);
-            this.btnExport.Text = "导出Excel";
+            this.btnExport.Size = new System.Drawing.Size(75, 22);
+            this.btnExport.Text = "导出全部";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnSearch
@@ -177,7 +179,7 @@
             this.btnLastPage,
             this.txtGoPages,
             this.btnGo});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(3, 25);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(447, 25);
             this.toolStrip2.TabIndex = 0;
@@ -287,6 +289,15 @@
             this.btnGo.Text = "跳转";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::FT.Windows.Forms.Properties.Resources.excel;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(87, 22);
+            this.toolStripButton1.Text = "导出当前页";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // DataSearchControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -335,5 +346,6 @@
         protected System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnLastPage;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

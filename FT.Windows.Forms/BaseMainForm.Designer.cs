@@ -69,7 +69,7 @@
             this.simpleTabControl1.Location = new System.Drawing.Point(0, 49);
             this.simpleTabControl1.Name = "simpleTabControl1";
             this.simpleTabControl1.SelectedIndex = 0;
-            this.simpleTabControl1.Size = new System.Drawing.Size(292, 202);
+            this.simpleTabControl1.Size = new System.Drawing.Size(292, 224);
             this.simpleTabControl1.TabIndex = 3;
             // 
             // BaseMainForm
@@ -86,6 +86,7 @@
             this.Name = "BaseMainForm";
             this.Text = "BaseMainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseMainForm_FormClosing);
             this.Load += new System.EventHandler(this.BaseMainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

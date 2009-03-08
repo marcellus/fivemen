@@ -93,6 +93,7 @@
             this.txtIdCard.Size = new System.Drawing.Size(125, 21);
             this.txtIdCard.TabIndex = 38;
             this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
+            this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
             // 
             // label7
             // 

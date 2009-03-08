@@ -9,7 +9,7 @@ namespace FT.DAL.Orm
     /// 使用方法：
     /// Alias("")
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.All)]
     public class AliasAttribute:Attribute
     {
          private string name;

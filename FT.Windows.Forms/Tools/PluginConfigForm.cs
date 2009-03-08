@@ -74,6 +74,7 @@ namespace FT.Windows.Forms
             if (lv.SelectedIndices.Count > 0)
             {
                 Form form = new PluginDetailForm(lv.SelectedItems[0].Tag as PluginAttribute);
+                form.ShowInTaskbar = false;
                 form.ShowDialog();
             }
             //throw new Exception("The method or operation is not implemented.");

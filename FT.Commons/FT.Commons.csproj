@@ -49,6 +49,7 @@
     <Compile Include="Cache\IRefreshCache.cs" />
     <Compile Include="Cache\StaticCacheManager.cs" />
     <Compile Include="Com\Excels\ExcelBorderEnum.cs" />
+    <Compile Include="Com\Excels\ExcelHelper.cs" />
     <Compile Include="Com\Excels\ListExcel.cs" />
     <Compile Include="Com\Excels\SimpleExcel.cs" />
     <Compile Include="Com\WordSupport\SimpleWord.cs" />
