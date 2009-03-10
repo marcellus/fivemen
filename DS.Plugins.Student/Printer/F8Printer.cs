@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DS.Plugins.Student
 {
-    public class F7Printer : BaseStudentPrinter
+    public class F8Printer : BaseStudentPrinter
     {
-        public F7Printer(StudentInfo student)
+        public F8Printer(StudentInfo student)
             : base(student)
         {
         }
@@ -24,7 +24,7 @@ namespace DS.Plugins.Student
         {
             if (this.GetCurrentPage() == 1)
             {
-                this.PrintF7();
+                this.PrintF8();
             }
         }
     }

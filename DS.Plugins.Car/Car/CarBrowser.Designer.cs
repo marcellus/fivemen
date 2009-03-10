@@ -61,9 +61,9 @@ namespace DS.Plugins.Car
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbPinPai = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cbPinPai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -383,6 +383,14 @@ namespace DS.Plugins.Car
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cbPinPai
+            // 
+            this.cbPinPai.FormattingEnabled = true;
+            this.cbPinPai.Location = new System.Drawing.Point(102, 42);
+            this.cbPinPai.Name = "cbPinPai";
+            this.cbPinPai.Size = new System.Drawing.Size(109, 20);
+            this.cbPinPai.TabIndex = 4;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
@@ -401,14 +409,6 @@ namespace DS.Plugins.Car
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "出车记录";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // cbPinPai
-            // 
-            this.cbPinPai.FormattingEnabled = true;
-            this.cbPinPai.Location = new System.Drawing.Point(102, 42);
-            this.cbPinPai.Name = "cbPinPai";
-            this.cbPinPai.Size = new System.Drawing.Size(109, 20);
-            this.cbPinPai.TabIndex = 4;
             // 
             // CarBrowser
             // 

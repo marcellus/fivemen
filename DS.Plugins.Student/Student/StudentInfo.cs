@@ -7,11 +7,11 @@ using FT.DAL.Entity;
 namespace DS.Plugins.Student
 {
     [SimpleTable("table_students")]
+    [Alias("学员表")]
     public class StudentInfo:Person
     {
 
         [SimpleColumn(Column = "c_idcard_type")]
-        [Alias("身份证明名称")]
         public String IdCardType;
 
         public String 身份证明名称
@@ -189,6 +189,16 @@ namespace DS.Plugins.Student
         {
             get { return ExamId; }
             set { ExamId = value; }
+        }
+
+        [SimpleColumn(Column = "c_examdate")]
+        [Alias("准考日期")]
+        public String ExamDate;
+
+        public String 准考日期
+        {
+            get { return ExamDate; }
+            set { ExamDate = value; }
         }
 
         [SimpleColumn(Column = "date_baoming")]

@@ -6,6 +6,7 @@ using FT.DAL.Orm;
 namespace FT.Windows.CommonsPlugin
 {
     [SimpleTable("table_users")]
+    [Alias("系统用户表")]
     public class User
     {
         [SimplePK]

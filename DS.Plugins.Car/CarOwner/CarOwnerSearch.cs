@@ -32,7 +32,7 @@ namespace DS.Plugins.Car
             this.CreateColumn("出生年月", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
             this.CreateColumn("固话", 80);
             this.CreateColumn("手机", 80);
-            this.CreateColumn("身份证号", 160);
+            this.CreateColumn("身份证明号码", 160);
             this.CreateColumn("住址");
 
         }

@@ -7,6 +7,7 @@ using FT.DAL.Entity;
 namespace DS.Plugins.Car
 {
     [SimpleTable("table_coach")]
+    [Alias("教练信息表")]
     public class Coach : Person
     {
         [SimpleColumn(Column = "c_hmhp")]

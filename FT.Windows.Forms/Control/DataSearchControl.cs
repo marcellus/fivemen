@@ -189,6 +189,11 @@ namespace FT.Windows.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            this.ShowDetail();
+        }
+
+        protected void ShowDetail()
+        {
             if (this.dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBoxHelper.Show("请选择需要修改的记录行！");
@@ -225,6 +230,11 @@ namespace FT.Windows.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            this.Delete();
+        }
+
+        protected virtual void Delete()
+        {
             int count = this.dataGridView1.SelectedRows.Count;
             if (count == 0)
             {
@@ -239,7 +249,7 @@ namespace FT.Windows.Forms
                     int tmp = 0;
                     //this.dataGridView1.DataSource = null;
                     int[] deletes = new int[count];
-                    
+
                     for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
                     {
                         if (this.dataGridView1.Rows[i].Selected)
@@ -249,18 +259,18 @@ namespace FT.Windows.Forms
                     }
                     for (int i = count - 1; i >= 0; i--)
                     {
-                            tmp = deletes[i];
-                            if (FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]))
-                            {
-                                pager.Lists.RemoveAt(tmp);
-                            }
+                        tmp = deletes[i];
+                        if (FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]))
+                        {
+                            pager.Lists.RemoveAt(tmp);
+                        }
 
-                     }
+                    }
                     bindingSource.ResetBindings(false);
                     //this.dataGridView1.DataSource = null;
                     //this.dataGridView1.DataSource = pager.Lists;
                     int recordCount = Convert.ToInt32(this.lbRecordCount.Text);
-                    recordCount-=count;
+                    recordCount -= count;
                     this.lbRecordCount.Text = recordCount.ToString();
                     //this.ReBinding();
                 }
@@ -541,6 +551,18 @@ namespace FT.Windows.Forms
                 dt.Rows.Add(dr);
             }
             return dt;
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ShowDetail();
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                this.Delete();
+            }
         }
 
     }

@@ -9,6 +9,8 @@ using FT.DAL;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Data;
+using FT.DAL.Orm;
 
 namespace FT.Windows.CommonsPlugin
 {
@@ -27,6 +29,9 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildSubMenu("使用单位配置...", typeof(FT.Windows.Forms.SimpleCompany));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("全局打印配置...", typeof(FT.Windows.Forms.CustomPrinterSetting));
+            top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
             tmp = this.BuildTopMenu("帮助文档");
             tmp.Click += new EventHandler(help_Click);
             top.DropDownItems.Add(tmp);
@@ -39,6 +44,20 @@ namespace FT.Windows.CommonsPlugin
         }
 
         void help_Click(object sender, EventArgs e)
+        {
+            this.Test();
+            //this.ShowHelp();
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        private void Test()
+        {
+            DataTable dt=DataAccessFactory.GetDataAccess().SelectDataTable("select id as 编号,c_text as 数据文本,c_value as 数据代码,c_blongarea as 所属辖区,c_valid as 是否有效 from table_xiang","test");
+            DataTablePrinterContent.Print(dt, new int[] {50,80,100,120 },"乡镇信息表");
+
+        }
+
+        private void ShowHelp()
         {
             try
             {
@@ -59,10 +78,9 @@ namespace FT.Windows.CommonsPlugin
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.Show("错误信息："+ex.Message);
+                MessageBoxHelper.Show("错误信息：" + ex.Message);
 
             }
-            //throw new Exception("The method or operation is not implemented.");
         }
 
         

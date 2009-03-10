@@ -28,7 +28,7 @@ namespace DS.Plugins.Student
 
             this.dataGridView1.AutoGenerateColumns = false;
             this.CreateColumn("姓名", 80);
-            this.CreateColumn("身份证号", 120);
+            this.CreateColumn("身份证明号码", 120);
             this.CreateColumn("性别", 80);
             this.CreateColumn("固话", 80);
             this.CreateColumn("手机", 80);

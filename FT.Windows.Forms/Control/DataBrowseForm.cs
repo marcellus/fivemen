@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Commons.PrinterEx.SupportObject;
 using FT.DAL.Orm;
+using FT.Commons.Cache;
 
 namespace FT.Windows.Forms
 {
@@ -426,28 +427,28 @@ namespace FT.Windows.Forms
 
         }
 
-        private void toolStripButton10_Click(object sender, EventArgs e)
+        protected virtual AbstractPrinterContent GetPrinterContent()
         {
-            PrinterContent content = this.GetPrinterContent();
-            if (content != null)
-            {
-                content.Preview();
-            }
-        }
-
-        protected virtual PrinterContent GetPrinterContent()
-        {
-            MessageBoxHelper.Show("对不起，还没有实现打印该对象！");
+            
             return null;
             //throw new Exception("");
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            PrinterContent content = this.GetPrinterContent();
+            if (this.entity == null)
+            {
+                MessageBoxHelper.Show("无法打印未保存的数据！");
+                return;
+            }
+            AbstractPrinterContent content = this.GetPrinterContent();
             if (content != null)
             {
                 content.Print();
+            }
+            else
+            {
+                MessageBoxHelper.Show("对不起，还没有实现打印该对象！");
             }
         }
 

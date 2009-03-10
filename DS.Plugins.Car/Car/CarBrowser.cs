@@ -152,6 +152,22 @@ namespace DS.Plugins.Car
             entity = tmp;
             //throw new Exception("The method or operation is not implemented.");
         }
+
+        protected override AbstractPrinterContent GetPrinterContent()
+        {
+            if (this.entity != null)
+            {
+                return PrinterHelper.PrintCarInfo(entity as CarInfo);
+            }
+            return null;
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
