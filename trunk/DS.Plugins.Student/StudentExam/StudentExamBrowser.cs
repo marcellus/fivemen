@@ -36,6 +36,7 @@ namespace DS.Plugins.Student
         {
             if (!this.DesignMode)
             {
+                this.cbResult.SelectedIndex = 0;
                 //ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(CarInfo));
                 //if (lists.Count > 0)
                 //{
@@ -45,7 +46,7 @@ namespace DS.Plugins.Student
                 //    this.cbHmhp.ValueMember = "号码号牌";
                 //    this.cbHmhp.SelectedIndex = 0;
                 //}
-                //FT.Windows.CommonsPlugin.Entity.DictManager.BindToCombox(this.cbCarType, "准驾车型");
+                FT.Windows.CommonsPlugin.DictManager.BindSubject(this.cbSubject);
             }
             //this.cbSex.SelectedIndex = 0;
         }
@@ -60,6 +61,49 @@ namespace DS.Plugins.Student
             //   return null;
         }
         #endregion
+
+        private ArrayList students = new ArrayList();
+
+        private void BindIdCard(string id)
+        {
+            this.students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_idcard like '%"+id+"%'");
+
+            this.cbIdCard.ValueMember = "身份证明号码";
+            this.cbIdCard.DisplayMember = "身份证明号码";
+            this.cbIdCard.DataSource = students;
+        }
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string id = this.textBox1.Text.Trim();
+            if (id.Length > 6)
+            {
+                this.BindIdCard(id);
+            }
+        }
+
+        private void cbIdCard_TextChanged(object sender, EventArgs e)
+        {
+            if (this.cbIdCard.SelectedValue != null)
+            {
+                int i = this.cbIdCard.SelectedIndex;
+                StudentInfo student=this.students[i] as StudentInfo;
+                if (student != null)
+                {
+                    this.txtCoachName.Text = student.CoachName;
+                    this.txtAllowExamDate.Text = student.ExamDate;
+                    this.txtExamId.Text = student.ExamId;
+                    this.txtName.Text = student.Name;
+                    this.txtNewCarType.Text = student.NewCarType;
+                }
+            }
+        }
+
+        private void txtScore_Validating(object sender, CancelEventArgs e)
+        {
+            this.ValidateNumber(sender, e, "考试成绩必须是数字！", false);
+        }
     }
 }
 

@@ -8,6 +8,7 @@ using FT.DAL.Orm;
 namespace DS.Plugins.Car
 {
     [SimpleTable("table_car_fee")]
+    [Alias("车辆费用信息表")]
     public class CarFee
     {
         [SimplePK]

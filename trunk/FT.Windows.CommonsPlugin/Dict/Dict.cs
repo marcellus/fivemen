@@ -6,6 +6,7 @@ using FT.DAL.Orm;
 namespace FT.Windows.CommonsPlugin
 {
     [SimpleTable("table_dict")]
+    [Alias("基础数据表")]
     public class Dict
     {
         [SimplePK]

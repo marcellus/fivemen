@@ -28,14 +28,11 @@ namespace DS.Plugins.Student
 
             this.dataGridView1.AutoGenerateColumns = false;
             this.CreateColumn("姓名", 80);
-            this.CreateColumn("身份证号", 120);
-            this.CreateColumn("性别", 80);
-            this.CreateColumn("固话", 80);
-            this.CreateColumn("手机", 80);
-            this.CreateColumn("准教车型", 80);
-            this.CreateColumn("号码号牌", 80);
-            this.CreateColumn("教练证号", 100);
-            this.CreateColumn("驾驶证编号");
+            this.CreateColumn("身份证明号码", 120);
+            this.CreateColumn("费用时间", 140);
+            this.CreateColumn("费用金额", 80);
+            this.CreateColumn("费用类别", 100);
+            this.CreateColumn("备注");
         }
     }
 }

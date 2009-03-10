@@ -9,6 +9,11 @@ namespace FT.Windows.CommonsPlugin
 {
     public class DictManager
     {
+        public static void BindStudentFee(ComboBox cb)
+        {
+            BindToCombox(cb, "学生费用类型");
+        }
+
         public static void BindComeFrom(ComboBox cb)
         {
             BindToCombox(cb, "驾驶人来源");
@@ -91,6 +96,20 @@ namespace FT.Windows.CommonsPlugin
         {
             BindToCombox(cb, "车辆类型");
         }
+
+        public static void BindSubjectDynamic(ComboBox cb)
+        {
+            BindToComboxDynamic(cb, "考试科目");
+        }
+
+
+        public static void BindSubject(ComboBox cb)
+        {
+            BindToCombox(cb, "考试科目");
+        }
+
+
+        
         /// <summary>
         /// 把基础数据和ComboBox进行绑定
         /// </summary>

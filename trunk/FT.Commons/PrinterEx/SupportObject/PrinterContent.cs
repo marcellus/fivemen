@@ -318,6 +318,7 @@ namespace FT.Commons.PrinterEx.SupportObject
             if (this.IsPrinterPages)
             {
                 FooterDraw draw=new FooterDraw(string.Format(this.PagesFormatter,new object[]{this.currentPageIndex,this.pages}));
+                draw.Border = BordersEdgeStyle.None;
                 draw.Rectangle = new Rectangle(customPageMargin.Left, customPageMargin.Height + customPageMargin.Top - Printer_Pages_Height, customPageMargin.Width, Printer_Pages_Height);
                 draw.Draw(graphics);
                 body.Rectangle = new Rectangle(body.Rectangle.X, body.Rectangle.Y, body.Rectangle.Width, body.Rectangle.Height - Printer_Pages_Height);

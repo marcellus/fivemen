@@ -39,6 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Printer\DataTablePrinterContent.cs" />
+    <Compile Include="Printer\CustomPrinterSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printer\CustomPrinterSetting.Designer.cs">
+      <DependentUpon>CustomPrinterSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printer\GlobalPrintSetting.cs" />
+    <Compile Include="Printer\AbstractPrinterContent.cs" />
     <Compile Include="AppicationHelper.cs" />
     <Compile Include="BaseMainForm.cs">
       <SubType>Form</SubType>
@@ -169,6 +178,10 @@
     <EmbeddedResource Include="CommonPanel\PersonDetail.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PersonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printer\CustomPrinterSetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomPrinterSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PluginConfigForm.resx">
       <SubType>Designer</SubType>

@@ -53,6 +53,7 @@
       <DependentUpon>AreaSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Area\Area.cs" />
+    <Compile Include="BindingHelper.cs" />
     <Compile Include="City\CityBrowser.cs">
       <SubType>Form</SubType>
     </Compile>

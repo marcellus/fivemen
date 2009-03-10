@@ -29,16 +29,16 @@ namespace DS.Plugins.Car
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbFeeType = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbHmhp = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateFeeDate = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtFee = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFee = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateFeeDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbHmhp = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbFeeType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,76 +61,13 @@ namespace DS.Plugins.Car
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // txtDescription
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "费用类别";
-            // 
-            // cbFeeType
-            // 
-            this.cbFeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFeeType.FormattingEnabled = true;
-            this.cbFeeType.Location = new System.Drawing.Point(109, 18);
-            this.cbFeeType.Name = "cbFeeType";
-            this.cbFeeType.Size = new System.Drawing.Size(200, 20);
-            this.cbFeeType.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "车牌车号";
-            // 
-            // cbHmhp
-            // 
-            this.cbHmhp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHmhp.FormattingEnabled = true;
-            this.cbHmhp.Location = new System.Drawing.Point(109, 45);
-            this.cbHmhp.Name = "cbHmhp";
-            this.cbHmhp.Size = new System.Drawing.Size(200, 20);
-            this.cbHmhp.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "费用时间";
-            // 
-            // dateFeeDate
-            // 
-            this.dateFeeDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateFeeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFeeDate.Location = new System.Drawing.Point(109, 73);
-            this.dateFeeDate.Name = "dateFeeDate";
-            this.dateFeeDate.Size = new System.Drawing.Size(200, 21);
-            this.dateFeeDate.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "费用金额";
-            // 
-            // txtFee
-            // 
-            this.txtFee.Location = new System.Drawing.Point(109, 100);
-            this.txtFee.Name = "txtFee";
-            this.txtFee.Size = new System.Drawing.Size(200, 21);
-            this.txtFee.TabIndex = 7;
-            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
+            this.txtDescription.Location = new System.Drawing.Point(109, 128);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(200, 113);
+            this.txtDescription.TabIndex = 9;
             // 
             // label6
             // 
@@ -141,13 +78,76 @@ namespace DS.Plugins.Car
             this.label6.TabIndex = 8;
             this.label6.Text = "备注";
             // 
-            // txtDescription
+            // txtFee
             // 
-            this.txtDescription.Location = new System.Drawing.Point(109, 128);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(200, 113);
-            this.txtDescription.TabIndex = 9;
+            this.txtFee.Location = new System.Drawing.Point(109, 100);
+            this.txtFee.Name = "txtFee";
+            this.txtFee.Size = new System.Drawing.Size(200, 21);
+            this.txtFee.TabIndex = 7;
+            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "费用金额";
+            // 
+            // dateFeeDate
+            // 
+            this.dateFeeDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateFeeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFeeDate.Location = new System.Drawing.Point(109, 73);
+            this.dateFeeDate.Name = "dateFeeDate";
+            this.dateFeeDate.Size = new System.Drawing.Size(200, 21);
+            this.dateFeeDate.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(45, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "费用时间";
+            // 
+            // cbHmhp
+            // 
+            this.cbHmhp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHmhp.FormattingEnabled = true;
+            this.cbHmhp.Location = new System.Drawing.Point(109, 45);
+            this.cbHmhp.Name = "cbHmhp";
+            this.cbHmhp.Size = new System.Drawing.Size(200, 20);
+            this.cbHmhp.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "车牌车号";
+            // 
+            // cbFeeType
+            // 
+            this.cbFeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFeeType.FormattingEnabled = true;
+            this.cbFeeType.Location = new System.Drawing.Point(109, 18);
+            this.cbFeeType.Name = "cbFeeType";
+            this.cbFeeType.Size = new System.Drawing.Size(200, 20);
+            this.cbFeeType.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "费用类别";
             // 
             // CarFeeBrowser
             // 

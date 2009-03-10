@@ -72,10 +72,10 @@ namespace FT.DAL.Entity
         }
 
         [SimpleColumn(Column = "c_idcard")]
-        [Alias("身份证号")]
+        [Alias("身份证明号码")]
         public String IdCard;
 
-        public String 身份证号
+        public String 身份证明号码
         {
             get { return IdCard; }
             set { IdCard = value; }

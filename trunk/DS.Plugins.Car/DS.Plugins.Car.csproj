@@ -104,6 +104,7 @@
       <DependentUpon>CoachSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Coach\Coach.cs" />
+    <Compile Include="PrinterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

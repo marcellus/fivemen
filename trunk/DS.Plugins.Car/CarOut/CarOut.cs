@@ -7,6 +7,7 @@ using FT.DAL.Orm;
 namespace DS.Plugins.Car
 {
     [SimpleTable("table_car_out")]
+    [Alias("车辆出车记录表")]
     public class CarOut
     {
         [SimplePK]

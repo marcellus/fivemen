@@ -64,6 +64,8 @@ namespace DS.Plugins.Student
             this.cbRegArea = new System.Windows.Forms.ComboBox();
             this.cbRegCity = new System.Windows.Forms.ComboBox();
             this.cbRegProvince = new System.Windows.Forms.ComboBox();
+            this.txtExamDate = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtExamId = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtProfile = new System.Windows.Forms.TextBox();
@@ -133,6 +135,7 @@ namespace DS.Plugins.Student
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(662, 409);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -170,6 +173,8 @@ namespace DS.Plugins.Student
             this.tabPage1.Controls.Add(this.cbRegArea);
             this.tabPage1.Controls.Add(this.cbRegCity);
             this.tabPage1.Controls.Add(this.cbRegProvince);
+            this.tabPage1.Controls.Add(this.txtExamDate);
+            this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.txtExamId);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txtProfile);
@@ -313,15 +318,15 @@ namespace DS.Plugins.Student
             // 
             this.cbRecommend.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRecommend.FormattingEnabled = true;
-            this.cbRecommend.Location = new System.Drawing.Point(94, 273);
+            this.cbRecommend.Location = new System.Drawing.Point(495, 91);
             this.cbRecommend.Name = "cbRecommend";
             this.cbRecommend.Size = new System.Drawing.Size(121, 20);
-            this.cbRecommend.TabIndex = 48;
+            this.cbRecommend.TabIndex = 23;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(40, 281);
+            this.label22.Location = new System.Drawing.Point(447, 99);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 12);
             this.label22.TabIndex = 46;
@@ -461,6 +466,7 @@ namespace DS.Plugins.Student
             this.cbBelongXiang.Name = "cbBelongXiang";
             this.cbBelongXiang.Size = new System.Drawing.Size(121, 20);
             this.cbBelongXiang.TabIndex = 31;
+            this.cbBelongXiang.SelectedIndexChanged += new System.EventHandler(this.cbBelongXiang_SelectedIndexChanged);
             // 
             // cbBelongArea
             // 
@@ -469,6 +475,7 @@ namespace DS.Plugins.Student
             this.cbBelongArea.Name = "cbBelongArea";
             this.cbBelongArea.Size = new System.Drawing.Size(121, 20);
             this.cbBelongArea.TabIndex = 30;
+            this.cbBelongArea.SelectedIndexChanged += new System.EventHandler(this.cbBelongArea_SelectedIndexChanged);
             // 
             // txtRegAddress
             // 
@@ -477,6 +484,7 @@ namespace DS.Plugins.Student
             this.txtRegAddress.Size = new System.Drawing.Size(532, 21);
             this.txtRegAddress.TabIndex = 28;
             this.txtRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtRegAddress_Validating);
+            this.txtRegAddress.TextChanged += new System.EventHandler(this.txtRegAddress_TextChanged);
             // 
             // cbRegArea
             // 
@@ -486,6 +494,8 @@ namespace DS.Plugins.Student
             this.cbRegArea.Name = "cbRegArea";
             this.cbRegArea.Size = new System.Drawing.Size(121, 20);
             this.cbRegArea.TabIndex = 27;
+            this.cbRegArea.SelectedIndexChanged += new System.EventHandler(this.cbRegArea_SelectedIndexChanged);
+            this.cbRegArea.TextChanged += new System.EventHandler(this.cbRegArea_TextChanged);
             // 
             // cbRegCity
             // 
@@ -495,6 +505,7 @@ namespace DS.Plugins.Student
             this.cbRegCity.Name = "cbRegCity";
             this.cbRegCity.Size = new System.Drawing.Size(121, 20);
             this.cbRegCity.TabIndex = 26;
+            this.cbRegCity.SelectedIndexChanged += new System.EventHandler(this.cbRegCity_SelectedIndexChanged);
             // 
             // cbRegProvince
             // 
@@ -504,18 +515,36 @@ namespace DS.Plugins.Student
             this.cbRegProvince.Name = "cbRegProvince";
             this.cbRegProvince.Size = new System.Drawing.Size(121, 20);
             this.cbRegProvince.TabIndex = 25;
+            this.cbRegProvince.SelectedIndexChanged += new System.EventHandler(this.cbRegProvince_SelectedIndexChanged);
+            // 
+            // txtExamDate
+            // 
+            this.txtExamDate.Location = new System.Drawing.Point(302, 272);
+            this.txtExamDate.Name = "txtExamDate";
+            this.txtExamDate.Size = new System.Drawing.Size(121, 21);
+            this.txtExamDate.TabIndex = 49;
+            this.txtExamDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtExamDate_Validating);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(245, 280);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 12);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "准考日期";
             // 
             // txtExamId
             // 
-            this.txtExamId.Location = new System.Drawing.Point(494, 90);
+            this.txtExamId.Location = new System.Drawing.Point(94, 273);
             this.txtExamId.Name = "txtExamId";
             this.txtExamId.Size = new System.Drawing.Size(121, 21);
-            this.txtExamId.TabIndex = 23;
+            this.txtExamId.TabIndex = 48;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(435, 99);
+            this.label13.Location = new System.Drawing.Point(28, 281);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 22;
@@ -623,6 +652,7 @@ namespace DS.Plugins.Student
             // 
             // dateBirthday
             // 
+            this.dateBirthday.Enabled = false;
             this.dateBirthday.Location = new System.Drawing.Point(302, 38);
             this.dateBirthday.Name = "dateBirthday";
             this.dateBirthday.Size = new System.Drawing.Size(121, 21);
@@ -640,6 +670,7 @@ namespace DS.Plugins.Student
             // cbSex
             // 
             this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSex.Enabled = false;
             this.cbSex.FormattingEnabled = true;
             this.cbSex.Items.AddRange(new object[] {
             "男",
@@ -685,6 +716,7 @@ namespace DS.Plugins.Student
             this.txtIdCard.Size = new System.Drawing.Size(121, 21);
             this.txtIdCard.TabIndex = 3;
             this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
+            this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
             // 
             // label3
             // 
@@ -703,6 +735,7 @@ namespace DS.Plugins.Student
             this.cbIdCardType.Name = "cbIdCardType";
             this.cbIdCardType.Size = new System.Drawing.Size(121, 20);
             this.cbIdCardType.TabIndex = 1;
+            this.cbIdCardType.SelectedIndexChanged += new System.EventHandler(this.cbIdCardType_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -785,8 +818,8 @@ namespace DS.Plugins.Student
             this.cbMainBody.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMainBody.FormattingEnabled = true;
             this.cbMainBody.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbMainBody.Location = new System.Drawing.Point(447, 75);
             this.cbMainBody.Name = "cbMainBody";
             this.cbMainBody.Size = new System.Drawing.Size(114, 20);
@@ -806,8 +839,8 @@ namespace DS.Plugins.Student
             this.cbRightDownBody.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRightDownBody.FormattingEnabled = true;
             this.cbRightDownBody.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbRightDownBody.Location = new System.Drawing.Point(263, 75);
             this.cbRightDownBody.Name = "cbRightDownBody";
             this.cbRightDownBody.Size = new System.Drawing.Size(114, 20);
@@ -827,8 +860,8 @@ namespace DS.Plugins.Student
             this.cbLeftDownBody.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLeftDownBody.FormattingEnabled = true;
             this.cbLeftDownBody.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbLeftDownBody.Location = new System.Drawing.Point(71, 75);
             this.cbLeftDownBody.Name = "cbLeftDownBody";
             this.cbLeftDownBody.Size = new System.Drawing.Size(114, 20);
@@ -848,8 +881,8 @@ namespace DS.Plugins.Student
             this.cbTopBody.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTopBody.FormattingEnabled = true;
             this.cbTopBody.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbTopBody.Location = new System.Drawing.Point(447, 49);
             this.cbTopBody.Name = "cbTopBody";
             this.cbTopBody.Size = new System.Drawing.Size(114, 20);
@@ -869,8 +902,8 @@ namespace DS.Plugins.Student
             this.cbListen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbListen.FormattingEnabled = true;
             this.cbListen.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbListen.Location = new System.Drawing.Point(263, 49);
             this.cbListen.Name = "cbListen";
             this.cbListen.Size = new System.Drawing.Size(114, 20);
@@ -890,8 +923,8 @@ namespace DS.Plugins.Student
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.FormattingEnabled = true;
             this.cbColor.Items.AddRange(new object[] {
-            "合格",
-            "不合格"});
+            "不合格",
+            "合格"});
             this.cbColor.Location = new System.Drawing.Point(71, 49);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(114, 20);
@@ -991,6 +1024,7 @@ namespace DS.Plugins.Student
             this.Controls.Add(this.tabControl1);
             this.Name = "StudentBrowser";
             this.Text = "学员信息";
+            this.Load += new System.EventHandler(this.StudentBrowser_Load);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -1092,5 +1126,7 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbState;
+        private System.Windows.Forms.TextBox txtExamDate;
+        private System.Windows.Forms.Label label15;
     }
 }

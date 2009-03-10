@@ -27,6 +27,9 @@ namespace FT.Commons.Tools
             return typeof(T).Name;
         }
 
+        /// <summary>
+        /// 保存的时候会自动更新到缓存中
+        /// </summary>
         public void SaveConfig()
         {
             T config = StaticCacheManager.GetConfig<T>();
@@ -36,7 +39,9 @@ namespace FT.Commons.Tools
         }
 
 
-
+        /// <summary>
+        /// 从缓存中载入，如果没有就先从配置文件中载入
+        /// </summary>
         public void Load()
         {
             

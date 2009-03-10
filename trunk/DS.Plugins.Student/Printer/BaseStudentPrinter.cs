@@ -7,6 +7,9 @@ using FT.Commons.Print;
 using System.Drawing;
 using FT.Commons.Cache;
 using FT.Windows.Forms.Domain;
+using ThoughtWorks.QRCode.Codec;
+using ThoughtWorks.QRCode.Codec.Data;
+using ThoughtWorks.QRCode.Codec.Util;
 
 namespace DS.Plugins.Student
 {
@@ -18,6 +21,11 @@ namespace DS.Plugins.Student
         public  const int PixelUnit=3;
 
         private const string Gou = "gou.jpg";
+
+        public string GetConnAddress()
+        {
+            return this.Student.ConnAddress + "-" + Student.BelongXiang + "-" + Student.BelongCun;
+        }
 
         protected string GetNickName()
         {
@@ -228,7 +236,7 @@ namespace DS.Plugins.Student
                 this.Draw15String(regDate.Day.ToString(), new Point(width + 140, height));
             }
         }
-        protected void PrintF5()
+        protected void PrintF6()
         {
             int height = 215;
             int width = 250;
@@ -236,7 +244,31 @@ namespace DS.Plugins.Student
 
         }
 
-        protected void PrintF6()
+        protected void PrintF7()
+        {
+            int height = 215;
+            int width = 250;
+            int sep = 35;
+
+        }
+
+        protected void PrintF8()
+        {
+            int height = 215;
+            int width = 250;
+            int sep = 35;
+
+        }
+
+        protected void PrintF9()
+        {
+            int height = 215;
+            int width = 250;
+            int sep = 35;
+
+        }
+
+        protected void PrintF5()
         {
             F6PrinterConfig config = AllPrinterConfig.GetPrinterConfig().F6Config;
             int height = (config.Down - config.Up) * PixelUnit+215;
@@ -291,9 +323,54 @@ namespace DS.Plugins.Student
             this.DrawTitle(new System.Drawing.Point(540, 80));
         }
 
-        protected void PrintF7()
-        {
 
+        protected Image GetQRImage(string data)
+        {
+            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
+
+            qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
+
+
+            try
+            {
+                //14 2920bit/8=365byte 16 3624/8=453byte 18 4504=536byte 20 5352=669byte
+                qrCodeEncoder.QRCodeScale = Int16.Parse(System.Configuration.ConfigurationManager.AppSettings["QRCodeScale"]);
+            }
+            catch (Exception ex)
+            {
+                //LogFactoryWrapper.StreamError(ex);
+                qrCodeEncoder.QRCodeScale = 2;
+            }
+
+
+            try
+            {
+                //14 2920bit/8=365byte 16 3624/8=453byte 18 4504=536byte 20 5352=669byte
+                qrCodeEncoder.QRCodeVersion = Int16.Parse(System.Configuration.ConfigurationManager.AppSettings["QRCodeVersion"]);
+            }
+            catch (Exception ex)
+            {
+                //LogFactoryWrapper.StreamError(ex);
+                qrCodeEncoder.QRCodeVersion = 16;
+            }
+
+
+            string errorCorrect = "M";
+            if (errorCorrect == "L")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.L;
+            else if (errorCorrect == "M")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
+            else if (errorCorrect == "Q")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.Q;
+            else if (errorCorrect == "H")
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.H;
+
+            Image image;
+            //,System.Text.Encoding.UTF8
+            int length = data.Length;
+            image = qrCodeEncoder.Encode(data, System.Text.Encoding.GetEncoding("gb2312"));
+            return image;
         }
+
     }
 }

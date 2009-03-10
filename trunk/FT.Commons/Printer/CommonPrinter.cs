@@ -128,6 +128,13 @@ namespace FT.Commons.Print
            // this.printDocument1.DefaultPageSettings.Margins
         }
 
+        public void Preview()
+        {
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            this.printPreviewDialog1.WindowState = FormWindowState.Maximized;
+            printPreviewDialog1.ShowDialog();
+        }
+
         /// <summary>
         /// Shows the preview printer.
         /// </summary>
