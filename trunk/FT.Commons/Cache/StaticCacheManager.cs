@@ -93,6 +93,19 @@ namespace FT.Commons.Cache
             }
             return (T)Get<T>();
         }
+        /// <summary>
+        /// 删除配置文件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void RemoveConfig<T>()
+        {
+            string path = ReflectHelper.GetExePath() + "/config/" + typeof(T).Name + ".cfg";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                caches.Remove(typeof(T).FullName);
+            }
+        }
 
         /// <summary>
         /// 保存某一个对象的配置

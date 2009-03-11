@@ -95,20 +95,6 @@
     <Compile Include="Dict\Dict.cs" />
     <Compile Include="Dict\DictManager.cs" />
     <Compile Include="Dict\DictType.cs" />
-    <Compile Include="User\User.cs" />
-    <Compile Include="User\UserManager.cs" />
-    <Compile Include="LockSystemForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LockSystemForm.Designer.cs">
-      <DependentUpon>LockSystemForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginPlugin.cs" />
     <Compile Include="Province\ProvinceSearch.cs">
       <SubType>UserControl</SubType>
@@ -123,30 +109,12 @@
       <DependentUpon>ProvinceBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="Province\Province.cs" />
-    <Compile Include="PwdChangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PwdChangeForm.Designer.cs">
-      <DependentUpon>PwdChangeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ToolsPlugin.cs" />
-    <Compile Include="User\UserBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User\UserBrowser.Designer.cs">
-      <DependentUpon>UserBrowser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User\UserSearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User\UserSearchControl.Designer.cs">
-      <DependentUpon>UserSearchControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Xiang\XiangSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,30 +176,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>DictBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LockSystemForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>LockSystemForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Province\ProvinceBrowser.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ProvinceBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PwdChangeForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>PwdChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User\UserBrowser.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UserBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xiang\XiangBrowser.resx">
       <SubType>Designer</SubType>

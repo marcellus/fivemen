@@ -16,16 +16,23 @@ namespace FT.Test
             Application.SetCompatibleTextRenderingDefault(false);
             
             //Application.Run(new BaseForm());
-            Form form = new FT.Windows.CommonsPlugin.LoginForm();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                FT.Windows.Forms.BaseMainForm main = new FT.Windows.Forms.BaseMainForm();
-                TabPage tb=new TabPage("欢迎您   ");
-                tb.BackgroundImage=FT.Test.Properties.Resources.bg;
-                tb.BackgroundImageLayout = ImageLayout.Stretch;
-                main.GetSimpleTabControl().TabPages.Add(tb);
-                Application.Run(main);
-            }
+            //Form form = new FT.Windows.CommonsPlugin.LoginForm();
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    FT.Windows.Forms.BaseMainForm main = new FT.Windows.Forms.BaseMainForm();
+            //    TabPage tb=new TabPage("欢迎您   ");
+            //    tb.BackgroundImage=FT.Test.Properties.Resources.bg;
+            //    tb.BackgroundImageLayout = ImageLayout.Stretch;
+            //    main.GetSimpleTabControl().TabPages.Add(tb);
+            //    Application.Run(main);
+            //}
+
+            //FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords", FT.Test.Properties.Resources.bg
+            //, 8, "15814584509", true);
+            FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", FT.Test.Properties.Resources.bg
+            , 8, "15814584509", true);
+
+          //  FT.Windows.Forms.AppicationHelper.Start("keywords", FT.Test.Properties.Resources.bg);
 
             
         }

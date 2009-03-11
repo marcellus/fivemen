@@ -87,6 +87,9 @@
     <Compile Include="TabControlEx\SimpleTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TextBoxEx\DateTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TextBoxEx\TextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -201,10 +201,6 @@
       <Project>{81CC8F56-BEDD-4573-85A3-8091A11D693C}</Project>
       <Name>FT.Lottery</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FT.Plugins.PersonCard\FT.Plugins.PersonCard.csproj">
-      <Project>{D5EC5557-52D2-4FEC-B635-4E1502BB98F5}</Project>
-      <Name>FT.Plugins.PersonCard</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
       <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
       <Name>FT.Windows.CommonsPlugin</Name>

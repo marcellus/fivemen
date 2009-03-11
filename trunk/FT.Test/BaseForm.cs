@@ -138,8 +138,8 @@ namespace FT.Test
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Form form = new FT.Windows.Forms.ConditionBuildForm(typeof(FT.Plugins.PersonCard.Card));
-            form.Show();
+           // Form form = new FT.Windows.Forms.ConditionBuildForm(typeof(FT.Plugins.PersonCard.Card));
+           // form.Show();
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace FT.Test
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Form form = new FT.Windows.CommonsPlugin.LoginForm();
+            Form form = new FT.Windows.Forms.LoginForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 FT.Windows.Forms.BaseMainForm form1 = new BaseMainForm();

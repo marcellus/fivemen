@@ -196,9 +196,14 @@ namespace FT.Windows.Forms.Plugins
             if (typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
             {
                 //InitPlugin(type);
-                AddUseCache(type);
+                
                 IPlugin obj = FT.Commons.Tools.ReflectHelper.CreateInstance(type) as IPlugin;
-                obj.Emmit(form);
+                if (obj != null)
+                {
+                    AddUseCache(type);
+                    obj.Emmit(form);
+                }
+                
             }
         }
 
@@ -250,10 +255,12 @@ namespace FT.Windows.Forms.Plugins
                 PluginsFileConfig config=FT.Commons.Cache.StaticCacheManager.GetConfig<PluginsFileConfig>();
                 if (config.PluginTypes.Count > 0)//如果配置里面插件数量大于0
                 {
-                     foreach (string tmp in config.PluginTypes)
-                     {
+                    string tmp = "";
+                    for (int i = 0; i < config.PluginTypes.Count;i++ )
+                    {
+                        tmp = config.PluginTypes[i].ToString();
                         EmmitFromType(form, System.Type.GetType(tmp));
-                     }
+                    }
                 }
                 
                 else
