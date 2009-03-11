@@ -19,11 +19,7 @@ namespace FT.Windows.Forms
         {
             InitializeComponent();
         }
-        private ProgramState state;
-        public BaseMainForm(ProgramState state):this()
-        {
-            this.state = state;
-        }
+    
 
         
         /// <summary>
@@ -68,12 +64,11 @@ namespace FT.Windows.Forms
             if (!this.DesignMode)
             {
                 PluginManager.LoadAllPluginToMainForm(this);
-                this.Text = Application.ProductName + Application.ProductVersion;
-                if (this.state == ProgramState.Trial)
+                if (AppicationHelper.ProductState == ProgramState.Trial)
                 {
                     this.Text += "-试用版";
                 }
-                else if (this.state == ProgramState.Registed)
+                else if (AppicationHelper.ProductState == ProgramState.Registed)
                 {
                     this.Text += "-正式版";
                 }
@@ -93,9 +88,18 @@ namespace FT.Windows.Forms
         private void BaseMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
-            config.LastDate = System.DateTime.Now;
-            config.UseCount++;
-            StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
+            if (config.LastDate > System.DateTime.Now)
+            {
+                MessageBoxHelper.Show("对不起，当前时间被篡改！");
+                e.Cancel = true;
+            }
+            else
+            {
+                config.LastDate = System.DateTime.Now;
+                config.UseCount++;
+                StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
+                FileHelper.WriteLastLog(Application.ProductName);
+            }
         }
     }
 }

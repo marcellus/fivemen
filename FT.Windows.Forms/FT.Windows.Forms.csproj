@@ -39,6 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppicationHelper.cs" />
+    <Compile Include="User\LockSystemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\LockSystemForm.Designer.cs">
+      <DependentUpon>LockSystemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Printer\DataTablePrinterContent.cs" />
     <Compile Include="Printer\CustomPrinterSetting.cs">
       <SubType>Form</SubType>
@@ -48,7 +61,6 @@
     </Compile>
     <Compile Include="Printer\GlobalPrintSetting.cs" />
     <Compile Include="Printer\AbstractPrinterContent.cs" />
-    <Compile Include="AppicationHelper.cs" />
     <Compile Include="BaseMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +94,12 @@
     </Compile>
     <Compile Include="CommonPanel\PersonDetail.Designer.cs">
       <DependentUpon>PersonDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\PwdChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\PwdChangeForm.Designer.cs">
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PluginConfigForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +157,20 @@
     <Compile Include="Help\SimpleRegister.Designer.cs">
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\User.cs" />
+    <Compile Include="User\UserBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserBrowser.Designer.cs">
+      <DependentUpon>UserBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserManager.cs" />
+    <Compile Include="User\UserSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\UserSearchControl.Designer.cs">
+      <DependentUpon>UserSearchControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
@@ -179,9 +211,21 @@
       <SubType>Designer</SubType>
       <DependentUpon>PersonDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\LockSystemForm.resx">
+      <DependentUpon>LockSystemForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Printer\CustomPrinterSetting.resx">
       <SubType>Designer</SubType>
       <DependentUpon>CustomPrinterSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\PwdChangeForm.resx">
+      <DependentUpon>PwdChangeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\PluginConfigForm.resx">
       <SubType>Designer</SubType>
@@ -236,12 +280,26 @@
       <SubType>Designer</SubType>
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\UserBrowser.resx">
+      <DependentUpon>UserBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\about.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ico\home.ico" />
+    <None Include="Resources\WLM.png" />
+    <None Include="Resources\Text.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Notepad.png" />
+    <None Include="Resources\Logout.png" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\Locker.png" />
+    <None Include="Resources\Home_16_161.png" />
+    <None Include="Resources\DossierBleu Documents.png" />
+    <None Include="Resources\Config.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\grid.png" />
     <None Include="Resources\database_add.png" />

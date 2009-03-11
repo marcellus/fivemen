@@ -130,6 +130,13 @@ namespace FT.Windows.Forms.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Config {
+            get {
+                object obj = ResourceManager.GetObject("Config", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Cut_16_16 {
             get {
                 object obj = ResourceManager.GetObject("Cut_16_16", resourceCulture);
@@ -140,6 +147,13 @@ namespace FT.Windows.Forms.Properties {
         internal static System.Drawing.Bitmap detail {
             get {
                 object obj = ResourceManager.GetObject("detail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap DossierBleu_Documents {
+            get {
+                object obj = ResourceManager.GetObject("DossierBleu_Documents", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -168,6 +182,41 @@ namespace FT.Windows.Forms.Properties {
         internal static System.Drawing.Bitmap Home_16_16 {
             get {
                 object obj = ResourceManager.GetObject("Home_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Home_16_161 {
+            get {
+                object obj = ResourceManager.GetObject("Home_16_161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Locker {
+            get {
+                object obj = ResourceManager.GetObject("Locker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Login {
+            get {
+                object obj = ResourceManager.GetObject("Login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Logout {
+            get {
+                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Notepad {
+            get {
+                object obj = ResourceManager.GetObject("Notepad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -217,6 +266,27 @@ namespace FT.Windows.Forms.Properties {
         internal static System.Drawing.Bitmap Search_16_16 {
             get {
                 object obj = ResourceManager.GetObject("Search_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Settings {
+            get {
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Text {
+            get {
+                object obj = ResourceManager.GetObject("Text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap WLM {
+            get {
+                object obj = ResourceManager.GetObject("WLM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,16 +20,16 @@ namespace FT.Windows.CommonsPlugin
         {
             ToolStripMenuItem top = this.AddToMenu("系统用户(&U)");
             //top.
-            ToolStripMenuItem tmp = this.BuildSubMenu("添加用户", typeof(FT.Windows.CommonsPlugin.UserBrowser));
+            ToolStripMenuItem tmp = this.BuildSubMenu("添加用户", typeof(FT.Windows.Forms.UserBrowser));
 
 
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("用户管理", typeof(FT.Windows.CommonsPlugin.UserSearchControl));
+            tmp = this.BuildSubMenu("用户管理", typeof(FT.Windows.Forms.UserSearchControl));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
-            tmp = this.BuildSubMenu("修改密码", typeof(FT.Windows.CommonsPlugin.PwdChangeForm));
+            tmp = this.BuildSubMenu("修改密码", typeof(FT.Windows.Forms.PwdChangeForm));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("锁定系统", typeof(FT.Windows.CommonsPlugin.LockSystemForm));
+            tmp = this.BuildSubMenu("锁定系统", typeof(FT.Windows.Forms.LockSystemForm));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildTopMenu("退出系统");
             tmp.Click += new EventHandler(quit_Click);
@@ -77,8 +77,8 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.WLM, "用户管理", typeof(FT.Windows.CommonsPlugin.UserSearchControl));
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Locker, "锁定系统", typeof(FT.Windows.CommonsPlugin.LockSystemForm));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.WLM, "用户管理", typeof(FT.Windows.Forms.UserSearchControl));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Locker, "锁定系统", typeof(FT.Windows.Forms.LockSystemForm));
             //throw new Exception("The method or operation is not implemented.");
         }
     }
