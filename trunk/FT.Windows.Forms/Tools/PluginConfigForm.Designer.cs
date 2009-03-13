@@ -44,9 +44,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listViewNow);
-            this.groupBox1.Location = new System.Drawing.Point(13, 23);
+            this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 126);
+            this.groupBox1.Size = new System.Drawing.Size(450, 155);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "现有插件";
@@ -59,7 +59,7 @@
             this.listViewNow.FullRowSelect = true;
             this.listViewNow.Location = new System.Drawing.Point(7, 21);
             this.listViewNow.Name = "listViewNow";
-            this.listViewNow.Size = new System.Drawing.Size(437, 97);
+            this.listViewNow.Size = new System.Drawing.Size(437, 128);
             this.listViewNow.TabIndex = 0;
             this.listViewNow.UseCompatibleStateImageBehavior = false;
             this.listViewNow.View = System.Windows.Forms.View.Details;
@@ -78,9 +78,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listViewAll);
-            this.groupBox2.Location = new System.Drawing.Point(13, 218);
+            this.groupBox2.Location = new System.Drawing.Point(13, 202);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 126);
+            this.groupBox2.Size = new System.Drawing.Size(450, 170);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "所有有效插件";
@@ -91,9 +91,9 @@
             this.columnHeader2,
             this.columnHeader4});
             this.listViewAll.FullRowSelect = true;
-            this.listViewAll.Location = new System.Drawing.Point(6, 20);
+            this.listViewAll.Location = new System.Drawing.Point(7, 20);
             this.listViewAll.Name = "listViewAll";
-            this.listViewAll.Size = new System.Drawing.Size(437, 97);
+            this.listViewAll.Size = new System.Drawing.Size(437, 144);
             this.listViewAll.TabIndex = 0;
             this.listViewAll.UseCompatibleStateImageBehavior = false;
             this.listViewAll.View = System.Windows.Forms.View.Details;

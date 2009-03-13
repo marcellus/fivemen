@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS.Plugins.Student", "DS.Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Windows.ExternalTool", "FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj", "{78DF4A96-58A9-442F-B047-ED8D56196172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle.Plugins", "Vehicle.Plugins\Vehicle.Plugins.csproj", "{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle", "Vehicle\Vehicle.csproj", "{87811F1F-F7D4-4724-A8F9-70BD826D3D55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{78DF4A96-58A9-442F-B047-ED8D56196172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78DF4A96-58A9-442F-B047-ED8D56196172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78DF4A96-58A9-442F-B047-ED8D56196172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

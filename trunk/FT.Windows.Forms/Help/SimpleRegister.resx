@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtRightCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 118</value>
+    <value>68, 106</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtRightCode.Multiline" type="System.Boolean, mscorlib">
@@ -135,7 +135,7 @@
     <value>txtRightCode</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -144,7 +144,7 @@
     <value>0</value>
   </data>
   <data name="txtCompany.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 81</value>
+    <value>68, 69</value>
   </data>
   <data name="txtCompany.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 21</value>
@@ -156,7 +156,7 @@
     <value>txtCompany</value>
   </data>
   <data name="&gt;&gt;txtCompany.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtCompany.Parent" xml:space="preserve">
     <value>$this</value>
@@ -165,7 +165,7 @@
     <value>1</value>
   </data>
   <data name="txtKeyCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 46</value>
+    <value>68, 34</value>
   </data>
   <data name="txtKeyCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 21</value>
@@ -177,7 +177,7 @@
     <value>txtKeyCode</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -186,7 +186,7 @@
     <value>2</value>
   </data>
   <data name="txtMachineCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 17</value>
+    <value>68, 5</value>
   </data>
   <data name="txtMachineCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 21</value>
@@ -198,7 +198,7 @@
     <value>txtMachineCode</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -214,7 +214,7 @@
     <value>NoControl</value>
   </data>
   <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 196</value>
+    <value>110, 173</value>
   </data>
   <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -229,7 +229,7 @@
     <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -244,7 +244,7 @@
     <value>NoControl</value>
   </data>
   <data name="simpleLabel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 128</value>
+    <value>6, 116</value>
   </data>
   <data name="simpleLabel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
@@ -259,7 +259,7 @@
     <value>simpleLabel4</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -274,7 +274,7 @@
     <value>NoControl</value>
   </data>
   <data name="simpleLabel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 91</value>
+    <value>6, 79</value>
   </data>
   <data name="simpleLabel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -289,7 +289,7 @@
     <value>simpleLabel3</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -304,7 +304,7 @@
     <value>NoControl</value>
   </data>
   <data name="simpleLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 56</value>
+    <value>6, 44</value>
   </data>
   <data name="simpleLabel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
@@ -319,7 +319,7 @@
     <value>simpleLabel2</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -334,7 +334,7 @@
     <value>NoControl</value>
   </data>
   <data name="simpleLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 27</value>
+    <value>6, 15</value>
   </data>
   <data name="simpleLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
@@ -349,7 +349,7 @@
     <value>simpleLabel1</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3354.26926, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3359.10177, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -364,7 +364,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>325, 237</value>
+    <value>280, 202</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -17,6 +17,32 @@ namespace FT.DAL
     /// </summary>
     public interface IDataAccess
     {
+
+        string LargerEqualDateString(string stringcolumn, DateTime before);
+
+        string LowerEqualDateString(string stringcolumn, DateTime before);
+
+        string LargerDateString(string stringcolumn, DateTime before);
+
+        string LowerDateString(string stringcolumn, DateTime before);
+
+        /// <summary>
+        /// 字符串时间列得出对比的sql语句
+        /// </summary>
+        /// <param name="stringcolumn"></param>
+        /// <param name="before"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        string BetweenDateString(string stringcolumn, DateTime before, DateTime end);
+        /// <summary>
+        /// date的时间列对比出的sql语句
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="before"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+         string BetweenDate(string column, DateTime before, DateTime end);
+
         /// <summary>
         /// 创建命令Builder
         /// </summary>

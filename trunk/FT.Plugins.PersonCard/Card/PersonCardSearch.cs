@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using FT.DAL.Orm;
 
 namespace FT.Plugins.PersonCard
 {
@@ -16,6 +17,7 @@ namespace FT.Plugins.PersonCard
             this.EntityType = typeof(Card);
             this.DetailFormType=typeof(PersonCardBrowser);
         }
+        #region 子类必须继承
         protected override void InitPager()
         {
             base.InitPager();
@@ -56,8 +58,23 @@ namespace FT.Plugins.PersonCard
             this.CreateColumn("分组名称");
 
 
-            
+
         }
+        #endregion
+
+        protected override string GetPrintField()
+        {
+            return @"c_name as 姓名,c_nickname as 昵称,c_sex as 性别,
+            c_birthday as  出生年月,c_phone as 固话,
+c_mobile as 手机,c_email as 联系邮箱,c_group as 分组名称";
+        }
+
+        protected override int[] GetPrintWidths()
+        {
+            return new int[] { 100,100,60,120,120,120,100 };
+            //return base.GetPrintWidths();
+        }
+
     }
 }
 

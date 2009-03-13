@@ -141,6 +141,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>TabControlExTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TabControlTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabControlTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestNameForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TestNameForm.cs</DependentUpon>
@@ -171,6 +175,12 @@
     </Compile>
     <Compile Include="TabControlExTest.Designer.cs">
       <DependentUpon>TabControlExTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabControlTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TabControlTest.Designer.cs">
+      <DependentUpon>TabControlTest.cs</DependentUpon>
     </Compile>
     <Compile Include="TestNameForm.cs">
       <SubType>Form</SubType>

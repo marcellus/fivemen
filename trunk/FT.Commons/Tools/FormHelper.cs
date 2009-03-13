@@ -200,7 +200,16 @@ namespace FT.Commons.Tools
             }
             if (prop.PropertyType == typeof(Boolean))
             {
-                return Convert.ToBoolean(data.ToString());
+                string tmp = data.ToString();
+                if (tmp == "是")
+                {
+                    return true;
+                }
+                else if (tmp == "否")
+                {
+                    return false;
+                }
+                return Convert.ToBoolean(tmp);
             }
             return null;
         }
@@ -236,7 +245,16 @@ namespace FT.Commons.Tools
             }
             if (field.FieldType == typeof(Boolean))
             {
-                return Convert.ToBoolean(data.ToString());
+                string tmp=data.ToString();
+                if ( tmp== "是" )
+                {
+                    return true;
+                }
+                else if (tmp == "否")
+                {
+                    return false;
+                }
+                return Convert.ToBoolean(tmp);
             }
             return null;
         }
@@ -322,6 +340,10 @@ namespace FT.Commons.Tools
             {
                 result = ((TextBox)ctr).Text.ToString();
             }
+            else if (ctr is MaskedTextBox)
+            {
+                result = ((MaskedTextBox)ctr).Text.ToString();
+            }
             
             else if (ctr is ComboBox)
             {
@@ -386,6 +408,12 @@ namespace FT.Commons.Tools
             {
                 ((TextBox)ctr).Text = value.ToString();
             }
+
+            else if (ctr is MaskedTextBox)
+            {
+                ((MaskedTextBox)ctr).Text = value.ToString();
+            }
+            
             
             else if (ctr is ComboBox)
             {
@@ -405,7 +433,7 @@ namespace FT.Commons.Tools
             }
             else if (ctr is CheckBox)
             {
-                ((CheckBox)ctr).Checked = (value.ToString()=="是"?true:false);
+                ((CheckBox)ctr).Checked = (value.ToString()=="是"||value.ToString().ToLower()=="true"?true:false);
             }
             else if (ctr is PictureBox)
             {
@@ -441,6 +469,10 @@ namespace FT.Commons.Tools
             else if (ctr is TextBox)
             {
                 result = name.Substring(3);
+            }
+            else if (ctr is MaskedTextBox)
+            {
+                result = name.Substring(4);
             }
             
             else if (ctr is ComboBox)

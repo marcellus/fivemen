@@ -43,6 +43,17 @@ namespace FT.Plugins.PersonCard
             this.CreateColumn("分组描述");
         }
         #endregion
+
+        protected override string GetPrintField()
+        {
+            return "c_name as 分组名称,c_description as 分组描述";
+        }
+
+        protected override int[] GetPrintWidths()
+        {
+            return new int[] { 120};
+            //return base.GetPrintWidths();
+        }
     }
 }
 

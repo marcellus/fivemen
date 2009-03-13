@@ -14,7 +14,7 @@ namespace FT.Windows.Forms.Plugins
     /// </summary>
     public abstract class AbstractWindowPlugin:IPlugin
     {
-        private BaseMainForm form;
+        protected BaseMainForm form;
 
         private bool isEmmitSeparator = false;
 
@@ -114,6 +114,7 @@ namespace FT.Windows.Forms.Plugins
             tool.DisplayStyle = ToolStripItemDisplayStyle.Image;
             tool.Text = tool.ToolTipText = text;
             tool.Image = image;
+            tool.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
             this.form.GetToolStrip().Items.Add(tool);
             return tool;
         }
@@ -128,6 +129,7 @@ namespace FT.Windows.Forms.Plugins
             System.Windows.Forms.ToolStripButton tool=AddTopTool(image, text);
             tool.DisplayStyle = ToolStripItemDisplayStyle.Image;
             tool.Tag = paneltype.FullName;
+            tool.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
             tool.Click += new EventHandler(item_Click);
             return tool;
         }

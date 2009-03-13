@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppicationHelper.cs" />
+    <Compile Include="ApplicationStartConfig.cs" />
     <Compile Include="User\LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +172,12 @@
     <Compile Include="User\UserSearchControl.Designer.cs">
       <DependentUpon>UserSearchControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
@@ -283,6 +290,10 @@
     <EmbeddedResource Include="User\UserBrowser.resx">
       <DependentUpon>UserBrowser.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

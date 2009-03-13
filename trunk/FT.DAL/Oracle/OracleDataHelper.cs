@@ -74,6 +74,36 @@ namespace FT.DAL.Oracle
         {
             throw new Exception("The method or operation is not implemented.");
         }
+
+        public override string BetweenDateString(string stringcolumn, DateTime before, DateTime end)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string BetweenDate(string column, DateTime before, DateTime end)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string LargerDateString(string stringcolumn, DateTime before)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string LowerDateString(string stringcolumn, DateTime before)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string LargerEqualDateString(string stringcolumn, DateTime before)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string LowerEqualDateString(string stringcolumn, DateTime before)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
     }
 
 }

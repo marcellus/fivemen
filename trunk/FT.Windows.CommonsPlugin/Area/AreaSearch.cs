@@ -32,6 +32,17 @@ namespace FT.Windows.CommonsPlugin
             this.CreateColumn("所属省份", 80);
             this.CreateColumn("所属市");
         }
+
+        protected override string GetPrintField()
+        {
+            return "c_text as 区县名称,c_code as 区县代码,c_father_code as 所属市代码";
+        }
+
+        protected override int[] GetPrintWidths()
+        {
+            return new int[] { 380, 100 };
+            //return base.GetPrintWidths();
+        }
     }
 }
 
