@@ -75,6 +75,37 @@ namespace FT.DAL.Access
         {
             return this.GetPageSqlByTop(sql,pager, order, isDesc);
         }
+
+        public override string BetweenDateString(string stringcolumn, DateTime before, DateTime end)
+        {
+            return "cdate(" + stringcolumn + ") between #"+before.ToString("yyyy-MM-dd") + " 00:00:00# and #" + end.ToString("yyyy-MM-dd") + " 23:59:59#";
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string BetweenDate(string column, DateTime before, DateTime end)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
+        public override string LargerDateString(string stringcolumn, DateTime before)
+        {
+            return "cdate("+stringcolumn + ")>#" + before.ToString("yyyy-MM-dd") + " 00:00:00#";
+        }
+
+        public override string LowerDateString(string stringcolumn, DateTime before)
+        {
+            return "cdate(" + stringcolumn + ")<#" + before.ToString("yyyy-MM-dd") + " 23:59:59#";
+        }
+
+        public override string LargerEqualDateString(string stringcolumn, DateTime before)
+        {
+            return "cdate(" + stringcolumn + ")>=#" + before.ToString("yyyy-MM-dd") + " 00:00:00#";
+        }
+
+        public override string LowerEqualDateString(string stringcolumn, DateTime before)
+        {
+            return "cdate(" + stringcolumn + ")<=#" + before.ToString("yyyy-MM-dd") + " 23:59:59#";
+        }
     }
 
 }

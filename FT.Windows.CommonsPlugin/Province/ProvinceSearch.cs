@@ -30,6 +30,17 @@ namespace FT.Windows.CommonsPlugin
             this.CreateColumn("省份代码");
             
         }
+
+        protected override string GetPrintField()
+        {
+            return "c_text as 省份名称,c_code as 省份代码";
+        }
+
+        protected override int[] GetPrintWidths()
+        {
+            return new int[] { 380 };
+            //return base.GetPrintWidths();
+        }
     }
 }
 

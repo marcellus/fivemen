@@ -33,6 +33,32 @@ namespace FT.DAL
            
             return this.CreateConn(connStr);
         }
+        public abstract string LargerEqualDateString(string stringcolumn, DateTime before);
+
+        public abstract string LowerEqualDateString(string stringcolumn, DateTime before);
+
+        public abstract string LargerDateString(string stringcolumn, DateTime before);
+
+        public abstract string LowerDateString(string stringcolumn, DateTime before);
+
+        /// <summary>
+        /// 字符串时间列得出对比的sql语句
+        /// </summary>
+        /// <param name="stringcolumn"></param>
+        /// <param name="before"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public abstract string BetweenDateString(string stringcolumn, DateTime before, DateTime end);
+        /// <summary>
+        /// date的时间列对比出的sql语句
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="before"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public abstract string BetweenDate(string column, DateTime before, DateTime end);
+        
+
         /// <summary>
         /// 根据连接字符串connString 创建一个DbConnection
         /// </summary>
@@ -236,6 +262,7 @@ namespace FT.DAL
                 DbDataAdapter oradp = this.CreateAdapter();
                 DbCommand command = conn.CreateCommand();
                 command.CommandText = sql;
+                //command.CommandText = sql.Replace("\r\n","");
                 oradp.SelectCommand = command;
                 oradp.Fill(dt);
             }

@@ -282,7 +282,7 @@ namespace FT.Windows.Forms
         {
             if (this.entityType != null)
             {
-                ConditionBuildForm form = new ConditionBuildForm(this.entityType, this);
+                ConditionBuildForm form = new ConditionBuildForm(this.entityType, this,pager.Condition);
                 form.ShowInTaskbar = false;
                 form.ShowDialog();
             }
@@ -564,6 +564,111 @@ namespace FT.Windows.Forms
                 this.Delete();
             }
         }
+
+        /// <summary>
+        /// 打印事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (pager.Lists.Count == 0)
+                {
+                    MessageBoxHelper.Show("没有可打印的数据！");
+                }
+                else
+                {
+                    string printfield = this.GetPrintField();
+                    int[] widths = this.GetPrintWidths();
+                    if (printfield == string.Empty)
+                    {
+                        MessageBoxHelper.Show("还没有实现打印该列表功能！");
+                        return;
+                    }
+                    else if (widths == null)
+                    {
+                        MessageBoxHelper.Show("请设定要打印的列宽！");
+                        return;
+                    }
+                    else
+                    {
+                        DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable(
+                            "select " + this.GetPrintField() + " from " + FT.DAL.Orm.SimpleOrmCache.GetTableName(this.entityType) + " " + pager.Condition, "test");
+                        if (dt.Columns.Count >= widths.Length + 1)
+                        {
+                            DataTablePrinterContent.Print(dt, widths, this.GetExportTitle());
+                        }
+                        else
+                        {
+                            MessageBoxHelper.Show("设定打印的列宽+1超出了待打印的列数！");
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxHelper.ShowPrinter("错误信息："+ex.Message);
+            }
+            
+            
+        }
+
+        /// <summary>
+        /// 待打印的列
+        /// </summary>
+        /// <returns></returns>
+        protected virtual string GetPrintField()
+        {
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// 待打印的列宽度
+        /// </summary>
+        /// <returns></returns>
+        protected virtual int[] GetPrintWidths()
+        {
+            return null;
+        }
+
+        private int[] GetDataGridViewWidth()
+        {
+            int[] tmp=new int[this.dataGridView1.Columns.Count-1];
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                tmp[i] = this.dataGridView1.Columns[i].Width;
+            }
+            return tmp;
+        }
+
+        //打印当前页
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridView1.Rows.Count == 0)
+                {
+                    MessageBoxHelper.Show("没有可打印的数据！");
+                }
+                else
+                {
+                    DataTable dt = this.GetTableFromGrid();
+                    DataTablePrinterContent.Print(dt, this.GetDataGridViewWidth(), this.GetExportTitle());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxHelper.ShowPrinter("错误信息："+ex.Message);
+            }
+            
+        }
+
+        
 
     }
 }

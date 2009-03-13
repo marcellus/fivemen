@@ -45,8 +45,8 @@ namespace FT.Windows.CommonsPlugin
 
         void help_Click(object sender, EventArgs e)
         {
-            this.Test();
-            //this.ShowHelp();
+            //this.Test();
+            this.ShowHelp();
             //throw new Exception("The method or operation is not implemented.");
         }
 

@@ -161,5 +161,11 @@ namespace FT.Test
             }
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Form fm = new TabControlTest();
+            fm.ShowDialog();
+        }
+
     }
 }

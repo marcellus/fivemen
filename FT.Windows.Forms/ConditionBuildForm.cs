@@ -30,6 +30,17 @@ namespace FT.Windows.Forms
             this.refresher = refresher;
         }
 
+        public ConditionBuildForm(Type entityType, IRefreshParent refresher,string oldcondition)
+        {
+            InitializeComponent();
+            this.entityType = entityType;
+            this.refresher = refresher;
+            if (oldcondition.Trim().StartsWith("where"))
+            {
+                this.txtConditions.Text = oldcondition.Trim().Substring(5);
+            }
+        }
+
 
         /// <summary>
         /// 放置构造静态的操作条件
@@ -111,27 +122,82 @@ namespace FT.Windows.Forms
                 }
                 else
                 {
-                    this.txtConditions.Text += " or ";
+                    this.txtConditions.Text += " or  ";
                 }
             }
-            this.txtConditions.Text += this.cbFields.SelectedValue.ToString();
+            string col=this.cbFields.SelectedValue.ToString();
             string op = this.cbOperations.SelectedValue.ToString();
-            this.txtConditions.Text +=" "+op +" ";
-            if (op == "like")
+            string tmp=this.cbFields.Text;
+            if (tmp.IndexOf("年月") != -1 || tmp.IndexOf("日期") != -1)
             {
-                this.txtConditions.Text += "'%" + this.txtValue.Text.Trim() + "%'";
-            }
-            else if (op == "=")
+                    try
+                    {
+                        DateTime now = Convert.ToDateTime(this.txtValue.Text.Trim());
+                        if(op==">=")
+                        {
+                            this.txtConditions.Text +=
+                                FT.DAL.DataAccessFactory.GetDataAccess().LargerEqualDateString(col, now);
+                        }
+                        else if(op=="<=")
+                        {
+                            this.txtConditions.Text +=
+                                FT.DAL.DataAccessFactory.GetDataAccess().LowerEqualDateString(col, now);
+                        }
+                        else if (op == ">")
+                        {
+                            this.txtConditions.Text +=
+                                FT.DAL.DataAccessFactory.GetDataAccess().LargerDateString(col, now);
+                        }
+                        else if (op == "<")
+                        {
+                            this.txtConditions.Text +=
+                                FT.DAL.DataAccessFactory.GetDataAccess().LowerDateString(col, now);
+                        }
+                        else if (op == "=")
+                        {
+                            this.txtConditions.Text +=
+                                FT.DAL.DataAccessFactory.GetDataAccess().BetweenDateString(col, now, now);
+                        }
+                        else
+                        {
+                            MessageBoxHelper.Show("日期格式只能选择条件大于小于等于！");
+                            if(this.txtConditions.Text.Length>0)
+                            {
+                                this.txtConditions.Text=this.txtConditions.Text.Substring(0,this.txtConditions.Text.Length-5);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBoxHelper.Show("日期格式必须是yyyy-MM-dd!");
+                        if (this.txtConditions.Text.Length > 0)
+                        {
+                            this.txtConditions.Text = this.txtConditions.Text.Substring(0, this.txtConditions.Text.Length - 5);
+                        }
+                    }
+                   // 
+             }
+            else
             {
-                this.txtConditions.Text += "'" + this.txtValue.Text.Trim() + "'";
-            }
-            else if (op == "<>")
-            {
-                this.txtConditions.Text += "'" + this.txtValue.Text.Trim() + "'";
-            }
-            else//> >= < <=为整数条件
-            {
-                this.txtConditions.Text +=  this.txtValue.Text.Trim() ;
+                this.txtConditions.Text += col;
+                this.txtConditions.Text +=" "+op +" ";
+                if (op == "like")
+                {
+                    this.txtConditions.Text += "'%" + this.txtValue.Text.Trim() + "%'";
+                }
+                else if (op == "=")
+                {
+                    this.txtConditions.Text += "'" + this.txtValue.Text.Trim() + "'";
+                }
+                else if (op == "<>")
+                {
+                    this.txtConditions.Text += "'" + this.txtValue.Text.Trim() + "'";
+                }
+                else//> >= < <=为整数条件
+                {
+                    
+                    this.txtConditions.Text +=  this.txtValue.Text.Trim() ;
+                }
             }
             
         }

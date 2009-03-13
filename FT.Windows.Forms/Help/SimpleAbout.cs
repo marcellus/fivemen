@@ -76,5 +76,10 @@ namespace FT.Windows.Forms
             }
         }
         #endregion
+
+        private void SimpleAbout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

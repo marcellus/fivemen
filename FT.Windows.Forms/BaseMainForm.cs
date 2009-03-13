@@ -18,6 +18,7 @@ namespace FT.Windows.Forms
         public BaseMainForm()
         {
             InitializeComponent();
+            PluginManager.LoadAllPluginToMainForm(this);
         }
     
 
@@ -63,7 +64,7 @@ namespace FT.Windows.Forms
             //this.IsMdiContainer = true;
             if (!this.DesignMode)
             {
-                PluginManager.LoadAllPluginToMainForm(this);
+                
                 if (AppicationHelper.ProductState == ProgramState.Trial)
                 {
                     this.Text += "- ‘”√∞Ê";

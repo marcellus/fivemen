@@ -36,6 +36,8 @@
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnExport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -67,18 +69,18 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dataGridView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(940, 452);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(991, 452);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(940, 477);
+            this.toolStripContainer1.Size = new System.Drawing.Size(991, 477);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // dataGridView1
             // 
@@ -92,7 +94,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(940, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(991, 452);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
@@ -107,12 +109,14 @@
             this.btnAdd,
             this.btnUpdate,
             this.btnDelete,
+            this.btnSearch,
             this.toolStripButton1,
             this.btnExport,
-            this.btnSearch});
+            this.toolStripButton3,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(376, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(538, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // btnAdd
@@ -160,6 +164,24 @@
             this.btnExport.Text = "导出全部";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = global::FT.Windows.Forms.Properties.Resources.Printer_16_16;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(87, 22);
+            this.toolStripButton3.Text = "打印当前页";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::FT.Windows.Forms.Properties.Resources.Printer_16_16;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(75, 22);
+            this.toolStripButton2.Text = "打印全部";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // btnSearch
             // 
             this.btnSearch.Image = global::FT.Windows.Forms.Properties.Resources.search;
@@ -189,7 +211,7 @@
             this.btnLastPage,
             this.txtGoPages,
             this.btnGo});
-            this.toolStrip2.Location = new System.Drawing.Point(462, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(541, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(447, 25);
             this.toolStrip2.TabIndex = 0;
@@ -305,7 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "DataSearchControl";
-            this.Size = new System.Drawing.Size(940, 477);
+            this.Size = new System.Drawing.Size(991, 477);
             this.Load += new System.EventHandler(this.DataSearchControl_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -348,5 +370,7 @@
         private System.Windows.Forms.ToolStripButton btnLastPage;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }

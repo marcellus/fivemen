@@ -106,9 +106,17 @@ namespace FT.Windows.Forms
 
         private static void Run(Image bg, string text)
         {
+            Welcome welcome = new Welcome();
+            welcome.ShowInTaskbar = false;
+            if (bg != null)
+            {
+                welcome.BackgroundImage = bg;
+            }
+            welcome.Show();
             Form form = new FT.Windows.Forms.LoginForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
+                welcome.Close();
                 FT.Windows.Forms.BaseMainForm main = new FT.Windows.Forms.BaseMainForm();
                 main.Text = text;
                 if (bg != null)
@@ -119,6 +127,10 @@ namespace FT.Windows.Forms
                     main.GetSimpleTabControl().TabPages.Add(tb);
                 }
                 Application.Run(main);
+            }
+            else
+            {
+                welcome.Close();
             }
         }
 

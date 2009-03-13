@@ -123,7 +123,7 @@ namespace FT.Windows.Forms.Plugins
         /// <param name="info"></param>
         private static void AddAllCache(FileInfo file)
         {
-            if (!file.FullName.EndsWith(".dll"))
+            if (!(file.FullName.EndsWith(".dll") || file.FullName.EndsWith(".exe")))
             {
                 return;
             }
