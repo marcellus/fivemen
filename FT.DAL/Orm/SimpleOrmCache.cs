@@ -116,7 +116,7 @@ namespace FT.DAL.Orm
         /// <param name="type"></param>
         public static void InitType(Type type)
         {
-            if (caches.Contains(type.FullName))
+            if (type==null||caches.Contains(type.FullName))
             {
                 return;
             }

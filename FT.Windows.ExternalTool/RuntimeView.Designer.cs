@@ -39,10 +39,14 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnCreateInstance = new System.Windows.Forms.Button();
             this.txtReflectClass = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtLoggerName = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -141,11 +145,40 @@
             this.txtReflectClass.Size = new System.Drawing.Size(231, 21);
             this.txtReflectClass.TabIndex = 0;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.txtLoggerName);
+            this.groupBox5.Location = new System.Drawing.Point(13, 138);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(353, 42);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "输入要创建的logger-Name";
+            // 
+            // txtLoggerName
+            // 
+            this.txtLoggerName.Location = new System.Drawing.Point(7, 15);
+            this.txtLoggerName.Name = "txtLoggerName";
+            this.txtLoggerName.Size = new System.Drawing.Size(231, 21);
+            this.txtLoggerName.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(256, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "创建Logger";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RuntimeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 418);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -160,6 +193,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -176,5 +211,8 @@
         private System.Windows.Forms.Button btnCreateInstance;
         private System.Windows.Forms.TextBox txtReflectClass;
         private System.Windows.Forms.Button ShowDomainAssembly;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtLoggerName;
     }
 }

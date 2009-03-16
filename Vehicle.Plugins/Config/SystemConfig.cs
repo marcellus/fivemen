@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Vehicle.Plugins
 {
-    public class Class1
+    [Serializable]
+    public class SystemConfig
     {
+        public string PhotoDir;
     }
 }

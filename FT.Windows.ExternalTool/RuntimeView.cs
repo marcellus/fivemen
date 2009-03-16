@@ -141,6 +141,15 @@ namespace FT.Windows.ExternalTool
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (this.txtLoggerName.Text.Trim().Length > 0)
+            {
+                log4net.ILog log = log4net.LogManager.GetLogger(this.txtLoggerName.Text.Trim());
+                MessageBoxHelper.Show("创建结果：\r\n" + log);
+            }
+        }
+
         
     }
 }

@@ -129,13 +129,20 @@ namespace FT.Windows.Forms.Plugins
             }
             if (file.Exists)
             {
-                //AppDomain.CurrentDomain.Load(
-                //Assembly ass = Assembly.LoadFile(file.FullName);
-                Assembly ass = Assembly.LoadFrom(file.FullName);
-                Type[] types = ass.GetTypes();
-                foreach (Type type in types)
+                try
                 {
-                    AddAllCache(type);
+                    //AppDomain.CurrentDomain.Load(
+                    //Assembly ass = Assembly.LoadFile(file.FullName);
+                    Assembly ass = Assembly.LoadFrom(file.FullName);
+                    Type[] types = ass.GetTypes();
+                    foreach (Type type in types)
+                    {
+                        AddAllCache(type);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //防止一些help.exe无效的.net程序集
                 }
             }
         }

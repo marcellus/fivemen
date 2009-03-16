@@ -151,6 +151,8 @@ namespace FT.Windows.Forms
 
         private static void GetProgramState()
         {
+            //log4net.LogManager.ResetConfiguration();
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo("log.xml"));
             ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
             if (config.KeyCode != null && config.KeyCode.Length > 0)
             {
