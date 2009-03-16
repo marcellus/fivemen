@@ -20,6 +20,26 @@ namespace FT.Commons.Tools
     ///</summary>
     public class FileDialogHelper : BaseHelper
     {
+        public static string OpenDir()
+        {
+            return OpenDir(string.Empty);
+        }
+
+        public static string OpenDir(string selectedPath)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.Description = "请选择路径";
+            dialog.SelectedPath = selectedPath;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                return dialog.SelectedPath;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         ///<summary>
         ///Initializes a new instance of the <see cref="FileDialogHelper"/> class.
         ///</summary>

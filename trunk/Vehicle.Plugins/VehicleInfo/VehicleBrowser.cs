@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Vehicle
+namespace Vehicle.Plugins
 {
-    public partial class Form1 : Form
+    public partial class VehicleBrowser : FT.Windows.Forms.DataBrowseForm
     {
-        public Form1()
+        public VehicleBrowser()
         {
             InitializeComponent();
         }
     }
 }
+

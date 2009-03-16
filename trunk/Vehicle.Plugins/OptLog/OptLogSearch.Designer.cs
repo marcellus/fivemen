@@ -1,16 +1,16 @@
-ï»¿namespace Vehicle
+namespace Vehicle.Plugins
 {
-    partial class Form1
+    partial class OptLogSearch
     {
         /// <summary>
-        /// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+        /// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+        /// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
         /// </summary>
-        /// <param name="disposing">å¦‚æœåº”é‡Šæ”¾æ‰˜ç®¡èµ„æºï¼Œä¸º trueï¼›å¦åˆ™ä¸º falseã€‚</param>
+        /// <param name="disposing">Èç¹ûÓ¦ÊÍ·ÅÍĞ¹Ü×ÊÔ´£¬Îª true£»·ñÔòÎª false¡£</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,20 +20,17 @@
             base.Dispose(disposing);
         }
 
-        #region Windows çª—ä½“è®¾è®¡å™¨ç”Ÿæˆçš„ä»£ç 
+        #region Windows ´°ÌåÉè¼ÆÆ÷Éú³ÉµÄ´úÂë
 
         /// <summary>
-        /// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦
-        /// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+        /// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»Òª
+        /// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
         }
 
         #endregion
     }
 }
-

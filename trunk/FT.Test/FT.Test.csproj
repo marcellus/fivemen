@@ -33,9 +33,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Products\release\IrisSkin2.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.0.30714, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Products\release\log4net.dll</HintPath>
+      <HintPath>..\commons-dlls\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
