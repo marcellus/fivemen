@@ -14,7 +14,8 @@ namespace CodeBarReader
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords", CodeBarReader.Properties.Resources.bg
+            FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords"
+                , CodeBarReader.Properties.Resources.bg
            , 8, "15814584509", false);
         }
     }
