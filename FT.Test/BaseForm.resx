@@ -409,7 +409,7 @@
     <value>simpleButton3</value>
   </data>
   <data name="&gt;&gt;simpleButton3.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3357.3975, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3365.3016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleButton3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -436,7 +436,7 @@
     <value>simpleComboBox1</value>
   </data>
   <data name="&gt;&gt;simpleComboBox1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ComboBoxEx.SimpleComboBox, FT.Windows.Controls, Version=1.0.3357.3975, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ComboBoxEx.SimpleComboBox, FT.Windows.Controls, Version=1.0.3365.3016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleComboBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -463,7 +463,7 @@
     <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3357.3975, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3365.3016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -543,6 +543,9 @@
   <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -554,6 +557,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>BaseForm</value>
+  </data>
+  <data name="&gt;&gt;serialPort1.Name" xml:space="preserve">
+    <value>serialPort1</value>
+  </data>
+  <data name="&gt;&gt;serialPort1.Type" xml:space="preserve">
+    <value>System.IO.Ports.SerialPort, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BaseForm</value>

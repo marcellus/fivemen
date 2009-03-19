@@ -23,6 +23,7 @@ namespace FT.Windows.Forms
         public DataBrowseForm()
         {
             InitializeComponent();
+            
             this.lbId.Text = string.Empty;
             //MessageBoxHelper.Show("父类的空构造函数！");
         }
@@ -59,7 +60,7 @@ namespace FT.Windows.Forms
         }
 
 
-
+        #region 验证输入的基类方法
         protected void ValidateIdCard(object sender, CancelEventArgs e,  bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -442,6 +443,7 @@ namespace FT.Windows.Forms
         {
             SetError(sender, string.Empty);
         }
+        #endregion
 
         /// <summary>
         /// 从实体载入数据到窗体上

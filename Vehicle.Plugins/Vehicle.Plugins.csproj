@@ -37,8 +37,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.3335.36555, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\commons-dlls\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseVehicleInfoPrinter.cs" />
     <Compile Include="BindHelper.cs" />
     <Compile Include="OptLog\OptLog.cs" />
     <Compile Include="OptLog\OptLogSearch.cs">
@@ -124,6 +129,10 @@
     <EmbeddedResource Include="VehicleInfo\VehicleBrowser.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VehicleBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleInfo\VehicleSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VehicleSearch.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

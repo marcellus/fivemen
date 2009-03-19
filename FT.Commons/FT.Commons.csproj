@@ -46,7 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bar\BarReaderConfig.cs" />
+    <Compile Include="Bar\BarReaderConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\BarReaderConfigForm.Designer.cs">
+      <DependentUpon>BarReaderConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bar\Code39.cs" />
+    <Compile Include="Bar\ProcessBarData.cs" />
+    <Compile Include="Bar\SimpleBarReader.cs" />
     <Compile Include="Cache\IRefreshCache.cs" />
     <Compile Include="Cache\StaticCacheManager.cs" />
     <Compile Include="Com\Excels\ExcelBorderEnum.cs" />
@@ -301,6 +310,10 @@
     <EmbeddedResource Include="SkinProcessor\Skins\XPOrange.ssk" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Bar\BarReaderConfigForm.resx">
+      <DependentUpon>BarReaderConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="SkinProcessor\Skins\XPSilver.ssk" />
   </ItemGroup>
   <ItemGroup>
