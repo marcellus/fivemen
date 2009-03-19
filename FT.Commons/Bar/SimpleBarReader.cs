@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using log4net;
+using System.Windows.Forms;
 
 namespace FT.Commons.Bar
 {
@@ -39,6 +40,14 @@ namespace FT.Commons.Bar
                 {
                     processer(data);
                     data = string.Empty;
+                }
+                else
+                {
+                    SendKeys.SendWait(data);
+                    if (config.AddReturn)
+                    {
+                        SendKeys.SendWait("{ENTER}");
+                    }
                 }
             }
             catch (Exception ex)

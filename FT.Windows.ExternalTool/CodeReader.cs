@@ -17,6 +17,7 @@ namespace FT.Windows.ExternalTool
         
         private void AppendText(string text)
         {
+            /*
             if (this.txtDetail.InvokeRequired)
             {
                 
@@ -26,7 +27,13 @@ namespace FT.Windows.ExternalTool
             else
             {
                 this.txtDetail.AppendText(text+"\r\n");
-            }
+            }*/
+            SendKeys.SendWait(text);
+            SendKeys.SendWait("{ENTER}");
+            //for (int i = 0; i < text.Length; i++)
+            //{
+               
+            //}
         }
 
         private SimpleBarReader reader = new SimpleBarReader();
@@ -46,7 +53,7 @@ namespace FT.Windows.ExternalTool
                 }
                 else
                 {
-                    reader.RegisterProcesser(AppendText);
+                    //reader.RegisterProcesser(AppendText);
                 }
             }
         }
