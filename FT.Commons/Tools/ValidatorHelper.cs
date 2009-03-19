@@ -40,6 +40,14 @@ namespace FT.Commons.Tools
             
         }
 
+        public static bool ValidatePhoneOrMobile(string text, bool allowBlank)
+        {
+            //^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$
+            //^((0[1-9]{3})?(0[12][0-9])?[-])?\d{6,8}$
+            return ValidatePhone(text, allowBlank) || ValidateMobile(text,allowBlank);
+
+        }
+
         public static bool ValidatePostCode(string text, bool allowBlank)
         {
             return ValidateRegex(text, allowBlank, @"^\d{6}$");

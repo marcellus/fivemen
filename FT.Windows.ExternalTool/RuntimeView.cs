@@ -150,6 +150,54 @@ namespace FT.Windows.ExternalTool
             }
         }
 
+        private void btnCreateTable_Click(object sender, EventArgs e)
+        {
+            string entity=this.txtTableName.Text.Trim();
+            if (entity.Length > 0)
+            {
+                //Type type = Type.GetType(entity,false,true);
+                object obj = ReflectHelper.CreateInstance(entity);
+                if (obj != null)
+                {
+                    Type type = obj.GetType();
+                    if (type != null)
+                    {
+                        bool result = FT.DAL.Orm.SimpleOrmOperator.CreateTable(type);
+                        MessageBoxHelper.Show("建表结果：" + result);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBoxHelper.Show("未找到类型：" + entity);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string entity = this.txtTableName.Text.Trim();
+            if (entity.Length > 0)
+            {
+                //Type type = Type.GetType(entity,false,true);
+                object obj = ReflectHelper.CreateInstance(entity);
+                if (obj != null)
+                {
+                    Type type = obj.GetType();
+                    if (type != null)
+                    {
+                        bool result = FT.DAL.Orm.SimpleOrmOperator.DropTable(type);
+                        MessageBoxHelper.Show("删除表结果：" + result);
+                    }
+
+                }
+                else
+                {
+                    MessageBoxHelper.Show("未找到类型：" + entity);
+                }
+            }
+        }
+
         
     }
 }

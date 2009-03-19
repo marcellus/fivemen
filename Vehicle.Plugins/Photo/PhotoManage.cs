@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using System.Collections;
 using FT.Windows.CommonsPlugin;
+using System.IO;
 
 namespace Vehicle.Plugins
 {
@@ -19,26 +20,37 @@ namespace Vehicle.Plugins
         {
             InitializeComponent();
         }
+        //根据路径列出路径下的图片,只允许bmp，jpg文件
+        private void ListImageFileName(string dir)
+        {
+            if (dir.Length > 0)
+            {
+                DirectoryInfo dirinfo = new DirectoryInfo(dir);
+                if (dirinfo.Exists)
+                {
+                    this.cbImageFiles.Items.Clear();
+                    string extension=string.Empty;
+                    foreach (FileInfo file in dirinfo.GetFiles())
+                    {
+                        extension=file.Extension.ToLower();
+                        if (extension.EndsWith("bmp") || extension.EndsWith("jpg"))
+                        {
+                            this.cbImageFiles.Items.Add(file.Name);
+                        }
+                    }
+                }
+            }
+        }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
-            string path = FileDialogHelper.OpenImage();
-
-
-            if (path != string.Empty)
+            string dir = FileDialogHelper.OpenDir();
+            if (dir.Length > 0)
             {
-                int nIndex = path.LastIndexOf(".");
-                this.suffix = path.Substring(nIndex + 1);
-
-                try
-                {
-                    this.picPhoto.Image = Image.FromFile(path);
-                }
-                catch (Exception ex)
-                {
-                    MessageBoxHelper.Show("图片格式不对或正被其他程序使用！");
-                }
+                this.txtDir.Text = dir;
+                this.ListImageFileName(dir);
             }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -118,6 +130,12 @@ namespace Vehicle.Plugins
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (this.picPhoto.Image == null)
+            {
+                MessageBoxHelper.Show("没有图片可导出！");
+                return;
+            }
+
             string filename = string.Empty;
             if (this.cbClassical.Text != string.Empty && this.cbType.Text != string.Empty)
             {
@@ -129,6 +147,7 @@ namespace Vehicle.Plugins
             }
             if (filename != string.Empty)
             {
+                
                 this.picPhoto.Image.Save(filename);
                 MessageBoxHelper.Show("导出成功！");
             }
@@ -181,6 +200,67 @@ namespace Vehicle.Plugins
             {
                 temp = this.photos[i] as VehiclePhoto;
                 this.listView1.Items.Add(new ListViewItem(new string[] { temp.Cn_Classical, temp.Cn_Type }));
+            }
+        }
+
+        private SystemConfig config;
+
+        private void PhotoManage_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+            {
+                config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                if (config.PhotoDir != null && config.PhotoDir.Length > 0)
+                {
+                    this.txtDir.Text = config.PhotoDir;
+                    this.ListImageFileName(config.PhotoDir);
+                }
+            }
+        }
+
+        private void cbImageFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string path = this.txtDir.Text + "\\" + this.cbImageFiles.Text;
+                FileInfo file = new FileInfo(path);
+                if (file.Length > config.CompressLength)
+                {
+                    Bitmap myBitmap = new Bitmap(path);
+
+                    //生成80*100的缩略图
+                    Bitmap image = (Bitmap)myBitmap.GetThumbnailImage(config.ImageWidth,config.ImageHeight, null, IntPtr.Zero);
+                    //Bitmap image = (Bitmap)Image.FromFile(path);
+                    //image.Width = this.picPhoto.Width;
+                    //image.Height = this.picPhoto.Height;
+                    if (this.picPhoto.Image != null)
+                    {
+                        this.picPhoto.Image.Dispose();
+                        this.picPhoto.Image = null;
+                    }
+                    ImageHelper.KiSaveAsJPEG(image, "tmpphoto.jpg", config.CompressRate);
+                    myBitmap.Dispose();
+                    image.Dispose();
+                    FileInfo newfile = new FileInfo("tmpphoto.jpg");
+                    if (newfile.Length > config.CompressLength)
+                    {
+                        MessageBoxHelper.Show("压缩后的图片仍然超过" + config.CompressLength/1024 + "KB！");
+
+                    }
+                    Image newimage = Image.FromFile("tmpphoto.jpg");
+                    this.picPhoto.Image = newimage;
+
+                }
+                else
+                {
+                    Image image = Image.FromFile(path);
+                    this.picPhoto.Image = image;
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

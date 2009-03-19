@@ -141,7 +141,14 @@ namespace FT.Windows.CommonsPlugin
         {
             cb.DropDownStyle = ComboBoxStyle.DropDownList;
             string key = "dict_" + group;
-            ArrayList list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
+            ArrayList list = StaticCacheManager.Get(key) as ArrayList;
+            if (list == null)
+            {
+                list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
+                StaticCacheManager.Add(key, list);
+            }
+            list = (ArrayList)list.Clone();
+           // ArrayList list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='" + group + "'");
             cb.DisplayMember = "数据文本";
             cb.ValueMember = "数据代码";
             cb.DataSource = list;

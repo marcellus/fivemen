@@ -40,13 +40,18 @@
             this.btnCreateInstance = new System.Windows.Forms.Button();
             this.txtReflectClass = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtLoggerName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtLoggerName = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtTableName = new System.Windows.Forms.TextBox();
+            this.btnCreateTable = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -156,13 +161,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "输入要创建的logger-Name";
             // 
-            // txtLoggerName
-            // 
-            this.txtLoggerName.Location = new System.Drawing.Point(7, 15);
-            this.txtLoggerName.Name = "txtLoggerName";
-            this.txtLoggerName.Size = new System.Drawing.Size(231, 21);
-            this.txtLoggerName.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(256, 15);
@@ -173,11 +171,58 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtLoggerName
+            // 
+            this.txtLoggerName.Location = new System.Drawing.Point(7, 15);
+            this.txtLoggerName.Name = "txtLoggerName";
+            this.txtLoggerName.Size = new System.Drawing.Size(231, 21);
+            this.txtLoggerName.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.btnCreateTable);
+            this.groupBox6.Controls.Add(this.txtTableName);
+            this.groupBox6.Location = new System.Drawing.Point(372, 76);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(244, 100);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "建表";
+            // 
+            // txtTableName
+            // 
+            this.txtTableName.Location = new System.Drawing.Point(17, 19);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.Size = new System.Drawing.Size(215, 21);
+            this.txtTableName.TabIndex = 0;
+            // 
+            // btnCreateTable
+            // 
+            this.btnCreateTable.Location = new System.Drawing.Point(17, 62);
+            this.btnCreateTable.Name = "btnCreateTable";
+            this.btnCreateTable.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateTable.TabIndex = 1;
+            this.btnCreateTable.Text = "建表";
+            this.btnCreateTable.UseVisualStyleBackColor = true;
+            this.btnCreateTable.Click += new System.EventHandler(this.btnCreateTable_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(117, 62);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "删除表";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // RuntimeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 418);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
@@ -195,6 +240,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +261,9 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtLoggerName;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox txtTableName;
+        private System.Windows.Forms.Button btnCreateTable;
+        private System.Windows.Forms.Button button2;
     }
 }
