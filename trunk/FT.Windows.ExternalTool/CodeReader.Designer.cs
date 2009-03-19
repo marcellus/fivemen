@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeReader));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtDetail = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtDetail = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,15 +46,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "读取内容";
             // 
-            // txtDetail
-            // 
-            this.txtDetail.Location = new System.Drawing.Point(7, 21);
-            this.txtDetail.Multiline = true;
-            this.txtDetail.Name = "txtDetail";
-            this.txtDetail.ReadOnly = true;
-            this.txtDetail.Size = new System.Drawing.Size(310, 233);
-            this.txtDetail.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(126, 282);
@@ -64,6 +55,15 @@
             this.button1.Text = "清空内容";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // txtDetail
+            // 
+            this.txtDetail.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDetail.Location = new System.Drawing.Point(7, 21);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.Size = new System.Drawing.Size(310, 233);
+            this.txtDetail.TabIndex = 0;
             // 
             // CodeReader
             // 
