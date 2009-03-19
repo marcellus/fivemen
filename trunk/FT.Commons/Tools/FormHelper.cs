@@ -447,6 +447,7 @@ namespace FT.Commons.Tools
         /// <param name="ctr">控件支持以下对象属性的简写
         /// Label lb
         /// TextBox txt
+        /// MaskedBox mtxt
         /// ComboBox cb
         /// LinkLabel lb
         /// DateTimePicker date

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhotoManage));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -43,37 +42,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSelectImage = new System.Windows.Forms.Button();
             this.picPhoto = new System.Windows.Forms.PictureBox();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.txtDir = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbImageFiles = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.listView1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnExport);
-            this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
-            this.splitContainer1.Panel2.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
-            this.splitContainer1.Panel2.Controls.Add(this.cbType);
-            this.splitContainer1.Panel2.Controls.Add(this.cbClassical);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.btnSelectImage);
-            this.splitContainer1.Panel2.Controls.Add(this.picPhoto);
-            this.splitContainer1.Size = new System.Drawing.Size(666, 379);
-            this.splitContainer1.SplitterDistance = 259;
-            this.splitContainer1.TabIndex = 0;
             // 
             // listView1
             // 
@@ -82,12 +60,11 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Location = new System.Drawing.Point(11, 14);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(259, 379);
+            this.listView1.Size = new System.Drawing.Size(261, 379);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -96,7 +73,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "中文品牌";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 109;
             // 
             // columnHeader2
             // 
@@ -107,9 +84,9 @@
             // 
             this.btnExport.Image = global::Vehicle.Plugins.Resource.excel;
             this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(219, 339);
+            this.btnExport.Location = new System.Drawing.Point(254, 47);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(91, 23);
+            this.btnExport.Size = new System.Drawing.Size(111, 23);
             this.btnExport.TabIndex = 18;
             this.btnExport.Text = "导出照片";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -119,9 +96,9 @@
             // 
             this.btnSearch.Image = global::Vehicle.Plugins.Resource.search;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(315, 339);
+            this.btnSearch.Location = new System.Drawing.Point(254, 76);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(71, 23);
+            this.btnSearch.Size = new System.Drawing.Size(111, 23);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -131,9 +108,9 @@
             // 
             this.btnDelete.Image = global::Vehicle.Plugins.Resource.cancel;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(119, 339);
+            this.btnDelete.Location = new System.Drawing.Point(380, 80);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(95, 23);
+            this.btnDelete.Size = new System.Drawing.Size(111, 23);
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "删除照片";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -143,7 +120,7 @@
             // 
             this.btnSave.Image = global::Vehicle.Plugins.Resource.add;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(3, 339);
+            this.btnSave.Location = new System.Drawing.Point(380, 47);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 23);
             this.btnSave.TabIndex = 15;
@@ -154,7 +131,7 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(147, 297);
+            this.cbType.Location = new System.Drawing.Point(86, 77);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(150, 20);
             this.cbType.TabIndex = 14;
@@ -162,7 +139,7 @@
             // cbClassical
             // 
             this.cbClassical.FormattingEnabled = true;
-            this.cbClassical.Location = new System.Drawing.Point(147, 266);
+            this.cbClassical.Location = new System.Drawing.Point(86, 51);
             this.cbClassical.Name = "cbClassical";
             this.cbClassical.Size = new System.Drawing.Size(150, 20);
             this.cbClassical.TabIndex = 13;
@@ -170,7 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 306);
+            this.label2.Location = new System.Drawing.Point(15, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 12;
@@ -179,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 275);
+            this.label1.Location = new System.Drawing.Point(14, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 11;
@@ -187,48 +164,108 @@
             // 
             // btnSelectImage
             // 
-            this.btnSelectImage.Location = new System.Drawing.Point(288, 3);
+            this.btnSelectImage.Location = new System.Drawing.Point(290, 18);
             this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectImage.Size = new System.Drawing.Size(201, 23);
             this.btnSelectImage.TabIndex = 10;
-            this.btnSelectImage.Text = "选取照片";
+            this.btnSelectImage.Text = "选取照片路径";
             this.btnSelectImage.UseVisualStyleBackColor = true;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // picPhoto
             // 
             this.picPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picPhoto.Location = new System.Drawing.Point(30, 32);
+            this.picPhoto.Location = new System.Drawing.Point(219, 143);
             this.picPhoto.Name = "picPhoto";
-            this.picPhoto.Size = new System.Drawing.Size(333, 230);
+            this.picPhoto.Size = new System.Drawing.Size(368, 230);
             this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPhoto.TabIndex = 1;
             this.picPhoto.TabStop = false;
+            // 
+            // txtDir
+            // 
+            this.txtDir.Location = new System.Drawing.Point(16, 20);
+            this.txtDir.Name = "txtDir";
+            this.txtDir.ReadOnly = true;
+            this.txtDir.Size = new System.Drawing.Size(252, 21);
+            this.txtDir.TabIndex = 19;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtDir);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.btnExport);
+            this.groupBox1.Controls.Add(this.btnSelectImage);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbClassical);
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.cbType);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(863, 109);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbImageFiles);
+            this.groupBox2.Location = new System.Drawing.Point(13, 137);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 397);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "所选目录图片列表";
+            // 
+            // cbImageFiles
+            // 
+            this.cbImageFiles.BackColor = System.Drawing.SystemColors.Control;
+            this.cbImageFiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbImageFiles.FormattingEnabled = true;
+            this.cbImageFiles.Location = new System.Drawing.Point(6, 20);
+            this.cbImageFiles.Name = "cbImageFiles";
+            this.cbImageFiles.Size = new System.Drawing.Size(188, 366);
+            this.cbImageFiles.TabIndex = 0;
+            this.cbImageFiles.SelectedIndexChanged += new System.EventHandler(this.cbImageFiles_SelectedIndexChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.listView1);
+            this.groupBox3.Location = new System.Drawing.Point(593, 137);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(282, 397);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "已有照片信息";
             // 
             // PhotoManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 379);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(881, 546);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.picPhoto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PhotoManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "照片维护";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            this.splitContainer1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.PhotoManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -242,5 +279,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSelectImage;
         private System.Windows.Forms.PictureBox picPhoto;
+        private System.Windows.Forms.TextBox txtDir;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbImageFiles;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

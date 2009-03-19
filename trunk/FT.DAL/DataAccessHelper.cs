@@ -412,7 +412,7 @@ namespace FT.DAL
         public bool ExecuteSql(string sql)
         {
             // if (Tools.ValidSQL(sql) == false) return (false);
-            log.Debug("ExecuteSql sql is:" + sql);
+           //log.Debug("ExecuteSql sql is:" + sql);
             this.Open();
             StringBuilder sb = new StringBuilder(sql);
 

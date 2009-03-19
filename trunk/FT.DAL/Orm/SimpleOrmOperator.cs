@@ -27,6 +27,23 @@ namespace FT.DAL.Orm
             dataAccess = access;
         }
 
+
+        public static bool CreateTable(Type type)
+        {
+            CheckConn();
+            string sql = SimpleOrmCache.GetTableDDL(type);
+
+            return dataAccess.ExecuteSql(sql);
+        }
+
+        public static bool DropTable(Type type)
+        {
+            CheckConn();
+            string sql = "drop table "+SimpleOrmCache.GetTableName(type);
+
+            return dataAccess.ExecuteSql(sql);
+        }
+
         /// <summary>
         /// 判断数据库连接，默认调用配置的连接
         /// </summary>

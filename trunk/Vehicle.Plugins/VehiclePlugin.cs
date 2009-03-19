@@ -33,6 +33,9 @@ namespace Vehicle.Plugins
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("系统配置", typeof(VehicleConfig));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("操作日志", typeof(OptLogSearch));
+            top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;
             //throw new Exception("The method or operation is not implemented.");
         }

@@ -58,6 +58,8 @@ namespace FT.Windows.Forms
             FormHelper.InitHabitToForm(this);
         }
 
+
+
         protected void ValidateIdCard(object sender, CancelEventArgs e,  bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -110,6 +112,11 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected void ValidateAlapha(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateAlapha(sender, e, "请输入正确的字母！", allowBlank);
+        }
+
         protected void ValidateAlapha(object sender, CancelEventArgs e, string text, bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -128,6 +135,11 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected void ValidateUrl(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateUrl(sender, e, "请输入正确的Url格式！", allowBlank);
+        }
+
         protected void ValidateUrl(object sender, CancelEventArgs e, string text, bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -144,6 +156,10 @@ namespace FT.Windows.Forms
                     e.Cancel = false;
                 }
             }
+        }
+        protected void ValidateEmail(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateEmail(sender, e, "请输入正确的Email格式！", allowBlank);
         }
 
         protected void ValidateEmail(object sender, CancelEventArgs e, string text, bool allowBlank)
@@ -164,6 +180,11 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected void ValidateIp(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateIp(sender, e, "请输入正确的IP格式！", allowBlank);
+        }
+
         protected void ValidateIp(object sender, CancelEventArgs e, string text, bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -180,6 +201,11 @@ namespace FT.Windows.Forms
                     e.Cancel = false;
                 }
             }
+        }
+
+        protected void ValidatePostCode(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidatePostCode(sender, e, "请输入六位邮编号！", allowBlank);
         }
 
         protected void ValidatePostCode(object sender, CancelEventArgs e, string text, bool allowBlank)
@@ -200,7 +226,55 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected void ValidateDate(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
 
+                try
+                {
+                    Convert.ToDateTime(txt.Text);
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+                catch
+                {
+                    this.errorProvider1.SetError(txt, "请输入格式为yyyy-MM-dd的日期！");
+                    e.Cancel = true;
+
+                }
+
+            }
+        }
+
+        protected void ValidateDateMasked(object sender, CancelEventArgs e)
+        {
+            MaskedTextBox txt = sender as MaskedTextBox;
+            if (txt != null)
+            {
+
+                try
+                {
+                    DateTime dt=Convert.ToDateTime(txt.Text);
+                    
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+                catch
+                {
+                    this.errorProvider1.SetError(txt, "请输入格式为yyyy-MM-dd的日期！");
+                    e.Cancel = true;
+                    
+                }
+                
+            }
+        }
+
+        protected void ValidateNotNull(object sender, CancelEventArgs e)
+        {
+            this.ValidateNotNull(sender, e, "请输入！");
+        }
 
         protected void ValidateNotNull(object sender, CancelEventArgs e, string text)
         {
@@ -218,6 +292,10 @@ namespace FT.Windows.Forms
                     e.Cancel = false;
                 }
             }
+        }
+        protected void ValidateNumber(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateNumber(sender, e, "请输入数字！", allowBlank);
         }
 
         protected void ValidateNumber(object sender, CancelEventArgs e, string text, bool allowBlank)
@@ -238,6 +316,51 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected void ValidateInteger(object sender, CancelEventArgs e, bool allowBlank, int min)
+        {
+            ValidateInteger(sender, e, allowBlank, min, "无效数字！");
+        }
+
+        protected void ValidateInteger(object sender, CancelEventArgs e,  bool allowBlank,int min,string text)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidateNumber(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (!allowBlank)
+                    {
+                        int tmp = Convert.ToInt32(txt.Text.Trim());
+                        if (tmp <= min)
+                        {
+                            this.errorProvider1.SetError(txt, "请输入大于" + min + "的数字!");
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            this.errorProvider1.SetError(txt, string.Empty);
+                            e.Cancel = false;
+                        }
+                    }
+                    else
+                    {
+                        this.errorProvider1.SetError(txt, string.Empty);
+                        e.Cancel = false;
+                    }
+                }
+            }
+        }
+
+        protected void ValidatePhone(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidatePhone(sender, e, "请输入格式正确的固定电话号码！", allowBlank);
+        }
+
         protected void ValidatePhone(object sender, CancelEventArgs e, string text,bool allowBlank)
         {
             TextBox txt = sender as TextBox;
@@ -254,6 +377,34 @@ namespace FT.Windows.Forms
                     e.Cancel = false;
                 }
             }
+        }
+
+        protected void ValidatePhoneOrMobile(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidatePhoneOrMobile(sender, e, "请输入格式正确的固定电话或手机号码！", allowBlank);
+        }
+
+        protected void ValidatePhoneOrMobile(object sender, CancelEventArgs e, string text, bool allowBlank)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (!ValidatorHelper.ValidatePhoneOrMobile(txt.Text.Trim(), allowBlank))
+                {
+                    this.errorProvider1.SetError(txt, text);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.errorProvider1.SetError(txt, string.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        protected void ValidateMobile(object sender, CancelEventArgs e, bool allowBlank)
+        {
+            this.ValidateMobile(sender, e,"请输入格式正确的手机号码！" ,allowBlank);
         }
 
         protected void ValidateMobile(object sender, CancelEventArgs e, string text, bool allowBlank)
@@ -329,7 +480,24 @@ namespace FT.Windows.Forms
                 }
             }
         }
+        /// <summary>
+        /// 在更新之前进行验证
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool CheckBeforeUpdate()
+        {
+            return true;
+        }
 
+        /// <summary>
+        /// 在新创建之前进行验证
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool CheckBeforeCreate()
+        {
+            return true;
+        }
+        
         
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -337,10 +505,14 @@ namespace FT.Windows.Forms
             bool result= this.ValidateChildren(ValidationConstraints.Enabled);
             
             //MessageBoxHelper.Show("validate result is:"+result);
-            if(result)
+            if (result)
             {
                 this.ClearValidateError();
                 this.Save();
+            }
+            else
+            {
+                MessageBoxHelper.Show("输入有误，请检查！");
             }
             
         }
@@ -378,40 +550,56 @@ namespace FT.Windows.Forms
             this.BeforeSave(entity);
             if (this.lbId.Text.Length==0||this.lbId.Text.Trim()=="0")
             {
-                this.BeforeCreateEntity(entity);
-                if (SimpleOrmOperator.Create(entity))
+                if (this.CheckBeforeCreate())
                 {
 
-                    this.AfterSuccessCreate();
-                    FormHelper.SetDataToForm(this, entity);
-                    MessageBoxHelper.Show("添加成功！");
-                    if (refresher != null)
+                    this.BeforeCreateEntity(entity);
+                    if (SimpleOrmOperator.Create(entity))
                     {
-                        refresher.Add(entity);
+
+                        this.AfterSuccessCreate();
+                        FormHelper.SetDataToForm(this, entity);
+                        MessageBoxHelper.Show("添加成功！");
+                        if (refresher != null)
+                        {
+                            refresher.Add(entity);
+                        }
+
                     }
-                   
+                    else
+                    {
+                        MessageBoxHelper.Show("添加失败！");
+                        return false;
+                    }
                 }
                 else
                 {
-                    MessageBoxHelper.Show("添加失败！");
+                    //MessageBoxHelper.Show("添加失败！");
                     return false;
                 }
             }
             else
             {
-                this.BeforeUpdateEntity(entity);
-                if (SimpleOrmOperator.Update(entity))
+                if (this.CheckBeforeUpdate())
                 {
-                    this.AfterSuccessUpdate();
-                    MessageBoxHelper.Show("修改成功！");
-                    if (refresher != null)
+                    this.BeforeUpdateEntity(entity);
+                    if (SimpleOrmOperator.Update(entity))
                     {
-                        refresher.Update(entity);
+                        this.AfterSuccessUpdate();
+                        MessageBoxHelper.Show("修改成功！");
+                        if (refresher != null)
+                        {
+                            refresher.Update(entity);
+                        }
+                    }
+                    else
+                    {
+                        MessageBoxHelper.Show("修改失败！");
+                        return false;
                     }
                 }
                 else
                 {
-                    MessageBoxHelper.Show("修改失败！");
                     return false;
                 }
             }

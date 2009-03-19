@@ -110,6 +110,39 @@ namespace FT.DAL.Orm
             return second["pkcolumn"].ToString();
         }
 
+        
+
+        /// <summary>
+        /// 获取表的定义字段
+        /// </summary>
+        /// <returns></returns>
+        public static string GetTableDDL(Type type)
+        {
+            if (type == null)
+            {
+                return string.Empty;
+            }
+            InitType(type);
+            StringBuilder sb = new StringBuilder();
+            string tablename = GetTableName(type);
+            string pk = GetPK(type);
+            Hashtable table=GetSelectField(type);
+            sb.Append("create table "+tablename+"(");
+            sb.Append(pk + " autoincrement PRIMARY KEY ");
+            System.Collections.IDictionaryEnumerator enumerator = table.GetEnumerator();
+            string field = string.Empty;
+            while (enumerator.MoveNext())
+            {
+                field = enumerator.Key.ToString();
+                if (field != pk)
+                {
+                    sb.Append("," +field.ToLower() +" TEXT(50)");
+                }
+            }
+            return sb.ToString().TrimEnd(',')+")";
+            
+        }
+
         /// <summary>
         /// 初始化类型
         /// </summary>

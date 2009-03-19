@@ -34,5 +34,41 @@ namespace Vehicle.Plugins
                 this.txtPhotoDir.Text = result;
             }
         }
+
+        private void txtImageWidth_TextChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox1.Checked)
+            {
+                try
+                {
+                    int width = Convert.ToInt32(this.txtImageWidth.Text.Trim());
+                    int height = 230 * width / 368;
+                    this.txtImageHeight.Text = height.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxHelper.Show("图片宽度必须是数字！");
+                    this.txtImageWidth.Focus();
+                }
+            }
+        }
+
+        private void txtImageHeight_TextChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox1.Checked)
+            {
+                try
+                {
+                    int height = Convert.ToInt32(this.txtImageHeight.Text.Trim());
+                    int width = 368 * height / 230;
+                    this.txtImageWidth.Text = width.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxHelper.Show("图片宽度必须是数字！");
+                    this.txtImageHeight.Focus();
+                }
+            }
+        }
     }
 }

@@ -8,5 +8,14 @@ namespace Vehicle.Plugins
     public class SystemConfig
     {
         public string PhotoDir;
+
+        public int CompressLength = 81920;
+
+        public int CompressRate = 30;
+
+        //368, 230
+        public int ImageWidth = 368;
+
+        public int ImageHeight = 230;
     }
 }

@@ -10,16 +10,17 @@ namespace Vehicle.Plugins
     /// 操作日志
     /// </summary>
     [SimpleTable("table_optlog")]
+    [Alias("操作日志表")]
     public class OptLog
     {
         [SimplePK]
         [Alias("编号")]
         public int Id;
 
-        public int 编号
+        public string 编号
         {
-            get { return Id; }
-            set { Id = value; }
+            get { return Id.ToString(); }
+            
         }
         /// <summary>
         /// 车辆识别码,操作对象
@@ -48,11 +49,11 @@ namespace Vehicle.Plugins
         }
 
         [SimpleColumn(Column = "date_optdate")]
-        [Alias("操作日期")]
+        [Alias("操作时间")]
         public string OpDate;
 
-        
-        public string 操作日期
+
+        public string 操作时间
         {
             get { return OpDate; }
             set { OpDate = value; }

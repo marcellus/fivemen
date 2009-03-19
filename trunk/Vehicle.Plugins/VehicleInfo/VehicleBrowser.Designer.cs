@@ -32,95 +32,124 @@ namespace Vehicle.Plugins
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtViaConnAddress_syr_jbr = new System.Windows.Forms.TextBox();
+            this.txtBaseJbrConnAddress = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtViaName_syr_jbr = new System.Windows.Forms.TextBox();
+            this.txtBaseJbrName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.cbViaIdType_syr_jbr = new System.Windows.Forms.ComboBox();
-            this.txt_sfzmhm_syr_jbr = new System.Windows.Forms.TextBox();
+            this.cbBaseJbrIdCardType = new System.Windows.Forms.ComboBox();
+            this.txtBaseJbrIdCard = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtCoConnAddress_syr_dw = new System.Windows.Forms.TextBox();
+            this.txtBaseDlrConnAddress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCoConnPhone_syr_dw = new System.Windows.Forms.TextBox();
+            this.txtBaseDlrPhone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCoName_syr_dw = new System.Windows.Forms.TextBox();
+            this.txtBaseDlrName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCoId_syr_dw = new System.Windows.Forms.TextBox();
+            this.txtBaseDlrIdCard = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbCoIdType_syr_dw = new System.Windows.Forms.ComboBox();
+            this.cbBaseDlrIdCardType = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPostCode_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrEmail = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrPostCode = new System.Windows.Forms.TextBox();
+            this.label114 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtTempId_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrTempId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbTempType_syr = new System.Windows.Forms.ComboBox();
+            this.cbBaseSyrTempIdType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtConnAddress_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrConnAddress = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrRegAddress = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbLocalArea_syr = new System.Windows.Forms.ComboBox();
+            this.label112 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtConnPhone_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrMobile = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrPhone = new System.Windows.Forms.TextBox();
+            this.label113 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtName_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtId_syr = new System.Windows.Forms.TextBox();
+            this.txtBaseSyrIdCard = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbIdType_syr = new System.Windows.Forms.ComboBox();
+            this.cbBaseSyrIdCardType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cb_xu_gzszm = new System.Windows.Forms.ComboBox();
+            this.mtxtXuBxBeginDate = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtXuBxEndDate = new System.Windows.Forms.MaskedTextBox();
+            this.txtXuSellPrice = new System.Windows.Forms.TextBox();
+            this.cbXuGzzm = new System.Windows.Forms.ComboBox();
             this.label70 = new System.Windows.Forms.Label();
-            this.txt_xu_bz = new System.Windows.Forms.TextBox();
+            this.txtXuDescription = new System.Windows.Forms.TextBox();
             this.label73 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
-            this.num_xu_xsjg = new System.Windows.Forms.NumericUpDown();
             this.label79 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
-            this.cb_xu_xsdw = new System.Windows.Forms.ComboBox();
+            this.cbXuSellDw = new System.Windows.Forms.ComboBox();
             this.label71 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.date_xu_bxzzrq = new System.Windows.Forms.DateTimePicker();
-            this.cb_xu_syxz = new System.Windows.Forms.ComboBox();
-            this.date_xu_bxsxrq = new System.Windows.Forms.DateTimePicker();
-            this.cb_xu_xzqh = new System.Windows.Forms.ComboBox();
+            this.cbXuUseFor = new System.Windows.Forms.ComboBox();
+            this.cbXuBelongArea = new System.Windows.Forms.ComboBox();
             this.label84 = new System.Windows.Forms.Label();
-            this.cb_xu_llpz1 = new System.Windows.Forms.ComboBox();
+            this.cbXuLlpp1 = new System.Windows.Forms.ComboBox();
             this.label83 = new System.Windows.Forms.Label();
-            this.cb_xu_llpz2 = new System.Windows.Forms.ComboBox();
-            this.cb_xu_bxgs = new System.Windows.Forms.ComboBox();
-            this.cb_xu_hmzl = new System.Windows.Forms.ComboBox();
+            this.cbXuLlpp2 = new System.Windows.Forms.ComboBox();
+            this.cbXuBxCompany = new System.Windows.Forms.ComboBox();
+            this.cbXuHmhp = new System.Windows.Forms.ComboBox();
             this.label82 = new System.Windows.Forms.Label();
-            this.cb_xu_syq = new System.Windows.Forms.ComboBox();
-            this.txt_xu_bxzbh = new System.Windows.Forms.TextBox();
-            this.cb_xu_hdfs = new System.Windows.Forms.ComboBox();
+            this.cbXuSyq = new System.Windows.Forms.ComboBox();
+            this.txtXuBxBh = new System.Windows.Forms.TextBox();
+            this.cbXuGetFrom = new System.Windows.Forms.ComboBox();
             this.label81 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
-            this.txt_xu_nszmbh = new System.Windows.Forms.TextBox();
+            this.txtXuGzzmBh = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
-            this.txt_xu_pzbh2 = new System.Windows.Forms.TextBox();
+            this.txtXuLlppHm2 = new System.Windows.Forms.TextBox();
             this.label80 = new System.Windows.Forms.Label();
-            this.txt_xu_pzbh1 = new System.Windows.Forms.TextBox();
+            this.txtXuLlppHm1 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txt_xu_jkclxh = new System.Windows.Forms.TextBox();
-            this.txt_xu_jkqzcsys = new System.Windows.Forms.TextBox();
+            this.mtxtXuJkDate = new System.Windows.Forms.MaskedTextBox();
+            this.txtXuQzcpxh = new System.Windows.Forms.TextBox();
+            this.txtXuVehicleColor = new System.Windows.Forms.TextBox();
             this.label93 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
-            this.date_xu_jkqfrq = new System.Windows.Forms.DateTimePicker();
             this.label91 = new System.Windows.Forms.Label();
-            this.txt_xu_jkpzhm = new System.Windows.Forms.TextBox();
+            this.txtXuPzHm = new System.Windows.Forms.TextBox();
             this.cb_xu_jkpzhm = new System.Windows.Forms.ComboBox();
-            this.cb_xu_jkpzlx = new System.Windows.Forms.ComboBox();
+            this.cbXuJkPzType = new System.Windows.Forms.ComboBox();
             this.label90 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.mtxtTecCcrq = new System.Windows.Forms.MaskedTextBox();
+            this.txtTecZkrsq = new System.Windows.Forms.TextBox();
+            this.txtTecZkrsh = new System.Windows.Forms.TextBox();
+            this.txtTecHdzk = new System.Windows.Forms.TextBox();
+            this.txtTecLjh = new System.Windows.Forms.TextBox();
+            this.txtTecZj = new System.Windows.Forms.TextBox();
+            this.txtTecGbtfs = new System.Windows.Forms.TextBox();
+            this.txtTecLts = new System.Windows.Forms.TextBox();
+            this.txtTecZzl = new System.Windows.Forms.TextBox();
+            this.txtTecZqyzl = new System.Windows.Forms.TextBox();
+            this.txtTecHdzzl = new System.Windows.Forms.TextBox();
+            this.txtTecZbzl = new System.Windows.Forms.TextBox();
+            this.txtTecZs = new System.Windows.Forms.TextBox();
+            this.txtTecLjq = new System.Windows.Forms.TextBox();
+            this.txtTecWkk = new System.Windows.Forms.TextBox();
+            this.txtTecGl = new System.Windows.Forms.TextBox();
+            this.txtTecPl = new System.Windows.Forms.TextBox();
+            this.txtTecWkg = new System.Windows.Forms.TextBox();
+            this.txtTecNkg = new System.Windows.Forms.TextBox();
+            this.txtTecNkk = new System.Windows.Forms.TextBox();
+            this.txtTecNkc = new System.Windows.Forms.TextBox();
+            this.txtTecWkc = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
@@ -134,7 +163,7 @@ namespace Vehicle.Plugins
             this.label55 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.txt_tec_ltgg = new System.Windows.Forms.TextBox();
+            this.txtTecLtgg = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
@@ -147,9 +176,9 @@ namespace Vehicle.Plugins
             this.label54 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.txt_tec_hbdbqk = new System.Windows.Forms.TextBox();
+            this.txtTecHbdb = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.cb_tec_zxxs = new System.Windows.Forms.ComboBox();
+            this.cbTecZxfs = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -159,101 +188,85 @@ namespace Vehicle.Plugins
             this.label36 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.cb_tec_rlzl2 = new System.Windows.Forms.ComboBox();
-            this.cb_tec_rlzl1 = new System.Windows.Forms.ComboBox();
+            this.cbTecRlzl2 = new System.Windows.Forms.ComboBox();
+            this.cbTecRlzl1 = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.txt_tec_fdjxh = new System.Windows.Forms.TextBox();
+            this.txtTecFdjxh = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.cb_tec_zzg = new System.Windows.Forms.ComboBox();
+            this.cbTecZzg = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.cb_tec_gcjk = new System.Windows.Forms.ComboBox();
+            this.cbTecGcjk = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.date_tec_ccrq = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
-            this.cb_tec_csys3 = new System.Windows.Forms.ComboBox();
-            this.cb_tec_csys2 = new System.Windows.Forms.ComboBox();
-            this.cb_tec_csys1 = new System.Windows.Forms.ComboBox();
+            this.cbTecColor3 = new System.Windows.Forms.ComboBox();
+            this.cbTecColor2 = new System.Windows.Forms.ComboBox();
+            this.cbTecColor1 = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.txt_tec_zzcmc = new System.Windows.Forms.TextBox();
+            this.txtTecZzcm = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.txt_tec_fdjh = new System.Windows.Forms.TextBox();
+            this.txtTecFdjh = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txt_tec_clsbdm = new System.Windows.Forms.TextBox();
+            this.txtTecClsbm = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.cb_tec_cllx = new System.Windows.Forms.ComboBox();
+            this.cbTecCllx = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.txt_tec_ywpp = new System.Windows.Forms.TextBox();
+            this.txtTecYwpp = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txt_tec_zwpp = new System.Windows.Forms.TextBox();
+            this.txtTecZwpp = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txt_tec_clxh = new System.Windows.Forms.TextBox();
+            this.txtTecClxh = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txt_tec_hgzbh = new System.Windows.Forms.TextBox();
+            this.txtTecHgzbh = new System.Windows.Forms.TextBox();
             this.label94 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.txt_dy_dyhtbh = new System.Windows.Forms.TextBox();
+            this.txtDyDyHtbh = new System.Windows.Forms.TextBox();
             this.label105 = new System.Windows.Forms.Label();
-            this.txt_dy_zhtbh = new System.Windows.Forms.TextBox();
+            this.txtDyHtzbh = new System.Windows.Forms.TextBox();
             this.label104 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.txt_dy_jbrxxdz = new System.Windows.Forms.TextBox();
+            this.txtDyJbrConnAddress = new System.Windows.Forms.TextBox();
             this.label95 = new System.Windows.Forms.Label();
-            this.txt_dy_jbrxm = new System.Windows.Forms.TextBox();
+            this.txtDyJbrName = new System.Windows.Forms.TextBox();
             this.label96 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
-            this.cb_dy_jbrsfzmmc = new System.Windows.Forms.ComboBox();
-            this.txt_dy_jbrsfzmhm = new System.Windows.Forms.TextBox();
+            this.cbDyJbrIdCardType = new System.Windows.Forms.ComboBox();
+            this.txtDyJbrIdCard = new System.Windows.Forms.TextBox();
             this.label98 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.txt_dy_dwxxdz = new System.Windows.Forms.TextBox();
+            this.txtDyDldwConnAddress = new System.Windows.Forms.TextBox();
             this.label99 = new System.Windows.Forms.Label();
-            this.txt_dy_dwlxdh = new System.Windows.Forms.TextBox();
+            this.txtDyDldwPhone = new System.Windows.Forms.TextBox();
             this.label100 = new System.Windows.Forms.Label();
-            this.txt_dy_dwxm = new System.Windows.Forms.TextBox();
+            this.txtDyDldwName = new System.Windows.Forms.TextBox();
             this.label101 = new System.Windows.Forms.Label();
-            this.txt_dy_dydwsfzmhm = new System.Windows.Forms.TextBox();
+            this.txtDyDldwIdCard = new System.Windows.Forms.TextBox();
             this.label102 = new System.Windows.Forms.Label();
-            this.cb_dy_dydwsfzmmc = new System.Windows.Forms.ComboBox();
+            this.cbDyDldwIdCardType = new System.Windows.Forms.ComboBox();
             this.label103 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.txt_dy_dyryzbm = new System.Windows.Forms.TextBox();
+            this.txtDyDyqrPostCode = new System.Windows.Forms.TextBox();
             this.label106 = new System.Windows.Forms.Label();
-            this.txt_dy_dyrzsdz = new System.Windows.Forms.TextBox();
+            this.txtDyDyqrConnAddress = new System.Windows.Forms.TextBox();
             this.label107 = new System.Windows.Forms.Label();
-            this.txt_dy_dyrlxdh = new System.Windows.Forms.TextBox();
+            this.txtDyDyqrPhone = new System.Windows.Forms.TextBox();
             this.label108 = new System.Windows.Forms.Label();
-            this.txt_dy_dyrxm = new System.Windows.Forms.TextBox();
+            this.txtDyDyqrName = new System.Windows.Forms.TextBox();
             this.label109 = new System.Windows.Forms.Label();
-            this.txt_dy_dyrsfzmhm = new System.Windows.Forms.TextBox();
+            this.txtDyDyqrIdCard = new System.Windows.Forms.TextBox();
             this.label110 = new System.Windows.Forms.Label();
-            this.cb_dy_dyrsfzmmc = new System.Windows.Forms.ComboBox();
+            this.cbDyDyqrIdCardType = new System.Windows.Forms.ComboBox();
             this.label111 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.btnTecSelector = new System.Windows.Forms.Button();
+            this.btnPhotoManage = new System.Windows.Forms.Button();
+            this.btnPhotoInfo = new System.Windows.Forms.Button();
+            this.btnPrintApply = new System.Windows.Forms.Button();
+            this.lbFirstRegDate = new System.Windows.Forms.Label();
+            this.label116 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -263,7 +276,6 @@ namespace Vehicle.Plugins
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_xu_xsjg)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -282,10 +294,10 @@ namespace Vehicle.Plugins
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.ItemSize = new System.Drawing.Size(80, 30);
-            this.tabControl1.Location = new System.Drawing.Point(2, 39);
+            this.tabControl1.Location = new System.Drawing.Point(0, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(707, 434);
+            this.tabControl1.Size = new System.Drawing.Size(717, 484);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -295,7 +307,7 @@ namespace Vehicle.Plugins
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(699, 396);
+            this.tabPage1.Size = new System.Drawing.Size(709, 446);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "登记信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -304,52 +316,54 @@ namespace Vehicle.Plugins
             // 
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(21, 153);
+            this.groupBox2.Location = new System.Drawing.Point(21, 183);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(612, 237);
+            this.groupBox2.Size = new System.Drawing.Size(661, 249);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "所有人的代理人信息";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtViaConnAddress_syr_jbr);
+            this.groupBox4.Controls.Add(this.txtBaseJbrConnAddress);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.txtViaName_syr_jbr);
+            this.groupBox4.Controls.Add(this.txtBaseJbrName);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.cbViaIdType_syr_jbr);
-            this.groupBox4.Controls.Add(this.txt_sfzmhm_syr_jbr);
+            this.groupBox4.Controls.Add(this.cbBaseJbrIdCardType);
+            this.groupBox4.Controls.Add(this.txtBaseJbrIdCard);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Location = new System.Drawing.Point(7, 137);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(599, 100);
+            this.groupBox4.Size = new System.Drawing.Size(648, 100);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "经办人信息";
             // 
-            // txtViaConnAddress_syr_jbr
+            // txtBaseJbrConnAddress
             // 
-            this.txtViaConnAddress_syr_jbr.Location = new System.Drawing.Point(135, 69);
-            this.txtViaConnAddress_syr_jbr.Name = "txtViaConnAddress_syr_jbr";
-            this.txtViaConnAddress_syr_jbr.Size = new System.Drawing.Size(453, 21);
-            this.txtViaConnAddress_syr_jbr.TabIndex = 31;
+            this.txtBaseJbrConnAddress.Location = new System.Drawing.Point(142, 73);
+            this.txtBaseJbrConnAddress.Name = "txtBaseJbrConnAddress";
+            this.txtBaseJbrConnAddress.Size = new System.Drawing.Size(482, 21);
+            this.txtBaseJbrConnAddress.TabIndex = 33;
+            this.txtBaseJbrConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrConnAddress_Validating);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 78);
+            this.label14.Location = new System.Drawing.Point(17, 77);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 30;
             this.label14.Text = "住所地址";
             // 
-            // txtViaName_syr_jbr
+            // txtBaseJbrName
             // 
-            this.txtViaName_syr_jbr.Location = new System.Drawing.Point(135, 39);
-            this.txtViaName_syr_jbr.Name = "txtViaName_syr_jbr";
-            this.txtViaName_syr_jbr.Size = new System.Drawing.Size(453, 21);
-            this.txtViaName_syr_jbr.TabIndex = 27;
+            this.txtBaseJbrName.Location = new System.Drawing.Point(142, 45);
+            this.txtBaseJbrName.Name = "txtBaseJbrName";
+            this.txtBaseJbrName.Size = new System.Drawing.Size(482, 21);
+            this.txtBaseJbrName.TabIndex = 32;
+            this.txtBaseJbrName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrName_Validating);
             // 
             // label16
             // 
@@ -363,26 +377,27 @@ namespace Vehicle.Plugins
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(290, 20);
+            this.label17.Location = new System.Drawing.Point(290, 21);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(77, 12);
             this.label17.TabIndex = 24;
             this.label17.Text = "身份证明号码";
             // 
-            // cbViaIdType_syr_jbr
+            // cbBaseJbrIdCardType
             // 
-            this.cbViaIdType_syr_jbr.FormattingEnabled = true;
-            this.cbViaIdType_syr_jbr.Location = new System.Drawing.Point(135, 12);
-            this.cbViaIdType_syr_jbr.Name = "cbViaIdType_syr_jbr";
-            this.cbViaIdType_syr_jbr.Size = new System.Drawing.Size(131, 20);
-            this.cbViaIdType_syr_jbr.TabIndex = 23;
+            this.cbBaseJbrIdCardType.FormattingEnabled = true;
+            this.cbBaseJbrIdCardType.Location = new System.Drawing.Point(142, 17);
+            this.cbBaseJbrIdCardType.Name = "cbBaseJbrIdCardType";
+            this.cbBaseJbrIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseJbrIdCardType.TabIndex = 30;
             // 
-            // txt_sfzmhm_syr_jbr
+            // txtBaseJbrIdCard
             // 
-            this.txt_sfzmhm_syr_jbr.Location = new System.Drawing.Point(386, 11);
-            this.txt_sfzmhm_syr_jbr.Name = "txt_sfzmhm_syr_jbr";
-            this.txt_sfzmhm_syr_jbr.Size = new System.Drawing.Size(202, 21);
-            this.txt_sfzmhm_syr_jbr.TabIndex = 14;
+            this.txtBaseJbrIdCard.Location = new System.Drawing.Point(386, 17);
+            this.txtBaseJbrIdCard.Name = "txtBaseJbrIdCard";
+            this.txtBaseJbrIdCard.Size = new System.Drawing.Size(238, 21);
+            this.txtBaseJbrIdCard.TabIndex = 31;
+            this.txtBaseJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrIdCard_Validating);
             // 
             // label18
             // 
@@ -395,61 +410,64 @@ namespace Vehicle.Plugins
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtCoConnAddress_syr_dw);
+            this.groupBox3.Controls.Add(this.txtBaseDlrConnAddress);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.txtCoConnPhone_syr_dw);
+            this.groupBox3.Controls.Add(this.txtBaseDlrPhone);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.txtCoName_syr_dw);
+            this.groupBox3.Controls.Add(this.txtBaseDlrName);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtCoId_syr_dw);
+            this.groupBox3.Controls.Add(this.txtBaseDlrIdCard);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.cbCoIdType_syr_dw);
+            this.groupBox3.Controls.Add(this.cbBaseDlrIdCardType);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Location = new System.Drawing.Point(6, 21);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(600, 100);
+            this.groupBox3.Size = new System.Drawing.Size(649, 100);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "个人代理/代理单位信息";
             // 
-            // txtCoConnAddress_syr_dw
+            // txtBaseDlrConnAddress
             // 
-            this.txtCoConnAddress_syr_dw.Location = new System.Drawing.Point(136, 69);
-            this.txtCoConnAddress_syr_dw.Name = "txtCoConnAddress_syr_dw";
-            this.txtCoConnAddress_syr_dw.Size = new System.Drawing.Size(453, 21);
-            this.txtCoConnAddress_syr_dw.TabIndex = 21;
+            this.txtBaseDlrConnAddress.Location = new System.Drawing.Point(142, 73);
+            this.txtBaseDlrConnAddress.Name = "txtBaseDlrConnAddress";
+            this.txtBaseDlrConnAddress.Size = new System.Drawing.Size(483, 21);
+            this.txtBaseDlrConnAddress.TabIndex = 24;
+            this.txtBaseDlrConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseDlrConnAddress_Validating);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 78);
+            this.label9.Location = new System.Drawing.Point(18, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 19;
             this.label9.Text = "住所地址";
             // 
-            // txtCoConnPhone_syr_dw
+            // txtBaseDlrPhone
             // 
-            this.txtCoConnPhone_syr_dw.Location = new System.Drawing.Point(492, 38);
-            this.txtCoConnPhone_syr_dw.Name = "txtCoConnPhone_syr_dw";
-            this.txtCoConnPhone_syr_dw.Size = new System.Drawing.Size(97, 21);
-            this.txtCoConnPhone_syr_dw.TabIndex = 18;
+            this.txtBaseDlrPhone.Location = new System.Drawing.Point(492, 45);
+            this.txtBaseDlrPhone.Name = "txtBaseDlrPhone";
+            this.txtBaseDlrPhone.Size = new System.Drawing.Size(133, 21);
+            this.txtBaseDlrPhone.TabIndex = 23;
+            this.txtBaseDlrPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseDlrPhone_Validating);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(421, 48);
+            this.label10.Location = new System.Drawing.Point(429, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 17;
             this.label10.Text = "联系电话";
             // 
-            // txtCoName_syr_dw
+            // txtBaseDlrName
             // 
-            this.txtCoName_syr_dw.Location = new System.Drawing.Point(136, 39);
-            this.txtCoName_syr_dw.Name = "txtCoName_syr_dw";
-            this.txtCoName_syr_dw.Size = new System.Drawing.Size(279, 21);
-            this.txtCoName_syr_dw.TabIndex = 16;
+            this.txtBaseDlrName.Location = new System.Drawing.Point(142, 45);
+            this.txtBaseDlrName.Name = "txtBaseDlrName";
+            this.txtBaseDlrName.Size = new System.Drawing.Size(279, 21);
+            this.txtBaseDlrName.TabIndex = 22;
+            this.txtBaseDlrName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseDlrName_Validating);
             // 
             // label11
             // 
@@ -460,29 +478,30 @@ namespace Vehicle.Plugins
             this.label11.TabIndex = 15;
             this.label11.Text = "姓名/名称";
             // 
-            // txtCoId_syr_dw
+            // txtBaseDlrIdCard
             // 
-            this.txtCoId_syr_dw.Location = new System.Drawing.Point(387, 10);
-            this.txtCoId_syr_dw.Name = "txtCoId_syr_dw";
-            this.txtCoId_syr_dw.Size = new System.Drawing.Size(202, 21);
-            this.txtCoId_syr_dw.TabIndex = 14;
+            this.txtBaseDlrIdCard.Location = new System.Drawing.Point(387, 17);
+            this.txtBaseDlrIdCard.Name = "txtBaseDlrIdCard";
+            this.txtBaseDlrIdCard.Size = new System.Drawing.Size(238, 21);
+            this.txtBaseDlrIdCard.TabIndex = 21;
+            this.txtBaseDlrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseDlrIdCard_Validating);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(291, 20);
+            this.label12.Location = new System.Drawing.Point(291, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 12);
             this.label12.TabIndex = 13;
             this.label12.Text = "身份证明号码";
             // 
-            // cbCoIdType_syr_dw
+            // cbBaseDlrIdCardType
             // 
-            this.cbCoIdType_syr_dw.FormattingEnabled = true;
-            this.cbCoIdType_syr_dw.Location = new System.Drawing.Point(136, 12);
-            this.cbCoIdType_syr_dw.Name = "cbCoIdType_syr_dw";
-            this.cbCoIdType_syr_dw.Size = new System.Drawing.Size(131, 20);
-            this.cbCoIdType_syr_dw.TabIndex = 12;
+            this.cbBaseDlrIdCardType.FormattingEnabled = true;
+            this.cbBaseDlrIdCardType.Location = new System.Drawing.Point(142, 17);
+            this.cbBaseDlrIdCardType.Name = "cbBaseDlrIdCardType";
+            this.cbBaseDlrIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseDlrIdCardType.TabIndex = 20;
             // 
             // label13
             // 
@@ -495,158 +514,229 @@ namespace Vehicle.Plugins
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtPostCode_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrEmail);
+            this.groupBox1.Controls.Add(this.txtBaseSyrPostCode);
+            this.groupBox1.Controls.Add(this.label114);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtTempId_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrTempId);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.cbTempType_syr);
+            this.groupBox1.Controls.Add(this.cbBaseSyrTempIdType);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtConnAddress_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrConnAddress);
+            this.groupBox1.Controls.Add(this.txtBaseSyrRegAddress);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.cbLocalArea_syr);
+            this.groupBox1.Controls.Add(this.label112);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtConnPhone_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrMobile);
+            this.groupBox1.Controls.Add(this.txtBaseSyrPhone);
+            this.groupBox1.Controls.Add(this.label113);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtName_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrName);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtId_syr);
+            this.groupBox1.Controls.Add(this.txtBaseSyrIdCard);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cbIdType_syr);
+            this.groupBox1.Controls.Add(this.cbBaseSyrIdCardType);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Location = new System.Drawing.Point(21, 14);
+            this.groupBox1.Location = new System.Drawing.Point(21, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(612, 133);
+            this.groupBox1.Size = new System.Drawing.Size(661, 169);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "所有人信息";
             // 
-            // txtPostCode_syr
+            // txtBaseSyrEmail
             // 
-            this.txtPostCode_syr.Location = new System.Drawing.Point(512, 96);
-            this.txtPostCode_syr.Name = "txtPostCode_syr";
-            this.txtPostCode_syr.Size = new System.Drawing.Size(79, 21);
-            this.txtPostCode_syr.TabIndex = 16;
+            this.txtBaseSyrEmail.Location = new System.Drawing.Point(538, 133);
+            this.txtBaseSyrEmail.Name = "txtBaseSyrEmail";
+            this.txtBaseSyrEmail.Size = new System.Drawing.Size(93, 21);
+            this.txtBaseSyrEmail.TabIndex = 13;
+            this.txtBaseSyrEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrEmail_Validating);
+            // 
+            // txtBaseSyrPostCode
+            // 
+            this.txtBaseSyrPostCode.Location = new System.Drawing.Point(555, 46);
+            this.txtBaseSyrPostCode.Name = "txtBaseSyrPostCode";
+            this.txtBaseSyrPostCode.Size = new System.Drawing.Size(76, 21);
+            this.txtBaseSyrPostCode.TabIndex = 6;
+            this.txtBaseSyrPostCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrPostCode_Validating);
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(481, 137);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(53, 12);
+            this.label114.TabIndex = 15;
+            this.label114.Text = "电子邮箱";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(446, 105);
+            this.label8.Location = new System.Drawing.Point(496, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 15;
             this.label8.Text = "邮政编码";
             // 
-            // txtTempId_syr
+            // txtBaseSyrTempId
             // 
-            this.txtTempId_syr.Location = new System.Drawing.Point(367, 96);
-            this.txtTempId_syr.Name = "txtTempId_syr";
-            this.txtTempId_syr.Size = new System.Drawing.Size(73, 21);
-            this.txtTempId_syr.TabIndex = 14;
+            this.txtBaseSyrTempId.Location = new System.Drawing.Point(354, 133);
+            this.txtBaseSyrTempId.Name = "txtBaseSyrTempId";
+            this.txtBaseSyrTempId.Size = new System.Drawing.Size(94, 21);
+            this.txtBaseSyrTempId.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(295, 106);
+            this.label7.Location = new System.Drawing.Point(295, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 13;
             this.label7.Text = "暂住证号";
             // 
-            // cbTempType_syr
+            // cbBaseSyrTempIdType
             // 
-            this.cbTempType_syr.FormattingEnabled = true;
-            this.cbTempType_syr.Location = new System.Drawing.Point(138, 98);
-            this.cbTempType_syr.Name = "cbTempType_syr";
-            this.cbTempType_syr.Size = new System.Drawing.Size(131, 20);
-            this.cbTempType_syr.TabIndex = 12;
+            this.cbBaseSyrTempIdType.FormattingEnabled = true;
+            this.cbBaseSyrTempIdType.Location = new System.Drawing.Point(142, 133);
+            this.cbBaseSyrTempIdType.Name = "cbBaseSyrTempIdType";
+            this.cbBaseSyrTempIdType.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseSyrTempIdType.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 107);
+            this.label6.Location = new System.Drawing.Point(22, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 12);
             this.label6.TabIndex = 11;
             this.label6.Text = "居住/暂住证明名称";
             // 
-            // txtConnAddress_syr
+            // txtBaseSyrConnAddress
             // 
-            this.txtConnAddress_syr.Location = new System.Drawing.Point(295, 69);
-            this.txtConnAddress_syr.Name = "txtConnAddress_syr";
-            this.txtConnAddress_syr.Size = new System.Drawing.Size(296, 21);
-            this.txtConnAddress_syr.TabIndex = 10;
+            this.txtBaseSyrConnAddress.Location = new System.Drawing.Point(295, 104);
+            this.txtBaseSyrConnAddress.Name = "txtBaseSyrConnAddress";
+            this.txtBaseSyrConnAddress.Size = new System.Drawing.Size(336, 21);
+            this.txtBaseSyrConnAddress.TabIndex = 10;
+            this.txtBaseSyrConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrConnAddress_Validating);
+            // 
+            // txtBaseSyrRegAddress
+            // 
+            this.txtBaseSyrRegAddress.Location = new System.Drawing.Point(295, 75);
+            this.txtBaseSyrRegAddress.Name = "txtBaseSyrRegAddress";
+            this.txtBaseSyrRegAddress.Size = new System.Drawing.Size(336, 21);
+            this.txtBaseSyrRegAddress.TabIndex = 8;
+            this.txtBaseSyrRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrRegAddress_Validating);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(142, 104);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(131, 20);
+            this.comboBox1.TabIndex = 9;
             // 
             // cbLocalArea_syr
             // 
             this.cbLocalArea_syr.FormattingEnabled = true;
-            this.cbLocalArea_syr.Location = new System.Drawing.Point(138, 69);
+            this.cbLocalArea_syr.Location = new System.Drawing.Point(142, 75);
             this.cbLocalArea_syr.Name = "cbLocalArea_syr";
             this.cbLocalArea_syr.Size = new System.Drawing.Size(131, 20);
-            this.cbLocalArea_syr.TabIndex = 9;
+            this.cbLocalArea_syr.TabIndex = 7;
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(20, 108);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(53, 12);
+            this.label112.TabIndex = 8;
+            this.label112.Text = "邮寄地址";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 78);
+            this.label5.Location = new System.Drawing.Point(20, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "住所地址";
             // 
-            // txtConnPhone_syr
+            // txtBaseSyrMobile
             // 
-            this.txtConnPhone_syr.Location = new System.Drawing.Point(389, 38);
-            this.txtConnPhone_syr.Name = "txtConnPhone_syr";
-            this.txtConnPhone_syr.Size = new System.Drawing.Size(202, 21);
-            this.txtConnPhone_syr.TabIndex = 7;
+            this.txtBaseSyrMobile.Location = new System.Drawing.Point(407, 46);
+            this.txtBaseSyrMobile.Name = "txtBaseSyrMobile";
+            this.txtBaseSyrMobile.Size = new System.Drawing.Size(76, 21);
+            this.txtBaseSyrMobile.TabIndex = 5;
+            this.txtBaseSyrMobile.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrMobile_Validating);
+            // 
+            // txtBaseSyrPhone
+            // 
+            this.txtBaseSyrPhone.Location = new System.Drawing.Point(275, 46);
+            this.txtBaseSyrPhone.Name = "txtBaseSyrPhone";
+            this.txtBaseSyrPhone.Size = new System.Drawing.Size(76, 21);
+            this.txtBaseSyrPhone.TabIndex = 4;
+            this.txtBaseSyrPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrPhone_Validating);
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(354, 50);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(53, 12);
+            this.label113.TabIndex = 6;
+            this.label113.Text = "移动电话";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(293, 49);
+            this.label4.Location = new System.Drawing.Point(220, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 6;
-            this.label4.Text = "联系电话";
+            this.label4.Text = "固定电话";
             // 
-            // txtName_syr
+            // txtBaseSyrName
             // 
-            this.txtName_syr.Location = new System.Drawing.Point(138, 39);
-            this.txtName_syr.Name = "txtName_syr";
-            this.txtName_syr.Size = new System.Drawing.Size(131, 21);
-            this.txtName_syr.TabIndex = 5;
+            this.txtBaseSyrName.Location = new System.Drawing.Point(142, 46);
+            this.txtBaseSyrName.Name = "txtBaseSyrName";
+            this.txtBaseSyrName.Size = new System.Drawing.Size(76, 21);
+            this.txtBaseSyrName.TabIndex = 3;
+            this.txtBaseSyrName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrName_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 49);
+            this.label3.Location = new System.Drawing.Point(22, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "姓名/名称";
             // 
-            // txtId_syr
+            // txtBaseSyrIdCard
             // 
-            this.txtId_syr.Location = new System.Drawing.Point(389, 10);
-            this.txtId_syr.Name = "txtId_syr";
-            this.txtId_syr.Size = new System.Drawing.Size(202, 21);
-            this.txtId_syr.TabIndex = 3;
+            this.txtBaseSyrIdCard.Location = new System.Drawing.Point(389, 17);
+            this.txtBaseSyrIdCard.Name = "txtBaseSyrIdCard";
+            this.txtBaseSyrIdCard.Size = new System.Drawing.Size(242, 21);
+            this.txtBaseSyrIdCard.TabIndex = 2;
+            this.txtBaseSyrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrIdCard_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 20);
+            this.label2.Location = new System.Drawing.Point(293, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "身份证明号码";
             // 
-            // cbIdType_syr
+            // cbBaseSyrIdCardType
             // 
-            this.cbIdType_syr.FormattingEnabled = true;
-            this.cbIdType_syr.Location = new System.Drawing.Point(138, 12);
-            this.cbIdType_syr.Name = "cbIdType_syr";
-            this.cbIdType_syr.Size = new System.Drawing.Size(131, 20);
-            this.cbIdType_syr.TabIndex = 1;
+            this.cbBaseSyrIdCardType.FormattingEnabled = true;
+            this.cbBaseSyrIdCardType.Location = new System.Drawing.Point(142, 17);
+            this.cbBaseSyrIdCardType.Name = "cbBaseSyrIdCardType";
+            this.cbBaseSyrIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseSyrIdCardType.TabIndex = 1;
             // 
             // label15
             // 
@@ -664,63 +754,91 @@ namespace Vehicle.Plugins
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(699, 396);
+            this.tabPage2.Size = new System.Drawing.Size(709, 446);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "登记信息（续）";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.cb_xu_gzszm);
+            this.groupBox6.Controls.Add(this.mtxtXuBxBeginDate);
+            this.groupBox6.Controls.Add(this.mtxtXuBxEndDate);
+            this.groupBox6.Controls.Add(this.txtXuSellPrice);
+            this.groupBox6.Controls.Add(this.cbXuGzzm);
             this.groupBox6.Controls.Add(this.label70);
-            this.groupBox6.Controls.Add(this.txt_xu_bz);
+            this.groupBox6.Controls.Add(this.txtXuDescription);
             this.groupBox6.Controls.Add(this.label73);
             this.groupBox6.Controls.Add(this.label88);
             this.groupBox6.Controls.Add(this.label75);
             this.groupBox6.Controls.Add(this.label87);
             this.groupBox6.Controls.Add(this.label76);
-            this.groupBox6.Controls.Add(this.num_xu_xsjg);
             this.groupBox6.Controls.Add(this.label79);
             this.groupBox6.Controls.Add(this.label86);
             this.groupBox6.Controls.Add(this.label74);
-            this.groupBox6.Controls.Add(this.cb_xu_xsdw);
+            this.groupBox6.Controls.Add(this.cbXuSellDw);
             this.groupBox6.Controls.Add(this.label71);
             this.groupBox6.Controls.Add(this.label85);
             this.groupBox6.Controls.Add(this.label72);
-            this.groupBox6.Controls.Add(this.date_xu_bxzzrq);
-            this.groupBox6.Controls.Add(this.cb_xu_syxz);
-            this.groupBox6.Controls.Add(this.date_xu_bxsxrq);
-            this.groupBox6.Controls.Add(this.cb_xu_xzqh);
+            this.groupBox6.Controls.Add(this.cbXuUseFor);
+            this.groupBox6.Controls.Add(this.cbXuBelongArea);
             this.groupBox6.Controls.Add(this.label84);
-            this.groupBox6.Controls.Add(this.cb_xu_llpz1);
+            this.groupBox6.Controls.Add(this.cbXuLlpp1);
             this.groupBox6.Controls.Add(this.label83);
-            this.groupBox6.Controls.Add(this.cb_xu_llpz2);
-            this.groupBox6.Controls.Add(this.cb_xu_bxgs);
-            this.groupBox6.Controls.Add(this.cb_xu_hmzl);
+            this.groupBox6.Controls.Add(this.cbXuLlpp2);
+            this.groupBox6.Controls.Add(this.cbXuBxCompany);
+            this.groupBox6.Controls.Add(this.cbXuHmhp);
             this.groupBox6.Controls.Add(this.label82);
-            this.groupBox6.Controls.Add(this.cb_xu_syq);
-            this.groupBox6.Controls.Add(this.txt_xu_bxzbh);
-            this.groupBox6.Controls.Add(this.cb_xu_hdfs);
+            this.groupBox6.Controls.Add(this.cbXuSyq);
+            this.groupBox6.Controls.Add(this.txtXuBxBh);
+            this.groupBox6.Controls.Add(this.cbXuGetFrom);
             this.groupBox6.Controls.Add(this.label81);
             this.groupBox6.Controls.Add(this.label77);
-            this.groupBox6.Controls.Add(this.txt_xu_nszmbh);
+            this.groupBox6.Controls.Add(this.txtXuGzzmBh);
             this.groupBox6.Controls.Add(this.label78);
-            this.groupBox6.Controls.Add(this.txt_xu_pzbh2);
+            this.groupBox6.Controls.Add(this.txtXuLlppHm2);
             this.groupBox6.Controls.Add(this.label80);
-            this.groupBox6.Controls.Add(this.txt_xu_pzbh1);
+            this.groupBox6.Controls.Add(this.txtXuLlppHm1);
             this.groupBox6.Location = new System.Drawing.Point(11, 6);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(662, 283);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             // 
-            // cb_xu_gzszm
+            // mtxtXuBxBeginDate
             // 
-            this.cb_xu_gzszm.FormattingEnabled = true;
-            this.cb_xu_gzszm.Location = new System.Drawing.Point(103, 140);
-            this.cb_xu_gzszm.Name = "cb_xu_gzszm";
-            this.cb_xu_gzszm.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_gzszm.TabIndex = 1;
+            this.mtxtXuBxBeginDate.Location = new System.Drawing.Point(104, 193);
+            this.mtxtXuBxBeginDate.Mask = "0000-00-00";
+            this.mtxtXuBxBeginDate.Name = "mtxtXuBxBeginDate";
+            this.mtxtXuBxBeginDate.Size = new System.Drawing.Size(199, 21);
+            this.mtxtXuBxBeginDate.TabIndex = 54;
+            this.mtxtXuBxBeginDate.ValidatingType = typeof(System.DateTime);
+            this.mtxtXuBxBeginDate.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtXuBxBeginDate_Validating);
+            // 
+            // mtxtXuBxEndDate
+            // 
+            this.mtxtXuBxEndDate.Location = new System.Drawing.Point(437, 193);
+            this.mtxtXuBxEndDate.Mask = "0000-00-00";
+            this.mtxtXuBxEndDate.Name = "mtxtXuBxEndDate";
+            this.mtxtXuBxEndDate.Size = new System.Drawing.Size(149, 21);
+            this.mtxtXuBxEndDate.TabIndex = 55;
+            this.mtxtXuBxEndDate.ValidatingType = typeof(System.DateTime);
+            this.mtxtXuBxEndDate.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtXuBxEndDate_Validating);
+            // 
+            // txtXuSellPrice
+            // 
+            this.txtXuSellPrice.Location = new System.Drawing.Point(437, 223);
+            this.txtXuSellPrice.Name = "txtXuSellPrice";
+            this.txtXuSellPrice.Size = new System.Drawing.Size(149, 21);
+            this.txtXuSellPrice.TabIndex = 57;
+            this.txtXuSellPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtXuSellPrice_Validating);
+            // 
+            // cbXuGzzm
+            // 
+            this.cbXuGzzm.FormattingEnabled = true;
+            this.cbXuGzzm.Location = new System.Drawing.Point(103, 133);
+            this.cbXuGzzm.Name = "cbXuGzzm";
+            this.cbXuGzzm.Size = new System.Drawing.Size(121, 20);
+            this.cbXuGzzm.TabIndex = 50;
             // 
             // label70
             // 
@@ -731,17 +849,17 @@ namespace Vehicle.Plugins
             this.label70.TabIndex = 0;
             this.label70.Text = "使用性质";
             // 
-            // txt_xu_bz
+            // txtXuDescription
             // 
-            this.txt_xu_bz.Location = new System.Drawing.Point(104, 256);
-            this.txt_xu_bz.Name = "txt_xu_bz";
-            this.txt_xu_bz.Size = new System.Drawing.Size(550, 21);
-            this.txt_xu_bz.TabIndex = 16;
+            this.txtXuDescription.Location = new System.Drawing.Point(104, 253);
+            this.txtXuDescription.Name = "txtXuDescription";
+            this.txtXuDescription.Size = new System.Drawing.Size(550, 21);
+            this.txtXuDescription.TabIndex = 58;
             // 
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(32, 51);
+            this.label73.Location = new System.Drawing.Point(32, 47);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(53, 12);
             this.label73.TabIndex = 0;
@@ -750,7 +868,7 @@ namespace Vehicle.Plugins
             // label88
             // 
             this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(56, 261);
+            this.label88.Location = new System.Drawing.Point(56, 257);
             this.label88.Name = "label88";
             this.label88.Size = new System.Drawing.Size(29, 12);
             this.label88.TabIndex = 15;
@@ -759,7 +877,7 @@ namespace Vehicle.Plugins
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(26, 84);
+            this.label75.Location = new System.Drawing.Point(26, 77);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(59, 12);
             this.label75.TabIndex = 0;
@@ -768,7 +886,7 @@ namespace Vehicle.Plugins
             // label87
             // 
             this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(593, 235);
+            this.label87.Location = new System.Drawing.Point(593, 227);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(53, 12);
             this.label87.TabIndex = 14;
@@ -777,28 +895,16 @@ namespace Vehicle.Plugins
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(26, 116);
+            this.label76.Location = new System.Drawing.Point(26, 107);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(59, 12);
             this.label76.TabIndex = 0;
             this.label76.Text = "来历凭证2";
             // 
-            // num_xu_xsjg
-            // 
-            this.num_xu_xsjg.Location = new System.Drawing.Point(437, 228);
-            this.num_xu_xsjg.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.num_xu_xsjg.Name = "num_xu_xsjg";
-            this.num_xu_xsjg.Size = new System.Drawing.Size(149, 21);
-            this.num_xu_xsjg.TabIndex = 13;
-            // 
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(20, 148);
+            this.label79.Location = new System.Drawing.Point(20, 137);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(65, 12);
             this.label79.TabIndex = 0;
@@ -807,7 +913,7 @@ namespace Vehicle.Plugins
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(343, 236);
+            this.label86.Location = new System.Drawing.Point(380, 227);
             this.label86.Name = "label86";
             this.label86.Size = new System.Drawing.Size(53, 12);
             this.label86.TabIndex = 12;
@@ -816,19 +922,19 @@ namespace Vehicle.Plugins
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(252, 51);
+            this.label74.Location = new System.Drawing.Point(252, 47);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(53, 12);
             this.label74.TabIndex = 0;
             this.label74.Text = "号牌种类";
             // 
-            // cb_xu_xsdw
+            // cbXuSellDw
             // 
-            this.cb_xu_xsdw.FormattingEnabled = true;
-            this.cb_xu_xsdw.Location = new System.Drawing.Point(103, 229);
-            this.cb_xu_xsdw.Name = "cb_xu_xsdw";
-            this.cb_xu_xsdw.Size = new System.Drawing.Size(200, 20);
-            this.cb_xu_xsdw.TabIndex = 11;
+            this.cbXuSellDw.FormattingEnabled = true;
+            this.cbXuSellDw.Location = new System.Drawing.Point(103, 223);
+            this.cbXuSellDw.Name = "cbXuSellDw";
+            this.cbXuSellDw.Size = new System.Drawing.Size(200, 20);
+            this.cbXuSellDw.TabIndex = 56;
             // 
             // label71
             // 
@@ -842,7 +948,7 @@ namespace Vehicle.Plugins
             // label85
             // 
             this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(32, 236);
+            this.label85.Location = new System.Drawing.Point(32, 227);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(53, 12);
             this.label85.TabIndex = 10;
@@ -851,128 +957,115 @@ namespace Vehicle.Plugins
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(462, 17);
+            this.label72.Location = new System.Drawing.Point(474, 17);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(53, 12);
             this.label72.TabIndex = 0;
             this.label72.Text = "获得方式";
             // 
-            // date_xu_bxzzrq
+            // cbXuUseFor
             // 
-            this.date_xu_bxzzrq.Location = new System.Drawing.Point(437, 200);
-            this.date_xu_bxzzrq.Name = "date_xu_bxzzrq";
-            this.date_xu_bxzzrq.Size = new System.Drawing.Size(149, 21);
-            this.date_xu_bxzzrq.TabIndex = 9;
+            this.cbXuUseFor.FormattingEnabled = true;
+            this.cbXuUseFor.Location = new System.Drawing.Point(103, 13);
+            this.cbXuUseFor.Name = "cbXuUseFor";
+            this.cbXuUseFor.Size = new System.Drawing.Size(121, 20);
+            this.cbXuUseFor.TabIndex = 41;
             // 
-            // cb_xu_syxz
+            // cbXuBelongArea
             // 
-            this.cb_xu_syxz.FormattingEnabled = true;
-            this.cb_xu_syxz.Location = new System.Drawing.Point(103, 9);
-            this.cb_xu_syxz.Name = "cb_xu_syxz";
-            this.cb_xu_syxz.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_syxz.TabIndex = 1;
-            // 
-            // date_xu_bxsxrq
-            // 
-            this.date_xu_bxsxrq.Location = new System.Drawing.Point(103, 200);
-            this.date_xu_bxsxrq.Name = "date_xu_bxsxrq";
-            this.date_xu_bxsxrq.Size = new System.Drawing.Size(200, 21);
-            this.date_xu_bxsxrq.TabIndex = 9;
-            // 
-            // cb_xu_xzqh
-            // 
-            this.cb_xu_xzqh.FormattingEnabled = true;
-            this.cb_xu_xzqh.Location = new System.Drawing.Point(103, 43);
-            this.cb_xu_xzqh.Name = "cb_xu_xzqh";
-            this.cb_xu_xzqh.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_xzqh.TabIndex = 1;
+            this.cbXuBelongArea.FormattingEnabled = true;
+            this.cbXuBelongArea.Location = new System.Drawing.Point(103, 43);
+            this.cbXuBelongArea.Name = "cbXuBelongArea";
+            this.cbXuBelongArea.Size = new System.Drawing.Size(121, 20);
+            this.cbXuBelongArea.TabIndex = 44;
             // 
             // label84
             // 
             this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(341, 210);
+            this.label84.Location = new System.Drawing.Point(356, 197);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(77, 12);
             this.label84.TabIndex = 8;
             this.label84.Text = "保险终止日期";
             // 
-            // cb_xu_llpz1
+            // cbXuLlpp1
             // 
-            this.cb_xu_llpz1.FormattingEnabled = true;
-            this.cb_xu_llpz1.Location = new System.Drawing.Point(103, 76);
-            this.cb_xu_llpz1.Name = "cb_xu_llpz1";
-            this.cb_xu_llpz1.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_llpz1.TabIndex = 1;
+            this.cbXuLlpp1.FormattingEnabled = true;
+            this.cbXuLlpp1.Location = new System.Drawing.Point(103, 73);
+            this.cbXuLlpp1.Name = "cbXuLlpp1";
+            this.cbXuLlpp1.Size = new System.Drawing.Size(121, 20);
+            this.cbXuLlpp1.TabIndex = 46;
             // 
             // label83
             // 
             this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(8, 210);
+            this.label83.Location = new System.Drawing.Point(8, 197);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(77, 12);
             this.label83.TabIndex = 8;
             this.label83.Text = "保险生效日期";
             // 
-            // cb_xu_llpz2
+            // cbXuLlpp2
             // 
-            this.cb_xu_llpz2.FormattingEnabled = true;
-            this.cb_xu_llpz2.Location = new System.Drawing.Point(103, 108);
-            this.cb_xu_llpz2.Name = "cb_xu_llpz2";
-            this.cb_xu_llpz2.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_llpz2.TabIndex = 1;
+            this.cbXuLlpp2.FormattingEnabled = true;
+            this.cbXuLlpp2.Location = new System.Drawing.Point(103, 103);
+            this.cbXuLlpp2.Name = "cbXuLlpp2";
+            this.cbXuLlpp2.Size = new System.Drawing.Size(121, 20);
+            this.cbXuLlpp2.TabIndex = 48;
             // 
-            // cb_xu_bxgs
+            // cbXuBxCompany
             // 
-            this.cb_xu_bxgs.FormattingEnabled = true;
-            this.cb_xu_bxgs.Location = new System.Drawing.Point(495, 172);
-            this.cb_xu_bxgs.Name = "cb_xu_bxgs";
-            this.cb_xu_bxgs.Size = new System.Drawing.Size(159, 20);
-            this.cb_xu_bxgs.TabIndex = 7;
+            this.cbXuBxCompany.FormattingEnabled = true;
+            this.cbXuBxCompany.Location = new System.Drawing.Point(382, 163);
+            this.cbXuBxCompany.Name = "cbXuBxCompany";
+            this.cbXuBxCompany.Size = new System.Drawing.Size(272, 20);
+            this.cbXuBxCompany.TabIndex = 53;
             // 
-            // cb_xu_hmzl
+            // cbXuHmhp
             // 
-            this.cb_xu_hmzl.FormattingEnabled = true;
-            this.cb_xu_hmzl.Location = new System.Drawing.Point(317, 43);
-            this.cb_xu_hmzl.Name = "cb_xu_hmzl";
-            this.cb_xu_hmzl.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_hmzl.TabIndex = 1;
+            this.cbXuHmhp.FormattingEnabled = true;
+            this.cbXuHmhp.Location = new System.Drawing.Point(317, 43);
+            this.cbXuHmhp.Name = "cbXuHmhp";
+            this.cbXuHmhp.Size = new System.Drawing.Size(121, 20);
+            this.cbXuHmhp.TabIndex = 45;
             // 
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(424, 179);
+            this.label82.Location = new System.Drawing.Point(323, 167);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(53, 12);
             this.label82.TabIndex = 6;
             this.label82.Text = "保险公司";
             // 
-            // cb_xu_syq
+            // cbXuSyq
             // 
-            this.cb_xu_syq.FormattingEnabled = true;
-            this.cb_xu_syq.Location = new System.Drawing.Point(317, 9);
-            this.cb_xu_syq.Name = "cb_xu_syq";
-            this.cb_xu_syq.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_syq.TabIndex = 1;
+            this.cbXuSyq.FormattingEnabled = true;
+            this.cbXuSyq.Location = new System.Drawing.Point(317, 13);
+            this.cbXuSyq.Name = "cbXuSyq";
+            this.cbXuSyq.Size = new System.Drawing.Size(121, 20);
+            this.cbXuSyq.TabIndex = 42;
+            this.cbXuSyq.Validating += new System.ComponentModel.CancelEventHandler(this.cbXuSyq_Validating);
             // 
-            // txt_xu_bxzbh
+            // txtXuBxBh
             // 
-            this.txt_xu_bxzbh.Location = new System.Drawing.Point(103, 171);
-            this.txt_xu_bxzbh.Name = "txt_xu_bxzbh";
-            this.txt_xu_bxzbh.Size = new System.Drawing.Size(315, 21);
-            this.txt_xu_bxzbh.TabIndex = 5;
+            this.txtXuBxBh.Location = new System.Drawing.Point(103, 163);
+            this.txtXuBxBh.Name = "txtXuBxBh";
+            this.txtXuBxBh.Size = new System.Drawing.Size(200, 21);
+            this.txtXuBxBh.TabIndex = 52;
             // 
-            // cb_xu_hdfs
+            // cbXuGetFrom
             // 
-            this.cb_xu_hdfs.FormattingEnabled = true;
-            this.cb_xu_hdfs.Location = new System.Drawing.Point(533, 9);
-            this.cb_xu_hdfs.Name = "cb_xu_hdfs";
-            this.cb_xu_hdfs.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_hdfs.TabIndex = 1;
+            this.cbXuGetFrom.FormattingEnabled = true;
+            this.cbXuGetFrom.Location = new System.Drawing.Point(533, 13);
+            this.cbXuGetFrom.Name = "cbXuGetFrom";
+            this.cbXuGetFrom.Size = new System.Drawing.Size(121, 20);
+            this.cbXuGetFrom.TabIndex = 43;
             // 
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(20, 180);
+            this.label81.Location = new System.Drawing.Point(20, 167);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(65, 12);
             this.label81.TabIndex = 4;
@@ -981,62 +1074,63 @@ namespace Vehicle.Plugins
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(246, 83);
+            this.label77.Location = new System.Drawing.Point(246, 77);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(59, 12);
             this.label77.TabIndex = 2;
             this.label77.Text = "凭证编号1";
             // 
-            // txt_xu_nszmbh
+            // txtXuGzzmBh
             // 
-            this.txt_xu_nszmbh.Location = new System.Drawing.Point(317, 139);
-            this.txt_xu_nszmbh.Name = "txt_xu_nszmbh";
-            this.txt_xu_nszmbh.Size = new System.Drawing.Size(337, 21);
-            this.txt_xu_nszmbh.TabIndex = 3;
+            this.txtXuGzzmBh.Location = new System.Drawing.Point(317, 133);
+            this.txtXuGzzmBh.Name = "txtXuGzzmBh";
+            this.txtXuGzzmBh.Size = new System.Drawing.Size(337, 21);
+            this.txtXuGzzmBh.TabIndex = 51;
             // 
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(246, 116);
+            this.label78.Location = new System.Drawing.Point(246, 107);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(59, 12);
             this.label78.TabIndex = 2;
             this.label78.Text = "凭证编号2";
             // 
-            // txt_xu_pzbh2
+            // txtXuLlppHm2
             // 
-            this.txt_xu_pzbh2.Location = new System.Drawing.Point(317, 107);
-            this.txt_xu_pzbh2.Name = "txt_xu_pzbh2";
-            this.txt_xu_pzbh2.Size = new System.Drawing.Size(337, 21);
-            this.txt_xu_pzbh2.TabIndex = 3;
+            this.txtXuLlppHm2.Location = new System.Drawing.Point(317, 103);
+            this.txtXuLlppHm2.Name = "txtXuLlppHm2";
+            this.txtXuLlppHm2.Size = new System.Drawing.Size(337, 21);
+            this.txtXuLlppHm2.TabIndex = 49;
             // 
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(230, 148);
+            this.label80.Location = new System.Drawing.Point(230, 137);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(77, 12);
             this.label80.TabIndex = 2;
             this.label80.Text = "纳税证明编号";
             // 
-            // txt_xu_pzbh1
+            // txtXuLlppHm1
             // 
-            this.txt_xu_pzbh1.Location = new System.Drawing.Point(317, 74);
-            this.txt_xu_pzbh1.Name = "txt_xu_pzbh1";
-            this.txt_xu_pzbh1.Size = new System.Drawing.Size(337, 21);
-            this.txt_xu_pzbh1.TabIndex = 3;
+            this.txtXuLlppHm1.Location = new System.Drawing.Point(317, 73);
+            this.txtXuLlppHm1.Name = "txtXuLlppHm1";
+            this.txtXuLlppHm1.Size = new System.Drawing.Size(337, 21);
+            this.txtXuLlppHm1.TabIndex = 47;
+            this.txtXuLlppHm1.Validating += new System.ComponentModel.CancelEventHandler(this.txtXuLlppHm1_Validating);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txt_xu_jkclxh);
-            this.groupBox5.Controls.Add(this.txt_xu_jkqzcsys);
+            this.groupBox5.Controls.Add(this.mtxtXuJkDate);
+            this.groupBox5.Controls.Add(this.txtXuQzcpxh);
+            this.groupBox5.Controls.Add(this.txtXuVehicleColor);
             this.groupBox5.Controls.Add(this.label93);
             this.groupBox5.Controls.Add(this.label92);
-            this.groupBox5.Controls.Add(this.date_xu_jkqfrq);
             this.groupBox5.Controls.Add(this.label91);
-            this.groupBox5.Controls.Add(this.txt_xu_jkpzhm);
+            this.groupBox5.Controls.Add(this.txtXuPzHm);
             this.groupBox5.Controls.Add(this.cb_xu_jkpzhm);
-            this.groupBox5.Controls.Add(this.cb_xu_jkpzlx);
+            this.groupBox5.Controls.Add(this.cbXuJkPzType);
             this.groupBox5.Controls.Add(this.label90);
             this.groupBox5.Controls.Add(this.label89);
             this.groupBox5.Location = new System.Drawing.Point(11, 295);
@@ -1046,24 +1140,36 @@ namespace Vehicle.Plugins
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "进口凭证信息";
             // 
-            // txt_xu_jkclxh
+            // mtxtXuJkDate
             // 
-            this.txt_xu_jkclxh.Location = new System.Drawing.Point(353, 49);
-            this.txt_xu_jkclxh.Name = "txt_xu_jkclxh";
-            this.txt_xu_jkclxh.Size = new System.Drawing.Size(297, 21);
-            this.txt_xu_jkclxh.TabIndex = 10;
+            this.mtxtXuJkDate.Location = new System.Drawing.Point(522, 21);
+            this.mtxtXuJkDate.Mask = "0000-00-00";
+            this.mtxtXuJkDate.Name = "mtxtXuJkDate";
+            this.mtxtXuJkDate.Size = new System.Drawing.Size(132, 21);
+            this.mtxtXuJkDate.TabIndex = 74;
+            this.mtxtXuJkDate.ValidatingType = typeof(System.DateTime);
+            this.mtxtXuJkDate.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtXuJkDate_Validating);
             // 
-            // txt_xu_jkqzcsys
+            // txtXuQzcpxh
             // 
-            this.txt_xu_jkqzcsys.Location = new System.Drawing.Point(96, 49);
-            this.txt_xu_jkqzcsys.Name = "txt_xu_jkqzcsys";
-            this.txt_xu_jkqzcsys.Size = new System.Drawing.Size(154, 21);
-            this.txt_xu_jkqzcsys.TabIndex = 9;
+            this.txtXuQzcpxh.Location = new System.Drawing.Point(353, 46);
+            this.txtXuQzcpxh.Name = "txtXuQzcpxh";
+            this.txtXuQzcpxh.Size = new System.Drawing.Size(301, 21);
+            this.txtXuQzcpxh.TabIndex = 76;
+            this.txtXuQzcpxh.Validating += new System.ComponentModel.CancelEventHandler(this.txtXuQzcpxh_Validating);
+            // 
+            // txtXuVehicleColor
+            // 
+            this.txtXuVehicleColor.Location = new System.Drawing.Point(103, 46);
+            this.txtXuVehicleColor.Name = "txtXuVehicleColor";
+            this.txtXuVehicleColor.Size = new System.Drawing.Size(154, 21);
+            this.txtXuVehicleColor.TabIndex = 75;
+            this.txtXuVehicleColor.Validating += new System.ComponentModel.CancelEventHandler(this.txtXuVehicleColor_Validating);
             // 
             // label93
             // 
             this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(269, 58);
+            this.label93.Location = new System.Drawing.Point(269, 50);
             this.label93.Name = "label93";
             this.label93.Size = new System.Drawing.Size(77, 12);
             this.label93.TabIndex = 8;
@@ -1072,55 +1178,48 @@ namespace Vehicle.Plugins
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(12, 59);
+            this.label92.Location = new System.Drawing.Point(8, 50);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(77, 12);
             this.label92.TabIndex = 7;
             this.label92.Text = "签注车身颜色";
             // 
-            // date_xu_jkqfrq
-            // 
-            this.date_xu_jkqfrq.Location = new System.Drawing.Point(521, 25);
-            this.date_xu_jkqfrq.Name = "date_xu_jkqfrq";
-            this.date_xu_jkqfrq.Size = new System.Drawing.Size(129, 21);
-            this.date_xu_jkqfrq.TabIndex = 6;
-            // 
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(462, 33);
+            this.label91.Location = new System.Drawing.Point(462, 25);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(53, 12);
             this.label91.TabIndex = 5;
             this.label91.Text = "签发日期";
             // 
-            // txt_xu_jkpzhm
+            // txtXuPzHm
             // 
-            this.txt_xu_jkpzhm.Location = new System.Drawing.Point(359, 25);
-            this.txt_xu_jkpzhm.Name = "txt_xu_jkpzhm";
-            this.txt_xu_jkpzhm.Size = new System.Drawing.Size(100, 21);
-            this.txt_xu_jkpzhm.TabIndex = 4;
+            this.txtXuPzHm.Location = new System.Drawing.Point(382, 21);
+            this.txtXuPzHm.Name = "txtXuPzHm";
+            this.txtXuPzHm.Size = new System.Drawing.Size(77, 21);
+            this.txtXuPzHm.TabIndex = 73;
             // 
             // cb_xu_jkpzhm
             // 
             this.cb_xu_jkpzhm.FormattingEnabled = true;
-            this.cb_xu_jkpzhm.Location = new System.Drawing.Point(271, 26);
+            this.cb_xu_jkpzhm.Location = new System.Drawing.Point(298, 21);
             this.cb_xu_jkpzhm.Name = "cb_xu_jkpzhm";
             this.cb_xu_jkpzhm.Size = new System.Drawing.Size(78, 20);
-            this.cb_xu_jkpzhm.TabIndex = 3;
+            this.cb_xu_jkpzhm.TabIndex = 72;
             // 
-            // cb_xu_jkpzlx
+            // cbXuJkPzType
             // 
-            this.cb_xu_jkpzlx.FormattingEnabled = true;
-            this.cb_xu_jkpzlx.Location = new System.Drawing.Point(78, 25);
-            this.cb_xu_jkpzlx.Name = "cb_xu_jkpzlx";
-            this.cb_xu_jkpzlx.Size = new System.Drawing.Size(121, 20);
-            this.cb_xu_jkpzlx.TabIndex = 2;
+            this.cbXuJkPzType.FormattingEnabled = true;
+            this.cbXuJkPzType.Location = new System.Drawing.Point(104, 21);
+            this.cbXuJkPzType.Name = "cbXuJkPzType";
+            this.cbXuJkPzType.Size = new System.Drawing.Size(121, 20);
+            this.cbXuJkPzType.TabIndex = 59;
             // 
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(212, 33);
+            this.label90.Location = new System.Drawing.Point(231, 25);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(53, 12);
             this.label90.TabIndex = 1;
@@ -1129,7 +1228,7 @@ namespace Vehicle.Plugins
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(10, 34);
+            this.label89.Location = new System.Drawing.Point(32, 25);
             this.label89.Name = "label89";
             this.label89.Size = new System.Drawing.Size(53, 12);
             this.label89.TabIndex = 0;
@@ -1137,27 +1236,28 @@ namespace Vehicle.Plugins
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox11);
-            this.tabPage3.Controls.Add(this.textBox10);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.textBox8);
-            this.tabPage3.Controls.Add(this.textBox12);
-            this.tabPage3.Controls.Add(this.textBox19);
-            this.tabPage3.Controls.Add(this.textBox18);
-            this.tabPage3.Controls.Add(this.textBox17);
-            this.tabPage3.Controls.Add(this.textBox16);
-            this.tabPage3.Controls.Add(this.textBox15);
-            this.tabPage3.Controls.Add(this.textBox14);
-            this.tabPage3.Controls.Add(this.textBox13);
-            this.tabPage3.Controls.Add(this.textBox7);
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Controls.Add(this.textBox21);
-            this.tabPage3.Controls.Add(this.textBox20);
-            this.tabPage3.Controls.Add(this.textBox5);
-            this.tabPage3.Controls.Add(this.textBox4);
-            this.tabPage3.Controls.Add(this.textBox3);
-            this.tabPage3.Controls.Add(this.textBox2);
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.mtxtTecCcrq);
+            this.tabPage3.Controls.Add(this.txtTecZkrsq);
+            this.tabPage3.Controls.Add(this.txtTecZkrsh);
+            this.tabPage3.Controls.Add(this.txtTecHdzk);
+            this.tabPage3.Controls.Add(this.txtTecLjh);
+            this.tabPage3.Controls.Add(this.txtTecZj);
+            this.tabPage3.Controls.Add(this.txtTecGbtfs);
+            this.tabPage3.Controls.Add(this.txtTecLts);
+            this.tabPage3.Controls.Add(this.txtTecZzl);
+            this.tabPage3.Controls.Add(this.txtTecZqyzl);
+            this.tabPage3.Controls.Add(this.txtTecHdzzl);
+            this.tabPage3.Controls.Add(this.txtTecZbzl);
+            this.tabPage3.Controls.Add(this.txtTecZs);
+            this.tabPage3.Controls.Add(this.txtTecLjq);
+            this.tabPage3.Controls.Add(this.txtTecWkk);
+            this.tabPage3.Controls.Add(this.txtTecGl);
+            this.tabPage3.Controls.Add(this.txtTecPl);
+            this.tabPage3.Controls.Add(this.txtTecWkg);
+            this.tabPage3.Controls.Add(this.txtTecNkg);
+            this.tabPage3.Controls.Add(this.txtTecNkk);
+            this.tabPage3.Controls.Add(this.txtTecNkc);
+            this.tabPage3.Controls.Add(this.txtTecWkc);
             this.tabPage3.Controls.Add(this.label64);
             this.tabPage3.Controls.Add(this.label62);
             this.tabPage3.Controls.Add(this.label69);
@@ -1171,7 +1271,7 @@ namespace Vehicle.Plugins
             this.tabPage3.Controls.Add(this.label55);
             this.tabPage3.Controls.Add(this.label48);
             this.tabPage3.Controls.Add(this.label46);
-            this.tabPage3.Controls.Add(this.txt_tec_ltgg);
+            this.tabPage3.Controls.Add(this.txtTecLtgg);
             this.tabPage3.Controls.Add(this.label53);
             this.tabPage3.Controls.Add(this.label63);
             this.tabPage3.Controls.Add(this.label61);
@@ -1184,9 +1284,9 @@ namespace Vehicle.Plugins
             this.tabPage3.Controls.Add(this.label54);
             this.tabPage3.Controls.Add(this.label47);
             this.tabPage3.Controls.Add(this.label45);
-            this.tabPage3.Controls.Add(this.txt_tec_hbdbqk);
+            this.tabPage3.Controls.Add(this.txtTecHbdb);
             this.tabPage3.Controls.Add(this.label44);
-            this.tabPage3.Controls.Add(this.cb_tec_zxxs);
+            this.tabPage3.Controls.Add(this.cbTecZxfs);
             this.tabPage3.Controls.Add(this.label39);
             this.tabPage3.Controls.Add(this.label43);
             this.tabPage3.Controls.Add(this.label38);
@@ -1196,51 +1296,221 @@ namespace Vehicle.Plugins
             this.tabPage3.Controls.Add(this.label36);
             this.tabPage3.Controls.Add(this.label40);
             this.tabPage3.Controls.Add(this.label35);
-            this.tabPage3.Controls.Add(this.cb_tec_rlzl2);
-            this.tabPage3.Controls.Add(this.cb_tec_rlzl1);
+            this.tabPage3.Controls.Add(this.cbTecRlzl2);
+            this.tabPage3.Controls.Add(this.cbTecRlzl1);
             this.tabPage3.Controls.Add(this.label34);
             this.tabPage3.Controls.Add(this.label33);
             this.tabPage3.Controls.Add(this.label32);
             this.tabPage3.Controls.Add(this.label31);
-            this.tabPage3.Controls.Add(this.txt_tec_fdjxh);
+            this.tabPage3.Controls.Add(this.txtTecFdjxh);
             this.tabPage3.Controls.Add(this.label30);
-            this.tabPage3.Controls.Add(this.cb_tec_zzg);
+            this.tabPage3.Controls.Add(this.cbTecZzg);
             this.tabPage3.Controls.Add(this.label29);
-            this.tabPage3.Controls.Add(this.cb_tec_gcjk);
+            this.tabPage3.Controls.Add(this.cbTecGcjk);
             this.tabPage3.Controls.Add(this.label28);
-            this.tabPage3.Controls.Add(this.date_tec_ccrq);
             this.tabPage3.Controls.Add(this.label27);
-            this.tabPage3.Controls.Add(this.cb_tec_csys3);
-            this.tabPage3.Controls.Add(this.cb_tec_csys2);
-            this.tabPage3.Controls.Add(this.cb_tec_csys1);
+            this.tabPage3.Controls.Add(this.cbTecColor3);
+            this.tabPage3.Controls.Add(this.cbTecColor2);
+            this.tabPage3.Controls.Add(this.cbTecColor1);
             this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.txt_tec_zzcmc);
+            this.tabPage3.Controls.Add(this.txtTecZzcm);
             this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.txt_tec_fdjh);
+            this.tabPage3.Controls.Add(this.txtTecFdjh);
             this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.txt_tec_clsbdm);
+            this.tabPage3.Controls.Add(this.txtTecClsbm);
             this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.cb_tec_cllx);
+            this.tabPage3.Controls.Add(this.cbTecCllx);
             this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.txt_tec_ywpp);
+            this.tabPage3.Controls.Add(this.txtTecYwpp);
             this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.txt_tec_zwpp);
+            this.tabPage3.Controls.Add(this.txtTecZwpp);
             this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.txt_tec_clxh);
+            this.tabPage3.Controls.Add(this.txtTecClxh);
             this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.txt_tec_hgzbh);
+            this.tabPage3.Controls.Add(this.txtTecHgzbh);
             this.tabPage3.Controls.Add(this.label94);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(699, 396);
+            this.tabPage3.Size = new System.Drawing.Size(709, 446);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "技术参数";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // mtxtTecCcrq
+            // 
+            this.mtxtTecCcrq.Location = new System.Drawing.Point(121, 158);
+            this.mtxtTecCcrq.Mask = "0000-00-00";
+            this.mtxtTecCcrq.Name = "mtxtTecCcrq";
+            this.mtxtTecCcrq.Size = new System.Drawing.Size(100, 21);
+            this.mtxtTecCcrq.TabIndex = 100;
+            this.mtxtTecCcrq.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtTecZkrsq
+            // 
+            this.txtTecZkrsq.Location = new System.Drawing.Point(489, 361);
+            this.txtTecZkrsq.Name = "txtTecZkrsq";
+            this.txtTecZkrsq.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZkrsq.TabIndex = 142;
+            this.txtTecZkrsq.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZkrsq_Validating);
+            // 
+            // txtTecZkrsh
+            // 
+            this.txtTecZkrsh.Location = new System.Drawing.Point(595, 361);
+            this.txtTecZkrsh.Name = "txtTecZkrsh";
+            this.txtTecZkrsh.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZkrsh.TabIndex = 143;
+            // 
+            // txtTecHdzk
+            // 
+            this.txtTecHdzk.Location = new System.Drawing.Point(489, 332);
+            this.txtTecHdzk.Name = "txtTecHdzk";
+            this.txtTecHdzk.Size = new System.Drawing.Size(38, 21);
+            this.txtTecHdzk.TabIndex = 129;
+            this.txtTecHdzk.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecHdzk_Validating);
+            // 
+            // txtTecLjh
+            // 
+            this.txtTecLjh.Location = new System.Drawing.Point(591, 303);
+            this.txtTecLjh.Name = "txtTecLjh";
+            this.txtTecLjh.Size = new System.Drawing.Size(38, 21);
+            this.txtTecLjh.TabIndex = 126;
+            // 
+            // txtTecZj
+            // 
+            this.txtTecZj.Location = new System.Drawing.Point(489, 274);
+            this.txtTecZj.Name = "txtTecZj";
+            this.txtTecZj.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZj.TabIndex = 122;
+            this.txtTecZj.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZj_Validating);
+            // 
+            // txtTecGbtfs
+            // 
+            this.txtTecGbtfs.Location = new System.Drawing.Point(121, 274);
+            this.txtTecGbtfs.Name = "txtTecGbtfs";
+            this.txtTecGbtfs.Size = new System.Drawing.Size(38, 21);
+            this.txtTecGbtfs.TabIndex = 120;
+            // 
+            // txtTecLts
+            // 
+            this.txtTecLts.Location = new System.Drawing.Point(121, 303);
+            this.txtTecLts.Name = "txtTecLts";
+            this.txtTecLts.Size = new System.Drawing.Size(38, 21);
+            this.txtTecLts.TabIndex = 123;
+            this.txtTecLts.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecLts_Validating);
+            // 
+            // txtTecZzl
+            // 
+            this.txtTecZzl.Location = new System.Drawing.Point(121, 332);
+            this.txtTecZzl.Name = "txtTecZzl";
+            this.txtTecZzl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZzl.TabIndex = 127;
+            // 
+            // txtTecZqyzl
+            // 
+            this.txtTecZqyzl.Location = new System.Drawing.Point(121, 361);
+            this.txtTecZqyzl.Name = "txtTecZqyzl";
+            this.txtTecZqyzl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZqyzl.TabIndex = 140;
+            this.txtTecZqyzl.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZqyzl_Validating);
+            // 
+            // txtTecHdzzl
+            // 
+            this.txtTecHdzzl.Location = new System.Drawing.Point(318, 361);
+            this.txtTecHdzzl.Name = "txtTecHdzzl";
+            this.txtTecHdzzl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecHdzzl.TabIndex = 141;
+            this.txtTecHdzzl.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecHdzzl_Validating);
+            // 
+            // txtTecZbzl
+            // 
+            this.txtTecZbzl.Location = new System.Drawing.Point(318, 332);
+            this.txtTecZbzl.Name = "txtTecZbzl";
+            this.txtTecZbzl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZbzl.TabIndex = 128;
+            this.txtTecZbzl.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZbzl_Validating);
+            // 
+            // txtTecZs
+            // 
+            this.txtTecZs.Location = new System.Drawing.Point(319, 274);
+            this.txtTecZs.Name = "txtTecZs";
+            this.txtTecZs.Size = new System.Drawing.Size(38, 21);
+            this.txtTecZs.TabIndex = 121;
+            this.txtTecZs.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZs_Validating);
+            // 
+            // txtTecLjq
+            // 
+            this.txtTecLjq.Location = new System.Drawing.Point(489, 303);
+            this.txtTecLjq.Name = "txtTecLjq";
+            this.txtTecLjq.Size = new System.Drawing.Size(38, 21);
+            this.txtTecLjq.TabIndex = 125;
+            // 
+            // txtTecWkk
+            // 
+            this.txtTecWkk.Location = new System.Drawing.Point(212, 216);
+            this.txtTecWkk.Name = "txtTecWkk";
+            this.txtTecWkk.Size = new System.Drawing.Size(38, 21);
+            this.txtTecWkk.TabIndex = 111;
+            this.txtTecWkk.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecWkk_Validating);
+            // 
+            // txtTecGl
+            // 
+            this.txtTecGl.Location = new System.Drawing.Point(394, 187);
+            this.txtTecGl.Name = "txtTecGl";
+            this.txtTecGl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecGl.TabIndex = 106;
+            // 
+            // txtTecPl
+            // 
+            this.txtTecPl.Location = new System.Drawing.Point(303, 187);
+            this.txtTecPl.Name = "txtTecPl";
+            this.txtTecPl.Size = new System.Drawing.Size(38, 21);
+            this.txtTecPl.TabIndex = 104;
+            this.txtTecPl.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecPl_Validating);
+            // 
+            // txtTecWkg
+            // 
+            this.txtTecWkg.Location = new System.Drawing.Point(303, 216);
+            this.txtTecWkg.Name = "txtTecWkg";
+            this.txtTecWkg.Size = new System.Drawing.Size(38, 21);
+            this.txtTecWkg.TabIndex = 112;
+            this.txtTecWkg.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecWkg_Validating);
+            // 
+            // txtTecNkg
+            // 
+            this.txtTecNkg.Location = new System.Drawing.Point(303, 245);
+            this.txtTecNkg.Name = "txtTecNkg";
+            this.txtTecNkg.Size = new System.Drawing.Size(38, 21);
+            this.txtTecNkg.TabIndex = 116;
+            this.txtTecNkg.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecNkg_Validating);
+            // 
+            // txtTecNkk
+            // 
+            this.txtTecNkk.Location = new System.Drawing.Point(212, 245);
+            this.txtTecNkk.Name = "txtTecNkk";
+            this.txtTecNkk.Size = new System.Drawing.Size(38, 21);
+            this.txtTecNkk.TabIndex = 115;
+            this.txtTecNkk.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecNkk_Validating);
+            // 
+            // txtTecNkc
+            // 
+            this.txtTecNkc.Location = new System.Drawing.Point(121, 245);
+            this.txtTecNkc.Name = "txtTecNkc";
+            this.txtTecNkc.Size = new System.Drawing.Size(38, 21);
+            this.txtTecNkc.TabIndex = 114;
+            this.txtTecNkc.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecNkc_Validating);
+            // 
+            // txtTecWkc
+            // 
+            this.txtTecWkc.Location = new System.Drawing.Point(121, 216);
+            this.txtTecWkc.Name = "txtTecWkc";
+            this.txtTecWkc.Size = new System.Drawing.Size(38, 21);
+            this.txtTecWkc.TabIndex = 110;
+            this.txtTecWkc.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecWkc_Validating);
+            // 
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(379, 372);
+            this.label64.Location = new System.Drawing.Point(365, 365);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(17, 12);
             this.label64.TabIndex = 43;
@@ -1249,7 +1519,7 @@ namespace Vehicle.Plugins
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(182, 372);
+            this.label62.Location = new System.Drawing.Point(163, 365);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(17, 12);
             this.label62.TabIndex = 43;
@@ -1258,7 +1528,7 @@ namespace Vehicle.Plugins
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(639, 372);
+            this.label69.Location = new System.Drawing.Point(639, 365);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(41, 12);
             this.label69.TabIndex = 43;
@@ -1267,7 +1537,7 @@ namespace Vehicle.Plugins
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(542, 372);
+            this.label68.Location = new System.Drawing.Point(531, 365);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(41, 12);
             this.label68.TabIndex = 43;
@@ -1276,7 +1546,7 @@ namespace Vehicle.Plugins
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(543, 347);
+            this.label66.Location = new System.Drawing.Point(532, 336);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(17, 12);
             this.label66.TabIndex = 43;
@@ -1285,7 +1555,7 @@ namespace Vehicle.Plugins
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(379, 347);
+            this.label60.Location = new System.Drawing.Point(365, 336);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(17, 12);
             this.label60.TabIndex = 43;
@@ -1294,7 +1564,7 @@ namespace Vehicle.Plugins
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(182, 347);
+            this.label58.Location = new System.Drawing.Point(163, 336);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(17, 12);
             this.label58.TabIndex = 43;
@@ -1303,7 +1573,7 @@ namespace Vehicle.Plugins
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(182, 316);
+            this.label52.Location = new System.Drawing.Point(163, 307);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(17, 12);
             this.label52.TabIndex = 43;
@@ -1312,7 +1582,7 @@ namespace Vehicle.Plugins
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(379, 280);
+            this.label50.Location = new System.Drawing.Point(365, 277);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(17, 12);
             this.label50.TabIndex = 43;
@@ -1321,7 +1591,7 @@ namespace Vehicle.Plugins
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(641, 316);
+            this.label56.Location = new System.Drawing.Point(641, 307);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(41, 12);
             this.label56.TabIndex = 43;
@@ -1330,7 +1600,7 @@ namespace Vehicle.Plugins
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(544, 316);
+            this.label55.Location = new System.Drawing.Point(533, 307);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(41, 12);
             this.label55.TabIndex = 43;
@@ -1339,7 +1609,7 @@ namespace Vehicle.Plugins
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(548, 280);
+            this.label48.Location = new System.Drawing.Point(533, 277);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(17, 12);
             this.label48.TabIndex = 43;
@@ -1348,23 +1618,24 @@ namespace Vehicle.Plugins
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(182, 280);
+            this.label46.Location = new System.Drawing.Point(163, 278);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(17, 12);
             this.label46.TabIndex = 43;
             this.label46.Text = "片";
             // 
-            // txt_tec_ltgg
+            // txtTecLtgg
             // 
-            this.txt_tec_ltgg.Location = new System.Drawing.Point(318, 307);
-            this.txt_tec_ltgg.Name = "txt_tec_ltgg";
-            this.txt_tec_ltgg.Size = new System.Drawing.Size(115, 21);
-            this.txt_tec_ltgg.TabIndex = 42;
+            this.txtTecLtgg.Location = new System.Drawing.Point(318, 303);
+            this.txtTecLtgg.Name = "txtTecLtgg";
+            this.txtTecLtgg.Size = new System.Drawing.Size(115, 21);
+            this.txtTecLtgg.TabIndex = 124;
+            this.txtTecLtgg.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecLtgg_Validating);
             // 
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(252, 316);
+            this.label53.Location = new System.Drawing.Point(252, 307);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(53, 12);
             this.label53.TabIndex = 41;
@@ -1373,7 +1644,7 @@ namespace Vehicle.Plugins
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(240, 372);
+            this.label63.Location = new System.Drawing.Point(240, 365);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(65, 12);
             this.label63.TabIndex = 41;
@@ -1382,7 +1653,7 @@ namespace Vehicle.Plugins
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(26, 372);
+            this.label61.Location = new System.Drawing.Point(26, 365);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(77, 12);
             this.label61.TabIndex = 41;
@@ -1391,7 +1662,7 @@ namespace Vehicle.Plugins
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(407, 372);
+            this.label67.Location = new System.Drawing.Point(407, 365);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(65, 12);
             this.label67.TabIndex = 41;
@@ -1400,7 +1671,7 @@ namespace Vehicle.Plugins
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(421, 347);
+            this.label65.Location = new System.Drawing.Point(421, 336);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(53, 12);
             this.label65.TabIndex = 41;
@@ -1409,7 +1680,7 @@ namespace Vehicle.Plugins
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(252, 347);
+            this.label59.Location = new System.Drawing.Point(252, 336);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(53, 12);
             this.label59.TabIndex = 41;
@@ -1418,7 +1689,7 @@ namespace Vehicle.Plugins
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(62, 347);
+            this.label57.Location = new System.Drawing.Point(62, 336);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(41, 12);
             this.label57.TabIndex = 41;
@@ -1427,7 +1698,7 @@ namespace Vehicle.Plugins
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(62, 316);
+            this.label51.Location = new System.Drawing.Point(62, 307);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(41, 12);
             this.label51.TabIndex = 41;
@@ -1436,7 +1707,7 @@ namespace Vehicle.Plugins
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(276, 280);
+            this.label49.Location = new System.Drawing.Point(276, 278);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(29, 12);
             this.label49.TabIndex = 41;
@@ -1445,7 +1716,7 @@ namespace Vehicle.Plugins
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(445, 316);
+            this.label54.Location = new System.Drawing.Point(445, 307);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(29, 12);
             this.label54.TabIndex = 41;
@@ -1454,7 +1725,7 @@ namespace Vehicle.Plugins
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(445, 280);
+            this.label47.Location = new System.Drawing.Point(445, 278);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(29, 12);
             this.label47.TabIndex = 41;
@@ -1463,35 +1734,35 @@ namespace Vehicle.Plugins
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(26, 280);
+            this.label45.Location = new System.Drawing.Point(26, 278);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(77, 12);
             this.label45.TabIndex = 41;
             this.label45.Text = "钢板弹簧片数";
             // 
-            // txt_tec_hbdbqk
+            // txtTecHbdb
             // 
-            this.txt_tec_hbdbqk.Location = new System.Drawing.Point(503, 240);
-            this.txt_tec_hbdbqk.Name = "txt_tec_hbdbqk";
-            this.txt_tec_hbdbqk.Size = new System.Drawing.Size(171, 21);
-            this.txt_tec_hbdbqk.TabIndex = 40;
+            this.txtTecHbdb.Location = new System.Drawing.Point(489, 245);
+            this.txtTecHbdb.Name = "txtTecHbdb";
+            this.txtTecHbdb.Size = new System.Drawing.Size(185, 21);
+            this.txtTecHbdb.TabIndex = 117;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(407, 250);
+            this.label44.Location = new System.Drawing.Point(407, 249);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(77, 12);
             this.label44.TabIndex = 39;
             this.label44.Text = "环保达标情况";
             // 
-            // cb_tec_zxxs
+            // cbTecZxfs
             // 
-            this.cb_tec_zxxs.FormattingEnabled = true;
-            this.cb_tec_zxxs.Location = new System.Drawing.Point(502, 212);
-            this.cb_tec_zxxs.Name = "cb_tec_zxxs";
-            this.cb_tec_zxxs.Size = new System.Drawing.Size(172, 20);
-            this.cb_tec_zxxs.TabIndex = 38;
+            this.cbTecZxfs.FormattingEnabled = true;
+            this.cbTecZxfs.Location = new System.Drawing.Point(489, 216);
+            this.cbTecZxfs.Name = "cbTecZxfs";
+            this.cbTecZxfs.Size = new System.Drawing.Size(185, 20);
+            this.cbTecZxfs.TabIndex = 113;
             // 
             // label39
             // 
@@ -1505,7 +1776,7 @@ namespace Vehicle.Plugins
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(347, 250);
+            this.label43.Location = new System.Drawing.Point(345, 249);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(41, 12);
             this.label43.TabIndex = 36;
@@ -1514,7 +1785,7 @@ namespace Vehicle.Plugins
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(347, 220);
+            this.label38.Location = new System.Drawing.Point(344, 220);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(41, 12);
             this.label38.TabIndex = 36;
@@ -1523,7 +1794,7 @@ namespace Vehicle.Plugins
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(256, 250);
+            this.label42.Location = new System.Drawing.Point(256, 249);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(41, 12);
             this.label42.TabIndex = 36;
@@ -1541,7 +1812,7 @@ namespace Vehicle.Plugins
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(165, 250);
+            this.label41.Location = new System.Drawing.Point(165, 249);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(41, 12);
             this.label41.TabIndex = 36;
@@ -1559,7 +1830,7 @@ namespace Vehicle.Plugins
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(26, 250);
+            this.label40.Location = new System.Drawing.Point(26, 249);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(77, 12);
             this.label40.TabIndex = 34;
@@ -1574,26 +1845,27 @@ namespace Vehicle.Plugins
             this.label35.TabIndex = 34;
             this.label35.Text = "外廓尺寸";
             // 
-            // cb_tec_rlzl2
+            // cbTecRlzl2
             // 
-            this.cb_tec_rlzl2.FormattingEnabled = true;
-            this.cb_tec_rlzl2.Location = new System.Drawing.Point(603, 181);
-            this.cb_tec_rlzl2.Name = "cb_tec_rlzl2";
-            this.cb_tec_rlzl2.Size = new System.Drawing.Size(71, 20);
-            this.cb_tec_rlzl2.TabIndex = 33;
+            this.cbTecRlzl2.FormattingEnabled = true;
+            this.cbTecRlzl2.Location = new System.Drawing.Point(603, 187);
+            this.cbTecRlzl2.Name = "cbTecRlzl2";
+            this.cbTecRlzl2.Size = new System.Drawing.Size(71, 20);
+            this.cbTecRlzl2.TabIndex = 108;
             // 
-            // cb_tec_rlzl1
+            // cbTecRlzl1
             // 
-            this.cb_tec_rlzl1.FormattingEnabled = true;
-            this.cb_tec_rlzl1.Location = new System.Drawing.Point(533, 182);
-            this.cb_tec_rlzl1.Name = "cb_tec_rlzl1";
-            this.cb_tec_rlzl1.Size = new System.Drawing.Size(64, 20);
-            this.cb_tec_rlzl1.TabIndex = 33;
+            this.cbTecRlzl1.FormattingEnabled = true;
+            this.cbTecRlzl1.Location = new System.Drawing.Point(518, 187);
+            this.cbTecRlzl1.Name = "cbTecRlzl1";
+            this.cbTecRlzl1.Size = new System.Drawing.Size(79, 20);
+            this.cbTecRlzl1.TabIndex = 107;
+            this.cbTecRlzl1.Validating += new System.ComponentModel.CancelEventHandler(this.cbTecRlzl1_Validating);
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(467, 190);
+            this.label34.Location = new System.Drawing.Point(467, 191);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 12);
             this.label34.TabIndex = 32;
@@ -1602,7 +1874,7 @@ namespace Vehicle.Plugins
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(449, 190);
+            this.label33.Location = new System.Drawing.Point(435, 191);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(17, 12);
             this.label33.TabIndex = 31;
@@ -1611,7 +1883,7 @@ namespace Vehicle.Plugins
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(371, 188);
+            this.label32.Location = new System.Drawing.Point(345, 191);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(17, 12);
             this.label32.TabIndex = 29;
@@ -1620,35 +1892,36 @@ namespace Vehicle.Plugins
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(246, 188);
+            this.label31.Location = new System.Drawing.Point(239, 191);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(59, 12);
             this.label31.TabIndex = 27;
             this.label31.Text = "排量/功率";
             // 
-            // txt_tec_fdjxh
+            // txtTecFdjxh
             // 
-            this.txt_tec_fdjxh.Location = new System.Drawing.Point(121, 181);
-            this.txt_tec_fdjxh.Name = "txt_tec_fdjxh";
-            this.txt_tec_fdjxh.Size = new System.Drawing.Size(100, 21);
-            this.txt_tec_fdjxh.TabIndex = 26;
+            this.txtTecFdjxh.Location = new System.Drawing.Point(121, 187);
+            this.txtTecFdjxh.Name = "txtTecFdjxh";
+            this.txtTecFdjxh.Size = new System.Drawing.Size(100, 21);
+            this.txtTecFdjxh.TabIndex = 103;
+            this.txtTecFdjxh.Text = "无";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(38, 188);
+            this.label30.Location = new System.Drawing.Point(38, 191);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(65, 12);
             this.label30.TabIndex = 25;
             this.label30.Text = "发动机型号";
             // 
-            // cb_tec_zzg
+            // cbTecZzg
             // 
-            this.cb_tec_zzg.FormattingEnabled = true;
-            this.cb_tec_zzg.Location = new System.Drawing.Point(487, 155);
-            this.cb_tec_zzg.Name = "cb_tec_zzg";
-            this.cb_tec_zzg.Size = new System.Drawing.Size(187, 20);
-            this.cb_tec_zzg.TabIndex = 24;
+            this.cbTecZzg.FormattingEnabled = true;
+            this.cbTecZzg.Location = new System.Drawing.Point(487, 158);
+            this.cbTecZzg.Name = "cbTecZzg";
+            this.cbTecZzg.Size = new System.Drawing.Size(187, 20);
+            this.cbTecZzg.TabIndex = 102;
             // 
             // label29
             // 
@@ -1659,62 +1932,56 @@ namespace Vehicle.Plugins
             this.label29.TabIndex = 23;
             this.label29.Text = "制造国";
             // 
-            // cb_tec_gcjk
+            // cbTecGcjk
             // 
-            this.cb_tec_gcjk.FormattingEnabled = true;
-            this.cb_tec_gcjk.Location = new System.Drawing.Point(314, 154);
-            this.cb_tec_gcjk.Name = "cb_tec_gcjk";
-            this.cb_tec_gcjk.Size = new System.Drawing.Size(93, 20);
-            this.cb_tec_gcjk.TabIndex = 22;
+            this.cbTecGcjk.FormattingEnabled = true;
+            this.cbTecGcjk.Location = new System.Drawing.Point(305, 158);
+            this.cbTecGcjk.Name = "cbTecGcjk";
+            this.cbTecGcjk.Size = new System.Drawing.Size(93, 20);
+            this.cbTecGcjk.TabIndex = 101;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(252, 162);
+            this.label28.Location = new System.Drawing.Point(246, 162);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(53, 12);
             this.label28.TabIndex = 21;
             this.label28.Text = "国产进口";
             // 
-            // date_tec_ccrq
-            // 
-            this.date_tec_ccrq.Location = new System.Drawing.Point(121, 153);
-            this.date_tec_ccrq.Name = "date_tec_ccrq";
-            this.date_tec_ccrq.Size = new System.Drawing.Size(112, 21);
-            this.date_tec_ccrq.TabIndex = 20;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(50, 163);
+            this.label27.Location = new System.Drawing.Point(50, 162);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(53, 12);
             this.label27.TabIndex = 19;
             this.label27.Text = "出厂日期";
             // 
-            // cb_tec_csys3
+            // cbTecColor3
             // 
-            this.cb_tec_csys3.FormattingEnabled = true;
-            this.cb_tec_csys3.Location = new System.Drawing.Point(603, 125);
-            this.cb_tec_csys3.Name = "cb_tec_csys3";
-            this.cb_tec_csys3.Size = new System.Drawing.Size(71, 20);
-            this.cb_tec_csys3.TabIndex = 18;
+            this.cbTecColor3.FormattingEnabled = true;
+            this.cbTecColor3.Location = new System.Drawing.Point(603, 129);
+            this.cbTecColor3.Name = "cbTecColor3";
+            this.cbTecColor3.Size = new System.Drawing.Size(71, 20);
+            this.cbTecColor3.TabIndex = 91;
             // 
-            // cb_tec_csys2
+            // cbTecColor2
             // 
-            this.cb_tec_csys2.FormattingEnabled = true;
-            this.cb_tec_csys2.Location = new System.Drawing.Point(518, 124);
-            this.cb_tec_csys2.Name = "cb_tec_csys2";
-            this.cb_tec_csys2.Size = new System.Drawing.Size(71, 20);
-            this.cb_tec_csys2.TabIndex = 18;
+            this.cbTecColor2.FormattingEnabled = true;
+            this.cbTecColor2.Location = new System.Drawing.Point(518, 129);
+            this.cbTecColor2.Name = "cbTecColor2";
+            this.cbTecColor2.Size = new System.Drawing.Size(71, 20);
+            this.cbTecColor2.TabIndex = 90;
             // 
-            // cb_tec_csys1
+            // cbTecColor1
             // 
-            this.cb_tec_csys1.FormattingEnabled = true;
-            this.cb_tec_csys1.Location = new System.Drawing.Point(424, 124);
-            this.cb_tec_csys1.Name = "cb_tec_csys1";
-            this.cb_tec_csys1.Size = new System.Drawing.Size(77, 20);
-            this.cb_tec_csys1.TabIndex = 17;
+            this.cbTecColor1.FormattingEnabled = true;
+            this.cbTecColor1.Location = new System.Drawing.Point(424, 129);
+            this.cbTecColor1.Name = "cbTecColor1";
+            this.cbTecColor1.Size = new System.Drawing.Size(77, 20);
+            this.cbTecColor1.TabIndex = 89;
+            this.cbTecColor1.Validating += new System.ComponentModel.CancelEventHandler(this.cbTecColor1_Validating);
             // 
             // label26
             // 
@@ -1725,12 +1992,12 @@ namespace Vehicle.Plugins
             this.label26.TabIndex = 16;
             this.label26.Text = "车身颜色";
             // 
-            // txt_tec_zzcmc
+            // txtTecZzcm
             // 
-            this.txt_tec_zzcmc.Location = new System.Drawing.Point(121, 124);
-            this.txt_tec_zzcmc.Name = "txt_tec_zzcmc";
-            this.txt_tec_zzcmc.Size = new System.Drawing.Size(191, 21);
-            this.txt_tec_zzcmc.TabIndex = 15;
+            this.txtTecZzcm.Location = new System.Drawing.Point(121, 129);
+            this.txtTecZzcm.Name = "txtTecZzcm";
+            this.txtTecZzcm.Size = new System.Drawing.Size(191, 21);
+            this.txtTecZzcm.TabIndex = 88;
             // 
             // label25
             // 
@@ -1741,12 +2008,13 @@ namespace Vehicle.Plugins
             this.label25.TabIndex = 14;
             this.label25.Text = "制造厂名称";
             // 
-            // txt_tec_fdjh
+            // txtTecFdjh
             // 
-            this.txt_tec_fdjh.Location = new System.Drawing.Point(423, 95);
-            this.txt_tec_fdjh.Name = "txt_tec_fdjh";
-            this.txt_tec_fdjh.Size = new System.Drawing.Size(251, 21);
-            this.txt_tec_fdjh.TabIndex = 13;
+            this.txtTecFdjh.Location = new System.Drawing.Point(423, 100);
+            this.txtTecFdjh.Name = "txtTecFdjh";
+            this.txtTecFdjh.Size = new System.Drawing.Size(251, 21);
+            this.txtTecFdjh.TabIndex = 87;
+            this.txtTecFdjh.Text = "无";
             // 
             // label24
             // 
@@ -1757,45 +2025,46 @@ namespace Vehicle.Plugins
             this.label24.TabIndex = 12;
             this.label24.Text = "发动机号";
             // 
-            // txt_tec_clsbdm
+            // txtTecClsbm
             // 
-            this.txt_tec_clsbdm.Location = new System.Drawing.Point(121, 95);
-            this.txt_tec_clsbdm.Name = "txt_tec_clsbdm";
-            this.txt_tec_clsbdm.Size = new System.Drawing.Size(191, 21);
-            this.txt_tec_clsbdm.TabIndex = 11;
+            this.txtTecClsbm.Location = new System.Drawing.Point(121, 100);
+            this.txtTecClsbm.Name = "txtTecClsbm";
+            this.txtTecClsbm.Size = new System.Drawing.Size(191, 21);
+            this.txtTecClsbm.TabIndex = 86;
+            this.txtTecClsbm.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecClsbm_Validating);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(26, 101);
+            this.label23.Location = new System.Drawing.Point(26, 104);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(77, 12);
             this.label23.TabIndex = 10;
             this.label23.Text = "车辆识别代码";
             // 
-            // cb_tec_cllx
+            // cbTecCllx
             // 
-            this.cb_tec_cllx.FormattingEnabled = true;
-            this.cb_tec_cllx.Location = new System.Drawing.Point(423, 67);
-            this.cb_tec_cllx.Name = "cb_tec_cllx";
-            this.cb_tec_cllx.Size = new System.Drawing.Size(251, 20);
-            this.cb_tec_cllx.TabIndex = 9;
+            this.cbTecCllx.FormattingEnabled = true;
+            this.cbTecCllx.Location = new System.Drawing.Point(423, 71);
+            this.cbTecCllx.Name = "cbTecCllx";
+            this.cbTecCllx.Size = new System.Drawing.Size(251, 20);
+            this.cbTecCllx.TabIndex = 85;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(349, 76);
+            this.label22.Location = new System.Drawing.Point(349, 75);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(53, 12);
             this.label22.TabIndex = 8;
             this.label22.Text = "车辆类型";
             // 
-            // txt_tec_ywpp
+            // txtTecYwpp
             // 
-            this.txt_tec_ywpp.Location = new System.Drawing.Point(121, 67);
-            this.txt_tec_ywpp.Name = "txt_tec_ywpp";
-            this.txt_tec_ywpp.Size = new System.Drawing.Size(191, 21);
-            this.txt_tec_ywpp.TabIndex = 7;
+            this.txtTecYwpp.Location = new System.Drawing.Point(121, 71);
+            this.txtTecYwpp.Name = "txtTecYwpp";
+            this.txtTecYwpp.Size = new System.Drawing.Size(191, 21);
+            this.txtTecYwpp.TabIndex = 84;
             // 
             // label21
             // 
@@ -1806,28 +2075,29 @@ namespace Vehicle.Plugins
             this.label21.TabIndex = 6;
             this.label21.Text = "英文品牌";
             // 
-            // txt_tec_zwpp
+            // txtTecZwpp
             // 
-            this.txt_tec_zwpp.Location = new System.Drawing.Point(423, 35);
-            this.txt_tec_zwpp.Name = "txt_tec_zwpp";
-            this.txt_tec_zwpp.Size = new System.Drawing.Size(251, 21);
-            this.txt_tec_zwpp.TabIndex = 5;
+            this.txtTecZwpp.Location = new System.Drawing.Point(423, 42);
+            this.txtTecZwpp.Name = "txtTecZwpp";
+            this.txtTecZwpp.Size = new System.Drawing.Size(251, 21);
+            this.txtTecZwpp.TabIndex = 83;
+            this.txtTecZwpp.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZwpp_Validating);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(351, 45);
+            this.label20.Location = new System.Drawing.Point(351, 46);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 12);
             this.label20.TabIndex = 4;
             this.label20.Text = "中文品牌";
             // 
-            // txt_tec_clxh
+            // txtTecClxh
             // 
-            this.txt_tec_clxh.Location = new System.Drawing.Point(121, 37);
-            this.txt_tec_clxh.Name = "txt_tec_clxh";
-            this.txt_tec_clxh.Size = new System.Drawing.Size(191, 21);
-            this.txt_tec_clxh.TabIndex = 3;
+            this.txtTecClxh.Location = new System.Drawing.Point(121, 42);
+            this.txtTecClxh.Name = "txtTecClxh";
+            this.txtTecClxh.Size = new System.Drawing.Size(191, 21);
+            this.txtTecClxh.TabIndex = 82;
             // 
             // label19
             // 
@@ -1838,17 +2108,18 @@ namespace Vehicle.Plugins
             this.label19.TabIndex = 2;
             this.label19.Text = "车辆型号";
             // 
-            // txt_tec_hgzbh
+            // txtTecHgzbh
             // 
-            this.txt_tec_hgzbh.Location = new System.Drawing.Point(518, 4);
-            this.txt_tec_hgzbh.Name = "txt_tec_hgzbh";
-            this.txt_tec_hgzbh.Size = new System.Drawing.Size(156, 21);
-            this.txt_tec_hgzbh.TabIndex = 1;
+            this.txtTecHgzbh.Location = new System.Drawing.Point(518, 9);
+            this.txtTecHgzbh.Name = "txtTecHgzbh";
+            this.txtTecHgzbh.Size = new System.Drawing.Size(156, 21);
+            this.txtTecHgzbh.TabIndex = 81;
+            this.txtTecHgzbh.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecHgzbh_Validating);
             // 
             // label94
             // 
             this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(435, 13);
+            this.label94.Location = new System.Drawing.Point(448, 13);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(65, 12);
             this.label94.TabIndex = 0;
@@ -1861,51 +2132,52 @@ namespace Vehicle.Plugins
             this.tabPage4.Controls.Add(this.groupBox10);
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(699, 396);
+            this.tabPage4.Size = new System.Drawing.Size(709, 446);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "抵押登记";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.txt_dy_dyhtbh);
+            this.groupBox11.Controls.Add(this.txtDyDyHtbh);
             this.groupBox11.Controls.Add(this.label105);
-            this.groupBox11.Controls.Add(this.txt_dy_zhtbh);
+            this.groupBox11.Controls.Add(this.txtDyHtzbh);
             this.groupBox11.Controls.Add(this.label104);
             this.groupBox11.Location = new System.Drawing.Point(43, 4);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(612, 40);
-            this.groupBox11.TabIndex = 4;
+            this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "合同信息";
             // 
-            // txt_dy_dyhtbh
+            // txtDyDyHtbh
             // 
-            this.txt_dy_dyhtbh.Location = new System.Drawing.Point(393, 11);
-            this.txt_dy_dyhtbh.Name = "txt_dy_dyhtbh";
-            this.txt_dy_dyhtbh.Size = new System.Drawing.Size(202, 21);
-            this.txt_dy_dyhtbh.TabIndex = 3;
+            this.txtDyDyHtbh.Location = new System.Drawing.Point(391, 10);
+            this.txtDyDyHtbh.Name = "txtDyDyHtbh";
+            this.txtDyDyHtbh.Size = new System.Drawing.Size(202, 21);
+            this.txtDyDyHtbh.TabIndex = 201;
+            this.txtDyDyHtbh.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyHtbh_Validating);
             // 
             // label105
             // 
             this.label105.AutoSize = true;
-            this.label105.Location = new System.Drawing.Point(306, 20);
+            this.label105.Location = new System.Drawing.Point(304, 14);
             this.label105.Name = "label105";
             this.label105.Size = new System.Drawing.Size(77, 12);
             this.label105.TabIndex = 2;
             this.label105.Text = "抵押合同编号";
             // 
-            // txt_dy_zhtbh
+            // txtDyHtzbh
             // 
-            this.txt_dy_zhtbh.Location = new System.Drawing.Point(100, 12);
-            this.txt_dy_zhtbh.Name = "txt_dy_zhtbh";
-            this.txt_dy_zhtbh.Size = new System.Drawing.Size(200, 21);
-            this.txt_dy_zhtbh.TabIndex = 1;
+            this.txtDyHtzbh.Location = new System.Drawing.Point(98, 10);
+            this.txtDyHtzbh.Name = "txtDyHtzbh";
+            this.txtDyHtzbh.Size = new System.Drawing.Size(200, 21);
+            this.txtDyHtzbh.TabIndex = 200;
             // 
             // label104
             // 
             this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(22, 22);
+            this.label104.Location = new System.Drawing.Point(20, 14);
             this.label104.Name = "label104";
             this.label104.Size = new System.Drawing.Size(65, 12);
             this.label104.TabIndex = 0;
@@ -1924,48 +2196,50 @@ namespace Vehicle.Plugins
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.txt_dy_jbrxxdz);
+            this.groupBox8.Controls.Add(this.txtDyJbrConnAddress);
             this.groupBox8.Controls.Add(this.label95);
-            this.groupBox8.Controls.Add(this.txt_dy_jbrxm);
+            this.groupBox8.Controls.Add(this.txtDyJbrName);
             this.groupBox8.Controls.Add(this.label96);
             this.groupBox8.Controls.Add(this.label97);
-            this.groupBox8.Controls.Add(this.cb_dy_jbrsfzmmc);
-            this.groupBox8.Controls.Add(this.txt_dy_jbrsfzmhm);
+            this.groupBox8.Controls.Add(this.cbDyJbrIdCardType);
+            this.groupBox8.Controls.Add(this.txtDyJbrIdCard);
             this.groupBox8.Controls.Add(this.label98);
             this.groupBox8.Location = new System.Drawing.Point(7, 137);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(599, 100);
-            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "经办人信息";
             // 
-            // txt_dy_jbrxxdz
+            // txtDyJbrConnAddress
             // 
-            this.txt_dy_jbrxxdz.Location = new System.Drawing.Point(99, 69);
-            this.txt_dy_jbrxxdz.Name = "txt_dy_jbrxxdz";
-            this.txt_dy_jbrxxdz.Size = new System.Drawing.Size(453, 21);
-            this.txt_dy_jbrxxdz.TabIndex = 31;
+            this.txtDyJbrConnAddress.Location = new System.Drawing.Point(99, 68);
+            this.txtDyJbrConnAddress.Name = "txtDyJbrConnAddress";
+            this.txtDyJbrConnAddress.Size = new System.Drawing.Size(453, 21);
+            this.txtDyJbrConnAddress.TabIndex = 253;
+            this.txtDyJbrConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrConnAddress_Validating);
             // 
             // label95
             // 
             this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(17, 78);
+            this.label95.Location = new System.Drawing.Point(20, 72);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(53, 12);
             this.label95.TabIndex = 30;
             this.label95.Text = "住所地址";
             // 
-            // txt_dy_jbrxm
+            // txtDyJbrName
             // 
-            this.txt_dy_jbrxm.Location = new System.Drawing.Point(99, 39);
-            this.txt_dy_jbrxm.Name = "txt_dy_jbrxm";
-            this.txt_dy_jbrxm.Size = new System.Drawing.Size(453, 21);
-            this.txt_dy_jbrxm.TabIndex = 27;
+            this.txtDyJbrName.Location = new System.Drawing.Point(99, 40);
+            this.txtDyJbrName.Name = "txtDyJbrName";
+            this.txtDyJbrName.Size = new System.Drawing.Size(453, 21);
+            this.txtDyJbrName.TabIndex = 252;
+            this.txtDyJbrName.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrName_Validating);
             // 
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(19, 49);
+            this.label96.Location = new System.Drawing.Point(20, 44);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(59, 12);
             this.label96.TabIndex = 26;
@@ -1974,31 +2248,32 @@ namespace Vehicle.Plugins
             // label97
             // 
             this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(254, 20);
+            this.label97.Location = new System.Drawing.Point(253, 16);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(77, 12);
             this.label97.TabIndex = 24;
             this.label97.Text = "身份证明号码";
             // 
-            // cb_dy_jbrsfzmmc
+            // cbDyJbrIdCardType
             // 
-            this.cb_dy_jbrsfzmmc.FormattingEnabled = true;
-            this.cb_dy_jbrsfzmmc.Location = new System.Drawing.Point(99, 12);
-            this.cb_dy_jbrsfzmmc.Name = "cb_dy_jbrsfzmmc";
-            this.cb_dy_jbrsfzmmc.Size = new System.Drawing.Size(131, 20);
-            this.cb_dy_jbrsfzmmc.TabIndex = 23;
+            this.cbDyJbrIdCardType.FormattingEnabled = true;
+            this.cbDyJbrIdCardType.Location = new System.Drawing.Point(99, 12);
+            this.cbDyJbrIdCardType.Name = "cbDyJbrIdCardType";
+            this.cbDyJbrIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbDyJbrIdCardType.TabIndex = 250;
             // 
-            // txt_dy_jbrsfzmhm
+            // txtDyJbrIdCard
             // 
-            this.txt_dy_jbrsfzmhm.Location = new System.Drawing.Point(348, 11);
-            this.txt_dy_jbrsfzmhm.Name = "txt_dy_jbrsfzmhm";
-            this.txt_dy_jbrsfzmhm.Size = new System.Drawing.Size(202, 21);
-            this.txt_dy_jbrsfzmhm.TabIndex = 14;
+            this.txtDyJbrIdCard.Location = new System.Drawing.Point(348, 12);
+            this.txtDyJbrIdCard.Name = "txtDyJbrIdCard";
+            this.txtDyJbrIdCard.Size = new System.Drawing.Size(202, 21);
+            this.txtDyJbrIdCard.TabIndex = 251;
+            this.txtDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
             // 
             // label98
             // 
             this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(17, 21);
+            this.label98.Location = new System.Drawing.Point(20, 16);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(77, 12);
             this.label98.TabIndex = 22;
@@ -2006,99 +2281,103 @@ namespace Vehicle.Plugins
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.txt_dy_dwxxdz);
+            this.groupBox9.Controls.Add(this.txtDyDldwConnAddress);
             this.groupBox9.Controls.Add(this.label99);
-            this.groupBox9.Controls.Add(this.txt_dy_dwlxdh);
+            this.groupBox9.Controls.Add(this.txtDyDldwPhone);
             this.groupBox9.Controls.Add(this.label100);
-            this.groupBox9.Controls.Add(this.txt_dy_dwxm);
+            this.groupBox9.Controls.Add(this.txtDyDldwName);
             this.groupBox9.Controls.Add(this.label101);
-            this.groupBox9.Controls.Add(this.txt_dy_dydwsfzmhm);
+            this.groupBox9.Controls.Add(this.txtDyDldwIdCard);
             this.groupBox9.Controls.Add(this.label102);
-            this.groupBox9.Controls.Add(this.cb_dy_dydwsfzmmc);
+            this.groupBox9.Controls.Add(this.cbDyDldwIdCardType);
             this.groupBox9.Controls.Add(this.label103);
             this.groupBox9.Location = new System.Drawing.Point(6, 21);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(600, 100);
-            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "个人代理/代理单位信息";
             // 
-            // txt_dy_dwxxdz
+            // txtDyDldwConnAddress
             // 
-            this.txt_dy_dwxxdz.Location = new System.Drawing.Point(98, 69);
-            this.txt_dy_dwxxdz.Name = "txt_dy_dwxxdz";
-            this.txt_dy_dwxxdz.Size = new System.Drawing.Size(453, 21);
-            this.txt_dy_dwxxdz.TabIndex = 21;
+            this.txtDyDldwConnAddress.Location = new System.Drawing.Point(98, 68);
+            this.txtDyDldwConnAddress.Name = "txtDyDldwConnAddress";
+            this.txtDyDldwConnAddress.Size = new System.Drawing.Size(453, 21);
+            this.txtDyDldwConnAddress.TabIndex = 234;
+            this.txtDyDldwConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDldwConnAddress_Validating);
             // 
             // label99
             // 
             this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(18, 78);
+            this.label99.Location = new System.Drawing.Point(20, 72);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(53, 12);
             this.label99.TabIndex = 19;
             this.label99.Text = "住所地址";
             // 
-            // txt_dy_dwlxdh
+            // txtDyDldwPhone
             // 
-            this.txt_dy_dwlxdh.Location = new System.Drawing.Point(454, 38);
-            this.txt_dy_dwlxdh.Name = "txt_dy_dwlxdh";
-            this.txt_dy_dwlxdh.Size = new System.Drawing.Size(97, 21);
-            this.txt_dy_dwlxdh.TabIndex = 18;
+            this.txtDyDldwPhone.Location = new System.Drawing.Point(454, 40);
+            this.txtDyDldwPhone.Name = "txtDyDldwPhone";
+            this.txtDyDldwPhone.Size = new System.Drawing.Size(97, 21);
+            this.txtDyDldwPhone.TabIndex = 233;
+            this.txtDyDldwPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDldwPhone_Validating);
             // 
             // label100
             // 
             this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(383, 48);
+            this.label100.Location = new System.Drawing.Point(396, 44);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(53, 12);
             this.label100.TabIndex = 17;
             this.label100.Text = "联系电话";
             // 
-            // txt_dy_dwxm
+            // txtDyDldwName
             // 
-            this.txt_dy_dwxm.Location = new System.Drawing.Point(98, 39);
-            this.txt_dy_dwxm.Name = "txt_dy_dwxm";
-            this.txt_dy_dwxm.Size = new System.Drawing.Size(279, 21);
-            this.txt_dy_dwxm.TabIndex = 16;
+            this.txtDyDldwName.Location = new System.Drawing.Point(98, 40);
+            this.txtDyDldwName.Name = "txtDyDldwName";
+            this.txtDyDldwName.Size = new System.Drawing.Size(279, 21);
+            this.txtDyDldwName.TabIndex = 232;
+            this.txtDyDldwName.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDldwName_Validating);
             // 
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(20, 49);
+            this.label101.Location = new System.Drawing.Point(20, 44);
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(59, 12);
             this.label101.TabIndex = 15;
             this.label101.Text = "姓名/名称";
             // 
-            // txt_dy_dydwsfzmhm
+            // txtDyDldwIdCard
             // 
-            this.txt_dy_dydwsfzmhm.Location = new System.Drawing.Point(349, 10);
-            this.txt_dy_dydwsfzmhm.Name = "txt_dy_dydwsfzmhm";
-            this.txt_dy_dydwsfzmhm.Size = new System.Drawing.Size(202, 21);
-            this.txt_dy_dydwsfzmhm.TabIndex = 14;
+            this.txtDyDldwIdCard.Location = new System.Drawing.Point(349, 12);
+            this.txtDyDldwIdCard.Name = "txtDyDldwIdCard";
+            this.txtDyDldwIdCard.Size = new System.Drawing.Size(202, 21);
+            this.txtDyDldwIdCard.TabIndex = 231;
+            this.txtDyDldwIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDldwIdCard_Validating);
             // 
             // label102
             // 
             this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(253, 20);
+            this.label102.Location = new System.Drawing.Point(253, 16);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(77, 12);
             this.label102.TabIndex = 13;
             this.label102.Text = "身份证明号码";
             // 
-            // cb_dy_dydwsfzmmc
+            // cbDyDldwIdCardType
             // 
-            this.cb_dy_dydwsfzmmc.FormattingEnabled = true;
-            this.cb_dy_dydwsfzmmc.Location = new System.Drawing.Point(98, 12);
-            this.cb_dy_dydwsfzmmc.Name = "cb_dy_dydwsfzmmc";
-            this.cb_dy_dydwsfzmmc.Size = new System.Drawing.Size(131, 20);
-            this.cb_dy_dydwsfzmmc.TabIndex = 12;
+            this.cbDyDldwIdCardType.FormattingEnabled = true;
+            this.cbDyDldwIdCardType.Location = new System.Drawing.Point(98, 12);
+            this.cbDyDldwIdCardType.Name = "cbDyDldwIdCardType";
+            this.cbDyDldwIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbDyDldwIdCardType.TabIndex = 230;
             // 
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(18, 21);
+            this.label103.Location = new System.Drawing.Point(20, 16);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(77, 12);
             this.label103.TabIndex = 11;
@@ -2106,17 +2385,17 @@ namespace Vehicle.Plugins
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.txt_dy_dyryzbm);
+            this.groupBox10.Controls.Add(this.txtDyDyqrPostCode);
             this.groupBox10.Controls.Add(this.label106);
-            this.groupBox10.Controls.Add(this.txt_dy_dyrzsdz);
+            this.groupBox10.Controls.Add(this.txtDyDyqrConnAddress);
             this.groupBox10.Controls.Add(this.label107);
-            this.groupBox10.Controls.Add(this.txt_dy_dyrlxdh);
+            this.groupBox10.Controls.Add(this.txtDyDyqrPhone);
             this.groupBox10.Controls.Add(this.label108);
-            this.groupBox10.Controls.Add(this.txt_dy_dyrxm);
+            this.groupBox10.Controls.Add(this.txtDyDyqrName);
             this.groupBox10.Controls.Add(this.label109);
-            this.groupBox10.Controls.Add(this.txt_dy_dyrsfzmhm);
+            this.groupBox10.Controls.Add(this.txtDyDyqrIdCard);
             this.groupBox10.Controls.Add(this.label110);
-            this.groupBox10.Controls.Add(this.cb_dy_dyrsfzmmc);
+            this.groupBox10.Controls.Add(this.cbDyDyqrIdCardType);
             this.groupBox10.Controls.Add(this.label111);
             this.groupBox10.Location = new System.Drawing.Point(43, 50);
             this.groupBox10.Name = "groupBox10";
@@ -2125,259 +2404,186 @@ namespace Vehicle.Plugins
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "抵押权人信息";
             // 
-            // txt_dy_dyryzbm
+            // txtDyDyqrPostCode
             // 
-            this.txt_dy_dyryzbm.Location = new System.Drawing.Point(474, 69);
-            this.txt_dy_dyryzbm.Name = "txt_dy_dyryzbm";
-            this.txt_dy_dyryzbm.Size = new System.Drawing.Size(79, 21);
-            this.txt_dy_dyryzbm.TabIndex = 16;
+            this.txtDyDyqrPostCode.Location = new System.Drawing.Point(474, 60);
+            this.txtDyDyqrPostCode.Name = "txtDyDyqrPostCode";
+            this.txtDyDyqrPostCode.Size = new System.Drawing.Size(79, 21);
+            this.txtDyDyqrPostCode.TabIndex = 215;
+            this.txtDyDyqrPostCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyqrPostCode_Validating);
             // 
             // label106
             // 
             this.label106.AutoSize = true;
-            this.label106.Location = new System.Drawing.Point(408, 78);
+            this.label106.Location = new System.Drawing.Point(408, 64);
             this.label106.Name = "label106";
             this.label106.Size = new System.Drawing.Size(53, 12);
             this.label106.TabIndex = 15;
             this.label106.Text = "邮政编码";
             // 
-            // txt_dy_dyrzsdz
+            // txtDyDyqrConnAddress
             // 
-            this.txt_dy_dyrzsdz.Location = new System.Drawing.Point(100, 69);
-            this.txt_dy_dyrzsdz.Name = "txt_dy_dyrzsdz";
-            this.txt_dy_dyrzsdz.Size = new System.Drawing.Size(302, 21);
-            this.txt_dy_dyrzsdz.TabIndex = 10;
+            this.txtDyDyqrConnAddress.Location = new System.Drawing.Point(100, 60);
+            this.txtDyDyqrConnAddress.Name = "txtDyDyqrConnAddress";
+            this.txtDyDyqrConnAddress.Size = new System.Drawing.Size(302, 21);
+            this.txtDyDyqrConnAddress.TabIndex = 214;
+            this.txtDyDyqrConnAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyqrConnAddress_Validating);
             // 
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(20, 78);
+            this.label107.Location = new System.Drawing.Point(20, 64);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(53, 12);
             this.label107.TabIndex = 8;
             this.label107.Text = "住所地址";
             // 
-            // txt_dy_dyrlxdh
+            // txtDyDyqrPhone
             // 
-            this.txt_dy_dyrlxdh.Location = new System.Drawing.Point(351, 38);
-            this.txt_dy_dyrlxdh.Name = "txt_dy_dyrlxdh";
-            this.txt_dy_dyrlxdh.Size = new System.Drawing.Size(202, 21);
-            this.txt_dy_dyrlxdh.TabIndex = 7;
+            this.txtDyDyqrPhone.Location = new System.Drawing.Point(351, 36);
+            this.txtDyDyqrPhone.Name = "txtDyDyqrPhone";
+            this.txtDyDyqrPhone.Size = new System.Drawing.Size(202, 21);
+            this.txtDyDyqrPhone.TabIndex = 213;
+            this.txtDyDyqrPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyqrPhone_Validating);
             // 
             // label108
             // 
             this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(255, 49);
+            this.label108.Location = new System.Drawing.Point(277, 40);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(53, 12);
             this.label108.TabIndex = 6;
             this.label108.Text = "联系电话";
             // 
-            // txt_dy_dyrxm
+            // txtDyDyqrName
             // 
-            this.txt_dy_dyrxm.Location = new System.Drawing.Point(100, 39);
-            this.txt_dy_dyrxm.Name = "txt_dy_dyrxm";
-            this.txt_dy_dyrxm.Size = new System.Drawing.Size(131, 21);
-            this.txt_dy_dyrxm.TabIndex = 5;
+            this.txtDyDyqrName.Location = new System.Drawing.Point(100, 36);
+            this.txtDyDyqrName.Name = "txtDyDyqrName";
+            this.txtDyDyqrName.Size = new System.Drawing.Size(131, 21);
+            this.txtDyDyqrName.TabIndex = 212;
+            this.txtDyDyqrName.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyqrName_Validating);
             // 
             // label109
             // 
             this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(22, 49);
+            this.label109.Location = new System.Drawing.Point(20, 40);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(59, 12);
             this.label109.TabIndex = 4;
             this.label109.Text = "姓名/名称";
             // 
-            // txt_dy_dyrsfzmhm
+            // txtDyDyqrIdCard
             // 
-            this.txt_dy_dyrsfzmhm.Location = new System.Drawing.Point(351, 10);
-            this.txt_dy_dyrsfzmhm.Name = "txt_dy_dyrsfzmhm";
-            this.txt_dy_dyrsfzmhm.Size = new System.Drawing.Size(202, 21);
-            this.txt_dy_dyrsfzmhm.TabIndex = 3;
+            this.txtDyDyqrIdCard.Location = new System.Drawing.Point(351, 12);
+            this.txtDyDyqrIdCard.Name = "txtDyDyqrIdCard";
+            this.txtDyDyqrIdCard.Size = new System.Drawing.Size(202, 21);
+            this.txtDyDyqrIdCard.TabIndex = 211;
+            this.txtDyDyqrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyDyqrIdCard_Validating);
             // 
             // label110
             // 
             this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(255, 20);
+            this.label110.Location = new System.Drawing.Point(253, 16);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(77, 12);
             this.label110.TabIndex = 2;
             this.label110.Text = "身份证明号码";
             // 
-            // cb_dy_dyrsfzmmc
+            // cbDyDyqrIdCardType
             // 
-            this.cb_dy_dyrsfzmmc.FormattingEnabled = true;
-            this.cb_dy_dyrsfzmmc.Location = new System.Drawing.Point(100, 12);
-            this.cb_dy_dyrsfzmmc.Name = "cb_dy_dyrsfzmmc";
-            this.cb_dy_dyrsfzmmc.Size = new System.Drawing.Size(131, 20);
-            this.cb_dy_dyrsfzmmc.TabIndex = 1;
+            this.cbDyDyqrIdCardType.FormattingEnabled = true;
+            this.cbDyDyqrIdCardType.Location = new System.Drawing.Point(100, 12);
+            this.cbDyDyqrIdCardType.Name = "cbDyDyqrIdCardType";
+            this.cbDyDyqrIdCardType.Size = new System.Drawing.Size(131, 20);
+            this.cbDyDyqrIdCardType.TabIndex = 202;
             // 
             // label111
             // 
             this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(20, 21);
+            this.label111.Location = new System.Drawing.Point(20, 16);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(77, 12);
             this.label111.TabIndex = 0;
             this.label111.Text = "身份证明名称";
             // 
-            // textBox1
+            // btnTecSelector
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 210);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(38, 21);
-            this.textBox1.TabIndex = 45;
+            this.btnTecSelector.Location = new System.Drawing.Point(25, 520);
+            this.btnTecSelector.Name = "btnTecSelector";
+            this.btnTecSelector.Size = new System.Drawing.Size(114, 23);
+            this.btnTecSelector.TabIndex = 4;
+            this.btnTecSelector.Text = "机动车技术参数";
+            this.btnTecSelector.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // btnPhotoManage
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 240);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(38, 21);
-            this.textBox2.TabIndex = 45;
+            this.btnPhotoManage.Location = new System.Drawing.Point(167, 520);
+            this.btnPhotoManage.Name = "btnPhotoManage";
+            this.btnPhotoManage.Size = new System.Drawing.Size(75, 23);
+            this.btnPhotoManage.TabIndex = 5;
+            this.btnPhotoManage.Text = "照片维护";
+            this.btnPhotoManage.UseVisualStyleBackColor = true;
+            this.btnPhotoManage.Click += new System.EventHandler(this.btnPhotoManage_Click);
             // 
-            // textBox3
+            // btnPhotoInfo
             // 
-            this.textBox3.Location = new System.Drawing.Point(212, 241);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(38, 21);
-            this.textBox3.TabIndex = 45;
+            this.btnPhotoInfo.Location = new System.Drawing.Point(605, 520);
+            this.btnPhotoInfo.Name = "btnPhotoInfo";
+            this.btnPhotoInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnPhotoInfo.TabIndex = 6;
+            this.btnPhotoInfo.Text = "照片信息";
+            this.btnPhotoInfo.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // btnPrintApply
             // 
-            this.textBox4.Location = new System.Drawing.Point(303, 240);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(38, 21);
-            this.textBox4.TabIndex = 45;
+            this.btnPrintApply.Location = new System.Drawing.Point(499, 520);
+            this.btnPrintApply.Name = "btnPrintApply";
+            this.btnPrintApply.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintApply.TabIndex = 7;
+            this.btnPrintApply.Text = "打印申请表";
+            this.btnPrintApply.UseVisualStyleBackColor = true;
+            this.btnPrintApply.Click += new System.EventHandler(this.btnPrintApply_Click);
             // 
-            // textBox5
+            // lbFirstRegDate
             // 
-            this.textBox5.Location = new System.Drawing.Point(303, 212);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(38, 21);
-            this.textBox5.TabIndex = 45;
+            this.lbFirstRegDate.AutoSize = true;
+            this.lbFirstRegDate.ForeColor = System.Drawing.Color.Red;
+            this.lbFirstRegDate.Location = new System.Drawing.Point(343, 525);
+            this.lbFirstRegDate.Name = "lbFirstRegDate";
+            this.lbFirstRegDate.Size = new System.Drawing.Size(89, 12);
+            this.lbFirstRegDate.TabIndex = 2;
+            this.lbFirstRegDate.Text = "lbFirstRegDate";
             // 
-            // textBox6
+            // label116
             // 
-            this.textBox6.Location = new System.Drawing.Point(212, 210);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(38, 21);
-            this.textBox6.TabIndex = 45;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(500, 307);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(38, 21);
-            this.textBox7.TabIndex = 45;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(591, 307);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(38, 21);
-            this.textBox8.TabIndex = 45;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(500, 338);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(38, 21);
-            this.textBox9.TabIndex = 45;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(589, 363);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(38, 21);
-            this.textBox10.TabIndex = 45;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(498, 363);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(38, 21);
-            this.textBox11.TabIndex = 45;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(498, 267);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(38, 21);
-            this.textBox12.TabIndex = 45;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(327, 277);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(38, 21);
-            this.textBox13.TabIndex = 45;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(318, 347);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(38, 21);
-            this.textBox14.TabIndex = 45;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(318, 369);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(38, 21);
-            this.textBox15.TabIndex = 45;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(138, 369);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(38, 21);
-            this.textBox16.TabIndex = 45;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(138, 342);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(38, 21);
-            this.textBox17.TabIndex = 45;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(138, 307);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(38, 21);
-            this.textBox18.TabIndex = 45;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(138, 277);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(38, 21);
-            this.textBox19.TabIndex = 45;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(311, 185);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(38, 21);
-            this.textBox20.TabIndex = 45;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(395, 185);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(38, 21);
-            this.textBox21.TabIndex = 45;
+            this.label116.AutoSize = true;
+            this.label116.Location = new System.Drawing.Point(284, 525);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(53, 12);
+            this.label116.TabIndex = 2;
+            this.label116.Text = "登记日期";
             // 
             // VehicleBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(717, 484);
+            this.ClientSize = new System.Drawing.Size(717, 555);
+            this.Controls.Add(this.label116);
+            this.Controls.Add(this.lbFirstRegDate);
+            this.Controls.Add(this.btnPrintApply);
+            this.Controls.Add(this.btnPhotoInfo);
+            this.Controls.Add(this.btnPhotoManage);
+            this.Controls.Add(this.btnTecSelector);
             this.Controls.Add(this.tabControl1);
             this.Name = "VehicleBrowser";
             this.Text = "车辆信息登记";
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
+            this.Controls.SetChildIndex(this.btnTecSelector, 0);
+            this.Controls.SetChildIndex(this.btnPhotoManage, 0);
+            this.Controls.SetChildIndex(this.btnPhotoInfo, 0);
+            this.Controls.SetChildIndex(this.btnPrintApply, 0);
+            this.Controls.SetChildIndex(this.lbFirstRegDate, 0);
+            this.Controls.SetChildIndex(this.label116, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -2391,7 +2597,6 @@ namespace Vehicle.Plugins
             this.tabPage2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_xu_xsjg)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -2417,92 +2622,88 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtViaConnAddress_syr_jbr;
+        private System.Windows.Forms.TextBox txtBaseJbrConnAddress;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtViaName_syr_jbr;
+        private System.Windows.Forms.TextBox txtBaseJbrName;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cbViaIdType_syr_jbr;
-        private System.Windows.Forms.TextBox txt_sfzmhm_syr_jbr;
+        private System.Windows.Forms.ComboBox cbBaseJbrIdCardType;
+        private System.Windows.Forms.TextBox txtBaseJbrIdCard;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtCoConnAddress_syr_dw;
+        private System.Windows.Forms.TextBox txtBaseDlrConnAddress;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCoConnPhone_syr_dw;
+        private System.Windows.Forms.TextBox txtBaseDlrPhone;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCoName_syr_dw;
+        private System.Windows.Forms.TextBox txtBaseDlrName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCoId_syr_dw;
+        private System.Windows.Forms.TextBox txtBaseDlrIdCard;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbCoIdType_syr_dw;
+        private System.Windows.Forms.ComboBox cbBaseDlrIdCardType;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtPostCode_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrPostCode;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTempId_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrTempId;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbTempType_syr;
+        private System.Windows.Forms.ComboBox cbBaseSyrTempIdType;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtConnAddress_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrRegAddress;
         private System.Windows.Forms.ComboBox cbLocalArea_syr;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtConnPhone_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrPhone;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtName_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtId_syr;
+        private System.Windows.Forms.TextBox txtBaseSyrIdCard;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbIdType_syr;
+        private System.Windows.Forms.ComboBox cbBaseSyrIdCardType;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox cb_xu_gzszm;
+        private System.Windows.Forms.ComboBox cbXuGzzm;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox txt_xu_bz;
+        private System.Windows.Forms.TextBox txtXuDescription;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.NumericUpDown num_xu_xsjg;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.ComboBox cb_xu_xsdw;
+        private System.Windows.Forms.ComboBox cbXuSellDw;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.DateTimePicker date_xu_bxzzrq;
-        private System.Windows.Forms.ComboBox cb_xu_syxz;
-        private System.Windows.Forms.DateTimePicker date_xu_bxsxrq;
-        private System.Windows.Forms.ComboBox cb_xu_xzqh;
+        private System.Windows.Forms.ComboBox cbXuUseFor;
+        private System.Windows.Forms.ComboBox cbXuBelongArea;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.ComboBox cb_xu_llpz1;
+        private System.Windows.Forms.ComboBox cbXuLlpp1;
         private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.ComboBox cb_xu_llpz2;
-        private System.Windows.Forms.ComboBox cb_xu_bxgs;
-        private System.Windows.Forms.ComboBox cb_xu_hmzl;
+        private System.Windows.Forms.ComboBox cbXuLlpp2;
+        private System.Windows.Forms.ComboBox cbXuBxCompany;
+        private System.Windows.Forms.ComboBox cbXuHmhp;
         private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.ComboBox cb_xu_syq;
-        private System.Windows.Forms.TextBox txt_xu_bxzbh;
-        private System.Windows.Forms.ComboBox cb_xu_hdfs;
+        private System.Windows.Forms.ComboBox cbXuSyq;
+        private System.Windows.Forms.TextBox txtXuBxBh;
+        private System.Windows.Forms.ComboBox cbXuGetFrom;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.TextBox txt_xu_nszmbh;
+        private System.Windows.Forms.TextBox txtXuGzzmBh;
         private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.TextBox txt_xu_pzbh2;
+        private System.Windows.Forms.TextBox txtXuLlppHm2;
         private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.TextBox txt_xu_pzbh1;
+        private System.Windows.Forms.TextBox txtXuLlppHm1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txt_xu_jkclxh;
-        private System.Windows.Forms.TextBox txt_xu_jkqzcsys;
+        private System.Windows.Forms.TextBox txtXuQzcpxh;
+        private System.Windows.Forms.TextBox txtXuVehicleColor;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.Label label92;
-        private System.Windows.Forms.DateTimePicker date_xu_jkqfrq;
         private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.TextBox txt_xu_jkpzhm;
+        private System.Windows.Forms.TextBox txtXuPzHm;
         private System.Windows.Forms.ComboBox cb_xu_jkpzhm;
-        private System.Windows.Forms.ComboBox cb_xu_jkpzlx;
+        private System.Windows.Forms.ComboBox cbXuJkPzType;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.TabPage tabPage3;
@@ -2519,7 +2720,7 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox txt_tec_ltgg;
+        private System.Windows.Forms.TextBox txtTecLtgg;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label61;
@@ -2532,9 +2733,9 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox txt_tec_hbdbqk;
+        private System.Windows.Forms.TextBox txtTecHbdb;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.ComboBox cb_tec_zxxs;
+        private System.Windows.Forms.ComboBox cbTecZxfs;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label38;
@@ -2544,100 +2745,117 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.ComboBox cb_tec_rlzl2;
-        private System.Windows.Forms.ComboBox cb_tec_rlzl1;
+        private System.Windows.Forms.ComboBox cbTecRlzl2;
+        private System.Windows.Forms.ComboBox cbTecRlzl1;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox txt_tec_fdjxh;
+        private System.Windows.Forms.TextBox txtTecFdjxh;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox cb_tec_zzg;
+        private System.Windows.Forms.ComboBox cbTecZzg;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.ComboBox cb_tec_gcjk;
+        private System.Windows.Forms.ComboBox cbTecGcjk;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.DateTimePicker date_tec_ccrq;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox cb_tec_csys3;
-        private System.Windows.Forms.ComboBox cb_tec_csys2;
-        private System.Windows.Forms.ComboBox cb_tec_csys1;
+        private System.Windows.Forms.ComboBox cbTecColor3;
+        private System.Windows.Forms.ComboBox cbTecColor2;
+        private System.Windows.Forms.ComboBox cbTecColor1;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txt_tec_zzcmc;
+        private System.Windows.Forms.TextBox txtTecZzcm;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_tec_fdjh;
+        private System.Windows.Forms.TextBox txtTecFdjh;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txt_tec_clsbdm;
+        private System.Windows.Forms.TextBox txtTecClsbm;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox cb_tec_cllx;
+        private System.Windows.Forms.ComboBox cbTecCllx;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txt_tec_ywpp;
+        private System.Windows.Forms.TextBox txtTecYwpp;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txt_tec_zwpp;
+        private System.Windows.Forms.TextBox txtTecZwpp;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txt_tec_clxh;
+        private System.Windows.Forms.TextBox txtTecClxh;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txt_tec_hgzbh;
+        private System.Windows.Forms.TextBox txtTecHgzbh;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.TextBox txt_dy_dyhtbh;
+        private System.Windows.Forms.TextBox txtDyDyHtbh;
         private System.Windows.Forms.Label label105;
-        private System.Windows.Forms.TextBox txt_dy_zhtbh;
+        private System.Windows.Forms.TextBox txtDyHtzbh;
         private System.Windows.Forms.Label label104;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TextBox txt_dy_jbrxxdz;
+        private System.Windows.Forms.TextBox txtDyJbrConnAddress;
         private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.TextBox txt_dy_jbrxm;
+        private System.Windows.Forms.TextBox txtDyJbrName;
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.ComboBox cb_dy_jbrsfzmmc;
-        private System.Windows.Forms.TextBox txt_dy_jbrsfzmhm;
+        private System.Windows.Forms.ComboBox cbDyJbrIdCardType;
+        private System.Windows.Forms.TextBox txtDyJbrIdCard;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox txt_dy_dwxxdz;
+        private System.Windows.Forms.TextBox txtDyDldwConnAddress;
         private System.Windows.Forms.Label label99;
-        private System.Windows.Forms.TextBox txt_dy_dwlxdh;
+        private System.Windows.Forms.TextBox txtDyDldwPhone;
         private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.TextBox txt_dy_dwxm;
+        private System.Windows.Forms.TextBox txtDyDldwName;
         private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.TextBox txt_dy_dydwsfzmhm;
+        private System.Windows.Forms.TextBox txtDyDldwIdCard;
         private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.ComboBox cb_dy_dydwsfzmmc;
+        private System.Windows.Forms.ComboBox cbDyDldwIdCardType;
         private System.Windows.Forms.Label label103;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.TextBox txt_dy_dyryzbm;
+        private System.Windows.Forms.TextBox txtDyDyqrPostCode;
         private System.Windows.Forms.Label label106;
-        private System.Windows.Forms.TextBox txt_dy_dyrzsdz;
+        private System.Windows.Forms.TextBox txtDyDyqrConnAddress;
         private System.Windows.Forms.Label label107;
-        private System.Windows.Forms.TextBox txt_dy_dyrlxdh;
+        private System.Windows.Forms.TextBox txtDyDyqrPhone;
         private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.TextBox txt_dy_dyrxm;
+        private System.Windows.Forms.TextBox txtDyDyqrName;
         private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.TextBox txt_dy_dyrsfzmhm;
+        private System.Windows.Forms.TextBox txtDyDyqrIdCard;
         private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.ComboBox cb_dy_dyrsfzmmc;
+        private System.Windows.Forms.ComboBox cbDyDyqrIdCardType;
         private System.Windows.Forms.Label label111;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtTecZkrsq;
+        private System.Windows.Forms.TextBox txtTecZkrsh;
+        private System.Windows.Forms.TextBox txtTecHdzk;
+        private System.Windows.Forms.TextBox txtTecLjh;
+        private System.Windows.Forms.TextBox txtTecZj;
+        private System.Windows.Forms.TextBox txtTecGbtfs;
+        private System.Windows.Forms.TextBox txtTecLts;
+        private System.Windows.Forms.TextBox txtTecZzl;
+        private System.Windows.Forms.TextBox txtTecZqyzl;
+        private System.Windows.Forms.TextBox txtTecHdzzl;
+        private System.Windows.Forms.TextBox txtTecZbzl;
+        private System.Windows.Forms.TextBox txtTecZs;
+        private System.Windows.Forms.TextBox txtTecLjq;
+        private System.Windows.Forms.TextBox txtTecWkk;
+        private System.Windows.Forms.TextBox txtTecWkg;
+        private System.Windows.Forms.TextBox txtTecNkg;
+        private System.Windows.Forms.TextBox txtTecNkk;
+        private System.Windows.Forms.TextBox txtTecNkc;
+        private System.Windows.Forms.TextBox txtTecWkc;
+        private System.Windows.Forms.TextBox txtTecGl;
+        private System.Windows.Forms.TextBox txtTecPl;
+        private System.Windows.Forms.TextBox txtBaseSyrConnAddress;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.TextBox txtBaseSyrMobile;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.TextBox txtBaseSyrEmail;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.TextBox txtXuSellPrice;
+        private System.Windows.Forms.MaskedTextBox mtxtXuBxEndDate;
+        private System.Windows.Forms.MaskedTextBox mtxtXuBxBeginDate;
+        private System.Windows.Forms.MaskedTextBox mtxtXuJkDate;
+        private System.Windows.Forms.MaskedTextBox mtxtTecCcrq;
+        private System.Windows.Forms.Button btnTecSelector;
+        private System.Windows.Forms.Button btnPhotoManage;
+        private System.Windows.Forms.Button btnPhotoInfo;
+        private System.Windows.Forms.Button btnPrintApply;
+        private System.Windows.Forms.Label lbFirstRegDate;
+        private System.Windows.Forms.Label label116;
     }
 }
