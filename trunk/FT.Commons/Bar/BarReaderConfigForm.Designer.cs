@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BarReaderConfigForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTest = new System.Windows.Forms.Button();
             this.txtEncoding = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -44,12 +45,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTest = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtReceivedBytesThreshold = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDelayMimiTime = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDelayMimiTime);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtReceivedBytesThreshold);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnTest);
             this.groupBox1.Controls.Add(this.txtEncoding);
             this.groupBox1.Controls.Add(this.label6);
@@ -67,10 +75,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 161);
+            this.groupBox1.Size = new System.Drawing.Size(326, 172);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(137, 137);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 15;
+            this.btnTest.Text = "测试连接";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // txtEncoding
             // 
@@ -91,7 +109,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(242, 114);
+            this.button1.Location = new System.Drawing.Point(242, 137);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -102,7 +120,7 @@
             // checkAddReturn
             // 
             this.checkAddReturn.AutoSize = true;
-            this.checkAddReturn.Location = new System.Drawing.Point(31, 117);
+            this.checkAddReturn.Location = new System.Drawing.Point(31, 144);
             this.checkAddReturn.Name = "checkAddReturn";
             this.checkAddReturn.Size = new System.Drawing.Size(60, 16);
             this.checkAddReturn.TabIndex = 11;
@@ -203,15 +221,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "端口";
             // 
-            // btnTest
+            // label7
             // 
-            this.btnTest.Location = new System.Drawing.Point(137, 114);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 15;
-            this.btnTest.Text = "测试连接";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 12);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "缓冲区字节大小";
+            // 
+            // txtReceivedBytesThreshold
+            // 
+            this.txtReceivedBytesThreshold.Location = new System.Drawing.Point(115, 106);
+            this.txtReceivedBytesThreshold.Name = "txtReceivedBytesThreshold";
+            this.txtReceivedBytesThreshold.Size = new System.Drawing.Size(50, 21);
+            this.txtReceivedBytesThreshold.TabIndex = 17;
+            this.txtReceivedBytesThreshold.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(175, 111);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "读取延迟时间";
+            // 
+            // txtDelayMimiTime
+            // 
+            this.txtDelayMimiTime.Location = new System.Drawing.Point(259, 105);
+            this.txtDelayMimiTime.Name = "txtDelayMimiTime";
+            this.txtDelayMimiTime.Size = new System.Drawing.Size(58, 21);
+            this.txtDelayMimiTime.TabIndex = 19;
+            this.txtDelayMimiTime.Text = "500";
             // 
             // BarReaderConfigForm
             // 
@@ -246,5 +288,9 @@
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.TextBox txtReceivedBytesThreshold;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtDelayMimiTime;
     }
 }

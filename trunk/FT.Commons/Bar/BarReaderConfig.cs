@@ -20,5 +20,9 @@ namespace FT.Commons.Bar
         public string Encoding="gb2312";
 
         public bool AddReturn=false;
+
+        public int DelayMimiTime = 500;
+
+        public int ReceivedBytesThreshold=1;
     }
 }
