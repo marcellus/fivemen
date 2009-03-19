@@ -43,6 +43,14 @@ namespace Vehicle.Plugins
         {
             if (!this.DesignMode)
             {
+                
+                this.txtBaseJbrConnAddress.KeyDown += new KeyEventHandler(txtBaseJbrConnAddress_KeyDown);
+                
+                this.txtXuQzcpxh.KeyDown += new KeyEventHandler(txtXuQzcpxh_KeyDown);
+
+                
+                this.txtTecZkrsh.KeyDown += new KeyEventHandler(txtTecZkrsh_KeyDown);
+                this.txtXuDescription.KeyDown += new KeyEventHandler(txtXuDescription_KeyDown);
                 if (this.entity == null)
                 {
                     this.lbFirstRegDate.Text = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -91,6 +99,43 @@ namespace Vehicle.Plugins
                 //FT.Windows.CommonsPlugin.Entity.DictManager.BindToCombox(this.cbCarType, "×¼¼Ý³µÐÍ");
             }
             //this.cbSex.SelectedIndex = 0;
+        }
+
+        void txtXuDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.cbXuJkPzType.Focus();
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        void txtTecZkrsh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.tabControl1.SelectedIndex = 3;
+                // e.
+                this.txtDyHtzbh.Focus();
+            }
+        }
+
+        void txtXuQzcpxh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.tabControl1.SelectedIndex = 2;
+                // e.
+                this.txtTecHgzbh.Focus();
+            }
+        }
+
+        void txtBaseJbrConnAddress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.tabControl1.SelectedIndex = 1;
+                // e.
+                this.cbXuUseFor.Focus();
+            }
+            //throw new Exception("The method or operation is not implemented.");
         }
 
         /// <summary>
@@ -1102,6 +1147,17 @@ end if
             }
         }
         #endregion
+
+        private void VehicleBrowser_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+            {
+                this.txtBaseJbrConnAddress.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                this.txtXuQzcpxh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                this.txtTecZkrsh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                this.txtXuDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+            }
+        }
 
 
     }

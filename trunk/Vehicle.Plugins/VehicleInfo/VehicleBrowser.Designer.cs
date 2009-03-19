@@ -1136,7 +1136,7 @@ namespace Vehicle.Plugins
             this.groupBox5.Location = new System.Drawing.Point(11, 295);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(662, 88);
-            this.groupBox5.TabIndex = 17;
+            this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "进口凭证信息";
             // 
@@ -2511,7 +2511,7 @@ namespace Vehicle.Plugins
             this.btnTecSelector.Location = new System.Drawing.Point(25, 520);
             this.btnTecSelector.Name = "btnTecSelector";
             this.btnTecSelector.Size = new System.Drawing.Size(114, 23);
-            this.btnTecSelector.TabIndex = 4;
+            this.btnTecSelector.TabIndex = 400;
             this.btnTecSelector.Text = "机动车技术参数";
             this.btnTecSelector.UseVisualStyleBackColor = true;
             // 
@@ -2520,7 +2520,7 @@ namespace Vehicle.Plugins
             this.btnPhotoManage.Location = new System.Drawing.Point(167, 520);
             this.btnPhotoManage.Name = "btnPhotoManage";
             this.btnPhotoManage.Size = new System.Drawing.Size(75, 23);
-            this.btnPhotoManage.TabIndex = 5;
+            this.btnPhotoManage.TabIndex = 500;
             this.btnPhotoManage.Text = "照片维护";
             this.btnPhotoManage.UseVisualStyleBackColor = true;
             this.btnPhotoManage.Click += new System.EventHandler(this.btnPhotoManage_Click);
@@ -2530,7 +2530,7 @@ namespace Vehicle.Plugins
             this.btnPhotoInfo.Location = new System.Drawing.Point(605, 520);
             this.btnPhotoInfo.Name = "btnPhotoInfo";
             this.btnPhotoInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnPhotoInfo.TabIndex = 6;
+            this.btnPhotoInfo.TabIndex = 600;
             this.btnPhotoInfo.Text = "照片信息";
             this.btnPhotoInfo.UseVisualStyleBackColor = true;
             // 
@@ -2539,7 +2539,7 @@ namespace Vehicle.Plugins
             this.btnPrintApply.Location = new System.Drawing.Point(499, 520);
             this.btnPrintApply.Name = "btnPrintApply";
             this.btnPrintApply.Size = new System.Drawing.Size(75, 23);
-            this.btnPrintApply.TabIndex = 7;
+            this.btnPrintApply.TabIndex = 700;
             this.btnPrintApply.Text = "打印申请表";
             this.btnPrintApply.UseVisualStyleBackColor = true;
             this.btnPrintApply.Click += new System.EventHandler(this.btnPrintApply_Click);
@@ -2576,6 +2576,7 @@ namespace Vehicle.Plugins
             this.Controls.Add(this.tabControl1);
             this.Name = "VehicleBrowser";
             this.Text = "车辆信息登记";
+            this.Load += new System.EventHandler(this.VehicleBrowser_Load);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             this.Controls.SetChildIndex(this.btnTecSelector, 0);

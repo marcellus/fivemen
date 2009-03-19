@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle.Plugins", "Vehicle.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle", "Vehicle\Vehicle.csproj", "{87811F1F-F7D4-4724-A8F9-70BD826D3D55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBarReader", "CodeBarReader\CodeBarReader.csproj", "{0AB7C586-5C95-496F-BADD-468148E0D9CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87811F1F-F7D4-4724-A8F9-70BD826D3D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB7C586-5C95-496F-BADD-468148E0D9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB7C586-5C95-496F-BADD-468148E0D9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB7C586-5C95-496F-BADD-468148E0D9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB7C586-5C95-496F-BADD-468148E0D9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

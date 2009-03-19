@@ -50,6 +50,12 @@
     <Compile Include="Code39Test.designer.cs">
       <DependentUpon>Code39Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="CodeReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeReader.Designer.cs">
+      <DependentUpon>CodeReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="CombineWord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,10 @@
     <EmbeddedResource Include="Code39Test.resx">
       <DependentUpon>Code39Test.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeReader.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CodeReader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CombineWord.resx">
       <DependentUpon>CombineWord.cs</DependentUpon>
