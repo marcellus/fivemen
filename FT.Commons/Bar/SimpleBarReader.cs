@@ -6,6 +6,20 @@ using System.Windows.Forms;
 
 namespace FT.Commons.Bar
 {
+    /// <summary>
+    /// 用法
+    /// </summary>
+    /// <example><code>
+    /// SimpleBarReader reader = new SimpleBarReader();
+    /// if (!reader.StartWatching())
+    ///             {
+    ///                MessageBoxHelper.Show("启动条码监听失败！");
+    ///            }
+    ///            else
+    ///            {//如果没有注册消息处理器，则会模拟键盘发送
+    ///                //reader.RegisterProcesser(AppendText);
+    ///            }
+    /// </code></example>
     public class SimpleBarReader
     {
         protected ILog log = log4net.LogManager.GetLogger("FT.Commons.Bar.SimpleBarReader");
