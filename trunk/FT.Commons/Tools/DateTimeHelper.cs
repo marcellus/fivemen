@@ -9,6 +9,33 @@ namespace FT.Commons.Tools
     /// </summary>
     public class DateTimeHelper : BaseHelper
     {
+        public static DateTime GetMonthLastDay()
+        {
+            return GetMonthLastDay(System.DateTime.Now);
+        }
+
+        public static DateTime GetMonthLastDay(DateTime now)
+        {
+            DateTime tmp = new DateTime(now.Year, now.Month + 1, 1);
+            return tmp.AddDays(-1);
+        }
+
+
+        public static DateTime GetMonthFirstDay()
+        {
+            return GetMonthFirstDay(System.DateTime.Now);
+        }
+
+        public static DateTime GetMonthFirstDay(DateTime now)
+        {
+            return new DateTime(now.Year, now.Month, 1);
+        }
+
+        public static DateTime GetMonday()
+        {
+            return GetMonday(System.DateTime.Now);
+        }
+
         /// <summary>
         /// 获取某个周的星期一
         /// </summary>
@@ -35,6 +62,11 @@ namespace FT.Commons.Tools
             Debug("获取周一的日期为->"+result.ToShortDateString());
             return result;
 
+        }
+
+        public static DateTime GetSunday()
+        {
+            return GetSunday(System.DateTime.Now);
         }
 
         /// <summary>

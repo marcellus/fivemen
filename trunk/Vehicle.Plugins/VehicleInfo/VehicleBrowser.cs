@@ -480,7 +480,7 @@ end if
             {
                 MessageBoxHelper.Show("已存在相同的车辆识别码！");
             }
-            return result;
+            return !result;
         }
 
         private bool ExistClsb(string clsbh)
