@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="AppicationHelper.cs" />
     <Compile Include="ApplicationStartConfig.cs" />
+    <Compile Include="Control\DataCounterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DataCounterControl.Designer.cs">
+      <DependentUpon>DataCounterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,10 @@
     <EmbeddedResource Include="Control\DataBrowseForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\DataCounterControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataCounterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\DataSearchControl.resx">
       <SubType>Designer</SubType>
