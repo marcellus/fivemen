@@ -84,9 +84,16 @@ namespace Vehicle.Plugins
             get { return BaseSyrPostCode; }
             set { BaseSyrPostCode = value; }
         }
+
+        public string BaseSyrRegArea;
+
         [SimpleColumn(Column = "c_base_syr_regaddress")]
         [Alias("所有人住所地址")]
         public string BaseSyrRegAddress;
+
+        public string BaseSyrConnArea;
+
+        public string PhotoXh;
 
         [SimpleColumn(Column = "c_base_syr_connaddress")]
         [Alias("所有人邮寄地址")]

@@ -668,6 +668,13 @@ namespace FT.Windows.Forms
             
         }
 
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            pager.Search();
+            this.ReBinding();
+            //this.SetConditions(pager.Condition);
+        }
+
         
 
     }
