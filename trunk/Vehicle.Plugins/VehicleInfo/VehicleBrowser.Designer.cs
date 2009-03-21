@@ -62,8 +62,8 @@ namespace Vehicle.Plugins
             this.label6 = new System.Windows.Forms.Label();
             this.txtBaseSyrConnAddress = new System.Windows.Forms.TextBox();
             this.txtBaseSyrRegAddress = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbLocalArea_syr = new System.Windows.Forms.ComboBox();
+            this.cbBaseSyrConnArea = new System.Windows.Forms.ComboBox();
+            this.cbBaseSyrRegArea = new System.Windows.Forms.ComboBox();
             this.label112 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBaseSyrMobile = new System.Windows.Forms.TextBox();
@@ -524,8 +524,8 @@ namespace Vehicle.Plugins
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtBaseSyrConnAddress);
             this.groupBox1.Controls.Add(this.txtBaseSyrRegAddress);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.cbLocalArea_syr);
+            this.groupBox1.Controls.Add(this.cbBaseSyrConnArea);
+            this.groupBox1.Controls.Add(this.cbBaseSyrRegArea);
             this.groupBox1.Controls.Add(this.label112);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtBaseSyrMobile);
@@ -628,21 +628,23 @@ namespace Vehicle.Plugins
             this.txtBaseSyrRegAddress.TabIndex = 8;
             this.txtBaseSyrRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseSyrRegAddress_Validating);
             // 
-            // comboBox1
+            // cbBaseSyrConnArea
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(131, 20);
-            this.comboBox1.TabIndex = 9;
+            this.cbBaseSyrConnArea.FormattingEnabled = true;
+            this.cbBaseSyrConnArea.Location = new System.Drawing.Point(142, 104);
+            this.cbBaseSyrConnArea.Name = "cbBaseSyrConnArea";
+            this.cbBaseSyrConnArea.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseSyrConnArea.TabIndex = 9;
+            this.cbBaseSyrConnArea.SelectedIndexChanged += new System.EventHandler(this.cbConnArea_SelectedIndexChanged);
             // 
-            // cbLocalArea_syr
+            // cbBaseSyrRegArea
             // 
-            this.cbLocalArea_syr.FormattingEnabled = true;
-            this.cbLocalArea_syr.Location = new System.Drawing.Point(142, 75);
-            this.cbLocalArea_syr.Name = "cbLocalArea_syr";
-            this.cbLocalArea_syr.Size = new System.Drawing.Size(131, 20);
-            this.cbLocalArea_syr.TabIndex = 7;
+            this.cbBaseSyrRegArea.FormattingEnabled = true;
+            this.cbBaseSyrRegArea.Location = new System.Drawing.Point(142, 75);
+            this.cbBaseSyrRegArea.Name = "cbBaseSyrRegArea";
+            this.cbBaseSyrRegArea.Size = new System.Drawing.Size(131, 20);
+            this.cbBaseSyrRegArea.TabIndex = 7;
+            this.cbBaseSyrRegArea.SelectedIndexChanged += new System.EventHandler(this.cbRegArea_SelectedIndexChanged);
             // 
             // label112
             // 
@@ -1404,6 +1406,7 @@ namespace Vehicle.Plugins
             this.txtTecZzl.Name = "txtTecZzl";
             this.txtTecZzl.Size = new System.Drawing.Size(38, 21);
             this.txtTecZzl.TabIndex = 127;
+            this.txtTecZzl.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZzl_Validating);
             // 
             // txtTecZqyzl
             // 
@@ -2650,7 +2653,7 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.ComboBox cbBaseSyrTempIdType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBaseSyrRegAddress;
-        private System.Windows.Forms.ComboBox cbLocalArea_syr;
+        private System.Windows.Forms.ComboBox cbBaseSyrRegArea;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBaseSyrPhone;
         private System.Windows.Forms.Label label4;
@@ -2841,7 +2844,7 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.TextBox txtTecGl;
         private System.Windows.Forms.TextBox txtTecPl;
         private System.Windows.Forms.TextBox txtBaseSyrConnAddress;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbBaseSyrConnArea;
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.TextBox txtBaseSyrMobile;
         private System.Windows.Forms.Label label113;

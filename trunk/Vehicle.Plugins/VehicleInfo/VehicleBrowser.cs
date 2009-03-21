@@ -9,6 +9,8 @@ using FT.Commons.Tools;
 using FT.Windows.Forms;
 using System.Collections;
 using FT.Windows.CommonsPlugin;
+using FT.Windows.Forms.Domain;
+using FT.Commons.Cache;
 
 namespace Vehicle.Plugins
 {
@@ -70,6 +72,9 @@ namespace Vehicle.Plugins
                 BindHelper.BindGzzmmc(this.cbXuGzzm);
                 BindHelper.BindBxCompany(this.cbXuBxCompany);
                 DictManager.BindBelongArea(this.cbXuBelongArea);
+                DictManager.BindBelongAreaDynamic(this.cbBaseSyrConnArea);
+                DictManager.BindBelongAreaDynamic(this.cbBaseSyrRegArea);
+
                 BindHelper.BindPzhm(this.cb_xu_jkpzhm);
                 BindHelper.BindJkpz(this.cbXuJkPzType);
 
@@ -202,14 +207,16 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
 +环保达标情况+钢板弹簧片数+轴数+轴距+轮胎数+轮胎规格+前轮距+后轮距+总质量+整备质量+核定载客+准牵引总质量
 +核定总质量+前排载客+后排载客+所有人身份证明名称代码+所有人身份证名号码+所有人姓名或名称+联系电话+住所区号代码
 +住所详细地址+暂住证号+邮政编码+使用性质代码+所有权代码+获得方式代码+行政区划代码+号牌种类代码+来历凭证代码1
-+来历凭证1编号+来历凭证代码2+来历凭证2编号+购置税证明名称代码+纳税证明编号+保险凭证号+保险生效日期+保险终止日期
-+保险公司名称+进口凭证类型代码+进口凭证编号+进口签发日期+进口签注厂牌型号+进口签注车身颜色+主合同编号+抵押合同编号
-+抵押权人身份证明名称代码+抵押权人身份证明号码+抵押权人姓名或名称+联系电话+住所详细地址+邮政编码+备注+初次登记日期
++来历凭证1编号+来历凭证代码2+来历凭证2编号+购置税证明名称代码+纳税证明编号+保险凭证号+保险生效日期(非19000101)
++保险终止日期（非19000101）
++保险公司名称+进口凭证类型代码+进口凭证编号+进口签发日期（非19000101）+进口签注厂牌型号+进口签注车身颜色+主合同编号+抵押合同编号
++抵押权人身份证明名称代码+抵押权人身份证明号码+抵押权人姓名或名称+联系电话+住所详细地址+邮政编码+备注+初次登记日期（yyyy-MM-dd）
 +销售价格+销售单位名称+所有权人代理单位身份证明名称代码+所有权人代理单位身份证明号码+所有权人代理单位名称
 +所有权人代理单位联系电话+所有权人代理单位详细地址+所有权人经办人身份证明名称代码+所有权人经办人身份证明名称号码
 +所有权人经办人姓名+所有权人经办人详细地址+代理权人代理单位身份证明名称代码+代理权人代理单位身份证明号码
 +代理权人代理单位名称+代理权人代理单位联系电话+代理权人代理单位详细地址+代理权人经办人身份证明名称代码
-+代理权人经办人身份证明号码+代理权人经办人姓名+代理权人经办人详细地址+（照片型号+车辆型号？）+（公司单位代码？）
++代理权人经办人身份证明号码+代理权人经办人姓名+代理权人经办人详细地址+
+         +邮寄地址区号+邮寄详细地址+所有人联系手机+所有人联系的电子邮箱+（照片型号+车辆型号？）+（公司单位代码？）
          */
 
         private string ComputeDimension()
@@ -265,8 +272,8 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtBaseSyrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrPhone.Text.Trim());
-            //VehicleHelper.AppendString(sb, this.cbLocalArea_syr);
-            //VehicleHelper.AppendString(sb, this.txtConnAddress_syr);
+            VehicleHelper.AppendString(sb, this.cbBaseSyrRegArea.SelectedValue.ToString());
+            VehicleHelper.AppendString(sb, this.txtBaseSyrRegAddress.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrTempId.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrPostCode.Text.Trim());
 
@@ -300,7 +307,7 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtDyDyqrConnAddress.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyDyqrPostCode.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtXuDescription.Text.Trim());
-            VehicleHelper.AppendString(sb, this.lbFirstRegDate.Text);
+            VehicleHelper.AppendString(sb, Convert.ToDateTime(this.lbFirstRegDate.Text).ToString("yyyy-MM-dd"));
             VehicleHelper.AppendString(sb, this.txtXuSellPrice.Text.Trim());
             VehicleHelper.AppendString(sb, this.cbXuSellDw.Text.Trim());
 
@@ -323,9 +330,15 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtDyJbrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrConnAddress.Text.Trim());
+
+            VehicleHelper.AppendString(sb, this.cbBaseSyrConnArea.SelectedValue.ToString().Trim());
+            VehicleHelper.AppendString(sb, this.txtBaseSyrConnAddress.Text.Trim());
+            VehicleHelper.AppendString(sb, this.txtBaseSyrMobile.Text.Trim());
+            VehicleHelper.AppendString(sb, this.txtBaseSyrEmail.Text.Trim());
             //TODO 后面2个字符
-            // VehicleHelper.AppendString(sb, zpxh);
-            // VehicleHelper.AppendString(sb, CompanyInfoForm.Info.BusId);
+            //VehicleHelper.AppendString(sb, zpxh);
+            CompanyInfo comp = StaticCacheManager.GetConfig<CompanyInfo>();
+            VehicleHelper.AppendString(sb,comp.No);
 
             return sb.ToString();
 
@@ -902,6 +915,19 @@ end if
 
         }
 
+        private void txtTecZzl_Validating(object sender, CancelEventArgs e)
+        {
+            string tmp = this.cbTecCllx.SelectedValue.ToString();
+            if (!(tmp.StartsWith("N") || tmp.StartsWith("T") || tmp.StartsWith("M")))
+            {
+                this.ValidateInteger(sender, e, false, 399, "该类车的总质量不应小于400!");
+            }
+            else
+            {
+                this.ValidateNotNull(sender, e,"必须输入总质量！");
+            }
+        }
+
         private void txtTecHdzk_Validating(object sender, CancelEventArgs e)
         {
             string tmp = this.cbTecCllx.SelectedValue.ToString();
@@ -1158,6 +1184,26 @@ end if
                 this.txtXuDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
             }
         }
+
+        private void cbRegArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dict dict=this.cbBaseSyrRegArea.SelectedItem as Dict;
+            if (dict != null)
+            {
+                this.txtBaseSyrRegAddress.Text = dict.Description;
+            }
+        }
+
+        private void cbConnArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dict dict = this.cbBaseSyrConnArea.SelectedItem as Dict;
+            if (dict != null)
+            {
+                this.txtBaseSyrConnAddress.Text = dict.Description;
+            }
+        }
+
+        
 
 
     }
