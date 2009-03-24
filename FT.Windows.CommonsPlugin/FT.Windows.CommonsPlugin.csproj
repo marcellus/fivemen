@@ -114,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="SystemToolsPlugin.cs" />
     <Compile Include="ToolsPlugin.cs" />
     <Compile Include="Xiang\XiangSearch.cs">
       <SubType>UserControl</SubType>
@@ -222,5 +223,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WLM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\My Computer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regedit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\painter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text Document.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
   </ItemGroup>
 </Project>

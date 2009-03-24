@@ -60,5 +60,16 @@ namespace Vehicle.Plugins
             get { return suffix; }
             set { suffix = value; }
         }
+
+        private string xuHao;
+
+        /// <summary>
+        /// ’’∆¨–Ú∫≈
+        /// </summary>
+        public string XuHao
+        {
+            get { return xuHao; }
+            set { xuHao = value; }
+        }
     }
 }

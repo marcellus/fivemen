@@ -31,6 +31,7 @@ namespace Vehicle.Plugins
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbPhotoXh = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtBaseJbrConnAddress = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -314,6 +315,7 @@ namespace Vehicle.Plugins
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbPhotoXh);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(21, 183);
@@ -322,6 +324,16 @@ namespace Vehicle.Plugins
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "所有人的代理人信息";
+            // 
+            // lbPhotoXh
+            // 
+            this.lbPhotoXh.AutoSize = true;
+            this.lbPhotoXh.Location = new System.Drawing.Point(389, 13);
+            this.lbPhotoXh.Name = "lbPhotoXh";
+            this.lbPhotoXh.Size = new System.Drawing.Size(53, 12);
+            this.lbPhotoXh.TabIndex = 2;
+            this.lbPhotoXh.Text = "label115";
+            this.lbPhotoXh.Visible = false;
             // 
             // groupBox4
             // 
@@ -2517,6 +2529,7 @@ namespace Vehicle.Plugins
             this.btnTecSelector.TabIndex = 400;
             this.btnTecSelector.Text = "机动车技术参数";
             this.btnTecSelector.UseVisualStyleBackColor = true;
+            this.btnTecSelector.Visible = false;
             // 
             // btnPhotoManage
             // 
@@ -2536,6 +2549,7 @@ namespace Vehicle.Plugins
             this.btnPhotoInfo.TabIndex = 600;
             this.btnPhotoInfo.Text = "照片信息";
             this.btnPhotoInfo.UseVisualStyleBackColor = true;
+            this.btnPhotoInfo.Click += new System.EventHandler(this.btnPhotoInfo_Click);
             // 
             // btnPrintApply
             // 
@@ -2579,6 +2593,7 @@ namespace Vehicle.Plugins
             this.Controls.Add(this.tabControl1);
             this.Name = "VehicleBrowser";
             this.Text = "车辆信息登记";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VehicleBrowser_FormClosing);
             this.Load += new System.EventHandler(this.VehicleBrowser_Load);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
@@ -2592,6 +2607,7 @@ namespace Vehicle.Plugins
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -2861,5 +2877,6 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Button btnPrintApply;
         private System.Windows.Forms.Label lbFirstRegDate;
         private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.Label lbPhotoXh;
     }
 }

@@ -12,12 +12,12 @@ using System.IO;
 namespace FT.Windows.CommonsPlugin
 {
     [Plugin(ChangeLogPath = "Tools-ChangeLog.txt", Company = "Fight Together", Developer = "deadshot123",
-      Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "工具插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
+      Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "系统工具插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
     public class ToolsPlugin : AbstractWindowPlugin
     {
         public override void EmmitMenu()
         {
-            ToolStripMenuItem top = this.AddToMenu("工具(&T)");
+            ToolStripMenuItem top = this.AddToMenu("系统工具(&T)");
             //top.
             ToolStripMenuItem tmp = this.BuildTopMenu("数据库备份");
             tmp.Click += new EventHandler(dbbak_Click);
@@ -61,25 +61,11 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildSubMenu("村居委信息管理", typeof(CunSearch));
             top.DropDownItems.Add(tmp);
 
-            this.AddSeparatorToMenu(top);
-            tmp = this.BuildTopMenu("计算器");
-            tmp.Click += new EventHandler(calc_Click);
-            top.DropDownItems.Add(tmp);
-            tmp = this.BuildTopMenu("记事本");
-            tmp.Click += new EventHandler(notepad_Click);
-            top.DropDownItems.Add(tmp);
+         
             this.IsEmmitSeparator = true;
         }
 
-        void calc_Click(object sender, EventArgs e)
-        {
-            this.StartExtendTools("calc.exe");
-        }
-
-        void notepad_Click(object sender, EventArgs e)
-        {
-            this.StartExtendTools("notepad.exe");
-        }
+       
 
         //calc.exe
         //notepad.exe
@@ -127,7 +113,7 @@ namespace FT.Windows.CommonsPlugin
         public override void EmmitToolBar()
         {
             this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "基础数据管理",typeof(DictSearch));
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Notepad, "记事本").Click += new EventHandler(notepad_Click);
+            //this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Notepad, "记事本").Click += new EventHandler(notepad_Click);
             //throw new Exception("The method or operation is not implemented.");
         }
     }

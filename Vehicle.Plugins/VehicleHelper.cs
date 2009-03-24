@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FT.Commons.Tools;
+using FT.Commons.Print;
+using FT.Windows.Forms;
+using FT.Commons.Cache;
 
 namespace Vehicle.Plugins
 {
@@ -9,6 +12,26 @@ namespace Vehicle.Plugins
     {
         private VehicleHelper()
         {
+        }
+
+        public static void Print(IPrinter printer)
+        {
+            
+            CommonPrinter commonPrinter = new CommonPrinter(printer);
+            //commonPrinter.ShowPreviewPrinter();
+            GlobalPrintSetting printSetting = StaticCacheManager.GetConfig<GlobalPrintSetting>();
+            if (printSetting.PrintModel == "直接打")
+            {
+                commonPrinter.Print();
+            }
+            else if (printSetting.PrintModel == "选择打印机")
+            {
+                commonPrinter.ShowPreviewPrinter();
+            }
+            else
+            {
+                commonPrinter.Preview();
+            }
         }
 
 

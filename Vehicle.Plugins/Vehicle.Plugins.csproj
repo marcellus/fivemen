@@ -48,6 +48,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Photo\PhotoSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Photo\PhotoSelector.Designer.cs">
+      <DependentUpon>PhotoSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Printer\BaseVehicleInfoPrinter.cs" />
     <Compile Include="BindHelper.cs" />
     <Compile Include="Printer\F1Printer.cs" />
@@ -128,6 +134,10 @@
     <EmbeddedResource Include="Photo\PhotoManage.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PhotoManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Photo\PhotoSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PhotoSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <SubType>Designer</SubType>

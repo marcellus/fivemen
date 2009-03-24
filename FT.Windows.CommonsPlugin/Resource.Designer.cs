@@ -60,6 +60,20 @@ namespace FT.Windows.CommonsPlugin {
             }
         }
         
+        internal static System.Drawing.Icon calc {
+            get {
+                object obj = ResourceManager.GetObject("calc", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap clock {
+            get {
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Config {
             get {
                 object obj = ResourceManager.GetObject("Config", resourceCulture);
@@ -102,10 +116,31 @@ namespace FT.Windows.CommonsPlugin {
             }
         }
         
+        internal static System.Drawing.Icon My_Computer {
+            get {
+                object obj = ResourceManager.GetObject("My_Computer", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Notepad {
             get {
                 object obj = ResourceManager.GetObject("Notepad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon painter {
+            get {
+                object obj = ResourceManager.GetObject("painter", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon regedit {
+            get {
+                object obj = ResourceManager.GetObject("regedit", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -116,10 +151,24 @@ namespace FT.Windows.CommonsPlugin {
             }
         }
         
+        internal static System.Drawing.Icon Settings1 {
+            get {
+                object obj = ResourceManager.GetObject("Settings1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Text {
             get {
                 object obj = ResourceManager.GetObject("Text", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon Text_Document {
+            get {
+                object obj = ResourceManager.GetObject("Text_Document", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
