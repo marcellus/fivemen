@@ -38,7 +38,7 @@ namespace FT.Windows.Forms.Plugins
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.Show("错误提示："+ex.Message);
+                MessageBoxHelper.Show("错误提示："+ex.Message+" "+cmd);
             }
         }
 
@@ -160,6 +160,43 @@ namespace FT.Windows.Forms.Plugins
             return item;
 
            
+        }
+
+        /// <summary>
+        /// 创建一个系统工具的菜单项
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        protected ToolStripMenuItem BuildSystemToolMenu(string text,string cmd)
+        {
+            return BuildSystemToolMenu(text, cmd, null);
+
+        }
+
+        /// <summary>
+        /// 创建一个系统工具的菜单项
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        protected ToolStripMenuItem BuildSystemToolMenu(string text, string cmd,Image image)
+        {
+            ToolStripMenuItem systemtool = new ToolStripMenuItem();
+            systemtool.Text = text;
+            systemtool.Tag = cmd;
+            if(image!=null)
+                systemtool.Image = image;
+            systemtool.Click += new EventHandler(systemtool_Click);
+            
+            return systemtool;
+
+
+        }
+
+        void systemtool_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ctr = sender as ToolStripMenuItem;
+            this.StartExtendTools(ctr.Tag.ToString());
+            //throw new Exception("The method or operation is not implemented.");
         }
         /// <summary>
         /// 创建一个带有点击添加控件到菜单的事件的菜单项

@@ -143,6 +143,7 @@
             this.cbClassical.Name = "cbClassical";
             this.cbClassical.Size = new System.Drawing.Size(150, 20);
             this.cbClassical.TabIndex = 13;
+            this.cbClassical.SelectedValueChanged += new System.EventHandler(this.cbClassical_SelectedValueChanged);
             // 
             // label2
             // 

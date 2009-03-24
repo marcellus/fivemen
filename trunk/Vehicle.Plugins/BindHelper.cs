@@ -12,7 +12,14 @@ namespace Vehicle.Plugins
         {
         }
 
-
+        public static void BindZwpp(ComboBox cb)
+        {
+            DictManager.BindToCombox(cb, "中文品牌");
+        }
+        public static void BindClxh(ComboBox cb)
+        {
+            DictManager.BindToCombox(cb, "车辆型号");
+        }
 
         public static void BindPzhm(ComboBox cb)
         {

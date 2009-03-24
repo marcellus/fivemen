@@ -55,6 +55,11 @@ namespace Vehicle.Plugins
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.picPhoto.Image == null)
+            {
+                MessageBoxHelper.Show("请先选择一个照片！");
+                return;
+            }
             string classical = this.cbClassical.Text.Trim();
             string type = this.cbType.Text.Trim();
             if (classical == string.Empty || classical == "请选择")
@@ -79,18 +84,36 @@ namespace Vehicle.Plugins
             {
                 if (access.UpdateImage(access.GetLasted().Id, photo.Picture))
                 {
-                   
-                    Dict temp = new Dict();
-                    temp.Text = this.cbClassical.Text;
-                    temp.Value = this.cbClassical.Text;
-                    temp.GroupType = "中文品牌";
-                    temp.Description = temp.Text;
-                    FT.DAL.Orm.SimpleOrmOperator.Create(temp);
-                    temp.Text = this.cbType.Text;
-                    temp.Value = this.cbType.Text;
-                    temp.GroupType = "车辆型号";
-                    temp.Description = this.cbClassical.Text;
-                    FT.DAL.Orm.SimpleOrmOperator.Create(temp);
+                    object obj=access.ExecuteScalar("select count(*) from table_dict where c_grouptype='中文品牌' and c_text='" + this.cbClassical.Text + "'");
+                    if (Convert.ToInt32(obj) == 0)
+                    {
+                        Dict temp = new Dict();
+                        temp.Text = this.cbClassical.Text;
+                        temp.Value = this.cbClassical.Text;
+                        temp.Valid = "有效";
+                        temp.GroupType = "中文品牌";
+                        temp.Description = temp.Text;
+                        FT.DAL.Orm.SimpleOrmOperator.Create(temp);
+                        ArrayList lists = this.cbClassical.DataSource as ArrayList;
+                        lists.Add(temp);
+                        this.cbClassical.DataSource = lists;
+                        //this.cbClassical.Items.Add(temp.Text);
+                    }
+                    object obj2 = access.ExecuteScalar("select count(*) from table_dict where c_grouptype='车辆型号' and c_text='" + this.cbType.Text + "'");
+                    if (Convert.ToInt32(obj2) == 0)
+                    {
+                        Dict temp = new Dict();
+                        temp.Text = this.cbType.Text;
+                        temp.Value = this.cbType.Text;
+                        temp.Valid = "有效";
+                        temp.GroupType = "车辆型号";
+                        temp.Description = this.cbClassical.Text;
+                        FT.DAL.Orm.SimpleOrmOperator.Create(temp);
+                        ArrayList lists = this.cbType.DataSource as ArrayList;
+                        lists.Add(temp);
+                        this.cbType.DataSource = lists;
+                        //this.cbType.Items.Add(temp.Text);
+                    }
                     MessageBoxHelper.Show("添加成功！");
                     //Constant.InitCbCnClassical(this.cbClassical);
                 }
@@ -215,6 +238,9 @@ namespace Vehicle.Plugins
                     this.txtDir.Text = config.PhotoDir;
                     this.ListImageFileName(config.PhotoDir);
                 }
+                Vehicle.Plugins.BindHelper.BindZwpp(this.cbClassical);
+                this.cbClassical.DropDownStyle = ComboBoxStyle.DropDown;
+               
             }
         }
 
@@ -262,6 +288,18 @@ namespace Vehicle.Plugins
             {
 
             }
+        }
+
+        private void cbClassical_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbType.DataSource = null;
+            ArrayList list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='车辆型号' and c_description='"+this.cbClassical.Text.Trim()+"'");
+            //Vehicle.Plugins.BindHelper.BindClxh(this.cbType);
+
+            cbType.DisplayMember = "数据文本";
+            cbType.ValueMember = "数据代码";
+            this.cbType.DataSource = list;
+            this.cbType.DropDownStyle = ComboBoxStyle.DropDown;
         }
 
     }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Drawing.Drawing2D;
 using System.Data.OleDb;
+using FT.Windows.Forms.Domain;
 
 namespace Vehicle.Plugins
 {
@@ -19,7 +20,10 @@ namespace Vehicle.Plugins
     public class VehiclePhotoAccess
     {
 
-
+        public object ExecuteScalar(string sql)
+        {
+            return access.SelectScalar(sql);
+        }
 
         private IDataAccess access;
 
@@ -38,6 +42,23 @@ namespace Vehicle.Plugins
             this.access = DataAccessFactory.GetDataAccess();
         }
 
+        public string GetXuHao()
+        {
+            CompanyInfo info = FT.Commons.Cache.StaticCacheManager.GetConfig<CompanyInfo>();
+            object obj=this.access.SelectScalar("select max(xuhao) from table_vehicle_photo");
+            if (obj == null||Convert.IsDBNull(obj))
+            {
+                return info.No + "00001";
+            }
+            else
+            {
+                string no = obj.ToString();
+                int i=Convert.ToInt32(no.Substring(no.Length-5,5));
+                i++;
+                return info.No+string.Format("{0:00000}", i);
+            }
+        }
+
         /// <summary>
         /// 增加一个车辆照片信息
         /// </summary>
@@ -45,10 +66,12 @@ namespace Vehicle.Plugins
         /// <returns>是否成功增加</returns>
         public bool Add(VehiclePhoto info)
         {
-            string sql = "insert into table_vehicle_photo(cn_classical,cn_type,suffix) values('" +
+            info.XuHao = this.GetXuHao();
+            string sql = "insert into table_vehicle_photo(cn_classical,cn_type,suffix,xuhao) values('" +
                 DALSecurityTool.TransferInsertField(info.Cn_Classical) + "','" +
                 DALSecurityTool.TransferInsertField(info.Cn_Type) + "','" +
-                DALSecurityTool.TransferInsertField(info.Suffix) + "')";
+                DALSecurityTool.TransferInsertField(info.Suffix) + "','" +
+                DALSecurityTool.TransferInsertField(info.XuHao) + "')";
             return this.access.ExecuteSql(sql);
 
         }
@@ -83,7 +106,7 @@ namespace Vehicle.Plugins
         /// <returns></returns>
         public VehiclePhoto GetLasted()
         {
-            string sql = "select top 1 id,cn_classical,cn_type,picture,suffix from table_vehicle_photo order by id desc";
+            string sql = "select top 1 id,cn_classical,cn_type,picture,suffix,xuhao from table_vehicle_photo order by id desc";
             DataTable dt = this.access.SelectDataTable(sql, "table_vehicle_photo");
             if (dt != null && dt.Rows.Count == 1)
             {
@@ -96,7 +119,7 @@ namespace Vehicle.Plugins
         public ArrayList SearchList(string condition)
         {
             ArrayList list = new ArrayList();
-            string sql = "select id,cn_classical,cn_type,picture,suffix from table_vehicle_photo " + condition + " order by cn_classical,cn_type";
+            string sql = "select id,cn_classical,cn_type,picture,suffix,xuhao from table_vehicle_photo " + condition + " order by cn_classical,cn_type";
             DataTable dt = this.access.SelectDataTable(sql, "table_vehicle_photo");
             if (dt != null)
             {
@@ -121,6 +144,7 @@ namespace Vehicle.Plugins
             temp.Cn_Classical = dr["cn_classical"].ToString();
             temp.Cn_Type = dr["cn_type"].ToString();
             temp.Suffix = dr["suffix"].ToString();
+            temp.XuHao = dr["xuhao"].ToString();
             if (dr["picture"] != null && !(dr["picture"] is DBNull))
             {
                 byte[] by = (byte[])dr["picture"];
