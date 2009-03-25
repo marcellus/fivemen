@@ -10,6 +10,7 @@ using log4net;
 
 namespace FT.Device.IDCard
 {
+    public delegate void De_ReadICCardComplete(IDCard card);
     public class IDCardReader
     {
         private ILog log = log4net.LogManager.GetLogger("FT.Device.IDCard");
@@ -71,7 +72,7 @@ namespace FT.Device.IDCard
         [DllImport("WltRS.dll")]
         public static extern int GetBmp(string file_name, int intf);
 
-        public delegate void De_ReadICCardComplete(IDCard card);
+        
         public event De_ReadICCardComplete ReadICCardComplete;
         private IDCard objEDZ = new IDCard();
         private int EdziIfOpen = 1;               //自动开关串口

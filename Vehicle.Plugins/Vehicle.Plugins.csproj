@@ -48,6 +48,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Jbr\Jbr.cs" />
+    <Compile Include="Jbr\JbrBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jbr\JbrBrowser.Designer.cs">
+      <DependentUpon>JbrBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jbr\JbrSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Jbr\JbrSearchControl.Designer.cs">
+      <DependentUpon>JbrSearchControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Photo\PhotoSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +130,10 @@
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FT.Device\FT.Device.csproj">
+      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
+      <Name>FT.Device</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
       <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
       <Name>FT.Windows.CommonsPlugin</Name>
@@ -131,6 +148,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Jbr\JbrBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>JbrBrowser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Photo\PhotoManage.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PhotoManage.cs</DependentUpon>

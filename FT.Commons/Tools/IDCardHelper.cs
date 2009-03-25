@@ -88,6 +88,10 @@ namespace FT.Commons.Tools
             {
                 return "身份证明号码不得超过18位！";
             }
+            if (idcard.Length < 15)
+            {
+                return "身份证明号码不得少于15位！";
+            }
             Regex rg = new Regex(@"^\d{17}(\d|X)$");
             if (!rg.Match(idcard).Success)
             {
