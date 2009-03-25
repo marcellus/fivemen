@@ -40,7 +40,7 @@ namespace FT.Windows.ExternalTool
             InitializeComponent();
             reader = new IDCardReader();
 
-            reader.ReadICCardComplete += new IDCardReader.De_ReadICCardComplete(reader_ReadICCardComplete);
+            reader.ReadICCardComplete += new De_ReadICCardComplete(reader_ReadICCardComplete);
             cvReader = new CV100UReader();
             cvReader.AfterReadICCardComplete += new CV100UReader.ReadICCardComplete(cvReader_AfterReadICCardComplete);
         }

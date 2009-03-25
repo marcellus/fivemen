@@ -12,6 +12,7 @@ using FT.Windows.CommonsPlugin;
 using FT.Windows.Forms.Domain;
 using FT.Commons.Cache;
 using FT.Commons.Bar;
+using FT.Device.IDCard;
 
 namespace Vehicle.Plugins
 {
@@ -319,7 +320,7 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtBaseDlrPhone.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseDlrConnAddress.Text.Trim());
             VehicleHelper.AppendString(sb, this.cbBaseJbrIdCardType.SelectedValue.ToString());
-            VehicleHelper.AppendString(sb, this.txtBaseJbrIdCard.Text.Trim());
+            VehicleHelper.AppendString(sb, this.cbBaseJbrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseJbrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseJbrConnAddress.Text.Trim());
 
@@ -329,7 +330,7 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtDyDldwPhone.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyDldwConnAddress.Text.Trim());
             VehicleHelper.AppendString(sb, this.cbDyJbrIdCardType.SelectedValue.ToString());
-            VehicleHelper.AppendString(sb, this.txtDyJbrIdCard.Text.Trim());
+            VehicleHelper.AppendString(sb, this.cbDyJbrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrConnAddress.Text.Trim());
 
@@ -1186,207 +1187,248 @@ end if
                 this.txtXuQzcpxh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
                 this.txtTecZkrsh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
                 this.txtXuDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                if (config.ReadHgz)
+                {
+                    if (!reader.StartWatching())
+                    {
+                        MessageBoxHelper.Show("启动条码监听失败！");
+                    }
+                    else
+                    {
+                        reader.RegisterProcesser(ProcessText);
+                    }
+                }
+                if (config.UseCardReader)
+                {
+                    idReader = new ReaderHelper(new De_ReadICCardComplete(ReadIdCardComplete), config.CardReaderInterval);
+                }
+                CompanyInfo comp = FT.Commons.Cache.StaticCacheManager.GetConfig<CompanyInfo>();
+                this.txtBaseDlrConnAddress.Text = comp.Address;
+                this.txtBaseDlrIdCard.Text = comp.BusId;
+                this.txtBaseDlrName.Text = comp.Name;
+                this.txtBaseDlrPhone.Text = comp.Phone;
 
-                if (!reader.StartWatching())
-                {
-                    MessageBoxHelper.Show("启动条码监听失败！");
-                }
-                else
-                {
-                    reader.RegisterProcesser(ProcessText);
-                }
+                this.txtDyDldwConnAddress.Text = comp.Address;
+                this.txtDyDldwIdCard.Text = comp.BusId;
+                this.txtDyDldwName.Text = comp.Name;
+                this.txtDyDldwPhone.Text = comp.Phone;
                 //this.xuhao = this.lbPhotoXh.Text.Trim();
             }
         }
 
-        private void ProcessText(string text)
+        private void ReadIdCardComplete(IDCard card)
         {
-            if (text.StartsWith("HGFOZ"))
+            if (card != null)
             {
-                this.ProcessFmz(text);
-            }
-            else if (text.StartsWith("ZCCCH"))
-            {
-                this.ProcessWhole(text);
+                this.cbBaseSyrIdCardType.SelectedIndex = 0;
+                this.txtBaseSyrIdCard.Text = card.IDC;
+                this.txtBaseSyrConnAddress.Text = card.ADDRESS;
+                this.txtBaseSyrRegAddress.Text = card.ADDRESS;
+                //card.REGORG
+                this.txtBaseSyrName.Text = card.Name;
             }
         }
 
-        private void ProcessWhole(string text)
+        private string GetGbtf(string key)
         {
-            /*if is_hgzlx = "ZCCCH" then
-	is_qx_jh_dp = ls_xx[2]
-	if is_qx_jh_dp = "QX" then
-	   is_hgzbh = ls_xx[3]
-	   is_zzcmc = ls_xx[5]	
-	   id_ccrq = date(ls_xx[50])
-	   ls_temp = ls_xx[8]
-	   li_1 = pos(ls_temp,'/',1)
-	   if li_1 > 0 then	
-	      is_clpp1 = left(ls_temp,li_1 - 1)	
-	      is_clpp2 = mid(ls_temp,li_1+ 1)
-	   else
-	      is_clpp1 = ls_temp
-	   end if		
-			 
-	   is_clxh = 	ls_xx[9]
-	   is_clsbdh = ls_xx[14] + ls_xx[15]
-	   select count(*) into :li_ydj from vehicle_temp where clsbdh = :is_clsbdh;
-		if sqlca.sqlcode < 0 then
-			messagebox("提示","操作登记表失败!")
-			return 1
-		end if
-		if li_ydj > 0 then
-			messagebox("提示","该车辆识别代号的机动车已存在!")
-			return 1
-		end if			
-//	   ls_temp = ls_xx[16]
-//	   li_1 = pos(ls_temp,' ',1)
-//	   if li_1 > 0 then	
-//	      is_fdjh =mid(ls_temp,li_1 + 1)
-//	   else
-//		  is_fdjh = ls_temp	
-//	   end if
-       is_fdjh = trim(mid(ls_xx[16],len(ls_xx[17]) + 1))
-	   is_fdjxh = ls_xx[17]	
-	   ls_temp = ls_xx[18]
-	   li_1 = len(ls_temp)
-	   if li_1 >= 2 then	
-	      is_rlzl = left(ls_temp,1)
-	      is_rlzl = mid(ls_temp,2,1)
-	   else
-		is_rlzl = ls_temp
-		if ls_temp = "" then
-		    is_rlzl1 = "Y"
-		    is_rlzl2 = "Y"
-		else
-			is_rlzl1 = ls_temp
-			is_rlzl2 = "Y"
-		end if
-	   end if	
-	   is_hbdbqk = ls_xx[19]	
-	   idb_pl = double(ls_xx[20])	
-	   if idb_pl > 9999 then setnull(idb_pl)	
-	   ls_temp = ls_xx[21]
-	   li_1 = pos(ls_temp,'/',1)
-	   if li_1 > 0 then
-		idb_gl = double(left(ls_xx[21],li_1 -1))
-	   else	
-		idb_gl = double(ls_xx[21])	
-	   end if	
-	   is_zxxs = 	ls_xx[22]
-	   ls_temp = ls_xx[23]
-	   li_1 = pos(ls_temp,'/',1)
-	   if li_1 > 0 then	
-		  idb_qlj = double(left(ls_temp,li_1 - 1))	
-	   else
-	      idb_qlj = double(ls_temp)	
-	   end if				
-	   idb_zs = double(ls_xx[30])	
-	   ls_temp = ls_xx[24]
-	   if len(trim(ls_temp)) = 0 then idb_hlj = double(ls_temp)	
-	   li_1 = pos(ls_temp,'/',1)
-	   if li_1 > 0 then
-		 i = 1
-          li_2 = 0
-          do until li_1 = 0
-	          ls_hlj[i] = mid(ls_temp,li_2 + 1,li_1 - 1 - li_2)
-	          li_2 = li_1
-	          li_1 = pos(ls_temp,'/',li_2 + 1)
-	          i ++
-          loop
-          ls_hlj[i] = mid(ls_temp,li_2 + 1) 	
-	      if idb_zs = 3 then
-			idb_hlj = double(ls_hlj[1])	
-		  else
-		     idb_hlj = double(ls_hlj[i -1])	
-	       end if
-		elseif pos(ls_temp,'+',1) > 0 then	
-			 li_1 = pos(ls_temp,'+',1)
-		      i = 1
-               li_2 = 0
-               do until li_1 = 0
-				  ls_hlj[i] = mid(ls_temp,li_2 + 1,li_1  - 1 - li_2)
-  			      li_2 = li_1
-				 li_1 = pos(ls_temp,'+',li_2 + 1)
-				 i ++
-			 loop
-		      ls_hlj[i] = mid(ls_temp,li_2 + 1)
-			  for li_1 = 1 to i 
-				if isnumber(ls_hlj[li_1])  then   idb_hlj = idb_hlj + double(ls_hlj[li_1])	
-			 next	
-		else
-			idb_hlj = double(ls_temp)
-		end if			
-	   idb_lts = double(ls_xx[25])	
-	   is_ltgg = ls_xx[26]
-	   ls_temp = ls_xx[27]	
-	   idb_gbthps =gf_get_gbthps(ls_temp)
-	   idb_zj =gf_get_zj(ls_xx[28])
-        //idb_zs = double(ls_xx[30])
-        idb_cwkc = double(ls_xx[31])
-	   idb_cwkk = double(ls_xx[32])	
-	   idb_cwkg = double(ls_xx[33])
-	   idb_hxnbc = double(ls_xx[34])	
-	   idb_hxnbk = double(ls_xx[35])	
-	   idb_hxnbg = double(ls_xx[36])	
-	   idb_zzl = double(ls_xx[37])	
-	   idb_hdzzl = double(ls_xx[38])	
-	   idb_zbzl = double(ls_xx[39])
-	   idb_zqyzl = double(ls_xx[41])	
-	   idb_hdzk = double(ls_xx[42])	
-	   ls_temp = ls_xx[44]	
-	   li_1 = pos(ls_temp,'+',1)
-	   if li_1 > 0 then	
-	      idb_qpzk = double(left(ls_temp,li_1 - 1))	
-	      idb_hpzk = double(mid(ls_temp,li_1+ 1))
-	   else
-		idb_qpzk = double(ls_xx[44])	
-	   end if
-	   tab_1.tabpage_2.sle_hgzbh.displayonly = true
-	   tab_1.tabpage_2.sle_zzcmc.displayonly = true
-     tab_1.tabpage_2.em_ccrq.displayonly = true
-	   tab_1.tabpage_2.sle_clpp1.displayonly = true
-	   tab_1.tabpage_2.sle_clpp2.displayonly = true
-	   tab_1.tabpage_2.sle_clxh.displayonly = true
-	   tab_1.tabpage_2.sle_clsbdh.displayonly = true
-	   tab_1.tabpage_2.sle_fdjh.displayonly = true
-	   tab_1.tabpage_2.sle_fdjxh.displayonly = true
-	   tab_1.tabpage_2.ddlb_rlzl1.enabled = false
-	   tab_1.tabpage_2.ddlb_rlzl2.enabled = false	
-	   tab_1.tabpage_2.sle_hbdbqk.displayonly = true
-	   tab_1.tabpage_2.em_pl.displayonly = true
-	   tab_1.tabpage_2.em_gl.displayonly = true
-	   tab_1.tabpage_2.ddlb_zxxs.enabled = false
-	   tab_1.tabpage_2.em_qlj.displayonly = true
-	   tab_1.tabpage_2.em_hlj.displayonly = true	
-	   tab_1.tabpage_2.em_lts.displayonly = true
-	   tab_1.tabpage_2.sle_ltgg.displayonly = true
-	   tab_1.tabpage_2.em_gbthps.displayonly = true	
-	   tab_1.tabpage_2.em_zj.displayonly = true	
-	   tab_1.tabpage_2.em_zs.displayonly = true	
-	   tab_1.tabpage_2.em_cwkc.displayonly = true
-	   tab_1.tabpage_2.em_cwkk.displayonly = true	
-	   tab_1.tabpage_2.em_cwkg.displayonly = true	
-	   tab_1.tabpage_2.em_hxnbc.displayonly = true	
-	   tab_1.tabpage_2.em_hxnbk.displayonly = true
-	   tab_1.tabpage_2.em_hxnbg.displayonly = true
-	   tab_1.tabpage_2.em_zzl.displayonly = true	
-	   tab_1.tabpage_2.em_hdzzl.displayonly = true
-	   tab_1.tabpage_2.em_zbzl.displayonly = true
-	   tab_1.tabpage_2.em_zqyzl.displayonly = true	
-	   tab_1.tabpage_2.em_hdzk.displayonly = true
-	   tab_1.tabpage_2.em_qpzk.displayonly = true
-	   tab_1.tabpage_2.em_hpzk.displayonly = true
-	  
-	   tab_1.tabpage_2.sle_hgzbh.text = is_hgzbh
-	   tab_1.tabpage_2.sle_zzcmc.text = is_zzcmc
-        tab_1.tabpage_2.em_ccrq.text =string(id_ccrq)
-	   tab_1.tabpage_2.sle_clpp1.text = is_clpp1
-	   tab_1.tabpage_2.sle_clpp2.text = is_clpp2
-	   tab_1.tabpage_2.sle_clxh.text = is_clxh
-	   tab_1.tabpage_2.sle_clsbdh.text = is_clsbdh
-	   tab_1.tabpage_2.sle_fdjh.text = is_fdjh
-	   tab_1.tabpage_2.sle_fdjxh.text = is_fdjxh
+            int pos = key.IndexOf("/");
+            if (pos == -1)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                string[] datatmp2 = key.Replace("/", "+").Replace("-", "").Split('+');
+                int sum = 0;
+                for (int i = datatmp2.Length; i > 0; i--)
+                {
+
+                    try
+                    {
+                        sum += Convert.ToInt32(datatmp2[i]);
+                    }
+                    catch
+                    {
+                    }
+                }
+                return sum.ToString();
+            }
+        }
+
+        private ReaderHelper idReader;
+
+        private void ProcessText(string text)
+        {
+            if (text == null || text.Length == 0||text.IndexOf("|")==-1)
+            {
+                return;
+            }
+            if (text[0] == 13)
+            {
+                text = text.Substring(1);
+            }
+            string[] data = text.Split('|');
+            if (text.StartsWith("HGFOZ"))
+            {
+                this.ProcessFmz(data);
+            }
+            else if (text.StartsWith("ZCCCH"))
+            {
+                this.ProcessWhole(data);
+            }
+        }
+
+        private void ProcessWhole(string[] data)
+        {
+            string tmp = data[1];
+            string mtmp2 = string.Empty;
+            int pos = 0;
+            if (tmp == "QX")
+            {
+                this.txtTecHgzbh.Text = data[2];
+                this.txtTecZzcm.Text = data[4];
+                this.mtxtTecCcrq.Text = data[49];
+                mtmp2 = data[7];
+                pos = mtmp2.IndexOf("/");
+                if (pos != -1)
+                {
+                    this.txtTecZwpp.Text = mtmp2.Substring(0, pos);
+                    this.txtTecYwpp.Text = mtmp2.Substring(pos);
+                }
+                else
+                {
+                    this.txtTecZwpp.Text = mtmp2;
+                }
+                this.txtTecClxh.Text=data[8];
+                this.txtTecClsbm.Text = data[13] + data[14];
+                this.txtTecFdjh.Text = data[15].Substring(data[17].Length);
+                this.txtTecFdjxh.Text=data[16];
+                mtmp2 = data[17];
+                pos = mtmp2.Length;
+                if (pos >=2)
+                {
+                    this.cbTecColor1.SelectedValue = mtmp2.Substring(0, 1);
+                    this.cbTecColor2.SelectedValue = mtmp2.Substring(1, 1);
+                }
+                else
+                {
+                    if (mtmp2 == string.Empty)
+                    {
+                        this.cbTecColor1.SelectedValue = "Y";
+                        this.cbTecColor2.SelectedValue = "Y";
+                    }
+                    else
+                    {
+                        this.cbTecColor1.SelectedValue = mtmp2;
+                    }
+                }
+                this.txtTecHbdb.Text = data[18];
+                try
+                {
+                    if (Convert.ToInt32(data[19]) > 9999)
+                    {
+
+                    }
+                    else
+                    {
+                        this.txtTecPl.Text = data[19];
+                    }
+                }
+                catch
+                {
+                }
+                mtmp2 = data[20];
+                pos = mtmp2.IndexOf("/");
+                if (pos != -1)
+                {
+                    this.txtTecGl.Text = mtmp2.Substring(0,pos);
+                }
+                else
+                {
+                    this.txtTecGl.Text=mtmp2;
+                }
+                this.cbTecZxfs.Text = data[21];
+                mtmp2 = data[22];
+                pos = mtmp2.IndexOf("/");
+                if (pos != -1)
+                {
+                    this.txtTecLjq.Text = mtmp2.Substring(0, pos);
+                }
+                else
+                {
+                    this.txtTecLjq.Text = mtmp2;
+                }
+                this.txtTecZs.Text = data[29];
+
+                mtmp2 = data[23];
+                pos = mtmp2.IndexOf("/");
+                if (pos != -1)
+                {
+                    string[] datatmp = mtmp2.Split('/');
+                    if (data[29] == "3")
+                    {
+                        this.txtTecLjh.Text = datatmp[0];
+                    }
+                    else
+                    {
+                        this.txtTecLjh.Text = datatmp[datatmp.Length - 1];
+                    }
+                }
+                else if(mtmp2.IndexOf("+")!=-1)
+                {
+                    string[] datatmp2 = mtmp2.Split('+');
+                    int hlj = 0;
+                    for (int i = datatmp2.Length; i > 0; i--)
+                    {
+
+                        try
+                        {
+                            hlj += Convert.ToInt32(datatmp2[i]);
+                        }
+                        catch
+                        {
+                        }
+                    }
+                    this.txtTecLjh.Text = hlj.ToString();
+                }
+                else if (mtmp2.IndexOf("+") != -1)
+                {
+                    this.txtTecLjh.Text = mtmp2;
+                }
+                this.txtTecLts.Text = data[24];
+                this.txtTecLtgg.Text = data[25];
+                this.txtTecGbtfs.Text = this.GetGbtf(data[26]);
+                this.txtTecZj.Text = data[27];
+                this.txtTecWkc.Text = data[30];
+                this.txtTecWkk.Text = data[31];
+                this.txtTecWkg.Text = data[32];
+                this.txtTecNkc.Text = data[33];
+                this.txtTecNkk.Text = data[34];
+                this.txtTecNkg.Text = data[35];
+                this.txtTecZzl.Text = data[36];
+                this.txtTecHdzzl.Text = data[37];
+                this.txtTecZbzl.Text = data[38];
+                this.txtTecZqyzl.Text = data[40];
+                this.txtTecHdzk.Text = data[41];
+
+                mtmp2 = data[43];
+                pos = mtmp2.IndexOf("/");
+                if (pos != -1)
+                {
+                    this.txtTecZkrsq.Text = mtmp2.Substring(0, pos);
+                    this.txtTecZkrsh.Text = mtmp2.Substring(pos);
+                }
+                else
+                {
+                    this.txtTecZkrsq.Text = mtmp2;
+                }
+
+
+
+            }
+            /*if is_hgzlx = "ZCCCH" then 
+	
 	   ll_count = upperbound(gs_rlzl)	
         tab_1.tabpage_2.ddlb_rlzl1.setredraw(false)
         for li_i = 1 to ll_count
@@ -1395,18 +1437,14 @@ end if
 	        tab_1.tabpage_2.ddlb_rlzl1.text = gs_rlzl[li_i]
 	     end if
         next	
-	   tab_1.tabpage_2.ddlb_rlzl1.setredraw(true)	  
-	   tab_1.tabpage_2.ddlb_rlzl2.setredraw(false)
+
         for li_i = 1 to ll_count
 	     li_3 = pos(gs_rlzl[li_i],is_rlzl2,1)
 	     if li_3 > 0 then
 	        tab_1.tabpage_2.ddlb_rlzl2.text = gs_rlzl[li_i]
 	     end if
         next	
-	   tab_1.tabpage_2.ddlb_rlzl2.setredraw(true)	 
-	    tab_1.tabpage_2.sle_hbdbqk.text = is_hbdbqk
-	   tab_1.tabpage_2.em_pl.text = string(idb_pl)
-	   tab_1.tabpage_2.em_gl.text = string(idb_gl)
+	
 	   ll_count = upperbound(gs_zxxs)	
         tab_1.tabpage_2.ddlb_zxxs.setredraw(false)
         for li_i = 1 to ll_count
@@ -1415,27 +1453,7 @@ end if
 	        tab_1.tabpage_2.ddlb_zxxs.text = gs_zxxs[li_i]
 	     end if
         next	
-	   tab_1.tabpage_2.ddlb_zxxs.setredraw(true)	  	
-	   tab_1.tabpage_2.em_qlj.text =  string(idb_qlj)
-	   tab_1.tabpage_2.em_hlj.text =  string(idb_hlj)
-	   tab_1.tabpage_2.em_lts.text =  string(idb_lts)
-	   tab_1.tabpage_2.sle_ltgg.text = string(is_ltgg)
-	   tab_1.tabpage_2.em_gbthps.text =  string(idb_gbthps)
-	   tab_1.tabpage_2.em_zj.text =  string(idb_zj)
-	   tab_1.tabpage_2.em_zs.text =  string(idb_zs)
-	   tab_1.tabpage_2.em_cwkc.text =  string(idb_cwkc)
-	   tab_1.tabpage_2.em_cwkk.text =  string(idb_cwkk)
-	   tab_1.tabpage_2.em_cwkg.text =  string(idb_cwkg)
-	   tab_1.tabpage_2.em_hxnbc.text =  string(idb_hxnbc)
-	   tab_1.tabpage_2.em_hxnbk.text =  string(idb_hxnbk)
-	   tab_1.tabpage_2.em_hxnbg.text =  string(idb_hxnbg)
-	   tab_1.tabpage_2.em_zzl.text =  string(idb_zzl)
-	   tab_1.tabpage_2.em_hdzzl.text = string(idb_hdzzl)
-	   tab_1.tabpage_2.em_zbzl.text = string(idb_zbzl)
-	   tab_1.tabpage_2.em_zqyzl.text = string(idb_zqyzl)
-	   tab_1.tabpage_2.em_hdzk.text = string(idb_hdzk)
-	   tab_1.tabpage_2.em_qpzk.text = string(idb_qpzk)
-	   tab_1.tabpage_2.em_hpzk.text = string(idb_hpzk)
+	
 	   	
 	end if
   //读取的是简化合格证
@@ -1778,54 +1796,16 @@ return 1
 end event*/
         }
 
-        private void ProcessFmz(string text)
+        private void ProcessFmz(string[] data)
         {
-            //读取罚没证
-/*if is_hgzlx = "HGFOZ" then
-   is_jkpzlx = "2"
-   is_jkpzhm = ls_xx[3]
-   is_jkqzcpxh = ls_xx[4]
-   is_jkqzcsys = ls_xx[5]
-   is_fdjh = ls_xx[6]
-   is_clsbdh = ls_xx[7]
-   select count(*) into :li_ydj from vehicle_temp where clsbdh = :is_clsbdh;
-   if sqlca.sqlcode < 0 then
-		messagebox("提示","操作登记表失败!")
-		return 1
-   end if
-   if li_ydj > 0 then
-		messagebox("提示","该车辆识别代号的机动车已存在!")
-		return 1
-   end if		
-	    	
-   id_ccrq = date(ls_xx[8])	
-   id_jkqfrq = date(ls_xx[12])	
-   tab_1.tabpage_4.ddlb_jkpzlx.enabled = false
-   tab_1.tabpage_4.sle_jkpzhm.displayonly = true
-   tab_1.tabpage_4.sle_jkqzcpxh.displayonly = true
-   tab_1.tabpage_4.sle_jkqzcsys.displayonly = true
-   tab_1.tabpage_2.sle_fdjh.displayonly = true
-   tab_1.tabpage_2.sle_clsbdh.displayonly = true
-   tab_1.tabpage_2.em_ccrq.displayonly = true
-   tab_1.tabpage_4.em_jkqfrq.displayonly = true
-   
-   ll_count = upperbound(gs_jkpz)	
-   tab_1.tabpage_4.ddlb_jkpzlx.setredraw(false)
-   for li_i = 1 to ll_count
-	li_3 = pos(gs_jkpz[li_i],is_jkpzlx,1)
-	if li_3 > 0 then
-	   tab_1.tabpage_4.ddlb_jkpzlx.text = gs_jkpz[li_i]
-	end if
-   next
-    tab_1.tabpage_4.ddlb_jkpzlx.setredraw(true)	
-   tab_1.tabpage_4.sle_jkpzhm.text = is_jkpzhm
-   tab_1.tabpage_4.sle_jkqzcpxh.text = is_jkqzcpxh
-   tab_1.tabpage_4.sle_jkqzcsys.text = is_jkqzcsys
-   tab_1.tabpage_2.sle_fdjh.text = is_fdjh
-   tab_1.tabpage_2.sle_clsbdh.text = is_clsbdh
-   tab_1.tabpage_2.em_ccrq.text = string(id_ccrq,'yyyy-mm-dd')
-   tab_1.tabpage_4.em_jkqfrq.text = string(id_jkqfrq,'yyyy-mm-dd')
-end if	*/
+            this.cbXuJkPzType.Text = "罚没证明书";
+            this.txtXuPzHm.Text = data[2];
+            this.txtXuQzcpxh.Text = data[3];
+            this.txtXuVehicleColor.Text = data[4];
+            this.txtTecFdjh.Text = data[5];
+            this.txtTecClsbm.Text = data[6];
+            this.mtxtTecCcrq.Text = data[7];
+            this.mtxtXuJkDate.Text = data[11];
         }
 
         private void cbRegArea_SelectedIndexChanged(object sender, EventArgs e)
@@ -1871,6 +1851,50 @@ end if	*/
                 reader.StopWatching();
             }
         }
+
+        private void cbBaseJbrIdCard_TextChanged(object sender, EventArgs e)
+        {
+            string tmp = this.cbBaseJbrIdCard.Text;
+            if (tmp.Length == 6)
+            {
+                this.cbBaseJbrIdCard.DataSource = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Jbr>("where c_idcard like '" + tmp + "%'");
+                this.cbBaseJbrIdCard.DisplayMember = "身份证明号码";
+            }
+        }
+
+        private void cbBaseJbrIdCard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Jbr jbr = this.cbBaseJbrIdCard.SelectedValue as Jbr;
+            if (jbr != null)
+            {
+                this.txtBaseJbrConnAddress.Text = jbr.Address;
+                this.txtBaseJbrName.Text = jbr.Name;
+               
+            }
+        }
+
+        private void cbDyJbrIdCard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Jbr jbr = this.cbDyJbrIdCard.SelectedValue as Jbr;
+            if (jbr != null)
+            {
+                this.txtDyJbrConnAddress.Text = jbr.Address;
+                this.txtDyJbrName.Text = jbr.Name;
+
+            }
+        }
+
+        private void cbDyJbrIdCard_TextChanged(object sender, EventArgs e)
+        {
+            string tmp = this.cbDyJbrIdCard.Text;
+            if (tmp.Length == 6)
+            {
+                this.cbDyJbrIdCard.DataSource = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Jbr>("where c_idcard like '" + tmp + "%'");
+                this.cbDyJbrIdCard.DisplayMember = "身份证明号码";
+            }
+        }
+
+        
 
         
 

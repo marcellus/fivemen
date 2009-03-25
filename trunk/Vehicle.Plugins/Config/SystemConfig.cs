@@ -17,5 +17,11 @@ namespace Vehicle.Plugins
         public int ImageWidth = 368;
 
         public int ImageHeight = 230;
+
+        public bool UseCardReader = true;
+
+        public int CardReaderInterval = 500;
+
+        public bool ReadHgz = true;
     }
 }

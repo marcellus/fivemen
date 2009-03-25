@@ -33,13 +33,13 @@ namespace Vehicle.Plugins
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbPhotoXh = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbBaseJbrIdCard = new System.Windows.Forms.ComboBox();
             this.txtBaseJbrConnAddress = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtBaseJbrName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.cbBaseJbrIdCardType = new System.Windows.Forms.ComboBox();
-            this.txtBaseJbrIdCard = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBaseDlrConnAddress = new System.Windows.Forms.TextBox();
@@ -236,7 +236,6 @@ namespace Vehicle.Plugins
             this.label96 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
             this.cbDyJbrIdCardType = new System.Windows.Forms.ComboBox();
-            this.txtDyJbrIdCard = new System.Windows.Forms.TextBox();
             this.label98 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtDyDldwConnAddress = new System.Windows.Forms.TextBox();
@@ -268,6 +267,7 @@ namespace Vehicle.Plugins
             this.btnPrintApply = new System.Windows.Forms.Button();
             this.lbFirstRegDate = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
+            this.cbDyJbrIdCard = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -337,13 +337,13 @@ namespace Vehicle.Plugins
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cbBaseJbrIdCard);
             this.groupBox4.Controls.Add(this.txtBaseJbrConnAddress);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtBaseJbrName);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.cbBaseJbrIdCardType);
-            this.groupBox4.Controls.Add(this.txtBaseJbrIdCard);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Location = new System.Drawing.Point(7, 137);
             this.groupBox4.Name = "groupBox4";
@@ -351,6 +351,17 @@ namespace Vehicle.Plugins
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "经办人信息";
+            // 
+            // cbBaseJbrIdCard
+            // 
+            this.cbBaseJbrIdCard.FormattingEnabled = true;
+            this.cbBaseJbrIdCard.Location = new System.Drawing.Point(386, 12);
+            this.cbBaseJbrIdCard.Name = "cbBaseJbrIdCard";
+            this.cbBaseJbrIdCard.Size = new System.Drawing.Size(238, 20);
+            this.cbBaseJbrIdCard.TabIndex = 34;
+            this.cbBaseJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrIdCard_Validating);
+            this.cbBaseJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbBaseJbrIdCard_SelectedIndexChanged);
+            this.cbBaseJbrIdCard.TextChanged += new System.EventHandler(this.cbBaseJbrIdCard_TextChanged);
             // 
             // txtBaseJbrConnAddress
             // 
@@ -402,14 +413,6 @@ namespace Vehicle.Plugins
             this.cbBaseJbrIdCardType.Name = "cbBaseJbrIdCardType";
             this.cbBaseJbrIdCardType.Size = new System.Drawing.Size(131, 20);
             this.cbBaseJbrIdCardType.TabIndex = 30;
-            // 
-            // txtBaseJbrIdCard
-            // 
-            this.txtBaseJbrIdCard.Location = new System.Drawing.Point(386, 17);
-            this.txtBaseJbrIdCard.Name = "txtBaseJbrIdCard";
-            this.txtBaseJbrIdCard.Size = new System.Drawing.Size(238, 21);
-            this.txtBaseJbrIdCard.TabIndex = 31;
-            this.txtBaseJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrIdCard_Validating);
             // 
             // label18
             // 
@@ -2211,13 +2214,13 @@ namespace Vehicle.Plugins
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.cbDyJbrIdCard);
             this.groupBox8.Controls.Add(this.txtDyJbrConnAddress);
             this.groupBox8.Controls.Add(this.label95);
             this.groupBox8.Controls.Add(this.txtDyJbrName);
             this.groupBox8.Controls.Add(this.label96);
             this.groupBox8.Controls.Add(this.label97);
             this.groupBox8.Controls.Add(this.cbDyJbrIdCardType);
-            this.groupBox8.Controls.Add(this.txtDyJbrIdCard);
             this.groupBox8.Controls.Add(this.label98);
             this.groupBox8.Location = new System.Drawing.Point(7, 137);
             this.groupBox8.Name = "groupBox8";
@@ -2276,14 +2279,6 @@ namespace Vehicle.Plugins
             this.cbDyJbrIdCardType.Name = "cbDyJbrIdCardType";
             this.cbDyJbrIdCardType.Size = new System.Drawing.Size(131, 20);
             this.cbDyJbrIdCardType.TabIndex = 250;
-            // 
-            // txtDyJbrIdCard
-            // 
-            this.txtDyJbrIdCard.Location = new System.Drawing.Point(348, 12);
-            this.txtDyJbrIdCard.Name = "txtDyJbrIdCard";
-            this.txtDyJbrIdCard.Size = new System.Drawing.Size(202, 21);
-            this.txtDyJbrIdCard.TabIndex = 251;
-            this.txtDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
             // 
             // label98
             // 
@@ -2580,6 +2575,17 @@ namespace Vehicle.Plugins
             this.label116.TabIndex = 2;
             this.label116.Text = "登记日期";
             // 
+            // cbDyJbrIdCard
+            // 
+            this.cbDyJbrIdCard.FormattingEnabled = true;
+            this.cbDyJbrIdCard.Location = new System.Drawing.Point(348, 12);
+            this.cbDyJbrIdCard.Name = "cbDyJbrIdCard";
+            this.cbDyJbrIdCard.Size = new System.Drawing.Size(204, 20);
+            this.cbDyJbrIdCard.TabIndex = 254;
+            this.cbDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
+            this.cbDyJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbDyJbrIdCard_SelectedIndexChanged);
+            this.cbDyJbrIdCard.TextChanged += new System.EventHandler(this.cbDyJbrIdCard_TextChanged);
+            // 
             // VehicleBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2648,7 +2654,6 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbBaseJbrIdCardType;
-        private System.Windows.Forms.TextBox txtBaseJbrIdCard;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtBaseDlrConnAddress;
@@ -2812,7 +2817,6 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.ComboBox cbDyJbrIdCardType;
-        private System.Windows.Forms.TextBox txtDyJbrIdCard;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtDyDldwConnAddress;
@@ -2878,5 +2882,7 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label lbFirstRegDate;
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.Label lbPhotoXh;
+        private System.Windows.Forms.ComboBox cbBaseJbrIdCard;
+        private System.Windows.Forms.ComboBox cbDyJbrIdCard;
     }
 }
