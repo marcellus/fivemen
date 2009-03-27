@@ -11,6 +11,7 @@ using FT.DAL.Orm;
 using FT.Commons.Com.Excels;
 using FT.DAL;
 using System.IO;
+using System.Collections;
 
 namespace FT.Windows.Forms
 {
@@ -368,6 +369,23 @@ namespace FT.Windows.Forms
         /// </summary>
         protected  virtual void SettingGridStyle()
         {
+            this.dataGridView1.AutoGenerateColumns = false;
+            ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FT.Windows.Forms.EntityColumnDefine>(" where c_class_full_name='"+
+                this.entityType.FullName+"'");
+            EntityColumnDefine column = null;
+            for (int i = 0; i < lists.Count-1; i++)
+            {
+                column = lists[i] as EntityColumnDefine;
+                if (column.ShowInDetail)
+                {
+                    this.CreateColumn(column.PropertyName, column.HeaderName, column.HeaderWidth);
+                }
+            }
+            column = lists[lists.Count-1] as EntityColumnDefine;
+            if (column.ShowInDetail)
+            {
+                this.CreateColumn(column.PropertyName, column.HeaderName);
+            }
         }
 
         public void ClearColumns()

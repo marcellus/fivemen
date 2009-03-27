@@ -34,6 +34,124 @@ namespace Vehicle.Plugins
             }
         }
 
+        public static bool ValidateHpzl(string hpzl, string cllx)
+        {
+            bool result = false;
+            switch (hpzl)
+            {
+                case "01":
+                    result = cllx.StartsWith("K1") || cllx.StartsWith("H1")
+                    || cllx.StartsWith("Q1") || cllx.StartsWith("Q2")
+                    || cllx.StartsWith("Q3") || cllx.StartsWith("Z1")
+                    || cllx.StartsWith("Z2") || cllx.StartsWith("Z5")
+                    || cllx.StartsWith("D1") || cllx.StartsWith("D2")
+                    || cllx.StartsWith("J") || cllx.StartsWith("B1")
+                    || cllx.StartsWith("B2");
+                    break;
+                case "02":
+                    result = cllx.StartsWith("K2") || cllx.StartsWith("K3")
+                    || cllx.StartsWith("K2") || cllx.StartsWith("K4")
+                    || cllx.StartsWith("H3") || cllx.StartsWith("H4")
+                    || cllx.StartsWith("Z3") || cllx.StartsWith("Z4")
+                    || cllx.StartsWith("Z7") || cllx.StartsWith("B3")
+                    ;
+                    break;
+                case "03":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "04":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "05":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "06":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "07":
+                    result = cllx.StartsWith("M1") || cllx.StartsWith("M21")
+                    ;
+                    break;
+                case "08":
+                    result = cllx.StartsWith("M22") 
+                    ;
+                    break;
+                case "09":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "10":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "11":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "12":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "13":
+                    result = cllx.StartsWith("N")
+                    ;
+                    break;
+                case "14":
+                    result = cllx.StartsWith("T")
+                    ;
+                    break;
+                case "15":
+                    result = cllx.StartsWith("G") || cllx.StartsWith("B")
+                    ;
+                    break;
+                case "16":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "17":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "18":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "19":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "20":
+                    result = !cllx.StartsWith("M")
+                    ;
+                    break;
+                case "21":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "22":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "23":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                case "24":
+                    result = cllx.StartsWith("M")
+                    ;
+                    break;
+                default:
+                    result = true;
+                    break;
+            }
+            return result;
+            
+        }
+
 
 
         #region 不可变动

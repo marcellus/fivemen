@@ -248,6 +248,40 @@ namespace FT.Windows.Forms
 
             }
         }
+        protected void ValidateDateMaskedLargeNow(object sender, CancelEventArgs e)
+        {
+            ValidateDateMaskedLarge(sender, e, System.DateTime.Now);
+        }
+
+        protected void ValidateDateMaskedLarge(object sender, CancelEventArgs e,DateTime begin)
+        {
+            MaskedTextBox txt = sender as MaskedTextBox;
+            if (txt != null)
+            {
+
+                try
+                {
+                    DateTime dt = Convert.ToDateTime(txt.Text);
+                    if (dt < begin.AddDays(1))
+                    {
+                        this.errorProvider1.SetError(txt, "输入的时间必须大于"+begin.ToString("yyyy-MM-dd")+"！");
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        this.errorProvider1.SetError(txt, string.Empty);
+                        e.Cancel = false;
+                    }
+                }
+                catch
+                {
+                    this.errorProvider1.SetError(txt, "请输入格式为yyyy-MM-dd的日期！");
+                    e.Cancel = true;
+
+                }
+
+            }
+        }
 
         protected void ValidateDateMasked(object sender, CancelEventArgs e)
         {
