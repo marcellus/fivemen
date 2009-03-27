@@ -47,6 +47,32 @@
     <Compile Include="Control\DataCounterControl.Designer.cs">
       <DependentUpon>DataCounterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntityConfig\EntityBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityConfig\EntityBrowser.Designer.cs">
+      <DependentUpon>EntityBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityConfig\EntityColumnDefine.cs" />
+    <Compile Include="EntityConfig\EntityConfigBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityConfig\EntityConfigBrowser.Designer.cs">
+      <DependentUpon>EntityConfigBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityConfig\EntityConfigSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EntityConfig\EntityConfigSearch.Designer.cs">
+      <DependentUpon>EntityConfigSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityConfig\EntityDefine.cs" />
+    <Compile Include="EntityConfig\EntitySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EntityConfig\EntitySearch.Designer.cs">
+      <DependentUpon>EntitySearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +253,14 @@
     <EmbeddedResource Include="CommonPanel\PersonDetail.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PersonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityConfig\EntityBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EntityBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityConfig\EntityConfigBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EntityConfigBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\LockSystemForm.resx">
       <DependentUpon>LockSystemForm.cs</DependentUpon>

@@ -58,6 +58,7 @@ namespace Vehicle.Plugins
             this.套打全部F1ToolStripMenuItem.Name = "套打全部F1ToolStripMenuItem";
             this.套打全部F1ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.套打全部F1ToolStripMenuItem.Text = "套打全部-（F1包括F3/F4/F5）";
+            this.套打全部F1ToolStripMenuItem.Visible = false;
             this.套打全部F1ToolStripMenuItem.Click += new System.EventHandler(this.套打全部ToolStripMenuItem_Click);
             // 
             // 直接打全部F2ToolStripMenuItem
@@ -72,6 +73,7 @@ namespace Vehicle.Plugins
             this.套打申请表F3toolStripMenuItem1.Name = "套打申请表F3toolStripMenuItem1";
             this.套打申请表F3toolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
             this.套打申请表F3toolStripMenuItem1.Text = "套打-申请表（F3）";
+            this.套打申请表F3toolStripMenuItem1.Visible = false;
             this.套打申请表F3toolStripMenuItem1.Click += new System.EventHandler(this.套打申请表F3toolStripMenuItem1_Click);
             // 
             // 套打抵押表F4ToolStripMenuItem
@@ -79,6 +81,7 @@ namespace Vehicle.Plugins
             this.套打抵押表F4ToolStripMenuItem.Name = "套打抵押表F4ToolStripMenuItem";
             this.套打抵押表F4ToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.套打抵押表F4ToolStripMenuItem.Text = "套打-抵押表（F4）";
+            this.套打抵押表F4ToolStripMenuItem.Visible = false;
             this.套打抵押表F4ToolStripMenuItem.Click += new System.EventHandler(this.套打抵押表F4ToolStripMenuItem_Click);
             // 
             // 打印二维条码F5ToolStripMenuItem

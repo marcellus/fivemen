@@ -80,7 +80,7 @@ namespace Vehicle.Plugins
             string type = this.cbType.Text.Trim();
             if (classical == string.Empty && type == string.Empty)
             {
-                MessageBoxHelper.Show("请至少选择一个条件再查询！");
+               // MessageBoxHelper.Show("请至少选择一个条件再查询！");
                 return;
 
             }

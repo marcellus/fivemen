@@ -36,6 +36,11 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("程序使用情况", typeof(ProgramRegConfigForm));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("模板管理", typeof(FT.Windows.Forms.EntitySearch));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("模板列定义管理", typeof(FT.Windows.Forms.EntityConfigSearch));
+            top.DropDownItems.Add(tmp);
 
         }
 

@@ -32,7 +32,6 @@ namespace Vehicle.Plugins
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("添加经办人", typeof(JbrBrowser));
             top.DropDownItems.Add(tmp);
-            this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("经办人管理", typeof(JbrSearchControl));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);

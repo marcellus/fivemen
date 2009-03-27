@@ -21,6 +21,8 @@ namespace FT.Commons.Cache
             get { return StaticCacheManager.caches; }
         }
 
+        
+
         /// <summary>
         /// 增驾一个对象
         /// </summary>

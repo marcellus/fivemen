@@ -653,7 +653,17 @@ end if
         {
             //"保险终止日期应在今天之后!""
             //保险终止日期应在保险生效日期之后!")
-            this.ValidateDateMasked(sender, e);
+            try
+            {
+                DateTime begin = Convert.ToDateTime(this.mtxtXuBxBeginDate.Text);
+                this.ValidateDateMaskedLarge(sender, e,begin);
+            }
+            catch
+            {
+                this.SetError(sender,"输入的日期必须大于保险开始日期");
+                e.Cancel = true;
+            }
+            
         }
 
         private void txtXuSellPrice_Validating(object sender, CancelEventArgs e)
@@ -1891,6 +1901,91 @@ end event*/
             {
                 this.cbDyJbrIdCard.DataSource = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Jbr>("where c_idcard like '" + tmp + "%'");
                 this.cbDyJbrIdCard.DisplayMember = "身份证明号码";
+            }
+        }
+
+        private void txtTecZzcm_Validating(object sender, CancelEventArgs e)
+        {
+                this.ValidateNotNull(sender, e, "请输入制造厂名称！");
+        }
+
+        private void txtTecClxh_Validating(object sender, CancelEventArgs e)
+        {
+            this.ValidateNotNull(sender, e, "请输入车辆型号！");
+        }
+
+        private void txtTecFdjh_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtTecFdjxh_Validating(object sender, CancelEventArgs e)
+        {
+            string tmp = this.txtTecFdjxh.Text.Trim();
+            if (tmp.Length == 0 && tmp != "无")
+            {
+                this.SetError(sender, "请输入有效的发动机型号，没有的输入“无”!");
+                e.Cancel = true;
+            }
+            else
+            {
+                this.ClearError(sender);
+                e.Cancel = false;
+            }
+        }
+
+        private void mtxtTecCcrq_Validating(object sender, CancelEventArgs e)
+        {
+            this.ValidateDateMaskedLargeNow(sender, e);
+        }
+
+        private void cbTecGcjk_Validating(object sender, CancelEventArgs e)
+        {
+            object zzg = this.cbTecZzg.SelectedValue;
+            object gcjk=this.cbTecGcjk.SelectedValue;
+            if (zzg != null && gcjk != null)
+            {
+                string zzgs = zzg.ToString();
+                string gcjks = gcjk.ToString();
+                if (zzgs == "156" && (gcjks != "A" || gcjks != "H"))
+                {
+                    this.SetError(sender, "国产进口与制造国矛盾!");
+                    e.Cancel = true;
+
+                }
+                else if (zzgs != "156" && (gcjks == "A" || gcjks == "H"))
+                {
+                    this.SetError(sender, "国产进口与制造国矛盾!");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.ClearError(sender);
+                    e.Cancel = false;
+                }
+                
+
+            }
+            else
+            {
+                this.ClearError(sender);
+                e.Cancel = false;
+            }
+        }
+
+        private void cbTecCllx_Validating(object sender, CancelEventArgs e)
+        {
+            string cllx = this.cbTecCllx.SelectedValue.ToString();
+            string hpzl = this.cbXuHmhp.SelectedValue.ToString();
+            if (VehicleHelper.ValidateHpzl(hpzl, cllx))
+            {
+                this.ClearError(sender);
+                e.Cancel = false;
+            }
+            else
+            {
+                this.SetError(sender, "号牌种类与车辆类型不符!");
+                e.Cancel = true;
             }
         }
 

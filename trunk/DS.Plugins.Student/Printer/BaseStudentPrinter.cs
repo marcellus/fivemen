@@ -279,7 +279,11 @@ namespace DS.Plugins.Student
             this.Draw15String(Student.Name, new Point(width, height));
             this.Draw15String(Student.Sex, new Point(width + 300, height));
             height += sep + 5;
-            if (config.ExamIdPrefix.Length > 0)
+            if (Student.ExamId != null && Student.ExamId.Length > 0)
+            {
+                this.Draw15String(Student.ExamId, new Point(width, height));
+            }
+            else if (config.ExamIdPrefix.Length > 0)
             {
                 this.Draw15String(config.ExamIdPrefix, new Point(width, height));
             }

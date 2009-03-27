@@ -230,6 +230,7 @@ namespace Vehicle.Plugins
             this.label104 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cbDyJbrIdCard = new System.Windows.Forms.ComboBox();
             this.txtDyJbrConnAddress = new System.Windows.Forms.TextBox();
             this.label95 = new System.Windows.Forms.Label();
             this.txtDyJbrName = new System.Windows.Forms.TextBox();
@@ -267,7 +268,6 @@ namespace Vehicle.Plugins
             this.btnPrintApply = new System.Windows.Forms.Button();
             this.lbFirstRegDate = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
-            this.cbDyJbrIdCard = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -358,7 +358,7 @@ namespace Vehicle.Plugins
             this.cbBaseJbrIdCard.Location = new System.Drawing.Point(386, 12);
             this.cbBaseJbrIdCard.Name = "cbBaseJbrIdCard";
             this.cbBaseJbrIdCard.Size = new System.Drawing.Size(238, 20);
-            this.cbBaseJbrIdCard.TabIndex = 34;
+            this.cbBaseJbrIdCard.TabIndex = 31;
             this.cbBaseJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrIdCard_Validating);
             this.cbBaseJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbBaseJbrIdCard_SelectedIndexChanged);
             this.cbBaseJbrIdCard.TextChanged += new System.EventHandler(this.cbBaseJbrIdCard_TextChanged);
@@ -1361,6 +1361,7 @@ namespace Vehicle.Plugins
             this.mtxtTecCcrq.Size = new System.Drawing.Size(100, 21);
             this.mtxtTecCcrq.TabIndex = 100;
             this.mtxtTecCcrq.ValidatingType = typeof(System.DateTime);
+            this.mtxtTecCcrq.Validating += new System.ComponentModel.CancelEventHandler(this.mtxtTecCcrq_Validating);
             // 
             // txtTecZkrsq
             // 
@@ -1923,6 +1924,7 @@ namespace Vehicle.Plugins
             this.txtTecFdjxh.Size = new System.Drawing.Size(100, 21);
             this.txtTecFdjxh.TabIndex = 103;
             this.txtTecFdjxh.Text = "无";
+            this.txtTecFdjxh.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecFdjxh_Validating);
             // 
             // label30
             // 
@@ -1957,6 +1959,7 @@ namespace Vehicle.Plugins
             this.cbTecGcjk.Name = "cbTecGcjk";
             this.cbTecGcjk.Size = new System.Drawing.Size(93, 20);
             this.cbTecGcjk.TabIndex = 101;
+            this.cbTecGcjk.Validating += new System.ComponentModel.CancelEventHandler(this.cbTecGcjk_Validating);
             // 
             // label28
             // 
@@ -2016,6 +2019,7 @@ namespace Vehicle.Plugins
             this.txtTecZzcm.Name = "txtTecZzcm";
             this.txtTecZzcm.Size = new System.Drawing.Size(191, 21);
             this.txtTecZzcm.TabIndex = 88;
+            this.txtTecZzcm.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecZzcm_Validating);
             // 
             // label25
             // 
@@ -2033,6 +2037,7 @@ namespace Vehicle.Plugins
             this.txtTecFdjh.Size = new System.Drawing.Size(251, 21);
             this.txtTecFdjh.TabIndex = 87;
             this.txtTecFdjh.Text = "无";
+            this.txtTecFdjh.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecFdjh_Validating);
             // 
             // label24
             // 
@@ -2067,6 +2072,7 @@ namespace Vehicle.Plugins
             this.cbTecCllx.Name = "cbTecCllx";
             this.cbTecCllx.Size = new System.Drawing.Size(251, 20);
             this.cbTecCllx.TabIndex = 85;
+            this.cbTecCllx.Validating += new System.ComponentModel.CancelEventHandler(this.cbTecCllx_Validating);
             // 
             // label22
             // 
@@ -2116,6 +2122,7 @@ namespace Vehicle.Plugins
             this.txtTecClxh.Name = "txtTecClxh";
             this.txtTecClxh.Size = new System.Drawing.Size(191, 21);
             this.txtTecClxh.TabIndex = 82;
+            this.txtTecClxh.Validating += new System.ComponentModel.CancelEventHandler(this.txtTecClxh_Validating);
             // 
             // label19
             // 
@@ -2228,6 +2235,17 @@ namespace Vehicle.Plugins
             this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "经办人信息";
+            // 
+            // cbDyJbrIdCard
+            // 
+            this.cbDyJbrIdCard.FormattingEnabled = true;
+            this.cbDyJbrIdCard.Location = new System.Drawing.Point(348, 12);
+            this.cbDyJbrIdCard.Name = "cbDyJbrIdCard";
+            this.cbDyJbrIdCard.Size = new System.Drawing.Size(204, 20);
+            this.cbDyJbrIdCard.TabIndex = 251;
+            this.cbDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
+            this.cbDyJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbDyJbrIdCard_SelectedIndexChanged);
+            this.cbDyJbrIdCard.TextChanged += new System.EventHandler(this.cbDyJbrIdCard_TextChanged);
             // 
             // txtDyJbrConnAddress
             // 
@@ -2574,17 +2592,6 @@ namespace Vehicle.Plugins
             this.label116.Size = new System.Drawing.Size(53, 12);
             this.label116.TabIndex = 2;
             this.label116.Text = "登记日期";
-            // 
-            // cbDyJbrIdCard
-            // 
-            this.cbDyJbrIdCard.FormattingEnabled = true;
-            this.cbDyJbrIdCard.Location = new System.Drawing.Point(348, 12);
-            this.cbDyJbrIdCard.Name = "cbDyJbrIdCard";
-            this.cbDyJbrIdCard.Size = new System.Drawing.Size(204, 20);
-            this.cbDyJbrIdCard.TabIndex = 254;
-            this.cbDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
-            this.cbDyJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbDyJbrIdCard_SelectedIndexChanged);
-            this.cbDyJbrIdCard.TextChanged += new System.EventHandler(this.cbDyJbrIdCard_TextChanged);
             // 
             // VehicleBrowser
             // 
