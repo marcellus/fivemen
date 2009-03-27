@@ -9,7 +9,7 @@ using FT.Commons.Tools;
 using log4net;
 using FT.Commons.Bar;
 
-namespace FT.Windows.ExternalTool
+namespace FT.Commons.Bar
 {
     public partial class CodeReader : Form
     {

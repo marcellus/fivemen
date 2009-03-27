@@ -54,6 +54,12 @@
       <DependentUpon>BarReaderConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bar\Code39.cs" />
+    <Compile Include="Bar\CodeReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bar\CodeReader.Designer.cs">
+      <DependentUpon>CodeReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bar\ProcessBarData.cs" />
     <Compile Include="Bar\SimpleBarReader.cs" />
     <Compile Include="Cache\IRefreshCache.cs" />
@@ -312,6 +318,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Bar\BarReaderConfigForm.resx">
       <DependentUpon>BarReaderConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bar\CodeReader.resx">
+      <DependentUpon>CodeReader.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SkinProcessor\Skins\XPSilver.ssk" />

@@ -28,6 +28,7 @@ namespace Vehicle.Plugins
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -268,6 +269,7 @@ namespace Vehicle.Plugins
             this.btnPrintApply = new System.Windows.Forms.Button();
             this.lbFirstRegDate = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -359,6 +361,7 @@ namespace Vehicle.Plugins
             this.cbBaseJbrIdCard.Name = "cbBaseJbrIdCard";
             this.cbBaseJbrIdCard.Size = new System.Drawing.Size(238, 20);
             this.cbBaseJbrIdCard.TabIndex = 31;
+            this.toolTip1.SetToolTip(this.cbBaseJbrIdCard, "请输入经办人身份证明号码前6位");
             this.cbBaseJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtBaseJbrIdCard_Validating);
             this.cbBaseJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbBaseJbrIdCard_SelectedIndexChanged);
             this.cbBaseJbrIdCard.TextChanged += new System.EventHandler(this.cbBaseJbrIdCard_TextChanged);
@@ -2243,6 +2246,7 @@ namespace Vehicle.Plugins
             this.cbDyJbrIdCard.Name = "cbDyJbrIdCard";
             this.cbDyJbrIdCard.Size = new System.Drawing.Size(204, 20);
             this.cbDyJbrIdCard.TabIndex = 251;
+            this.toolTip1.SetToolTip(this.cbDyJbrIdCard, "请输入经办人身份证明号码前6位");
             this.cbDyJbrIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtDyJbrIdCard_Validating);
             this.cbDyJbrIdCard.SelectedIndexChanged += new System.EventHandler(this.cbDyJbrIdCard_SelectedIndexChanged);
             this.cbDyJbrIdCard.TextChanged += new System.EventHandler(this.cbDyJbrIdCard_TextChanged);
@@ -2891,5 +2895,6 @@ namespace Vehicle.Plugins
         private System.Windows.Forms.Label lbPhotoXh;
         private System.Windows.Forms.ComboBox cbBaseJbrIdCard;
         private System.Windows.Forms.ComboBox cbDyJbrIdCard;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

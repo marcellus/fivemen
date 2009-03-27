@@ -40,6 +40,12 @@ namespace Vehicle.Plugins
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("操作日志", typeof(OptLogSearch));
             top.DropDownItems.Add(tmp);
+
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("监控条码配置", typeof(FT.Commons.Bar.BarReaderConfigForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("条码读取测试", typeof(FT.Commons.Bar.CodeReader));
+            top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;
             //throw new Exception("The method or operation is not implemented.");
         }
@@ -47,7 +53,7 @@ namespace Vehicle.Plugins
         public override void EmmitToolBar()
         {
             this.AddTopTool(Vehicle.Plugins.Resource.add, "初次登记", typeof(VehicleBrowser));
-            this.AddTopTool(Vehicle.Plugins.Resource.search, "查询登记", typeof(VehicleSearch));
+            this.AddTopTool(Vehicle.Plugins.Resource.search, "机动车查询", typeof(VehicleSearch));
             //throw new Exception("The method or operation is not implemented.");
         }
     }

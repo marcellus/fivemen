@@ -28,7 +28,7 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("监控条码配置", typeof(FT.Commons.Bar.BarReaderConfigForm));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("条码读取测试", typeof(CodeReader));
+            tmp = this.BuildSubMenu("条码读取测试", typeof(FT.Commons.Bar.CodeReader));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("加密解密", typeof(SecurityForm));
             top.DropDownItems.Add(tmp);

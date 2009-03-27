@@ -22,7 +22,7 @@ namespace CodeBarReader
             ToolStripMenuItem top = this.AddToMenu("条码工具(&C)");
             ToolStripMenuItem tmp = this.BuildSubMenu("监控条码配置", typeof(FT.Commons.Bar.BarReaderConfigForm));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("条码读取测试", typeof(FT.Windows.ExternalTool.CodeReader));
+            tmp = this.BuildSubMenu("条码读取测试", typeof(FT.Commons.Bar.CodeReader));
             top.DropDownItems.Add(tmp);
         }
 

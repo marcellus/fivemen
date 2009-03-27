@@ -735,7 +735,7 @@ end if
 
         private void txtXuQzcpxh_Validating(object sender, CancelEventArgs e)
         {
-            if (this.cbTecGcjk.SelectedValue.ToString() != "A" && this.txtXuQzcpxh.Text.Trim().Length == 0)
+            if (this.cbTecGcjk.SelectedValue.ToString() != "A" && this.cbTecGcjk.SelectedValue.ToString() != "H" && this.txtXuQzcpxh.Text.Trim().Length == 0)
             {
                 this.errorProvider1.SetError(txtXuQzcpxh, "请输入！");
                 e.Cancel = true;
@@ -1936,7 +1936,7 @@ end event*/
 
         private void mtxtTecCcrq_Validating(object sender, CancelEventArgs e)
         {
-            this.ValidateDateMaskedLargeNow(sender, e);
+            this.ValidateDateMaskedBetween(sender, e,new DateTime(1980,1,1),System.DateTime.Now);
         }
 
         private void cbTecGcjk_Validating(object sender, CancelEventArgs e)
@@ -1947,7 +1947,7 @@ end event*/
             {
                 string zzgs = zzg.ToString();
                 string gcjks = gcjk.ToString();
-                if (zzgs == "156" && (gcjks != "A" || gcjks != "H"))
+                if (zzgs == "156" && (gcjks != "A" && gcjks != "H"))
                 {
                     this.SetError(sender, "国产进口与制造国矛盾!");
                     e.Cancel = true;
