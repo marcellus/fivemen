@@ -1,4 +1,4 @@
-﻿namespace FT.Windows.ExternalTool
+﻿namespace FT.Commons.Bar
 {
     partial class CodeReader
     {

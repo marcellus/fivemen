@@ -89,6 +89,7 @@ namespace FT.Windows.CommonsPlugin
             
            // ToolStripButton btn= this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "°ïÖú");
             //btn.Click += new EventHandler(help_Click);
+            //this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "ÍË³ö", typeof(FT.Windows.Forms.SimpleAbout));
             this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "¹ØÓÚ", typeof(FT.Windows.Forms.SimpleAbout));
             //throw new Exception("The method or operation is not implemented.");
         }

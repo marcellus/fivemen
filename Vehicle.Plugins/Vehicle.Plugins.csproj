@@ -103,6 +103,7 @@
       <DependentUpon>VehicleConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Photo\VehiclePhotoAccess.cs" />
+    <Compile Include="ToolsPlugin.cs" />
     <Compile Include="VehicleHelper.cs" />
     <Compile Include="VehicleInfo\VehicleInfoBak.cs" />
     <Compile Include="VehiclePlugin.cs" />
@@ -215,6 +216,9 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Config.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

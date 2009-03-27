@@ -4,6 +4,7 @@ using System.Text;
 using FT.Commons.Print;
 using FT.Windows.Forms;
 using FT.Commons.Cache;
+using FT.Commons.Tools;
 
 namespace Vehicle.Plugins
 {
@@ -26,11 +27,14 @@ namespace Vehicle.Plugins
 
         public override void PaintPrinter()
         {
+            MessageBoxHelper.Show("请放入申请表正面进行打印！ ");
             this.PrintExcelF6();
             if (Vehicle.DyHtzbh.Length > 0)
             {
+                MessageBoxHelper.Show("请放入抵押表进行打印！ ");
                 this.PrintExcelF7();
             }
+            MessageBoxHelper.Show("请放入申请表背面进行打印！ ");
             BaseVehicleInfoPrinter printer = new F5Printer(this.Vehicle);
             CommonPrinter commonPrinter = new CommonPrinter(printer);
             //commonPrinter.ShowPreviewPrinter();
