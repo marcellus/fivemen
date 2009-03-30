@@ -12,6 +12,12 @@ namespace Vehicle.Plugins
         {
         }
 
+        
+        public static void BindSellDw(ComboBox cb)
+        {
+            DictManager.BindToCombox(cb, "销售单位代码");
+        }
+        
         public static void BindZwpp(ComboBox cb)
         {
             DictManager.BindToCombox(cb, "中文品牌");

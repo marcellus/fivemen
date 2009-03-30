@@ -61,6 +61,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboBoxTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComboBoxTestForm.Designer.cs">
+      <DependentUpon>ComboBoxTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataGridViewRolloverCell.cs" />
     <Compile Include="EncrptForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,10 @@
     <EmbeddedResource Include="BaseForm.zh-CN.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComboBoxTestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ComboBoxTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EncrptForm.resx">
       <SubType>Designer</SubType>
