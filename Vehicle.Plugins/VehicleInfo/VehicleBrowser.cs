@@ -80,6 +80,8 @@ namespace Vehicle.Plugins
                 BindHelper.BindPzhm(this.cb_xu_jkpzhm);
                 BindHelper.BindJkpz(this.cbXuJkPzType);
 
+                BindHelper.BindSellDw(this.cbXuSellDw);
+
                 BindHelper.BindCllx(this.cbTecCllx);
                 BindHelper.BindGcJk(this.cbTecGcjk);
                 DictManager.BindNation(this.cbTecZzg);
@@ -1219,6 +1221,8 @@ end if
                 this.txtBaseDlrName.Text = comp.Name;
                 this.txtBaseDlrPhone.Text = comp.Phone;
 
+                //this.cbXuSellDw.Text = comp.Name;
+
                 this.txtDyDldwConnAddress.Text = comp.Address;
                 this.txtDyDldwIdCard.Text = comp.BusId;
                 this.txtDyDldwName.Text = comp.Name;
@@ -1287,6 +1291,173 @@ end if
             {
                 this.ProcessWhole(data);
             }
+            else if (text.StartsWith("QTZS21_V1.0"))
+            {
+                this.ProcessDimension(data);
+            }
+        }
+        private void ProcessDimension(string[] data)
+        {
+            /*        
+QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中文品牌+英文品牌+车辆类型代码
++车辆识别代码+发动机号+制造厂名称+组合后的车身颜色（1-2-3）+出厂日期（格式yyyy-mm-dd）+国产进口代码+制造国代码
++发动机型号+排量+功率+燃料种类(代码？)+外廓长+外廓宽+外廓高+转向形式代码+货箱内部长+货箱内部宽+货箱内部高
++环保达标情况+钢板弹簧片数+轴数+轴距+轮胎数+轮胎规格+前轮距+后轮距+总质量+整备质量+核定载客+准牵引总质量
++核定总质量+前排载客+后排载客+所有人身份证明名称代码+所有人身份证名号码+所有人姓名或名称+联系电话+住所区号代码
++住所详细地址+暂住证号+邮政编码+使用性质代码+所有权代码+获得方式代码+行政区划代码+号牌种类代码+来历凭证代码1
++来历凭证1编号+来历凭证代码2+来历凭证2编号+购置税证明名称代码+纳税证明编号+保险凭证号+保险生效日期(非19000101)
++保险终止日期（非19000101）
++保险公司名称+进口凭证类型代码+进口凭证编号+进口签发日期（非19000101）+进口签注厂牌型号+进口签注车身颜色+主合同编号+抵押合同编号
++抵押权人身份证明名称代码+抵押权人身份证明号码+抵押权人姓名或名称+联系电话+住所详细地址+邮政编码+备注+初次登记日期（yyyy-MM-dd）
++销售价格+销售单位名称+所有权人代理单位身份证明名称代码+所有权人代理单位身份证明号码+所有权人代理单位名称
++所有权人代理单位联系电话+所有权人代理单位详细地址+所有权人经办人身份证明名称代码+所有权人经办人身份证明名称号码
++所有权人经办人姓名+所有权人经办人详细地址+代理权人代理单位身份证明名称代码+代理权人代理单位身份证明号码
++代理权人代理单位名称+代理权人代理单位联系电话+代理权人代理单位详细地址+代理权人经办人身份证明名称代码
++代理权人经办人身份证明号码+代理权人经办人姓名+代理权人经办人详细地址+
+         +邮寄地址区号+邮寄详细地址+所有人联系手机+所有人联系的电子邮箱+（照片型号+车辆型号？）+（公司单位代码？）
+         */
+            this.txtTecHgzbh.Text = data[2];
+            this.txtTecClxh.Text = data[3];
+            this.txtTecZwpp.Text = data[4];
+            this.txtTecYwpp.Text = data[5];
+            this.cbTecCllx.SelectedValue = data[6];
+
+            this.txtTecClsbm.Text = data[7];
+            this.txtTecFdjh.Text = data[8];
+            this.txtTecZzcm.Text = data[9];
+            string tmp2 = data[10];
+            if (tmp2.Length == 1)
+            {
+                this.cbTecColor1.SelectedValue = tmp2;
+            }
+            else if (tmp2.Length == 2)
+            {
+                this.cbTecColor1.SelectedValue = tmp2[0].ToString();
+                this.cbTecColor2.SelectedValue = tmp2[1].ToString();
+            }
+            else if (tmp2.Length == 3)
+            {
+                this.cbTecColor1.SelectedValue = tmp2[0].ToString();
+                this.cbTecColor2.SelectedValue = tmp2[1].ToString();
+                this.cbTecColor3.SelectedValue = tmp2[2].ToString();
+            }
+
+
+            //VehicleHelper.AppendString(sb, this.color);
+            this.mtxtTecCcrq.Text = data[11];
+            this.cbTecGcjk.SelectedValue = data[12];
+            this.cbTecZzg.SelectedValue = data[13];
+            this.txtTecFdjxh.Text = data[14];
+
+            this.txtTecPl.Text = data[15];
+            this.txtTecGl.Text = data[16];
+            string tmp = data[17];
+            if (tmp.Length == 1)
+            {
+                this.cbTecRlzl1.SelectedValue = tmp;
+            }
+            else if (tmp.Length == 2)
+            {
+                this.cbTecRlzl1.SelectedValue = tmp[0].ToString();
+                this.cbTecRlzl2.SelectedValue = tmp[1].ToString();
+            }
+            //VehicleHelper.AppendString(sb, this.rlzl);
+            this.txtTecWkc.Text = data[18];
+            this.txtTecWkk.Text = data[19];
+            this.txtTecWkg.Text = data[20];
+
+            this.cbTecZxfs.SelectedValue = data[21];
+            this.txtTecNkc.Text = data[22];
+            this.txtTecNkk.Text = data[23];
+            this.txtTecNkg.Text = data[24];
+            this.txtTecHbdb.Text = data[25];
+
+            this.txtTecGbtfs.Text = data[26];
+            this.txtTecZs.Text = data[27];
+            this.txtTecZj.Text = data[28];
+            this.txtTecLts.Text = data[29];
+            this.txtTecLtgg.Text = data[30];
+            this.txtTecLjq.Text = data[31];
+            this.txtTecLjh.Text = data[32];
+
+            this.txtTecZzl.Text = data[33];
+            this.txtTecZbzl.Text = data[34];
+            this.txtTecHdzk.Text = data[35];
+            this.txtTecZqyzl.Text = data[36];
+            this.txtTecHdzzl.Text = data[37];
+            this.txtTecZkrsq.Text = data[38];
+            this.txtTecZkrsh.Text = data[39];
+
+            this.cbBaseSyrIdCardType.SelectedValue = data[40];
+            this.txtBaseSyrIdCard.Text = data[41];
+            this.txtBaseSyrName.Text = data[42];
+            this.txtBaseSyrPhone.Text = data[43];
+            this.cbBaseSyrRegArea.SelectedValue = data[44];
+            this.txtBaseSyrRegAddress.Text = data[45];
+            this.txtBaseSyrTempId.Text = data[46];
+            this.txtBaseSyrPostCode.Text = data[47];
+
+            this.cbXuUseFor.SelectedValue = data[48];
+            this.cbXuSyq.SelectedValue = data[49];
+            this.cbXuGetFrom.SelectedValue = data[50];
+            this.cbXuBelongArea.SelectedValue = data[51];
+            this.cbXuHmhp.SelectedValue = data[52];
+            this.cbXuLlpp1.SelectedValue = data[53];
+            this.txtXuLlppHm1.Text = data[54];
+            this.cbXuLlpp2.SelectedValue = data[55];
+            this.txtXuLlppHm2.Text = data[56];
+            this.cbXuGzzm.SelectedValue = data[57];
+            this.txtXuGzzmBh.Text = data[58];
+            this.txtXuBxBh.Text = data[59];
+            this.mtxtXuBxBeginDate.Text = data[60];
+
+            this.mtxtXuBxEndDate.Text = data[61];
+            this.cbXuBxCompany.Text = data[62];
+            this.cbXuJkPzType.SelectedValue = data[63];
+            this.txtXuPzHm.Text = data[64];
+            this.mtxtXuJkDate.Text = data[65];
+            this.txtXuQzcpxh.Text = data[66];
+            this.txtXuVehicleColor.Text = data[67];
+
+            this.txtDyHtzbh.Text = data[68];
+            this.txtDyDyHtbh.Text = data[69];
+            this.cbDyDyqrIdCardType.SelectedValue = data[70];
+            this.txtDyDyqrIdCard.Text = data[71];
+            this.txtDyDyqrName.Text = data[72];
+            this.txtDyDyqrPhone.Text = data[73];
+            this.txtDyDyqrConnAddress.Text = data[74];
+            this.txtDyDyqrPostCode.Text = data[75];
+            this.txtXuDescription.Text = data[76];
+            this.lbFirstRegDate.Text = data[77];
+            this.txtXuSellPrice.Text = data[78];
+            this.cbXuSellDw.Text = data[79];
+
+            this.cbBaseDlrIdCardType.SelectedValue = data[80];
+            this.txtBaseDlrIdCard.Text = data[81];
+            this.txtBaseDlrName.Text = data[82];
+            this.txtBaseDlrPhone.Text = data[83];
+            this.txtBaseDlrConnAddress.Text = data[84];
+            this.cbBaseJbrIdCardType.SelectedValue = data[85];
+            this.cbBaseJbrIdCard.Text = data[86];
+            this.txtBaseJbrName.Text = data[87];
+            this.txtBaseJbrConnAddress.Text = data[88];
+
+            this.cbDyDldwIdCardType.SelectedValue = data[89];
+            this.txtDyDldwIdCard.Text = data[90];
+            this.txtDyDldwName.Text = data[91];
+            this.txtDyDldwPhone.Text = data[92];
+            this.txtDyDldwConnAddress.Text = data[93];
+            this.cbDyJbrIdCardType.SelectedValue = data[94];
+            this.cbDyJbrIdCard.Text = data[95];
+            this.txtDyJbrName.Text = data[96];
+            this.txtDyJbrConnAddress.Text = data[97];
+
+
+            this.cbBaseSyrConnArea.SelectedValue = data[98];
+            this.txtBaseSyrConnAddress.Text = data[99];
+            this.txtBaseSyrMobile.Text = data[100];
+            this.txtBaseSyrEmail.Text = data[101];
+            this.lbPhotoXh.Text = data[102];
         }
 
         private void ProcessWhole(string[] data)

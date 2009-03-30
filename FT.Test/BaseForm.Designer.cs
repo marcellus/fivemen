@@ -40,13 +40,14 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
-            this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
-            this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.button14 = new System.Windows.Forms.Button();
+            this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
+            this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
+            this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
             this.SuspendLayout();
             // 
             // button1
@@ -119,6 +120,34 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // button11
+            // 
+            resources.ApplyResources(this.button11, "button11");
+            this.button11.Name = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            resources.ApplyResources(this.button12, "button12");
+            this.button12.Name = "button12";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            resources.ApplyResources(this.button13, "button13");
+            this.button13.Name = "button13";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            resources.ApplyResources(this.button14, "button14");
+            this.button14.Name = "button14";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // simpleButton3
             // 
             resources.ApplyResources(this.simpleButton3, "simpleButton3");
@@ -145,31 +174,11 @@
             this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
             this.simpleButton1.UseVisualStyleBackColor = true;
             // 
-            // button11
-            // 
-            resources.ApplyResources(this.button11, "button11");
-            this.button11.Name = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button12
-            // 
-            resources.ApplyResources(this.button12, "button12");
-            this.button12.Name = "button12";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button13
-            // 
-            resources.ApplyResources(this.button13, "button13");
-            this.button13.Name = "button13";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
             // BaseForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -211,5 +220,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button button14;
     }
 }

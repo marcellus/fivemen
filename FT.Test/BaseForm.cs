@@ -167,5 +167,11 @@ namespace FT.Test
             fm.ShowDialog();
         }
 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Form fm = new ComboBoxTestForm();
+            fm.ShowDialog();
+        }
+
     }
 }
