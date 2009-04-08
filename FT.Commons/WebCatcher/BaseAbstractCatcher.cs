@@ -128,8 +128,16 @@ namespace FT.Commons.WebCatcher
         public string Download(string url)
         {
             string result = string.Empty;
-            int pos = url.IndexOf("/", 3);
-            string path = config.Begin;
+            int pos = url.IndexOf('/', 3);
+            int poslast = url.LastIndexOf('/');
+            string path = config.DownDir + "/" + url.Substring(pos, poslast - pos);
+            string file = url.Substring(poslast);
+            DirectoryInfo dir = new DirectoryInfo(path);
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+            path += file;
             try
             {
                 if (client == null)
