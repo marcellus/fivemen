@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleConfig));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCardReaderInterval = new System.Windows.Forms.TextBox();
             this.checkReadHgz = new System.Windows.Forms.CheckBox();
             this.checkUseCardReader = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -46,9 +49,6 @@
             this.txtPhotoDir = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtCardReaderInterval = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,13 +79,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本配置";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(141, 180);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "时间";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(222, 181);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "毫秒";
+            // 
+            // txtCardReaderInterval
+            // 
+            this.txtCardReaderInterval.Location = new System.Drawing.Point(170, 172);
+            this.txtCardReaderInterval.Name = "txtCardReaderInterval";
+            this.txtCardReaderInterval.Size = new System.Drawing.Size(48, 21);
+            this.txtCardReaderInterval.TabIndex = 13;
+            // 
             // checkReadHgz
             // 
             this.checkReadHgz.AutoSize = true;
             this.checkReadHgz.Location = new System.Drawing.Point(14, 199);
             this.checkReadHgz.Name = "checkReadHgz";
             this.checkReadHgz.Size = new System.Drawing.Size(108, 16);
-            this.checkReadHgz.TabIndex = 13;
+            this.checkReadHgz.TabIndex = 14;
             this.checkReadHgz.Text = "允许扫描合格证";
             this.checkReadHgz.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +141,7 @@
             this.txtCompressRate.Location = new System.Drawing.Point(120, 150);
             this.txtCompressRate.Name = "txtCompressRate";
             this.txtCompressRate.Size = new System.Drawing.Size(98, 21);
-            this.txtCompressRate.TabIndex = 10;
+            this.txtCompressRate.TabIndex = 11;
             this.txtCompressRate.Text = "30";
             // 
             // txtImageHeight
@@ -221,35 +246,10 @@
             this.button2.Location = new System.Drawing.Point(102, 238);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
+            this.button2.TabIndex = 15;
             this.button2.Text = "保存配置";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtCardReaderInterval
-            // 
-            this.txtCardReaderInterval.Location = new System.Drawing.Point(170, 172);
-            this.txtCardReaderInterval.Name = "txtCardReaderInterval";
-            this.txtCardReaderInterval.Size = new System.Drawing.Size(48, 21);
-            this.txtCardReaderInterval.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(222, 181);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "毫秒";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(141, 180);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "时间";
             // 
             // VehicleConfig
             // 
@@ -259,6 +259,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VehicleConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "系统配置";

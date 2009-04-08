@@ -16,6 +16,7 @@ namespace FT.Windows.Forms
         public CustomPrinterSetting()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             this.cbPrintModel.SelectedIndex = 0;
             loader = new ConfigLoader<GlobalPrintSetting>(this);
         }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomPrinterSetting));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbPrintModel = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtRight = new System.Windows.Forms.TextBox();
             this.txtBottom = new System.Windows.Forms.TextBox();
             this.txtLeft = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbPrintModel = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -70,12 +70,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置信息";
             // 
+            // cbPrintModel
+            // 
+            this.cbPrintModel.FormattingEnabled = true;
+            this.cbPrintModel.Items.AddRange(new object[] {
+            "直接打",
+            "打印预览",
+            "选择打印机"});
+            this.cbPrintModel.Location = new System.Drawing.Point(71, 105);
+            this.cbPrintModel.Name = "cbPrintModel";
+            this.cbPrintModel.Size = new System.Drawing.Size(178, 20);
+            this.cbPrintModel.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "打印方式";
+            // 
             // txtRight
             // 
             this.txtRight.Location = new System.Drawing.Point(188, 78);
             this.txtRight.Name = "txtRight";
             this.txtRight.Size = new System.Drawing.Size(63, 21);
-            this.txtRight.TabIndex = 6;
+            this.txtRight.TabIndex = 5;
             this.txtRight.Text = "10";
             this.txtRight.Validating += new System.ComponentModel.CancelEventHandler(this.txtRight_Validating);
             // 
@@ -84,7 +105,7 @@
             this.txtBottom.Location = new System.Drawing.Point(70, 78);
             this.txtBottom.Name = "txtBottom";
             this.txtBottom.Size = new System.Drawing.Size(63, 21);
-            this.txtBottom.TabIndex = 6;
+            this.txtBottom.TabIndex = 4;
             this.txtBottom.Text = "10";
             this.txtBottom.Validating += new System.ComponentModel.CancelEventHandler(this.txtBottom_Validating);
             // 
@@ -93,7 +114,7 @@
             this.txtLeft.Location = new System.Drawing.Point(186, 50);
             this.txtLeft.Name = "txtLeft";
             this.txtLeft.Size = new System.Drawing.Size(63, 21);
-            this.txtLeft.TabIndex = 6;
+            this.txtLeft.TabIndex = 3;
             this.txtLeft.Text = "10";
             this.txtLeft.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeft_Validating);
             // 
@@ -102,7 +123,7 @@
             this.txtTop.Location = new System.Drawing.Point(70, 50);
             this.txtTop.Name = "txtTop";
             this.txtTop.Size = new System.Drawing.Size(63, 21);
-            this.txtTop.TabIndex = 6;
+            this.txtTop.TabIndex = 2;
             this.txtTop.Text = "10";
             this.txtTop.Validating += new System.ComponentModel.CancelEventHandler(this.txtTop_Validating);
             // 
@@ -169,7 +190,7 @@
             this.btnSave.Location = new System.Drawing.Point(109, 169);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -177,27 +198,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "打印方式";
-            // 
-            // cbPrintModel
-            // 
-            this.cbPrintModel.FormattingEnabled = true;
-            this.cbPrintModel.Items.AddRange(new object[] {
-            "直接打",
-            "打印预览",
-            "选择打印机"});
-            this.cbPrintModel.Location = new System.Drawing.Point(71, 105);
-            this.cbPrintModel.Name = "cbPrintModel";
-            this.cbPrintModel.Size = new System.Drawing.Size(178, 20);
-            this.cbPrintModel.TabIndex = 8;
             // 
             // CustomPrinterSetting
             // 
@@ -226,7 +226,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbPageName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -238,5 +237,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbPrintModel;
+        private System.Windows.Forms.ComboBox cbPageName;
     }
 }

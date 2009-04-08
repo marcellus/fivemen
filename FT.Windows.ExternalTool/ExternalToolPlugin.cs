@@ -41,7 +41,23 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("模板列定义管理", typeof(FT.Windows.Forms.EntityConfigSearch));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("蜘蛛配置", typeof(FT.Commons.WebCatcher.CatcherConfigForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("蜘蛛控制台", typeof(FT.Commons.WebCatcher.CatcherForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("蜘蛛正则测试", typeof(FT.Commons.WebCatcher.RegexTest));
+            top.DropDownItems.Add(tmp);
 
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("TCP客户端配置", typeof(FT.Commons.TcpIp.ClientConfigForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("TCP模拟客户端", typeof(FT.Commons.TcpIp.TcpClientMockForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("TCP服务器端配置", typeof(FT.Commons.TcpIp.TcpServerConfigForm));
+            top.DropDownItems.Add(tmp);
+            //tmp = this.BuildSubMenu("TCP控制台", typeof(FT.Commons.TcpIp.TcpWatcherForm));
+            //top.DropDownItems.Add(tmp);
         }
 
         public override void EmmitToolBar()
