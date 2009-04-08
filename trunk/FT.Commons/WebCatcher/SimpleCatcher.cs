@@ -10,8 +10,8 @@ namespace FT.Commons.WebCatcher
         private Regex reg;
         public SimpleCatcher()
         {
-            reg=new Regex("<div class=\"posttitle\">"
-                    + "(?:.|\n)*?href=\"(.+)\">(.+)</a>");
+            reg = new Regex("<div class[\\s]*?=[\\s]*?\"[posttitle|postTitle]+\">"
+                    + "(?:.|\\n)*?href=\"(.+)\">(.+)</a>");
         }
         public override void ParseOne(string url)
         {
@@ -23,6 +23,7 @@ namespace FT.Commons.WebCatcher
             {
                 matchCount++;
                 sb.Append("\r\n µÚ" + matchCount.ToString() + "Ïî£º");
+                this.Download(m.Groups[1].Value);
                 sb.Append("|" + m.Groups[2].Value);
                 //foreach (Group group in m.Groups)
                 //{
