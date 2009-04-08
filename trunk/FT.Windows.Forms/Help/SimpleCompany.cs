@@ -16,6 +16,7 @@ namespace FT.Windows.Forms
         public SimpleCompany()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             loader = new ConfigLoader<CompanyInfo>(this);
         }
 

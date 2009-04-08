@@ -15,6 +15,7 @@ namespace FT.Windows.Forms
         public PwdChangeForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void btnModify_Click(object sender, EventArgs e)

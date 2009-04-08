@@ -16,6 +16,7 @@ namespace Vehicle.Plugins
         public VehicleConfig()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             loader=new ConfigLoader<SystemConfig>(this);
         }
 

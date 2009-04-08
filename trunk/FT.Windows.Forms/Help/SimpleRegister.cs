@@ -19,6 +19,7 @@ namespace FT.Windows.Forms
         public SimpleRegister()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             loader = new ConfigLoader<ProgramRegConfig>(this);
         }
 

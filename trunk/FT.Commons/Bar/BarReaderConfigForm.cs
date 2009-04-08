@@ -15,6 +15,7 @@ namespace FT.Commons.Bar
         public BarReaderConfigForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             loader = new ConfigLoader<BarReaderConfig>(this);
         }
 

@@ -20,7 +20,27 @@ namespace FT.Commons.WebCatcher
         /// <summary>
         /// 一次解析,也许要跨页
         /// </summary>
-        void ParseOne();
+        void ParseOne(string url);
+
+        /// <summary>
+        /// 解析全部
+        /// </summary>
+        void Parse();
+
+
+        /// <summary>
+        /// 写日志到控制台
+        /// </summary>
+        /// <param name="str"></param>
+        void WriteConsole(string str);
+
+      
+        /// <summary>
+        /// 下载一个url的内容，比如一个网页，一个mp3
+        /// </summary>
+        /// <param name="url">下载地址</param>
+        /// <returns>下载的相对路径</returns>
+        string Download(string url);
 
         /// <summary>
         /// 登陆产生cookie
@@ -88,12 +108,12 @@ namespace FT.Commons.WebCatcher
         string UserId
         {
             get;
-            set;
+            
         }
         string Pwd
         {
             get;
-            set;
+           
         }
         #endregion
     }

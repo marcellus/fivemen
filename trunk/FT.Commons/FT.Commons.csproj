@@ -101,6 +101,45 @@
     <Compile Include="Security\SimpleSecurity.cs" />
     <Compile Include="SkinProcessor\IrisSkin2Processor.cs" />
     <Compile Include="SkinProcessor\SkinType.cs" />
+    <Compile Include="TcpIp\ClientConfig.cs" />
+    <Compile Include="TcpIp\ClientConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TcpIp\ClientConfigForm.designer.cs">
+      <DependentUpon>ClientConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TcpIp\Customer.cs" />
+    <Compile Include="TcpIp\MessageFactory.cs" />
+    <Compile Include="TcpIp\MessageInfo.cs" />
+    <Compile Include="TcpIp\OrgInfo.cs" />
+    <Compile Include="TcpIp\SenderInfo.cs" />
+    <Compile Include="TcpIp\ServerConfig.cs" />
+    <Compile Include="TcpIp\SocketHelper.cs" />
+    <Compile Include="TcpIp\TcpBase.cs" />
+    <Compile Include="TcpIp\TcpClientFactory.cs" />
+    <Compile Include="TcpIp\TcpClientHelper.cs" />
+    <Compile Include="TcpIp\TcpClientMockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TcpIp\TcpClientMockForm.Designer.cs">
+      <DependentUpon>TcpClientMockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TcpIp\TcpComand.cs" />
+    <Compile Include="TcpIp\TcpEvent.cs" />
+    <Compile Include="TcpIp\TcpFactory.cs" />
+    <Compile Include="TcpIp\TcpServerConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TcpIp\TcpServerConfigForm.designer.cs">
+      <DependentUpon>TcpServerConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TcpIp\TcpServerHelper.cs" />
+    <Compile Include="TcpIp\TcpWatcherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TcpIp\TcpWatcherForm.designer.cs">
+      <DependentUpon>TcpWatcherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\BaseHelper.cs" />
     <Compile Include="Tools\ComboBoxHelper.cs" />
     <Compile Include="Tools\ConfigLoader.cs" />
@@ -120,7 +159,29 @@
     <Compile Include="Tools\SerializeHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
+    <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
+    <Compile Include="WebCatcher\CatcherConfig.cs" />
+    <Compile Include="WebCatcher\CatcherConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebCatcher\CatcherConfigForm.Designer.cs">
+      <DependentUpon>CatcherConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebCatcher\CatcherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebCatcher\CatcherForm.Designer.cs">
+      <DependentUpon>CatcherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebCatcher\ICatcher.cs" />
+    <Compile Include="WebCatcher\RegexTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebCatcher\RegexTest.Designer.cs">
+      <DependentUpon>RegexTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebCatcher\SimpleCatcher.cs" />
+    <Compile Include="Win32\SystemDefine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PrinterEx\readme.txt" />
@@ -325,6 +386,34 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SkinProcessor\Skins\XPSilver.ssk" />
+    <EmbeddedResource Include="TcpIp\ClientConfigForm.resx">
+      <DependentUpon>ClientConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TcpIp\TcpClientMockForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TcpClientMockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TcpIp\TcpServerConfigForm.resx">
+      <DependentUpon>TcpServerConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TcpIp\TcpWatcherForm.resx">
+      <DependentUpon>TcpWatcherForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebCatcher\CatcherConfigForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CatcherConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebCatcher\CatcherForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CatcherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebCatcher\RegexTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RegexTest.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Excel">
