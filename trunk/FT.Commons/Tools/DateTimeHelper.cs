@@ -9,6 +9,62 @@ namespace FT.Commons.Tools
     /// </summary>
     public class DateTimeHelper : BaseHelper
     {
+        public static DateTime GetSeasonFirstDay()
+        {
+            return GetSeasonFirstDay(System.DateTime.Now);
+        }
+
+        public static DateTime GetSeasonFirstDay(DateTime now)
+        {
+            int month = now.Month;
+            DateTime tmp = now;
+            if (month <= 3)
+            {
+                tmp = new DateTime(now.Year, 1, 1);
+            }
+            else if (month >= 4 && month <= 6)
+            {
+                tmp = new DateTime(now.Year, 4, 1);
+            }
+            else if (month >= 7 && month <= 9)
+            {
+                tmp = new DateTime(now.Year, 7, 1);
+            }
+            else if (month >= 10 && month <= 12)
+            {
+                tmp = new DateTime(now.Year , 10, 1);
+            }
+            return tmp;
+        }
+
+        public static DateTime GetSeasonLastDay()
+        {
+            return GetSeasonLastDay(System.DateTime.Now);
+        }
+
+        public static DateTime GetSeasonLastDay(DateTime now)
+        {
+            int month=now.Month;
+            DateTime tmp = now;
+            if (month <= 3)
+            {
+                tmp = new DateTime(now.Year, 4, 1);
+            }
+            else if (month >= 4 && month <= 6)
+            {
+                tmp = new DateTime(now.Year, 7, 1);
+            }
+            else if (month >= 7 && month <= 9)
+            {
+                tmp = new DateTime(now.Year, 10, 1);
+            }
+            else if (month >= 10 && month <= 12)
+            {
+                tmp = new DateTime(now.Year+1, 1, 1);
+            }
+            return tmp.AddDays(-1);
+        }
+
         public static DateTime GetMonthLastDay()
         {
             return GetMonthLastDay(System.DateTime.Now);

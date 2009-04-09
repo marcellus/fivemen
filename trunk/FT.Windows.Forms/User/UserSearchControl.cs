@@ -30,14 +30,7 @@ namespace FT.Windows.Forms
             
         }
 
-        protected override void SettingGridStyle()
-        {
-
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.CreateColumn("登录名", 80);
-            this.CreateColumn("是否有效", 80);
-            this.CreateColumn("备注");
-        }
+       
     }
 }
 

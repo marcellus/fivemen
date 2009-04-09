@@ -28,7 +28,7 @@ namespace FT.Windows.CommonsPlugin
 
             this.dataGridView1.AutoGenerateColumns = false;
             this.CreateColumn("数据类别", 100);
-            this.CreateColumn("数据文本");
+            this.CreateColumn("数据文本",240);
             this.CreateColumn("数据代码", 100);
             this.CreateColumn("是否有效", 100);
             this.CreateColumn("备注");
@@ -43,7 +43,7 @@ namespace FT.Windows.CommonsPlugin
 
         protected override int[] GetPrintWidths()
         {
-            return new int[] { 180, 180, 80 };
+            return new int[] { 240, 180, 80 };
             //return base.GetPrintWidths();
         }
     }

@@ -17,37 +17,12 @@ namespace DS.Plugins.Student
             InitializeComponent();
         }
 
-        private void cbWeek_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbWeek.Checked)
-            {
-                this.dateBegin.Value = DateTimeHelper.GetMonday();
-                this.dateEnd.Value = DateTimeHelper.GetSunday();
-                this.cbMonth.Checked = this.cbSeason.Checked = !this.cbWeek.Checked;
-            }
-            //this.Search();
-        }
-
-        private void cbMonth_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbMonth.Checked)
-            {
-                this.dateBegin.Value = DateTimeHelper.GetMonthFirstDay();
-                this.dateEnd.Value = DateTimeHelper.GetMonthLastDay();
-                this.cbWeek.Checked = this.cbSeason.Checked = !this.cbMonth.Checked;
-            }
-            //this.Search();
-        }
-
-        private void cbSeason_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected override string GetTitle()
         {
-            return this.dateBegin.Value.ToShortDateString()+"-"
-                +this.dateEnd.Value.ToShortDateString()+"汇总表";
+            return this.dateBetweenPanel1.BeginDate.ToShortDateString()+"-"
+                + this.dateBetweenPanel1.EndDate.ToShortDateString() + "汇总表";
             //return base.GetTitle();
         }
 
@@ -64,7 +39,7 @@ namespace DS.Plugins.Student
             }
             else
             {
-                sql += " where "+access.BetweenDateString("date_baoming", this.dateBegin.Value, this.dateEnd.Value);
+                sql += " where " + access.BetweenDateString("date_baoming", this.dateBetweenPanel1.BeginDate, this.dateBetweenPanel1.EndDate);
             }
             DataTable dt = access
             .SelectDataTable(sql,"tmp");

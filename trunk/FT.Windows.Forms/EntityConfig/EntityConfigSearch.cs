@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace FT.Windows.Forms
 {
@@ -13,6 +14,7 @@ namespace FT.Windows.Forms
         public EntityConfigSearch()
         {
             InitializeComponent();
+            this.AddSearch();
             this.EntityType = typeof(EntityColumnDefine);
             this.DetailFormType = typeof(EntityConfigBrowser);
         }
@@ -22,6 +24,30 @@ namespace FT.Windows.Forms
             this.pager.EntityType = typeof(EntityColumnDefine);
             this.pager.OrderField = "id";
         }
+        private void AddSearch()
+        {
+            ToolStripComboBox cb = new ToolStripComboBox();
+            cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
+            cb.ToolTipText = "选择类别进行查询模板后配置";
+            this.toolStrip1.Items.Add(cb);
+            ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(EntityDefine));
+            EntityDefine define;
+            for(int i=0;i<lists.Count;i++)
+            {
+                define=lists[i] as EntityDefine;
+                cb.Items.Add(define.ClassCnName);
+            }
+            
+
+        }
+
+        void cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ToolStripComboBox cb = sender as ToolStripComboBox;
+            this.SetConditions(" c_class_cn_name = '" + cb.Text.Trim() + "'");
+        }
+
+       
 /*
         protected override void SettingGridStyle()
         {

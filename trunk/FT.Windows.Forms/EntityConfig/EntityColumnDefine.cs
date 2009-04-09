@@ -30,6 +30,16 @@ namespace FT.Windows.Forms
             set { PropertyName = value; }
         }
 
+        [SimpleColumn(Column = "c_column_name")]
+        [Alias("数据库列名")]
+        public string ColumnName;
+
+        public string 数据库列名
+        {
+            get { return ColumnName; }
+            set { ColumnName = value; }
+        }
+
         [SimpleColumn(Column = "c_header_name")]
         [Alias("列头名称")]
         public string HeaderName;

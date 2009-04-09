@@ -67,7 +67,7 @@ namespace FT.Windows.Forms
         {
 
             DataTable dt = this.GetTableFromGrid();
-            string path = FileDialogHelper.SaveExcel();
+            string path = FileDialogHelper.SaveExcel(this.GetTitle()+".xls");
                 if (path != null && path != string.Empty)
                 {
                     if (File.Exists(path))

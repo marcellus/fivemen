@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="AppicationHelper.cs" />
     <Compile Include="ApplicationStartConfig.cs" />
+    <Compile Include="CommonPanel\DateBetweenPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonPanel\DateBetweenPanel.Designer.cs">
+      <DependentUpon>DateBetweenPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\DataCounterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +239,10 @@
     <EmbeddedResource Include="BaseMainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>BaseMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonPanel\DateBetweenPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DateBetweenPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConditionBuildForm.resx">
       <SubType>Designer</SubType>

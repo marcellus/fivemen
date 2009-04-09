@@ -88,16 +88,17 @@ namespace FT.Windows.Forms
                     foreach (DataRow dr in dt.Rows)
                     {
                         column.ClassCnName = cn;
-                        column.ExportWidth = 50;
+                        column.ExportWidth = 80;
                         column.HeaderName = dr["text"].ToString();
-                        column.HeaderWidth = 50;
+                        column.HeaderWidth = 80;
                         column.IsExportExcel = true;
                         column.IsPrinted = true;
                         column.OrderNum=i;
-                        column.PrintedWidth = 50;
+                        column.ColumnName = dr["value"].ToString();
+                        column.PrintedWidth = 80;
                         column.PropertyName = column.HeaderName;
                         column.ShowInDetail = true;
-                        column.DetailWidth = 50;
+                        column.DetailWidth = 80;
                         column.ClassFullName = fullname;
                         FT.DAL.Orm.SimpleOrmOperator.Create(column);
                         //column.s

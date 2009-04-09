@@ -13,16 +13,37 @@ namespace DS.Plugins.Car
         public CarSearch()
         {
             InitializeComponent();
+            this.AddSearch();
             this.EntityType = typeof(CarInfo);
             this.DetailFormType = typeof(CarBrowser);
         }
+
+        private void AddSearch()
+        {
+            ToolStripTextBox txt = new System.Windows.Forms.ToolStripTextBox();
+            txt.KeyDown += new KeyEventHandler(txt_KeyDown);
+            txt.ToolTipText = "输入号码号牌按回车查询";
+            this.toolStrip1.Items.Add(txt);
+
+        }
+
+        void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ToolStripTextBox txt = sender as ToolStripTextBox;
+                this.SetConditions(" c_hmhp like '" + txt.Text.Trim() + "%'");
+            }
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
         protected override void InitPager()
         {
             base.InitPager();
             this.pager.EntityType = typeof(CarInfo);
             this.pager.OrderField = "id";
         }
-
+/*
         protected override void SettingGridStyle()
         {
 
@@ -39,7 +60,7 @@ namespace DS.Plugins.Car
             this.CreateColumn("合同签订时间", 130).DefaultCellStyle.Format = "yyyy-MM-dd";
             this.CreateColumn("是否教练车");
             this.CreateColumn("是否考试车");
-        }
+        }*/
     }
 }
 
