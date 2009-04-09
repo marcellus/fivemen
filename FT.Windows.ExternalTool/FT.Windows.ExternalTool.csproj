@@ -44,6 +44,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaptureImageTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptureImageTest.Designer.cs">
+      <DependentUpon>CaptureImageTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Code39Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CaptureImageTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CaptureImageTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code39Test.resx">
       <DependentUpon>Code39Test.cs</DependentUpon>
       <SubType>Designer</SubType>
