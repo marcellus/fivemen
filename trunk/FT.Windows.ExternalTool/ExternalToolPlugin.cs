@@ -56,6 +56,9 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("TCP∑˛ŒÒ∆˜∂À≈‰÷√", typeof(FT.Commons.TcpIp.TcpServerConfigForm));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("ΩÿÕº≤‚ ‘", typeof(FT.Windows.ExternalTool.CaptureImageTest));
+            top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCPøÿ÷∆Ã®", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }

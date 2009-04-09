@@ -104,6 +104,13 @@ namespace DS.Plugins.Student
         {
             this.ValidateNumber(sender, e, "考试成绩必须是数字！", false);
         }
+
+        protected override bool CheckBeforeCreate()
+        {
+            bool result = true;
+
+            return result;
+        }
     }
 }
 
