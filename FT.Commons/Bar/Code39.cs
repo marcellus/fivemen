@@ -175,6 +175,13 @@ namespace FT.Commons.Bar
             {
                 Bitmap saved = new Bitmap(this.Width, this.Height);
                 Graphics g = Graphics.FromImage(saved);
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+
+                //设置高质量,低速度呈现平滑程度
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                //清空画布并以白色背景色填充
+                g.Clear(Color.White);
                 g.FillRectangle(new SolidBrush(Color.White), 0, 0, this.Width, this.Height);
                 this.DrawBarCode39(code39, Title, g);
                 return saved;
