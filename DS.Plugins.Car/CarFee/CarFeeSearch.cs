@@ -13,8 +13,27 @@ namespace DS.Plugins.Car
         public CarFeeSearch()
         {
             InitializeComponent();
+            this.AddSearch();
             this.EntityType = typeof(CarFee);
             this.DetailFormType = typeof(CarFeeBrowser);
+        }
+        private void AddSearch()
+        {
+            ToolStripTextBox txt = new System.Windows.Forms.ToolStripTextBox();
+            txt.KeyDown += new KeyEventHandler(txt_KeyDown);
+            txt.ToolTipText = "输入号码号牌按回车查询";
+            this.toolStrip1.Items.Add(txt);
+
+        }
+
+        void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ToolStripTextBox txt = sender as ToolStripTextBox;
+                this.SetConditions(" c_hmhp like '" + txt.Text.Trim() + "%'");
+            }
+            //throw new Exception("The method or operation is not implemented.");
         }
         protected override void InitPager()
         {
@@ -22,7 +41,7 @@ namespace DS.Plugins.Car
             this.pager.EntityType = typeof(CarFee);
             this.pager.OrderField = "id";
         }
-
+        /*
         protected override void SettingGridStyle()
         {
             this.dataGridView1.AutoGenerateColumns = false;
@@ -31,7 +50,7 @@ namespace DS.Plugins.Car
             this.CreateColumn("费用金额", 80);
             this.CreateColumn("费用类别", 100);
             this.CreateColumn("备注");
-        }
+        }*/
     }
 }
 

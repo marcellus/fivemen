@@ -44,11 +44,14 @@ namespace FT.Plugins.PersonCard
 
 
 
+        
+        #endregion
+        /*
         protected override void SettingGridStyle()
         {
-            
+
             this.dataGridView1.AutoGenerateColumns = false;
-            this.CreateColumn("姓名",80);
+            this.CreateColumn("姓名", 80);
             this.CreateColumn("昵称", 80);
             this.CreateColumn("性别", 80);
             this.CreateColumn("出生年月", 100).DefaultCellStyle.Format = "yyyy-MM-dd";
@@ -60,8 +63,6 @@ namespace FT.Plugins.PersonCard
 
 
         }
-        #endregion
-
         protected override string GetPrintField()
         {
             return @"c_name as 姓名,c_nickname as 昵称,c_sex as 性别,
@@ -73,7 +74,7 @@ c_mobile as 手机,c_email as 联系邮箱,c_group as 分组名称";
         {
             return new int[] { 100,100,60,120,120,120,100 };
             //return base.GetPrintWidths();
-        }
+        }*/
 
     }
 }

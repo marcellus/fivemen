@@ -12,6 +12,7 @@ using FT.Commons.Com.Excels;
 using FT.DAL;
 using System.IO;
 using System.Collections;
+using FT.Commons.Cache;
 
 namespace FT.Windows.Forms
 {
@@ -370,8 +371,21 @@ namespace FT.Windows.Forms
         protected  virtual void SettingGridStyle()
         {
             this.dataGridView1.AutoGenerateColumns = false;
-            ArrayList lists = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FT.Windows.Forms.EntityColumnDefine>(" where c_class_full_name='"+
-                this.entityType.FullName+"'");
+            string key=this.entityType.FullName+"-detail-columndefine";
+            ArrayList lists;
+            if (StaticCacheManager.Get(key) != null)
+            {
+                lists=StaticCacheManager.Get(key) as ArrayList;
+            }
+            else
+            {
+                 
+                lists= FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FT.Windows.Forms.EntityColumnDefine>
+                    (" where bool_showindetail='True' and c_class_full_name='" +
+                this.entityType.FullName + "' order by i_order_num");
+                StaticCacheManager.Add(key,lists);
+            }
+           
             EntityColumnDefine column = null;
             for (int i = 0; i < lists.Count-1; i++)
             {
@@ -460,13 +474,14 @@ namespace FT.Windows.Forms
         {
             if (dt != null && dt.Rows.Count > 0)
             {
-                string path = FileDialogHelper.SaveExcel();
+                string title = this.GetExportTitle(); 
+                string path = FileDialogHelper.SaveExcel(title+".xls");
                 if (path != null && path != string.Empty)
                 {
                     if (File.Exists(path))
                         File.Delete(path);
                     ListExcel ls = new ListExcel(path, dt);
-                    ls.Title = this.GetExportTitle();
+                    ls.Title = title;
                     ls.GetExcelReport();
                     this.Cursor = Cursors.WaitCursor;
                     MessageBoxHelper.Show("导出成功！");
@@ -642,7 +657,7 @@ namespace FT.Windows.Forms
         /// <returns></returns>
         protected virtual string GetPrintField()
         {
-            return string.Empty;
+            return SimpleOrmCache.GetPrintSql(this.entityType);
         }
 
         /// <summary>
@@ -651,7 +666,7 @@ namespace FT.Windows.Forms
         /// <returns></returns>
         protected virtual int[] GetPrintWidths()
         {
-            return null;
+            return SimpleOrmCache.GetPrintWidths(this.entityType);
         }
 
         private int[] GetDataGridViewWidth()

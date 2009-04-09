@@ -46,7 +46,7 @@ namespace FT.Windows.CommonsPlugin
 
             tmp = this.BuildSystemToolMenu("时间日期", "timedate.cpl",FT.Windows.CommonsPlugin.Resource.clock);
             top.DropDownItems.Add(tmp);
-            this.IsEmmitSeparator = true;
+            this.IsEmmitSeparator = false;
         }
         
        

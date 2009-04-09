@@ -44,6 +44,7 @@ namespace FT.Windows.Forms
                     this.cbClassCnName.DisplayMember = "实体中文名称";
                     this.cbClassCnName.ValueMember = "关联类全称";
                     this.cbClassCnName.SelectedIndex = 0;
+                    this.cbClassCnName_SelectedIndexChanged(null, null);
                 }
                 //FT.Windows.CommonsPlugin.Entity.DictManager.BindToCombox(this.cbCarType, "准驾车型");
             }
@@ -77,9 +78,18 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected override void AfterSuccessUpdate()
+        {
+            base.AfterSuccessUpdate();
+            string typename = this.cbClassCnName.SelectedValue.ToString() ;
+            object obj=ReflectHelper.CreateInstance(typename);
+            FT.DAL.Orm.SimpleOrmCache.RefreshTemplateSql(obj.GetType());
+        }
+
         protected override void BeforeSave(object entity)
         {
             FT.Commons.Tools.FormHelper.SetDataToObject(entity, "ClassFullName", this.cbClassCnName.SelectedValue.ToString());
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "ColumnName", this.cbPropertyName.SelectedValue.ToString());
         }
     }
 }

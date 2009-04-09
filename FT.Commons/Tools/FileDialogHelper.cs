@@ -63,7 +63,16 @@ namespace FT.Commons.Tools
         /// <returns></returns>
         public static string SaveExcel()
         {
-            return Save("保存Excel", ExcelFilter);
+            return SaveExcel(string.Empty);
+        }
+
+        /// <summary>
+        /// 保存Excel对话框,并返回保存全路径
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveExcel(string filename)
+        {
+            return Save("保存Excel", ExcelFilter,filename);
         }
 
         private static string ImageFilter = "Image Files(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|All File(*.*)|*.*";
@@ -132,7 +141,6 @@ namespace FT.Commons.Tools
             return Save("保存图片", ImageFilter,filename);
         }
 
-
         /// <summary>
         /// Saves the specified tile.
         /// </summary>
@@ -141,17 +149,11 @@ namespace FT.Commons.Tools
         /// <returns></returns>
         public static string Save(string title, string filter)
         {
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = filter;
-            dialog.Title = title;
-            dialog.RestoreDirectory = true;
-           // dialog.ShowDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                return dialog.FileName;
-            }
-            return string.Empty;
+            return Save(title, filter, string.Empty);
         }
+
+
+       
 
         /// <summary>
         /// 保存图片对话框,并返回保存全路径

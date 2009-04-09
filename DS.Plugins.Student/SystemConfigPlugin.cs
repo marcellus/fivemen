@@ -27,6 +27,10 @@ namespace DS.Plugins.Student
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("学员打印配置", typeof(PrintSettingForm));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("模板列定义管理", typeof(FT.Windows.Forms.EntityConfigSearch));
+            top.DropDownItems.Add(tmp);
+            
         }
 
         public override void EmmitToolBar()

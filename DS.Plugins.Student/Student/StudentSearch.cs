@@ -147,7 +147,7 @@ namespace DS.Plugins.Student
             this.pager.EntityType = typeof(StudentInfo);
             this.pager.OrderField = "id";
         }
-
+        /*
         protected override void SettingGridStyle()
         {
 
@@ -161,7 +161,7 @@ namespace DS.Plugins.Student
             this.CreateColumn("∫≈¬Î∫≈≈∆", 80);
             this.CreateColumn("ΩÃ¡∑÷§∫≈", 100);
             this.CreateColumn("º› ª÷§±‡∫≈");
-        }
+        }*/
 
         private bool IsChecked()
         {

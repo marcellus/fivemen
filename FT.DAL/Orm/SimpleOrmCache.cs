@@ -81,10 +81,133 @@ namespace FT.DAL.Orm
             return second["select.sql"].ToString();
         }
 
+        public static void RefreshTemplateSql(Type type)
+        {
+            string key1 = "print.sql.table.template";
+            string key2 = "export.sql.table.template";
+            string key3 = "export.widths.table.template";
+            string key4 = "print.widths.table.template";
+            string key5 = type.FullName + "-detail-columndefine";
+            FT.Commons.Cache.StaticCacheManager.Caches.Remove(key5);
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            second.Remove(key1);
+            second.Remove(key2);
+            second.Remove(key3);
+            second.Remove(key4);
+        }
+
+        
+
+        public static int[] GetPrintWidths(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            string key = "print.widths.table.template";
+            if (second.ContainsKey(key))
+            {
+                return second[key] as int[];
+            }
+            else
+            {
+                DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select i_printed_width from table_entity_column_define  where bool_isprinted='True' and c_class_full_name='" + type.FullName + "' order by i_order_num", "temp");
+                int[] widths=new int[dt.Rows.Count-1];
+                for(int i=0;i<widths.Length;i++)
+                {
+                    try
+                    {
+                        widths[i]=Convert.ToInt32(dt.Rows[i][0].ToString());
+                    }
+                    catch
+                    {
+                        widths[i]=50;
+                    }
+                }
+
+                second[key] = widths ;
+                return second[key] as int[];
+
+            }
+            return null;
+        }
+
+        public static string GetPrintSql(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            string key = "print.sql.table.template";
+            if (second.ContainsKey(key))
+            {
+                return second[key].ToString();
+            }
+            else
+            {
+                DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select c_column_name,c_header_name from table_entity_column_define  where bool_isprinted='True' and c_class_full_name='" + type.FullName + "' order by i_order_num", "temp");
+                StringBuilder sb = new StringBuilder();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb.Append(dr[0].ToString() + " as " + dr[1].ToString() + ",");
+                }
+                second[key] = sb.ToString().TrimEnd(',');
+                return second[key].ToString();
+
+            }
+            return second["export.sql"].ToString();
+        }
+
+        public static int[] GetExportWidths(Type type)
+        {
+            InitType(type);
+            Hashtable second = caches[type.FullName] as Hashtable;
+            string key = "export.widths.table.template";
+            if (second.ContainsKey(key))
+            {
+                return second[key] as int[];
+            }
+            else
+            {
+                DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select i_export_width from table_entity_column_define  where bool_isexported='True' and c_class_full_name='" + type.FullName + "' order by i_order_num", "temp");
+                int[] widths = new int[dt.Rows.Count - 1];
+                for (int i = 0; i < widths.Length; i++)
+                {
+                    try
+                    {
+                        widths[i] = Convert.ToInt32(dt.Rows[i][0].ToString());
+                    }
+                    catch
+                    {
+                        widths[i] = 50;
+                    }
+                }
+
+                second[key] = widths;
+                return second[key] as int[];
+
+            }
+            return null;
+        }
+
         public static string GetExportSql(Type type)
         {
             InitType(type);
             Hashtable second = caches[type.FullName] as Hashtable;
+            string key = "export.sql.table.template";
+            if (second.ContainsKey(key))
+            {
+                return second[key].ToString();
+            }
+            else
+            {
+                DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select c_column_name,c_header_name from table_entity_column_define  where bool_isexported='True' and c_class_full_name='" + type.FullName + "' order by i_order_num", "temp");
+                StringBuilder sb = new StringBuilder();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb.Append(dr[0].ToString() + " as " + dr[1].ToString() + ",");
+                }
+                second[key] = sb.ToString().TrimEnd(',');
+                return second[key].ToString();
+
+            }
             return second["export.sql"].ToString();
         }
 
