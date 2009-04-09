@@ -75,7 +75,7 @@ namespace DS.Plugins.Student
                 SizeF titleSize = MyGraphics.MeasureString("1", code39.titleFont);
                 code39.Height = code39.topHeight + code39.LineHeight + (int)titleSize.Height;//定义图片高度          
                 Bitmap map = code39.CreateBarCode(Student.IdCard);
-                MyGraphics.DrawImage(map, width - 80, height - 46);
+                MyGraphics.DrawImage(map, new RectangleF(width - 40, height - 46, 240, 30));
             }
             catch (Exception ex)
             {

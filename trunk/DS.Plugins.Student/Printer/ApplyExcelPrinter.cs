@@ -75,7 +75,7 @@ namespace DS.Plugins.Student
                 Bitmap map = code39.CreateBarCode(Student.IdCard);
                 string pathcode39 = Application.StartupPath + "/tempcode39.jpg";
                 map.Save(pathcode39, System.Drawing.Imaging.ImageFormat.Jpeg);
-                excel.InsertPicture(3, 1, pathcode39, 195, 27, 0);
+                excel.InsertPicture(3, 1, pathcode39, 155, 26, 0);
             }
             catch (Exception ex)
             {
