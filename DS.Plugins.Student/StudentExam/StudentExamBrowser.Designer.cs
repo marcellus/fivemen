@@ -29,10 +29,10 @@ namespace DS.Plugins.Student
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtScore = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.dateExamDate = new System.Windows.Forms.DateTimePicker();
             this.cbResult = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtScore = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtExamPerson = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,10 +59,10 @@ namespace DS.Plugins.Student
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtScore);
             this.groupBox1.Controls.Add(this.dateExamDate);
             this.groupBox1.Controls.Add(this.cbResult);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtScore);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtExamPerson);
             this.groupBox1.Controls.Add(this.label11);
@@ -88,6 +88,14 @@ namespace DS.Plugins.Student
             this.groupBox1.Size = new System.Drawing.Size(396, 253);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // txtScore
+            // 
+            this.txtScore.Location = new System.Drawing.Point(73, 197);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(100, 21);
+            this.txtScore.TabIndex = 32;
+            this.txtScore.Validating += new System.ComponentModel.CancelEventHandler(this.txtScore_Validating);
             // 
             // dateExamDate
             // 
@@ -117,14 +125,6 @@ namespace DS.Plugins.Student
             this.label13.TabIndex = 34;
             this.label13.Text = "¿¼ÊÔ½á¹û";
             // 
-            // txtScore
-            // 
-            this.txtScore.Location = new System.Drawing.Point(73, 197);
-            this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(100, 21);
-            this.txtScore.TabIndex = 33;
-            this.txtScore.Validating += new System.ComponentModel.CancelEventHandler(this.txtScore_Validating);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -152,6 +152,8 @@ namespace DS.Plugins.Student
             // 
             // cbSubject
             // 
+            this.cbSubject.BackColor = System.Drawing.SystemColors.Control;
+            this.cbSubject.Enabled = false;
             this.cbSubject.FormattingEnabled = true;
             this.cbSubject.Location = new System.Drawing.Point(73, 166);
             this.cbSubject.Name = "cbSubject";
@@ -266,8 +268,8 @@ namespace DS.Plugins.Student
             this.textBox1.Location = new System.Drawing.Point(130, 14);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 21);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label7
             // 
@@ -337,8 +339,8 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtExamPerson;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.ComboBox cbResult;
         private System.Windows.Forms.DateTimePicker dateExamDate;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtScore;
     }
 }

@@ -31,7 +31,6 @@ namespace DS.Plugins.Car
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFee = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateFeeDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,15 +38,16 @@ namespace DS.Plugins.Car
             this.label3 = new System.Windows.Forms.Label();
             this.cbFeeType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtFee = new FT.Windows.Controls.TextBoxEx.NumberInput();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFee);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtFee);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dateFeeDate);
             this.groupBox1.Controls.Add(this.label4);
@@ -77,14 +77,6 @@ namespace DS.Plugins.Car
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 8;
             this.label6.Text = "备注";
-            // 
-            // txtFee
-            // 
-            this.txtFee.Location = new System.Drawing.Point(109, 100);
-            this.txtFee.Name = "txtFee";
-            this.txtFee.Size = new System.Drawing.Size(200, 21);
-            this.txtFee.TabIndex = 7;
-            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
             // 
             // label5
             // 
@@ -149,6 +141,14 @@ namespace DS.Plugins.Car
             this.label2.TabIndex = 0;
             this.label2.Text = "费用类别";
             // 
+            // txtFee
+            // 
+            this.txtFee.Location = new System.Drawing.Point(109, 100);
+            this.txtFee.Name = "txtFee";
+            this.txtFee.Size = new System.Drawing.Size(200, 21);
+            this.txtFee.TabIndex = 10;
+            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
+            // 
             // CarFeeBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -178,6 +178,6 @@ namespace DS.Plugins.Car
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtFee;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtFee;
     }
 }

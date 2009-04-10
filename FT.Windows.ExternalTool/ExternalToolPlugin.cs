@@ -59,6 +59,9 @@ namespace FT.Windows.ExternalTool
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("ΩÿÕº≤‚ ‘", typeof(FT.Windows.ExternalTool.CaptureImageTest));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("KeyCharº‡Ã˝", typeof(FT.Windows.Forms.CommonForm.KeyCharMonitorForm));
+            top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCPøÿ÷∆Ã®", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }

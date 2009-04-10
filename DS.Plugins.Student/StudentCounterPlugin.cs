@@ -26,20 +26,20 @@ namespace DS.Plugins.Student
             ToolStripMenuItem tmp = this.BuildSubMenu("学员汇总", typeof(SimpleStudentCounter));
             top.DropDownItems.Add(tmp);
 
-            tmp = this.BuildSubMenu("学员统计", typeof(SimpleStudentCounter));
+            tmp = this.BuildSubMenu("学员统计", typeof(StudentCounter));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("学生费用汇总", typeof(SimpleStudentCounter));
+            tmp = this.BuildSubMenu("学生费用统计", typeof(StudentFeeCounter));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("车辆费用汇总", typeof(SimpleStudentCounter));
+            tmp = this.BuildSubMenu("车辆费用统计", typeof(CarFeeCounter));
             top.DropDownItems.Add(tmp);
 
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("合格率统计", typeof(SimpleStudentCounter));
+            tmp = this.BuildSubMenu("合格率统计", typeof(CoachCounter));
             top.DropDownItems.Add(tmp);
         }
 

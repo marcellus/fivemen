@@ -285,7 +285,7 @@ namespace FT.DAL.Orm
         /// 返回查询条件的记录总数
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="condition"></param>
+        /// <param name="condition">必须带where的条件</param>
         /// <returns></returns>
         public static int QueryCounts(Type type,string condition)
         {
@@ -300,7 +300,7 @@ namespace FT.DAL.Orm
         /// 返回查询条件的记录总数
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="condition"></param>
+        /// <param name="condition">必须带where的条件</param>
         /// <returns></returns>
         public static int QueryCounts(string table,string condition)
         {

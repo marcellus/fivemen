@@ -29,12 +29,12 @@ namespace DS.Plugins.Student
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFee = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.lbName = new System.Windows.Forms.Label();
             this.textbox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFee = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateFeeDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,12 +48,12 @@ namespace DS.Plugins.Student
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFee);
             this.groupBox1.Controls.Add(this.lbName);
             this.groupBox1.Controls.Add(this.textbox1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtFee);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dateFeeDate);
             this.groupBox1.Controls.Add(this.label4);
@@ -66,6 +66,14 @@ namespace DS.Plugins.Student
             this.groupBox1.Size = new System.Drawing.Size(382, 283);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // txtFee
+            // 
+            this.txtFee.Location = new System.Drawing.Point(109, 135);
+            this.txtFee.Name = "txtFee";
+            this.txtFee.Size = new System.Drawing.Size(200, 21);
+            this.txtFee.TabIndex = 6;
+            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
             // 
             // lbName
             // 
@@ -80,9 +88,9 @@ namespace DS.Plugins.Student
             this.textbox1.Location = new System.Drawing.Point(109, 48);
             this.textbox1.Name = "textbox1";
             this.textbox1.Size = new System.Drawing.Size(200, 21);
-            this.textbox1.TabIndex = 11;
-            this.textbox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.textbox1.TabIndex = 1;
             this.textbox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textbox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
             // 
             // label7
             // 
@@ -109,14 +117,6 @@ namespace DS.Plugins.Student
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 8;
             this.label6.Text = "±¸×¢";
-            // 
-            // txtFee
-            // 
-            this.txtFee.Location = new System.Drawing.Point(109, 134);
-            this.txtFee.Name = "txtFee";
-            this.txtFee.Size = new System.Drawing.Size(200, 21);
-            this.txtFee.TabIndex = 7;
-            this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
             // 
             // label5
             // 
@@ -171,7 +171,7 @@ namespace DS.Plugins.Student
             this.cbFeeType.Location = new System.Drawing.Point(109, 18);
             this.cbFeeType.Name = "cbFeeType";
             this.cbFeeType.Size = new System.Drawing.Size(200, 20);
-            this.cbFeeType.TabIndex = 1;
+            this.cbFeeType.TabIndex = 111;
             // 
             // label2
             // 
@@ -205,7 +205,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtFee;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateFeeDate;
         private System.Windows.Forms.Label label4;
@@ -216,5 +215,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textbox1;
         private System.Windows.Forms.Label lbName;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtFee;
     }
 }

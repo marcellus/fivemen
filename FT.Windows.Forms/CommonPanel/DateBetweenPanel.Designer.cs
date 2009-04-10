@@ -34,7 +34,7 @@
             this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.checkWeek = new System.Windows.Forms.CheckBox();
             this.checkMonth = new System.Windows.Forms.CheckBox();
-            this.checkSeason = new System.Windows.Forms.CheckBox();
+            this.cbSeason = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -91,22 +91,26 @@
             this.checkMonth.UseVisualStyleBackColor = true;
             this.checkMonth.CheckedChanged += new System.EventHandler(this.checkMonth_CheckedChanged);
             // 
-            // checkSeason
+            // cbSeason
             // 
-            this.checkSeason.AutoSize = true;
-            this.checkSeason.Location = new System.Drawing.Point(187, 41);
-            this.checkSeason.Name = "checkSeason";
-            this.checkSeason.Size = new System.Drawing.Size(60, 16);
-            this.checkSeason.TabIndex = 6;
-            this.checkSeason.Text = "按季度";
-            this.checkSeason.UseVisualStyleBackColor = true;
-            this.checkSeason.CheckedChanged += new System.EventHandler(this.checkSeason_CheckedChanged);
+            this.cbSeason.FormattingEnabled = true;
+            this.cbSeason.Items.AddRange(new object[] {
+            "请选择",
+            "季度一",
+            "季度二",
+            "季度三",
+            "季度四"});
+            this.cbSeason.Location = new System.Drawing.Point(187, 40);
+            this.cbSeason.Name = "cbSeason";
+            this.cbSeason.Size = new System.Drawing.Size(60, 20);
+            this.cbSeason.TabIndex = 6;
+            this.cbSeason.SelectedIndexChanged += new System.EventHandler(this.cbSeason_SelectedIndexChanged);
             // 
             // DateBetweenPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.checkSeason);
+            this.Controls.Add(this.cbSeason);
             this.Controls.Add(this.checkMonth);
             this.Controls.Add(this.checkWeek);
             this.Controls.Add(this.dateEnd);
@@ -128,6 +132,6 @@
         private System.Windows.Forms.DateTimePicker dateEnd;
         private System.Windows.Forms.CheckBox checkWeek;
         private System.Windows.Forms.CheckBox checkMonth;
-        private System.Windows.Forms.CheckBox checkSeason;
+        private System.Windows.Forms.ComboBox cbSeason;
     }
 }

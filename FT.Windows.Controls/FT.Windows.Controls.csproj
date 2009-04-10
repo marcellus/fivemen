@@ -90,10 +90,22 @@
     <Compile Include="TextBoxEx\DateTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TextBoxEx\OldCarInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxEx\OldCarInput.Designer.cs">
+      <DependentUpon>OldCarInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxEx\TextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextBoxEx\NumberInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxEx\NumberInput.Designer.cs">
+      <DependentUpon>NumberInput.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

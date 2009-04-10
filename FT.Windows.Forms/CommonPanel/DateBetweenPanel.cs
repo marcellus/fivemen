@@ -14,6 +14,8 @@ namespace FT.Windows.Forms.CommonPanel
         public DateBetweenPanel()
         {
             InitializeComponent();
+            this.cbSeason.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cbSeason.SelectedIndex = 0;
         }
 
         public DateTime BeginDate
@@ -38,7 +40,7 @@ namespace FT.Windows.Forms.CommonPanel
             {
                 this.dateBegin.Value = DateTimeHelper.GetMonday();
                 this.dateEnd.Value = DateTimeHelper.GetSunday();
-                this.checkMonth.Checked = this.checkSeason.Checked = !this.checkWeek.Checked;
+                this.checkMonth.Checked  = !this.checkWeek.Checked;
             }
         }
 
@@ -48,18 +50,21 @@ namespace FT.Windows.Forms.CommonPanel
             {
                 this.dateBegin.Value = DateTimeHelper.GetMonthFirstDay();
                 this.dateEnd.Value = DateTimeHelper.GetMonthLastDay();
-                this.checkWeek.Checked = this.checkSeason.Checked = !this.checkMonth.Checked;
+                this.checkWeek.Checked  = !this.checkMonth.Checked;
             }
         }
 
-        private void checkSeason_CheckedChanged(object sender, EventArgs e)
+        private void cbSeason_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.checkSeason.Checked)
+            int index = this.cbSeason.SelectedIndex;
+            if (index != 0)
             {
-                this.dateBegin.Value = DateTimeHelper.GetSeasonFirstDay();
-                this.dateEnd.Value = DateTimeHelper.GetSeasonLastDay();
-                this.checkWeek.Checked = this.checkMonth.Checked = !this.checkSeason.Checked;
+                DateTime now = new DateTime(System.DateTime.Now.Year, index*3, 1);
+                this.dateBegin.Value = DateTimeHelper.GetSeasonFirstDay(now);
+                this.dateEnd.Value = DateTimeHelper.GetSeasonLastDay(now);
             }
         }
+
+        
     }
 }

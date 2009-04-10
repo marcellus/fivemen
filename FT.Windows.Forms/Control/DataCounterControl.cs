@@ -103,7 +103,7 @@ namespace FT.Windows.Forms
                 dr = dt.NewRow();
                 for (int j = 0; j < cols; j++)
                 {
-                    tmp = dataGridView1.Rows[i].Cells[j].Value;
+                    tmp = dataGridView1.Rows[i].Cells[j].FormattedValue;
                     dr[j] = tmp == null ? "" : tmp.ToString();
 
                 }
@@ -127,7 +127,15 @@ namespace FT.Windows.Forms
             if (this.dataGridView1.Rows.Count > 0)
             {
                 DataTable dt = this.GetTableFromGrid();
-                DataTablePrinterContent.Print(dt, this.GetDataGridViewWidth(), this.GetTitle());
+                try
+                {
+
+                    DataTablePrinterContent.Print(dt, this.GetDataGridViewWidth(), this.GetTitle());
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxHelper.Show(ex.Message);
+                }
             }
             else
             {
@@ -138,6 +146,57 @@ namespace FT.Windows.Forms
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.Search();
+        }
+
+        #region 子类创建列
+        public void ClearColumns()
+        {
+            this.dataGridView1.Columns.Clear();
+        }
+
+        public DataGridViewTextBoxColumn CreateColumn(string prop)
+        {
+            return CreateColumn(prop, prop);
+        }
+
+        public DataGridViewTextBoxColumn CreateColumn(string prop, string header)
+        {
+            DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
+            tmp.DataPropertyName = prop;
+            tmp.HeaderText = header;
+            tmp.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridView1.Columns.Add(tmp);
+            return tmp;
+        }
+
+        public DataGridViewTextBoxColumn CreateColumn(string prop, int width)
+        {
+            return this.CreateColumn(prop, prop, width);
+        }
+
+        public DataGridViewTextBoxColumn CreateColumn(string prop, string header, int width)
+        {
+            DataGridViewTextBoxColumn tmp = new DataGridViewTextBoxColumn();
+            tmp.DataPropertyName = prop;
+            tmp.HeaderText = header;
+            tmp.Width = width;
+            this.dataGridView1.Columns.Add(tmp);
+            return tmp;
+        }
+        #endregion
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X,
+       e.RowBounds.Location.Y,
+        dataGridView1.RowHeadersWidth - 4,
+        e.RowBounds.Height);
+
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
+            dataGridView1.RowHeadersDefaultCellStyle.Font,
+                rectangle,
+                dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
     }
 }
