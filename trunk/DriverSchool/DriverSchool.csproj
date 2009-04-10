@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DriverSchool</RootNamespace>
     <AssemblyName>DriverSchool</AssemblyName>
+    <ApplicationIcon>car.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,6 +104,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="car.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

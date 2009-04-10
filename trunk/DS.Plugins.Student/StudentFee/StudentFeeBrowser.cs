@@ -94,6 +94,10 @@ namespace DS.Plugins.Student
             {
                 this.lbName.Text = obj.ToString();
             }
+            else
+            {
+                //this.lbName.Text = this.cbIdCard.Text.Trim();
+            }
         }
 
         private void BindIdCard(string id)

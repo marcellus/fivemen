@@ -138,7 +138,7 @@ namespace DS.Plugins.Car
                 fees.CreateColumn("号码号牌", 80);
                 fees.CreateColumn("费用时间", 140);
                 fees.CreateColumn("费用金额", 80);
-                fees.CreateColumn("费用类别", 100);
+                fees.CreateColumn("费用类别");
                     // this.Width += 30;
                 fees.SetConditions("c_hmhp='" + this.txtHmhp.Text.Trim() + "'");
             }

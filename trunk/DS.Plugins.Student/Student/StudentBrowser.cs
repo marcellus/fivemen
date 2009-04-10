@@ -62,12 +62,7 @@ namespace DS.Plugins.Student
                 DictManager.BindIdCardType(this.cbIdCardType);
                 DictManager.BindNation(this.cbNation);
                 DictManager.BindCarTypeDynamic(this.cbNewCarType);
-                DictManager.BindCarTypeDynamic(this.cbOldCarType);
-                this.cbOldCarType.DropDownStyle = ComboBoxStyle.DropDown;
-                if (this.entity == null)
-                {
-                    this.cbOldCarType.Text = "";
-                }
+               
                 DictManager.BindCarStyle(this.cbNewCarStyle);
                 DictManager.BindFromRoute(this.cbFromRoute);
                 DictManager.BindHospital(this.cbHospital);
@@ -469,8 +464,9 @@ namespace DS.Plugins.Student
                 tb.Controls.Add(exams);
                 exams.ClearColumns();
                 exams.CreateColumn("姓名", 80);
-                exams.CreateColumn("身份证明号", 120);
+                exams.CreateColumn("身份证明号码", 120);
                 exams.CreateColumn("考试日期",100);
+                exams.CreateColumn("考试科目", 100);
                 exams.CreateColumn("考试成绩", 100);
                 exams.CreateColumn("考试结果");
                 // this.Width += 30;
@@ -505,7 +501,7 @@ namespace DS.Plugins.Student
                 tb.Controls.Add(fees);
                 fees.ClearColumns();
                 fees.CreateColumn("姓名", 80);
-                fees.CreateColumn("身份证明号", 120);
+                fees.CreateColumn("身份证明号码", 120);
                 fees.CreateColumn("费用时间", 140);
                 fees.CreateColumn("费用金额", 80);
                 fees.CreateColumn("费用类别");

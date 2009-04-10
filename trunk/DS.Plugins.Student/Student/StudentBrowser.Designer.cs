@@ -30,6 +30,8 @@ namespace DS.Plugins.Student
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtPostCode = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.txtOldCarType = new FT.Windows.Controls.TextBoxEx.OldCarInput();
             this.lbState = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -54,7 +56,6 @@ namespace DS.Plugins.Student
             this.label18 = new System.Windows.Forms.Label();
             this.cbLearnType = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.cbOldCarType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtConnAddress = new System.Windows.Forms.TextBox();
             this.cbBelongCun = new System.Windows.Forms.ComboBox();
@@ -76,7 +77,6 @@ namespace DS.Plugins.Student
             this.label10 = new System.Windows.Forms.Label();
             this.txtTempId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtPostCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbNation = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -107,15 +107,15 @@ namespace DS.Plugins.Student
             this.label34 = new System.Windows.Forms.Label();
             this.cbColor = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.txtRightEye = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.txtLeftEye = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.txtHeight = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtHeight = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.txtLeftEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.txtRightEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -139,6 +139,8 @@ namespace DS.Plugins.Student
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtPostCode);
+            this.tabPage1.Controls.Add(this.txtOldCarType);
             this.tabPage1.Controls.Add(this.lbState);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label42);
@@ -163,7 +165,6 @@ namespace DS.Plugins.Student
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.cbLearnType);
             this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.cbOldCarType);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.txtConnAddress);
             this.tabPage1.Controls.Add(this.cbBelongCun);
@@ -185,7 +186,6 @@ namespace DS.Plugins.Student
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.txtTempId);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.txtPostCode);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.cbNation);
             this.tabPage1.Controls.Add(this.label7);
@@ -206,6 +206,21 @@ namespace DS.Plugins.Student
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtPostCode
+            // 
+            this.txtPostCode.Location = new System.Drawing.Point(94, 64);
+            this.txtPostCode.Name = "txtPostCode";
+            this.txtPostCode.Size = new System.Drawing.Size(121, 21);
+            this.txtPostCode.TabIndex = 13;
+            this.txtPostCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtPostCode_Validating);
+            // 
+            // txtOldCarType
+            // 
+            this.txtOldCarType.Location = new System.Drawing.Point(94, 220);
+            this.txtOldCarType.Name = "txtOldCarType";
+            this.txtOldCarType.Size = new System.Drawing.Size(121, 21);
+            this.txtOldCarType.TabIndex = 34;
             // 
             // lbState
             // 
@@ -425,15 +440,6 @@ namespace DS.Plugins.Student
             this.label17.TabIndex = 36;
             this.label17.Text = "学习类型";
             // 
-            // cbOldCarType
-            // 
-            this.cbOldCarType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOldCarType.FormattingEnabled = true;
-            this.cbOldCarType.Location = new System.Drawing.Point(94, 221);
-            this.cbOldCarType.Name = "cbOldCarType";
-            this.cbOldCarType.Size = new System.Drawing.Size(121, 20);
-            this.cbOldCarType.TabIndex = 35;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -483,8 +489,8 @@ namespace DS.Plugins.Student
             this.txtRegAddress.Name = "txtRegAddress";
             this.txtRegAddress.Size = new System.Drawing.Size(532, 21);
             this.txtRegAddress.TabIndex = 28;
-            this.txtRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtRegAddress_Validating);
             this.txtRegAddress.TextChanged += new System.EventHandler(this.txtRegAddress_TextChanged);
+            this.txtRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtRegAddress_Validating);
             // 
             // cbRegArea
             // 
@@ -616,14 +622,6 @@ namespace DS.Plugins.Student
             this.label9.TabIndex = 14;
             this.label9.Text = "暂住证号";
             // 
-            // txtPostCode
-            // 
-            this.txtPostCode.Location = new System.Drawing.Point(94, 64);
-            this.txtPostCode.Name = "txtPostCode";
-            this.txtPostCode.Size = new System.Drawing.Size(121, 21);
-            this.txtPostCode.TabIndex = 13;
-            this.txtPostCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtPostCode_Validating);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -715,8 +713,8 @@ namespace DS.Plugins.Student
             this.txtIdCard.Name = "txtIdCard";
             this.txtIdCard.Size = new System.Drawing.Size(121, 21);
             this.txtIdCard.TabIndex = 3;
-            this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
             this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
+            this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
             // 
             // label3
             // 
@@ -748,6 +746,9 @@ namespace DS.Plugins.Student
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtRightEye);
+            this.tabPage2.Controls.Add(this.txtLeftEye);
+            this.tabPage2.Controls.Add(this.txtHeight);
             this.tabPage2.Controls.Add(this.cbHospital);
             this.tabPage2.Controls.Add(this.label40);
             this.tabPage2.Controls.Add(this.dateCheckDate);
@@ -764,12 +765,9 @@ namespace DS.Plugins.Student
             this.tabPage2.Controls.Add(this.label34);
             this.tabPage2.Controls.Add(this.cbColor);
             this.tabPage2.Controls.Add(this.label33);
-            this.tabPage2.Controls.Add(this.txtRightEye);
             this.tabPage2.Controls.Add(this.label32);
-            this.tabPage2.Controls.Add(this.txtLeftEye);
             this.tabPage2.Controls.Add(this.label31);
             this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.txtHeight);
             this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -939,14 +937,6 @@ namespace DS.Plugins.Student
             this.label33.TabIndex = 7;
             this.label33.Text = "辨色力";
             // 
-            // txtRightEye
-            // 
-            this.txtRightEye.Location = new System.Drawing.Point(447, 22);
-            this.txtRightEye.Name = "txtRightEye";
-            this.txtRightEye.Size = new System.Drawing.Size(114, 21);
-            this.txtRightEye.TabIndex = 6;
-            this.txtRightEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtRightEye_Validating);
-            // 
             // label32
             // 
             this.label32.AutoSize = true;
@@ -955,14 +945,6 @@ namespace DS.Plugins.Student
             this.label32.Size = new System.Drawing.Size(41, 12);
             this.label32.TabIndex = 5;
             this.label32.Text = "视力右";
-            // 
-            // txtLeftEye
-            // 
-            this.txtLeftEye.Location = new System.Drawing.Point(263, 22);
-            this.txtLeftEye.Name = "txtLeftEye";
-            this.txtLeftEye.Size = new System.Drawing.Size(114, 21);
-            this.txtLeftEye.TabIndex = 4;
-            this.txtLeftEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeftEye_Validating);
             // 
             // label31
             // 
@@ -981,14 +963,6 @@ namespace DS.Plugins.Student
             this.label30.Size = new System.Drawing.Size(17, 12);
             this.label30.TabIndex = 2;
             this.label30.Text = "CM";
-            // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(71, 22);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(114, 21);
-            this.txtHeight.TabIndex = 1;
-            this.txtHeight.Validating += new System.ComponentModel.CancelEventHandler(this.txtHeight_Validating);
             // 
             // label29
             // 
@@ -1016,6 +990,30 @@ namespace DS.Plugins.Student
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "考试记录";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.Location = new System.Drawing.Point(71, 22);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(114, 21);
+            this.txtHeight.TabIndex = 1;
+            this.txtHeight.Validating += new System.ComponentModel.CancelEventHandler(this.txtHeight_Validating);
+            // 
+            // txtLeftEye
+            // 
+            this.txtLeftEye.Location = new System.Drawing.Point(263, 22);
+            this.txtLeftEye.Name = "txtLeftEye";
+            this.txtLeftEye.Size = new System.Drawing.Size(114, 21);
+            this.txtLeftEye.TabIndex = 4;
+            this.txtLeftEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeftEye_Validating);
+            // 
+            // txtRightEye
+            // 
+            this.txtRightEye.Location = new System.Drawing.Point(447, 22);
+            this.txtRightEye.Name = "txtRightEye";
+            this.txtRightEye.Size = new System.Drawing.Size(114, 21);
+            this.txtRightEye.TabIndex = 6;
+            this.txtRightEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtRightEye_Validating);
             // 
             // StudentBrowser
             // 
@@ -1059,7 +1057,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbNation;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtPostCode;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTempId;
         private System.Windows.Forms.TextBox txtPhone;
@@ -1079,7 +1076,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.ComboBox cbBelongArea;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cbOldCarType;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cbLearnType;
         private System.Windows.Forms.ComboBox cbNewCarType;
@@ -1101,11 +1097,8 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txtHeight;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox txtLeftEye;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txtRightEye;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox cbColor;
@@ -1128,5 +1121,10 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label lbState;
         private System.Windows.Forms.TextBox txtExamDate;
         private System.Windows.Forms.Label label15;
+        private FT.Windows.Controls.TextBoxEx.OldCarInput txtOldCarType;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtPostCode;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtHeight;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtLeftEye;
+        private FT.Windows.Controls.TextBoxEx.NumberInput txtRightEye;
     }
 }
