@@ -2,17 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using FT.Commons.Cache;
 
 namespace FT.Device.IDCard
 {
     /// <summary>
     /// ²Ù×÷¶Á¿¨Æ÷µÄ°ïÖúÀà
     /// </summary>
-    public class ReaderHelper:FT.Commons.Tools.BaseHelper
+    public class IDCardReaderHelper:FT.Commons.Tools.BaseHelper
     {
         private IDCardReader reader;
         private Timer timer;
-        public ReaderHelper(De_ReadICCardComplete completeDelegate,int minisecond )
+        public IDCardReaderHelper(De_ReadICCardComplete completeDelegate)
+        {
+            IDCardConfig config=StaticCacheManager.GetConfig<IDCardConfig>();
+            reader = new IDCardReader();
+            timer = new Timer();
+            timer.Interval = config.MiniSecond;
+            timer.Tick += new EventHandler(timer_Tick);
+            reader.ReadICCardComplete += completeDelegate;
+            timer.Start();
+        }
+        public IDCardReaderHelper(De_ReadICCardComplete completeDelegate, int minisecond)
         {
             reader = new IDCardReader();
             timer = new Timer();

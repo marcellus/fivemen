@@ -33,6 +33,8 @@ namespace DS.Plugins.Student
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("考试时间配置", typeof(StudentSystemConfigForm));
             top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("二代证配置", typeof(FT.Device.IDCard.IDCardConfigForm));
+            top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
             tmp = this.BuildTopMenu("备份所有配置");
             tmp.Click += new EventHandler(bak_Click);

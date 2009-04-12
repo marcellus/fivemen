@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Windows.Forms;
 using System.Collections;
+using FT.Device.IDCard;
 
 namespace DS.Plugins.Car
 {
@@ -32,7 +33,7 @@ namespace DS.Plugins.Car
             InitializeComponent();
             this.InitComBox();
         }
-
+       
         private void InitComBox()
         {
             if (!this.DesignMode)
@@ -82,6 +83,21 @@ namespace DS.Plugins.Car
                 this.SetError(sender, "");
                 e.Cancel = false;
             }
+        }
+
+        private void CoachBrowser_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+            {
+                IDCardConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<IDCardConfig>();
+                if(config.UseIDCard)
+                    reader = new IDCardReaderHelper(new De_ReadICCardComplete(AfterReadIdCard));
+            }
+        }
+        private IDCardReaderHelper reader = null;
+        private void AfterReadIdCard(IDCard card)
+        {
+            this.personDetail1.SetIDCard(card);
         }
     }
 }

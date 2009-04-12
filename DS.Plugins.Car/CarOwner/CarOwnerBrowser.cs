@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Windows.Forms;
 using System.Collections;
+using FT.Device.IDCard;
 
 namespace DS.Plugins.Car
 {
@@ -201,6 +202,25 @@ namespace DS.Plugins.Car
             tmp.OwnerId = this.lbId.Text;
             entity= tmp;
             //throw new Exception("The method or operation is not implemented.");
+        }
+
+        private void CarOwnerBrowser_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+            {
+                IDCardConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<IDCardConfig>();
+                if (config.UseIDCard)
+                    reader = new IDCardReaderHelper(new De_ReadICCardComplete(AfterReadIdCard));
+            }
+        }
+        private IDCardReaderHelper reader = null;
+        private void AfterReadIdCard(IDCard card)
+        {
+            this.txtName.Text = card.Name;
+            this.txtIdCard.Text = card.IDC;
+            this.txtAddress.Text = card.ADDRESS;
+            this.dateBirthday.Value = card.BIRTH;
+            this.cbSex.Text = IDCardHelper.GetSexName(card.IDC);
         }
     }
 }
