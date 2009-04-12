@@ -10,6 +10,7 @@ using FT.Windows.Forms.Plugins;
 using FT.Commons.Tools;
 using FT.Commons.Cache;
 using FT.Windows.Forms.Domain;
+using System.IO;
 
 namespace FT.Windows.Forms
 {
@@ -100,7 +101,14 @@ namespace FT.Windows.Forms
                 config.UseCount++;
                 StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
                 FileHelper.WriteLastLog(Application.ProductName);
+                DbAutoBakConfig dbconfig=StaticCacheManager.GetConfig<DbAutoBakConfig>();
+                if (dbconfig.AutoBak)
+                {
+                    dbconfig.BakDb();
+                }
             }
         }
+
+
     }
 }

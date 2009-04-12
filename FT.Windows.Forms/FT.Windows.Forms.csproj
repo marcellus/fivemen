@@ -65,6 +65,13 @@
     <Compile Include="Control\DataCounterControl.Designer.cs">
       <DependentUpon>DataCounterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\DbAutoBakConfig.cs" />
+    <Compile Include="Help\DbAutoBakConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\DbAutoBakConfigForm.Designer.cs">
+      <DependentUpon>DbAutoBakConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EntityConfig\EntityBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +290,10 @@
     <EmbeddedResource Include="CommonPanel\PersonDetail.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PersonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\DbAutoBakConfigForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DbAutoBakConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EntityConfig\EntityBrowser.resx">
       <SubType>Designer</SubType>

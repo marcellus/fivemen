@@ -41,6 +41,10 @@ namespace DS.Plugins.Student
 
             tmp = this.BuildSubMenu("合格率统计", typeof(CoachCounter));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("考试报名", typeof(BaoMinReport));
+            top.DropDownItems.Add(tmp);
         }
 
         public override void EmmitToolBar()

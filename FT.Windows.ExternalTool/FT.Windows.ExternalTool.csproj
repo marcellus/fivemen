@@ -99,6 +99,12 @@
     <Compile Include="SecurityForm.Designer.cs">
       <DependentUpon>SecurityForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZipTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZipTestForm.Designer.cs">
+      <DependentUpon>ZipTestForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
@@ -159,6 +165,10 @@
     <EmbeddedResource Include="SecurityForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SecurityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZipTestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ZipTestForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

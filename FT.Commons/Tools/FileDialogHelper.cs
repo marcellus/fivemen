@@ -77,20 +77,20 @@ namespace FT.Commons.Tools
 
         private static string ImageFilter = "Image Files(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|All File(*.*)|*.*";
 
-
         /// <summary>
         /// Opens the specified title.
         /// </summary>
         /// <param name="title">The title.</param>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
-        public static string Open(string title,string filter)
+        public static string Open(string title, string filter,string filename)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = filter;
             dialog.Title = title;
             dialog.RestoreDirectory = true;
-           // dialog.RestoreDirectory = true;
+            dialog.FileName = filename;
+            // dialog.RestoreDirectory = true;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 return dialog.FileName;
@@ -100,6 +100,37 @@ namespace FT.Commons.Tools
                 return string.Empty;
             }
 
+        }
+
+        /// <summary>
+        /// Opens the specified title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
+        public static string Open(string title,string filter)
+        {
+
+            return Open(title, filter, string.Empty);
+
+        }
+
+        /// <summary>
+        /// Opens the Zip.
+        /// </summary>
+        /// <returns></returns>
+        public static string OpenZip(string filename)
+        {
+            return Open("压缩文件选择", "Zip(*.zip)|*.zip",filename);
+        }
+
+        /// <summary>
+        /// Save the Zip
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveZip(string filename)
+        {
+            return Save("压缩文件保存", "Zip(*.zip)|*.zip",filename);
         }
 
         /// <summary>
@@ -173,6 +204,18 @@ namespace FT.Commons.Tools
         {
             return Save("数据库备份", AccessFilter);
         }
+
+        public static string SaveBakDb()
+        {
+            return Save("数据库备份", "Access(*.bak)|*.bak");
+        }
+
+      
+        public static string OpenBakDb(string file)
+        {
+            return Open("数据库还原", "Access(*.bak)|*.bak",file);
+        }
+
 
         /// <summary>
         /// 数据库还原对话框

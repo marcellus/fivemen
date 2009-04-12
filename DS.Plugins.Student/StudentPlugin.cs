@@ -41,6 +41,9 @@ namespace DS.Plugins.Student
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("考试记录管理", typeof(StudentExamSearch));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("二维条码测试", typeof(TestPdf417Code));
+            top.DropDownItems.Add(tmp);
 
         }
 

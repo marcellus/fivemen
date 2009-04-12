@@ -62,6 +62,8 @@ namespace FT.Windows.ExternalTool
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("KeyChar监听", typeof(FT.Windows.Forms.CommonForm.KeyCharMonitorForm));
             top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("文件压缩解压", typeof(ZipTestForm));
+            top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCP控制台", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }
