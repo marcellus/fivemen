@@ -118,7 +118,7 @@ namespace DS.Plugins.Student
             height += sep - 3;
             //画暂住证明
 
-            if (Student.TempId != string.Empty)
+            if (Student.TempId!=null&&Student.TempId != string.Empty)
             {
                 this.Draw9String("暂住证", new Point(width, height + 5));
                 for (int i = 0; i < Student.TempId.Length; i++)

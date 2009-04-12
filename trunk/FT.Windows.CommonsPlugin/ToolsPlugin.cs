@@ -112,7 +112,7 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "基础数据管理",typeof(DictSearch));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.BaseData, "基础数据管理",typeof(DictSearch));
             //this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Notepad, "记事本").Click += new EventHandler(notepad_Click);
             //throw new Exception("The method or operation is not implemented.");
         }

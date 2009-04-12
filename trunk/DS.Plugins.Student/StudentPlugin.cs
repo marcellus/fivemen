@@ -49,7 +49,7 @@ namespace DS.Plugins.Student
 
         public override void EmmitToolBar()
         {
-
+            this.AddTopTool(DS.Plugins.Student.Resource.Student, "学员管理", typeof(StudentSearch));
         }
     }
 }

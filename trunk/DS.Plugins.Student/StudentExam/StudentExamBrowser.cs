@@ -22,6 +22,7 @@ namespace DS.Plugins.Student
         public StudentExamBrowser(object entity):base(entity)
         {
             InitializeComponent();
+           // this.students.Add(entity);
             this.InitComBox();
            
         }
@@ -29,6 +30,7 @@ namespace DS.Plugins.Student
             : base(entity, refresher)
         {
             InitializeComponent();
+            //this.students.Add(entity);
             this.InitComBox();
         }
 
@@ -46,7 +48,8 @@ namespace DS.Plugins.Student
                 //    this.cbHmhp.ValueMember = "∫≈¬Î∫≈≈∆";
                 //    this.cbHmhp.SelectedIndex = 0;
                 //}
-                FT.Windows.CommonsPlugin.DictManager.BindSubject(this.cbSubject);
+                //FT.Windows.CommonsPlugin.DictManager.BindSubject(this.cbSubject);
+                SubjectHelper.BindSubject(this.cbSubject);
                 
             }
             //this.cbSex.SelectedIndex = 0;
@@ -94,6 +97,7 @@ namespace DS.Plugins.Student
             if (this.cbIdCard.SelectedValue != null)
             {
                 int i = this.cbIdCard.SelectedIndex;
+                
                 StudentInfo student=this.students[i] as StudentInfo;
                 if (student != null)
                 {
@@ -156,6 +160,14 @@ namespace DS.Plugins.Student
         {
             bool result = true;
             int i = this.cbIdCard.SelectedIndex;
+            if (this.students.Count == 0)
+            {
+                this.students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_idcard = '" + this.cbIdCard.Text + "'");
+            }
+            if (i == -1)
+            {
+                i = 0;
+            }
             StudentInfo student = this.students[i] as StudentInfo;
             if (student != null)
             {
