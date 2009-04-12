@@ -77,7 +77,7 @@ namespace FT.Windows.CommonsPlugin
 
         public override void EmmitToolBar()
         {
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.WLM, "用户管理", typeof(FT.Windows.Forms.UserSearchControl));
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.UserManage, "用户管理", typeof(FT.Windows.Forms.UserSearchControl));
             this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Locker, "锁定系统", typeof(FT.Windows.Forms.LockSystemForm));
             //throw new Exception("The method or operation is not implemented.");
         }

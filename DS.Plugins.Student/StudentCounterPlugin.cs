@@ -43,13 +43,13 @@ namespace DS.Plugins.Student
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("øº ‘±®√˚", typeof(BaoMinReport));
+            tmp = this.BuildSubMenu("øº ‘Ã·–—", typeof(BaoMinReport));
             top.DropDownItems.Add(tmp);
         }
 
         public override void EmmitToolBar()
         {
-
+            this.AddTopTool(DS.Plugins.Student.Resource.Alert, "øº ‘Ã·–—", typeof(BaoMinReport));
         }
     }
 }

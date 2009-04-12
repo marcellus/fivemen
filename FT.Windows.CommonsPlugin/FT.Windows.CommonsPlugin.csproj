@@ -219,9 +219,6 @@
     <None Include="Resources\DossierBleu Documents.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Locker.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\WLM.png" />
   </ItemGroup>
   <ItemGroup>
@@ -244,5 +241,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BaseData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserManage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Locker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbbak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbrestore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.png" />
   </ItemGroup>
 </Project>

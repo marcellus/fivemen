@@ -45,6 +45,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(292, 25);
@@ -86,8 +87,8 @@
             this.Name = "BaseMainForm";
             this.Text = "BaseMainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseMainForm_FormClosing);
             this.Load += new System.EventHandler(this.BaseMainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseMainForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

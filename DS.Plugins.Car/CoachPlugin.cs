@@ -31,7 +31,7 @@ namespace DS.Plugins.Car
 
         public override void EmmitToolBar()
         {
-
+            this.AddTopTool(DS.Plugins.Car.Resource.Coach, "ΩÃ¡∑π‹¿Ì", typeof(CoachSearch));
         }
     }
 }

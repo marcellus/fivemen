@@ -497,7 +497,10 @@ namespace DS.Plugins.Student
             tmp.IdCard = this.txtIdCard.Text.Trim();
             tmp.Name = this.txtName.Text.Trim();
             tmp.NewCarType = this.cbNewCarType.Text;
+            
             entity = tmp;
+
+            //entity = this.entity;
             //throw new Exception("The method or operation is not implemented.");
         }
 

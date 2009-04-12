@@ -35,10 +35,10 @@ namespace FT.Windows.CommonsPlugin
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("数据自动备份配置...", typeof(FT.Windows.Forms.DbAutoBakConfigForm));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildTopMenu("数据库备份");
+            tmp = this.BuildTopMenu("数据备份");
             tmp.Click += new EventHandler(dbbak_Click);
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildTopMenu("数据库还原");
+            tmp = this.BuildTopMenu("数据还原");
             tmp.Click+=new EventHandler(dbrestore_Click);
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
@@ -124,7 +124,11 @@ namespace FT.Windows.CommonsPlugin
            // ToolStripButton btn= this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Config, "帮助");
             //btn.Click += new EventHandler(help_Click);
             //this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "退出", typeof(FT.Windows.Forms.SimpleAbout));
-            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.Home_16_16, "关于", typeof(FT.Windows.Forms.SimpleAbout));
+            ToolStripButton btn=this.AddTopTool(FT.Windows.CommonsPlugin.Resource.dbbak, "数据备份");
+            btn.Click += new EventHandler(dbbak_Click);
+            btn = this.AddTopTool(FT.Windows.CommonsPlugin.Resource.dbrestore, "数据还原");
+            btn.Click += new EventHandler(dbrestore_Click);
+            this.AddTopTool(FT.Windows.CommonsPlugin.Resource.About, "关于", typeof(FT.Windows.Forms.SimpleAbout));
             //throw new Exception("The method or operation is not implemented.");
         }
     }

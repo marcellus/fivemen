@@ -109,6 +109,11 @@
     <Compile Include="Coach\Coach.cs" />
     <Compile Include="PrinterHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
@@ -157,6 +162,20 @@
       <SubType>Designer</SubType>
       <DependentUpon>CoachBrowser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coach.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ower.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

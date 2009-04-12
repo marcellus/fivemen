@@ -10,6 +10,7 @@ using FT.Commons.PrinterEx.SupportObject;
 using FT.Commons.Tools;
 using FT.Windows.Forms.Domain;
 using FT.Commons.Cache;
+using FT.DAL;
 
 namespace DS.Plugins.Student
 {
@@ -18,6 +19,7 @@ namespace DS.Plugins.Student
         public BaoMinReport()
         {
             InitializeComponent();
+            SubjectHelper.BindCombox(this.cbSubject);
             this.comboBox1.SelectedIndex = 0;
         }
 
@@ -411,6 +413,55 @@ namespace DS.Plugins.Student
         private void button2_Click(object sender, EventArgs e)
         {
             this.dataGridView1.Rows.Clear();
+        }
+
+        private void cbSubject_TextChanged(object sender, EventArgs e)
+        {
+            string subject = this.cbSubject.Text.Trim();
+            if (subject.Length > 0)
+            {
+                StudentSystemConfig config = StaticCacheManager.GetConfig<StudentSystemConfig>();
+                string sql = "SELECT a.c_hmhp, b.c_name, b.c_sex, b.c_idcard, b.c_examid,b.c_state FROM table_students AS b LEFT JOIN table_coach AS a ON b.i_coachid=a.id WHERE b.c_state like '{0}' And {1}";
+                IDataAccess access = FT.DAL.DataAccessFactory.GetDataAccess();
+                string tmp1 = string.Empty;
+                string tmp2=string.Empty;
+                if (subject.StartsWith("科目一"))
+                {
+                    tmp1 = "初始报名";
+                    tmp2 = access.LowerEqualDateString("b.date_baoming", System.DateTime.Now.AddDays(0 - config.RegToSubject1));
+                }
+                else if(subject.StartsWith("科目二"))
+                {
+                    tmp1 = "科目一%合格";
+                    tmp2 = " exists(select c.c_examdate from table_student_exam as c"
+                        + "  where c.c_idcard=b.c_idcard and c.c_subject like '科目一%' and "
+                    + access.LowerEqualDateString("c_examdate", System.DateTime.Now.AddDays(0 - config.Subject1To2Days))
+                    + ")";
+                }
+                else
+                {
+                    tmp1 = "科目二%合格";
+                    tmp2 = " exists(select c.c_examdate from table_student_exam as c"
+                       + "  where c.c_idcard=b.c_idcard and c.c_subject like '科目二%' and "
+                   + access.LowerEqualDateString("c_examdate", System.DateTime.Now.AddDays(0 - config.Subject2To3Days))
+                   + ")";
+                }
+                
+                sql = string.Format(sql, new string[] { tmp1, tmp2 });
+                Console.WriteLine(sql);
+                DataTable dt = access.SelectDataTable(sql, "test");
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    this.dataGridView1.Rows.Clear();
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        this.dataGridView1.Rows.Add(new object[] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5] });
+                    }
+                }
+
+                
+
+            }
         }
     }
 }

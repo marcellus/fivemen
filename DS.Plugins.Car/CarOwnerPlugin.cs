@@ -52,7 +52,8 @@ namespace DS.Plugins.Car
 
         public override void EmmitToolBar()
         {
-            
+            this.AddTopTool(DS.Plugins.Car.Resource.Ower, "车主管理", typeof(CarOwnerSearch));
+            this.AddTopTool(DS.Plugins.Car.Resource.Car, "车辆管理", typeof(CarSearch));
         }
     }
 }

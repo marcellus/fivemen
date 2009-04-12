@@ -84,7 +84,7 @@ namespace DS.Plugins.Student
             .SelectDataTable(sql, "tmp");
 
             
-            if (dt != null)
+            if (dt != null&&dt.Rows.Count>0)
             {
                 int count1 = 0;
                 int count2 = 0;
@@ -124,8 +124,9 @@ namespace DS.Plugins.Student
                 hegelv.ColumnName = "合格率";
                 hegelv.Expression = "合格人次*100/考试人次";
                 dt.Columns.Add(hegelv);
-                this.dataGridView1.DataSource = dt;
+                
             }
+            this.dataGridView1.DataSource = dt;
         }
 
         protected override string GetTitle()

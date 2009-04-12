@@ -116,6 +116,11 @@
     <Compile Include="Counter\SimpleStudentCounter.Designer.cs">
       <DependentUpon>SimpleStudentCounter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="StudentCounterPlugin.cs" />
     <Compile Include="StudentExam\StudentExamBrowser.cs">
       <SubType>Form</SubType>
@@ -166,6 +171,7 @@
     <Compile Include="Student\StudentInfo.cs" />
     <Compile Include="StudentPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubjectHelper.cs" />
     <Compile Include="SystemConfigPlugin.cs" />
     <Compile Include="TestPdf417Code.cs">
       <SubType>Form</SubType>
@@ -237,6 +243,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>StudentFeeCounter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentExam\StudentExamBrowser.resx">
       <SubType>Designer</SubType>
       <DependentUpon>StudentExamBrowser.cs</DependentUpon>
@@ -261,6 +272,12 @@
       <DependentUpon>TestPdf417Code.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Student.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
