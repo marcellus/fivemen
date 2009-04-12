@@ -185,7 +185,7 @@ namespace FT.Windows.Forms
 
 
             int pagewidth = customMargin.Width;
-            int captionHeight = 45;
+            int captionHeight = 70;
             Font font = new Font("ËÎÌו", 20);
             Font cap = new Font("ËÎÌו", 14);
             int height = 25;

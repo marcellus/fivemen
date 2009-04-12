@@ -5,6 +5,12 @@ using System.IO;
 using System.Runtime.InteropServices;
 using log4net;
 using FT.Commons.Security;
+using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.GZip;
+using ICSharpCode.SharpZipLib.BZip2;
+using ICSharpCode.SharpZipLib.Checksums;
+using ICSharpCode.SharpZipLib.Zip.Compression;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
 namespace FT.Commons.Tools
 {
@@ -137,5 +143,190 @@ namespace FT.Commons.Tools
                     streamWriter.Close();
             }
         }
+
+        #region 压缩解压
+
+        public static bool ZipDir(string path, string zipfile)
+        {
+           return ZipDir(path, zipfile, string.Empty);
+        }
+
+        public static bool ZipDir(string path, string zipfile, string pwd)
+        {
+            FastZip fastZip = new FastZip();
+            try
+            {
+                if (pwd.Length > 0)
+                {
+                    fastZip.Password = pwd;
+                }
+                fastZip.CreateZip(zipfile, path,true, null);
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                log.Error("压缩失败！" + ex.ToString());
+                return false;
+            }
+            /*bool result=false;
+            if (!Directory.Exists(path))
+            {
+                log.Debug("压缩路径:"+path+"不存在，不进行压缩！");
+                return false;
+            }
+            if (File.Exists(zipfile))
+            {
+                File.Delete(zipfile);
+                //log.Debug("压缩路径:" + path + "不存在，不进行压缩！");
+                //return;
+            }
+            try
+            {
+                Crc32 crc = new Crc32();
+                ZipOutputStream s = new ZipOutputStream(File.Create(zipfile));
+                if (pwd != string.Empty)
+                {
+                    s.Password = pwd;
+                }
+                s.SetLevel(6); // 0 - store only to 9 - means best compression
+                DirectoryInfo dir = new DirectoryInfo(path);
+                FileStream fs;
+                foreach (FileInfo file in dir.GetFiles())
+                {
+                    //打开压缩文件
+                    fs = File.OpenRead(file.FullName);
+
+                    byte[] buffer = new byte[fs.Length];
+                    fs.Read(buffer, 0, buffer.Length);
+                    ZipEntry entry = new ZipEntry(file.Name);
+
+                    entry.DateTime = DateTime.Now;
+
+                    // set Size and the crc, because the information
+                    // about the size and crc should be stored in the header
+                    // if it is not set it is automatically written in the footer.
+                    // (in this case size == crc == -1 in the header)
+                    // Some ZIP programs have problems with zip files that don't store
+                    // the size and crc in the header.
+                    entry.Size = fs.Length;
+                    fs.Close();
+
+                    crc.Reset();
+                    crc.Update(buffer);
+
+                    entry.Crc = crc.Value;
+
+                    s.PutNextEntry(entry);
+
+                    s.Write(buffer, 0, buffer.Length);
+
+                }
+                s.Finish();
+                s.Close();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("压缩过程中发现未知错误！"+ex.ToString());
+
+            }
+            return result;*/
+        }
+        public static bool UnZipDir(string zipfile,string path)
+        {
+            return UnZipDir( zipfile,path, string.Empty);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="zipfile"></param>
+        /// <param name="path">path必须带有/</param>
+        /// <param name="pwd"></param>
+        public static bool UnZipDir(string zipfile,string path, string pwd)
+        {
+            FastZip fastZip = new FastZip();
+            try
+            {
+                if (pwd.Length > 0)
+                {
+                    fastZip.Password = pwd;
+                }
+                fastZip.ExtractZip(zipfile, path,null);
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                log.Error("解压失败！"+ex.ToString());
+                return false;
+            }
+            /*bool result = false;
+            if (!File.Exists(zipfile) )
+            {
+                log.Debug("待解压文件:" + zipfile + "不存在，不进行解压！");
+                return false;
+            }
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            
+            ZipInputStream s = new ZipInputStream(File.OpenRead(zipfile));
+            if (pwd != string.Empty)
+            {
+                s.Password = pwd;
+            }
+            try
+            {
+                ZipEntry theEntry;
+                string dir = Path.GetDirectoryName(path);
+                while ((theEntry = s.GetNextEntry()) != null)
+                {
+                    
+                    string fileName = Path.GetFileName(theEntry.Name);
+                    if (fileName != String.Empty)
+                    {
+                        //解压文件到指定的目录
+                        FileStream streamWriter = File.Create(dir + fileName);
+                        
+                        int size = 2048;
+                        if (size > (int)theEntry.Size)
+                        {
+                            size = (int)theEntry.Size;
+                        }
+                        byte[] data = new byte[size];
+                        while (true)
+                        {
+                            size = s.Read(data, 0, data.Length);
+                            if (size > 0)
+                            {
+                                streamWriter.Write(data, 0, size);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        streamWriter.Close();
+                    }
+                }
+                s.Close();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                
+                throw ex;
+            }
+            finally
+            {
+                s.Close();
+            }
+            return result;*/
+        }
+        #endregion
     }
 }

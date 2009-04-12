@@ -12,21 +12,21 @@ using System.IO;
 namespace FT.Windows.CommonsPlugin
 {
     [Plugin(ChangeLogPath = "Tools-ChangeLog.txt", Company = "Fight Together", Developer = "deadshot123",
-      Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "系统工具插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
+      Email = "deadshot123@qq.com", MainVersion = "1.0", Name = "基础数据工具插件", Tel = "15814584509", Url = "http://deadshot123.cnblogs.com")]
     public class ToolsPlugin : AbstractWindowPlugin
     {
         public override void EmmitMenu()
         {
-            ToolStripMenuItem top = this.AddToMenu("系统工具(&T)");
+            ToolStripMenuItem top = this.AddToMenu("基础数据工具(&B)");
             //top.
-            ToolStripMenuItem tmp = this.BuildTopMenu("数据库备份");
-            tmp.Click += new EventHandler(dbbak_Click);
-            top.DropDownItems.Add(tmp);
-            tmp = this.BuildTopMenu("数据库还原");
-            tmp.Click+=new EventHandler(dbrestore_Click);
-            top.DropDownItems.Add(tmp);
-            this.AddSeparatorToMenu(top);
-            tmp = this.BuildSubMenu("添加基础数据",typeof(DictBrowser));
+            //ToolStripMenuItem tmp = this.BuildTopMenu("数据库备份");
+            //tmp.Click += new EventHandler(dbbak_Click);
+            //top.DropDownItems.Add(tmp);
+            //tmp = this.BuildTopMenu("数据库还原");
+            //tmp.Click+=new EventHandler(dbrestore_Click);
+            //top.DropDownItems.Add(tmp);
+            //this.AddSeparatorToMenu(top);
+            ToolStripMenuItem tmp = this.BuildSubMenu("添加基础数据", typeof(DictBrowser));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("基础数据管理", typeof(DictSearch));
             top.DropDownItems.Add(tmp);

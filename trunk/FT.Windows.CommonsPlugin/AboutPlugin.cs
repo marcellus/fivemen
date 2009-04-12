@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Data;
 using FT.DAL.Orm;
+using FT.Commons.Cache;
 
 namespace FT.Windows.CommonsPlugin
 {
@@ -32,6 +33,15 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildSubMenu("全局打印配置...", typeof(FT.Windows.Forms.CustomPrinterSetting));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("数据自动备份配置...", typeof(FT.Windows.Forms.DbAutoBakConfigForm));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildTopMenu("数据库备份");
+            tmp.Click += new EventHandler(dbbak_Click);
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildTopMenu("数据库还原");
+            tmp.Click+=new EventHandler(dbrestore_Click);
+            top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
             tmp = this.BuildTopMenu("帮助文档");
             tmp.Click += new EventHandler(help_Click);
             top.DropDownItems.Add(tmp);
@@ -41,6 +51,30 @@ namespace FT.Windows.CommonsPlugin
             top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;
             //throw new Exception("The method or operation is not implemented.");
+        }
+
+        void dbbak_Click(object sender, EventArgs e)
+        {
+            string path = FileDialogHelper.SaveBakDb();
+            if (path != null && path != string.Empty)
+            {
+                try
+                {
+                    File.Copy(ReflectHelper.GetExePath() + @"\db\db.mdb", path, true);
+                    MessageBoxHelper.Show(" 备份成功！");
+                }
+                catch (Exception ex)
+                {
+                    //LogFactoryWrapper.Debug(ex.ToString());
+                    MessageBoxHelper.Show(" 备份失败！");
+                }
+            }
+        }
+
+        void dbrestore_Click(object sender, EventArgs e)
+        {
+            DbAutoBakConfig dbconfig = StaticCacheManager.GetConfig<DbAutoBakConfig>();
+            dbconfig.RestoreDb();
         }
 
         void help_Click(object sender, EventArgs e)
