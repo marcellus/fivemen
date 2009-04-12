@@ -11,6 +11,7 @@ using System.Collections;
 using FT.Windows.CommonsPlugin;
 using FT.Commons.Cache;
 using FT.Windows.Forms.Domain;
+using FT.Device.IDCard;
 
 namespace DS.Plugins.Student
 {
@@ -323,10 +324,23 @@ namespace DS.Plugins.Student
 
 
         #region 初始化代码
+        private IDCardReaderHelper reader = null;
+        private void AfterReadIdCard(IDCard card)
+        {
+            //TODO,所属地区代码的实现
+            this.txtName.Text = card.Name;
+            this.txtIdCard.Text = card.IDC;
+            this.txtRegAddress.Text=this.txtConnAddress.Text = card.ADDRESS;
+            this.dateBirthday.Value = card.BIRTH;
+            this.cbSex.Text = IDCardHelper.GetSexName(card.IDC);
+        }
         private void StudentBrowser_Load(object sender, EventArgs e)
         {
             if (!this.DesignMode)
             {
+                IDCardConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<IDCardConfig>();
+                if (config.UseIDCard)
+                    reader = new IDCardReaderHelper(new De_ReadICCardComplete(AfterReadIdCard));
                 this.txtDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
                 if (this.entity != null)
                 {

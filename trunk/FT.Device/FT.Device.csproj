@@ -28,6 +28,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FT.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FT.DAL\bin\Debug\FT.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\commons-dlls\log4net.dll</HintPath>
@@ -41,8 +45,15 @@
   <ItemGroup>
     <Compile Include="IDCard\CV100UReader.cs" />
     <Compile Include="IDCard\IDCard.cs" />
+    <Compile Include="IDCard\IDCardConfig.cs" />
+    <Compile Include="IDCard\IDCardConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDCard\IDCardConfigForm.Designer.cs">
+      <DependentUpon>IDCardConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDCard\IDCardReader.cs" />
-    <Compile Include="IDCard\ReaderHelper.cs" />
+    <Compile Include="IDCard\IDCardReaderHelper.cs" />
     <Compile Include="ImageSupport\Enums.cs" />
     <Compile Include="ImageSupport\Gdip.cs" />
     <Compile Include="ImageSupport\ImageFromDevice.cs" />
@@ -54,6 +65,16 @@
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
+      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
+      <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IDCard\IDCardConfigForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IDCardConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

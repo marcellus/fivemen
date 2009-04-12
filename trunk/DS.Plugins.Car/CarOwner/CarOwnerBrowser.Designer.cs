@@ -259,6 +259,7 @@ namespace DS.Plugins.Car
             this.Controls.Add(this.tabControl1);
             this.Name = "CarOwnerBrowser";
             this.Text = "车主信息";
+            this.Load += new System.EventHandler(this.CarOwnerBrowser_Load);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

@@ -1213,7 +1213,7 @@ end if
                 }
                 if (config.UseCardReader)
                 {
-                    idReader = new ReaderHelper(new De_ReadICCardComplete(ReadIdCardComplete), config.CardReaderInterval);
+                    idReader = new IDCardReaderHelper(new De_ReadICCardComplete(ReadIdCardComplete), config.CardReaderInterval);
                 }
                 CompanyInfo comp = FT.Commons.Cache.StaticCacheManager.GetConfig<CompanyInfo>();
                 this.txtBaseDlrConnAddress.Text = comp.Address;
@@ -1270,7 +1270,7 @@ end if
             }
         }
 
-        private ReaderHelper idReader;
+        private IDCardReaderHelper idReader;
 
         private void ProcessText(string text)
         {

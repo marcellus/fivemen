@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
+using FT.Device.IDCard;
 
 namespace FT.Windows.Forms
 {
@@ -16,6 +17,15 @@ namespace FT.Windows.Forms
             InitializeComponent();
             this.cbSex.SelectedIndex = 0;
             this.cbState.SelectedIndex = 0;
+        }
+
+        public void SetIDCard(IDCard card)
+        {
+            this.txtName.Text = card.Name;
+            this.txtIdCard.Text = card.IDC;
+            this.txtAddress.Text = card.ADDRESS;
+            this.dateBirthday.Value = card.BIRTH;
+            this.cbSex.Text = IDCardHelper.GetSexName(card.IDC);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

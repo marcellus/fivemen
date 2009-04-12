@@ -143,6 +143,7 @@ namespace DS.Plugins.Car
             this.Controls.Add(this.groupBox1);
             this.Name = "CoachBrowser";
             this.Text = "╫ла╥пео╒";
+            this.Load += new System.EventHandler(this.CoachBrowser_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.lbId, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
