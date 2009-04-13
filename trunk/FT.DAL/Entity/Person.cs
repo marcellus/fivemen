@@ -52,20 +52,20 @@ namespace FT.DAL.Entity
         }
 
         [SimpleColumn(Column = "c_phone")]
-        [Alias("固话")]
+        [Alias("联系电话1")]
         public String Phone;
 
-        public String 固话
+        public String 联系电话1
         {
             get { return Phone; }
             set { Phone = value; }
         }
 
         [SimpleColumn(Column = "c_mobile")]
-        [Alias("手机")]
+        [Alias("联系电话2")]
         public String Mobile;
 
-        public String 手机
+        public String 联系电话2
         {
             get { return Mobile; }
             set { Mobile = value; }

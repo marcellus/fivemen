@@ -23,9 +23,21 @@ namespace DS.Plugins.Student
             this.CreateColumn("报名日期", 160);
             this.CreateColumn("身份证明号码",140);
             this.CreateColumn("姓名", 80);
-            this.CreateColumn("手机", 100);
+            this.CreateColumn("联系电话1", 100);
             this.CreateColumn("学习车型", 80);
             this.CreateColumn("推荐人");
+
+            object obj = FT.Commons.Tools.ReflectHelper.CreateInstance(typeof(StudentInfo));
+            if (obj != null)
+            {
+                DataTable dt = FT.DAL.Orm.SimpleOrmCache.GetConditionDT(obj.GetType());
+                if (dt != null)
+                {
+                    this.cbColumn.DataSource = dt;
+                    this.cbColumn.DisplayMember = "text";
+                    this.cbColumn.ValueMember = "value";
+                }
+            }
         }
 
         void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -62,8 +74,22 @@ namespace DS.Plugins.Student
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if(this.txtColumn.Text.Trim().Length>0)
-                this.CreateColumn(this.txtColumn.Text.Trim());
+            string column=this.cbColumn.Text.Trim();
+            if(column.Length>0&&!this.dataGridView1.Columns.Contains(column))
+                this.CreateColumn(column);
+        }
+
+        private void btnDeleteColumn_Click(object sender, EventArgs e)
+        {
+            string column = this.cbColumn.Text.Trim();
+            for(int i=0;i<this.dataGridView1.Columns.Count;i++)
+                {
+                    if(this.dataGridView1.Columns[i].HeaderText==column)
+                    {
+                        this.dataGridView1.Columns.RemoveAt(i);
+                       // break;
+                    }
+                }
         }
     }
 }
