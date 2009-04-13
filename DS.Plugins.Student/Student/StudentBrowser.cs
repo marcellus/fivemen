@@ -236,6 +236,13 @@ namespace DS.Plugins.Student
         /// <returns></returns>
         private bool CheckRegAddress()
         {
+            if (this.cbNation.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("国籍只能选择，不能手输！");
+                this.tabControl1.SelectedIndex = 0;
+                this.cbNation.Focus();
+                return false;
+            }
             if (this.cbRegProvince.SelectedValue == null)
             {
                 MessageBoxHelper.Show("请选择完整的证件省份！");

@@ -34,7 +34,8 @@ namespace DS.Plugins.Student
             this.label1 = new System.Windows.Forms.Label();
             this.txtRecommend = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtColumn = new System.Windows.Forms.TextBox();
+            this.btnDeleteColumn = new System.Windows.Forms.Button();
+            this.cbColumn = new System.Windows.Forms.ComboBox();
             this.groupSearch.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -46,7 +47,8 @@ namespace DS.Plugins.Student
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.txtColumn);
+            this.splitContainer2.Panel1.Controls.Add(this.cbColumn);
+            this.splitContainer2.Panel1.Controls.Add(this.btnDeleteColumn);
             this.splitContainer2.Panel1.Controls.Add(this.btnAdd);
             this.splitContainer2.Panel1.Controls.Add(this.txtRecommend);
             this.splitContainer2.Panel1.Controls.Add(this.label1);
@@ -95,7 +97,7 @@ namespace DS.Plugins.Student
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(379, 18);
+            this.btnAdd.Location = new System.Drawing.Point(379, 45);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 10;
@@ -103,12 +105,23 @@ namespace DS.Plugins.Student
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtColumn
+            // btnDeleteColumn
             // 
-            this.txtColumn.Location = new System.Drawing.Point(272, 20);
-            this.txtColumn.Name = "txtColumn";
-            this.txtColumn.Size = new System.Drawing.Size(100, 21);
-            this.txtColumn.TabIndex = 11;
+            this.btnDeleteColumn.Location = new System.Drawing.Point(286, 47);
+            this.btnDeleteColumn.Name = "btnDeleteColumn";
+            this.btnDeleteColumn.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteColumn.TabIndex = 10;
+            this.btnDeleteColumn.Text = "É¾³ýÁÐ";
+            this.btnDeleteColumn.UseVisualStyleBackColor = true;
+            this.btnDeleteColumn.Click += new System.EventHandler(this.btnDeleteColumn_Click);
+            // 
+            // cbColumn
+            // 
+            this.cbColumn.FormattingEnabled = true;
+            this.cbColumn.Location = new System.Drawing.Point(286, 19);
+            this.cbColumn.Name = "cbColumn";
+            this.cbColumn.Size = new System.Drawing.Size(121, 20);
+            this.cbColumn.TabIndex = 11;
             // 
             // SimpleStudentCounter
             // 
@@ -131,7 +144,8 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRecommend;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtColumn;
+        private System.Windows.Forms.Button btnDeleteColumn;
+        private System.Windows.Forms.ComboBox cbColumn;
 
     }
 }
