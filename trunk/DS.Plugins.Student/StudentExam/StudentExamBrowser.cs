@@ -70,7 +70,7 @@ namespace DS.Plugins.Student
 
         private void BindIdCard(string id)
         {
-            this.students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_idcard like '%"+id+"%'");
+            this.students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_idcard like '%"+id+"%' and c_state<>'退学' and c_state<>'合格结业'");
 
             this.cbIdCard.ValueMember = "身份证明号码";
             this.cbIdCard.DisplayMember = "身份证明号码";
@@ -106,6 +106,7 @@ namespace DS.Plugins.Student
                     this.txtExamId.Text = student.ExamId;
                     this.txtName.Text = student.Name;
                     this.txtNewCarType.Text = student.NewCarType;
+                    this.lbStudentId.Text = student.Id.ToString();
                     
                     //int count = FT.DAL.Orm.SimpleOrmOperator.QueryCounts(typeof(StudentExam), " where c_idcard='" + student.IdCard + "'");
                     if (student.State == "初始报名")
@@ -124,10 +125,13 @@ namespace DS.Plugins.Student
                     else if(student.State.IndexOf("科目三")==-1)
                     {
                         int index = student.State.IndexOf("合格");
+                        this.cbSubject.Text = student.State.Substring(0, index);
                         if (index != -1)
                         {
-                            this.cbSubject.Text = student.State.Substring(0, index);
                             this.cbSubject.SelectedIndex += 1;
+                        }
+                        else//不合格的时候，索引不加1
+                        {
                         }
                     }
                     
@@ -142,17 +146,19 @@ namespace DS.Plugins.Student
 
         protected override void AfterSuccessCreate()
         {
-            if (this.cbResult.Text == "合格")
-            {
-                if (this.cbSubject.SelectedIndex != this.cbSubject.Items.Count - 1)
+            string date = this.dateExamDate.Value.ToString("yyyy-MM-dd");
+            if (this.cbSubject.SelectedIndex != this.cbSubject.Items.Count - 1)
                 {
-                    FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update table_students set c_state='" + this.cbSubject.Text + "合格' where c_idcard='"+this.cbIdCard.Text+"'");
+                    FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update table_students set date_lastexam='"+
+                        date+"', c_state='" + this.cbSubject.Text +
+                        this.cbResult.Text + "' where id=" + this.lbStudentId.Text + " and " +
+                        " c_state<>'退学' and c_state<>'合格结业'"+"");
                 }
                 else
                 {
-                    FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update table_students set c_state='合格结业' and date_graduation='"+System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"' where c_idcard='" + this.cbIdCard.Text + "'");
+                    FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update table_students set c_state='合格结业', date_lastexam='"+date+"' and date_graduation='" + date + "' where id=" + this.lbStudentId.Text + " and  c_state<>'毕业' and c_state<>'合格结业'");
                 }
-            }
+           
             //base.AfterSuccessCreate();
         }
 

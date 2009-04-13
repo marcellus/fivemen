@@ -88,7 +88,7 @@ namespace FT.Windows.Forms
                     foreach (DataRow dr in dt.Rows)
                     {
                         column.ClassCnName = cn;
-                        column.ExportWidth = 80;
+                        column.ExportWidth = 10;
                         column.HeaderName = dr["text"].ToString();
                         column.HeaderWidth = 80;
                         column.IsExportExcel = true;

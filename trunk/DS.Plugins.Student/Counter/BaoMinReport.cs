@@ -76,6 +76,7 @@ namespace DS.Plugins.Student
                 {
                     this.dataGridView1.Rows.Add(new object[] {dr[0],dr[1],dr[2],dr[3],dr[4] });
                 }
+                this.lbCount.Text = "共" + this.dataGridView1.Rows.Count + "条记录";
             }
             
         }
@@ -421,42 +422,87 @@ namespace DS.Plugins.Student
             if (subject.Length > 0)
             {
                 StudentSystemConfig config = StaticCacheManager.GetConfig<StudentSystemConfig>();
-                string sql = "SELECT a.c_hmhp, b.c_name, b.c_sex, b.c_idcard, b.c_examid,b.c_state FROM table_students AS b LEFT JOIN table_coach AS a ON b.i_coachid=a.id WHERE b.c_state like '{0}' And {1}";
+                string sqlformat = "SELECT a.c_hmhp, b.c_name, b.c_sex, b.c_idcard, b.c_examid,b.c_state,b.date_lastexam FROM table_students AS b LEFT JOIN table_coach AS a ON b.i_coachid=a.id WHERE b.c_state = '{0}' And {1}";
+                string sql=string.Empty;
                 IDataAccess access = FT.DAL.DataAccessFactory.GetDataAccess();
                 string tmp1 = string.Empty;
                 string tmp2=string.Empty;
+                string tmp3 = string.Empty;
+                string tmp4 = string.Empty;
+                string tmp = string.Empty;
                 if (subject.StartsWith("科目一"))
                 {
                     tmp1 = "初始报名";
                     tmp2 = access.LowerEqualDateString("b.date_baoming", System.DateTime.Now.AddDays(0 - config.RegToSubject1));
+                    tmp3 = "科目一不合格";
+                    tmp4 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject1ReExam));
                 }
                 else if(subject.StartsWith("科目二"))
                 {
-                    tmp1 = "科目一%合格";
-                    tmp2 = " exists(select c.c_examdate from table_student_exam as c"
-                        + "  where c.c_idcard=b.c_idcard and c.c_subject like '科目一%' and "
-                    + access.LowerEqualDateString("c_examdate", System.DateTime.Now.AddDays(0 - config.Subject1To2Days))
-                    + ")";
-                }
-                else
-                {
-                    tmp1 = "科目二%合格";
-                    tmp2 = " exists(select c.c_examdate from table_student_exam as c"
-                       + "  where c.c_idcard=b.c_idcard and c.c_subject like '科目二%' and "
-                   + access.LowerEqualDateString("c_examdate", System.DateTime.Now.AddDays(0 - config.Subject2To3Days))
-                   + ")";
+                    if (!config.SubjectIs4)
+                    {
+                        tmp1 = "科目一合格";
+                        tmp2 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject1To20Days));
+                        tmp3 = "科目二不合格";
+                        tmp4 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject20ReExam));
+                        
+                    }
+                    else if(subject.IndexOf("桩")!=-1)
+                    {
+                        tmp1 = "科目一合格";
+                        tmp2 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject1To20Days));
+                        tmp3 = "科目二（桩）不合格";
+                        tmp4 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject20ReExam));
+                    }
+                    else//场内
+                    {
+                        tmp1 = "科目二（桩）合格";
+                        tmp2 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject20To21Days));
+                        tmp3 = "科目二（场地）不合格";
+                        tmp4 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject21ReExam));
+                    }
                 }
                 
-                sql = string.Format(sql, new string[] { tmp1, tmp2 });
+                else
+                {
+                    if (!config.SubjectIs4)
+                    {
+                        tmp = "科目二";
+                    }
+                    else
+                    {
+                        tmp = "科目二（场地）";
+                    }
+                    tmp1 = tmp+"合格";
+
+                    tmp2 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject21To3Days));
+                    tmp3 = "科目三不合格";
+                    tmp4 = access.LowerEqualDateString("b.date_lastexam", System.DateTime.Now.AddDays(0 - config.Subject3ReExam));
+                }
+                
+                sql = string.Format(sqlformat, new string[] { tmp1, tmp2 });
                 Console.WriteLine(sql);
                 DataTable dt = access.SelectDataTable(sql, "test");
+                sql = string.Format(sqlformat, new string[] { tmp3, tmp4 });
+                Console.WriteLine(sql);
+                DataTable dt2 = access.SelectDataTable(sql, "test");
+                if (dt!=null&&dt2 != null)
+                {
+                    dt.Merge(dt2);
+                }
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     this.dataGridView1.Rows.Clear();
                     foreach (DataRow dr in dt.Rows)
                     {
-                        this.dataGridView1.Rows.Add(new object[] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5] });
+                        this.dataGridView1.Rows.Add(new object[] { dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6] });
                     }
+                    this.lbCount.Text = "共" + dt.Rows.Count + "条记录";
+                }
+                else
+                {
+                    this.dataGridView1.Rows.Clear();
+                    this.lbCount.Text = "共0条记录";
                 }
 
                 

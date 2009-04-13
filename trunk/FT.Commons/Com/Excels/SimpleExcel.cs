@@ -73,6 +73,17 @@ namespace FT.Commons.Com.Excels
             }
         }
 
+        private int[] headerWidth;
+
+        /// <summary>
+        /// 列头的宽度
+        /// </summary>
+        public int[] HeaderWidth
+        {
+            get { return headerWidth; }
+            set { headerWidth = value; }
+        }
+
         protected string m_bottom = bottom;
         /// <summary>
         /// Gets or sets the bottom.

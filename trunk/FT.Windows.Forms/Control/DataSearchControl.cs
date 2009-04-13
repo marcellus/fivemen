@@ -398,7 +398,14 @@ namespace FT.Windows.Forms
             column = lists[lists.Count-1] as EntityColumnDefine;
             if (column.ShowInDetail)
             {
-                this.CreateColumn(column.PropertyName, column.HeaderName);
+                if (this.dataGridView1.DisplayedColumnCount(false) < lists.Count-1)
+                {
+                    this.CreateColumn(column.PropertyName, column.HeaderName, column.HeaderWidth);
+                }
+                else
+                {
+                    this.CreateColumn(column.PropertyName, column.HeaderName);
+                }
             }
         }
 
@@ -450,6 +457,12 @@ namespace FT.Windows.Forms
             }
         }
 
+        protected int[] GetExportHeaderWidth()
+        {
+            return SimpleOrmCache.GetExportWidths(this.entityType);
+        }
+
+
         /// <summary>
         ///  子类如需导出excel，如果要定义别名需要实现的
         /// </summary>
@@ -467,10 +480,10 @@ namespace FT.Windows.Forms
         private void btnExport_Click(object sender, EventArgs e)
         {
             DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable("select " + this.GetExportField() + " from " + SimpleOrmCache.GetTableName(this.entityType) + pager.Condition, "tmptable");
-            this.ExportExcel(dt);
+            this.ExportExcel(dt, GetExportHeaderWidth());
         }
 
-        private void ExportExcel(DataTable dt)
+        private void ExportExcel(DataTable dt,int[] headerWidth)
         {
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -482,6 +495,7 @@ namespace FT.Windows.Forms
                         File.Delete(path);
                     ListExcel ls = new ListExcel(path, dt);
                     ls.Title = title;
+                    ls.HeaderWidth = headerWidth;
                     ls.GetExcelReport();
                     this.Cursor = Cursors.WaitCursor;
                     MessageBoxHelper.Show("导出成功！");
@@ -552,7 +566,7 @@ namespace FT.Windows.Forms
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.ExportExcel(this.GetTableFromGrid());
+            this.ExportExcel(this.GetTableFromGrid(), GetExportHeaderWidth());
             //FT.Commons.Com.Excels.ExcelHelper.ExportExcel(this.dataGridView1, this.GetExportTitle());
         }
 

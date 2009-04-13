@@ -156,7 +156,14 @@ namespace FT.Commons.Com.Excels
                 Range rangTemp = this.GetRange(2, i);
                 this.SetRangeText(rangTemp, this.dt.Columns[i - 1].ColumnName);
 
-                this.SetColumnWidth(i, 12);
+                if (this.HeaderWidth != null)
+                {
+                    this.SetColumnWidth(i, this.HeaderWidth[i-1]);
+                }
+                else
+                {
+                    this.SetColumnWidth(i, 12);
+                }
 
             }
 

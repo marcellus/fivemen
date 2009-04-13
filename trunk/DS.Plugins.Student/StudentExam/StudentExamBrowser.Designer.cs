@@ -53,12 +53,14 @@ namespace DS.Plugins.Student
             this.label7 = new System.Windows.Forms.Label();
             this.cbIdCard = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbStudentId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbStudentId);
             this.groupBox1.Controls.Add(this.txtScore);
             this.groupBox1.Controls.Add(this.dateExamDate);
             this.groupBox1.Controls.Add(this.cbResult);
@@ -298,6 +300,15 @@ namespace DS.Plugins.Student
             this.label3.TabIndex = 12;
             this.label3.Text = "学生身份证明号";
             // 
+            // lbStudentId
+            // 
+            this.lbStudentId.AutoSize = true;
+            this.lbStudentId.Location = new System.Drawing.Point(337, 51);
+            this.lbStudentId.Name = "lbStudentId";
+            this.lbStudentId.Size = new System.Drawing.Size(0, 12);
+            this.lbStudentId.TabIndex = 37;
+            this.lbStudentId.Visible = false;
+            // 
             // StudentExamBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -342,5 +353,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.ComboBox cbResult;
         private System.Windows.Forms.DateTimePicker dateExamDate;
         private FT.Windows.Controls.TextBoxEx.NumberInput txtScore;
+        private System.Windows.Forms.Label lbStudentId;
     }
 }

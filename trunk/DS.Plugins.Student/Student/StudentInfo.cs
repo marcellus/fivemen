@@ -30,6 +30,16 @@ namespace DS.Plugins.Student
             set { PostCode = value; }
         }
 
+        [SimpleColumn(Column = "c_printed_state")]
+        [Alias("打印状态")]
+        public String PrintedState;
+
+        public String 打印状态
+        {
+            get { return PrintedState; }
+            set { PrintedState = value; }
+        }
+
         [SimpleColumn(Column = "c_nation")]
         [Alias("国籍")]
         public String Nation;
@@ -209,6 +219,16 @@ namespace DS.Plugins.Student
         {
             get { return BaoMingDate; }
             set { BaoMingDate = value; }
+        }
+
+        [SimpleColumn(Column = "date_lastexam")]
+        [Alias("上次考试日期")]
+        public String LastExamDate;
+
+        public String 上次考试日期
+        {
+            get { return LastExamDate; }
+            set { LastExamDate = value; }
         }
 
 

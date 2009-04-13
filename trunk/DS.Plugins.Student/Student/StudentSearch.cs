@@ -36,6 +36,15 @@ namespace DS.Plugins.Student
 
        // private int mouseClickRow = -1;
 
+        /// <summary>
+        /// 设置打印状态 
+        /// </summary>
+        /// <param name="student"></param>
+        private void SetPrinted(StudentInfo student)
+        {
+            student.PrintedState = "已打印";
+            FT.DAL.Orm.SimpleOrmOperator.Update(student);
+        }
 
         /// <summary>
         /// 套打-全部6张(F1)
@@ -46,6 +55,8 @@ namespace DS.Plugins.Student
         /// 套打-机动车驾驶证申请表F6
         /// 直接打-驾驶证申请表F7
         /// 套打-结业证F8
+        /// 
+        
 
         void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -78,10 +89,12 @@ namespace DS.Plugins.Student
                 }
                 else if (e.KeyCode == Keys.F6)
                 {
+                    this.SetPrinted(student);
                     printer = new ApplyPrinter(student);
                 }
                 else if (e.KeyCode == Keys.F7)
                 {
+                    this.SetPrinted(student);
                     printer = new ApplyExcelPrinter(student);
                     ApplyExcelPrinter tmp = printer as ApplyExcelPrinter;
                     tmp.PrintExcel(false);
@@ -122,22 +135,50 @@ namespace DS.Plugins.Student
                 commonPrinter.Preview();
             }
         }
-
+        private ToolStripComboBox cb;
+        private ToolStripTextBox txt;
         private void AddSearch()
         {
-           ToolStripTextBox txt= new System.Windows.Forms.ToolStripTextBox();
+            this.toolStrip1.Items.Add("打印状态");
+            cb = new ToolStripComboBox();
+            cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            //cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
+            cb.ToolTipText = "选择查询的打印状态";
+            cb.Items.Add("请选择");
+            cb.Items.Add("未打印");
+            cb.Items.Add("已打印");
+            cb.SelectedIndex = 0;
+            this.toolStrip1.Items.Add(cb);
+            this.toolStrip1.Items.Add("姓名");
+            txt= new System.Windows.Forms.ToolStripTextBox();
            txt.KeyDown += new KeyEventHandler(txt_KeyDown);
            txt.ToolTipText = "输入姓名按回车查询";
            this.toolStrip1.Items.Add(txt);
 
+          
+          
+
+        }
+        void cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string condition = " c_name like '" + txt.Text.Trim() + "%'";
+            if (this.cb.SelectedIndex != 0)
+            {
+                condition += " and c_printed_state='" + this.cb.Text + "'";
+            }
+            this.SetConditions(condition);
         }
 
         void txt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ToolStripTextBox txt=sender as ToolStripTextBox;
-                this.SetConditions(" c_name like '"+txt.Text.Trim()+"%'");
+                string condition = " c_name like '" + txt.Text.Trim() + "%'";
+                if (this.cb.SelectedIndex != 0)
+                {
+                    condition += " and c_printed_state='" + this.cb.Text + "'";
+                }
+                this.SetConditions(condition);
             }
             //throw new Exception("The method or operation is not implemented.");
         }
@@ -233,6 +274,7 @@ namespace DS.Plugins.Student
             {
                 int i = this.dataGridView1.SelectedRows[0].Index;
                 StudentInfo student = this.pager.Lists[i] as StudentInfo;
+                this.SetPrinted(student);
                 BaseStudentPrinter printer = new ApplyPrinter(student);
                 this.Print(printer);
             }
@@ -245,6 +287,7 @@ namespace DS.Plugins.Student
             {
                 int i = this.dataGridView1.SelectedRows[0].Index;
                 StudentInfo student = this.pager.Lists[i] as StudentInfo;
+                this.SetPrinted(student);
                 ApplyExcelPrinter printer = new ApplyExcelPrinter(student);
                 printer.PrintExcel(false);
                 //this.Print(printer);

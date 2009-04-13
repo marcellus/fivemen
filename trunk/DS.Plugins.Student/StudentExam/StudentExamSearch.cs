@@ -20,6 +20,7 @@ namespace DS.Plugins.Student
 
         private void AddSearch()
         {
+            this.toolStrip1.Items.Add("学员姓名");
             ToolStripTextBox txt = new System.Windows.Forms.ToolStripTextBox();
             txt.KeyDown += new KeyEventHandler(txt_KeyDown);
             txt.ToolTipText = "输入姓名按回车查询";
