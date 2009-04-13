@@ -222,25 +222,232 @@ namespace DS.Plugins.Student
 
         #region 已完成
 
+        private bool CheckBirthDay(int beginage, int endage)
+        {
+            DateTime begin = this.dateBirthday.Value.AddYears(beginage);
+            DateTime end = this.dateBirthday.Value.AddYears(endage + 1);
+            DateTime now = System.DateTime.Now.AddYears(1);
+            return now > begin && now < end;
+        }
+
+        /// <summary>
+        /// 验证输入
+        /// </summary>
+        /// <returns></returns>
         private bool CheckRegAddress()
         {
             if (this.cbRegProvince.SelectedValue == null)
             {
                 MessageBoxHelper.Show("请选择完整的证件省份！");
+                this.tabControl1.SelectedIndex = 0;
                 this.cbRegProvince.Focus();
                 return false;
             }
             if (this.cbRegCity.SelectedValue == null)
             {
                 MessageBoxHelper.Show("请选择完整的证件市区！");
+                this.tabControl1.SelectedIndex = 0;
                 this.cbRegCity.Focus();
                 return false;
             }
             if (this.cbRegArea.SelectedValue == null)
             {
                 MessageBoxHelper.Show("请选择完整的证件县区！");
+                this.tabControl1.SelectedIndex = 0;
                 this.cbRegArea.Focus();
                 return false;
+            }
+
+            if (!this.CheckBirthDay(18, 70))
+            {
+                MessageBoxHelper.Show("申请驾驶证的年龄必须在18岁到70岁之间！");
+                this.tabControl1.SelectedIndex = 0;
+                this.dateBirthday.Focus();
+                return false;
+            }
+
+            int height = 0;
+            AllPrinterConfig config = AllPrinterConfig.GetPrinterConfig();
+            if (config.ApplyConfig.IsBodyCheck)
+            {
+                try
+                {
+                    height = int.Parse(this.txtHeight.Text.ToString());
+                    if (height == 0)
+                    {
+                        MessageBoxHelper.Show("身高必须大于0！");
+                        this.tabControl1.SelectedIndex = 1;
+                        this.txtHeight.Focus();
+                        return false;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    height = 0;
+                    MessageBoxHelper.Show("身高必须是整数！");
+                    this.tabControl1.SelectedIndex = 1;
+                    this.txtHeight.Focus();
+                    return false;
+                }
+
+
+            }
+
+            string car = this.cbNewCarType.Text;
+            if (car == "C1" || car == "C2" || car == "F")
+            {
+                if (!this.CheckBirthDay(18, 70))
+                {
+                    MessageBoxHelper.Show("申请车型C1、C2、F时，年龄必须在18至70周岁之间！");
+                    
+                    this.tabControl1.SelectedIndex = 0;
+                    this.cbNewCarType.Focus();
+                    return false;
+                }
+            }
+            if (car == "C3" || car == "C4" || car == "D" || car == "E" || car == "M")
+            {
+                if (!this.CheckBirthDay(18, 60))
+                {
+                    MessageBoxHelper.Show("申请车型C3、C4、D、E、M时，年龄必须在18至60周岁之间！");
+                    this.tabControl1.SelectedIndex = 0;
+                    this.cbNewCarType.Focus();
+                    return false;
+                }
+            }
+            if (car == "B1" || car == "B2" || car == "A3" || car == "N" || car == "P")
+            {
+                if (!this.CheckBirthDay(21, 50))
+                {
+                    MessageBoxHelper.Show("申请车型B1、B2、A3、N、P时，年龄必须在21至50周岁之间！");
+                    this.tabControl1.SelectedIndex = 0;
+                    this.cbNewCarType.Focus();
+                    return false;
+                }
+            }
+            if (car == "A2")
+            {
+                if (!this.CheckBirthDay(24, 50))
+                {
+                    MessageBoxHelper.Show("申请车型A2时，年龄必须在24至50周岁之间！");
+                    this.tabControl1.SelectedIndex = 0;
+                    this.cbNewCarType.Focus();
+                    return false;
+                }
+            }
+            if (car == "A1")
+            {
+                if (!this.CheckBirthDay(26, 50))
+                {
+                    MessageBoxHelper.Show("申请车型A1时，年龄必须在26至50周岁之间！");
+                    this.tabControl1.SelectedIndex = 0;
+                    this.cbNewCarType.Focus();
+                    return false;
+                }
+            }
+            decimal stature;
+            try
+            {
+                stature = height;
+                if (car == "A1" || car == "A2" || car == "A3" || car == "B2" || car == "N")
+                {
+                    if (config.ApplyConfig.IsBodyCheck && stature < 155)
+                    {
+                        MessageBoxHelper.Show("申请车型A1、A2、A3、B2、N时，身高需在155厘米以上！");
+                        this.tabControl1.SelectedIndex = 1;
+                        this.txtHeight.Focus();
+                        return false;
+                    }
+                }
+                if (car == "B1")
+                {
+                    if (config.ApplyConfig.IsBodyCheck && stature < 150)
+                    {
+                        MessageBoxHelper.Show("申请车型B1时，身高需在150厘米以上！");
+                        this.tabControl1.SelectedIndex = 1;
+                        this.txtHeight.Focus();
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBoxHelper.Show("身高必须为数字");
+                this.tabControl1.SelectedIndex = 1;
+                this.txtHeight.Focus();
+                return false;
+            }
+
+
+            if (config.ApplyConfig.IsBodyCheck)
+            {
+                double leftEye = 0;
+                try
+                {
+                    leftEye = double.Parse(this.txtLeftEye.Text.ToString());
+                }
+                catch
+                {
+                    MessageBoxHelper.Show("左视力必须为数字");
+                    this.tabControl1.SelectedIndex = 1;
+                    this.txtLeftEye.Focus();
+                    return false;
+                }
+                double rightEye = 0;
+                try
+                {
+                    rightEye = double.Parse(this.txtRightEye.Text.ToString());
+                }
+                catch
+                {
+                    MessageBoxHelper.Show("右视力必须为数字");
+                    this.tabControl1.SelectedIndex = 1;
+                    this.txtRightEye.Focus();
+                    return false;
+                }
+                int dec = int.Parse(System.Configuration.ConfigurationManager.AppSettings["EyeDecimal"]);
+                int temp = 1;
+                if (dec == 0)
+                {
+                    temp *= 10;
+                }
+                if (car == "A1" || car == "A2" || car == "A3" || car == "B1" || car == "B2" || car == "N" || car == "P")
+                {
+
+                    if (leftEye < 5.0 * temp || rightEye < 5.0 * temp)
+                    {
+                        MessageBoxHelper.Show("申请车型" + car + "时，左右视力必须在" + 5.0 * temp + "以上");
+                        this.tabControl1.SelectedIndex = 1;
+                        this.txtLeftEye.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (leftEye < 4.9 * temp || rightEye < 4.9 * temp)
+                    {
+                        MessageBoxHelper.Show("申请车型" + car + "时，左右视力必须在" + 4.9 * temp + "以上");
+                        this.tabControl1.SelectedIndex = 1;
+                        this.txtRightEye.Focus();
+                        return false;
+                    }
+                }
+                if (this.cbLeftDownBody.SelectedIndex == 0 && this.cbNewCarType.Text != "C2")
+                {
+                    MessageBoxHelper.Show("左下肢不合格者只能申请C2！");
+                    this.tabControl1.SelectedIndex = 1;
+                    this.cbLeftDownBody.Focus();
+                    return false;
+                }
+
+                if (this.cbHospital.Text.Trim() == string.Empty)
+                {
+                    MessageBoxHelper.Show("必须输入体检医院！");
+                    this.tabControl1.SelectedIndex = 1;
+                    this.cbHospital.Focus();
+                    return false;
+                }
             }
             return true;
         }
