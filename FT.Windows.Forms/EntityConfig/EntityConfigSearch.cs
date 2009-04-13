@@ -26,6 +26,7 @@ namespace FT.Windows.Forms
         }
         private void AddSearch()
         {
+            this.toolStrip1.Items.Add("模板类别");
             ToolStripComboBox cb = new ToolStripComboBox();
             cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
             cb.ToolTipText = "选择类别进行查询模板后配置";

@@ -219,7 +219,40 @@ namespace DS.Plugins.Student
             return sb.ToString();
         }
         #endregion
+
         #region 已完成
+
+        private bool CheckRegAddress()
+        {
+            if (this.cbRegProvince.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("请选择完整的证件省份！");
+                this.cbRegProvince.Focus();
+                return false;
+            }
+            if (this.cbRegCity.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("请选择完整的证件市区！");
+                this.cbRegCity.Focus();
+                return false;
+            }
+            if (this.cbRegArea.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("请选择完整的证件县区！");
+                this.cbRegArea.Focus();
+                return false;
+            }
+            return true;
+        }
+        protected override bool CheckBeforeCreate()
+        {
+            return this.CheckRegAddress();
+        }
+        protected override bool CheckBeforeUpdate()
+        {
+            return this.CheckRegAddress();
+        }
+
         protected override void BeforeSave(object entity)
         {
             string dimension = this.ComputeDimension();
@@ -237,6 +270,45 @@ namespace DS.Plugins.Student
 
 
         #region 联动代码
+        private void InitByIdCard(string idcard)
+        {
+            this.cbRegProvince.SelectedValue = IDCardHelper.GetProvince(idcard);
+            if (this.cbRegProvince.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("发证地区区划变更过，请手动选择！");
+                return;
+                //this.cbArea.SelectedIndex = 0;
+            }
+            //Constant.InitCity(this.cbCity, this.cbProvince.SelectedValue.ToString());
+            this.cbRegCity.SelectedValue = IDCardHelper.GetCity(idcard);
+            if (this.cbRegCity.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("发证地区区划变更过，请手动选择！");
+
+                return;
+                //this.cbArea.SelectedIndex = 0;
+            }
+            //Constant.InitAreaCode(this.cbArea, this.cbCity.SelectedValue.ToString());
+            this.cbRegArea.SelectedValue = IDCardHelper.GetArea(idcard);
+
+            if (this.cbRegArea.SelectedValue == null)
+            {
+                MessageBoxHelper.Show("发证地区区划变更过，请手动选择！");
+
+                return;
+                //this.cbArea.SelectedIndex = 0;
+            }
+            else
+            {
+                this.cbBelongArea.SelectedValue = this.cbRegArea.SelectedValue;
+                if (this.cbBelongArea.SelectedValue == null)
+                {
+                    this.cbBelongArea.SelectedIndex = 0;
+                }
+            }
+        }
+
+
         private void cbRegProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
             FT.Windows.CommonsPlugin.BindingHelper.BindCity(this.cbRegCity,this.cbRegProvince.SelectedValue.ToString());
@@ -330,6 +402,7 @@ namespace DS.Plugins.Student
             //TODO,所属地区代码的实现
             this.txtName.Text = card.Name;
             this.txtIdCard.Text = card.IDC;
+            this.InitByIdCard(this.txtIdCard.Text);
             this.txtRegAddress.Text=this.txtConnAddress.Text = card.ADDRESS;
             this.dateBirthday.Value = card.BIRTH;
             this.cbSex.Text = IDCardHelper.GetSexName(card.IDC);
@@ -384,6 +457,7 @@ namespace DS.Plugins.Student
         }
         #endregion
 
+        #region 其他
         private void txtRegAddress_TextChanged(object sender, EventArgs e)
         {
             if (this.txtRegAddress.Text.StartsWith(FT.Windows.CommonsPlugin.BindingHelper.GetAreaPrefix()))
@@ -397,19 +471,56 @@ namespace DS.Plugins.Student
             if (e.KeyCode == Keys.Enter&&this.cbIdCardType.SelectedIndex==0)
             {
                 string id = this.txtIdCard.Text.Trim();
-                if (id.Length != 0)
+                if (this.lbId.Text.Length == 0)
                 {
-                    try
+                    ArrayList students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_state<>'合格结业' and c_state<>'退学' and c_idcard='"+id+"'");
+                    if (students != null && students.Count > 0)
                     {
-                        this.dateBirthday.Value = IDCardHelper.GetBirthday(id);
-                        this.cbSex.Text = IDCardHelper.GetSexName(id);
+                        MessageBoxHelper.Show("身份证明为"+id+"的学员处于在学状态,准备提取当前信息！");
+                        StudentInfo student = students[0] as StudentInfo;
+                        FormHelper.SetDataToForm(this, student);
+                        this.entity = student;
+
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        //this.SetError(sender, "手机号码格式错误！");
-                        //MessageBoxHelper.Show("错误:"+ex.Message);
+                        students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where (c_state='合格结业' or c_state='退学') and c_idcard='" + id + "'");
+                        if (students != null && students.Count > 0)
+                        {
+                            MessageBoxHelper.Show("身份证明为" + id + "的学员曾经在本校学习过,准备提取基本信息！");
+                            StudentInfo student1 = students[0] as StudentInfo;
+                            FormHelper.SetDataToForm(this, student1);
+                            this.lbId.Text = string.Empty;
+                            this.lbBaoMingDate.Text = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            this.lbState.Text = "初始报名";
+                            this.cbLearnType.SelectedIndex = 1;
+                            this.txtExamDate.Text = string.Empty;
+                            this.txtExamId.Text = string.Empty;
+                            this.txtHeight.Text = string.Empty;
+                            this.txtLeftEye.Text = string.Empty;
+                            this.txtRightEye.Text = string.Empty;
+                            this.lbPrintedState.Text = "未打印";
+
+                        }
+                        else if (id.Length != 0)//新学员
+                        {
+                            try
+                            {
+                                this.InitByIdCard(id);
+                                this.dateBirthday.Value = IDCardHelper.GetBirthday(id);
+                                this.cbSex.Text = IDCardHelper.GetSexName(id);
+                            }
+                            catch (Exception ex)
+                            {
+                                //this.SetError(sender, "手机号码格式错误！");
+                                //MessageBoxHelper.Show("错误:"+ex.Message);
+                            }
+                        }
+                        
                     }
+                    
                 }
+                
             }
         }
 
@@ -450,7 +561,9 @@ namespace DS.Plugins.Student
                 e.Cancel = false;
             }
         }
+        #endregion
 
+        #region 学费，考试的添加
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.lbId.Text.Trim().Length > 0 && this.lbId.Text.Trim() != "0")
@@ -497,7 +610,7 @@ namespace DS.Plugins.Student
             tmp.IdCard = this.txtIdCard.Text.Trim();
             tmp.Name = this.txtName.Text.Trim();
             tmp.NewCarType = this.cbNewCarType.Text;
-            
+            tmp.StudentId = this.lbId.Text;
             entity = tmp;
 
             //entity = this.entity;
@@ -536,6 +649,41 @@ namespace DS.Plugins.Student
             entity = tmp;
             //throw new Exception("The method or operation is not implemented.");
         }
+        #endregion
+
+        #region 退学处理
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            if (this.lbId.Text.Length == 0)
+            {
+                MessageBoxHelper.Show("请先保存才能退学！");
+                return;
+            }
+            else
+            {
+                StudentInfo student=this.entity as StudentInfo;
+                if (student != null)
+                {
+                    if (student.State == "合格结业")
+                    {
+                        MessageBoxHelper.Show("合格结业的学生无法退学！");
+                        return;
+                    }
+                    student.State = "退学";
+                    if (FT.DAL.Orm.SimpleOrmOperator.Update(student))
+                    {
+                        MessageBoxHelper.Show("退学成功！");
+                        this.lbState.Text = "退学";
+                        if (this.refresher != null)
+                        {
+                            refresher.Update(this.entity);
+                        }
+                        
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }
 

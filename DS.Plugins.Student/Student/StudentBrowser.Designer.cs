@@ -30,6 +30,7 @@ namespace DS.Plugins.Student
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.txtPostCode = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.txtOldCarType = new FT.Windows.Controls.TextBoxEx.OldCarInput();
             this.lbState = new System.Windows.Forms.Label();
@@ -91,6 +92,9 @@ namespace DS.Plugins.Student
             this.cbIdCardType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtRightEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.txtLeftEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.txtHeight = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.cbHospital = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.dateCheckDate = new System.Windows.Forms.DateTimePicker();
@@ -113,9 +117,8 @@ namespace DS.Plugins.Student
             this.label29 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.txtHeight = new FT.Windows.Controls.TextBoxEx.NumberInput();
-            this.txtLeftEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
-            this.txtRightEye = new FT.Windows.Controls.TextBoxEx.NumberInput();
+            this.label26 = new System.Windows.Forms.Label();
+            this.lbPrintedState = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -139,6 +142,9 @@ namespace DS.Plugins.Student
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbPrintedState);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.btnQuit);
             this.tabPage1.Controls.Add(this.txtPostCode);
             this.tabPage1.Controls.Add(this.txtOldCarType);
             this.tabPage1.Controls.Add(this.lbState);
@@ -206,6 +212,17 @@ namespace DS.Plugins.Student
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnQuit.Location = new System.Drawing.Point(54, 352);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(75, 23);
+            this.btnQuit.TabIndex = 61;
+            this.btnQuit.Text = "退学";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // txtPostCode
             // 
@@ -695,7 +712,6 @@ namespace DS.Plugins.Student
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 24);
             this.txtName.TabIndex = 5;
-            this.txtName.Text = "欧阳政府";
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // label4
@@ -776,6 +792,30 @@ namespace DS.Plugins.Student
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "体检信息";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtRightEye
+            // 
+            this.txtRightEye.Location = new System.Drawing.Point(447, 22);
+            this.txtRightEye.Name = "txtRightEye";
+            this.txtRightEye.Size = new System.Drawing.Size(114, 21);
+            this.txtRightEye.TabIndex = 6;
+            this.txtRightEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtRightEye_Validating);
+            // 
+            // txtLeftEye
+            // 
+            this.txtLeftEye.Location = new System.Drawing.Point(263, 22);
+            this.txtLeftEye.Name = "txtLeftEye";
+            this.txtLeftEye.Size = new System.Drawing.Size(114, 21);
+            this.txtLeftEye.TabIndex = 4;
+            this.txtLeftEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeftEye_Validating);
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.Location = new System.Drawing.Point(71, 22);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(114, 21);
+            this.txtHeight.TabIndex = 1;
+            this.txtHeight.Validating += new System.ComponentModel.CancelEventHandler(this.txtHeight_Validating);
             // 
             // cbHospital
             // 
@@ -991,29 +1031,24 @@ namespace DS.Plugins.Student
             this.tabPage4.Text = "考试记录";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // txtHeight
+            // label26
             // 
-            this.txtHeight.Location = new System.Drawing.Point(71, 22);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(114, 21);
-            this.txtHeight.TabIndex = 1;
-            this.txtHeight.Validating += new System.ComponentModel.CancelEventHandler(this.txtHeight_Validating);
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(162, 361);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 12);
+            this.label26.TabIndex = 62;
+            this.label26.Text = "打印状态";
             // 
-            // txtLeftEye
+            // lbPrintedState
             // 
-            this.txtLeftEye.Location = new System.Drawing.Point(263, 22);
-            this.txtLeftEye.Name = "txtLeftEye";
-            this.txtLeftEye.Size = new System.Drawing.Size(114, 21);
-            this.txtLeftEye.TabIndex = 4;
-            this.txtLeftEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeftEye_Validating);
-            // 
-            // txtRightEye
-            // 
-            this.txtRightEye.Location = new System.Drawing.Point(447, 22);
-            this.txtRightEye.Name = "txtRightEye";
-            this.txtRightEye.Size = new System.Drawing.Size(114, 21);
-            this.txtRightEye.TabIndex = 6;
-            this.txtRightEye.Validating += new System.ComponentModel.CancelEventHandler(this.txtRightEye_Validating);
+            this.lbPrintedState.AutoSize = true;
+            this.lbPrintedState.ForeColor = System.Drawing.Color.Red;
+            this.lbPrintedState.Location = new System.Drawing.Point(222, 362);
+            this.lbPrintedState.Name = "lbPrintedState";
+            this.lbPrintedState.Size = new System.Drawing.Size(41, 12);
+            this.lbPrintedState.TabIndex = 63;
+            this.lbPrintedState.Text = "未打印";
             // 
             // StudentBrowser
             // 
@@ -1126,5 +1161,8 @@ namespace DS.Plugins.Student
         private FT.Windows.Controls.TextBoxEx.NumberInput txtHeight;
         private FT.Windows.Controls.TextBoxEx.NumberInput txtLeftEye;
         private FT.Windows.Controls.TextBoxEx.NumberInput txtRightEye;
+        private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label lbPrintedState;
     }
 }

@@ -21,6 +21,9 @@ namespace DS.Plugins.Student
         [Alias("姓名")]
         public String Name;
 
+        [SimpleColumn(Column = "i_studentid")]
+        public String StudentId;
+
         /// <summary>
         /// 供datagridview显示使用
         /// </summary>

@@ -37,7 +37,7 @@ namespace FT.Windows.Forms
             //MessageBoxHelper.Show("父类的构造函数！");
         }
 
-        private IRefreshParent refresher;
+        protected IRefreshParent refresher;
 
         public DataBrowseForm(object entity, IRefreshParent refresher):this()
         {

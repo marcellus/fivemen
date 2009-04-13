@@ -167,7 +167,7 @@ namespace FT.DAL.Orm
             else
             {
                 DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select i_export_width from table_entity_column_define  where bool_isexported='True' and c_class_full_name='" + type.FullName + "' order by i_order_num", "temp");
-                int[] widths = new int[dt.Rows.Count - 1];
+                int[] widths = new int[dt.Rows.Count];
                 for (int i = 0; i < widths.Length; i++)
                 {
                     try

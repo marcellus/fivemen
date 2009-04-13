@@ -40,12 +40,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbSubject = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.lbCount = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,7 +66,8 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -156,6 +159,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbCount);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbSubject);
             this.groupBox1.Controls.Add(this.label1);
@@ -200,46 +204,63 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lbCount
+            // 
+            this.lbCount.AutoSize = true;
+            this.lbCount.Location = new System.Drawing.Point(492, 74);
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Size = new System.Drawing.Size(71, 12);
+            this.lbCount.TabIndex = 11;
+            this.lbCount.Text = "共{0}条记录";
+            // 
             // Column1
             // 
-            this.Column1.FillWeight = 59.08629F;
+            this.Column1.FillWeight = 92.06836F;
             this.Column1.HeaderText = "车号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.FillWeight = 59.08629F;
+            this.Column2.FillWeight = 81.11903F;
             this.Column2.HeaderText = "姓名";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.FillWeight = 59.08629F;
+            this.Column3.FillWeight = 49.3044F;
             this.Column3.HeaderText = "性别";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.FillWeight = 304.5685F;
+            this.Column4.FillWeight = 195.4796F;
             this.Column4.HeaderText = "身份证明号码";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
-            this.Column5.FillWeight = 59.08629F;
+            this.Column5.FillWeight = 102.7425F;
             this.Column5.HeaderText = "准考证号";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
+            this.Column6.FillWeight = 107.3703F;
             this.Column6.HeaderText = "状态";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 112.8295F;
+            this.Column7.HeaderText = "上次考试时间";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // BaoMinReport
             // 
@@ -273,11 +294,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbSubject;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
