@@ -64,6 +64,9 @@ namespace FT.Windows.ExternalTool
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("文件压缩解压", typeof(ZipTestForm));
             top.DropDownItems.Add(tmp);
+
+            tmp = this.BuildSubMenu("环境变量配置", typeof(FT.Commons.Win32.SetWindowEnv));
+            top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCP控制台", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }

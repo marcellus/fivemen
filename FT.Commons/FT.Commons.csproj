@@ -185,7 +185,14 @@
       <DependentUpon>RegexTest.cs</DependentUpon>
     </Compile>
     <Compile Include="WebCatcher\SimpleCatcher.cs" />
+    <Compile Include="Win32\SetWindowEnv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\SetWindowEnv.designer.cs">
+      <DependentUpon>SetWindowEnv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Win32\SystemDefine.cs" />
+    <Compile Include="Win32\SystemEnvConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PrinterEx\readme.txt" />
@@ -417,6 +424,10 @@
     <EmbeddedResource Include="WebCatcher\RegexTest.resx">
       <SubType>Designer</SubType>
       <DependentUpon>RegexTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\SetWindowEnv.resx">
+      <DependentUpon>SetWindowEnv.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
