@@ -47,11 +47,6 @@ namespace DS.Plugins.Student
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             using (SolidBrush b = new SolidBrush(dataGridView1.RowHeadersDefaultCellStyle.ForeColor))
@@ -96,11 +91,12 @@ namespace DS.Plugins.Student
             for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
             {
                 row = this.dataGridView1.Rows[i];
-                dt.Rows.Add(new string[] {row.Cells[0].Value.ToString(),
-                row.Cells[1].Value.ToString(),
-                row.Cells[2].Value.ToString(),
-                row.Cells[3].Value.ToString(),
-                row.Cells[4].Value.ToString(),string.Empty,string.Empty,string.Empty});
+                dt.Rows.Add(new string[] {
+                row.Cells[0].Value==null?string.Empty:row.Cells[0].Value.ToString(),
+                row.Cells[1].Value==null?string.Empty:row.Cells[1].Value.ToString(),
+                row.Cells[2].Value==null?string.Empty:row.Cells[2].Value.ToString(),
+                row.Cells[3].Value==null?string.Empty:row.Cells[3].Value.ToString(),
+                row.Cells[4].Value==null?string.Empty:row.Cells[4].Value.ToString(),string.Empty,string.Empty,string.Empty});
             }
             return dt;
         }
@@ -125,6 +121,7 @@ namespace DS.Plugins.Student
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.dataGridView1.EndEdit();
             PrintCommonSetting.Default_Border_Style = BordersEdgeStyle.All;
             //if (this.dataGridView1.Rows.Count == 0)
             //{

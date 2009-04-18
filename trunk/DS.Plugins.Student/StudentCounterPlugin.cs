@@ -30,7 +30,7 @@ namespace DS.Plugins.Student
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("学生费用统计", typeof(StudentFeeCounter));
+            tmp = this.BuildSubMenu("学员费用统计", typeof(StudentFeeCounter));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 

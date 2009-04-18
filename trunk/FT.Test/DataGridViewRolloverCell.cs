@@ -8,6 +8,8 @@ namespace FT.Test
 {
     public class DataGridViewRolloverCell : DataGridViewTextBoxCell
     {
+        
+
         protected override void Paint(
             Graphics graphics,
             Rectangle clipBounds,

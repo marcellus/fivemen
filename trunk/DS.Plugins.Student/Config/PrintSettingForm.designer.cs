@@ -28,6 +28,7 @@ namespace DS.Plugins.Student
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintSettingForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbF2PrintDate = new System.Windows.Forms.CheckBox();
@@ -93,6 +94,7 @@ namespace DS.Plugins.Student
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.cbApplyBodyCheck = new System.Windows.Forms.CheckBox();
             this.cbPrintApplyDate = new System.Windows.Forms.CheckBox();
             this.cbPrintXiangCun = new System.Windows.Forms.CheckBox();
             this.cbApply2Dimension = new System.Windows.Forms.CheckBox();
@@ -123,6 +125,11 @@ namespace DS.Plugins.Student
             this.label59 = new System.Windows.Forms.Label();
             this.cbUseIDCard = new System.Windows.Forms.CheckBox();
             this.cbApplySkin = new System.Windows.Forms.CheckBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnTestShareDb = new System.Windows.Forms.Button();
+            this.txtShareDbIp = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -142,12 +149,6 @@ namespace DS.Plugins.Student
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.label64 = new System.Windows.Forms.Label();
-            this.txtShareDbIp = new System.Windows.Forms.TextBox();
-            this.btnTestShareDb = new System.Windows.Forms.Button();
-            this.cbApplyBodyCheck = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numF2Right)).BeginInit();
@@ -821,6 +822,16 @@ namespace DS.Plugins.Student
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
+            // cbApplyBodyCheck
+            // 
+            this.cbApplyBodyCheck.AutoSize = true;
+            this.cbApplyBodyCheck.Location = new System.Drawing.Point(187, 55);
+            this.cbApplyBodyCheck.Name = "cbApplyBodyCheck";
+            this.cbApplyBodyCheck.Size = new System.Drawing.Size(144, 16);
+            this.cbApplyBodyCheck.TabIndex = 20;
+            this.cbApplyBodyCheck.Text = "是否必须检验身体证明";
+            this.cbApplyBodyCheck.UseVisualStyleBackColor = true;
+            // 
             // cbPrintApplyDate
             // 
             this.cbPrintApplyDate.AutoSize = true;
@@ -1099,6 +1110,56 @@ namespace DS.Plugins.Student
             this.cbApplySkin.Text = "是否使用皮肤";
             this.cbApplySkin.UseVisualStyleBackColor = true;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.button2);
+            this.tabPage7.Controls.Add(this.btnTestShareDb);
+            this.tabPage7.Controls.Add(this.txtShareDbIp);
+            this.tabPage7.Controls.Add(this.label64);
+            this.tabPage7.Location = new System.Drawing.Point(4, 34);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(590, 235);
+            this.tabPage7.TabIndex = 7;
+            this.tabPage7.Text = "数据共享";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(392, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "写入配置";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnTestShareDb
+            // 
+            this.btnTestShareDb.Location = new System.Drawing.Point(289, 13);
+            this.btnTestShareDb.Name = "btnTestShareDb";
+            this.btnTestShareDb.Size = new System.Drawing.Size(75, 23);
+            this.btnTestShareDb.TabIndex = 2;
+            this.btnTestShareDb.Text = "测试";
+            this.btnTestShareDb.UseVisualStyleBackColor = true;
+            this.btnTestShareDb.Click += new System.EventHandler(this.btnTestShareDb_Click);
+            // 
+            // txtShareDbIp
+            // 
+            this.txtShareDbIp.Location = new System.Drawing.Point(102, 16);
+            this.txtShareDbIp.Name = "txtShareDbIp";
+            this.txtShareDbIp.Size = new System.Drawing.Size(127, 21);
+            this.txtShareDbIp.TabIndex = 1;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(19, 25);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(77, 12);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "共享主机IP：";
+            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(23, 12);
@@ -1273,66 +1334,6 @@ namespace DS.Plugins.Student
             this.label58.TabIndex = 5;
             this.label58.Text = "向上";
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.button2);
-            this.tabPage7.Controls.Add(this.btnTestShareDb);
-            this.tabPage7.Controls.Add(this.txtShareDbIp);
-            this.tabPage7.Controls.Add(this.label64);
-            this.tabPage7.Location = new System.Drawing.Point(4, 34);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(590, 235);
-            this.tabPage7.TabIndex = 7;
-            this.tabPage7.Text = "数据共享";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(19, 25);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(77, 12);
-            this.label64.TabIndex = 0;
-            this.label64.Text = "共享主机IP：";
-            // 
-            // txtShareDbIp
-            // 
-            this.txtShareDbIp.Location = new System.Drawing.Point(102, 16);
-            this.txtShareDbIp.Name = "txtShareDbIp";
-            this.txtShareDbIp.Size = new System.Drawing.Size(127, 21);
-            this.txtShareDbIp.TabIndex = 1;
-            // 
-            // btnTestShareDb
-            // 
-            this.btnTestShareDb.Location = new System.Drawing.Point(289, 13);
-            this.btnTestShareDb.Name = "btnTestShareDb";
-            this.btnTestShareDb.Size = new System.Drawing.Size(75, 23);
-            this.btnTestShareDb.TabIndex = 2;
-            this.btnTestShareDb.Text = "测试";
-            this.btnTestShareDb.UseVisualStyleBackColor = true;
-            this.btnTestShareDb.Click += new System.EventHandler(this.btnTestShareDb_Click);
-            // 
-            // cbApplyBodyCheck
-            // 
-            this.cbApplyBodyCheck.AutoSize = true;
-            this.cbApplyBodyCheck.Location = new System.Drawing.Point(187, 55);
-            this.cbApplyBodyCheck.Name = "cbApplyBodyCheck";
-            this.cbApplyBodyCheck.Size = new System.Drawing.Size(144, 16);
-            this.cbApplyBodyCheck.TabIndex = 20;
-            this.cbApplyBodyCheck.Text = "是否必须检验身体证明";
-            this.cbApplyBodyCheck.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(392, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "写入配置";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // PrintSettingForm
             // 
             this.ClientSize = new System.Drawing.Size(598, 337);
@@ -1340,6 +1341,9 @@ namespace DS.Plugins.Student
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PrintSettingForm";
             this.Text = "打印配置";
             this.Load += new System.EventHandler(this.PrintSettingForm_Load);

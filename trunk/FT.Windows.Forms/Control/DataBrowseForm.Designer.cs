@@ -63,6 +63,7 @@
             this.toolStripButton1.Size = new System.Drawing.Size(35, 33);
             this.toolStripButton1.Text = "打印";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Visible = false;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton6
@@ -148,13 +149,13 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         protected System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label1;
         protected System.Windows.Forms.Label lbId;
+        protected System.Windows.Forms.ToolStripButton toolStripButton1;
 
     }
 }
