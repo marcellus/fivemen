@@ -12,6 +12,7 @@ namespace DriverSchool
         [STAThread]
         static void Main()
         {
+            //System.Threading.Thread.Sleep()
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", DriverSchool.Properties.Resources.bg
