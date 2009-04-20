@@ -64,11 +64,13 @@ namespace FT.Commons.Win32
 
         public static void ModifySystemEnvPath()
         {
+            
             //下面利用发送系统消息，就不要重新启动计算机了
             const int HWND_BROADCAST = 0xffff;
             IntPtr a = new IntPtr(HWND_BROADCAST);
             // DWORD dwMsgResult = 0L;
             const uint WM_SETTINGCHANGE = 0;
+            
             uint lMsg = RegisterWindowMessage("Environment");
             System.UInt32 dwMsgResult1 = 0;
             IntPtr s;
