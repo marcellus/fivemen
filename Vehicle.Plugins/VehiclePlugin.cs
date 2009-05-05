@@ -38,6 +38,9 @@ namespace Vehicle.Plugins
             tmp = this.BuildSubMenu("系统配置", typeof(VehicleConfig));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("模板列定义管理", typeof(FT.Windows.Forms.EntityConfigSearch));
+            top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("操作日志", typeof(OptLogSearch));
             top.DropDownItems.Add(tmp);
 

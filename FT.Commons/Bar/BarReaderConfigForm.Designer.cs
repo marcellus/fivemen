@@ -262,6 +262,7 @@
             this.ClientSize = new System.Drawing.Size(353, 196);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "BarReaderConfigForm";
             this.Text = "监控条码配置";
             this.groupBox1.ResumeLayout(false);
