@@ -17,12 +17,46 @@ namespace Vehicle.Plugins
         public VehicleSearch()
         {
             InitializeComponent();
+            this.AddSearch();
             this.EntityType = typeof(VehicleInfo);
             this.DetailFormType = typeof(VehicleBrowser);
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.KeyDown += new KeyEventHandler(dataGridView1_KeyDown);
             this.dataGridView1.CellMouseDown += new DataGridViewCellMouseEventHandler(dataGridView1_CellMouseDown);
         }
+
+        private ToolStripTextBox txtName;
+        private ToolStripTextBox txt;
+        private void AddSearch()
+        {
+            this.toolStrip1.Items.Add("所有人身份证明号码");
+            txtName = new System.Windows.Forms.ToolStripTextBox();
+            txtName.KeyDown += new KeyEventHandler(txt_KeyDown);
+            txtName.ToolTipText = "输入所有人身份证明号码按回车查询";
+            this.toolStrip1.Items.Add(txtName);
+            this.toolStrip1.Items.Add("车辆识别代码");
+            txt = new System.Windows.Forms.ToolStripTextBox();
+            txt.KeyDown += new KeyEventHandler(txt_KeyDown);
+            txt.ToolTipText = "输入车辆识别代码按回车查询";
+            this.toolStrip1.Items.Add(txt);
+
+        }
+
+       
+
+        void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string condition = " c_base_syr_idcard like '" + txtName.Text.Trim() + "%'";
+                if (this.txt.Text.Length != 0)
+                {
+                    condition += " and tecclsbm like '" + this.txt.Text + "%'";
+                }
+                this.SetConditions(condition);
+            }
+        }
+
         void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)

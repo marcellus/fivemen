@@ -15,8 +15,8 @@ namespace Vehicle
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords", Vehicle.Properties.Resources.bg
-            , 8, "15814584509", false);
+            FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", Vehicle.Properties.Resources.bg
+            , 10, "15814584509", true);
         }
     }
 }
