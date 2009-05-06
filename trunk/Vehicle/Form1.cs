@@ -21,6 +21,7 @@ namespace Vehicle
             btn.Text = "Mytest≤‚ ‘∞¥≈•";
             btn.AutoSize = true;
             this.Controls.Add(btn);
+            
         }
     }
 }

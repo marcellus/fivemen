@@ -27,7 +27,21 @@ namespace FT.Commons.Security
         /// <summary>
         /// 默认关键字
         /// </summary>
-        const string IV_64 = "FTSECURI"; 
+        const string IV_64 = "FTSECURI";
+
+        private string key = KEY_64;
+
+        public KeySecurity()
+        {
+
+
+        }
+
+        public KeySecurity(string key)
+        {
+
+            this.key = key;
+        }
 
         #region ISecurity 成员
 
@@ -39,8 +53,8 @@ namespace FT.Commons.Security
         public string Encrypt(string encode)
         {
             log.Debug("before encrypt the string is:"+encode);
-            byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(KEY_64);
-            byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(IV_64);
+            byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
+            byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
             DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
             int i = cryptoProvider.KeySize;
             MemoryStream ms = new MemoryStream();
@@ -63,8 +77,8 @@ namespace FT.Commons.Security
         public string Decrypt(string decode)
         {
            log.Debug("before decrypt the string is:" + decode);
-            byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(KEY_64);
-            byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(IV_64);
+           byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
+           byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(key);
 
             byte[] byEnc;
             try
