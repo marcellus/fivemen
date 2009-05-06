@@ -50,6 +50,7 @@
             // 
             // myButton3
             // 
+            this.myButton3.Font = new System.Drawing.Font("宋体", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.myButton3.Location = new System.Drawing.Point(55, 58);
             this.myButton3.Name = "myButton3";
             this.myButton3.Size = new System.Drawing.Size(152, 30);
@@ -59,6 +60,7 @@
             // 
             // myButton2
             // 
+            this.myButton2.Font = new System.Drawing.Font("宋体", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.myButton2.Location = new System.Drawing.Point(48, 2);
             this.myButton2.Name = "myButton2";
             this.myButton2.Size = new System.Drawing.Size(120, 34);
