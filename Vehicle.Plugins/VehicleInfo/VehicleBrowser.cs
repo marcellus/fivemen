@@ -538,7 +538,7 @@ end if
 
         private void txtBaseSyrPhone_Validating(object sender, CancelEventArgs e)
         {
-            this.ValidatePhone(sender, e, false);
+            this.ValidateNotNull(sender, e, "必须输入一个电话号码！");
         }
 
         private void txtBaseSyrMobile_Validating(object sender, CancelEventArgs e)
