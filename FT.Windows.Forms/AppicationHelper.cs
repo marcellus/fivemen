@@ -56,6 +56,7 @@ namespace FT.Windows.Forms
                             }
                             else
                             {
+                                if (AppicationHelper.ProductState != ProgramState.Registed)
                                 text += "(" + limit + "次试用版本，剩下" + (limit - config.UseCount) + "次)";
                                 Run(bg, text);
                             }
@@ -216,6 +217,7 @@ namespace FT.Windows.Forms
                             else
                             {
                                 TimeSpan ts = now - regdate;
+                                if (AppicationHelper.ProductState != ProgramState.Registed)
                                 text += "(" + limit + "天试用版本，剩下" + (limit - ts.Days) + "天)";
                                 Run(bg, text);
                             }
