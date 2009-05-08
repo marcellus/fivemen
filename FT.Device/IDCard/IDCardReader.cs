@@ -267,6 +267,7 @@ namespace FT.Device.IDCard
                 img.Dispose();
                 img = null;
             }
+            
             ReadICCardComplete(objEDZ);
             return 0;
         }
