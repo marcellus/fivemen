@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="IDCard\IDCardReader.cs" />
     <Compile Include="IDCard\IDCardReaderHelper.cs" />
+    <Compile Include="IDCard\SetIDCardInvoker.cs" />
     <Compile Include="ImageSupport\Enums.cs" />
     <Compile Include="ImageSupport\Gdip.cs" />
     <Compile Include="ImageSupport\ImageFromDevice.cs" />

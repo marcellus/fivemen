@@ -245,7 +245,8 @@ namespace Vehicle.Plugins
             }
             else
             {
-                excel.PrintPreview();
+                //excel.SaveAs("c:\\≤‚ ‘¥Ú”°±Ì.xls", true);
+               excel.PrintPreview();
             }
             excel.Close();
         }
@@ -346,6 +347,7 @@ namespace Vehicle.Plugins
         {
             this.Draw15String(comp.NickName,new Point(100,100));
             this.Draw15String(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), new Point(100, 150));
+            //this.GetQRImage(vehicle.OthDimension).Save("2demision.jpg");
             MyGraphics.DrawImage(this.GetQRImage(vehicle.OthDimension), new Rectangle(new Point(100,200), new Size(150, 150)));
             //this.Draw10String("printf5", new Point(100, 100));
         }

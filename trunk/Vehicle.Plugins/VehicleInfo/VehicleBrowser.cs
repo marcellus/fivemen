@@ -18,6 +18,7 @@ namespace Vehicle.Plugins
 {
     public partial class VehicleBrowser : FT.Windows.Forms.DataBrowseForm
     {
+        private delegate void UpdateUI(string[] data);
         private string color = string.Empty;
 
         private string rlzl = string.Empty;
@@ -1199,6 +1200,7 @@ end if
                 this.txtXuQzcpxh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
                 this.txtTecZkrsh.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
                 this.txtXuDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                this.txtXuPzHm.GotFocus += new EventHandler(txtXuPzHm_GotFocus);
                 SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
                 if (config.ReadHgz)
                 {
@@ -1231,6 +1233,16 @@ end if
             }
         }
 
+        void txtXuPzHm_GotFocus(object sender, EventArgs e)
+        {
+            this.txtXuPzHm.Text = this.cb_xu_jkpzhm.Text;
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        
+
+        
+
         private void ReadIdCardComplete(IDCard card)
         {
             if (card != null)
@@ -1241,6 +1253,7 @@ end if
                 this.txtBaseSyrRegAddress.Text = card.ADDRESS;
                 //card.REGORG
                 this.txtBaseSyrName.Text = card.Name;
+               
             }
         }
 
@@ -1285,15 +1298,23 @@ end if
             string[] data = text.Split('|');
             if (text.StartsWith("HGFOZ"))
             {
-                this.ProcessFmz(data);
+                UpdateUI ui = new UpdateUI(ProcessFmz);
+                //this.ProcessDimension(data);
+                this.Invoke(ui, new object[] { data });
             }
             else if (text.StartsWith("ZCCCH"))
             {
-                this.ProcessWhole(data);
+                UpdateUI ui = new UpdateUI(ProcessWhole);
+                //this.ProcessDimension(data);
+                this.Invoke(ui, new object[] { data });
+                //this.ProcessWhole(data);
+                //this.Invoke()
             }
             else if (text.StartsWith("QTZS21_V1.0"))
             {
-                this.ProcessDimension(data);
+                UpdateUI ui = new UpdateUI(ProcessDimension);
+                //this.ProcessDimension(data);
+                this.Invoke(ui, new object[] { data });
             }
         }
         private void ProcessDimension(string[] data)
@@ -2158,6 +2179,11 @@ end event*/
                 this.SetError(sender, "号牌种类与车辆类型不符!");
                 e.Cancel = true;
             }
+        }
+
+        private void cb_xu_jkpzhm_TextChanged(object sender, EventArgs e)
+        {
+            this.txtXuPzHm.Text = this.cb_xu_jkpzhm.Text;
         }
 
         

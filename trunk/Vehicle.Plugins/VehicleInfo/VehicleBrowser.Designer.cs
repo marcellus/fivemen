@@ -1227,6 +1227,7 @@ namespace Vehicle.Plugins
             this.cb_xu_jkpzhm.Name = "cb_xu_jkpzhm";
             this.cb_xu_jkpzhm.Size = new System.Drawing.Size(78, 20);
             this.cb_xu_jkpzhm.TabIndex = 72;
+            this.cb_xu_jkpzhm.TextChanged += new System.EventHandler(this.cb_xu_jkpzhm_TextChanged);
             // 
             // cbXuJkPzType
             // 

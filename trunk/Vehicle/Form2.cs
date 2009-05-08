@@ -20,8 +20,82 @@ namespace Vehicle
         FT.Commons.Security.ISecurity security;
         private void button1_Click(object sender, EventArgs e)
         {
-            security = new FT.Commons.Security.KeySecurity(key);
-            this.textBox2.Text=security.Decrypt(this.textBox1.Text.Trim());
+            this.Decrypt();
+        }
+
+        private void Decrypt()
+        {
+            //security = new FT.Commons.Security.KeySecurity(key);
+            //this.textBox2.Text = security.Decrypt(this.textBox1.Text.Trim());
+            string code = this.textBox1.Text.Trim();
+            string ls_temp = string.Empty;
+            string result = string.Empty;
+            for (int i = 1; i <= code.Length/2; i++)
+            {
+                ls_temp = code.Substring((i - 1)*2, 2);
+                ls_temp = Convert.ToString((char)( Hex2Long(ls_temp)));
+                result += ls_temp;
+            }
+            /*int mid = code.Length / 2;
+            string left = code.Substring(0, mid);
+            string right = code.Substring(mid);
+            
+            
+            for (int i = 1; i <= mid;i++ )
+            {
+                ls_temp = left.Substring(i - 1, 1) + right.Substring(i - 1, 1);
+                ls_temp=Convert.ToString((char)(255 - Hex2Long(ls_temp)));
+                result += ls_temp;
+            }*/
+            this.textBox2.Text = result;
+            /*integer li_i, li_j
+string ls_encchar,ls_encchar1,ls_encchar2,ls_unasstr = ''
+
+li_j = len(field)/2
+ls_encchar1 = left(field,li_j)
+ls_encchar2 = right(field,li_j)
+for li_i = 1 to li_j
+	ls_encchar = mid(ls_encchar1,li_i,1) + mid(ls_encchar2,li_i,1)
+	ls_unasstr = ls_unasstr + char(255 - gf_hex2long(ls_encchar))
+next
+return ls_unasstr
+
+end function*/
+
+
+            
+        }
+
+        private int Hex2Long(string hex)
+        {
+            /*
+global function long gf_hex2long (string as_hex);//[of_hex2long(as_hex) returns a long]
+string ls_hex
+integer li_i,length
+long result = 0
+
+length = len(as_hex)
+ls_hex = Upper(as_hex)
+FOR li_i = 1 to length
+   result += &
+     (Pos ('123456789ABCDEF', mid(ls_hex, li_i, 1)) * &
+     ( 16 ^  ( length - li_i )  ))
+NEXT
+RETURN */
+            string ls_hex = hex.ToUpper();
+            int result = 0;
+            /*int len = hex.Length;
+            string posstr = "123456789ABCDEF";
+            int tmp = 0;
+            for (int i = 1; i <= len;i++ )
+            {
+                tmp = posstr.IndexOf(ls_hex.Substring(i - 1, 1)) + 1;
+                tmp=(int)(tmp*Math.Pow(16,(len-i)));
+                
+                result += tmp;
+            }*/
+            result = Convert.ToInt32(ls_hex, 16);
+            return result;
         }
     }
 }
