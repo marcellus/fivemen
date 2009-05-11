@@ -79,6 +79,7 @@ namespace Vehicle.Plugins
                 DictManager.BindBelongAreaDynamic(this.cbBaseSyrRegArea);
 
                 BindHelper.BindPzhm(this.cb_xu_jkpzhm);
+                this.cb_xu_jkpzhm.SelectedIndex = 1;
                 BindHelper.BindJkpz(this.cbXuJkPzType);
 
                 BindHelper.BindSellDw(this.cbXuSellDw);
@@ -113,7 +114,10 @@ namespace Vehicle.Plugins
 
         void txtXuDescription_KeyDown(object sender, KeyEventArgs e)
         {
-            this.cbXuJkPzType.Focus();
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.cbXuJkPzType.Focus();
+            }
             //throw new Exception("The method or operation is not implemented.");
         }
 
