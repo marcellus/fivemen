@@ -299,18 +299,54 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.cbXuGzzm.SelectedValue.ToString());
             VehicleHelper.AppendString(sb, this.txtXuGzzmBh.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtXuBxBh.Text.Trim());
-            VehicleHelper.AppendString(sb, this.mtxtXuBxBeginDate.Text.Trim());
-            VehicleHelper.AppendString(sb, this.mtxtXuBxEndDate.Text.Trim());
+
+
+            if (this.mtxtXuBxBeginDate.Text.Length > 0 &&
+                this.mtxtXuBxBeginDate.Text != "-  -" && this.mtxtXuBxBeginDate.Text != "1900-01-01")
+            {
+                VehicleHelper.AppendString(sb, this.mtxtXuBxBeginDate.Text.Trim());
+            }
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
+            if (this.mtxtXuBxEndDate.Text.Length > 0 &&
+                this.mtxtXuBxEndDate.Text != "-  -"
+                && this.mtxtXuBxEndDate.Text != "1900-01-01")
+            {
+                VehicleHelper.AppendString(sb, this.mtxtXuBxEndDate.Text.Trim());
+            }
+            
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
             VehicleHelper.AppendString(sb, this.cbXuBxCompany.Text);
             VehicleHelper.AppendString(sb, this.cbXuJkPzType.SelectedValue.ToString());
             VehicleHelper.AppendString(sb, this.txtXuPzHm.Text.Trim());
-            VehicleHelper.AppendString(sb, this.mtxtXuJkDate.Text.Trim());
+            if (this.mtxtXuJkDate.Text.Length > 0 &&
+                this.mtxtXuJkDate.Text != "-  -" && this.mtxtXuJkDate.Text != "1900-01-01")
+            {
+                VehicleHelper.AppendString(sb, this.mtxtXuJkDate.Text.Trim());
+            }
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
+            
             VehicleHelper.AppendString(sb, this.txtXuQzcpxh.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtXuVehicleColor.Text.Trim());
 
             VehicleHelper.AppendString(sb, this.txtDyHtzbh.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyDyHtbh.Text.Trim());
-            VehicleHelper.AppendString(sb, this.cbDyDyqrIdCardType.SelectedValue.ToString());
+            if (this.txtDyHtzbh.Text.Length > 0)
+            {
+                VehicleHelper.AppendString(sb, this.cbDyDyqrIdCardType.SelectedValue.ToString());
+            }
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
             VehicleHelper.AppendString(sb, this.txtDyDyqrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyDyqrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyDyqrPhone.Text.Trim());
@@ -331,17 +367,36 @@ QTZS21_V1.0 +加密(车辆类型代码+使用性质代码+车辆识别代码)+合格证编号+车辆型号+中
             VehicleHelper.AppendString(sb, this.txtBaseJbrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseJbrConnAddress.Text.Trim());
 
-            VehicleHelper.AppendString(sb, this.cbDyDldwIdCardType.SelectedValue.ToString());
-            VehicleHelper.AppendString(sb, this.txtDyDldwIdCard.Text.Trim());
-            VehicleHelper.AppendString(sb, this.txtDyDldwName.Text.Trim());
-            VehicleHelper.AppendString(sb, this.txtDyDldwPhone.Text.Trim());
-            VehicleHelper.AppendString(sb, this.txtDyDldwConnAddress.Text.Trim());
+            if (this.txtDyHtzbh.Text.Length > 0)
+            {
+                VehicleHelper.AppendString(sb, this.cbDyDldwIdCardType.SelectedValue.ToString());
+                VehicleHelper.AppendString(sb, this.txtDyDldwIdCard.Text.Trim());
+                VehicleHelper.AppendString(sb, this.txtDyDldwName.Text.Trim());
+                VehicleHelper.AppendString(sb, this.txtDyDldwPhone.Text.Trim());
+                VehicleHelper.AppendString(sb, this.txtDyDldwConnAddress.Text.Trim());
+            }
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+                VehicleHelper.AppendString(sb, string.Empty);
+                VehicleHelper.AppendString(sb, string.Empty);
+                VehicleHelper.AppendString(sb, string.Empty);
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
             VehicleHelper.AppendString(sb, this.cbDyJbrIdCardType.SelectedValue.ToString());
             VehicleHelper.AppendString(sb, this.cbDyJbrIdCard.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrName.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtDyJbrConnAddress.Text.Trim());
 
-            VehicleHelper.AppendString(sb, this.cbBaseSyrConnArea.SelectedValue.ToString().Trim());
+            if (this.txtDyHtzbh.Text.Length > 0)
+            {
+                VehicleHelper.AppendString(sb, this.cbBaseSyrConnArea.SelectedValue.ToString().Trim());
+            }
+            else
+            {
+                VehicleHelper.AppendString(sb, string.Empty);
+            }
+            
             VehicleHelper.AppendString(sb, this.txtBaseSyrConnAddress.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrMobile.Text.Trim());
             VehicleHelper.AppendString(sb, this.txtBaseSyrEmail.Text.Trim());
@@ -1222,17 +1277,31 @@ end if
                     idReader = new IDCardReaderHelper(new De_ReadICCardComplete(ReadIdCardComplete), config.CardReaderInterval);
                 }
                 CompanyInfo comp = FT.Commons.Cache.StaticCacheManager.GetConfig<CompanyInfo>();
-                this.txtBaseDlrConnAddress.Text = comp.Address;
-                this.txtBaseDlrIdCard.Text = comp.BusId;
-                this.txtBaseDlrName.Text = comp.Name;
-                this.txtBaseDlrPhone.Text = comp.Phone;
+                if (this.txtBaseDlrConnAddress.Text.Length==0)
+                    this.txtBaseDlrConnAddress.Text = comp.Address;
+                if (this.txtBaseDlrIdCard.Text.Length == 0)
+                    this.txtBaseDlrIdCard.Text = comp.BusId;
+                if (this.txtBaseDlrName.Text.Length == 0)
+                    this.txtBaseDlrName.Text = comp.Name;
+                if (this.txtBaseDlrPhone.Text.Length == 0)
+                    this.txtBaseDlrPhone.Text = comp.Phone;
 
                 //this.cbXuSellDw.Text = comp.Name;
+                if (this.txtDyDldwConnAddress.Text.Length == 0)
+                    this.txtDyDldwConnAddress.Text = comp.Address;
+                if (this.txtDyDldwIdCard.Text.Length == 0)
+                    this.txtDyDldwIdCard.Text = comp.BusId;
+                if (this.txtDyDldwName.Text.Length == 0)
+                    this.txtDyDldwName.Text = comp.Name;
+                if (this.txtDyDldwPhone.Text.Length == 0)
+                    this.txtDyDldwPhone.Text = comp.Phone;
 
-                this.txtDyDldwConnAddress.Text = comp.Address;
-                this.txtDyDldwIdCard.Text = comp.BusId;
-                this.txtDyDldwName.Text = comp.Name;
-                this.txtDyDldwPhone.Text = comp.Phone;
+                if(this.txtBaseSyrIdCard.Text.Length>0)
+                {
+
+                    this.txtBaseSyrRegAddress.Text=FT.Commons.Tools.FormHelper.GetObjectValue(entity, "BaseSyrRegAddress").ToString();
+                    this.txtBaseSyrConnAddress.Text=FT.Commons.Tools.FormHelper.GetObjectValue(entity, "BaseSyrConnAddress").ToString();
+                }
                 //this.xuhao = this.lbPhotoXh.Text.Trim();
             }
         }
