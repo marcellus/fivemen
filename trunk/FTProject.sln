@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBarReader", "CodeBarRea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverSchool", "DriverSchool\DriverSchool.csproj", "{71BC9BC6-6DB1-4A65-8211-5DE02452C754}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonCard", "PersonCard\PersonCard.csproj", "{7225C750-A181-4281-89CE-BFCEF43BBA8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{71BC9BC6-6DB1-4A65-8211-5DE02452C754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71BC9BC6-6DB1-4A65-8211-5DE02452C754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71BC9BC6-6DB1-4A65-8211-5DE02452C754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
