@@ -154,7 +154,7 @@ namespace FT.Commons.Com.Excels
             for (int i = 1; i <= this.ColLength; i++)
             {
                 Range rangTemp = this.GetRange(this.CurrentRowIndex, i);
-                this.SetRangeText(rangTemp, this.dt.Columns[i - 1].ColumnName);
+                this.SetRangeText(rangTemp, "'"+this.dt.Columns[i - 1].ColumnName);
 
                 if (this.HeaderWidth != null)
                 {
