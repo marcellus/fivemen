@@ -153,7 +153,7 @@ namespace FT.Commons.Com.Excels
 
             for (int i = 1; i <= this.ColLength; i++)
             {
-                Range rangTemp = this.GetRange(2, i);
+                Range rangTemp = this.GetRange(this.CurrentRowIndex, i);
                 this.SetRangeText(rangTemp, this.dt.Columns[i - 1].ColumnName);
 
                 if (this.HeaderWidth != null)
@@ -168,12 +168,12 @@ namespace FT.Commons.Com.Excels
             }
 
             //默认头格式
-            Range rangHeader = this.GetRange(2, 1, 2, this.ColLength);
+            Range rangHeader = this.GetRange(this.CurrentRowIndex, 1, this.CurrentRowIndex, this.ColLength);
             this.SetFont(rangHeader, ThirdTitle);
             this.SetRangBorderDefault(rangHeader);
             this.SetRangAlign(rangHeader, ExcelAlign.Center);
             this.SetRangBackColor(rangHeader, 40);
-            this.CurrentRowIndex = 2;
+            //this.CurrentRowIndex = 2;
 
 
         }
