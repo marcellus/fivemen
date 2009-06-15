@@ -16,6 +16,7 @@ namespace FT.Windows.Forms
         public PluginDetailForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
         public PluginDetailForm(PluginAttribute att):this()
         {

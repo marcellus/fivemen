@@ -18,6 +18,13 @@ namespace FT.Windows.Forms
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
+        public CaptureImage(int width,int height)
+        {
+            InitializeComponent();
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.panelSelect.Size = new Size(width,height);
+        }
+
        // private Image image;
         private PictureBox pic;
 
@@ -37,6 +44,16 @@ namespace FT.Windows.Forms
             this.pic = pic;
             //dragger = new Dragger(this.panelSource, this.panelSelect, this.panelSelect.Location);
         }
+
+        public CaptureImage(Image image, PictureBox pic,int width,int height)
+            : this()
+        {
+            this.panelSelect.Size = new Size(width, height);
+            this.panelSource.BackgroundImage = image;
+            this.pic = pic;
+            //dragger = new Dragger(this.panelSource, this.panelSelect, this.panelSelect.Location);
+        }
+
 
         private void panelSelect_MouseDown(object sender, MouseEventArgs e)
         {

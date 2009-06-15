@@ -29,13 +29,18 @@ namespace FT.Commons.Tools
         /// <param name="frm">´°Ìו</param>
         public static void InitHabitToForm(Form frm)
         {
+            frm.Font = new Font("ËÎÌו", 11f);
             InitHabitToControl(frm);
+            
+            
         }
 
         private static void InitHabitToControl(Control ctr)
         {
+            //ctr.Font = new Font("ËÎÌו", 11f);
             if (ctr.Controls.Count == 0)
             {
+                
                 ctr.KeyDown += new KeyEventHandler(EnterToTab);
             }
             foreach (Control tmp in ctr.Controls)

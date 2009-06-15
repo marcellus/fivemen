@@ -17,6 +17,7 @@ namespace FT.Windows.Forms
         public PluginManageForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             
         }
 

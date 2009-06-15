@@ -14,6 +14,7 @@ namespace FT.Windows.Forms
         public ConditionBuildForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
         private Type entityType;
         private IRefreshParent refresher;

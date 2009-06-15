@@ -44,6 +44,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton6,
@@ -51,7 +52,7 @@
             this.toolStripButton9});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(452, 36);
+            this.toolStrip1.Size = new System.Drawing.Size(452, 41);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -60,7 +61,7 @@
             this.toolStripButton1.Image = global::FT.Windows.Forms.Properties.Resources.Printer_16_16;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(35, 33);
+            this.toolStripButton1.Size = new System.Drawing.Size(42, 38);
             this.toolStripButton1.Text = "打印";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Visible = false;
@@ -71,7 +72,7 @@
             this.toolStripButton6.Image = global::FT.Windows.Forms.Properties.Resources.Save_16_16;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(35, 33);
+            this.toolStripButton6.Size = new System.Drawing.Size(42, 38);
             this.toolStripButton6.Text = "保存";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
@@ -81,7 +82,7 @@
             this.toolStripButton8.Image = global::FT.Windows.Forms.Properties.Resources.Edit_16_16;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(35, 33);
+            this.toolStripButton8.Size = new System.Drawing.Size(42, 38);
             this.toolStripButton8.Text = "添加";
             this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
@@ -91,7 +92,7 @@
             this.toolStripButton9.Image = global::FT.Windows.Forms.Properties.Resources.Home_16_16;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(35, 33);
+            this.toolStripButton9.Size = new System.Drawing.Size(42, 38);
             this.toolStripButton9.Text = "关于";
             this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);

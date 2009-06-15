@@ -17,6 +17,7 @@ namespace FT.Windows.ExternalTool
         public ProgramRegConfigForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void ProgramRegConfigForm_Load(object sender, EventArgs e)

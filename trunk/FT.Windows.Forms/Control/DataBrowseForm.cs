@@ -722,7 +722,7 @@ namespace FT.Windows.Forms
         /// <summary>
         /// 清理验证错误
         /// </summary>
-        private void ClearValidateError()
+        protected void ClearValidateError()
         {
             this.errorProvider1.Clear();
         }

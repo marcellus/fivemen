@@ -21,6 +21,7 @@ namespace FT.Commons.WebCatcher
         public RegexTest()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             config=StaticCacheManager.GetConfig<CatcherConfig>();
             this.txtUrl.Text = config.Url;
         }

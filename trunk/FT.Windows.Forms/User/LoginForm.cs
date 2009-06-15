@@ -16,6 +16,7 @@ namespace FT.Windows.Forms
         public LoginForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

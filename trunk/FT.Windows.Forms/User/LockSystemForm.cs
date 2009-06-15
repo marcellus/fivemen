@@ -14,6 +14,7 @@ namespace FT.Windows.Forms
         public LockSystemForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void btnUnlock_Click(object sender, EventArgs e)

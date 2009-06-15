@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
+using FT.Commons.Print;
+using FT.Windows.Forms;
+using FT.Commons.Cache;
+using FT.Commons.Tools;
 
 namespace DS.Plugins.Student
 {
@@ -152,6 +157,106 @@ end function
         {
             sb.Append(QRSep);
             sb.Append(app);
+        }
+
+        public static void Print(StudentInfo student,Keys key)
+        {
+            BaseStudentPrinter printer = null;
+            if (key == Keys.F1)
+            {
+                printer = new AllPrinter(student);
+            }
+            else if (key == Keys.F2)
+            {
+                printer = new F2Printer(student);
+            }
+            else if (key == Keys.F3)
+            {
+                printer = new F3Printer(student);
+            }
+            else if (key == Keys.F4)
+            {
+                printer = new F4Printer(student);
+
+            }
+            else if (key == Keys.F5)
+            {
+                printer = new F5Printer(student);
+                //printer = new F5Printer(this.student);
+            }
+            else if (key == Keys.F6)
+            {
+                SetPrinted(student);
+                printer = new ApplyPrinter(student);
+            }
+            else if (key == Keys.F7)
+            {
+                SetPrinted(student);
+                printer = new ApplyExcelPrinter(student);
+                ApplyExcelPrinter tmp = printer as ApplyExcelPrinter;
+                tmp.PrintExcel(false);
+                return;
+            }
+            else if (key == Keys.F8)
+            {
+                printer = new F8Printer(student);
+            }
+            else if (key == Keys.F9)
+            {
+                printer = new F9Printer(student);
+            }
+            if (printer != null)
+            {
+                CommonPrinter commonPrinter = new CommonPrinter(printer);
+                //commonPrinter.ShowPreviewPrinter();
+                GlobalPrintSetting printSetting = StaticCacheManager.GetConfig<GlobalPrintSetting>();
+                if (printSetting.PrintModel == "直接打")
+                {
+                    commonPrinter.Print();
+                }
+                else if (printSetting.PrintModel == "选择打印机")
+                {
+                    commonPrinter.ShowPreviewPrinter();
+                }
+                else
+                {
+                    commonPrinter.Preview();
+                }
+            }
+            
+        }
+
+        /// <summary>
+        /// 退学一个学员
+        /// </summary>
+        /// <param name="student"></param>
+        public static void Quit(StudentInfo student)
+        {
+            if (student.State == "合格结业")
+            {
+                MessageBoxHelper.Show("合格结业的学生无法退学！");
+                return;
+            }
+            if (student.State == "退学")
+            {
+                MessageBoxHelper.Show("该学员已退学！");
+                return;
+            }
+            student.State = "退学";
+            if (FT.DAL.Orm.SimpleOrmOperator.Update(student))
+            {
+                MessageBoxHelper.Show("退学成功！");
+            }
+        }
+
+        /// <summary>
+        /// 设置打印状态 
+        /// </summary>
+        /// <param name="student"></param>
+        public static void SetPrinted(StudentInfo student)
+        {
+            student.PrintedState = "已打印";
+            FT.DAL.Orm.SimpleOrmOperator.Update(student);
         }
 
 

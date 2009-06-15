@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverSchool", "DriverSchoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonCard", "PersonCard\PersonCard.csproj", "{7225C750-A181-4281-89CE-BFCEF43BBA8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Exam", "FT.Exam\FT.Exam.csproj", "{A97140E7-0440-4366-8B73-CCF92BDE7095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamAppSys", "ExamAppSys\ExamAppSys.csproj", "{2EF60A99-F6F1-422D-A43C-35B1F12CE5DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,14 @@ Global
 		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7225C750-A181-4281-89CE-BFCEF43BBA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97140E7-0440-4366-8B73-CCF92BDE7095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97140E7-0440-4366-8B73-CCF92BDE7095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97140E7-0440-4366-8B73-CCF92BDE7095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97140E7-0440-4366-8B73-CCF92BDE7095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF60A99-F6F1-422D-A43C-35B1F12CE5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF60A99-F6F1-422D-A43C-35B1F12CE5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF60A99-F6F1-422D-A43C-35B1F12CE5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF60A99-F6F1-422D-A43C-35B1F12CE5DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

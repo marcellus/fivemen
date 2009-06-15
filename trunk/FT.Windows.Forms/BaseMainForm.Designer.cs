@@ -45,6 +45,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Font = new System.Drawing.Font("宋体", 11F);
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -87,8 +88,8 @@
             this.Name = "BaseMainForm";
             this.Text = "BaseMainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.BaseMainForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseMainForm_FormClosing);
+            this.Load += new System.EventHandler(this.BaseMainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -273,7 +273,6 @@ namespace FT.DAL.Orm
         /// <summary>
         /// 返回查询条件的记录总数
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="condition"></param>
         /// <returns></returns>
         public static int QueryCounts<T>(string condition)

@@ -14,6 +14,7 @@ namespace FT.Commons.TcpIp
         public TcpClientMockForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             OrgInfo org = new OrgInfo();
             org.FullName = "MockOrg";
             org.NickName = "Mock";

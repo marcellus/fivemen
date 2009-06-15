@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
+using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
@@ -14,6 +15,7 @@ namespace FT.Windows.Forms
         public SimpleAbout()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             this.lbCopyRight.Text = this.AssemblyCopyright;
             this.lbDescription.Text = this.AssemblyDescription;
             this.lbProduct.Text=this.AssemblyProduct;
