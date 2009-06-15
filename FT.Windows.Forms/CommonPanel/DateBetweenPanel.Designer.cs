@@ -40,41 +40,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "开始时间";
             // 
             // dateBegin
             // 
-            this.dateBegin.Location = new System.Drawing.Point(62, 3);
+            this.dateBegin.Location = new System.Drawing.Point(83, 4);
+            this.dateBegin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateBegin.Name = "dateBegin";
-            this.dateBegin.Size = new System.Drawing.Size(113, 21);
+            this.dateBegin.Size = new System.Drawing.Size(149, 24);
             this.dateBegin.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 40);
+            this.label2.Location = new System.Drawing.Point(4, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "结束时间";
             // 
             // dateEnd
             // 
-            this.dateEnd.Location = new System.Drawing.Point(62, 36);
+            this.dateEnd.Location = new System.Drawing.Point(83, 45);
+            this.dateEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(113, 21);
+            this.dateEnd.Size = new System.Drawing.Size(149, 24);
             this.dateEnd.TabIndex = 3;
             // 
             // checkWeek
             // 
             this.checkWeek.AutoSize = true;
-            this.checkWeek.Location = new System.Drawing.Point(187, 3);
+            this.checkWeek.Location = new System.Drawing.Point(249, 4);
+            this.checkWeek.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkWeek.Name = "checkWeek";
-            this.checkWeek.Size = new System.Drawing.Size(60, 16);
+            this.checkWeek.Size = new System.Drawing.Size(71, 19);
             this.checkWeek.TabIndex = 4;
             this.checkWeek.Text = "按星期";
             this.checkWeek.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // checkMonth
             // 
             this.checkMonth.AutoSize = true;
-            this.checkMonth.Location = new System.Drawing.Point(187, 22);
+            this.checkMonth.Location = new System.Drawing.Point(249, 28);
+            this.checkMonth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkMonth.Name = "checkMonth";
-            this.checkMonth.Size = new System.Drawing.Size(60, 16);
+            this.checkMonth.Size = new System.Drawing.Size(71, 19);
             this.checkMonth.TabIndex = 5;
             this.checkMonth.Text = "按月份";
             this.checkMonth.UseVisualStyleBackColor = true;
@@ -100,15 +106,16 @@
             "季度二",
             "季度三",
             "季度四"});
-            this.cbSeason.Location = new System.Drawing.Point(187, 40);
+            this.cbSeason.Location = new System.Drawing.Point(249, 50);
+            this.cbSeason.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSeason.Name = "cbSeason";
-            this.cbSeason.Size = new System.Drawing.Size(60, 20);
+            this.cbSeason.Size = new System.Drawing.Size(99, 23);
             this.cbSeason.TabIndex = 6;
             this.cbSeason.SelectedIndexChanged += new System.EventHandler(this.cbSeason_SelectedIndexChanged);
             // 
             // DateBetweenPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cbSeason);
             this.Controls.Add(this.checkMonth);
@@ -117,8 +124,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateBegin);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("宋体", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DateBetweenPanel";
-            this.Size = new System.Drawing.Size(251, 63);
+            this.Size = new System.Drawing.Size(366, 81);
             this.ResumeLayout(false);
             this.PerformLayout();
 

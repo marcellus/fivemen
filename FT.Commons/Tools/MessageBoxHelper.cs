@@ -45,7 +45,9 @@ namespace FT.Commons.Tools
         /// <param name="caption">提示窗口的标题</param>
         private static void ShowMessage(string text,string caption)
         {
-            MessageBox.Show(text,caption);
+            CustomMessageBox form = new CustomMessageBox(text, caption);
+            form.ShowDialog();
+           // MessageBox.Show(text,caption);
         }
 
         /// <summary>

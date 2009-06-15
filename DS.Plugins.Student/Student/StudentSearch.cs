@@ -22,6 +22,8 @@ namespace DS.Plugins.Student
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.KeyDown += new KeyEventHandler(dataGridView1_KeyDown);
             this.dataGridView1.CellMouseDown += new DataGridViewCellMouseEventHandler(dataGridView1_CellMouseDown);
+            this.btnAdd.Visible = false;
+            this.btnUpdate.Visible = false;
         }
 
         void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)

@@ -41,6 +41,7 @@ namespace FT.Commons.Bar
         public CodeReader()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void CodeReader_Load(object sender, EventArgs e)

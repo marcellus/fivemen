@@ -30,7 +30,8 @@ namespace DS.Plugins.Student
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnQuit = new System.Windows.Forms.Button();
+            this.lbPrintedState = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.txtPostCode = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.txtOldCarType = new FT.Windows.Controls.TextBoxEx.OldCarInput();
             this.lbState = new System.Windows.Forms.Label();
@@ -117,8 +118,10 @@ namespace DS.Plugins.Student
             this.label29 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label26 = new System.Windows.Forms.Label();
-            this.lbPrintedState = new System.Windows.Forms.Label();
+            this.btnApplyPrintF7 = new System.Windows.Forms.Button();
+            this.btnPhoto = new System.Windows.Forms.Button();
+            this.btnApplyPrintF6 = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -132,7 +135,6 @@ namespace DS.Plugins.Student
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -144,7 +146,6 @@ namespace DS.Plugins.Student
             // 
             this.tabPage1.Controls.Add(this.lbPrintedState);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.btnQuit);
             this.tabPage1.Controls.Add(this.txtPostCode);
             this.tabPage1.Controls.Add(this.txtOldCarType);
             this.tabPage1.Controls.Add(this.lbState);
@@ -213,16 +214,24 @@ namespace DS.Plugins.Student
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnQuit
+            // lbPrintedState
             // 
-            this.btnQuit.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnQuit.Location = new System.Drawing.Point(54, 352);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(75, 23);
-            this.btnQuit.TabIndex = 61;
-            this.btnQuit.Text = "退学";
-            this.btnQuit.UseVisualStyleBackColor = true;
-            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            this.lbPrintedState.AutoSize = true;
+            this.lbPrintedState.ForeColor = System.Drawing.Color.Red;
+            this.lbPrintedState.Location = new System.Drawing.Point(94, 362);
+            this.lbPrintedState.Name = "lbPrintedState";
+            this.lbPrintedState.Size = new System.Drawing.Size(41, 12);
+            this.lbPrintedState.TabIndex = 63;
+            this.lbPrintedState.Text = "未打印";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(28, 362);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 12);
+            this.label26.TabIndex = 62;
+            this.label26.Text = "打印状态";
             // 
             // txtPostCode
             // 
@@ -506,8 +515,8 @@ namespace DS.Plugins.Student
             this.txtRegAddress.Name = "txtRegAddress";
             this.txtRegAddress.Size = new System.Drawing.Size(532, 21);
             this.txtRegAddress.TabIndex = 28;
-            this.txtRegAddress.TextChanged += new System.EventHandler(this.txtRegAddress_TextChanged);
             this.txtRegAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtRegAddress_Validating);
+            this.txtRegAddress.TextChanged += new System.EventHandler(this.txtRegAddress_TextChanged);
             // 
             // cbRegArea
             // 
@@ -729,8 +738,8 @@ namespace DS.Plugins.Student
             this.txtIdCard.Name = "txtIdCard";
             this.txtIdCard.Size = new System.Drawing.Size(121, 21);
             this.txtIdCard.TabIndex = 3;
-            this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
             this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
+            this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
             // 
             // label3
             // 
@@ -1031,33 +1040,66 @@ namespace DS.Plugins.Student
             this.tabPage4.Text = "考试记录";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label26
+            // btnApplyPrintF7
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(162, 361);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(53, 12);
-            this.label26.TabIndex = 62;
-            this.label26.Text = "打印状态";
+            this.btnApplyPrintF7.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnApplyPrintF7.Location = new System.Drawing.Point(208, 451);
+            this.btnApplyPrintF7.Name = "btnApplyPrintF7";
+            this.btnApplyPrintF7.Size = new System.Drawing.Size(111, 23);
+            this.btnApplyPrintF7.TabIndex = 61;
+            this.btnApplyPrintF7.Text = "保存并直接打印";
+            this.btnApplyPrintF7.UseVisualStyleBackColor = true;
+            this.btnApplyPrintF7.Click += new System.EventHandler(this.btnApplyPrintF7_Click);
             // 
-            // lbPrintedState
+            // btnPhoto
             // 
-            this.lbPrintedState.AutoSize = true;
-            this.lbPrintedState.ForeColor = System.Drawing.Color.Red;
-            this.lbPrintedState.Location = new System.Drawing.Point(222, 362);
-            this.lbPrintedState.Name = "lbPrintedState";
-            this.lbPrintedState.Size = new System.Drawing.Size(41, 12);
-            this.lbPrintedState.TabIndex = 63;
-            this.lbPrintedState.Text = "未打印";
+            this.btnPhoto.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPhoto.Location = new System.Drawing.Point(508, 451);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(111, 23);
+            this.btnPhoto.TabIndex = 61;
+            this.btnPhoto.Text = "关联照片";
+            this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // btnApplyPrintF6
+            // 
+            this.btnApplyPrintF6.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnApplyPrintF6.Location = new System.Drawing.Point(358, 451);
+            this.btnApplyPrintF6.Name = "btnApplyPrintF6";
+            this.btnApplyPrintF6.Size = new System.Drawing.Size(111, 23);
+            this.btnApplyPrintF6.TabIndex = 61;
+            this.btnApplyPrintF6.Text = "保存并套打";
+            this.btnApplyPrintF6.UseVisualStyleBackColor = true;
+            this.btnApplyPrintF6.Click += new System.EventHandler(this.btnApplyPrintF6_Click);
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnQuit.Location = new System.Drawing.Point(58, 451);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(111, 23);
+            this.btnQuit.TabIndex = 61;
+            this.btnQuit.Text = "退学";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // StudentBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(662, 445);
+            this.ClientSize = new System.Drawing.Size(662, 478);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.btnApplyPrintF7);
+            this.Controls.Add(this.btnPhoto);
+            this.Controls.Add(this.btnApplyPrintF6);
+            this.Controls.Add(this.btnQuit);
             this.Name = "StudentBrowser";
             this.Text = "学员信息";
             this.Load += new System.EventHandler(this.StudentBrowser_Load);
+            this.Controls.SetChildIndex(this.btnQuit, 0);
+            this.Controls.SetChildIndex(this.btnApplyPrintF6, 0);
+            this.Controls.SetChildIndex(this.btnPhoto, 0);
+            this.Controls.SetChildIndex(this.btnApplyPrintF7, 0);
             this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -1164,5 +1206,8 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label lbPrintedState;
+        private System.Windows.Forms.Button btnApplyPrintF7;
+        private System.Windows.Forms.Button btnApplyPrintF6;
+        private System.Windows.Forms.Button btnPhoto;
     }
 }

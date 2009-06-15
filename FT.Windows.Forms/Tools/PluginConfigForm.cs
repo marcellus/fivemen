@@ -17,6 +17,7 @@ namespace FT.Windows.Forms
         public PluginConfigForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void listViewNow_KeyDown(object sender, KeyEventArgs e)

@@ -18,6 +18,16 @@ namespace DS.Plugins.Student
             InitializeComponent();
             this.InitComBox();
         }
+
+        private String subject = string.Empty;
+        public StudentExamBrowser(String subject)
+        {
+            InitializeComponent();
+            this.subject = subject;
+            
+            this.InitComBox();
+            this.cbSubject.Text = subject;
+        }
         #region 子类必须实现的
         public StudentExamBrowser(object entity):base(entity)
         {

@@ -48,6 +48,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyPrinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplyPrinterForm.Designer.cs">
+      <DependentUpon>ApplyPrinterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config\AllPrinterConfig.cs" />
     <Compile Include="Config\ApplyPrinterConfig.cs" />
     <Compile Include="Config\F2PrinterConfig.cs" />
@@ -98,6 +104,20 @@
     <Compile Include="Counter\StudentFeeCounter.Designer.cs">
       <DependentUpon>StudentFeeCounter.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverPicCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverPicCapture.Designer.cs">
+      <DependentUpon>DriverPicCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverPicCaptureConfig.cs" />
+    <Compile Include="NewStudentPlugin.cs" />
+    <Compile Include="OtherPrinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherPrinterForm.Designer.cs">
+      <DependentUpon>OtherPrinterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Printer\AllPrinter.cs" />
     <Compile Include="Printer\ApplyExcelPrinter.cs" />
     <Compile Include="Printer\BaseStudentPrinter.cs" />
@@ -109,12 +129,19 @@
     <Compile Include="Printer\F7Printer.cs" />
     <Compile Include="Printer\F8Printer.cs" />
     <Compile Include="Printer\F9Printer.cs" />
-    <Compile Include="Printer\ApplyPrinter.cs" />
+    <Compile Include="Printer\ApplyPrinter.cs">
+    </Compile>
     <Compile Include="Counter\SimpleStudentCounter.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Counter\SimpleStudentCounter.Designer.cs">
       <DependentUpon>SimpleStudentCounter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuitForm.Designer.cs">
+      <DependentUpon>QuitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -179,6 +206,12 @@
     <Compile Include="TestPdf417Code.Designer.cs">
       <DependentUpon>TestPdf417Code.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DS.Plugins.Car\DS.Plugins.Car.csproj">
@@ -211,6 +244,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ApplyPrinterForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ApplyPrinterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Config\PrintSettingForm.resx">
       <DependentUpon>PrintSettingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -243,6 +280,18 @@
       <SubType>Designer</SubType>
       <DependentUpon>StudentFeeCounter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DriverPicCapture.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DriverPicCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherPrinterForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OtherPrinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuitForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -271,6 +320,10 @@
     <EmbeddedResource Include="TestPdf417Code.resx">
       <DependentUpon>TestPdf417Code.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

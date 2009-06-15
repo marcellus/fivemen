@@ -69,6 +69,7 @@
             // 
             this.groupSearch.Controls.Add(this.splitContainer2);
             this.groupSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupSearch.Font = new System.Drawing.Font("宋体", 11F);
             this.groupSearch.Location = new System.Drawing.Point(0, 0);
             this.groupSearch.Name = "groupSearch";
             this.groupSearch.Size = new System.Drawing.Size(638, 120);
@@ -79,7 +80,7 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 17);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 20);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel2
@@ -87,12 +88,13 @@
             this.splitContainer2.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer2.Panel2.Controls.Add(this.btnPrint);
             this.splitContainer2.Panel2.Controls.Add(this.btnExport);
-            this.splitContainer2.Size = new System.Drawing.Size(632, 100);
+            this.splitContainer2.Size = new System.Drawing.Size(632, 97);
             this.splitContainer2.SplitterDistance = 480;
             this.splitContainer2.TabIndex = 0;
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSearch.Image = global::FT.Windows.Forms.Properties.Resources.Search_16_16;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(15, 4);
@@ -105,6 +107,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnPrint.Image = global::FT.Windows.Forms.Properties.Resources.Printer_16_16;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrint.Location = new System.Drawing.Point(15, 74);
@@ -117,6 +120,7 @@
             // 
             // btnExport
             // 
+            this.btnExport.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnExport.Image = global::FT.Windows.Forms.Properties.Resources.excel;
             this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExport.Location = new System.Drawing.Point(15, 39);

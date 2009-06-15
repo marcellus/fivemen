@@ -15,6 +15,7 @@ namespace FT.Plugins.PersonCard
         public Setting()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             loader = new ConfigLoader<CarStartSetting>(this);
         }
 

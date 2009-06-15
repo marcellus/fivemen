@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Windows.Forms;
 
 namespace FT.Commons.Tools
 {
@@ -14,7 +14,7 @@ namespace FT.Commons.Tools
         /// </summary>
         /// <param name="mimeType"> </param>
         /// <returns>得到指定mimeType的ImageCodecInfo </returns>
-        private static ImageCodecInfo GetCodecInfo(string mimeType)
+        public static ImageCodecInfo GetCodecInfo(string mimeType)
         {
             ImageCodecInfo[] CodecInfo = ImageCodecInfo.GetImageEncoders();
             foreach (ImageCodecInfo ici in CodecInfo)
@@ -22,7 +22,30 @@ namespace FT.Commons.Tools
                 if (ici.MimeType == mimeType) return ici;
             }
             return null;
-        } 
+        }
+
+        public static void SaveOneInchPic(Image image, string path)
+        {
+            try
+            {
+                image = image.Clone() as Image;
+                ((Bitmap)image).SetResolution(350f, 350f);//设置图片打印的dpi
+                ImageCodecInfo myImageCodecInfo;
+                EncoderParameters myEncoderParameters;
+                myImageCodecInfo = ImageHelper.GetCodecInfo("image/jpeg");
+                myEncoderParameters = new EncoderParameters(2);
+                myEncoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, (long)100);
+                myEncoderParameters.Param[1] = new EncoderParameter(Encoder.ColorDepth, (long)ColorDepth.Depth32Bit);
+                //image.Save(path,ImageFormat.Jpeg,)
+                image.Save(path, myImageCodecInfo, myEncoderParameters);
+                image.Dispose();
+            }
+            catch (System.Exception e)
+            {
+                log.Fatal(e);
+            }
+            
+        }
 
         /**/
         /// <summary>

@@ -68,6 +68,8 @@ namespace FT.Windows.Forms.Plugins
             if (type.BaseType == typeof(Form))
             {
                 Form form =  ReflectHelper.CreateInstance(type) as Form;
+                form.ShowInTaskbar = false;
+                form.StartPosition = FormStartPosition.CenterScreen;
                 form.ShowDialog();
             }
         }
@@ -142,6 +144,7 @@ namespace FT.Windows.Forms.Plugins
         protected ToolStripMenuItem AddToMenu(string text)
         {
             ToolStripMenuItem item = BuildTopMenu(text);
+            item.Font = new Font("ËÎÌו", 12f);
             item.ShortcutKeyDisplayString = "T";
             MenuStrip menus = form.GetMenuStrip();
             menus.Items.Add(item);
@@ -227,7 +230,7 @@ namespace FT.Windows.Forms.Plugins
                 {
                     Form form = paneltmp as Form;
                     form.ShowInTaskbar = false;
-                    form.StartPosition = FormStartPosition.CenterParent;
+                    form.StartPosition = FormStartPosition.CenterScreen;
                     //form.MdiParent = this.form;
                     //form.IsMdiChild = true;
                     form.ShowDialog();

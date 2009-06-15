@@ -73,6 +73,12 @@
     <Compile Include="Com\Excels\ListExcel.cs" />
     <Compile Include="Com\Excels\SimpleExcel.cs" />
     <Compile Include="Com\WordSupport\SimpleWord.cs" />
+    <Compile Include="CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrinterEx\BatchPrintConfig.cs" />
     <Compile Include="PrinterEx\IPrinter.cs" />
     <Compile Include="PrinterEx\ObjectPrinter.cs" />
@@ -395,6 +401,10 @@
     <EmbeddedResource Include="Bar\CodeReader.resx">
       <DependentUpon>CodeReader.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomMessageBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SkinProcessor\Skins\XPSilver.ssk" />
     <EmbeddedResource Include="TcpIp\ClientConfigForm.resx">

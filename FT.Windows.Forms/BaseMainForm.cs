@@ -20,6 +20,7 @@ namespace FT.Windows.Forms
         {
             InitializeComponent();
             PluginManager.LoadAllPluginToMainForm(this);
+            this.simpleTabControl1.Font = new Font("ËÎÌו",11f);
         }
     
 

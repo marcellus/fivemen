@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CaptureImage));
             this.panelSource = new System.Windows.Forms.Panel();
             this.panelSelect = new System.Windows.Forms.Label();
             this.panelSource.SuspendLayout();
@@ -37,7 +38,7 @@
             // 
             this.panelSource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSource.Controls.Add(this.panelSelect);
-            this.panelSource.Location = new System.Drawing.Point(36, 30);
+            this.panelSource.Location = new System.Drawing.Point(36, 12);
             this.panelSource.Name = "panelSource";
             this.panelSource.Size = new System.Drawing.Size(256, 192);
             this.panelSource.TabIndex = 0;
@@ -46,9 +47,9 @@
             // 
             this.panelSelect.BackColor = System.Drawing.Color.Transparent;
             this.panelSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSelect.Location = new System.Drawing.Point(61, 19);
+            this.panelSelect.Location = new System.Drawing.Point(58, 4);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(139, 170);
+            this.panelSelect.Size = new System.Drawing.Size(130, 170);
             this.panelSelect.TabIndex = 3;
             this.panelSelect.DoubleClick += new System.EventHandler(this.panelSelect_DoubleClick);
             this.panelSelect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSelect_MouseDown);
@@ -59,9 +60,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 252);
+            this.ClientSize = new System.Drawing.Size(318, 224);
             this.Controls.Add(this.panelSource);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CaptureImage";
+            this.ShowInTaskbar = false;
             this.Text = "图片裁剪窗口";
             this.Load += new System.EventHandler(this.CaptureImage_Load);
             this.panelSource.ResumeLayout(false);

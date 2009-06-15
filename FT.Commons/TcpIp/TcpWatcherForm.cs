@@ -27,6 +27,7 @@ namespace FT.Commons.TcpIp
         public TcpWatcherForm(MessageInfoHandle msgHandle)
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
             if (msgHandle == null)
             {
                 this.msgHandle = new MessageInfoHandle(ParseMessage);

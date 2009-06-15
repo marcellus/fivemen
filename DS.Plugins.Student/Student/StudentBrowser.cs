@@ -685,6 +685,13 @@ namespace DS.Plugins.Student
             if (e.KeyCode == Keys.Enter&&this.cbIdCardType.SelectedIndex==0)
             {
                 string id = this.txtIdCard.Text.Trim();
+                if(id.Length==15)
+                {
+                    id=IDCardHelper.IdCard15To18(id);
+                    this.txtIdCard.Text = id;
+
+                }
+              
                 if (this.lbId.Text.Length == 0)
                 {
                     ArrayList students = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<StudentInfo>(" where c_state<>'合格结业' and c_state<>'退学' and c_idcard='"+id+"'");
@@ -897,7 +904,61 @@ namespace DS.Plugins.Student
                 }
             }
         }
+
+        protected override void ClearAdd()
+        {
+            this.lbId.Text = string.Empty;
+            this.txtIdCard.Text = string.Empty;
+            this.txtName.Text = string.Empty;
+            this.txtPhone.Text = string.Empty;
+            this.txtMobile.Text = string.Empty;
+            this.txtProfile.Text = string.Empty;
+            this.txtExamDate.Text = string.Empty;
+            this.txtExamId.Text = string.Empty;
+            this.lbState.Text = "初始报名";
+            this.lbPrintedState.Text = "未打印";
+            //base.ClearAdd();
+        }
         #endregion
+
+        private void btnApplyPrintF7_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F7);
+        }
+
+        private void btnApplyPrintF6_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F6);
+        }
+
+        private void Print(Keys key)
+        {
+
+             bool result = this.ValidateChildren(ValidationConstraints.Enabled);
+
+                //MessageBoxHelper.Show("validate result is:"+result);
+                if (result)
+                {
+                    this.ClearValidateError();
+                    this.Save();
+                    StudentHelper.Print(this.entity as StudentInfo, key);
+                }
+                else
+                {
+                    MessageBoxHelper.Show("输入有误，请检查！");
+                    return;
+                }
+                //this.Save();
+           
+            
+        }
+
+        private void btnPhoto_Click(object sender, EventArgs e)
+        {
+            DriverPicCapture form = new DriverPicCapture(this.txtIdCard.Text);
+            form.ShowInTaskbar = false;
+            form.ShowDialog();
+        }
     }
 }
 

@@ -15,6 +15,7 @@ namespace FT.Commons.WebCatcher
         public CatcherForm()
         {
             InitializeComponent();
+            FormHelper.InitHabitToForm(this);
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
