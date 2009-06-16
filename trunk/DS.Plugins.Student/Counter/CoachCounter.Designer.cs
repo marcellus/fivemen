@@ -52,17 +52,19 @@ namespace DS.Plugins.Student
             // 
             // dateBetweenPanel1
             // 
+            this.dateBetweenPanel1.Font = new System.Drawing.Font("宋体", 11F);
             this.dateBetweenPanel1.Location = new System.Drawing.Point(15, 8);
+            this.dateBetweenPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dateBetweenPanel1.Name = "dateBetweenPanel1";
-            this.dateBetweenPanel1.Size = new System.Drawing.Size(251, 63);
+            this.dateBetweenPanel1.Size = new System.Drawing.Size(356, 81);
             this.dateBetweenPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 79);
+            this.label1.Location = new System.Drawing.Point(19, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "教练姓名";
             // 
@@ -71,9 +73,9 @@ namespace DS.Plugins.Student
             this.checkSubject.AutoSize = true;
             this.checkSubject.Checked = true;
             this.checkSubject.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkSubject.Location = new System.Drawing.Point(286, 23);
+            this.checkSubject.Location = new System.Drawing.Point(390, 59);
             this.checkSubject.Name = "checkSubject";
-            this.checkSubject.Size = new System.Drawing.Size(60, 16);
+            this.checkSubject.Size = new System.Drawing.Size(71, 19);
             this.checkSubject.TabIndex = 3;
             this.checkSubject.Text = "分科目";
             this.checkSubject.UseVisualStyleBackColor = true;
@@ -81,14 +83,14 @@ namespace DS.Plugins.Student
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(77, 74);
+            this.txtName.Location = new System.Drawing.Point(98, 85);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(112, 21);
+            this.txtName.Size = new System.Drawing.Size(151, 24);
             this.txtName.TabIndex = 4;
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(371, 19);
+            this.btnDetail.Location = new System.Drawing.Point(390, 20);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 5;

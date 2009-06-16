@@ -17,6 +17,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DriverPicCapture));
             this.btnDeviceSet = new System.Windows.Forms.Button();
             this.txtIdCard = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -37,9 +38,10 @@
             // 
             // btnDeviceSet
             // 
-            this.btnDeviceSet.Location = new System.Drawing.Point(267, 16);
+            this.btnDeviceSet.Location = new System.Drawing.Point(356, 20);
+            this.btnDeviceSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeviceSet.Name = "btnDeviceSet";
-            this.btnDeviceSet.Size = new System.Drawing.Size(75, 23);
+            this.btnDeviceSet.Size = new System.Drawing.Size(100, 29);
             this.btnDeviceSet.TabIndex = 0;
             this.btnDeviceSet.Text = "配置外设";
             this.btnDeviceSet.UseVisualStyleBackColor = true;
@@ -47,9 +49,10 @@
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(6, 18);
+            this.txtIdCard.Location = new System.Drawing.Point(8, 22);
+            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(255, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(339, 24);
             this.txtIdCard.TabIndex = 2;
             // 
             // groupBox1
@@ -58,18 +61,21 @@
             this.groupBox1.Controls.Add(this.btnBegin);
             this.groupBox1.Controls.Add(this.txtIdCard);
             this.groupBox1.Controls.Add(this.btnDeviceSet);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(17, 16);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 45);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(620, 56);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入要采集人的身份证明号码";
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(402, 16);
+            this.btnExport.Location = new System.Drawing.Point(536, 20);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(48, 23);
+            this.btnExport.Size = new System.Drawing.Size(64, 29);
             this.btnExport.TabIndex = 3;
             this.btnExport.Text = "导出";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -77,9 +83,10 @@
             // 
             // btnBegin
             // 
-            this.btnBegin.Location = new System.Drawing.Point(348, 16);
+            this.btnBegin.Location = new System.Drawing.Point(464, 20);
+            this.btnBegin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBegin.Name = "btnBegin";
-            this.btnBegin.Size = new System.Drawing.Size(48, 23);
+            this.btnBegin.Size = new System.Drawing.Size(64, 29);
             this.btnBegin.TabIndex = 3;
             this.btnBegin.Text = "采集";
             this.btnBegin.UseVisualStyleBackColor = true;
@@ -87,9 +94,10 @@
             // 
             // btnPathSet
             // 
-            this.btnPathSet.Location = new System.Drawing.Point(390, 20);
+            this.btnPathSet.Location = new System.Drawing.Point(520, 25);
+            this.btnPathSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPathSet.Name = "btnPathSet";
-            this.btnPathSet.Size = new System.Drawing.Size(55, 23);
+            this.btnPathSet.Size = new System.Drawing.Size(73, 29);
             this.btnPathSet.TabIndex = 4;
             this.btnPathSet.Text = "配置";
             this.btnPathSet.UseVisualStyleBackColor = true;
@@ -99,26 +107,30 @@
             // 
             this.groupBox2.Controls.Add(this.txtPicPath);
             this.groupBox2.Controls.Add(this.btnPathSet);
-            this.groupBox2.Location = new System.Drawing.Point(13, 65);
+            this.groupBox2.Location = new System.Drawing.Point(17, 81);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(465, 57);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(620, 71);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "配置图像采集路径";
             // 
             // txtPicPath
             // 
-            this.txtPicPath.Location = new System.Drawing.Point(7, 20);
+            this.txtPicPath.Location = new System.Drawing.Point(9, 25);
+            this.txtPicPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPicPath.Name = "txtPicPath";
             this.txtPicPath.ReadOnly = true;
-            this.txtPicPath.Size = new System.Drawing.Size(368, 21);
+            this.txtPicPath.Size = new System.Drawing.Size(489, 24);
             this.txtPicPath.TabIndex = 5;
             // 
             // picPic
             // 
-            this.picPic.Location = new System.Drawing.Point(180, 193);
+            this.picPic.Location = new System.Drawing.Point(240, 241);
+            this.picPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picPic.Name = "picPic";
-            this.picPic.Size = new System.Drawing.Size(132, 172);
+            this.picPic.Size = new System.Drawing.Size(176, 215);
             this.picPic.TabIndex = 6;
             this.picPic.TabStop = false;
             // 
@@ -126,26 +138,30 @@
             // 
             this.groupBox3.Controls.Add(this.txtExportPath);
             this.groupBox3.Controls.Add(this.btnExportPathSet);
-            this.groupBox3.Location = new System.Drawing.Point(12, 128);
+            this.groupBox3.Location = new System.Drawing.Point(16, 160);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(465, 57);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(620, 71);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "配置图像导出路径";
             // 
             // txtExportPath
             // 
-            this.txtExportPath.Location = new System.Drawing.Point(7, 20);
+            this.txtExportPath.Location = new System.Drawing.Point(9, 25);
+            this.txtExportPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtExportPath.Name = "txtExportPath";
             this.txtExportPath.ReadOnly = true;
-            this.txtExportPath.Size = new System.Drawing.Size(368, 21);
+            this.txtExportPath.Size = new System.Drawing.Size(489, 24);
             this.txtExportPath.TabIndex = 5;
             // 
             // btnExportPathSet
             // 
-            this.btnExportPathSet.Location = new System.Drawing.Point(390, 20);
+            this.btnExportPathSet.Location = new System.Drawing.Point(520, 25);
+            this.btnExportPathSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExportPathSet.Name = "btnExportPathSet";
-            this.btnExportPathSet.Size = new System.Drawing.Size(55, 23);
+            this.btnExportPathSet.Size = new System.Drawing.Size(73, 29);
             this.btnExportPathSet.TabIndex = 4;
             this.btnExportPathSet.Text = "配置";
             this.btnExportPathSet.UseVisualStyleBackColor = true;
@@ -153,13 +169,16 @@
             // 
             // DriverPicCapture
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 375);
+            this.ClientSize = new System.Drawing.Size(653, 469);
             this.Controls.Add(this.picPic);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("宋体", 11F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DriverPicCapture";

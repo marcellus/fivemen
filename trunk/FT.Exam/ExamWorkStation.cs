@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using FT.Commons.Tools;
 
 namespace FT.Exam
 {
     public partial class ExamWorkStation : Form
     {
         private ArrayList topics;
-
+        private List<TopicShow> topicsControl=new List<TopicShow>();
         private int currentTopic = -1;
         public ExamWorkStation()
         {
@@ -49,16 +50,17 @@ namespace FT.Exam
         private void BuildATopicControl(ExamTopic topic)
         {
             int i=this.groupBox3.Controls.Count;
-            Control ctr = new TopicShow(i + 1, topic);
-            if(i<=20)
+            TopicShow ctr = new TopicShow(i + 1, topic);
+            this.topicsControl.Add(ctr);
+            if(i<=19)
             {
                 //ctr.Location = new Point(this.groupBox3.Location.X + (i % 20 ) * 45, this.groupBox3.Location.Y);
-                ctr.Location = new Point( (i % 20) * 45, 0);
+                ctr.Location = new Point(5+(i % 20) * 45-(i>0?1*i:0), 20);
             }
             else
             {
                 //ctr.Location = new Point(this.groupBox3.Location.X + (i % 20 - 1) * 45, this.groupBox3.Location.Y + (i / 20) * 45);
-                ctr.Location = new Point( (i % 20 - 1) * 45, (i / 20) * 45);
+                ctr.Location = new Point(5 + (i % 20) * 45 - (i%20 > 0 ? (i%20) : 0), 20 + (i / 20) * 45-(i/20));
             }
             
             ctr.Click += new EventHandler(ctr_Click);
@@ -144,7 +146,7 @@ namespace FT.Exam
                     this.picImage.Image.Dispose();
                     this.picImage.Image = null;
                 }
-                if(tmp.PicPath.Length>0)
+                if(tmp.PicPath!=null&&tmp.PicPath.Length>0)
                 {
                     this.picImage.Image = Image.FromFile(tmp.PicPath);
                 }
@@ -180,6 +182,11 @@ namespace FT.Exam
 
         private void btnOver_Click(object sender, EventArgs e)
         {
+            if (MessageBoxHelper.Confirm("请再次确认是否要交卷结束考试！"))
+            {
+                ScoreHintForm form =new  ScoreHintForm("模拟用户",this.topicsControl);
+                form.ShowDialog();
+            }
 
         }
     }

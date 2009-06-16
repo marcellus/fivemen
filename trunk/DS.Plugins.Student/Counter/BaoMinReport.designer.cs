@@ -64,25 +64,28 @@
             "科目二（场内）驾驶考试报名登记表",
             "道路驾驶考试报名登记表",
             "夜间道路驾驶考试登记表"});
-            this.comboBox1.Location = new System.Drawing.Point(173, 19);
+            this.comboBox1.Location = new System.Drawing.Point(231, 24);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(301, 20);
+            this.comboBox1.Size = new System.Drawing.Size(400, 23);
             this.comboBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 22);
+            this.label1.Location = new System.Drawing.Point(40, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 12);
+            this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "请选择打印登记表类型：";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(781, 16);
+            this.button1.Location = new System.Drawing.Point(1041, 20);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 3;
             this.button1.Text = "开始打印";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,27 +93,30 @@
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(173, 45);
+            this.txtIdCard.Location = new System.Drawing.Point(231, 56);
+            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(301, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(400, 24);
             this.txtIdCard.TabIndex = 5;
             this.txtIdCard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCard_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
+            this.label2.Location = new System.Drawing.Point(8, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 12);
+            this.label2.Size = new System.Drawing.Size(202, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "请输入待打印人员身份证号：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(490, 48);
+            this.label3.Location = new System.Drawing.Point(653, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 12);
+            this.label3.Size = new System.Drawing.Size(127, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "输入完毕后按回车";
             // 
@@ -119,6 +125,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -129,8 +136,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(889, 540);
-            this.splitContainer1.SplitterDistance = 100;
+            this.splitContainer1.Size = new System.Drawing.Size(1185, 675);
+            this.splitContainer1.SplitterDistance = 124;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 8;
             // 
             // groupBox1
@@ -147,43 +155,49 @@
             this.groupBox1.Controls.Add(this.txtIdCard);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(889, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1185, 124);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
             // lbCount
             // 
             this.lbCount.AutoSize = true;
-            this.lbCount.Location = new System.Drawing.Point(492, 74);
+            this.lbCount.Location = new System.Drawing.Point(656, 92);
+            this.lbCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(71, 12);
+            this.lbCount.Size = new System.Drawing.Size(91, 15);
             this.lbCount.TabIndex = 11;
             this.lbCount.Text = "共{0}条记录";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 77);
+            this.label4.Location = new System.Drawing.Point(104, 96);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 12);
+            this.label4.Size = new System.Drawing.Size(112, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "待考类型选择：";
             // 
             // cbSubject
             // 
             this.cbSubject.FormattingEnabled = true;
-            this.cbSubject.Location = new System.Drawing.Point(173, 74);
+            this.cbSubject.Location = new System.Drawing.Point(231, 92);
+            this.cbSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSubject.Name = "cbSubject";
-            this.cbSubject.Size = new System.Drawing.Size(301, 20);
+            this.cbSubject.Size = new System.Drawing.Size(400, 23);
             this.cbSubject.TabIndex = 9;
             this.cbSubject.TextChanged += new System.EventHandler(this.cbSubject_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(781, 48);
+            this.button2.Location = new System.Drawing.Point(1041, 60);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 29);
             this.button2.TabIndex = 8;
             this.button2.Text = "清空";
             this.button2.UseVisualStyleBackColor = true;
@@ -204,9 +218,10 @@
             this.Column14});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(889, 436);
+            this.dataGridView1.Size = new System.Drawing.Size(1185, 546);
             this.dataGridView1.TabIndex = 1;
             // 
             // Column8
@@ -246,11 +261,13 @@
             // 
             // BaoMinReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
+            this.Font = new System.Drawing.Font("宋体", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BaoMinReport";
-            this.Size = new System.Drawing.Size(889, 540);
+            this.Size = new System.Drawing.Size(1185, 675);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BaoMinReport_KeyDown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -21,6 +21,7 @@ namespace DS.Plugins.Car
         {
             this.toolStrip1.Items.Add("号码号牌");
             ToolStripTextBox txt = new System.Windows.Forms.ToolStripTextBox();
+            
             txt.KeyDown += new KeyEventHandler(txt_KeyDown);
             txt.ToolTipText = "输入号码号牌按回车查询";
             this.toolStrip1.Items.Add(txt);

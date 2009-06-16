@@ -24,6 +24,22 @@ namespace FT.Exam
             this.lbAnswer.Text = string.Empty;
         }
 
+        public ExamTopic Topic
+        {
+            get
+            {
+                return topic;
+            }
+        }
+
+        public int Score
+        {
+            get
+            {
+                return this.topic.Score;
+            }
+        }
+
         public int Number
         {
             get

@@ -28,7 +28,17 @@ namespace FT.Plugins.PersonCard
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // GroupSearch
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.Font = new System.Drawing.Font("ËÎÌו", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "GroupSearch";
+            this.Size = new System.Drawing.Size(1321, 596);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

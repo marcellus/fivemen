@@ -25,7 +25,7 @@ namespace DS.Plugins.Student
             ToolStripMenuItem top = this.AddToMenu("学员管理(&S)");
             ToolStripMenuItem tmp = this.BuildSubMenu("添加学员", typeof(StudentBrowser));
             top.DropDownItems.Add(tmp);
-            tmp = this.BuildSubMenu("学员管理", typeof(StudentSearch));
+            tmp = this.BuildSubMenu("学员列表", typeof(StudentSearch));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
 

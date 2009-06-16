@@ -24,6 +24,45 @@ namespace FT.Commons.Tools
     public class FormHelper:BaseHelper
     {
         /// <summary>
+        /// 弹出一个包含一个control的窗口最大化窗口
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="caption"></param>
+        public static void PopControlForm(Type control,string caption)
+        {
+            object ctr = ReflectHelper.CreateInstance(control);
+            if ((typeof(Control)).IsAssignableFrom(ctr.GetType()))
+            {
+                Form tmp =new Form();
+                tmp.WindowState = FormWindowState.Maximized;
+                tmp.ShowIcon = false;
+                tmp.Text = caption;
+                tmp.ShowInTaskbar = false;
+                tmp.StartPosition = FormStartPosition.CenterScreen;
+                Control ctrtmp = ctr as Control;
+                ctrtmp.Dock = DockStyle.Fill;
+                tmp.Controls.Add(ctrtmp);
+                tmp.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// 弹出一个类型的窗口到屏幕中间，不显示在任务栏
+        /// </summary>
+        /// <param name="type"></param>
+        public static void PopDialogForm(Type type)
+        {
+            object form = ReflectHelper.CreateInstance(type);
+            if ((typeof(Form)).IsAssignableFrom(form.GetType()))
+            {
+                Form tmp = form as Form;
+                tmp.ShowInTaskbar = false;
+                tmp.StartPosition = FormStartPosition.CenterScreen;
+                tmp.ShowDialog();
+            }
+        }
+
+        /// <summary>
         /// 初始化所有控件的系统操作方式
         /// </summary>
         /// <param name="frm">窗体</param>

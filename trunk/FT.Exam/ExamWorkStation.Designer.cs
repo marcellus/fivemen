@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExamWorkStation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbAnswerD = new System.Windows.Forms.Label();
+            this.lbAnswerC = new System.Windows.Forms.Label();
+            this.lbAnswerB = new System.Windows.Forms.Label();
+            this.lbAnswerA = new System.Windows.Forms.Label();
+            this.lbTopic = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbTopic = new System.Windows.Forms.Label();
-            this.lbAnswerA = new System.Windows.Forms.Label();
-            this.lbAnswerB = new System.Windows.Forms.Label();
-            this.lbAnswerC = new System.Windows.Forms.Label();
-            this.lbAnswerD = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnA = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
@@ -62,76 +63,23 @@
             this.groupBox1.Controls.Add(this.lbAnswerA);
             this.groupBox1.Controls.Add(this.lbTopic);
             this.groupBox1.Location = new System.Drawing.Point(16, 90);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(644, 166);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(741, 166);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "考题";
             // 
-            // groupBox2
+            // lbAnswerD
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(16, 15);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(801, 55);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "考试提示";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "判断题的时候请选择对错，选择题请选择答案";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(16, 328);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(801, 200);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "答案";
-            // 
-            // lbTopic
-            // 
-            this.lbTopic.AutoSize = true;
-            this.lbTopic.Location = new System.Drawing.Point(12, 26);
-            this.lbTopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTopic.Name = "lbTopic";
-            this.lbTopic.Size = new System.Drawing.Size(55, 15);
-            this.lbTopic.TabIndex = 0;
-            this.lbTopic.Text = "label2";
-            // 
-            // lbAnswerA
-            // 
-            this.lbAnswerA.AutoSize = true;
-            this.lbAnswerA.Location = new System.Drawing.Point(12, 60);
-            this.lbAnswerA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbAnswerA.Name = "lbAnswerA";
-            this.lbAnswerA.Size = new System.Drawing.Size(55, 15);
-            this.lbAnswerA.TabIndex = 1;
-            this.lbAnswerA.Text = "label3";
-            // 
-            // lbAnswerB
-            // 
-            this.lbAnswerB.AutoSize = true;
-            this.lbAnswerB.Location = new System.Drawing.Point(12, 84);
-            this.lbAnswerB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbAnswerB.Name = "lbAnswerB";
-            this.lbAnswerB.Size = new System.Drawing.Size(55, 15);
-            this.lbAnswerB.TabIndex = 2;
-            this.lbAnswerB.Text = "label4";
+            this.lbAnswerD.AutoSize = true;
+            this.lbAnswerD.Location = new System.Drawing.Point(12, 132);
+            this.lbAnswerD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAnswerD.Name = "lbAnswerD";
+            this.lbAnswerD.Size = new System.Drawing.Size(55, 15);
+            this.lbAnswerD.TabIndex = 4;
+            this.lbAnswerD.Text = "label6";
             // 
             // lbAnswerC
             // 
@@ -143,15 +91,68 @@
             this.lbAnswerC.TabIndex = 3;
             this.lbAnswerC.Text = "label5";
             // 
-            // lbAnswerD
+            // lbAnswerB
             // 
-            this.lbAnswerD.AutoSize = true;
-            this.lbAnswerD.Location = new System.Drawing.Point(12, 132);
-            this.lbAnswerD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbAnswerD.Name = "lbAnswerD";
-            this.lbAnswerD.Size = new System.Drawing.Size(55, 15);
-            this.lbAnswerD.TabIndex = 4;
-            this.lbAnswerD.Text = "label6";
+            this.lbAnswerB.AutoSize = true;
+            this.lbAnswerB.Location = new System.Drawing.Point(12, 84);
+            this.lbAnswerB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAnswerB.Name = "lbAnswerB";
+            this.lbAnswerB.Size = new System.Drawing.Size(55, 15);
+            this.lbAnswerB.TabIndex = 2;
+            this.lbAnswerB.Text = "label4";
+            // 
+            // lbAnswerA
+            // 
+            this.lbAnswerA.AutoSize = true;
+            this.lbAnswerA.Location = new System.Drawing.Point(12, 60);
+            this.lbAnswerA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAnswerA.Name = "lbAnswerA";
+            this.lbAnswerA.Size = new System.Drawing.Size(55, 15);
+            this.lbAnswerA.TabIndex = 1;
+            this.lbAnswerA.Text = "label3";
+            // 
+            // lbTopic
+            // 
+            this.lbTopic.AutoSize = true;
+            this.lbTopic.Location = new System.Drawing.Point(12, 26);
+            this.lbTopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTopic.Name = "lbTopic";
+            this.lbTopic.Size = new System.Drawing.Size(55, 15);
+            this.lbTopic.TabIndex = 0;
+            this.lbTopic.Text = "label2";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(16, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(899, 55);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "考试提示";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(581, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "判断题的时候请选择对错，选择题请选择答案A,B,C,D中一个,修改某道题请点击该题目";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(16, 328);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(899, 249);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "答案";
             // 
             // label7
             // 
@@ -257,15 +258,16 @@
             // lbAnswer
             // 
             this.lbAnswer.AutoSize = true;
+            this.lbAnswer.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Bold);
             this.lbAnswer.ForeColor = System.Drawing.Color.Red;
             this.lbAnswer.Location = new System.Drawing.Point(108, 285);
             this.lbAnswer.Name = "lbAnswer";
-            this.lbAnswer.Size = new System.Drawing.Size(0, 15);
+            this.lbAnswer.Size = new System.Drawing.Size(0, 19);
             this.lbAnswer.TabIndex = 6;
             // 
             // picImage
             // 
-            this.picImage.Location = new System.Drawing.Point(684, 99);
+            this.picImage.Location = new System.Drawing.Point(782, 99);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(133, 157);
             this.picImage.TabIndex = 7;
@@ -275,7 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 542);
+            this.ClientSize = new System.Drawing.Size(938, 590);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.lbAnswer);
             this.Controls.Add(this.btnOver);
@@ -292,8 +294,13 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("宋体", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ExamWorkStation";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "科目一无纸化模拟考试台";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -50,17 +50,19 @@ namespace DS.Plugins.Student
             // 
             // dateBetweenPanel1
             // 
+            this.dateBetweenPanel1.Font = new System.Drawing.Font("宋体", 11F);
             this.dateBetweenPanel1.Location = new System.Drawing.Point(13, 14);
+            this.dateBetweenPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dateBetweenPanel1.Name = "dateBetweenPanel1";
-            this.dateBetweenPanel1.Size = new System.Drawing.Size(251, 63);
+            this.dateBetweenPanel1.Size = new System.Drawing.Size(352, 83);
             this.dateBetweenPanel1.TabIndex = 0;
             // 
             // checkDay
             // 
             this.checkDay.AutoSize = true;
-            this.checkDay.Location = new System.Drawing.Point(307, 17);
+            this.checkDay.Location = new System.Drawing.Point(372, 17);
             this.checkDay.Name = "checkDay";
-            this.checkDay.Size = new System.Drawing.Size(48, 16);
+            this.checkDay.Size = new System.Drawing.Size(56, 19);
             this.checkDay.TabIndex = 1;
             this.checkDay.Text = "按天";
             this.checkDay.UseVisualStyleBackColor = true;
@@ -71,9 +73,9 @@ namespace DS.Plugins.Student
             this.checkMonth.AutoSize = true;
             this.checkMonth.Checked = true;
             this.checkMonth.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkMonth.Location = new System.Drawing.Point(307, 37);
+            this.checkMonth.Location = new System.Drawing.Point(372, 37);
             this.checkMonth.Name = "checkMonth";
-            this.checkMonth.Size = new System.Drawing.Size(48, 16);
+            this.checkMonth.Size = new System.Drawing.Size(56, 19);
             this.checkMonth.TabIndex = 2;
             this.checkMonth.Text = "按月";
             this.checkMonth.UseVisualStyleBackColor = true;
@@ -81,7 +83,7 @@ namespace DS.Plugins.Student
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(307, 59);
+            this.btnDetail.Location = new System.Drawing.Point(372, 59);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 3;

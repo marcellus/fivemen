@@ -36,12 +36,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorReturnForm.Designer.cs">
+      <DependentUpon>ErrorReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExamPlugin.cs" />
     <Compile Include="ExamWorkStation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExamWorkStation.Designer.cs">
       <DependentUpon>ExamWorkStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreHintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScoreHintForm.Designer.cs">
+      <DependentUpon>ScoreHintForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TopicShow.cs">
       <SubType>UserControl</SubType>
@@ -95,9 +107,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ErrorReturnForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ErrorReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExamWorkStation.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ExamWorkStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScoreHintForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScoreHintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TopicShow.resx">
       <SubType>Designer</SubType>

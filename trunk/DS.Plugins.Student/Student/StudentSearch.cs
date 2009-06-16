@@ -143,6 +143,7 @@ namespace DS.Plugins.Student
         {
             this.toolStrip1.Items.Add("打印状态");
             cb = new ToolStripComboBox();
+           
             cb.DropDownStyle = ComboBoxStyle.DropDownList;
             //cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
             cb.ToolTipText = "选择查询的打印状态";

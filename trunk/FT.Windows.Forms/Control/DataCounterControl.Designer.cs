@@ -56,13 +56,13 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupSearch);
-            this.splitContainer1.Panel1MinSize = 50;
+            this.splitContainer1.Panel1MinSize = 80;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(638, 556);
-            this.splitContainer1.SplitterDistance = 120;
+            this.splitContainer1.SplitterDistance = 160;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupSearch
@@ -72,7 +72,7 @@
             this.groupSearch.Font = new System.Drawing.Font("宋体", 11F);
             this.groupSearch.Location = new System.Drawing.Point(0, 0);
             this.groupSearch.Name = "groupSearch";
-            this.groupSearch.Size = new System.Drawing.Size(638, 120);
+            this.groupSearch.Size = new System.Drawing.Size(638, 160);
             this.groupSearch.TabIndex = 4;
             this.groupSearch.TabStop = false;
             this.groupSearch.Text = "查询条件";
@@ -88,7 +88,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer2.Panel2.Controls.Add(this.btnPrint);
             this.splitContainer2.Panel2.Controls.Add(this.btnExport);
-            this.splitContainer2.Size = new System.Drawing.Size(632, 97);
+            this.splitContainer2.Size = new System.Drawing.Size(632, 137);
             this.splitContainer2.SplitterDistance = 480;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -141,7 +141,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(638, 432);
+            this.dataGridView1.Size = new System.Drawing.Size(638, 392);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 

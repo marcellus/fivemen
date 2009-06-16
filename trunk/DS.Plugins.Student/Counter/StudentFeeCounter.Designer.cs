@@ -46,14 +46,16 @@ namespace DS.Plugins.Student
             // 
             // dateBetweenPanel1
             // 
+            this.dateBetweenPanel1.Font = new System.Drawing.Font("ËÎÌו", 11F);
             this.dateBetweenPanel1.Location = new System.Drawing.Point(10, 8);
+            this.dateBetweenPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dateBetweenPanel1.Name = "dateBetweenPanel1";
-            this.dateBetweenPanel1.Size = new System.Drawing.Size(251, 63);
+            this.dateBetweenPanel1.Size = new System.Drawing.Size(356, 89);
             this.dateBetweenPanel1.TabIndex = 0;
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(303, 39);
+            this.btnDetail.Location = new System.Drawing.Point(387, 48);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 4;

@@ -50,30 +50,32 @@ namespace DS.Plugins.Student
             // 
             // dateBetweenPanel1
             // 
+            this.dateBetweenPanel1.Font = new System.Drawing.Font("ÀŒÃÂ", 11F);
             this.dateBetweenPanel1.Location = new System.Drawing.Point(9, 8);
+            this.dateBetweenPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dateBetweenPanel1.Name = "dateBetweenPanel1";
-            this.dateBetweenPanel1.Size = new System.Drawing.Size(251, 63);
+            this.dateBetweenPanel1.Size = new System.Drawing.Size(371, 82);
             this.dateBetweenPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 78);
+            this.label1.Location = new System.Drawing.Point(13, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "∫≈¬Î∫≈≈∆";
             // 
             // txtHmhp
             // 
-            this.txtHmhp.Location = new System.Drawing.Point(71, 73);
+            this.txtHmhp.Location = new System.Drawing.Point(92, 82);
             this.txtHmhp.Name = "txtHmhp";
-            this.txtHmhp.Size = new System.Drawing.Size(115, 21);
+            this.txtHmhp.Size = new System.Drawing.Size(115, 24);
             this.txtHmhp.TabIndex = 2;
             // 
             // btnDetail
             // 
-            this.btnDetail.Location = new System.Drawing.Point(305, 39);
+            this.btnDetail.Location = new System.Drawing.Point(387, 39);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 4;
