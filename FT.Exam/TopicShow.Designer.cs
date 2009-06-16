@@ -36,12 +36,12 @@
             // 
             this.lbNum.AutoSize = true;
             this.lbNum.BackColor = System.Drawing.Color.Transparent;
-            this.lbNum.Location = new System.Drawing.Point(3, 3);
+            this.lbNum.Location = new System.Drawing.Point(-1, 0);
             this.lbNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNum.Name = "lbNum";
-            this.lbNum.Size = new System.Drawing.Size(15, 15);
+            this.lbNum.Size = new System.Drawing.Size(23, 15);
             this.lbNum.TabIndex = 0;
-            this.lbNum.Text = "1";
+            this.lbNum.Text = "12";
             // 
             // lbAnswer
             // 
@@ -64,7 +64,7 @@
             this.Controls.Add(this.lbAnswer);
             this.Controls.Add(this.lbNum);
             this.Font = new System.Drawing.Font("宋体", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TopicShow";
             this.Size = new System.Drawing.Size(45, 45);
             this.ResumeLayout(false);

@@ -111,6 +111,12 @@
       <DependentUpon>DriverPicCapture.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverPicCaptureConfig.cs" />
+    <Compile Include="InitButtonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InitButtonPanel.Designer.cs">
+      <DependentUpon>InitButtonPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewStudentPlugin.cs" />
     <Compile Include="OtherPrinterForm.cs">
       <SubType>Form</SubType>
@@ -283,6 +289,10 @@
     <EmbeddedResource Include="DriverPicCapture.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DriverPicCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitButtonPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InitButtonPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherPrinterForm.resx">
       <SubType>Designer</SubType>

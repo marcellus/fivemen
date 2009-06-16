@@ -94,487 +94,547 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 13);
+            this.label1.Location = new System.Drawing.Point(33, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 12);
+            this.label1.Size = new System.Drawing.Size(127, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "二维条码输入框：";
             // 
             // txtBarCode
             // 
-            this.txtBarCode.Location = new System.Drawing.Point(132, 4);
+            this.txtBarCode.Location = new System.Drawing.Point(176, 5);
+            this.txtBarCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Size = new System.Drawing.Size(601, 21);
+            this.txtBarCode.Size = new System.Drawing.Size(800, 24);
             this.txtBarCode.TabIndex = 1;
             this.txtBarCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarCode_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 44);
+            this.label2.Location = new System.Drawing.Point(49, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.Size = new System.Drawing.Size(112, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "身份证明名称：";
             // 
             // txtIdType
             // 
-            this.txtIdType.Location = new System.Drawing.Point(132, 35);
+            this.txtIdType.Location = new System.Drawing.Point(176, 44);
+            this.txtIdType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdType.Name = "txtIdType";
-            this.txtIdType.Size = new System.Drawing.Size(100, 21);
+            this.txtIdType.Size = new System.Drawing.Size(132, 24);
             this.txtIdType.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(257, 44);
+            this.label3.Location = new System.Drawing.Point(343, 55);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "身份证明号码：";
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(349, 35);
+            this.txtIdCard.Location = new System.Drawing.Point(465, 44);
+            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(146, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(193, 24);
             this.txtIdCard.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(501, 44);
+            this.label4.Location = new System.Drawing.Point(668, 55);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "国籍代码：";
             // 
             // txtNation
             // 
-            this.txtNation.Location = new System.Drawing.Point(565, 35);
+            this.txtNation.Location = new System.Drawing.Point(753, 44);
+            this.txtNation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNation.Name = "txtNation";
-            this.txtNation.Size = new System.Drawing.Size(168, 21);
+            this.txtNation.Size = new System.Drawing.Size(223, 24);
             this.txtNation.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(85, 75);
+            this.label5.Location = new System.Drawing.Point(113, 94);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "姓名：";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(132, 66);
+            this.txtName.Location = new System.Drawing.Point(176, 82);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 21);
+            this.txtName.Size = new System.Drawing.Size(132, 24);
             this.txtName.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(305, 75);
+            this.label6.Location = new System.Drawing.Point(407, 94);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "性别：";
             // 
             // txtSex
             // 
-            this.txtSex.Location = new System.Drawing.Point(349, 66);
+            this.txtSex.Location = new System.Drawing.Point(465, 82);
+            this.txtSex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSex.Name = "txtSex";
-            this.txtSex.Size = new System.Drawing.Size(146, 21);
+            this.txtSex.Size = new System.Drawing.Size(193, 24);
             this.txtSex.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(501, 75);
+            this.label7.Location = new System.Drawing.Point(668, 94);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(82, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "出生年月：";
             // 
             // txtBirthday
             // 
-            this.txtBirthday.Location = new System.Drawing.Point(565, 66);
+            this.txtBirthday.Location = new System.Drawing.Point(753, 82);
+            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.Size = new System.Drawing.Size(168, 21);
+            this.txtBirthday.Size = new System.Drawing.Size(223, 24);
             this.txtBirthday.TabIndex = 13;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 106);
+            this.label8.Location = new System.Drawing.Point(49, 132);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 12);
+            this.label8.Size = new System.Drawing.Size(112, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "登记住所地址：";
             // 
             // txtRegArea
             // 
-            this.txtRegArea.Location = new System.Drawing.Point(132, 97);
+            this.txtRegArea.Location = new System.Drawing.Point(176, 121);
+            this.txtRegArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRegArea.Name = "txtRegArea";
-            this.txtRegArea.Size = new System.Drawing.Size(100, 21);
+            this.txtRegArea.Size = new System.Drawing.Size(132, 24);
             this.txtRegArea.TabIndex = 15;
             // 
             // txtRegAddress
             // 
-            this.txtRegAddress.Location = new System.Drawing.Point(247, 97);
+            this.txtRegAddress.Location = new System.Drawing.Point(329, 121);
+            this.txtRegAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRegAddress.Name = "txtRegAddress";
-            this.txtRegAddress.Size = new System.Drawing.Size(486, 21);
+            this.txtRegAddress.Size = new System.Drawing.Size(647, 24);
             this.txtRegAddress.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 137);
+            this.label9.Location = new System.Drawing.Point(49, 171);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 12);
+            this.label9.Size = new System.Drawing.Size(112, 15);
             this.label9.TabIndex = 17;
             this.label9.Text = "联系住所地址：";
             // 
             // txtConnArea
             // 
-            this.txtConnArea.Location = new System.Drawing.Point(132, 128);
+            this.txtConnArea.Location = new System.Drawing.Point(176, 160);
+            this.txtConnArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConnArea.Name = "txtConnArea";
-            this.txtConnArea.Size = new System.Drawing.Size(100, 21);
+            this.txtConnArea.Size = new System.Drawing.Size(132, 24);
             this.txtConnArea.TabIndex = 18;
             // 
             // txtConnAddress
             // 
-            this.txtConnAddress.Location = new System.Drawing.Point(247, 128);
+            this.txtConnAddress.Location = new System.Drawing.Point(329, 160);
+            this.txtConnAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConnAddress.Name = "txtConnAddress";
-            this.txtConnAddress.Size = new System.Drawing.Size(486, 21);
+            this.txtConnAddress.Size = new System.Drawing.Size(647, 24);
             this.txtConnAddress.TabIndex = 19;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 168);
+            this.label10.Location = new System.Drawing.Point(17, 210);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 12);
+            this.label10.Size = new System.Drawing.Size(142, 15);
             this.label10.TabIndex = 20;
             this.label10.Text = "联系住所邮政编码：";
             // 
             // txtPostCode
             // 
-            this.txtPostCode.Location = new System.Drawing.Point(132, 159);
+            this.txtPostCode.Location = new System.Drawing.Point(176, 199);
+            this.txtPostCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPostCode.Name = "txtPostCode";
-            this.txtPostCode.Size = new System.Drawing.Size(100, 21);
+            this.txtPostCode.Size = new System.Drawing.Size(132, 24);
             this.txtPostCode.TabIndex = 21;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(245, 168);
+            this.label11.Location = new System.Drawing.Point(327, 210);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 12);
+            this.label11.Size = new System.Drawing.Size(90, 15);
             this.label11.TabIndex = 22;
             this.label11.Text = "联系电话1：";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(315, 159);
+            this.txtPhone.Location = new System.Drawing.Point(420, 199);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(100, 21);
+            this.txtPhone.Size = new System.Drawing.Size(132, 24);
             this.txtPhone.TabIndex = 23;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(421, 168);
+            this.label12.Location = new System.Drawing.Point(561, 210);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.Size = new System.Drawing.Size(82, 15);
             this.label12.TabIndex = 24;
             this.label12.Text = "所属辖区：";
             // 
             // txtArea
             // 
-            this.txtArea.Location = new System.Drawing.Point(493, 159);
+            this.txtArea.Location = new System.Drawing.Point(657, 199);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(100, 21);
+            this.txtArea.Size = new System.Drawing.Size(132, 24);
             this.txtArea.TabIndex = 25;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(61, 199);
+            this.label13.Location = new System.Drawing.Point(81, 249);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.Size = new System.Drawing.Size(82, 15);
             this.label13.TabIndex = 26;
             this.label13.Text = "学习车型：";
             // 
             // txtLearnCar
             // 
-            this.txtLearnCar.Location = new System.Drawing.Point(132, 190);
+            this.txtLearnCar.Location = new System.Drawing.Point(176, 238);
+            this.txtLearnCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLearnCar.Name = "txtLearnCar";
-            this.txtLearnCar.Size = new System.Drawing.Size(100, 21);
+            this.txtLearnCar.Size = new System.Drawing.Size(132, 24);
             this.txtLearnCar.TabIndex = 27;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(239, 199);
+            this.label14.Location = new System.Drawing.Point(319, 249);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 12);
+            this.label14.Size = new System.Drawing.Size(97, 15);
             this.label14.TabIndex = 28;
             this.label14.Text = "驾驶人来源：";
             // 
             // txtFrom
             // 
-            this.txtFrom.Location = new System.Drawing.Point(315, 190);
+            this.txtFrom.Location = new System.Drawing.Point(420, 238);
+            this.txtFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(100, 21);
+            this.txtFrom.Size = new System.Drawing.Size(132, 24);
             this.txtFrom.TabIndex = 29;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(421, 199);
+            this.label15.Location = new System.Drawing.Point(561, 249);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 12);
+            this.label15.Size = new System.Drawing.Size(82, 15);
             this.label15.TabIndex = 30;
             this.label15.Text = "暂住证明：";
             // 
             // txtTempId
             // 
-            this.txtTempId.Location = new System.Drawing.Point(493, 190);
+            this.txtTempId.Location = new System.Drawing.Point(657, 238);
+            this.txtTempId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTempId.Name = "txtTempId";
-            this.txtTempId.Size = new System.Drawing.Size(100, 21);
+            this.txtTempId.Size = new System.Drawing.Size(132, 24);
             this.txtTempId.TabIndex = 31;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(61, 230);
+            this.label16.Location = new System.Drawing.Point(81, 288);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 12);
+            this.label16.Size = new System.Drawing.Size(82, 15);
             this.label16.TabIndex = 32;
             this.label16.Text = "驾校名称：";
             // 
             // txtSchoolName
             // 
-            this.txtSchoolName.Location = new System.Drawing.Point(132, 221);
+            this.txtSchoolName.Location = new System.Drawing.Point(176, 276);
+            this.txtSchoolName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSchoolName.Name = "txtSchoolName";
-            this.txtSchoolName.Size = new System.Drawing.Size(601, 21);
+            this.txtSchoolName.Size = new System.Drawing.Size(800, 24);
             this.txtSchoolName.TabIndex = 33;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(85, 261);
+            this.label17.Location = new System.Drawing.Point(113, 326);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 12);
+            this.label17.Size = new System.Drawing.Size(52, 15);
             this.label17.TabIndex = 34;
             this.label17.Text = "身高：";
             // 
             // txtHeight
             // 
-            this.txtHeight.Location = new System.Drawing.Point(132, 252);
+            this.txtHeight.Location = new System.Drawing.Point(176, 315);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 21);
+            this.txtHeight.Size = new System.Drawing.Size(132, 24);
             this.txtHeight.TabIndex = 35;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(243, 261);
+            this.label18.Location = new System.Drawing.Point(324, 326);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 12);
+            this.label18.Size = new System.Drawing.Size(83, 15);
             this.label18.TabIndex = 36;
             this.label18.Text = "视力  左：";
             // 
             // txtLeftEye
             // 
-            this.txtLeftEye.Location = new System.Drawing.Point(304, 252);
+            this.txtLeftEye.Location = new System.Drawing.Point(405, 315);
+            this.txtLeftEye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLeftEye.Name = "txtLeftEye";
-            this.txtLeftEye.Size = new System.Drawing.Size(37, 21);
+            this.txtLeftEye.Size = new System.Drawing.Size(48, 24);
             this.txtLeftEye.TabIndex = 37;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(347, 261);
+            this.label19.Location = new System.Drawing.Point(463, 326);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 12);
+            this.label19.Size = new System.Drawing.Size(37, 15);
             this.label19.TabIndex = 38;
             this.label19.Text = "右：";
             // 
             // txtRightEye
             // 
-            this.txtRightEye.Location = new System.Drawing.Point(382, 252);
+            this.txtRightEye.Location = new System.Drawing.Point(509, 315);
+            this.txtRightEye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRightEye.Name = "txtRightEye";
-            this.txtRightEye.Size = new System.Drawing.Size(33, 21);
+            this.txtRightEye.Size = new System.Drawing.Size(43, 24);
             this.txtRightEye.TabIndex = 39;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(433, 261);
+            this.label20.Location = new System.Drawing.Point(577, 326);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.Size = new System.Drawing.Size(67, 15);
             this.label20.TabIndex = 40;
             this.label20.Text = "辨色力：";
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(493, 252);
+            this.txtColor.Location = new System.Drawing.Point(657, 315);
+            this.txtColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(100, 21);
+            this.txtColor.Size = new System.Drawing.Size(132, 24);
             this.txtColor.TabIndex = 41;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(626, 261);
+            this.label21.Location = new System.Drawing.Point(835, 326);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.Size = new System.Drawing.Size(52, 15);
             this.label21.TabIndex = 42;
             this.label21.Text = "听力：";
             // 
             // txtListening
             // 
-            this.txtListening.Location = new System.Drawing.Point(665, 252);
+            this.txtListening.Location = new System.Drawing.Point(887, 315);
+            this.txtListening.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtListening.Name = "txtListening";
-            this.txtListening.Size = new System.Drawing.Size(68, 21);
+            this.txtListening.Size = new System.Drawing.Size(89, 24);
             this.txtListening.TabIndex = 43;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(85, 292);
+            this.label22.Location = new System.Drawing.Point(113, 365);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.Size = new System.Drawing.Size(52, 15);
             this.label22.TabIndex = 44;
             this.label22.Text = "上肢：";
             // 
             // txtTopBody
             // 
-            this.txtTopBody.Location = new System.Drawing.Point(132, 283);
+            this.txtTopBody.Location = new System.Drawing.Point(176, 354);
+            this.txtTopBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTopBody.Name = "txtTopBody";
-            this.txtTopBody.Size = new System.Drawing.Size(100, 21);
+            this.txtTopBody.Size = new System.Drawing.Size(132, 24);
             this.txtTopBody.TabIndex = 45;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(255, 292);
+            this.label23.Location = new System.Drawing.Point(340, 365);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.Size = new System.Drawing.Size(67, 15);
             this.label23.TabIndex = 46;
             this.label23.Text = "左下肢：";
             // 
             // txtLeftDownBody
             // 
-            this.txtLeftDownBody.Location = new System.Drawing.Point(301, 283);
+            this.txtLeftDownBody.Location = new System.Drawing.Point(401, 354);
+            this.txtLeftDownBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLeftDownBody.Name = "txtLeftDownBody";
-            this.txtLeftDownBody.Size = new System.Drawing.Size(100, 21);
+            this.txtLeftDownBody.Size = new System.Drawing.Size(132, 24);
             this.txtLeftDownBody.TabIndex = 47;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(433, 292);
+            this.label24.Location = new System.Drawing.Point(577, 365);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 12);
+            this.label24.Size = new System.Drawing.Size(67, 15);
             this.label24.TabIndex = 48;
             this.label24.Text = "右下肢：";
             // 
             // txtRightDownBody
             // 
-            this.txtRightDownBody.Location = new System.Drawing.Point(493, 283);
+            this.txtRightDownBody.Location = new System.Drawing.Point(657, 354);
+            this.txtRightDownBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRightDownBody.Name = "txtRightDownBody";
-            this.txtRightDownBody.Size = new System.Drawing.Size(100, 21);
+            this.txtRightDownBody.Size = new System.Drawing.Size(132, 24);
             this.txtRightDownBody.TabIndex = 49;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(602, 292);
+            this.label25.Location = new System.Drawing.Point(803, 365);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 12);
+            this.label25.Size = new System.Drawing.Size(82, 15);
             this.label25.TabIndex = 50;
             this.label25.Text = "躯干颈部：";
             // 
             // txtBody
             // 
-            this.txtBody.Location = new System.Drawing.Point(665, 283);
+            this.txtBody.Location = new System.Drawing.Point(887, 354);
+            this.txtBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBody.Name = "txtBody";
-            this.txtBody.Size = new System.Drawing.Size(68, 21);
+            this.txtBody.Size = new System.Drawing.Size(89, 24);
             this.txtBody.TabIndex = 51;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(61, 323);
+            this.label26.Location = new System.Drawing.Point(81, 404);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(65, 12);
+            this.label26.Size = new System.Drawing.Size(82, 15);
             this.label26.TabIndex = 52;
             this.label26.Text = "体检医院：";
             // 
             // txtHospital
             // 
-            this.txtHospital.Location = new System.Drawing.Point(132, 314);
+            this.txtHospital.Location = new System.Drawing.Point(176, 392);
+            this.txtHospital.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtHospital.Name = "txtHospital";
-            this.txtHospital.Size = new System.Drawing.Size(388, 21);
+            this.txtHospital.Size = new System.Drawing.Size(516, 24);
             this.txtHospital.TabIndex = 53;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(520, 323);
+            this.label27.Location = new System.Drawing.Point(693, 404);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(65, 12);
+            this.label27.Size = new System.Drawing.Size(82, 15);
             this.label27.TabIndex = 54;
             this.label27.Text = "体检日期：";
             // 
             // txtCheckDate
             // 
-            this.txtCheckDate.Location = new System.Drawing.Point(592, 314);
+            this.txtCheckDate.Location = new System.Drawing.Point(789, 392);
+            this.txtCheckDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCheckDate.Name = "txtCheckDate";
-            this.txtCheckDate.Size = new System.Drawing.Size(141, 21);
+            this.txtCheckDate.Size = new System.Drawing.Size(187, 24);
             this.txtCheckDate.TabIndex = 55;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(85, 354);
+            this.label28.Location = new System.Drawing.Point(113, 442);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(41, 12);
+            this.label28.Size = new System.Drawing.Size(52, 15);
             this.label28.TabIndex = 56;
             this.label28.Text = "教练：";
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(132, 345);
+            this.textBox30.Location = new System.Drawing.Point(176, 431);
+            this.textBox30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(601, 21);
+            this.textBox30.Size = new System.Drawing.Size(800, 24);
             this.textBox30.TabIndex = 57;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(73, 385);
+            this.label29.Location = new System.Drawing.Point(97, 481);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(53, 12);
+            this.label29.Size = new System.Drawing.Size(67, 15);
             this.label29.TabIndex = 58;
             this.label29.Text = "授权码：";
             // 
             // txtRightCode
             // 
-            this.txtRightCode.Location = new System.Drawing.Point(132, 376);
+            this.txtRightCode.Location = new System.Drawing.Point(176, 470);
+            this.txtRightCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRightCode.Name = "txtRightCode";
-            this.txtRightCode.Size = new System.Drawing.Size(601, 21);
+            this.txtRightCode.Size = new System.Drawing.Size(800, 24);
             this.txtRightCode.TabIndex = 59;
             // 
             // TestPdf417Code
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 415);
+            this.ClientSize = new System.Drawing.Size(1023, 519);
             this.Controls.Add(this.txtRightCode);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.textBox30);
@@ -635,7 +695,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBarCode);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TestPdf417Code";

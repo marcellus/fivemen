@@ -28,6 +28,7 @@ namespace FT.Windows.Forms
         {
             this.toolStrip1.Items.Add("模板类别");
             ToolStripComboBox cb = new ToolStripComboBox();
+            cb.Font = new Font("宋体",11f);
             cb.SelectedIndexChanged += new EventHandler(cb_SelectedIndexChanged);
             cb.ToolTipText = "选择类别进行查询模板后配置";
             this.toolStrip1.Items.Add(cb);

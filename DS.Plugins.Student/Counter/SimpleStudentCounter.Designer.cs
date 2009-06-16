@@ -42,6 +42,10 @@ namespace DS.Plugins.Student
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // groupSearch
+            // 
+            this.groupSearch.Size = new System.Drawing.Size(729, 160);
+            // 
             // splitContainer2
             // 
             // 
@@ -55,49 +59,53 @@ namespace DS.Plugins.Student
             this.splitContainer2.Panel1.Controls.Add(this.dateBetweenPanel1);
             this.splitContainer2.Panel1.Controls.Add(this.txtIdCard);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
+            this.splitContainer2.Size = new System.Drawing.Size(723, 137);
+            this.splitContainer2.SplitterDistance = 549;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 78);
+            this.label2.Location = new System.Drawing.Point(3, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(82, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "身份证号码";
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(77, 74);
+            this.txtIdCard.Location = new System.Drawing.Point(99, 79);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(171, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(171, 24);
             this.txtIdCard.TabIndex = 5;
             // 
             // dateBetweenPanel1
             // 
+            this.dateBetweenPanel1.Font = new System.Drawing.Font("宋体", 11F);
             this.dateBetweenPanel1.Location = new System.Drawing.Point(15, 7);
+            this.dateBetweenPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.dateBetweenPanel1.Name = "dateBetweenPanel1";
-            this.dateBetweenPanel1.Size = new System.Drawing.Size(251, 63);
+            this.dateBetweenPanel1.Size = new System.Drawing.Size(354, 65);
             this.dateBetweenPanel1.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(265, 78);
+            this.label1.Location = new System.Drawing.Point(300, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "推荐人姓名";
             // 
             // txtRecommend
             // 
-            this.txtRecommend.Location = new System.Drawing.Point(337, 74);
+            this.txtRecommend.Location = new System.Drawing.Point(406, 79);
             this.txtRecommend.Name = "txtRecommend";
-            this.txtRecommend.Size = new System.Drawing.Size(128, 21);
+            this.txtRecommend.Size = new System.Drawing.Size(128, 24);
             this.txtRecommend.TabIndex = 8;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(379, 45);
+            this.btnAdd.Location = new System.Drawing.Point(471, 45);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 10;
@@ -107,7 +115,7 @@ namespace DS.Plugins.Student
             // 
             // btnDeleteColumn
             // 
-            this.btnDeleteColumn.Location = new System.Drawing.Point(286, 47);
+            this.btnDeleteColumn.Location = new System.Drawing.Point(378, 47);
             this.btnDeleteColumn.Name = "btnDeleteColumn";
             this.btnDeleteColumn.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteColumn.TabIndex = 10;
@@ -118,15 +126,16 @@ namespace DS.Plugins.Student
             // cbColumn
             // 
             this.cbColumn.FormattingEnabled = true;
-            this.cbColumn.Location = new System.Drawing.Point(286, 19);
+            this.cbColumn.Location = new System.Drawing.Point(378, 19);
             this.cbColumn.Name = "cbColumn";
-            this.cbColumn.Size = new System.Drawing.Size(121, 20);
+            this.cbColumn.Size = new System.Drawing.Size(121, 23);
             this.cbColumn.TabIndex = 11;
             // 
             // SimpleStudentCounter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "SimpleStudentCounter";
+            this.Size = new System.Drawing.Size(729, 556);
             this.groupSearch.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
