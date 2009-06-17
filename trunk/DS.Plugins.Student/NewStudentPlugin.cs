@@ -38,9 +38,6 @@ namespace DS.Plugins.Student
 
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("初始界面", typeof(InitButtonPanel));
-            top.DropDownItems.Add(tmp);
-
             tmp = this.BuildTopMenu("直接打机动车驾驶证申请表");
             tmp.Click += new EventHandler(StudentHelper.F7_Click);
             top.DropDownItems.Add(tmp);
@@ -90,6 +87,10 @@ namespace DS.Plugins.Student
 
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("退学", typeof(QuitForm));
+            top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("操作快捷界面", typeof(InitButtonPanel));
             top.DropDownItems.Add(tmp);
             
 

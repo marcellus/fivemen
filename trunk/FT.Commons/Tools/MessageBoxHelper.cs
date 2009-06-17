@@ -34,8 +34,10 @@ namespace FT.Commons.Tools
         /// <returns>如果点击了是返回true</returns>
         public static bool Confirm(string text)
         {
-           DialogResult result= MessageBox.Show(text, "窗体消息提示", MessageBoxButtons.YesNo);
-           return DialogResult.Yes == result;
+          // DialogResult result= MessageBox.Show(text, "窗体消息提示", MessageBoxButtons.YesNo);
+            CustomConfirmBox form = new CustomConfirmBox(text);
+            DialogResult result = form.ShowDialog();
+            return DialogResult.Yes == result;
         }
 
         /// <summary>

@@ -16,11 +16,17 @@ namespace FT.Windows.Forms
     public class AppicationHelper
     {
 
-        public static void Start(string key, Image bg)
+        public static void Start(string key, Image bg, Type panelType, string panelText)
         {
-            StartLimitDays(key, bg, 100, "", false);
+            StartLimitDays(key, bg, 100, "", false,panelType,panelText);
         }
+
         public static void StartLimitTimes(string key, Image bg, int limit, string phone, bool needregister)
+        {
+            StartLimitTimes(key, bg, limit, phone, needregister, null, null);
+        }
+
+        public static void StartLimitTimes(string key, Image bg, int limit, string phone, bool needregister, Type panelType, string panelText)
         {
             if (CheckMutex(key))
             {
@@ -34,7 +40,7 @@ namespace FT.Windows.Forms
                     {
                         StaticCacheManager.RemoveConfig<ProgramRegConfig>();
                         //StaticCacheManager.RemoveConfig<CompanyInfo>();
-                        Register(bg, text);
+                        Register(bg, text,panelType,panelText);
                     }
                     else//如果重新装新版本会启动不了
                     {
@@ -44,7 +50,7 @@ namespace FT.Windows.Forms
                         {
                             //MessageBoxHelper.Show("系统注册文件被损坏，请重新安装或修复本系统！");
                             //Application.Exit();
-                            Register(bg, text);
+                            Register(bg, text,panelType,panelText);
                         }
                         else//已填写过注册信息了，要判断是否篡改系统时间或者是否超出试用时间了
                         {
@@ -58,7 +64,7 @@ namespace FT.Windows.Forms
                             {
                                 if (AppicationHelper.ProductState != ProgramState.Registed)
                                 text += "(" + limit + "次试用版本，剩下" + (limit - config.UseCount) + "次)";
-                                Run(bg, text);
+                                Run(bg, text,panelType,panelText);
                             }
 
                         }
@@ -69,7 +75,7 @@ namespace FT.Windows.Forms
                 else
                 {
                     productState = ProgramState.Registed;
-                    Run(bg, text);
+                    Run(bg, text,panelType,panelText);
                 }
 
 
@@ -105,7 +111,7 @@ namespace FT.Windows.Forms
 
         }
 
-        private static void Run(Image bg, string text)
+        private static void Run(Image bg, string text,Type panelType,string panelText)
         {
             Welcome welcome = new Welcome();
             welcome.ShowInTaskbar = false;
@@ -127,6 +133,20 @@ namespace FT.Windows.Forms
                     tb.BackgroundImageLayout = ImageLayout.Stretch;
                     main.GetSimpleTabControl().TabPages.Add(tb);
                 }
+                if (panelType != null)
+                {
+                    TabPage tb = new TabPage(panelText+"   ");
+                    object paneltmp = ReflectHelper.CreateInstance(panelType);
+                    if ((typeof(UserControl)).IsAssignableFrom(paneltmp.GetType()))
+                    {
+                        Control panel = (Control)paneltmp;
+                        panel.Dock = DockStyle.Fill;
+                        tb.Controls.Add(panel);
+                    }
+                    main.GetSimpleTabControl().TabPages.Add(tb);
+                    if (main.GetSimpleTabControl().TabPages.Count>0)
+                        main.GetSimpleTabControl().SelectedIndex = main.GetSimpleTabControl().TabPages.Count-1;
+                }
                 Application.Run(main);
             }
             else
@@ -135,13 +155,13 @@ namespace FT.Windows.Forms
             }
         }
 
-        private static void Register(Image bg, string text)
+        private static void Register(Image bg, string text, Type panelType, string panelText)
         {
             SimpleRegister register = new SimpleRegister();
             if (register.ShowDialog() == DialogResult.OK)
             {
                
-                Run(bg, text);
+                Run(bg, text,panelType,panelText);
 
             }
             else
@@ -171,6 +191,11 @@ namespace FT.Windows.Forms
 
         public static void StartLimitDays(string key, Image bg, int limit, string phone, bool needregister)
         {
+            StartLimitDays(key, bg, limit, phone, needregister, null, null);
+        }
+
+        public static void StartLimitDays(string key, Image bg, int limit, string phone, bool needregister, Type panelType, string panelText)
+        {
 
             
             if (CheckMutex(key))
@@ -185,7 +210,7 @@ namespace FT.Windows.Forms
                     {
                         StaticCacheManager.RemoveConfig<ProgramRegConfig>();
                         //StaticCacheManager.RemoveConfig<CompanyInfo>();
-                        Register(bg, text);
+                        Register(bg, text,panelType,panelText);
                     }
                     else//如果重新装新版本会启动不了
                     {
@@ -195,7 +220,7 @@ namespace FT.Windows.Forms
                         {
                             //MessageBoxHelper.Show("系统注册文件被损坏，请重新安装或修复本系统！");
                             //Application.Exit();
-                            Register(bg, text);
+                            Register(bg, text,panelType,panelText);
                         }
                         else//已填写过注册信息了，要判断是否篡改系统时间或者是否超出试用时间了
                         {
@@ -219,7 +244,7 @@ namespace FT.Windows.Forms
                                 TimeSpan ts = now - regdate;
                                 if (AppicationHelper.ProductState != ProgramState.Registed)
                                 text += "(" + limit + "天试用版本，剩下" + (limit - ts.Days) + "天)";
-                                Run(bg, text);
+                                Run(bg, text,panelType,panelText);
                             }
 
                         }
@@ -230,7 +255,7 @@ namespace FT.Windows.Forms
                 else
                 {
                     productState = ProgramState.Registed;
-                    Run(bg, text);
+                    Run(bg, text,panelType,panelText);
                 }
 
 

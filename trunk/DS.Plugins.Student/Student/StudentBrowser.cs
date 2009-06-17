@@ -959,6 +959,26 @@ namespace DS.Plugins.Student
             form.ShowInTaskbar = false;
             form.ShowDialog();
         }
+
+        private void btnPrintF2_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F2);
+        }
+
+        private void btnPrintF3_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F3);
+        }
+
+        private void btnPrintF4_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F4);
+        }
+
+        private void btnPrintF5_Click(object sender, EventArgs e)
+        {
+            this.Print(Keys.F5);
+        }
     }
 }
 
