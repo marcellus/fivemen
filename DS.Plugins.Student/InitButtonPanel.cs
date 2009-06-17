@@ -48,6 +48,11 @@ namespace DS.Plugins.Student
             this.btnApplyF7.Click += new EventHandler(StudentHelper.F7_Click);
 
             this.btnExamHint.Click += new EventHandler(btnExamHint_Click);
+
+            this.btnPrintF2.Click += new EventHandler(StudentHelper.F2_Click);
+            this.btnPrintF3.Click += new EventHandler(StudentHelper.F3_Click);
+            this.btnPrintF4.Click += new EventHandler(StudentHelper.F4_Click);
+            this.btnPrintF5.Click += new EventHandler(StudentHelper.F5_Click);
             
 
         }
@@ -93,6 +98,11 @@ namespace DS.Plugins.Student
         void btnChangePwd_Click(object sender, EventArgs e)
         {
             FormHelper.PopDialogForm(typeof(FT.Windows.Forms.PwdChangeForm));
+        }
+
+        private void btnReg_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

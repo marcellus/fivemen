@@ -122,6 +122,10 @@ namespace DS.Plugins.Student
             this.btnPhoto = new System.Windows.Forms.Button();
             this.btnApplyPrintF6 = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.btnPrintF2 = new System.Windows.Forms.Button();
+            this.btnPrintF3 = new System.Windows.Forms.Button();
+            this.btnPrintF4 = new System.Windows.Forms.Button();
+            this.btnPrintF5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1084,13 +1088,61 @@ namespace DS.Plugins.Student
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // btnPrintF2
+            // 
+            this.btnPrintF2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintF2.Location = new System.Drawing.Point(58, 485);
+            this.btnPrintF2.Name = "btnPrintF2";
+            this.btnPrintF2.Size = new System.Drawing.Size(111, 34);
+            this.btnPrintF2.TabIndex = 61;
+            this.btnPrintF2.Text = "套打-机动车驾驶培训记录";
+            this.btnPrintF2.UseVisualStyleBackColor = true;
+            this.btnPrintF2.Click += new System.EventHandler(this.btnPrintF2_Click);
+            // 
+            // btnPrintF3
+            // 
+            this.btnPrintF3.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintF3.Location = new System.Drawing.Point(208, 485);
+            this.btnPrintF3.Name = "btnPrintF3";
+            this.btnPrintF3.Size = new System.Drawing.Size(111, 34);
+            this.btnPrintF3.TabIndex = 61;
+            this.btnPrintF3.Text = "套打-机动车驾驶人身体条件证明";
+            this.btnPrintF3.UseVisualStyleBackColor = true;
+            this.btnPrintF3.Click += new System.EventHandler(this.btnPrintF3_Click);
+            // 
+            // btnPrintF4
+            // 
+            this.btnPrintF4.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintF4.Location = new System.Drawing.Point(358, 485);
+            this.btnPrintF4.Name = "btnPrintF4";
+            this.btnPrintF4.Size = new System.Drawing.Size(111, 34);
+            this.btnPrintF4.TabIndex = 61;
+            this.btnPrintF4.Text = "套打-机动车驾驶员培训学员登记表";
+            this.btnPrintF4.UseVisualStyleBackColor = true;
+            this.btnPrintF4.Click += new System.EventHandler(this.btnPrintF4_Click);
+            // 
+            // btnPrintF5
+            // 
+            this.btnPrintF5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintF5.Location = new System.Drawing.Point(509, 485);
+            this.btnPrintF5.Name = "btnPrintF5";
+            this.btnPrintF5.Size = new System.Drawing.Size(111, 34);
+            this.btnPrintF5.TabIndex = 61;
+            this.btnPrintF5.Text = "套打-科目三考试成绩表";
+            this.btnPrintF5.UseVisualStyleBackColor = true;
+            this.btnPrintF5.Click += new System.EventHandler(this.btnPrintF5_Click);
+            // 
             // StudentBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(662, 478);
+            this.ClientSize = new System.Drawing.Size(662, 531);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnApplyPrintF7);
             this.Controls.Add(this.btnPhoto);
+            this.Controls.Add(this.btnPrintF5);
+            this.Controls.Add(this.btnPrintF4);
+            this.Controls.Add(this.btnPrintF3);
+            this.Controls.Add(this.btnPrintF2);
             this.Controls.Add(this.btnApplyPrintF6);
             this.Controls.Add(this.btnQuit);
             this.Name = "StudentBrowser";
@@ -1098,6 +1150,10 @@ namespace DS.Plugins.Student
             this.Load += new System.EventHandler(this.StudentBrowser_Load);
             this.Controls.SetChildIndex(this.btnQuit, 0);
             this.Controls.SetChildIndex(this.btnApplyPrintF6, 0);
+            this.Controls.SetChildIndex(this.btnPrintF2, 0);
+            this.Controls.SetChildIndex(this.btnPrintF3, 0);
+            this.Controls.SetChildIndex(this.btnPrintF4, 0);
+            this.Controls.SetChildIndex(this.btnPrintF5, 0);
             this.Controls.SetChildIndex(this.btnPhoto, 0);
             this.Controls.SetChildIndex(this.btnApplyPrintF7, 0);
             this.Controls.SetChildIndex(this.lbId, 0);
@@ -1209,5 +1265,9 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Button btnApplyPrintF7;
         private System.Windows.Forms.Button btnApplyPrintF6;
         private System.Windows.Forms.Button btnPhoto;
+        private System.Windows.Forms.Button btnPrintF2;
+        private System.Windows.Forms.Button btnPrintF3;
+        private System.Windows.Forms.Button btnPrintF4;
+        private System.Windows.Forms.Button btnPrintF5;
     }
 }

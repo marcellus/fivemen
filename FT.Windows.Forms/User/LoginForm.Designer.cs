@@ -55,14 +55,14 @@
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(56, 15);
+            this.cbName.Location = new System.Drawing.Point(56, 16);
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(121, 20);
             this.cbName.TabIndex = 3;
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(56, 42);
+            this.txtPwd.Location = new System.Drawing.Point(56, 43);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(121, 21);
@@ -71,11 +71,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 52);
+            this.label2.Location = new System.Drawing.Point(8, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "密码";
+            this.label2.Text = "密  码";
             // 
             // label1
             // 
@@ -128,8 +128,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "登陆";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
