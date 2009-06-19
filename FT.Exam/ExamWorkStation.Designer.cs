@@ -50,6 +50,8 @@
             this.btnOver = new System.Windows.Forms.Button();
             this.lbAnswer = new System.Windows.Forms.Label();
             this.picImage = new System.Windows.Forms.PictureBox();
+            this.lbWelcome = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -123,8 +125,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(16, 15);
+            this.groupBox2.Location = new System.Drawing.Point(16, 27);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -273,11 +276,31 @@
             this.picImage.TabIndex = 7;
             this.picImage.TabStop = false;
             // 
+            // lbWelcome
+            // 
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.Location = new System.Drawing.Point(13, 8);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(172, 15);
+            this.lbWelcome.TabIndex = 8;
+            this.lbWelcome.Text = "欢迎您，身份证明号码为";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(601, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "查找我的考试记录";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // ExamWorkStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 590);
+            this.Controls.Add(this.lbWelcome);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.lbAnswer);
             this.Controls.Add(this.btnOver);
@@ -302,6 +325,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "科目一无纸化模拟考试台";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExamWorkStation_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -335,5 +359,7 @@
         private System.Windows.Forms.Button btnOver;
         private System.Windows.Forms.Label lbAnswer;
         private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.Label lbWelcome;
+        private System.Windows.Forms.Button button3;
     }
 }

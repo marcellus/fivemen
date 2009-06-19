@@ -80,7 +80,7 @@ namespace FT.Exam
             }
         }
         /// <summary>
-        /// 题目的答案
+        /// 用户填写的题目的答案
         /// </summary>
         public string Answer
         {

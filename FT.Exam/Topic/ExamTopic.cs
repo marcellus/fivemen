@@ -38,11 +38,11 @@ namespace FT.Exam
         }
 
         /// <summary>
-        /// 分值，默认两分
+        /// 分值，默认一分
         /// </summary>
         [SimpleColumn(Column = "i_score")]
         [Alias("分值")]
-        public int Score=2;
+        public int Score=1;
 
         public int 分值
         {
@@ -157,6 +157,19 @@ namespace FT.Exam
         {
             get { return Answer; }
             set { Answer = value; }
+        }
+
+        /// <summary>
+        /// 答案
+        /// </summary>
+        [SimpleColumn(Column = "c_answer_blong")]
+        [Alias("答案类别")]
+        public string AnswerBelong;
+
+        public string 答案类别
+        {
+            get { return AnswerBelong; }
+            set { AnswerBelong = value; }
         }
     }
 }

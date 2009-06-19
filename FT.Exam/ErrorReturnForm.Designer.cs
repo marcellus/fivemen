@@ -37,12 +37,12 @@
             this.lbRealAnswer = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbNum = new System.Windows.Forms.Label();
             this.题号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.试题内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.标准答案 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.考生答案 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -134,24 +134,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 230);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 196);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "题号";
-            // 
-            // lbNum
-            // 
-            this.lbNum.AutoSize = true;
-            this.lbNum.Location = new System.Drawing.Point(50, 196);
-            this.lbNum.Name = "lbNum";
-            this.lbNum.Size = new System.Drawing.Size(15, 15);
-            this.lbNum.TabIndex = 16;
-            this.lbNum.Text = "1";
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // 题号
             // 
@@ -178,6 +161,24 @@
             this.考生答案.Name = "考生答案";
             this.考生答案.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 196);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "题号";
+            // 
+            // lbNum
+            // 
+            this.lbNum.AutoSize = true;
+            this.lbNum.Location = new System.Drawing.Point(50, 196);
+            this.lbNum.Name = "lbNum";
+            this.lbNum.Size = new System.Drawing.Size(15, 15);
+            this.lbNum.TabIndex = 16;
+            this.lbNum.Text = "1";
+            // 
             // ErrorReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -194,7 +195,7 @@
             this.Controls.Add(this.picImage);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ErrorReturnForm";

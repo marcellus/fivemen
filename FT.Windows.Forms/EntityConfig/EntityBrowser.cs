@@ -104,7 +104,7 @@ namespace FT.Windows.Forms
                         //column.s
                         i++;
                     }
-                    MessageBox.Show("创建成功,共"+i+"个列！");
+                    MessageBoxHelper.Show("创建成功,共" + i + "个列！");
                 }
             }
         }

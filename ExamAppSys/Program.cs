@@ -14,8 +14,18 @@ namespace ExamAppSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", ExamAppSys.Properties.Resources.bg
-           , 10, "15814584509", true);
+             Form form= new FT.Exam.UserLoginFirstForm();
+             DialogResult result = form.ShowDialog();
+            if(result==DialogResult.OK)
+            {
+                FT.Windows.Forms.AppicationHelper.StartLimitDays("ExamAppSys", ExamAppSys.Properties.Resources.bg
+          , 10, "15814584509", true);
+            }
+            else
+            {
+
+            }
+           
         }
     }
 }

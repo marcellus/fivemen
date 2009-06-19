@@ -85,5 +85,18 @@ namespace FT.Exam
                 }
             }
         }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex>=0)
+            {
+                string index = this.dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (this.lbNum.Text != index)
+                {
+                    int i = Convert.ToInt32(index);
+                    this.ShowTopic(i - 1);
+                }
+            }
+        }
     }
 }

@@ -19,7 +19,25 @@ namespace FT.Exam
         {
             InitializeComponent();
         }
-        public ExamWorkStation(ArrayList topics):this()
+        private ExamUser user;
+        //默认为false，模拟考试
+        private bool isTrain = false;
+        public ExamWorkStation(ExamUser user, bool isTrain)
+            : this()
+        {
+            this.user = user;
+            if(user!=null)
+            {
+                this.lbWelcome.Text = "欢迎您，身份证明号码为" +
+                    user.IdCard + "的" + user.Name + "，您的考试次数为" +
+                    user.AllCount.ToString() + "合格次数为" +
+user.PassCount.ToString() + "不合格次数为" +
+user.NotPassCount.ToString();
+            }
+            this.isTrain = isTrain;
+        }
+        public ExamWorkStation(ArrayList topics, ExamUser user, bool isTrain)
+            : this(user, isTrain)
         {
             this.topics = topics;
             if(this.topics!=null&&this.topics.Count>0)
@@ -188,6 +206,75 @@ namespace FT.Exam
                 form.ShowDialog();
             }
 
+        }
+
+        private void ExamWorkStation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.isTrain&&user!=null&&MessageBoxHelper.Confirm("是否需要保存本次模拟考试成绩？"))
+            {
+                int score = 0;
+                int pass = 0, nopass = 0;
+                for (int i = 0; i < topicsControl.Count; i++)
+                {
+                    if (topicsControl[i].IsRightAnswer)
+                        score += topicsControl[i].Score;
+                }
+                if (score < 90)
+                {
+                    nopass = 1;
+                }
+                else
+                {
+                    pass = 1;
+                }
+                string sql = "update table_exam_user set i_all_count=i_all_count+1,i_pass_count=i_pass_count+"
+                    + pass + ",i_not_pass_count=i_not_pass_count+"
+                    + nopass + " where c_idcard='" + user.IdCard + "'";
+                //FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
+                /*if()*/
+                //开始保存考试记录并统计考试合格或者错误率
+                string[] sqls = new string[topicsControl.Count+1];
+                sqls[0] = sql;
+                ExamLog log = new ExamLog();
+                log.ExamDate=System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                log.IdCard=user.IdCard;
+                log.Name=user.Name;
+                log.Score=score;
+                if(FT.DAL.Orm.SimpleOrmOperator.Create(log))
+                {
+                    for (int i = 0; i < topicsControl.Count; i++)
+                    {
+                        sqls[i + 1] = "insert into table_exam_log_detail(logid,topicid,answer) values("+
+                            log.Id.ToString()+","+topicsControl[i].Topic.Id.ToString()+",'"+
+                            topicsControl[i].Answer+ "')";
+                    }
+
+                }
+                FT.DAL.DataAccessFactory.GetDataAccess().ExecuteTransaction(sqls);
+                
+               
+                Environment.Exit(0);
+                //Application.Exit();
+            }
+            else{
+                Environment.Exit(0);
+                //Application.Exit();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ExamLogSearch ctr = new ExamLogSearch();
+            Form tmp = new Form();
+            tmp.WindowState = FormWindowState.Maximized;
+            tmp.ShowIcon = false;
+            tmp.Text = "模拟考试记录列表";
+            tmp.ShowInTaskbar = true;
+            tmp.StartPosition = FormStartPosition.CenterScreen;
+            ctr.SetUserIdCard(user.IdCard);
+            ctr.Dock = DockStyle.Fill;
+            tmp.Controls.Add(ctr);
+            tmp.ShowDialog();
         }
     }
 }
