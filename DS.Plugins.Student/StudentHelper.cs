@@ -290,6 +290,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F7);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "直接打机动车驾驶证申请表";
             form.ShowDialog();
         }
@@ -297,6 +298,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F6);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "套打-机动车驾驶证申请表";
             form.ShowDialog();
         }
@@ -304,6 +306,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F5);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "套打-科目三考试成绩表";
             form.ShowDialog();
         }
@@ -311,6 +314,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F4);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "套打-机动车驾驶员培训学员登记表";
             form.ShowDialog();
         }
@@ -318,6 +322,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F3);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "套打-机动车驾驶人身体条件证明";
             form.ShowDialog();
         }
@@ -326,6 +331,7 @@ end function
         {
             Form form = new OtherPrinterForm(Keys.F2);
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = "套打-机动车驾驶培训记录";
             form.ShowDialog();
         }
@@ -334,6 +340,7 @@ end function
         {
             Form form = new StudentExamBrowser("科目一");
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
@@ -341,6 +348,7 @@ end function
         {
             Form form = new StudentExamBrowser("科目二（桩）");
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
@@ -348,6 +356,7 @@ end function
         {
             Form form = new StudentExamBrowser("科目二（场地）");
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
 
@@ -355,12 +364,14 @@ end function
         {
             Form form = new StudentExamBrowser("科目二");
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
         public static void subject3_Click(object sender, EventArgs e)
         {
             Form form = new StudentExamBrowser("科目三");
             form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
         }
         #endregion

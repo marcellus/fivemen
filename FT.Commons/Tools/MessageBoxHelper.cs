@@ -27,6 +27,29 @@ namespace FT.Commons.Tools
         {
         }
 
+        public static Color PickColor()
+        {
+            Color result = SystemColors.Control;
+            ColorDialog form = new ColorDialog();
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                result = form.Color;
+            }
+            return result;
+        }
+
+        public static Color PickColor(Color color)
+        {
+            Color result = SystemColors.Control;
+            ColorDialog form=new ColorDialog();
+            form.Color=color;
+            if(DialogResult.OK==form.ShowDialog())
+            {
+                result = form.Color;
+            }
+            return result;
+        }
+
         /// <summary>
         /// 判断是否正确响应
         /// </summary>

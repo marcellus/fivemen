@@ -472,7 +472,7 @@ namespace DS.Plugins.Student
             string dimension = this.ComputeDimension();
             FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Dimension", dimension);
             base.BeforeSave(entity);
-            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "CoachId", this.cbCoachName.SelectedValue.ToString());
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "CoachId", this.cbCoachName.SelectedValue==null?"-1":this.cbCoachName.SelectedValue.ToString());
         }
 
         protected override void BeforeCreateEntity(object entity)

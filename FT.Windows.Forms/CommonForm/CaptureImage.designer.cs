@@ -38,7 +38,8 @@
             // 
             this.panelSource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSource.Controls.Add(this.panelSelect);
-            this.panelSource.Location = new System.Drawing.Point(36, 12);
+            this.panelSource.Location = new System.Drawing.Point(48, 15);
+            this.panelSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSource.Name = "panelSource";
             this.panelSource.Size = new System.Drawing.Size(256, 192);
             this.panelSource.TabIndex = 0;
@@ -47,9 +48,10 @@
             // 
             this.panelSelect.BackColor = System.Drawing.Color.Transparent;
             this.panelSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSelect.Location = new System.Drawing.Point(58, 4);
+            this.panelSelect.Location = new System.Drawing.Point(67, 8);
+            this.panelSelect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(130, 170);
+            this.panelSelect.Size = new System.Drawing.Size(133, 173);
             this.panelSelect.TabIndex = 3;
             this.panelSelect.DoubleClick += new System.EventHandler(this.panelSelect_DoubleClick);
             this.panelSelect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSelect_MouseDown);
@@ -58,11 +60,13 @@
             // 
             // CaptureImage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 224);
+            this.ClientSize = new System.Drawing.Size(350, 236);
             this.Controls.Add(this.panelSource);
+            this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CaptureImage";

@@ -30,6 +30,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtExportPath = new System.Windows.Forms.TextBox();
             this.btnExportPathSet = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPic)).BeginInit();
@@ -39,7 +40,7 @@
             // btnDeviceSet
             // 
             this.btnDeviceSet.Location = new System.Drawing.Point(356, 20);
-            this.btnDeviceSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeviceSet.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeviceSet.Name = "btnDeviceSet";
             this.btnDeviceSet.Size = new System.Drawing.Size(100, 29);
             this.btnDeviceSet.TabIndex = 0;
@@ -50,7 +51,7 @@
             // txtIdCard
             // 
             this.txtIdCard.Location = new System.Drawing.Point(8, 22);
-            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdCard.Name = "txtIdCard";
             this.txtIdCard.Size = new System.Drawing.Size(339, 24);
             this.txtIdCard.TabIndex = 2;
@@ -62,9 +63,9 @@
             this.groupBox1.Controls.Add(this.txtIdCard);
             this.groupBox1.Controls.Add(this.btnDeviceSet);
             this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(620, 56);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -73,7 +74,7 @@
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(536, 20);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(64, 29);
             this.btnExport.TabIndex = 3;
@@ -84,7 +85,7 @@
             // btnBegin
             // 
             this.btnBegin.Location = new System.Drawing.Point(464, 20);
-            this.btnBegin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBegin.Margin = new System.Windows.Forms.Padding(4);
             this.btnBegin.Name = "btnBegin";
             this.btnBegin.Size = new System.Drawing.Size(64, 29);
             this.btnBegin.TabIndex = 3;
@@ -95,7 +96,7 @@
             // btnPathSet
             // 
             this.btnPathSet.Location = new System.Drawing.Point(520, 25);
-            this.btnPathSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPathSet.Margin = new System.Windows.Forms.Padding(4);
             this.btnPathSet.Name = "btnPathSet";
             this.btnPathSet.Size = new System.Drawing.Size(73, 29);
             this.btnPathSet.TabIndex = 4;
@@ -108,9 +109,9 @@
             this.groupBox2.Controls.Add(this.txtPicPath);
             this.groupBox2.Controls.Add(this.btnPathSet);
             this.groupBox2.Location = new System.Drawing.Point(17, 81);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(620, 71);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
@@ -119,7 +120,7 @@
             // txtPicPath
             // 
             this.txtPicPath.Location = new System.Drawing.Point(9, 25);
-            this.txtPicPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPicPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtPicPath.Name = "txtPicPath";
             this.txtPicPath.ReadOnly = true;
             this.txtPicPath.Size = new System.Drawing.Size(489, 24);
@@ -128,9 +129,9 @@
             // picPic
             // 
             this.picPic.Location = new System.Drawing.Point(240, 241);
-            this.picPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picPic.Margin = new System.Windows.Forms.Padding(4);
             this.picPic.Name = "picPic";
-            this.picPic.Size = new System.Drawing.Size(176, 215);
+            this.picPic.Size = new System.Drawing.Size(132, 172);
             this.picPic.TabIndex = 6;
             this.picPic.TabStop = false;
             // 
@@ -139,9 +140,9 @@
             this.groupBox3.Controls.Add(this.txtExportPath);
             this.groupBox3.Controls.Add(this.btnExportPathSet);
             this.groupBox3.Location = new System.Drawing.Point(16, 160);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(620, 71);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
@@ -150,7 +151,7 @@
             // txtExportPath
             // 
             this.txtExportPath.Location = new System.Drawing.Point(9, 25);
-            this.txtExportPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExportPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtExportPath.Name = "txtExportPath";
             this.txtExportPath.ReadOnly = true;
             this.txtExportPath.Size = new System.Drawing.Size(489, 24);
@@ -159,7 +160,7 @@
             // btnExportPathSet
             // 
             this.btnExportPathSet.Location = new System.Drawing.Point(520, 25);
-            this.btnExportPathSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportPathSet.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportPathSet.Name = "btnExportPathSet";
             this.btnExportPathSet.Size = new System.Drawing.Size(73, 29);
             this.btnExportPathSet.TabIndex = 4;
@@ -167,24 +168,36 @@
             this.btnExportPathSet.UseVisualStyleBackColor = true;
             this.btnExportPathSet.Click += new System.EventHandler(this.btnExportPathSet_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 282);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DriverPicCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 469);
+            this.ClientSize = new System.Drawing.Size(653, 442);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.picPic);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DriverPicCapture";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "图像采集";
+            this.Text = "照片采集";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -210,5 +223,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtExportPath;
         private System.Windows.Forms.Button btnExportPathSet;
+        private System.Windows.Forms.Button button1;
     }
 }

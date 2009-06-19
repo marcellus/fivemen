@@ -70,7 +70,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dataGridView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(991, 451);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(991, 427);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -80,8 +80,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             // 
             // dataGridView1
             // 
@@ -95,7 +95,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(991, 451);
+            this.dataGridView1.Size = new System.Drawing.Size(991, 427);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
@@ -123,69 +123,69 @@
             this.btnLastPage,
             this.txtGoPages,
             this.btnGo});
-            this.toolStrip2.Location = new System.Drawing.Point(707, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(3, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(284, 26);
+            this.toolStrip2.Size = new System.Drawing.Size(505, 25);
             this.toolStrip2.TabIndex = 0;
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("宋体", 11F);
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(22, 23);
+            this.toolStripLabel1.Size = new System.Drawing.Size(22, 22);
             this.toolStripLabel1.Text = "页";
             // 
             // lbCurrentPage
             // 
             this.lbCurrentPage.Font = new System.Drawing.Font("宋体", 11F);
             this.lbCurrentPage.Name = "lbCurrentPage";
-            this.lbCurrentPage.Size = new System.Drawing.Size(15, 23);
+            this.lbCurrentPage.Size = new System.Drawing.Size(15, 22);
             this.lbCurrentPage.Text = "1";
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Font = new System.Drawing.Font("宋体", 11F);
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(15, 23);
+            this.toolStripLabel3.Size = new System.Drawing.Size(15, 22);
             this.toolStripLabel3.Text = "/";
             // 
             // lbPages
             // 
             this.lbPages.Font = new System.Drawing.Font("宋体", 11F);
             this.lbPages.Name = "lbPages";
-            this.lbPages.Size = new System.Drawing.Size(15, 23);
+            this.lbPages.Size = new System.Drawing.Size(15, 22);
             this.lbPages.Text = "1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Font = new System.Drawing.Font("宋体", 11F);
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(22, 23);
+            this.toolStripLabel2.Size = new System.Drawing.Size(22, 22);
             this.toolStripLabel2.Text = "共";
             // 
             // lbRecordCount
             // 
             this.lbRecordCount.Font = new System.Drawing.Font("宋体", 11F);
             this.lbRecordCount.Name = "lbRecordCount";
-            this.lbRecordCount.Size = new System.Drawing.Size(15, 23);
+            this.lbRecordCount.Size = new System.Drawing.Size(15, 22);
             this.lbRecordCount.Text = "0";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Font = new System.Drawing.Font("宋体", 11F);
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(37, 23);
+            this.toolStripLabel4.Size = new System.Drawing.Size(37, 22);
             this.toolStripLabel4.Text = "记录";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // btnFirstPage
             // 
@@ -193,7 +193,7 @@
             this.btnFirstPage.Image = global::FT.Windows.Forms.Properties.Resources.Arrow_Up_16_16;
             this.btnFirstPage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFirstPage.Name = "btnFirstPage";
-            this.btnFirstPage.Size = new System.Drawing.Size(57, 23);
+            this.btnFirstPage.Size = new System.Drawing.Size(57, 22);
             this.btnFirstPage.Text = "首页";
             this.btnFirstPage.Click += new System.EventHandler(this.btnFirstPage_Click);
             // 
@@ -203,7 +203,7 @@
             this.btnPrePage.Image = global::FT.Windows.Forms.Properties.Resources.Arrow_Right_16_16;
             this.btnPrePage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrePage.Name = "btnPrePage";
-            this.btnPrePage.Size = new System.Drawing.Size(72, 23);
+            this.btnPrePage.Size = new System.Drawing.Size(72, 22);
             this.btnPrePage.Text = "上一页";
             this.btnPrePage.Click += new System.EventHandler(this.btnPrePage_Click);
             // 
@@ -213,7 +213,7 @@
             this.btnNextPage.Image = global::FT.Windows.Forms.Properties.Resources.Arrow_Left_16_16;
             this.btnNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(72, 20);
+            this.btnNextPage.Size = new System.Drawing.Size(72, 22);
             this.btnNextPage.Text = "下一页";
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
@@ -223,7 +223,7 @@
             this.btnLastPage.Image = global::FT.Windows.Forms.Properties.Resources.Arrow_Down_16_16;
             this.btnLastPage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLastPage.Name = "btnLastPage";
-            this.btnLastPage.Size = new System.Drawing.Size(57, 20);
+            this.btnLastPage.Size = new System.Drawing.Size(57, 22);
             this.btnLastPage.Text = "尾页";
             this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
             // 
@@ -233,7 +233,7 @@
             this.txtGoPages.Font = new System.Drawing.Font("宋体", 11F);
             this.txtGoPages.Name = "txtGoPages";
             this.txtGoPages.ShortcutsEnabled = false;
-            this.txtGoPages.Size = new System.Drawing.Size(25, 24);
+            this.txtGoPages.Size = new System.Drawing.Size(25, 25);
             this.txtGoPages.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtGoPages_KeyDown);
             // 
             // btnGo
@@ -242,7 +242,7 @@
             this.btnGo.Image = global::FT.Windows.Forms.Properties.Resources.Search_16_16;
             this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(57, 20);
+            this.btnGo.Size = new System.Drawing.Size(57, 22);
             this.btnGo.Text = "跳转";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
@@ -263,7 +263,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(704, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(673, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // btnAdd

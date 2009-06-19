@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Collections;
 using FT.Windows.Forms;
 using System.Drawing.Imaging;
+using FT.Windows.Forms.CommonForm;
 
 namespace DS.Plugins.Student
 {
@@ -101,7 +102,7 @@ namespace DS.Plugins.Student
 
                             // map.Save("c:\\tempgetimageformdevice.bmp");
                             // this.pictureBox1.Image = map;
-                            CaptureImage form = new CaptureImage(map, this.picPic,this.picPic.Width,this.picPic.Height);
+                            CaptureImage form = new CaptureImage(map, this.picPic,set);
                             form.ShowDialog();
                             this.SavePic();
                             
@@ -219,24 +220,29 @@ namespace DS.Plugins.Student
         private int picnumber = 0;
 
         #endregion
+
+        private CapturePhotoSet set=null;
+
+        private Color transColor = SystemColors.Control;
         public DriverPicCapture()
         {
             InitializeComponent();
             DriverPicCaptureConfig config = StaticCacheManager.GetConfig<DriverPicCaptureConfig>();
+            set = StaticCacheManager.GetConfig<CapturePhotoSet>();
+            if(set.BgRgbEnable)
+            {
+                transColor = Color.FromArgb(set.BgRgbR, set.BgRgbG, set.BgRgbB);
+            }
+            this.picPic.Size = new Size(set.CapWidth + 2, set.CapHeight + 2);
+            this.Height = this.picPic.Location.Y + set.CapHeight + 40;
             this.txtPicPath.Text = config.PicPath;
             this.txtExportPath.Text = config.PicExpPath;
             tw = new Twain();
             tw.Init(this.Handle);
         }
 
-        public DriverPicCapture(string idcard)
+        public DriverPicCapture(string idcard):this()
         {
-            InitializeComponent();
-            DriverPicCaptureConfig config = StaticCacheManager.GetConfig<DriverPicCaptureConfig>();
-            this.txtPicPath.Text = config.PicPath;
-            this.txtExportPath.Text = config.PicExpPath;
-            tw = new Twain();
-            tw.Init(this.Handle);
             string path = this.txtPicPath.Text + "/" + idcard + ".jpg";
             this.txtIdCard.Text = idcard;
             if(File.Exists(path))
@@ -264,8 +270,16 @@ namespace DS.Plugins.Student
                 if(File.Exists(realpath))
                 {
 
-                    File.Copy(realpath, this.txtExportPath.Text+"/"+this.txtIdCard.Text.Trim()+".jpg", true);
-                    MessageBoxHelper.Show("成功导出图片！");
+                    try
+                    {
+                        File.Copy(realpath, this.txtExportPath.Text + "/" + this.txtIdCard.Text.Trim() + ".jpg", true);
+                        MessageBoxHelper.Show("成功导出图片！");
+                    }
+                    catch (System.Exception ex)
+                    {
+                        MessageBoxHelper.Show("导出路径不存在！");
+                    }
+                   
                 }
 
             }
@@ -292,7 +306,12 @@ namespace DS.Plugins.Student
         {
             if(this.picPic.Image!=null)
             {
-                ImageHelper.SaveOneInchPic(this.picPic.Image, this.GetRealPath());
+                Color tmp = transColor;
+                if(!set.BgRgbEnable)
+                {
+                    tmp = SystemColors.Control;
+                }
+                ImageHelper.SaveOneInchPic(this.picPic.Image,tmp,set.Dpi, this.GetRealPath());
             }
 
             
@@ -300,6 +319,8 @@ namespace DS.Plugins.Student
 
         private void btnBegin_Click(object sender, EventArgs e)
         {
+            
+            
             if(this.txtPicPath.Text.Length==0)
             {
                 MessageBoxHelper.Show("请先配置要采集的照片的存放路径！");
@@ -355,5 +376,14 @@ namespace DS.Plugins.Student
             config.PicExpPath = this.txtExportPath.Text;
             StaticCacheManager.SaveConfig<DriverPicCaptureConfig>(config);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CaptureImage form = new CaptureImage(Image.FromFile("c:\\test.jpg"), this.picPic, set);
+            form.ShowDialog();
+            this.SavePic();
+        }
+
+      
     }
 }

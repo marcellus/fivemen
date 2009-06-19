@@ -28,6 +28,7 @@ namespace FT.Test
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityForm));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,8 +37,10 @@ namespace FT.Test
             this.txtName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.testunum = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testunum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -112,10 +115,22 @@ namespace FT.Test
             this.testunum.Size = new System.Drawing.Size(120, 21);
             this.testunum.TabIndex = 8;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(267, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // EntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(452, 337);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.testunum);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -126,6 +141,7 @@ namespace FT.Test
             this.Controls.Add(this.button1);
             this.Name = "EntityForm";
             this.Load += new System.EventHandler(this.EntityForm_Load);
+            this.Controls.SetChildIndex(this.lbId, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.cbSex, 0);
             this.Controls.SetChildIndex(this.txtName, 0);
@@ -134,8 +150,10 @@ namespace FT.Test
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
             this.Controls.SetChildIndex(this.testunum, 0);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testunum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +169,6 @@ namespace FT.Test
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown testunum;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

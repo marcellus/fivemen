@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using FT.Commons.Cache;
+using FT.Windows.Forms.CommonForm;
 
 namespace DS.Plugins.Student
 {
@@ -89,6 +90,9 @@ namespace DS.Plugins.Student
             tmp = this.BuildSubMenu("退学", typeof(QuitForm));
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("照片采集配置", typeof(CapturePhotoSetting));
+            top.DropDownItems.Add(tmp);
 
             tmp = this.BuildSubMenu("操作快捷界面", typeof(InitButtonPanel));
             top.DropDownItems.Add(tmp);

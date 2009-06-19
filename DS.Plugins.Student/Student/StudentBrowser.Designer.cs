@@ -1146,6 +1146,7 @@ namespace DS.Plugins.Student
             this.Controls.Add(this.btnApplyPrintF6);
             this.Controls.Add(this.btnQuit);
             this.Name = "StudentBrowser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "学员信息";
             this.Load += new System.EventHandler(this.StudentBrowser_Load);
             this.Controls.SetChildIndex(this.btnQuit, 0);
