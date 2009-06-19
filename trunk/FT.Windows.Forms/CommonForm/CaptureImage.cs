@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
+using FT.Windows.Forms.CommonForm;
 
 namespace FT.Windows.Forms
 {
@@ -23,6 +24,18 @@ namespace FT.Windows.Forms
             InitializeComponent();
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.panelSelect.Size = new Size(width,height);
+        }
+
+        private CapturePhotoSet set;
+
+        public CaptureImage(CapturePhotoSet set)
+        {
+            InitializeComponent();
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.panelSelect.Size = new Size(set.CapWidth, set.CapHeight);
+            this.panelSource.Size = new Size(set.DevWidth, set.DevHeight);
+            this.Size = new Size(set.DevWidth + 100, set.DevHeight + 100);
+            this.set = set;
         }
 
        // private Image image;
@@ -46,9 +59,18 @@ namespace FT.Windows.Forms
         }
 
         public CaptureImage(Image image, PictureBox pic,int width,int height)
-            : this()
+            : this(width,height)
         {
-            this.panelSelect.Size = new Size(width, height);
+            //this.panelSelect.Size = new Size(width, height);
+            this.panelSource.BackgroundImage = image;
+            this.pic = pic;
+            //dragger = new Dragger(this.panelSource, this.panelSelect, this.panelSelect.Location);
+        }
+
+        public CaptureImage(Image image, PictureBox pic, CapturePhotoSet set)
+            : this(set)
+        {
+            //this.panelSelect.Size = new Size(width, height);
             this.panelSource.BackgroundImage = image;
             this.pic = pic;
             //dragger = new Dragger(this.panelSource, this.panelSelect, this.panelSelect.Location);
@@ -103,6 +125,12 @@ namespace FT.Windows.Forms
             //保存为文件
             //this.image = myImage;
             Console.WriteLine("after capture width:"+myImage.Width+",height:"+myImage.Height);
+            if (set.BgRgbEnable)
+            {
+                //((Bitmap)myImage).MakeTransparent(transColor);
+                Color transColor = Color.FromArgb(set.BgRgbR, set.BgRgbG, set.BgRgbB);
+                myImage=ImageHelper.SetImageColorAll(myImage, transColor, Color.White,set.SeCha);
+            }
             this.pic.Image = myImage;
             //this.pictureBox1.Image = this.image;
             //this.Close();

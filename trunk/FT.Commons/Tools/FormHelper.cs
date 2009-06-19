@@ -58,7 +58,7 @@ namespace FT.Commons.Tools
                 Form tmp = form as Form;
                 tmp.ShowInTaskbar = false;
                 tmp.StartPosition = FormStartPosition.CenterScreen;
-                tmp.ShowDialog();
+                tmp.Show();
             }
         }
 
