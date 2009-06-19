@@ -90,23 +90,31 @@ namespace FT.Windows.Forms
 
         private void BaseMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
-            if (config.LastDate > System.DateTime.Now)
+            if (MessageBoxHelper.Confirm("确定退出本系统吗？"))
             {
-                MessageBoxHelper.Show("对不起，当前时间被篡改！");
-                e.Cancel = true;
+                ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
+                if (config.LastDate > System.DateTime.Now)
+                {
+                    MessageBoxHelper.Show("对不起，当前时间被篡改！");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    config.LastDate = System.DateTime.Now;
+                    config.UseCount++;
+                    StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
+                    FileHelper.WriteLastLog(Application.ProductName);
+                    DbAutoBakConfig dbconfig = StaticCacheManager.GetConfig<DbAutoBakConfig>();
+                    if (dbconfig.AutoBak)
+                    {
+                        dbconfig.BakDb();
+                    }
+                }
             }
             else
             {
-                config.LastDate = System.DateTime.Now;
-                config.UseCount++;
-                StaticCacheManager.SaveConfig<ProgramRegConfig>(config);
-                FileHelper.WriteLastLog(Application.ProductName);
-                DbAutoBakConfig dbconfig=StaticCacheManager.GetConfig<DbAutoBakConfig>();
-                if (dbconfig.AutoBak)
-                {
-                    dbconfig.BakDb();
-                }
+
+                e.Cancel = true;
             }
         }
 

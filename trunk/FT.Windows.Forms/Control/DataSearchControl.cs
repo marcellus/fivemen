@@ -349,10 +349,10 @@ namespace FT.Windows.Forms
             try
             {
                 //Console.WriteLine("col:" + e.ColumnIndex + "|rows:" + e.RowIndex);
-                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+                if (e.ColumnIndex >= 0 && e.RowIndex >= 0&&e.Button==MouseButtons.Right)
                 {
 
-
+                    
                     object obj = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                     if (obj != null)
                     {

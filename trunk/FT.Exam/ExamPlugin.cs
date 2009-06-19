@@ -26,16 +26,26 @@ namespace FT.Exam
             tmp = this.BuildSubMenu("题库管理", typeof(ExamTopicSearch));
             top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = false;
+            this.AddSeparatorToMenu(top);
 
+            tmp = this.BuildSubMenu("添加题库", typeof(ExamUserBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("考生管理", typeof(ExamUserSearch));
+            top.DropDownItems.Add(tmp);
+
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("考试记录查询", typeof(ExamLogSearch));
+            top.DropDownItems.Add(tmp);
+            /*
             tmp = this.BuildTopMenu("模拟考试");
             tmp.Click += new EventHandler(tmp_Click);
-            top.DropDownItems.Add(tmp);
+            top.DropDownItems.Add(tmp);*/
         }
 
         void tmp_Click(object sender, EventArgs e)
         {
             ArrayList topics = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(ExamTopic));
-            ExamWorkStation form = new ExamWorkStation(topics);
+            ExamWorkStation form = new ExamWorkStation(topics,null,false);
             form.ShowDialog();
         }
 
