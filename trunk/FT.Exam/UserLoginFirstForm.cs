@@ -22,6 +22,9 @@ namespace FT.Exam
         private void UserLoginFirstForm_Load(object sender, EventArgs e)
         {
             this.Text =  Application.ProductName +"("+ Application.ProductVersion+")";
+            this.lbAllCount.Text = "题库共有"
+            +FT.DAL.Orm.SimpleOrmOperator.QueryCounts(typeof(ExamTopic), "").ToString()+"题";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
