@@ -56,6 +56,13 @@
       <DependentUpon>ExamOrTrainSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="ExamPlugin.cs" />
+    <Compile Include="ExamPolicy\ExamPolicy.cs" />
+    <Compile Include="ExamPolicy\ExamPolicySetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamPolicy\ExamPolicySetting.Designer.cs">
+      <DependentUpon>ExamPolicySetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExamUser\ExamUser.cs" />
     <Compile Include="ExamUser\ExamUserBrowser.cs">
       <SubType>Form</SubType>
@@ -152,6 +159,10 @@
     <EmbeddedResource Include="ExamOrTrainSelector.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ExamOrTrainSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamPolicy\ExamPolicySetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExamPolicySetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamUser\ExamUserBrowser.resx">
       <SubType>Designer</SubType>
