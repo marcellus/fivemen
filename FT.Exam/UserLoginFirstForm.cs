@@ -9,6 +9,7 @@ using FT.DAL.Orm;
 using FT.DAL;
 using System.Collections;
 using FT.Commons.Tools;
+using FT.Commons.Cache;
 
 namespace FT.Exam
 {
@@ -33,14 +34,21 @@ namespace FT.Exam
             if(list==null||list.Count==0)
             {
 
-                MessageBox.Show("对不起，不存在该学员，请咨询管理员！");
+                MessageBoxHelper.Show("对不起，不存在该学员，请咨询管理员！");
             }
             else
             {
+                ExamUser user=list[0] as ExamUser; 
+                ExamPolicy policy=StaticCacheManager.GetConfig<ExamPolicy>();
+                if (this.checkExam.Checked&&policy.IsLimit && user.PassCount >= policy.SuccessTimes)
+                {
+                    MessageBoxHelper.Show("对不起，您已经合格了"+user.PassCount.ToString()+"次，无法再次进行考试!");
+                    return;
+                }
                 // 判断是否考试合格次数超过了配置的考试合格次数限制
                 ArrayList topics= this.GetRandomTopic();
                 this.Hide();
-                ExamWorkStation form = new ExamWorkStation(topics,list[0] as ExamUser,this.checkTrain.Checked);
+                ExamWorkStation form = new ExamWorkStation(topics,user,this.checkTrain.Checked);
                 form.ShowDialog();
                 
             }
