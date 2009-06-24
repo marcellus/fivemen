@@ -279,6 +279,28 @@ namespace FT.Commons.Tools
                     return -1;
                 }
             }
+            if (field.FieldType == typeof(double))
+            {
+                try
+                {
+                    return Convert.ToDouble(data.ToString());
+                }
+                catch
+                {
+                    return 0.0D;
+                }
+            }
+            if (field.FieldType == typeof(decimal))
+            {
+                try
+                {
+                    return Convert.ToDecimal(data.ToString());
+                }
+                catch
+                {
+                    return 0.0M;
+                }
+            }
             if (field.FieldType == typeof(string))
             {
                 return data.ToString();

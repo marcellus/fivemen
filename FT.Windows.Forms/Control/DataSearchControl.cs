@@ -237,6 +237,7 @@ namespace FT.Windows.Forms
 
         protected virtual void Delete()
         {
+            this.BeforeDelete();
             int count = this.dataGridView1.SelectedRows.Count;
             if (count == 0)
             {
@@ -264,6 +265,7 @@ namespace FT.Windows.Forms
                         tmp = deletes[i];
                         if (FT.DAL.Orm.SimpleOrmOperator.Delete(pager.Lists[tmp]))
                         {
+                            this.AfterSuccessDelete(pager.Lists[tmp]);
                             pager.Lists.RemoveAt(tmp);
                         }
 
@@ -278,6 +280,15 @@ namespace FT.Windows.Forms
                 }
                 //this.ShowDetail(this.dataGridView1.SelectedRows[0].Index);
             }
+        }
+        protected virtual void AfterSuccessDelete(object entity)
+        {
+
+        }
+
+        protected virtual void BeforeDelete()
+        {
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -608,6 +619,7 @@ namespace FT.Windows.Forms
             }
             else if (e.KeyCode == Keys.Delete)
             {
+                
                 this.Delete();
             }
         }
