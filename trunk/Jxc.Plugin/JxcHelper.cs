@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Cache;
 using System.Collections;
+using FT.Windows.CommonsPlugin;
 
 namespace Jxc.Plugin
 {
@@ -29,6 +30,19 @@ namespace Jxc.Plugin
             BaseData result = list[0] as BaseData;
             
             return result;
+        }
+
+        public static ArrayList GetFromList()
+        {
+
+            string key = "dict_货品来源";
+            ArrayList list = StaticCacheManager.Get(key) as ArrayList;
+            if (list == null)
+            {
+                list = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<Dict>("where c_valid='有效' and  c_grouptype='货品来源'");
+                StaticCacheManager.Add(key, list);
+            }
+            return list;
         }
 
        

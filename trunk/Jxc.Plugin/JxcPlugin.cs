@@ -37,7 +37,7 @@ namespace Jxc.Plugin
 
             this.AddSeparatorToMenu(top);
 
-            tmp = this.BuildSubMenu("销售统计", typeof(SellCounter));
+            tmp = this.BuildSubMenu("入库出库统计", typeof(SellCounter));
             top.DropDownItems.Add(tmp);
 
             this.AddSeparatorToMenu(top);
