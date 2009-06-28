@@ -22,11 +22,18 @@ namespace DS.Plugins.Car
 
         public override void EmmitMenu()
         {
-            ToolStripMenuItem top = this.AddToMenu("车辆管理(&V)");
+            ToolStripMenuItem top = this.AddToMenu("教练车辆管理(&V)");
             ToolStripMenuItem tmp = this.BuildSubMenu("添加车主", typeof(CarOwnerBrowser));
             top.DropDownItems.Add(tmp);
             tmp = this.BuildSubMenu("车主管理", typeof(CarOwnerSearch));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+
+            tmp = this.BuildSubMenu("添加教练员", typeof(CoachBrowser));
+            top.DropDownItems.Add(tmp);
+            tmp = this.BuildSubMenu("教练员管理", typeof(CoachSearch));
+            top.DropDownItems.Add(tmp);
+
             this.AddSeparatorToMenu(top);
 
             //top.DropDownItems.Add(this.
@@ -53,6 +60,7 @@ namespace DS.Plugins.Car
         public override void EmmitToolBar()
         {
             this.AddTopTool(DS.Plugins.Car.Resource.Ower, "车主管理", typeof(CarOwnerSearch));
+            this.AddTopTool(DS.Plugins.Car.Resource.Coach, "教练管理", typeof(CoachSearch));
             this.AddTopTool(DS.Plugins.Car.Resource.Car, "车辆管理", typeof(CarSearch));
         }
     }

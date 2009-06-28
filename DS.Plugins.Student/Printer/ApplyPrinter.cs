@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using FT.Commons.Cache;
 using FT.Windows.Forms;
 using FT.Windows.Forms.Domain;
+using FT.Commons.Tools;
 
 namespace DS.Plugins.Student
 {
@@ -49,7 +50,13 @@ namespace DS.Plugins.Student
             if (Student.LearnType == "初学")
             {
                 if (config.Allow2Dimension)
-                    MyGraphics.DrawImage(this.GetQRImage(Student.Dimension), new Rectangle(new Point(516 + width, 720 + height), new Size(150, 150)));
+                {
+                    string path = Application.StartupPath + "/temp.jpg";
+                    //string path = Application.StartupPath + "/tempcode39.jpg";
+                    ImageHelper.SaveCoderPic(this.GetQRImage(Student.Dimension),path);
+                   // MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(516 + width, 720 + height), new Size(150, 150)));
+                    MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(480 + width, 740 + height), new Size(130, 130)));
+                }
             }
             DateTime regDate = System.DateTime.Now;
             if (config.PrintApplyDate)
@@ -75,7 +82,9 @@ namespace DS.Plugins.Student
                 SizeF titleSize = MyGraphics.MeasureString("1", code39.titleFont);
                 code39.Height = code39.topHeight + code39.LineHeight + (int)titleSize.Height;//定义图片高度          
                 Bitmap map = code39.CreateBarCode(Student.IdCard);
-                MyGraphics.DrawImage(map, new RectangleF(width - 40, height - 46, 240, 30));
+                string path = Application.StartupPath + "/tempcode39.jpg";
+                ImageHelper.SaveCoderPic(map, path);
+                MyGraphics.DrawImage(Image.FromFile(path), new RectangleF(width - 40, height - 46, 240, 30));
             }
             catch (Exception ex)
             {
@@ -96,7 +105,15 @@ namespace DS.Plugins.Student
 
 
             height += sep - 2;
-            this.Draw9String(Student.IdCardType, new Point(width, height + 5));
+            if (Student.IdCardType.Length < IdCardTypeMaxLen)
+            {
+                this.Draw15String(Student.IdCardType, new Point(width, height + 5));
+            }
+            else
+            {
+                this.Draw9String(Student.IdCardType, new Point(width, height + 5));
+            }
+            
             //画身份证号码
             StringFormat stringFormat = new StringFormat();
             stringFormat.LineAlignment = StringAlignment.Center;
@@ -120,7 +137,15 @@ namespace DS.Plugins.Student
 
             if (Student.TempId!=null&&Student.TempId != string.Empty)
             {
-                this.Draw9String("暂住证", new Point(width, height + 5));
+                if (Student.IdCardType.Length < IdCardTypeMaxLen)
+                {
+                    this.Draw15String("暂住证", new Point(width, height + 5));
+                }
+                else
+                {
+                    this.Draw9String("暂住证", new Point(width, height + 5));
+                }
+                
                 for (int i = 0; i < Student.TempId.Length; i++)
                 {
                     MyGraphics.DrawString(Student.TempId[i].ToString(), body15Font, blackBrush, new RectangleF(width + 165 + 21 * i + (i / 2) * 1, height - 5, 21, 35), stringFormat);
@@ -130,7 +155,14 @@ namespace DS.Plugins.Student
             this.Draw15String(Student.RegAddress, new Point(width, height));
 
             height += sep + 5;
-            this.Draw9String(this.GetConnAddress(), new Point(width, height));
+            string connadd = this.GetConnAddress();
+            if (connadd.Length >= ConnAddressMaxLen)
+            {
+                this.Draw9String(this.GetConnAddress(), new Point(width, height));
+            }
+            else{
+            this.Draw15String(this.GetConnAddress(), new Point(width, height));
+        }
             height += sep + 6;
             this.Draw15String(Student.Phone, new Point(width, height));
             this.Draw15String(Student.PostCode, new Point(410 + 100, height));
