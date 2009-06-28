@@ -287,7 +287,29 @@ namespace FT.Commons.Tools
          }  
          #endregion 
 
-        public static void SaveOneInchPic(Image image,Color transColor,float dpi, string path)
+         #region 保存条码的图片质量要好
+        public static void SaveCoderPic(Image image, string path)
+        {
+            try
+            {
+                ((Bitmap)image).SetResolution(350f, 350f);//设置图片打印的dpi
+                ImageCodecInfo myImageCodecInfo;
+                EncoderParameters myEncoderParameters;
+                myImageCodecInfo = ImageHelper.GetCodecInfo("image/jpeg");
+                myEncoderParameters = new EncoderParameters(2);
+                myEncoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, (long)100);
+                myEncoderParameters.Param[1] = new EncoderParameter(Encoder.ColorDepth, (long)ColorDepth.Depth32Bit);
+                image.Save(path, myImageCodecInfo, myEncoderParameters);
+                image.Dispose();
+            }
+            catch (System.Exception e)
+            {
+                log.Fatal(e);
+            }
+        }
+            #endregion
+
+         public static void SaveOneInchPic(Image image,Color transColor,float dpi, string path)
         {
             try
             {

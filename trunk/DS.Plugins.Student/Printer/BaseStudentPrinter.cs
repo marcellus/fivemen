@@ -18,13 +18,26 @@ namespace DS.Plugins.Student
         protected static  string[] allowCars=new string[]{"A1","A2","A3","B1","B2","C1","C2","C3","C4","D","E","F","M","N","P"};
         private StudentInfo student;
 
+        public const int ConnAddressMaxLen = 25;
+        public const int IdCardTypeMaxLen = 6;
+        //public const int TempIdTypeMaxLen = 5;
+
         public  const int PixelUnit=3;
 
         private const string Gou = "gou.jpg";
 
         public string GetConnAddress()
         {
-            return this.Student.ConnAddress + "-" + Student.BelongXiang + "-" + Student.BelongCun;
+            string result = this.Student.ConnAddress;
+            if(student.BelongXiang.Length>0)
+            {
+                result+= "-" + Student.BelongXiang + "-" + Student.BelongCun;
+            }
+             if(student.BelongCun.Length>0)
+            {
+                result+=  "-" + Student.BelongCun;
+            }
+            return result;
         }
 
         protected string GetNickName()
