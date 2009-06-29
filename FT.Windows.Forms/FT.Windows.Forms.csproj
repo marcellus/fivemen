@@ -105,6 +105,27 @@
     <Compile Include="EntityConfig\EntitySearch.Designer.cs">
       <DependentUpon>EntitySearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoUser\MockUser.cs" />
+    <Compile Include="NoUser\ModifyMockUserPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoUser\ModifyMockUserPwd.Designer.cs">
+      <DependentUpon>ModifyMockUserPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoUser\NoUserHelper.cs" />
+    <Compile Include="NoUser\UnlockSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoUser\UnlockSystem.Designer.cs">
+      <DependentUpon>UnlockSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleLog\CustomLog.cs" />
+    <Compile Include="SimpleLog\CustomLogSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SimpleLog\CustomLogSearch.Designer.cs">
+      <DependentUpon>CustomLogSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +334,18 @@
     <EmbeddedResource Include="EntityConfig\EntityConfigBrowser.resx">
       <SubType>Designer</SubType>
       <DependentUpon>EntityConfigBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoUser\ModifyMockUserPwd.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModifyMockUserPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoUser\UnlockSystem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UnlockSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleLog\CustomLogSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomLogSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\LockSystemForm.resx">
       <DependentUpon>LockSystemForm.cs</DependentUpon>
