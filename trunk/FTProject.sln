@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jxc", "Jxc\Jxc.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jxc.Plugin", "Jxc.Plugin\Jxc.Plugin.csproj", "{C28C262C-4D3A-42F0-B7C0-237A4B723537}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoMonitor", "PhotoMonitor\PhotoMonitor.csproj", "{BDFD098E-F081-4272-A08E-2ECEF74BB170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{C28C262C-4D3A-42F0-B7C0-237A4B723537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C28C262C-4D3A-42F0-B7C0-237A4B723537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C28C262C-4D3A-42F0-B7C0-237A4B723537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFD098E-F081-4272-A08E-2ECEF74BB170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFD098E-F081-4272-A08E-2ECEF74BB170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFD098E-F081-4272-A08E-2ECEF74BB170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFD098E-F081-4272-A08E-2ECEF74BB170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

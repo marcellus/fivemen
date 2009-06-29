@@ -20,6 +20,28 @@ namespace FT.Commons.Tools
     public class FileHelper : BaseHelper
     {
        
+        public static bool CheckDirExists(string path)
+        {
+            if(path!=null&&path.Length>0)
+            {
+                DirectoryInfo dir = new DirectoryInfo(path);
+                return dir.Exists;
+            }
+            return false;
+            
+        }
+
+        public static void CheckDirExistsAndCreate(string path)
+        {
+            if (path != null && path.Length > 0)
+            {
+                DirectoryInfo dir = new DirectoryInfo(path);
+                if (!dir.Exists)
+                {
+                    dir.Create();
+                }
+            }
+        }
 
         [DllImport("shfolder.dll", CharSet = CharSet.Auto)] 
         internal static extern int SHGetFolderPath(IntPtr hwndOwner, int nFolder, IntPtr hToken, int dwFlags, StringBuilder lpszPath);
