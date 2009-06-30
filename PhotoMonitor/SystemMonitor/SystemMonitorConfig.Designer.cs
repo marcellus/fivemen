@@ -90,6 +90,7 @@
             this.checkAutoStart.TabIndex = 3;
             this.checkAutoStart.Text = "自动启动";
             this.checkAutoStart.UseVisualStyleBackColor = true;
+            this.checkAutoStart.Visible = false;
             // 
             // label5
             // 

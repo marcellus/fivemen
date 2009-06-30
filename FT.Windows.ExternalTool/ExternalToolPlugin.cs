@@ -70,6 +70,9 @@ namespace FT.Windows.ExternalTool
 
             tmp = this.BuildSubMenu("图片和base64转换", typeof(Image2Base64Test));
             top.DropDownItems.Add(tmp);
+
+            //tmp = this.BuildSubMenu("调用java的webservice测试", typeof(InvokeJavaWebService));
+            //top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCP控制台", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }
