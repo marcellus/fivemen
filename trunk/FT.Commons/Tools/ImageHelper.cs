@@ -4,11 +4,38 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace FT.Commons.Tools
 {
     public class ImageHelper:BaseHelper
     {
+
+        public static Bitmap Base64StrToBmp(string ImgBase64Str)
+        {
+            byte[] ImgBuffer = Convert.FromBase64String(ImgBase64Str);
+            MemoryStream MStream = new MemoryStream(ImgBuffer);
+            Bitmap Bmp = new Bitmap(MStream);
+            return Bmp;
+        }
+
+        public static string ImageToBase64Str(string ImgName)
+        {
+            Image Img = Image.FromFile(ImgName);
+            System.IO.MemoryStream MStream = new System.IO.MemoryStream();
+            Img.Save(MStream, ImageFormat.Jpeg);
+            byte[] ImgBuffer = MStream.GetBuffer();
+            string ImgBase64Str = Convert.ToBase64String(ImgBuffer);
+            return ImgBase64Str;
+        }
+        public static string ImageToBase64Str(Image Img)
+        {
+            System.IO.MemoryStream MStream = new System.IO.MemoryStream();
+            Img.Save(MStream, ImageFormat.Jpeg);
+            byte[] ImgBuffer = MStream.GetBuffer();
+            string ImgBase64Str = Convert.ToBase64String(ImgBuffer);
+            return ImgBase64Str;
+        }
         /**/
         /// <summary>
         /// ±£¥ÊJPG ±”√

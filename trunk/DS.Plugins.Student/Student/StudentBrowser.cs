@@ -955,7 +955,7 @@ namespace DS.Plugins.Student
 
         private void btnPhoto_Click(object sender, EventArgs e)
         {
-            DriverPicCapture form = new DriverPicCapture(this.txtIdCard.Text);
+            DriverPicCapture form = new DriverPicCapture(this.cbIdCardType.SelectedValue.ToString(),this.txtIdCard.Text);
             form.ShowInTaskbar = false;
             form.ShowDialog();
         }

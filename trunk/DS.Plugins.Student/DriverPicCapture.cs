@@ -14,6 +14,7 @@ using System.Collections;
 using FT.Windows.Forms;
 using System.Drawing.Imaging;
 using FT.Windows.Forms.CommonForm;
+using FT.Windows.CommonsPlugin;
 
 namespace DS.Plugins.Student
 {
@@ -220,6 +221,10 @@ namespace DS.Plugins.Student
         private int picnumber = 0;
 
         #endregion
+        private void InitOnConstruct()
+        {
+            DictManager.BindIdCardType(this.cbIdCardType);
+        }
 
         private CapturePhotoSet set=null;
 
@@ -227,6 +232,7 @@ namespace DS.Plugins.Student
         public DriverPicCapture()
         {
             InitializeComponent();
+            this.InitOnConstruct();
             DriverPicCaptureConfig config = StaticCacheManager.GetConfig<DriverPicCaptureConfig>();
             set = StaticCacheManager.GetConfig<CapturePhotoSet>();
             if(set.BgRgbEnable)
@@ -251,9 +257,33 @@ namespace DS.Plugins.Student
             }
         }
 
+        public DriverPicCapture(string idcardType,string idcard):this()
+        {
+            this.cbIdCardType.SelectedValue = idcardType;
+            this.txtIdCard.Text = idcard;
+            string path = this.txtPicPath.Text + "/" + this.GetFileName();
+            
+            if (File.Exists(path))
+            {
+                this.picPic.Image = Image.FromFile(path);
+            }
+        }
+
+        private string GetFileName()
+        {
+            if(this.cbIdCardType.SelectedValue.ToString()!="A")
+            {
+                return this.cbIdCardType.SelectedValue.ToString() + this.txtIdCard.Text.Trim() + ".jpg";
+            }
+            else{
+                return this.txtIdCard.Text.Trim() + ".jpg";
+
+            }
+        }
+
         private string GetRealPath()
         {
-            return this.txtPicPath.Text + "/" + this.txtIdCard.Text.Trim() + ".jpg";
+            return this.txtPicPath.Text + "/" + this.GetFileName();
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -272,7 +302,7 @@ namespace DS.Plugins.Student
 
                     try
                     {
-                        File.Copy(realpath, this.txtExportPath.Text + "/" + this.txtIdCard.Text.Trim() + ".jpg", true);
+                        File.Copy(realpath, this.txtExportPath.Text + "/" + this.GetFileName(), true);
                         MessageBoxHelper.Show("成功导出图片！");
                     }
                     catch (System.Exception ex)

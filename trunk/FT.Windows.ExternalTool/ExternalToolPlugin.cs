@@ -67,6 +67,9 @@ namespace FT.Windows.ExternalTool
 
             tmp = this.BuildSubMenu("环境变量配置", typeof(FT.Commons.Win32.SetWindowEnv));
             top.DropDownItems.Add(tmp);
+
+            tmp = this.BuildSubMenu("图片和base64转换", typeof(Image2Base64Test));
+            top.DropDownItems.Add(tmp);
             //tmp = this.BuildSubMenu("TCP控制台", typeof(FT.Commons.TcpIp.TcpWatcherForm));
             //top.DropDownItems.Add(tmp);
         }
