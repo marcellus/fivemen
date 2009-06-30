@@ -31,6 +31,8 @@
             this.txtExportPath = new System.Windows.Forms.TextBox();
             this.btnExportPathSet = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbIdCardType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPic)).BeginInit();
@@ -58,6 +60,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbIdCardType);
             this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.btnBegin);
             this.groupBox1.Controls.Add(this.txtIdCard);
@@ -66,7 +70,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(620, 56);
+            this.groupBox1.Size = new System.Drawing.Size(620, 96);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入要采集人的身份证明号码";
@@ -108,7 +112,7 @@
             // 
             this.groupBox2.Controls.Add(this.txtPicPath);
             this.groupBox2.Controls.Add(this.btnPathSet);
-            this.groupBox2.Location = new System.Drawing.Point(17, 81);
+            this.groupBox2.Location = new System.Drawing.Point(17, 120);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -128,7 +132,7 @@
             // 
             // picPic
             // 
-            this.picPic.Location = new System.Drawing.Point(240, 241);
+            this.picPic.Location = new System.Drawing.Point(240, 280);
             this.picPic.Margin = new System.Windows.Forms.Padding(4);
             this.picPic.Name = "picPic";
             this.picPic.Size = new System.Drawing.Size(132, 172);
@@ -139,7 +143,7 @@
             // 
             this.groupBox3.Controls.Add(this.txtExportPath);
             this.groupBox3.Controls.Add(this.btnExportPathSet);
-            this.groupBox3.Location = new System.Drawing.Point(16, 160);
+            this.groupBox3.Location = new System.Drawing.Point(16, 199);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -170,7 +174,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 282);
+            this.button1.Location = new System.Drawing.Point(16, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -179,11 +183,28 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cbIdCardType
+            // 
+            this.cbIdCardType.FormattingEnabled = true;
+            this.cbIdCardType.Location = new System.Drawing.Point(112, 55);
+            this.cbIdCardType.Name = "cbIdCardType";
+            this.cbIdCardType.Size = new System.Drawing.Size(202, 23);
+            this.cbIdCardType.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "身份证明名称";
+            // 
             // DriverPicCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 442);
+            this.ClientSize = new System.Drawing.Size(653, 488);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picPic);
             this.Controls.Add(this.groupBox3);
@@ -224,5 +245,7 @@
         private System.Windows.Forms.TextBox txtExportPath;
         private System.Windows.Forms.Button btnExportPathSet;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbIdCardType;
     }
 }
