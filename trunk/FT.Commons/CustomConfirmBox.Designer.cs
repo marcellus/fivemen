@@ -49,7 +49,7 @@
             // btnSure
             // 
             this.btnSure.Location = new System.Drawing.Point(42, 116);
-            this.btnSure.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSure.Margin = new System.Windows.Forms.Padding(5);
             this.btnSure.Name = "btnSure";
             this.btnSure.Size = new System.Drawing.Size(133, 36);
             this.btnSure.TabIndex = 1;
@@ -81,11 +81,10 @@
             this.Controls.Add(this.btnSure);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomConfirmBox";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "提示窗口";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomConfirmBox_FormClosing);

@@ -42,9 +42,7 @@ namespace FT.Windows.Forms.NoUser
 
         public static void ShowLogs()
         {
-            if(Unlock())
-            {
-                Form form = new Form();
+             Form form = new Form();
                 form.Text = "系统全部日志";
                 form.WindowState = FormWindowState.Maximized;
                 CustomLogSearch ctr = new CustomLogSearch();
@@ -52,7 +50,7 @@ namespace FT.Windows.Forms.NoUser
                 ctr.Dock = DockStyle.Fill;
                 form.Controls.Add(ctr);
                 form.Show();
-            }
+           
         }
 
         public static void About()
@@ -62,12 +60,20 @@ namespace FT.Windows.Forms.NoUser
             form.ShowDialog();
         }
 
-        public static void Quit()
+        public static void CheckQuit()
         {
             if (Unlock())
             {
                 Application.ExitThread();
             }
+        }
+
+        public static void Quit()
+        {
+            //if (Unlock())
+            //{
+                Application.ExitThread();
+            //}
         }
     }
 }
