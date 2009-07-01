@@ -28,6 +28,7 @@ namespace FT.Windows.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityBrowser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnGenerateColumnDefine = new System.Windows.Forms.Button();
             this.txtClassCnName = new System.Windows.Forms.TextBox();
@@ -99,6 +100,7 @@ namespace FT.Windows.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(452, 223);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EntityBrowser";
             this.Text = "模板关联名称";
             this.Controls.SetChildIndex(this.groupBox1, 0);

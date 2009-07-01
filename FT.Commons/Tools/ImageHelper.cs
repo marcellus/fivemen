@@ -26,6 +26,8 @@ namespace FT.Commons.Tools
             Img.Save(MStream, ImageFormat.Jpeg);
             byte[] ImgBuffer = MStream.GetBuffer();
             string ImgBase64Str = Convert.ToBase64String(ImgBuffer);
+            //释放资源，让别的使用
+            Img.Dispose();
             return ImgBase64Str;
         }
         public static string ImageToBase64Str(Image Img)

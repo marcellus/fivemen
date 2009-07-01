@@ -39,7 +39,7 @@
             this.panelSource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSource.Controls.Add(this.panelSelect);
             this.panelSource.Location = new System.Drawing.Point(48, 15);
-            this.panelSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSource.Margin = new System.Windows.Forms.Padding(4);
             this.panelSource.Name = "panelSource";
             this.panelSource.Size = new System.Drawing.Size(256, 192);
             this.panelSource.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.Controls.Add(this.panelSource);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CaptureImage";

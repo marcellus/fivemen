@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Image2Base64Test));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPicPath = new System.Windows.Forms.TextBox();
             this.btnSelector = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtBase64 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtBase64 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,14 +76,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // txtBase64
-            // 
-            this.txtBase64.Location = new System.Drawing.Point(187, 81);
-            this.txtBase64.Multiline = true;
-            this.txtBase64.Name = "txtBase64";
-            this.txtBase64.Size = new System.Drawing.Size(367, 189);
-            this.txtBase64.TabIndex = 4;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(136, 50);
@@ -103,18 +96,27 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // txtBase64
+            // 
+            this.txtBase64.Location = new System.Drawing.Point(136, 81);
+            this.txtBase64.Name = "txtBase64";
+            this.txtBase64.Size = new System.Drawing.Size(434, 292);
+            this.txtBase64.TabIndex = 6;
+            this.txtBase64.Text = "";
+            // 
             // Image2Base64Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 385);
+            this.Controls.Add(this.txtBase64);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtBase64);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSelector);
             this.Controls.Add(this.txtPicPath);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Image2Base64Test";
             this.Text = "图片和base64转换";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -129,8 +131,8 @@
         private System.Windows.Forms.TextBox txtPicPath;
         private System.Windows.Forms.Button btnSelector;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtBase64;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox txtBase64;
     }
 }

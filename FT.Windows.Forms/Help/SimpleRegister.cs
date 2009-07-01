@@ -51,6 +51,7 @@ namespace FT.Windows.Forms
             
             loader.SaveConfig();
             MessageBoxHelper.Show("±£´æ³É¹¦£¡");
+            this.DialogResult = DialogResult.OK;
         }
 
         private void SimpleRegister_Load(object sender, EventArgs e)
