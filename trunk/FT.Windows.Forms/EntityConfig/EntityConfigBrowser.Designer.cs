@@ -28,6 +28,7 @@ namespace FT.Windows.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityConfigBrowser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbClassCnName = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -250,6 +251,7 @@ namespace FT.Windows.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(452, 234);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EntityConfigBrowser";
             this.Text = "ƒ£∞Â¡–≈‰÷√";
             this.Controls.SetChildIndex(this.groupBox1, 0);

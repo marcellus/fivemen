@@ -59,5 +59,19 @@ namespace PhotoMonitor.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Icon application_xp_terminal {
+            get {
+                object obj = ResourceManager.GetObject("application_xp_terminal", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

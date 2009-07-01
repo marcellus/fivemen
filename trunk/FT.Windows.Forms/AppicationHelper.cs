@@ -32,7 +32,7 @@ namespace FT.Windows.Forms
             {
                 GetProgramState();
                 string text = Application.ProductName + Application.ProductVersion;
-                if (needregister)
+                if (needregister && productState != ProgramState.Registed)
                 {
                     string lastfiledate = FileHelper.ReadLastLog(Application.ProductName);
                     //第一次使用,如果是重装系统后就移除注册信息和使用单位信息
@@ -202,7 +202,7 @@ namespace FT.Windows.Forms
             {
                 GetProgramState();
                 string text = Application.ProductName + Application.ProductVersion;
-                if (needregister)
+                if (needregister&&productState!=ProgramState.Registed)
                 {
                     string lastfiledate = FileHelper.ReadLastLog(Application.ProductName);
                     //第一次使用,如果是重装系统后就移除注册信息和使用单位信息

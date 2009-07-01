@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CapturePhotoSetting));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSeCha = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.checkBgRgbEnable = new System.Windows.Forms.CheckBox();
             this.lbBgRgbB = new System.Windows.Forms.Label();
             this.lbBgRgbG = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.lbBgColor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSeCha = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "配置信息";
+            // 
+            // txtSeCha
+            // 
+            this.txtSeCha.Location = new System.Drawing.Point(99, 61);
+            this.txtSeCha.Name = "txtSeCha";
+            this.txtSeCha.Size = new System.Drawing.Size(41, 24);
+            this.txtSeCha.TabIndex = 12;
+            this.txtSeCha.Text = "30";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "色差";
             // 
             // checkBgRgbEnable
             // 
@@ -280,23 +297,6 @@
             this.button1.Text = "保存";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "色差";
-            // 
-            // txtSeCha
-            // 
-            this.txtSeCha.Location = new System.Drawing.Point(99, 61);
-            this.txtSeCha.Name = "txtSeCha";
-            this.txtSeCha.Size = new System.Drawing.Size(41, 24);
-            this.txtSeCha.TabIndex = 12;
-            this.txtSeCha.Text = "30";
             // 
             // CapturePhotoSetting
             // 

@@ -11,11 +11,40 @@ using FT.Windows.Forms.SimpleLog;
 using FT.Commons.Tools;
 using System.IO;
 using System.Text.RegularExpressions;
+using log4net;
+using System.Xml;
+using FT.Windows.ExternalTool;
 
 namespace PhotoMonitor
 {
     public partial class Form1 : Form
     {
+
+        protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
+        //protected static ILog log = log4net.LogManager.GetLogger("tools");
+
+        /// <summary>
+        /// 调试日志
+        /// </summary>
+        /// <param name="obj"></param>
+        protected static void Debug(object obj)
+        {
+            if (log != null && log.IsDebugEnabled)
+            {
+                log.Debug(obj);
+            }
+        }
+        /// <summary>
+        /// 错误日志
+        /// </summary>
+        /// <param name="obj"></param>
+        protected static void Info(object obj)
+        {
+            if (log != null && log.IsInfoEnabled)
+            {
+                log.Info(obj);
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -114,6 +143,7 @@ namespace PhotoMonitor
            
             string idcardtype="A";
             string filename=string.Empty;
+            string idcard = string.Empty;
             string tmpimgdata = string.Empty;
            
             
@@ -130,8 +160,14 @@ namespace PhotoMonitor
                          if(! Regex.IsMatch(file.Name[0].ToString(),"[0-9]"))
                          {
                              idcardtype=file.Name[0].ToString();
+                             idcard = filename.Substring(0, filename.IndexOf("."));
                          }
-                         tmpimgdata=this.GetService(config).getDrvimage(idcardtype, filename, config.ServiceReadSn);
+                         else{
+                             idcard = filename.Substring(0, filename.IndexOf("."));
+                         }
+                         tmpimgdata = this.GetService(config).getDrvimage(idcardtype, idcard, config.ServiceReadSn);
+                         log.Debug("读取驾驶人" + idcardtype + "-" + idcard + "照片信息");
+                         log.Debug(tmpimgdata);
                          if(tmpimgdata!=null&&tmpimgdata.Length>0)
                          {
                              this.CreateLog("已存在照片" + file.Name);
@@ -142,8 +178,10 @@ namespace PhotoMonitor
                          }
                          else
                          {
-                             this.GetService(config).write_drvimage(idcardtype, filename,
+                             tmpimgdata=this.GetService(config).write_drvimage(idcardtype, idcard,
                                  ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
+                             log.Debug("写入驾驶人" + idcardtype + "-" + idcard + "照片信息");
+                             log.Debug(tmpimgdata);
 
                              File.Copy(file.FullName, bakdir +file.Name, true);
                              file.Delete();
@@ -182,6 +220,18 @@ namespace PhotoMonitor
 
             }
 
+        }
+
+        private String GetTextInXml(string xml, string xpath)
+        {
+            XmlDocument   doc=new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node=doc.SelectSingleNode(xpath);
+            if(node!=null)
+            {
+                return node.InnerText;
+            }
+            return string.Empty;
         }
 
         public void SetHintText(String str)
@@ -228,6 +278,35 @@ namespace PhotoMonitor
                 timer1.Start();
             }
             
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string str = "<?xml version=\"1.0\" encoding=\"GBK\" ?> "
++"<response><head><code>integer</code>"
++"<message>String</message>"
++"</head>"
++"<body>"
++"	    <rownum>int</rownum>"
++"	    <item>"
+ +"<hpzl>string</hpzl>"
+ +"<hphm>string</hphm>"
+ +"<zp>string</zp>"
++"</item>"
++ "</body>"
++"</response>";
+            Console.WriteLine(this.GetTextInXml(str, "//code"));
+            Console.WriteLine(this.GetTextInXml(str, "//message"));
+            Console.WriteLine(this.GetTextInXml(str, "//body"));
+            Console.WriteLine(this.GetTextInXml(str, "//rownum"));
+            Console.WriteLine(this.GetTextInXml(str, "//zp"));
+        }
+
+        private void 图片转换测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image2Base64Test form = new Image2Base64Test();
+            form.ShowInTaskbar = true;
+            form.ShowDialog();
         } 
     }
 }
