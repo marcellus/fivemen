@@ -32,6 +32,11 @@ namespace FT.Windows.Forms.SimpleLog
         {
             //base.ShowDetail(index);
         }
+
+        protected override void Delete()
+        {
+            //base.Delete();
+        }
         #endregion
     }
 }

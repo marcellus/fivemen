@@ -16,12 +16,14 @@ namespace FT.Windows.Forms.NoUser
         public static  bool Unlock()
         {
             Form form = new UnlockSystem();
+            form.ShowInTaskbar = true;
             return DialogResult.OK == form.ShowDialog();
         }
 
         public static void ChangePwd()
         {
             Form form = new ModifyMockUserPwd();
+            form.ShowInTaskbar = true;
             form.ShowDialog();
         }
 
@@ -44,7 +46,9 @@ namespace FT.Windows.Forms.NoUser
         {
              Form form = new Form();
                 form.Text = "系统全部日志";
-                form.WindowState = FormWindowState.Maximized;
+                //form.WindowState = FormWindowState.Maximized;
+                form.Size = new System.Drawing.Size(800, 500);
+                form.ShowInTaskbar = true;
                 CustomLogSearch ctr = new CustomLogSearch();
 
                 ctr.Dock = DockStyle.Fill;
@@ -56,7 +60,7 @@ namespace FT.Windows.Forms.NoUser
         public static void About()
         {
             SimpleAbout form = new SimpleAbout();
-            form.ShowInTaskbar = false;
+            form.ShowInTaskbar = true;
             form.ShowDialog();
         }
 

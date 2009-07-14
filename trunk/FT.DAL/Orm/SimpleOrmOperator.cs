@@ -82,6 +82,33 @@ namespace FT.DAL.Orm
         }
 
         #region 增删改
+
+        /// <summary>
+        /// 把实体对象的属性转换成要保存的字符串
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string TransObjectField(object value)
+        {
+            if(value==null)
+            {
+                return string.Empty;
+            }
+            if(value is DateTime)
+            {
+                return ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            /*if (value is Enum)
+            {
+                return ((Enum)value).ToString("yyyy-MM-dd HH:mm:ss");
+            }*/
+            else
+            {
+
+                return value.ToString();
+            }
+        }
+
         /// <summary>
         /// 更新一个实体对象
         /// </summary>
@@ -100,7 +127,7 @@ namespace FT.DAL.Orm
             {
                 field = enumerator.Key.ToString();
                 value = type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
-                sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(value.ToString()));
+                sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(TransObjectField(value)));
             }
             sql.Append(type.GetField(SimpleOrmCache.GetPK(type),BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj).ToString());
             return dataAccess.ExecuteSql(sql.ToString());
@@ -124,7 +151,7 @@ namespace FT.DAL.Orm
             {
                field=enumerator.Key.ToString();
                value=type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
-               sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(value.ToString()));
+               sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(TransObjectField(value)));
             }
             bool result= dataAccess.ExecuteSql(sql.ToString());
             if (result)//执行把主键赋给对象

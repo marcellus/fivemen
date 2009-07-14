@@ -77,6 +77,38 @@ namespace FT.Commons.Tools
 
         private static string ImageFilter = "Image Files(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|(*.BMP;*.bmp;*.JPG;*.jpg;*.GIF;*.gif)|All File(*.*)|*.*";
 
+
+        private static string HtmlFilter = "HTML files (*.html;*.htm)|*.html;*.htm";
+        /// <summary>
+        /// 打开Html对话框
+        /// </summary>
+        /// <returns></returns>
+        public static string OpenHtml()
+        {
+            return Open("Html选择", HtmlFilter);
+        }
+
+        /// <summary>
+        /// 保存Html对话框,并返回保存全路径
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveHtml()
+        {
+            return SaveHtml(string.Empty);
+        }
+
+        /// <summary>
+        /// 保存Html对话框,并返回保存全路径
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveHtml(string filename)
+        {
+            return Save("保存Excel", HtmlFilter, filename);
+        }
+
+        
+
+
         /// <summary>
         /// Opens the specified title.
         /// </summary>

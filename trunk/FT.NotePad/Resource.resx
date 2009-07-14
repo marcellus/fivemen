@@ -118,52 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Arrow_Down_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow-Down_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow_Left_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow-Left_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow_Right_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow-Right_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow_Up_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow-Up_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Clear_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Close_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cut_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cut_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Excel_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Excel_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Home_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Home_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pagesetting_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pagesetting_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Password_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Password_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Printer_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Printer_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png_0009" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\png-0009.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -182,8 +182,11 @@ namespace PhotoMonitor
                                  ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
                              log.Debug("–¥»Îº› ª»À" + idcardtype + "-" + idcard + "’’∆¨–≈œ¢");
                              log.Debug(tmpimgdata);
-
-                             File.Copy(file.FullName, bakdir +file.Name, true);
+                             if(config.SuccessBak)
+                             {
+                                 File.Copy(file.FullName, bakdir + file.Name, true);
+                             }
+                             
                              file.Delete();
                          }
                          success++;
@@ -300,6 +303,12 @@ namespace PhotoMonitor
             Console.WriteLine(this.GetTextInXml(str, "//body"));
             Console.WriteLine(this.GetTextInXml(str, "//rownum"));
             Console.WriteLine(this.GetTextInXml(str, "//zp"));
+
+            Form form = new Form();
+            Control editor = new FT.Windows.Controls.Editor();
+            editor.Dock = DockStyle.Fill;
+            form.Controls.Add(editor);
+            form.Show();
         }
 
         private void Õº∆¨◊™ªª≤‚ ‘ToolStripMenuItem_Click(object sender, EventArgs e)

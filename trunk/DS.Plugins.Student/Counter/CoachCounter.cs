@@ -132,7 +132,7 @@ namespace DS.Plugins.Student
         protected override string GetTitle()
         {
             return this.dateBetweenPanel1.BeginDate.ToShortDateString() + "至"
-                + this.dateBetweenPanel1.EndDate.ToShortDateString() + "车费统计";
+                + this.dateBetweenPanel1.EndDate.ToShortDateString() + "合格率统计";
         }
 
         private void btnDetail_Click(object sender, EventArgs e)

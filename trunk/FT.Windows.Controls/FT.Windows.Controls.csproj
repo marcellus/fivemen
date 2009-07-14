@@ -32,6 +32,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\commons-dlls\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -48,12 +49,24 @@
     <Compile Include="ComboBoxEx\SimpleComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Editor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor.designer.cs">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </Compile>
     <Compile Include="GridEx\SimpleGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ISkinControl.cs" />
     <Compile Include="LabelEx\SimpleLabel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LinkDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinkDialog.designer.cs">
+      <DependentUpon>LinkDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuEx\OutlookMenu.cs">
       <SubType>Component</SubType>
@@ -65,10 +78,22 @@
     <Compile Include="PanelEx\DataSearch.Designer.cs">
       <DependentUpon>DataSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resource.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchDialog.designer.cs">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SimpleLine.cs">
       <SubType>Component</SubType>
@@ -110,6 +135,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />
+    <None Include="app.config" />
+    <None Include="Resources\uol.bmp" />
+    <None Include="Resources\underscore.bmp" />
+    <None Include="Resources\rj.bmp" />
+    <None Include="Resources\outdent.bmp" />
+    <None Include="Resources\ol.bmp" />
+    <None Include="Resources\lj.bmp" />
+    <None Include="Resources\link.bmp" />
+    <None Include="Resources\italic.bmp" />
+    <None Include="Resources\indent.bmp" />
+    <None Include="Resources\fj.bmp" />
+    <None Include="Resources\color.bmp" />
+    <None Include="Resources\cj.bmp" />
+    <None Include="Resources\bold.bmp" />
+    <None Include="Resources\backcolor.bmp" />
     <None Include="Resources\Search_16_16.png" />
     <None Include="Resources\Save_16_16.png" />
     <None Include="Resources\Printer_16_16.png" />
@@ -126,19 +166,39 @@
     <None Include="Resources\Arrow-Right_16_16.png" />
     <None Include="Resources\Arrow-Left_16_16.png" />
     <None Include="Resources\Arrow-Down_16_16.png" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editor.resx">
+      <DependentUpon>Editor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkDialog.resx">
+      <DependentUpon>LinkDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PanelEx\DataSearch.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resource.resx">
+    <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchDialog.resx">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>

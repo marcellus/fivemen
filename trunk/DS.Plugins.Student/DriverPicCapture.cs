@@ -103,9 +103,19 @@ namespace DS.Plugins.Student
 
                             // map.Save("c:\\tempgetimageformdevice.bmp");
                             // this.pictureBox1.Image = map;
+                            if (set.CapWidth== set.DevWidth &&set.CapHeight ==  set.DevHeight)
+                            {
+                                this.picPic.Image = map;
+                                this.SavePic();
+                            }
+                            else
+                            {
                             CaptureImage form = new CaptureImage(map, this.picPic,set);
                             form.ShowDialog();
                             this.SavePic();
+                            
+                        }
+                        
                             
 
                             /*
@@ -361,7 +371,7 @@ namespace DS.Plugins.Student
             string idcard = this.txtIdCard.Text.Trim();
             if(idcard.Length==0)
             {
-
+                
                 MessageBoxHelper.Show("请先输入要采集人的身份证明号码！");
                 this.txtIdCard.Focus();
                 return;
@@ -371,8 +381,20 @@ namespace DS.Plugins.Student
                 idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
                 this.txtIdCard.Text = idcard;
             }
+            if (this.cbIdCardType.SelectedIndex == 0)
+            {
+                string error = IDCardHelper.Validate(idcard);
+                if (error.Length > 0)
+                {
+                    MessageBoxHelper.Show(error);
+                    this.txtIdCard.Focus();
+                    return;
+                }
+            }
             try
             {
+                
+
                 if (!msgfilter)
                 {
                     this.Enabled = false;
