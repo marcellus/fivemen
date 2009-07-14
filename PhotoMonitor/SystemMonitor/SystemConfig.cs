@@ -7,6 +7,8 @@ namespace PhotoMonitor
     [Serializable]
     public class SystemConfig
     {
+        public bool SuccessBak=true;
+
         public string MonitorPath;
 
         public int MonitorTimes=500;

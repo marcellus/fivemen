@@ -48,6 +48,7 @@
             this.txtServiceIp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.checkSuccessBak = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -139,13 +140,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkSuccessBak);
             this.groupBox1.Controls.Add(this.txtBakPath);
             this.groupBox1.Controls.Add(this.btnBakPath);
             this.groupBox1.Location = new System.Drawing.Point(13, 119);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(620, 71);
+            this.groupBox1.Size = new System.Drawing.Size(620, 81);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "图片备份路径配置";
@@ -243,6 +245,18 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // checkSuccessBak
+            // 
+            this.checkSuccessBak.AutoSize = true;
+            this.checkSuccessBak.Checked = true;
+            this.checkSuccessBak.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkSuccessBak.Location = new System.Drawing.Point(14, 56);
+            this.checkSuccessBak.Name = "checkSuccessBak";
+            this.checkSuccessBak.Size = new System.Drawing.Size(101, 19);
+            this.checkSuccessBak.TabIndex = 9;
+            this.checkSuccessBak.Text = "成功的备份";
+            this.checkSuccessBak.UseVisualStyleBackColor = true;
+            // 
             // SystemMonitorConfig
             // 
             this.AcceptButton = this.btnSave;
@@ -292,5 +306,6 @@
         private System.Windows.Forms.CheckBox checkAutoStart;
         private System.Windows.Forms.CheckBox checkHintImport;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.CheckBox checkSuccessBak;
     }
 }

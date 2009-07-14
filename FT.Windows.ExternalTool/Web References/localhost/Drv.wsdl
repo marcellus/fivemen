@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:intf="http://wsdl.Drv" xmlns:impl="http://wsdl.Drv" targetNamespace="http://wsdl.Drv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://wsdl.Drv">
+      <xsd:element name="getDrvimage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sfzmmc" type="xsd:string" />
+            <xsd:element name="sfzmhm" type="xsd:string" />
+            <xsd:element name="sn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDrvimageResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getDrvimageReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="write_drvimage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sfzmmc" type="xsd:string" />
+            <xsd:element name="sfzmhm" type="xsd:string" />
+            <xsd:element name="zp" type="xsd:string" />
+            <xsd:element name="sn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="write_drvimageResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="write_drvimageReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="write_drvimageResponse">
+    <wsdl:part name="parameters" element="impl:write_drvimageResponse" />
+  </wsdl:message>
+  <wsdl:message name="write_drvimageRequest">
+    <wsdl:part name="parameters" element="impl:write_drvimage" />
+  </wsdl:message>
+  <wsdl:message name="getDrvimageResponse">
+    <wsdl:part name="parameters" element="impl:getDrvimageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDrvimageRequest">
+    <wsdl:part name="parameters" element="impl:getDrvimage" />
+  </wsdl:message>
+  <wsdl:portType name="Drv">
+    <wsdl:operation name="getDrvimage">
+      <wsdl:input name="getDrvimageRequest" message="impl:getDrvimageRequest" />
+      <wsdl:output name="getDrvimageResponse" message="impl:getDrvimageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="write_drvimage">
+      <wsdl:input name="write_drvimageRequest" message="impl:write_drvimageRequest" />
+      <wsdl:output name="write_drvimageResponse" message="impl:write_drvimageResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DrvSoapBinding" type="impl:Drv">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDrvimage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDrvimageRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDrvimageResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="write_drvimage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="write_drvimageRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="write_drvimageResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DrvService">
+    <wsdl:port name="Drv" binding="impl:DrvSoapBinding">
+      <wsdlsoap:address location="http://localhost:8080/servweb/services/Drv" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

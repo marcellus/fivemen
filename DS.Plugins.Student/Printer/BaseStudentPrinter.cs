@@ -197,7 +197,16 @@ namespace DS.Plugins.Student
             height += sep;
             this.Draw15String(Student.IdCard, new Point(width, height));
             height += sep;
-            this.Draw11String(Student.RegAddress, new Point(width, height));
+
+            if (Student.RegAddress.Length >= ConnAddressMaxLen)
+            {
+                this.Draw9String(Student.RegAddress, new Point(width, height));
+            }
+            else
+            {
+                this.Draw15String(Student.RegAddress, new Point(width, height));
+            }
+            
 
             height += sep;
             this.Draw15String(Student.Mobile, new Point(width, height));

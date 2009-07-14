@@ -50,7 +50,7 @@ namespace FT.Windows.Controls.TabControlEx
             Size tmp = System.Windows.Forms.TextRenderer.MeasureText(title, f);
            // r.Size = new Size(r.Width + 10, r.Height);
             e.Graphics.DrawString(title, f, b, new PointF(r.X + 2, r.Y + (r.Height - tmp.Height) / 2));
-            e.Graphics.DrawImageUnscaled(FT.Windows.Controls.Properties.Resource.close, new Point(r.X + r.Width - PicWidth - SpaceWidth, r.Y + r.Height/2-7));
+            e.Graphics.DrawImageUnscaled(FT.Windows.Controls.Properties.Resources.close, new Point(r.X + r.Width - PicWidth - SpaceWidth, r.Y + r.Height/2-7));
         }
         /// <summary>
         /// 单击关闭按钮关闭标签页

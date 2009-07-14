@@ -38,9 +38,9 @@
             this.更改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图片转换测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.图片转换测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,13 @@
             this.系统设置ToolStripMenuItem.Text = "系统设置...";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
+            // 图片转换测试ToolStripMenuItem
+            // 
+            this.图片转换测试ToolStripMenuItem.Name = "图片转换测试ToolStripMenuItem";
+            this.图片转换测试ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.图片转换测试ToolStripMenuItem.Text = "图片转换测试";
+            this.图片转换测试ToolStripMenuItem.Click += new System.EventHandler(this.图片转换测试ToolStripMenuItem_Click);
+            // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
@@ -118,13 +125,6 @@
             this.testToolStripMenuItem.Text = "test";
             this.testToolStripMenuItem.Visible = false;
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
-            // 
-            // 图片转换测试ToolStripMenuItem
-            // 
-            this.图片转换测试ToolStripMenuItem.Name = "图片转换测试ToolStripMenuItem";
-            this.图片转换测试ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.图片转换测试ToolStripMenuItem.Text = "图片转换测试";
-            this.图片转换测试ToolStripMenuItem.Click += new System.EventHandler(this.图片转换测试ToolStripMenuItem_Click);
             // 
             // Form1
             // 

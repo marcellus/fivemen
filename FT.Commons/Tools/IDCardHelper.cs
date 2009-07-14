@@ -84,14 +84,11 @@ namespace FT.Commons.Tools
         /// <returns>正确的时候返回string.Empty</returns>
         public static string Validate(string idcard)
         {
-            if (idcard.Length > 18)
+            if (idcard.Length != 18&&idcard.Length != 15)
             {
-                return "身份证明号码不得超过18位！";
+                return "身份证明号码必须是15或者18位！";
             }
-            if (idcard.Length < 15)
-            {
-                return "身份证明号码不得少于15位！";
-            }
+          
             Regex rg = new Regex(@"^\d{17}(\d|X)$");
             if (!rg.Match(idcard).Success)
             {
