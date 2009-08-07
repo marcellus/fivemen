@@ -33,6 +33,11 @@ namespace FT.Windows.Forms
                 }
                 this.cbName.SelectedIndex = 0;
                 this.Text = Application.ProductName + Application.ProductVersion + "-µÇÂ¼";
+                object obj=System.Configuration.ConfigurationManager.AppSettings["ApplySkin"];
+                if(obj!=null&&obj.ToString().ToLower()=="true")
+                {
+                    FT.Commons.SkinProcessor.IrisSkin2Proccssor.InitSkinEngine();
+                }
             }
             
         }

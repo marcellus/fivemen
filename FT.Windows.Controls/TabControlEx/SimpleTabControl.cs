@@ -13,11 +13,13 @@ namespace FT.Windows.Controls.TabControlEx
             : base()
         {
             PreRemoveTabPage = null;
+            //this.ItemSize =new Size(this.ItemSize.Width, TabHeight);
             this.DrawMode = TabDrawMode.OwnerDrawFixed;
         }
 
         public PreRemoveTab PreRemoveTabPage;
 
+        private const int TabHeight = 100;
         private const int PicWidth = 14;
         private const int SpaceWidth = 10;
 
@@ -46,6 +48,7 @@ namespace FT.Windows.Controls.TabControlEx
             string title = this.TabPages[e.Index].Text;
 
             this.TabPages[e.Index].Width += 10;
+            this.TabPages[e.Index].Height += 10;
             Font f = this.Font;
             Size tmp = System.Windows.Forms.TextRenderer.MeasureText(title, f);
            // r.Size = new Size(r.Width + 10, r.Height);

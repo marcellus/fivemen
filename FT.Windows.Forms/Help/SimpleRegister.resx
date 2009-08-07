@@ -135,7 +135,7 @@
     <value>txtRightCode</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -156,7 +156,7 @@
     <value>txtCompany</value>
   </data>
   <data name="&gt;&gt;txtCompany.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtCompany.Parent" xml:space="preserve">
     <value>$this</value>
@@ -177,7 +177,7 @@
     <value>txtKeyCode</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -198,7 +198,7 @@
     <value>txtMachineCode</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -229,7 +229,7 @@
     <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -259,7 +259,7 @@
     <value>simpleLabel4</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -289,7 +289,7 @@
     <value>simpleLabel3</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -319,7 +319,7 @@
     <value>simpleLabel2</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -349,7 +349,7 @@
     <value>simpleLabel1</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3469.23514, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Parent" xml:space="preserve">
     <value>$this</value>
