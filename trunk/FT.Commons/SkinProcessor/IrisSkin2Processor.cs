@@ -26,6 +26,8 @@ namespace FT.Commons.SkinProcessor
                  se = new Sunisoft.IrisSkin.SkinEngine(Application.OpenForms[0], thisDll.GetManifestResourceStream(defaultSkin));
                  se.SkinAllForm = true;
                  se.SkinDialogs = true;
+                 //se.SkinScrollBar = true;
+                 
                  se.Active = true;
              }
              else
@@ -33,6 +35,7 @@ namespace FT.Commons.SkinProcessor
                  se.SkinStream = thisDll.GetManifestResourceStream(defaultSkin);
                  se.SkinAllForm = true;
                  se.SkinDialogs = true;
+                 //se.SkinScrollBar = true;
                  se.Active = true;
              }
         }

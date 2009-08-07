@@ -65,6 +65,18 @@
       <DependentUpon>CombineWord.cs</DependentUpon>
     </Compile>
     <Compile Include="ExternalToolPlugin.cs" />
+    <Compile Include="SmallTools\PostCodeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmallTools\PostCodeSearchForm.Designer.cs">
+      <DependentUpon>PostCodeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallTools\IdCardSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmallTools\IdCardSearchForm.Designer.cs">
+      <DependentUpon>IdCardSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdCardTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +88,18 @@
     </Compile>
     <Compile Include="Image2Base64Test.Designer.cs">
       <DependentUpon>Image2Base64Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallTools\IpSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmallTools\IpSearchForm.Designer.cs">
+      <DependentUpon>IpSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallTools\MobileSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmallTools\MobileSearchForm.Designer.cs">
+      <DependentUpon>MobileSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProgramRegConfigForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +135,21 @@
     </Compile>
     <Compile Include="SecurityForm.Designer.cs">
       <DependentUpon>SecurityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallTools\SmallToolsPlugin.cs" />
+    <Compile Include="SmallTools\Train\Train.cs" />
+    <Compile Include="SmallTools\Train\TrainSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SmallTools\Train\TrainSearchControl.Designer.cs">
+      <DependentUpon>TrainSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallTools\Train\TrainStopTime.cs" />
+    <Compile Include="SmallTools\Train\TrainStopTimeSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SmallTools\Train\TrainStopTimeSearchControl.Designer.cs">
+      <DependentUpon>TrainStopTimeSearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Web References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -159,6 +198,10 @@
       <DependentUpon>CombineWord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SmallTools\IdCardSearchForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IdCardSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdCardTest.resx">
       <DependentUpon>IdCardTest.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -166,6 +209,14 @@
     <EmbeddedResource Include="Image2Base64Test.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Image2Base64Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallTools\IpSearchForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IpSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallTools\MobileSearchForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MobileSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgramRegConfigForm.resx">
       <SubType>Designer</SubType>
@@ -187,6 +238,10 @@
     <EmbeddedResource Include="SecurityForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SecurityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallTools\PostCodeSearchForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PostCodeSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZipTestForm.resx">
       <SubType>Designer</SubType>

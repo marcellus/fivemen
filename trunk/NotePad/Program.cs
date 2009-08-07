@@ -17,7 +17,10 @@ namespace NotePad
             //Application.Run(new Form1());
             FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords"
                 , NotePad.Properties.Resources.bg
-           , 8, "15814584509", false,typeof(FT.NotePad.ThingEditor),"我的记事本");
+            , 8, "15814584509", false,typeof(FT.NotePad.ThingEditor),"我的记事本");
+            //FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords"
+            //   , NotePad.Properties.Resources.bg
+          //, 8, "15814584509", false);
         }
     }
 }

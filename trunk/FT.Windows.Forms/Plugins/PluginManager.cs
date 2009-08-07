@@ -123,6 +123,7 @@ namespace FT.Windows.Forms.Plugins
         /// <param name="info"></param>
         private static void AddAllCache(FileInfo file)
         {
+            
             if (!(file.FullName.EndsWith(".dll") || file.FullName.EndsWith(".exe")))
             {
                 return;
@@ -170,6 +171,7 @@ namespace FT.Windows.Forms.Plugins
         {
             if (!HavedInitPluginInfo)
             {
+                //System.Threading.Thread.Sleep(1000);
                 DirectoryInfo dir = new DirectoryInfo(Application.StartupPath + "/plugins");
                 FileInfo[] files = null;
                 if (dir.Exists)
