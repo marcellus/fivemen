@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtRightCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="txtRightCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>68, 106</value>
   </data>
@@ -135,7 +138,7 @@
     <value>txtRightCode</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtRightCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -143,11 +146,14 @@
   <data name="&gt;&gt;txtRightCode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="txtCompany.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="txtCompany.Location" type="System.Drawing.Point, System.Drawing">
     <value>68, 69</value>
   </data>
   <data name="txtCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 21</value>
+    <value>202, 24</value>
   </data>
   <data name="txtCompany.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -156,7 +162,7 @@
     <value>txtCompany</value>
   </data>
   <data name="&gt;&gt;txtCompany.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtCompany.Parent" xml:space="preserve">
     <value>$this</value>
@@ -164,11 +170,14 @@
   <data name="&gt;&gt;txtCompany.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="txtKeyCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="txtKeyCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>68, 34</value>
   </data>
   <data name="txtKeyCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 21</value>
+    <value>202, 24</value>
   </data>
   <data name="txtKeyCode.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -177,7 +186,7 @@
     <value>txtKeyCode</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtKeyCode.Parent" xml:space="preserve">
     <value>$this</value>
@@ -185,11 +194,14 @@
   <data name="&gt;&gt;txtKeyCode.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="txtMachineCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="txtMachineCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>68, 5</value>
   </data>
   <data name="txtMachineCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 21</value>
+    <value>202, 24</value>
   </data>
   <data name="txtMachineCode.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -198,13 +210,16 @@
     <value>txtMachineCode</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.TextBoxEx.SimpleTextBox, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMachineCode.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="simpleButton1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
   </data>
   <data name="simpleButton1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -229,7 +244,7 @@
     <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.ButtonEx.SimpleButton, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -240,14 +255,17 @@
   <data name="simpleLabel4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="simpleLabel4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="simpleLabel4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="simpleLabel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 116</value>
+    <value>14, 111</value>
   </data>
   <data name="simpleLabel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+    <value>52, 15</value>
   </data>
   <data name="simpleLabel4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -259,7 +277,7 @@
     <value>simpleLabel4</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -270,14 +288,17 @@
   <data name="simpleLabel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="simpleLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="simpleLabel3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="simpleLabel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 79</value>
+    <value>-1, 74</value>
   </data>
   <data name="simpleLabel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>67, 15</value>
   </data>
   <data name="simpleLabel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -289,7 +310,7 @@
     <value>simpleLabel3</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -300,14 +321,17 @@
   <data name="simpleLabel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="simpleLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="simpleLabel2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="simpleLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 44</value>
+    <value>14, 39</value>
   </data>
   <data name="simpleLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+    <value>52, 15</value>
   </data>
   <data name="simpleLabel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -319,7 +343,7 @@
     <value>simpleLabel2</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -330,14 +354,17 @@
   <data name="simpleLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="simpleLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11pt</value>
+  </data>
   <data name="simpleLabel1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="simpleLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 15</value>
+    <value>14, 10</value>
   </data>
   <data name="simpleLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+    <value>52, 15</value>
   </data>
   <data name="simpleLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -349,7 +376,7 @@
     <value>simpleLabel1</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Type" xml:space="preserve">
-    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3506.24190, Culture=neutral, PublicKeyToken=null</value>
+    <value>FT.Windows.Controls.LabelEx.SimpleLabel, FT.Windows.Controls, Version=1.0.3508.460, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;simpleLabel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -879,6 +906,6 @@
     <value>SimpleRegister</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc</value>
   </data>
 </root>

@@ -12,9 +12,8 @@ namespace NotePad
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            FT.Windows.Forms.AppicationHelper.BeforeStart();
+              
             FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords"
                 , NotePad.Properties.Resources.bg
             , 8, "15814584509", false,typeof(FT.NotePad.ThingEditor),"我的记事本");

@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace DS.Plugins.Student
 {
-    public partial class PrintSettingForm : Form
+    public partial class PrintSettingForm : BaseSkinForm
     {
         public PrintSettingForm()
         {

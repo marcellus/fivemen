@@ -40,8 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(232, 15);
             this.label1.TabIndex = 0;
@@ -49,18 +48,16 @@
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(23, 52);
-            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdCard.Location = new System.Drawing.Point(17, 42);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(267, 24);
+            this.txtIdCard.Size = new System.Drawing.Size(201, 24);
             this.txtIdCard.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 102);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(17, 82);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "直接打印";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,10 +65,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(163, 102);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(122, 82);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 29);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "套打";
             this.button2.UseVisualStyleBackColor = true;
@@ -83,23 +79,21 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtIdCard);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(21, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(352, 184);
+            this.groupBox1.Size = new System.Drawing.Size(264, 147);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
             // ApplyPrinterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 249);
+            this.ClientSize = new System.Drawing.Size(292, 199);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("宋体", 11F);
+            this.Font = new System.Drawing.Font("宋体", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ApplyPrinterForm";

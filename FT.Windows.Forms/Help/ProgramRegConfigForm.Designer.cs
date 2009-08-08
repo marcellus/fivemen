@@ -59,18 +59,20 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbRegDate);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(1, -6);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 202);
+            this.groupBox1.Size = new System.Drawing.Size(323, 197);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // lbCompany
             // 
             this.lbCompany.AutoSize = true;
-            this.lbCompany.Location = new System.Drawing.Point(100, 168);
+            this.lbCompany.Location = new System.Drawing.Point(120, 168);
             this.lbCompany.Name = "lbCompany";
-            this.lbCompany.Size = new System.Drawing.Size(47, 12);
+            this.lbCompany.Size = new System.Drawing.Size(63, 15);
             this.lbCompany.TabIndex = 11;
             this.lbCompany.Text = "label12";
             // 
@@ -79,97 +81,97 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(29, 166);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.Size = new System.Drawing.Size(82, 15);
             this.label11.TabIndex = 10;
             this.label11.Text = "授权公司名";
             // 
             // lbRightCode
             // 
             this.lbRightCode.AutoSize = true;
-            this.lbRightCode.Location = new System.Drawing.Point(100, 136);
+            this.lbRightCode.Location = new System.Drawing.Point(120, 136);
             this.lbRightCode.Name = "lbRightCode";
-            this.lbRightCode.Size = new System.Drawing.Size(47, 12);
+            this.lbRightCode.Size = new System.Drawing.Size(63, 15);
             this.lbRightCode.TabIndex = 9;
             this.lbRightCode.Text = "label10";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(53, 137);
+            this.label9.Location = new System.Drawing.Point(59, 137);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 12);
+            this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 8;
             this.label9.Text = "授权码";
             // 
             // lbKeyCode
             // 
             this.lbKeyCode.AutoSize = true;
-            this.lbKeyCode.Location = new System.Drawing.Point(100, 107);
+            this.lbKeyCode.Location = new System.Drawing.Point(120, 107);
             this.lbKeyCode.Name = "lbKeyCode";
-            this.lbKeyCode.Size = new System.Drawing.Size(41, 12);
+            this.lbKeyCode.Size = new System.Drawing.Size(55, 15);
             this.lbKeyCode.TabIndex = 7;
             this.lbKeyCode.Text = "label8";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 108);
+            this.label7.Location = new System.Drawing.Point(59, 108);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.Size = new System.Drawing.Size(52, 15);
             this.label7.TabIndex = 6;
             this.label7.Text = "注册码";
             // 
             // lbUseCount
             // 
             this.lbUseCount.AutoSize = true;
-            this.lbUseCount.Location = new System.Drawing.Point(100, 78);
+            this.lbUseCount.Location = new System.Drawing.Point(120, 78);
             this.lbUseCount.Name = "lbUseCount";
-            this.lbUseCount.Size = new System.Drawing.Size(41, 12);
+            this.lbUseCount.Size = new System.Drawing.Size(55, 15);
             this.lbUseCount.TabIndex = 5;
             this.lbUseCount.Text = "label6";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 79);
+            this.label5.Location = new System.Drawing.Point(44, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "使用次数";
             // 
             // lbLastDate
             // 
             this.lbLastDate.AutoSize = true;
-            this.lbLastDate.Location = new System.Drawing.Point(100, 51);
+            this.lbLastDate.Location = new System.Drawing.Point(120, 51);
             this.lbLastDate.Name = "lbLastDate";
-            this.lbLastDate.Size = new System.Drawing.Size(41, 12);
+            this.lbLastDate.Size = new System.Drawing.Size(55, 15);
             this.lbLastDate.TabIndex = 3;
             this.lbLastDate.Text = "label4";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 50);
+            this.label3.Location = new System.Drawing.Point(14, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.Size = new System.Drawing.Size(97, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "最后使用时间";
             // 
             // lbRegDate
             // 
             this.lbRegDate.AutoSize = true;
-            this.lbRegDate.Location = new System.Drawing.Point(100, 21);
+            this.lbRegDate.Location = new System.Drawing.Point(120, 21);
             this.lbRegDate.Name = "lbRegDate";
-            this.lbRegDate.Size = new System.Drawing.Size(41, 12);
+            this.lbRegDate.Size = new System.Drawing.Size(55, 15);
             this.lbRegDate.TabIndex = 1;
             this.lbRegDate.Text = "label2";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 21);
+            this.label1.Location = new System.Drawing.Point(44, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "注册时间";
             // 
@@ -177,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 197);
+            this.ClientSize = new System.Drawing.Size(323, 197);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

@@ -12,6 +12,7 @@ using System.IO;
 using System.Data;
 using FT.DAL.Orm;
 using FT.Commons.Cache;
+using DevExpress.Skins;
 
 namespace FT.Windows.CommonsPlugin
 {
@@ -42,6 +43,20 @@ namespace FT.Windows.CommonsPlugin
             tmp.Click+=new EventHandler(dbrestore_Click);
             top.DropDownItems.Add(tmp);
             this.AddSeparatorToMenu(top);
+            object obj = System.Configuration.ConfigurationManager.AppSettings["ApplySkin"];
+            if (obj != null && obj.ToString().ToLower() == "true")
+            {
+                tmp = this.BuildTopMenu("Æ¤·ô");
+                ToolStripMenuItem tmp1 = null;
+                foreach (SkinContainer cnt in SkinManager.Default.Skins)
+                {
+                    tmp1 = this.BuildTopMenu(cnt.SkinName.ToString());
+                    tmp1.Click += new EventHandler(tmp1_Click);
+                    tmp.DropDownItems.Add(tmp1);
+                }
+                top.DropDownItems.Add(tmp);
+
+            }
             tmp = this.BuildTopMenu("°ïÖúÎÄµµ");
             tmp.Click += new EventHandler(help_Click);
             top.DropDownItems.Add(tmp);
@@ -50,6 +65,22 @@ namespace FT.Windows.CommonsPlugin
             tmp = this.BuildSubMenu("¹ØÓÚ...", typeof(FT.Windows.Forms.SimpleAbout));
             top.DropDownItems.Add(tmp);
             this.IsEmmitSeparator = true;
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
+        void tmp1_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem skin = sender as ToolStripMenuItem;
+            string text = skin.Text;
+            if(text.Length>0)
+            {
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = text;
+                SystemAllConfig config = new SystemAllConfig();
+                config.SkinName = text;
+                StaticCacheManager.SaveConfig<SystemAllConfig>(config);
+
+            }
+            
             //throw new Exception("The method or operation is not implemented.");
         }
 

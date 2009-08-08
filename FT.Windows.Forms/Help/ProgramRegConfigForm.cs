@@ -12,7 +12,7 @@ using FT.Commons.Cache;
 
 namespace FT.Windows.Forms
 {
-    public partial class ProgramRegConfigForm : Form
+    public partial class ProgramRegConfigForm : DevExpress.XtraEditors.XtraForm
     {
         public ProgramRegConfigForm()
         {

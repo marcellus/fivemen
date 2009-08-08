@@ -63,6 +63,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbPageName);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(4, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(276, 141);
@@ -77,9 +78,9 @@
             "直接打",
             "打印预览",
             "选择打印机"});
-            this.cbPrintModel.Location = new System.Drawing.Point(71, 105);
+            this.cbPrintModel.Location = new System.Drawing.Point(73, 105);
             this.cbPrintModel.Name = "cbPrintModel";
-            this.cbPrintModel.Size = new System.Drawing.Size(178, 20);
+            this.cbPrintModel.Size = new System.Drawing.Size(178, 23);
             this.cbPrintModel.TabIndex = 6;
             // 
             // label6
@@ -87,42 +88,42 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 114);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 7;
             this.label6.Text = "打印方式";
             // 
             // txtRight
             // 
-            this.txtRight.Location = new System.Drawing.Point(188, 78);
+            this.txtRight.Location = new System.Drawing.Point(191, 78);
             this.txtRight.Name = "txtRight";
-            this.txtRight.Size = new System.Drawing.Size(63, 21);
+            this.txtRight.Size = new System.Drawing.Size(63, 24);
             this.txtRight.TabIndex = 5;
             this.txtRight.Text = "10";
             this.txtRight.Validating += new System.ComponentModel.CancelEventHandler(this.txtRight_Validating);
             // 
             // txtBottom
             // 
-            this.txtBottom.Location = new System.Drawing.Point(70, 78);
+            this.txtBottom.Location = new System.Drawing.Point(73, 78);
             this.txtBottom.Name = "txtBottom";
-            this.txtBottom.Size = new System.Drawing.Size(63, 21);
+            this.txtBottom.Size = new System.Drawing.Size(63, 24);
             this.txtBottom.TabIndex = 4;
             this.txtBottom.Text = "10";
             this.txtBottom.Validating += new System.ComponentModel.CancelEventHandler(this.txtBottom_Validating);
             // 
             // txtLeft
             // 
-            this.txtLeft.Location = new System.Drawing.Point(186, 50);
+            this.txtLeft.Location = new System.Drawing.Point(189, 50);
             this.txtLeft.Name = "txtLeft";
-            this.txtLeft.Size = new System.Drawing.Size(63, 21);
+            this.txtLeft.Size = new System.Drawing.Size(63, 24);
             this.txtLeft.TabIndex = 3;
             this.txtLeft.Text = "10";
             this.txtLeft.Validating += new System.ComponentModel.CancelEventHandler(this.txtLeft_Validating);
             // 
             // txtTop
             // 
-            this.txtTop.Location = new System.Drawing.Point(70, 50);
+            this.txtTop.Location = new System.Drawing.Point(73, 50);
             this.txtTop.Name = "txtTop";
-            this.txtTop.Size = new System.Drawing.Size(63, 21);
+            this.txtTop.Size = new System.Drawing.Size(63, 24);
             this.txtTop.TabIndex = 2;
             this.txtTop.Text = "10";
             this.txtTop.Validating += new System.ComponentModel.CancelEventHandler(this.txtTop_Validating);
@@ -132,7 +133,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(139, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "右边距";
             // 
@@ -141,7 +142,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(139, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "左边距";
             // 
@@ -150,7 +151,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(23, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "下边距";
             // 
@@ -159,7 +160,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "上边距";
             // 
@@ -170,9 +171,9 @@
             "A4",
             "A3",
             "A5"});
-            this.cbPageName.Location = new System.Drawing.Point(70, 23);
+            this.cbPageName.Location = new System.Drawing.Point(73, 23);
             this.cbPageName.Name = "cbPageName";
-            this.cbPageName.Size = new System.Drawing.Size(179, 20);
+            this.cbPageName.Size = new System.Drawing.Size(179, 23);
             this.cbPageName.TabIndex = 1;
             this.cbPageName.Text = "A4";
             // 
@@ -181,12 +182,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "纸型";
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("宋体", 11F);
             this.btnSave.Location = new System.Drawing.Point(109, 169);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);

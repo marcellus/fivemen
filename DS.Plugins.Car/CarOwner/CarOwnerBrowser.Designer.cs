@@ -60,10 +60,11 @@ namespace DS.Plugins.Car
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 36);
+            this.tabControl1.Font = new System.Drawing.Font("宋体", 11F);
+            this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(589, 301);
+            this.tabControl1.Size = new System.Drawing.Size(589, 296);
             this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -85,10 +86,10 @@ namespace DS.Plugins.Car
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtName);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(581, 273);
+            this.tabPage1.Size = new System.Drawing.Size(581, 265);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "车主信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -106,7 +107,7 @@ namespace DS.Plugins.Car
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(34, 142);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.Size = new System.Drawing.Size(37, 15);
             this.label9.TabIndex = 30;
             this.label9.Text = "备注";
             // 
@@ -114,7 +115,7 @@ namespace DS.Plugins.Car
             // 
             this.txtAddress.Location = new System.Drawing.Point(78, 114);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(306, 21);
+            this.txtAddress.Size = new System.Drawing.Size(306, 24);
             this.txtAddress.TabIndex = 22;
             // 
             // label8
@@ -122,7 +123,7 @@ namespace DS.Plugins.Car
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(10, 112);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 28;
             this.label8.Text = "联系地址";
             // 
@@ -130,7 +131,7 @@ namespace DS.Plugins.Car
             // 
             this.txtIdCard.Location = new System.Drawing.Point(78, 78);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(125, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(125, 24);
             this.txtIdCard.TabIndex = 20;
             this.txtIdCard.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdCard_Validating);
             // 
@@ -139,7 +140,7 @@ namespace DS.Plugins.Car
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(10, 82);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 26;
             this.label7.Text = "身份证号";
             // 
@@ -147,7 +148,7 @@ namespace DS.Plugins.Car
             // 
             this.txtPhone.Location = new System.Drawing.Point(259, 50);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(125, 21);
+            this.txtPhone.Size = new System.Drawing.Size(125, 24);
             this.txtPhone.TabIndex = 19;
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
@@ -156,7 +157,7 @@ namespace DS.Plugins.Car
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(219, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(37, 15);
             this.label6.TabIndex = 25;
             this.label6.Text = "固话";
             // 
@@ -164,7 +165,7 @@ namespace DS.Plugins.Car
             // 
             this.txtMobile.Location = new System.Drawing.Point(259, 79);
             this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(125, 21);
+            this.txtMobile.Size = new System.Drawing.Size(125, 24);
             this.txtMobile.TabIndex = 21;
             this.txtMobile.Validating += new System.ComponentModel.CancelEventHandler(this.txtMobile_Validating);
             // 
@@ -173,7 +174,7 @@ namespace DS.Plugins.Car
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(219, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 23;
             this.label5.Text = "手机";
             // 
@@ -182,7 +183,7 @@ namespace DS.Plugins.Car
             this.dateBirthday.CustomFormat = "yyyy-MM-dd";
             this.dateBirthday.Location = new System.Drawing.Point(78, 49);
             this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.Size = new System.Drawing.Size(125, 21);
+            this.dateBirthday.Size = new System.Drawing.Size(125, 24);
             this.dateBirthday.TabIndex = 18;
             // 
             // label4
@@ -190,7 +191,7 @@ namespace DS.Plugins.Car
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(34, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(37, 15);
             this.label4.TabIndex = 20;
             this.label4.Text = "生日";
             // 
@@ -203,7 +204,7 @@ namespace DS.Plugins.Car
             "女"});
             this.cbSex.Location = new System.Drawing.Point(259, 18);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(125, 20);
+            this.cbSex.Size = new System.Drawing.Size(125, 23);
             this.cbSex.TabIndex = 17;
             // 
             // label3
@@ -211,7 +212,7 @@ namespace DS.Plugins.Car
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(219, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "性别";
             // 
@@ -219,7 +220,7 @@ namespace DS.Plugins.Car
             // 
             this.txtName.Location = new System.Drawing.Point(78, 18);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(125, 21);
+            this.txtName.Size = new System.Drawing.Size(125, 24);
             this.txtName.TabIndex = 16;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
@@ -228,7 +229,7 @@ namespace DS.Plugins.Car
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(34, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 15;
             this.label2.Text = "姓名";
             // 

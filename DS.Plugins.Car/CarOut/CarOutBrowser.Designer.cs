@@ -47,6 +47,7 @@ namespace DS.Plugins.Car
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbHmhp);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(0, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 214);
@@ -66,7 +67,7 @@ namespace DS.Plugins.Car
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "出车原因";
             // 
@@ -76,7 +77,7 @@ namespace DS.Plugins.Car
             this.dateOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateOutDate.Location = new System.Drawing.Point(112, 56);
             this.dateOutDate.Name = "dateOutDate";
-            this.dateOutDate.Size = new System.Drawing.Size(199, 21);
+            this.dateOutDate.Size = new System.Drawing.Size(199, 24);
             this.dateOutDate.TabIndex = 4;
             // 
             // label3
@@ -84,7 +85,7 @@ namespace DS.Plugins.Car
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(40, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "出车时间";
             // 
@@ -94,7 +95,7 @@ namespace DS.Plugins.Car
             this.cbHmhp.FormattingEnabled = true;
             this.cbHmhp.Location = new System.Drawing.Point(112, 25);
             this.cbHmhp.Name = "cbHmhp";
-            this.cbHmhp.Size = new System.Drawing.Size(199, 20);
+            this.cbHmhp.Size = new System.Drawing.Size(199, 23);
             this.cbHmhp.TabIndex = 1;
             // 
             // label2
@@ -102,7 +103,7 @@ namespace DS.Plugins.Car
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(40, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "号码号牌";
             // 

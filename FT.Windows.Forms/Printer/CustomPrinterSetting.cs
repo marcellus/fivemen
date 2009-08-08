@@ -10,7 +10,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class CustomPrinterSetting : Form
+    public partial class CustomPrinterSetting : DevExpress.XtraEditors.XtraForm
     {
         ConfigLoader<GlobalPrintSetting> loader = null;
         public CustomPrinterSetting()

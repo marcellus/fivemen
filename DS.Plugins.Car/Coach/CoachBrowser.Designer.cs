@@ -44,17 +44,17 @@ namespace DS.Plugins.Car
             // 
             // personDetail1
             // 
-            this.personDetail1.Location = new System.Drawing.Point(27, 67);
+            this.personDetail1.Location = new System.Drawing.Point(3, 75);
             this.personDetail1.Name = "personDetail1";
-            this.personDetail1.Size = new System.Drawing.Size(391, 259);
+            this.personDetail1.Size = new System.Drawing.Size(515, 319);
             this.personDetail1.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 26);
+            this.label2.Location = new System.Drawing.Point(15, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "教练证号";
             // 
@@ -62,42 +62,42 @@ namespace DS.Plugins.Car
             // 
             this.txtCoachId.Location = new System.Drawing.Point(100, 20);
             this.txtCoachId.Name = "txtCoachId";
-            this.txtCoachId.Size = new System.Drawing.Size(125, 21);
+            this.txtCoachId.Size = new System.Drawing.Size(125, 24);
             this.txtCoachId.TabIndex = 1;
             this.txtCoachId.Validating += new System.ComponentModel.CancelEventHandler(this.txtCoachId_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(231, 26);
+            this.label3.Location = new System.Drawing.Point(246, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "驾驶证编号";
             // 
             // txtDriverId
             // 
-            this.txtDriverId.Location = new System.Drawing.Point(302, 20);
+            this.txtDriverId.Location = new System.Drawing.Point(344, 20);
             this.txtDriverId.Name = "txtDriverId";
-            this.txtDriverId.Size = new System.Drawing.Size(103, 21);
+            this.txtDriverId.Size = new System.Drawing.Size(162, 24);
             this.txtDriverId.TabIndex = 2;
             this.txtDriverId.Validating += new System.ComponentModel.CancelEventHandler(this.txtDriverId_Validating);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 52);
+            this.label4.Location = new System.Drawing.Point(276, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "教练车";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 52);
+            this.label5.Location = new System.Drawing.Point(14, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "准驾车型";
             // 
@@ -106,15 +106,15 @@ namespace DS.Plugins.Car
             this.cbCarType.FormattingEnabled = true;
             this.cbCarType.Location = new System.Drawing.Point(100, 48);
             this.cbCarType.Name = "cbCarType";
-            this.cbCarType.Size = new System.Drawing.Size(125, 20);
+            this.cbCarType.Size = new System.Drawing.Size(125, 23);
             this.cbCarType.TabIndex = 3;
             // 
             // cbHmhp
             // 
             this.cbHmhp.FormattingEnabled = true;
-            this.cbHmhp.Location = new System.Drawing.Point(280, 48);
+            this.cbHmhp.Location = new System.Drawing.Point(344, 48);
             this.cbHmhp.Name = "cbHmhp";
-            this.cbHmhp.Size = new System.Drawing.Size(125, 20);
+            this.cbHmhp.Size = new System.Drawing.Size(162, 23);
             this.cbHmhp.TabIndex = 4;
             // 
             // groupBox1
@@ -129,9 +129,10 @@ namespace DS.Plugins.Car
             this.groupBox1.Controls.Add(this.cbHmhp);
             this.groupBox1.Controls.Add(this.txtDriverId);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 36);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.groupBox1.Location = new System.Drawing.Point(0, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 331);
+            this.groupBox1.Size = new System.Drawing.Size(538, 404);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
@@ -139,7 +140,7 @@ namespace DS.Plugins.Car
             // CoachBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(456, 367);
+            this.ClientSize = new System.Drawing.Size(538, 445);
             this.Controls.Add(this.groupBox1);
             this.Name = "CoachBrowser";
             this.Text = "教练信息";

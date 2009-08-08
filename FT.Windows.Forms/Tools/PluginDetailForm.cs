@@ -10,7 +10,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class PluginDetailForm : Form
+    public partial class PluginDetailForm : DevExpress.XtraEditors.XtraForm
     {
         private PluginAttribute att;
         public PluginDetailForm()

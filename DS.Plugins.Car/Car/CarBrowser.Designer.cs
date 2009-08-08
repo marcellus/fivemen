@@ -72,9 +72,9 @@ namespace DS.Plugins.Car
             // checkIsExamCar
             // 
             this.checkIsExamCar.AutoSize = true;
-            this.checkIsExamCar.Location = new System.Drawing.Point(142, 185);
+            this.checkIsExamCar.Location = new System.Drawing.Point(142, 182);
             this.checkIsExamCar.Name = "checkIsExamCar";
-            this.checkIsExamCar.Size = new System.Drawing.Size(84, 16);
+            this.checkIsExamCar.Size = new System.Drawing.Size(101, 19);
             this.checkIsExamCar.TabIndex = 18;
             this.checkIsExamCar.Text = "是否考试车";
             this.checkIsExamCar.UseVisualStyleBackColor = true;
@@ -82,54 +82,54 @@ namespace DS.Plugins.Car
             // checkIsTeacherCar
             // 
             this.checkIsTeacherCar.AutoSize = true;
-            this.checkIsTeacherCar.Location = new System.Drawing.Point(33, 185);
+            this.checkIsTeacherCar.Location = new System.Drawing.Point(33, 182);
             this.checkIsTeacherCar.Name = "checkIsTeacherCar";
-            this.checkIsTeacherCar.Size = new System.Drawing.Size(84, 16);
+            this.checkIsTeacherCar.Size = new System.Drawing.Size(101, 19);
             this.checkIsTeacherCar.TabIndex = 17;
             this.checkIsTeacherCar.Text = "是否教练车";
             this.checkIsTeacherCar.UseVisualStyleBackColor = true;
             // 
             // dateZrDate
             // 
-            this.dateZrDate.Location = new System.Drawing.Point(470, 111);
+            this.dateZrDate.Location = new System.Drawing.Point(502, 111);
             this.dateZrDate.Name = "dateZrDate";
-            this.dateZrDate.Size = new System.Drawing.Size(109, 21);
+            this.dateZrDate.Size = new System.Drawing.Size(109, 24);
             this.dateZrDate.TabIndex = 13;
             // 
             // dateContractDate
             // 
-            this.dateContractDate.Location = new System.Drawing.Point(288, 146);
+            this.dateContractDate.Location = new System.Drawing.Point(305, 146);
             this.dateContractDate.Name = "dateContractDate";
-            this.dateContractDate.Size = new System.Drawing.Size(109, 21);
+            this.dateContractDate.Size = new System.Drawing.Size(109, 24);
             this.dateContractDate.TabIndex = 15;
             // 
             // dateYearCheckDate
             // 
-            this.dateYearCheckDate.Location = new System.Drawing.Point(288, 111);
+            this.dateYearCheckDate.Location = new System.Drawing.Point(304, 111);
             this.dateYearCheckDate.Name = "dateYearCheckDate";
-            this.dateYearCheckDate.Size = new System.Drawing.Size(109, 21);
+            this.dateYearCheckDate.Size = new System.Drawing.Size(109, 24);
             this.dateYearCheckDate.TabIndex = 12;
             // 
             // dateRoadFeeBuyDate
             // 
             this.dateRoadFeeBuyDate.Location = new System.Drawing.Point(102, 146);
             this.dateRoadFeeBuyDate.Name = "dateRoadFeeBuyDate";
-            this.dateRoadFeeBuyDate.Size = new System.Drawing.Size(109, 21);
+            this.dateRoadFeeBuyDate.Size = new System.Drawing.Size(109, 24);
             this.dateRoadFeeBuyDate.TabIndex = 14;
             // 
             // dateInsuranceDate
             // 
             this.dateInsuranceDate.Location = new System.Drawing.Point(102, 111);
             this.dateInsuranceDate.Name = "dateInsuranceDate";
-            this.dateInsuranceDate.Size = new System.Drawing.Size(109, 21);
+            this.dateInsuranceDate.Size = new System.Drawing.Size(109, 24);
             this.dateInsuranceDate.TabIndex = 11;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(415, 115);
+            this.label12.Location = new System.Drawing.Point(432, 115);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.Size = new System.Drawing.Size(67, 15);
             this.label12.TabIndex = 16;
             this.label12.Text = "转入时间";
             // 
@@ -138,16 +138,16 @@ namespace DS.Plugins.Car
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(209, 150);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 12);
+            this.label14.Size = new System.Drawing.Size(97, 15);
             this.label14.TabIndex = 16;
             this.label14.Text = "合同签订时间";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(233, 115);
+            this.label11.Location = new System.Drawing.Point(239, 115);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.Size = new System.Drawing.Size(67, 15);
             this.label11.TabIndex = 16;
             this.label11.Text = "年检时间";
             // 
@@ -156,7 +156,7 @@ namespace DS.Plugins.Car
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(7, 150);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 12);
+            this.label13.Size = new System.Drawing.Size(97, 15);
             this.label13.TabIndex = 16;
             this.label13.Text = "路费购买日期";
             // 
@@ -165,40 +165,40 @@ namespace DS.Plugins.Car
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(19, 115);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.Size = new System.Drawing.Size(82, 15);
             this.label10.TabIndex = 16;
             this.label10.Text = "车保险日期";
             // 
             // cbState
             // 
             this.cbState.FormattingEnabled = true;
-            this.cbState.Location = new System.Drawing.Point(470, 72);
+            this.cbState.Location = new System.Drawing.Point(502, 72);
             this.cbState.Name = "cbState";
-            this.cbState.Size = new System.Drawing.Size(109, 20);
+            this.cbState.Size = new System.Drawing.Size(109, 23);
             this.cbState.TabIndex = 10;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(415, 77);
+            this.label9.Location = new System.Drawing.Point(432, 77);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.Size = new System.Drawing.Size(67, 15);
             this.label9.TabIndex = 14;
             this.label9.Text = "车辆状态";
             // 
             // txtContractPerson
             // 
-            this.txtContractPerson.Location = new System.Drawing.Point(470, 146);
+            this.txtContractPerson.Location = new System.Drawing.Point(502, 146);
             this.txtContractPerson.Name = "txtContractPerson";
-            this.txtContractPerson.Size = new System.Drawing.Size(109, 21);
+            this.txtContractPerson.Size = new System.Drawing.Size(109, 24);
             this.txtContractPerson.TabIndex = 16;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(403, 150);
+            this.label15.Location = new System.Drawing.Point(417, 150);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 12);
+            this.label15.Size = new System.Drawing.Size(82, 15);
             this.label15.TabIndex = 12;
             this.label15.Text = "合同签订人";
             // 
@@ -207,33 +207,33 @@ namespace DS.Plugins.Car
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(31, 45);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 12;
             this.label8.Text = "车辆品牌";
             // 
             // cbOwnerIdValue
             // 
             this.cbOwnerIdValue.FormattingEnabled = true;
-            this.cbOwnerIdValue.Location = new System.Drawing.Point(470, 41);
+            this.cbOwnerIdValue.Location = new System.Drawing.Point(502, 41);
             this.cbOwnerIdValue.Name = "cbOwnerIdValue";
-            this.cbOwnerIdValue.Size = new System.Drawing.Size(109, 20);
+            this.cbOwnerIdValue.Size = new System.Drawing.Size(109, 23);
             this.cbOwnerIdValue.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(439, 44);
+            this.label7.Location = new System.Drawing.Point(462, 44);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.Size = new System.Drawing.Size(37, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "车主";
             // 
             // cbCarType
             // 
             this.cbCarType.FormattingEnabled = true;
-            this.cbCarType.Location = new System.Drawing.Point(288, 42);
+            this.cbCarType.Location = new System.Drawing.Point(310, 42);
             this.cbCarType.Name = "cbCarType";
-            this.cbCarType.Size = new System.Drawing.Size(109, 20);
+            this.cbCarType.Size = new System.Drawing.Size(109, 23);
             this.cbCarType.TabIndex = 5;
             // 
             // label6
@@ -241,7 +241,7 @@ namespace DS.Plugins.Car
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(233, 45);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "车辆类型";
             // 
@@ -250,7 +250,7 @@ namespace DS.Plugins.Car
             this.cbThirdColor.FormattingEnabled = true;
             this.cbThirdColor.Location = new System.Drawing.Point(303, 74);
             this.cbThirdColor.Name = "cbThirdColor";
-            this.cbThirdColor.Size = new System.Drawing.Size(75, 20);
+            this.cbThirdColor.Size = new System.Drawing.Size(75, 23);
             this.cbThirdColor.TabIndex = 9;
             // 
             // cbSecondColor
@@ -258,7 +258,7 @@ namespace DS.Plugins.Car
             this.cbSecondColor.FormattingEnabled = true;
             this.cbSecondColor.Location = new System.Drawing.Point(207, 74);
             this.cbSecondColor.Name = "cbSecondColor";
-            this.cbSecondColor.Size = new System.Drawing.Size(75, 20);
+            this.cbSecondColor.Size = new System.Drawing.Size(75, 23);
             this.cbSecondColor.TabIndex = 8;
             // 
             // cbFirstColor
@@ -266,7 +266,7 @@ namespace DS.Plugins.Car
             this.cbFirstColor.FormattingEnabled = true;
             this.cbFirstColor.Location = new System.Drawing.Point(102, 74);
             this.cbFirstColor.Name = "cbFirstColor";
-            this.cbFirstColor.Size = new System.Drawing.Size(75, 20);
+            this.cbFirstColor.Size = new System.Drawing.Size(75, 23);
             this.cbFirstColor.TabIndex = 7;
             // 
             // label5
@@ -274,31 +274,31 @@ namespace DS.Plugins.Car
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "车辆颜色";
             // 
             // txtFdjh
             // 
-            this.txtFdjh.Location = new System.Drawing.Point(470, 6);
+            this.txtFdjh.Location = new System.Drawing.Point(502, 6);
             this.txtFdjh.Name = "txtFdjh";
-            this.txtFdjh.Size = new System.Drawing.Size(109, 21);
+            this.txtFdjh.Size = new System.Drawing.Size(109, 24);
             this.txtFdjh.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(415, 10);
+            this.label4.Location = new System.Drawing.Point(432, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "发动机号";
             // 
             // txtIdentify
             // 
-            this.txtIdentify.Location = new System.Drawing.Point(288, 6);
+            this.txtIdentify.Location = new System.Drawing.Point(310, 6);
             this.txtIdentify.Name = "txtIdentify";
-            this.txtIdentify.Size = new System.Drawing.Size(109, 21);
+            this.txtIdentify.Size = new System.Drawing.Size(109, 24);
             this.txtIdentify.TabIndex = 2;
             // 
             // label3
@@ -306,7 +306,7 @@ namespace DS.Plugins.Car
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(221, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "车辆识别码";
             // 
@@ -314,7 +314,7 @@ namespace DS.Plugins.Car
             // 
             this.txtHmhp.Location = new System.Drawing.Point(102, 6);
             this.txtHmhp.Name = "txtHmhp";
-            this.txtHmhp.Size = new System.Drawing.Size(109, 21);
+            this.txtHmhp.Size = new System.Drawing.Size(109, 24);
             this.txtHmhp.TabIndex = 1;
             this.txtHmhp.Validating += new System.ComponentModel.CancelEventHandler(this.txtHmhp_Validating);
             // 
@@ -323,7 +323,7 @@ namespace DS.Plugins.Car
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "号码号牌";
             // 
@@ -334,10 +334,11 @@ namespace DS.Plugins.Car
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 36);
+            this.tabControl1.Font = new System.Drawing.Font("宋体", 11F);
+            this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(627, 241);
+            this.tabControl1.Size = new System.Drawing.Size(627, 236);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -375,10 +376,10 @@ namespace DS.Plugins.Car
             this.tabPage1.Controls.Add(this.cbOwnerIdValue);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(619, 213);
+            this.tabPage1.Size = new System.Drawing.Size(619, 205);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -388,7 +389,7 @@ namespace DS.Plugins.Car
             this.cbPinPai.FormattingEnabled = true;
             this.cbPinPai.Location = new System.Drawing.Point(102, 42);
             this.cbPinPai.Name = "cbPinPai";
-            this.cbPinPai.Size = new System.Drawing.Size(109, 20);
+            this.cbPinPai.Size = new System.Drawing.Size(109, 23);
             this.cbPinPai.TabIndex = 4;
             // 
             // tabPage2

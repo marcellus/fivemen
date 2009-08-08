@@ -10,7 +10,7 @@ using FT.Commons.Tools;
 
 namespace DS.Plugins.Student
 {
-    public partial class StudentSystemConfigForm : Form
+    public partial class StudentSystemConfigForm : BaseSkinForm
     {
         ConfigLoader<StudentSystemConfig> loader = null;
         public StudentSystemConfigForm()

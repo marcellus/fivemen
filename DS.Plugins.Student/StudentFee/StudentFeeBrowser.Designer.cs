@@ -61,6 +61,7 @@ namespace DS.Plugins.Student
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbFeeType);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(2, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(382, 283);
@@ -69,25 +70,25 @@ namespace DS.Plugins.Student
             // 
             // txtFee
             // 
-            this.txtFee.Location = new System.Drawing.Point(109, 135);
+            this.txtFee.Location = new System.Drawing.Point(132, 135);
             this.txtFee.Name = "txtFee";
-            this.txtFee.Size = new System.Drawing.Size(200, 21);
+            this.txtFee.Size = new System.Drawing.Size(200, 24);
             this.txtFee.TabIndex = 6;
             this.txtFee.Validating += new System.ComponentModel.CancelEventHandler(this.txtFee_Validating);
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(314, 84);
+            this.lbName.Location = new System.Drawing.Point(337, 84);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(0, 12);
+            this.lbName.Size = new System.Drawing.Size(0, 15);
             this.lbName.TabIndex = 12;
             // 
             // textbox1
             // 
-            this.textbox1.Location = new System.Drawing.Point(109, 48);
+            this.textbox1.Location = new System.Drawing.Point(132, 48);
             this.textbox1.Name = "textbox1";
-            this.textbox1.Size = new System.Drawing.Size(200, 21);
+            this.textbox1.Size = new System.Drawing.Size(200, 24);
             this.textbox1.TabIndex = 1;
             this.textbox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textbox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
@@ -97,13 +98,13 @@ namespace DS.Plugins.Student
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(2, 51);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 12);
+            this.label7.Size = new System.Drawing.Size(127, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "查找的身份证明号";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(109, 162);
+            this.txtDescription.Location = new System.Drawing.Point(132, 162);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(200, 113);
@@ -112,18 +113,18 @@ namespace DS.Plugins.Student
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 166);
+            this.label6.Location = new System.Drawing.Point(92, 166);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(37, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "备注";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 138);
+            this.label5.Location = new System.Drawing.Point(62, 138);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "费用金额";
             // 
@@ -132,35 +133,35 @@ namespace DS.Plugins.Student
             this.dateFeeDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateFeeDate.Enabled = false;
             this.dateFeeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFeeDate.Location = new System.Drawing.Point(109, 107);
+            this.dateFeeDate.Location = new System.Drawing.Point(132, 107);
             this.dateFeeDate.Name = "dateFeeDate";
-            this.dateFeeDate.Size = new System.Drawing.Size(200, 21);
+            this.dateFeeDate.Size = new System.Drawing.Size(200, 24);
             this.dateFeeDate.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 111);
+            this.label4.Location = new System.Drawing.Point(62, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "费用时间";
             // 
             // cbIdCard
             // 
             this.cbIdCard.FormattingEnabled = true;
-            this.cbIdCard.Location = new System.Drawing.Point(109, 79);
+            this.cbIdCard.Location = new System.Drawing.Point(132, 79);
             this.cbIdCard.Name = "cbIdCard";
-            this.cbIdCard.Size = new System.Drawing.Size(200, 20);
+            this.cbIdCard.Size = new System.Drawing.Size(200, 23);
             this.cbIdCard.TabIndex = 3;
             this.cbIdCard.TextChanged += new System.EventHandler(this.cbIdCard_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 82);
+            this.label3.Location = new System.Drawing.Point(17, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "学生身份证明号";
             // 
@@ -168,17 +169,17 @@ namespace DS.Plugins.Student
             // 
             this.cbFeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFeeType.FormattingEnabled = true;
-            this.cbFeeType.Location = new System.Drawing.Point(109, 18);
+            this.cbFeeType.Location = new System.Drawing.Point(132, 18);
             this.cbFeeType.Name = "cbFeeType";
-            this.cbFeeType.Size = new System.Drawing.Size(200, 20);
+            this.cbFeeType.Size = new System.Drawing.Size(200, 23);
             this.cbFeeType.TabIndex = 111;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 20);
+            this.label2.Location = new System.Drawing.Point(62, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "费用类别";
             // 

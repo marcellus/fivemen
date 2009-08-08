@@ -29,10 +29,6 @@ namespace FT.Windows.CommonsPlugin
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbBlongArea = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbXiang = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.cbValid = new System.Windows.Forms.ComboBox();
             this.txtValue = new System.Windows.Forms.TextBox();
@@ -41,6 +37,10 @@ namespace FT.Windows.CommonsPlugin
             this.label4 = new System.Windows.Forms.Label();
             this.txtText = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbXiang = new System.Windows.Forms.ComboBox();
+            this.cbBlongArea = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@ namespace FT.Windows.CommonsPlugin
             this.groupBox1.Controls.Add(this.cbBlongArea);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(2, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(302, 276);
@@ -66,46 +67,9 @@ namespace FT.Windows.CommonsPlugin
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
             // 
-            // cbBlongArea
-            // 
-            this.cbBlongArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBlongArea.FormattingEnabled = true;
-            this.cbBlongArea.Location = new System.Drawing.Point(82, 24);
-            this.cbBlongArea.Name = "cbBlongArea";
-            this.cbBlongArea.Size = new System.Drawing.Size(181, 20);
-            this.cbBlongArea.TabIndex = 5;
-            this.cbBlongArea.SelectedIndexChanged += new System.EventHandler(this.cbBlongArea_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "所属辖区";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "所属乡镇";
-            // 
-            // cbXiang
-            // 
-            this.cbXiang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbXiang.FormattingEnabled = true;
-            this.cbXiang.Location = new System.Drawing.Point(82, 50);
-            this.cbXiang.Name = "cbXiang";
-            this.cbXiang.Size = new System.Drawing.Size(181, 20);
-            this.cbXiang.TabIndex = 5;
-            // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(82, 166);
+            this.txtDescription.Location = new System.Drawing.Point(96, 166);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(181, 92);
@@ -118,62 +82,99 @@ namespace FT.Windows.CommonsPlugin
             this.cbValid.Items.AddRange(new object[] {
             "有效",
             "无效"});
-            this.cbValid.Location = new System.Drawing.Point(82, 138);
+            this.cbValid.Location = new System.Drawing.Point(96, 138);
             this.cbValid.Name = "cbValid";
-            this.cbValid.Size = new System.Drawing.Size(181, 20);
+            this.cbValid.Size = new System.Drawing.Size(181, 23);
             this.cbValid.TabIndex = 16;
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(82, 109);
+            this.txtValue.Location = new System.Drawing.Point(96, 109);
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(181, 21);
+            this.txtValue.Size = new System.Drawing.Size(181, 24);
             this.txtValue.TabIndex = 15;
             this.txtValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtValue_Validating);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(46, 168);
+            this.label6.Location = new System.Drawing.Point(53, 166);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(37, 15);
             this.label6.TabIndex = 14;
             this.label6.Text = "备注";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 141);
+            this.label5.Location = new System.Drawing.Point(23, 139);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 13;
             this.label5.Text = "是否有效";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 114);
+            this.label4.Location = new System.Drawing.Point(8, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 12;
             this.label4.Text = "村居委代码";
             // 
             // txtText
             // 
-            this.txtText.Location = new System.Drawing.Point(82, 80);
+            this.txtText.Location = new System.Drawing.Point(96, 80);
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(181, 21);
+            this.txtText.Size = new System.Drawing.Size(181, 24);
             this.txtText.TabIndex = 11;
             this.txtText.Validating += new System.ComponentModel.CancelEventHandler(this.txtText_Validating);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 87);
+            this.label7.Location = new System.Drawing.Point(8, 85);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(82, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "村居委名称";
+            // 
+            // cbXiang
+            // 
+            this.cbXiang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbXiang.FormattingEnabled = true;
+            this.cbXiang.Location = new System.Drawing.Point(96, 50);
+            this.cbXiang.Name = "cbXiang";
+            this.cbXiang.Size = new System.Drawing.Size(181, 23);
+            this.cbXiang.TabIndex = 5;
+            // 
+            // cbBlongArea
+            // 
+            this.cbBlongArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBlongArea.FormattingEnabled = true;
+            this.cbBlongArea.Location = new System.Drawing.Point(96, 24);
+            this.cbBlongArea.Name = "cbBlongArea";
+            this.cbBlongArea.Size = new System.Drawing.Size(181, 23);
+            this.cbBlongArea.TabIndex = 5;
+            this.cbBlongArea.SelectedIndexChanged += new System.EventHandler(this.cbBlongArea_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "所属乡镇";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "所属辖区";
             // 
             // CunBrowser
             // 

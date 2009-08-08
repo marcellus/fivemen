@@ -15,6 +15,33 @@ namespace FT.Windows.Forms
     /// </summary>
     public class AppicationHelper
     {
+        /// <summary>
+        /// 执行皮肤的初始化
+        /// </summary>
+        public static void BeforeStart()
+        {
+
+            object obj = System.Configuration.ConfigurationManager.AppSettings["ApplySkin"];
+            bool useSkin=obj != null && obj.ToString().ToLower() == "true";
+            if (useSkin)
+            {
+                DevExpress.UserSkins.BonusSkins.Register();
+                DevExpress.UserSkins.OfficeSkins.Register();
+            }
+            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            if (useSkin)
+            {
+
+            if (!DevExpress.Skins.SkinManager.AllowFormSkins)
+                DevExpress.Skins.SkinManager.EnableFormSkins();
+           
+            
+                SystemAllConfig config=StaticCacheManager.GetConfig<SystemAllConfig>();
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = config.SkinName;
+            }
+        }
 
         public static void Start(string key, Image bg, Type panelType, string panelText)
         {

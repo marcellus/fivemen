@@ -11,7 +11,7 @@ using FT.Commons.Cache;
 
 namespace FT.Windows.Forms.NoUser
 {
-    public partial class UnlockSystem : Form
+    public partial class UnlockSystem : DevExpress.XtraEditors.XtraForm
     {
         public UnlockSystem()
         {

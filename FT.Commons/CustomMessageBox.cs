@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FT.Commons
 {
-    public partial class CustomMessageBox : Form
+    public partial class CustomMessageBox : DevExpress.XtraEditors.XtraForm
     {
         public CustomMessageBox(string text)
         {

@@ -12,7 +12,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class PluginConfigForm : Form
+    public partial class PluginConfigForm : DevExpress.XtraEditors.XtraForm
     {
         public PluginConfigForm()
         {

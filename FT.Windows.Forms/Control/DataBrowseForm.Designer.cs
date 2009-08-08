@@ -106,22 +106,24 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(0, 269);
+            this.label1.Location = new System.Drawing.Point(1, 269);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(55, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "记录编号";
+            this.label1.Visible = false;
             // 
             // lbId
             // 
             this.lbId.AutoSize = true;
             this.lbId.BackColor = System.Drawing.SystemColors.Control;
             this.lbId.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbId.Location = new System.Drawing.Point(12, 281);
+            this.lbId.Location = new System.Drawing.Point(13, 281);
             this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(41, 12);
+            this.lbId.Size = new System.Drawing.Size(38, 14);
             this.lbId.TabIndex = 2;
             this.lbId.Text = "label2";
+            this.lbId.Visible = false;
             // 
             // DataBrowseForm
             // 

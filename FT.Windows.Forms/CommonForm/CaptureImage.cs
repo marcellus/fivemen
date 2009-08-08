@@ -10,7 +10,7 @@ using FT.Windows.Forms.CommonForm;
 
 namespace FT.Windows.Forms
 {
-    public partial class CaptureImage :Form
+    public partial class CaptureImage : DevExpress.XtraEditors.XtraForm
     {
         private Dragger dragger;
         public  CaptureImage()

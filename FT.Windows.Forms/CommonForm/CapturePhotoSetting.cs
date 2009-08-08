@@ -10,7 +10,7 @@ using FT.Commons.Cache;
 
 namespace FT.Windows.Forms.CommonForm
 {
-    public partial class CapturePhotoSetting : Form
+    public partial class CapturePhotoSetting : DevExpress.XtraEditors.XtraForm
     {
         ConfigLoader<CapturePhotoSet> loader = null;
         public CapturePhotoSetting()

@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace DS.Plugins.Student
 {
-    public partial class QuitForm : Form
+    public partial class QuitForm : BaseSkinForm
     {
         public QuitForm()
         {
