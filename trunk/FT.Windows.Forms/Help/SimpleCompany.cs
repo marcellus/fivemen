@@ -10,7 +10,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class SimpleCompany : Form
+    public partial class SimpleCompany : DevExpress.XtraEditors.XtraForm
     {
         ConfigLoader<CompanyInfo> loader = null;
         public SimpleCompany()

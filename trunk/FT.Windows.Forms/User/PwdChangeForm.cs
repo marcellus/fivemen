@@ -10,7 +10,7 @@ using FT.Commons.Security;
 
 namespace FT.Windows.Forms
 {
-    public partial class PwdChangeForm : Form
+    public partial class PwdChangeForm : DevExpress.XtraEditors.XtraForm
     {
         public PwdChangeForm()
         {

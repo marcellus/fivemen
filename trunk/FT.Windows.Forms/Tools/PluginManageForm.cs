@@ -11,7 +11,7 @@ using System.IO;
 
 namespace FT.Windows.Forms
 {
-    public partial class PluginManageForm : Form
+    public partial class PluginManageForm : DevExpress.XtraEditors.XtraForm
     {
         
         public PluginManageForm()

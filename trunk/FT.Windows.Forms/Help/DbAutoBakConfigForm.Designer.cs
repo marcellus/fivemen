@@ -42,6 +42,7 @@
             this.groupBox1.Controls.Add(this.txtBakCount);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkAutoBak);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(7, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 102);
@@ -51,9 +52,9 @@
             // 
             // txtBakCount
             // 
-            this.txtBakCount.Location = new System.Drawing.Point(121, 45);
+            this.txtBakCount.Location = new System.Drawing.Point(146, 45);
             this.txtBakCount.Name = "txtBakCount";
-            this.txtBakCount.Size = new System.Drawing.Size(100, 21);
+            this.txtBakCount.Size = new System.Drawing.Size(100, 24);
             this.txtBakCount.TabIndex = 2;
             // 
             // label1
@@ -61,7 +62,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.Size = new System.Drawing.Size(112, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "保留备份文件数";
             // 
@@ -72,13 +73,14 @@
             this.checkAutoBak.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAutoBak.Location = new System.Drawing.Point(25, 21);
             this.checkAutoBak.Name = "checkAutoBak";
-            this.checkAutoBak.Size = new System.Drawing.Size(96, 16);
+            this.checkAutoBak.Size = new System.Drawing.Size(116, 19);
             this.checkAutoBak.TabIndex = 0;
             this.checkAutoBak.Text = "开启自动备份";
             this.checkAutoBak.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("宋体", 11F);
             this.btnSave.Location = new System.Drawing.Point(109, 119);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -91,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 145);
+            this.ClientSize = new System.Drawing.Size(292, 152);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

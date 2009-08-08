@@ -9,7 +9,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class ConditionBuildForm : Form
+    public partial class ConditionBuildForm : DevExpress.XtraEditors.XtraForm
     {
         public ConditionBuildForm()
         {

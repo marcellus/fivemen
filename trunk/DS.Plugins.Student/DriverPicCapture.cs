@@ -18,7 +18,7 @@ using FT.Windows.CommonsPlugin;
 
 namespace DS.Plugins.Student
 {
-    public partial class DriverPicCapture : Form, IMessageFilter
+    public partial class DriverPicCapture : BaseSkinForm, IMessageFilter
     {
         #region ²¶»ñÍ¼Æ¬
 

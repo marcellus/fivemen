@@ -49,6 +49,7 @@ namespace FT.Windows.Forms
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(0, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(364, 202);
@@ -58,7 +59,7 @@ namespace FT.Windows.Forms
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(83, 108);
+            this.txtDescription.Location = new System.Drawing.Point(93, 108);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(257, 55);
@@ -69,7 +70,7 @@ namespace FT.Windows.Forms
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(48, 110);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "备注";
             // 
@@ -78,7 +79,7 @@ namespace FT.Windows.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "是否有效";
             // 
@@ -89,16 +90,16 @@ namespace FT.Windows.Forms
             this.cbValid.Items.AddRange(new object[] {
             "有效",
             "无效"});
-            this.cbValid.Location = new System.Drawing.Point(83, 68);
+            this.cbValid.Location = new System.Drawing.Point(93, 68);
             this.cbValid.Name = "cbValid";
-            this.cbValid.Size = new System.Drawing.Size(173, 20);
+            this.cbValid.Size = new System.Drawing.Size(173, 23);
             this.cbValid.TabIndex = 4;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(83, 29);
+            this.txtName.Location = new System.Drawing.Point(93, 29);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(173, 21);
+            this.txtName.Size = new System.Drawing.Size(173, 24);
             this.txtName.TabIndex = 1;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
@@ -107,7 +108,7 @@ namespace FT.Windows.Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(36, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "登录名";
             // 

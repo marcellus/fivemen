@@ -17,7 +17,7 @@ namespace FT.Windows.Forms
     /// <summary>
     /// 浏览实体对象的窗体，如果碰到date和combo怎么处理
     /// </summary>
-    public partial class DataBrowseForm : Form
+    public partial class DataBrowseForm : DevExpress.XtraEditors.XtraForm
     {
        
         public DataBrowseForm()

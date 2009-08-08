@@ -12,7 +12,7 @@ using FT.Commons.Cache;
 
 namespace FT.Windows.Forms
 {
-    public partial class SimpleRegister : Form
+    public partial class SimpleRegister : DevExpress.XtraEditors.XtraForm
     {
         
         ConfigLoader<ProgramRegConfig> loader = null;

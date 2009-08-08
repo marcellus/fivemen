@@ -14,7 +14,7 @@ using System.IO;
 
 namespace FT.Windows.Forms
 {
-    public partial class BaseMainForm : Form
+    public partial class BaseMainForm : DevExpress.XtraEditors.XtraForm
     {
         public BaseMainForm()
         {

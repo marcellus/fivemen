@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FT.Windows.Forms.CommonForm
 {
-    public partial class KeyCharMonitorForm : Form
+    public partial class KeyCharMonitorForm : DevExpress.XtraEditors.XtraForm
     {
         public KeyCharMonitorForm()
         {

@@ -7,9 +7,10 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
 
+
 namespace FT.Device.IDCard
 {
-    public partial class IDCardConfigForm : Form
+    public partial class IDCardConfigForm : BaseSkinForm
     {
         ConfigLoader<IDCardConfig> loader = null;
         public IDCardConfigForm()

@@ -48,18 +48,19 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtOldPwd);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(1, -3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(208, 102);
+            this.groupBox1.Size = new System.Drawing.Size(215, 102);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtRepeatPwd
             // 
-            this.txtRepeatPwd.Location = new System.Drawing.Point(69, 67);
+            this.txtRepeatPwd.Location = new System.Drawing.Point(73, 67);
             this.txtRepeatPwd.Name = "txtRepeatPwd";
             this.txtRepeatPwd.PasswordChar = '*';
-            this.txtRepeatPwd.Size = new System.Drawing.Size(133, 21);
+            this.txtRepeatPwd.Size = new System.Drawing.Size(133, 24);
             this.txtRepeatPwd.TabIndex = 5;
             // 
             // label3
@@ -67,16 +68,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "重复密码";
             // 
             // txtNewPwd
             // 
-            this.txtNewPwd.Location = new System.Drawing.Point(69, 41);
+            this.txtNewPwd.Location = new System.Drawing.Point(73, 41);
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
-            this.txtNewPwd.Size = new System.Drawing.Size(133, 21);
+            this.txtNewPwd.Size = new System.Drawing.Size(133, 24);
             this.txtNewPwd.TabIndex = 3;
             // 
             // label2
@@ -84,16 +85,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "新密码";
             // 
             // txtOldPwd
             // 
-            this.txtOldPwd.Location = new System.Drawing.Point(69, 12);
+            this.txtOldPwd.Location = new System.Drawing.Point(73, 12);
             this.txtOldPwd.Name = "txtOldPwd";
             this.txtOldPwd.PasswordChar = '*';
-            this.txtOldPwd.Size = new System.Drawing.Size(133, 21);
+            this.txtOldPwd.Size = new System.Drawing.Size(133, 24);
             this.txtOldPwd.TabIndex = 1;
             // 
             // label1
@@ -101,7 +102,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "旧密码";
             // 
@@ -119,9 +120,11 @@
             // 
             // PwdChangeForm
             // 
+            this.Appearance.Font = new System.Drawing.Font("宋体", 11F);
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 133);
+            this.ClientSize = new System.Drawing.Size(219, 135);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

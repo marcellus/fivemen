@@ -9,7 +9,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class LockSystemForm : Form
+    public partial class LockSystemForm : DevExpress.XtraEditors.XtraForm
     {
         public LockSystemForm()
         {
@@ -38,6 +38,11 @@ namespace FT.Windows.Forms
                 this.txtPassword.Focus();
                 return;
             }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

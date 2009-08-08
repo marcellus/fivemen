@@ -38,7 +38,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnUnlock);
             this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 13F);
             this.groupBox1.Location = new System.Drawing.Point(2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 81);
@@ -63,8 +63,9 @@
             this.txtPassword.Location = new System.Drawing.Point(17, 21);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(162, 24);
+            this.txtPassword.Size = new System.Drawing.Size(162, 27);
             this.txtPassword.TabIndex = 0;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // LockSystemForm
             // 

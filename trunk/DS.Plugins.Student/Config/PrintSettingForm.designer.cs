@@ -189,6 +189,7 @@ namespace DS.Plugins.Student
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Font = new System.Drawing.Font("宋体", 11F);
             this.tabControl1.ItemSize = new System.Drawing.Size(60, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 64);
             this.tabControl1.Name = "tabControl1";
@@ -223,7 +224,7 @@ namespace DS.Plugins.Student
             // cbF2PrintDate
             // 
             this.cbF2PrintDate.AutoSize = true;
-            this.cbF2PrintDate.Location = new System.Drawing.Point(345, 31);
+            this.cbF2PrintDate.Location = new System.Drawing.Point(372, 31);
             this.cbF2PrintDate.Name = "cbF2PrintDate";
             this.cbF2PrintDate.Size = new System.Drawing.Size(146, 19);
             this.cbF2PrintDate.TabIndex = 19;
@@ -358,7 +359,7 @@ namespace DS.Plugins.Student
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(590, 235);
+            this.tabPage2.Size = new System.Drawing.Size(695, 235);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "身体条件证明";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -491,7 +492,7 @@ namespace DS.Plugins.Student
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(590, 235);
+            this.tabPage3.Size = new System.Drawing.Size(695, 235);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "培训学员登记表";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -499,7 +500,7 @@ namespace DS.Plugins.Student
             // cbF4PrintDate
             // 
             this.cbF4PrintDate.AutoSize = true;
-            this.cbF4PrintDate.Location = new System.Drawing.Point(345, 35);
+            this.cbF4PrintDate.Location = new System.Drawing.Point(368, 35);
             this.cbF4PrintDate.Name = "cbF4PrintDate";
             this.cbF4PrintDate.Size = new System.Drawing.Size(146, 19);
             this.cbF4PrintDate.TabIndex = 20;
@@ -638,7 +639,7 @@ namespace DS.Plugins.Student
             this.tabPage5.Controls.Add(this.label40);
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(590, 235);
+            this.tabPage5.Size = new System.Drawing.Size(695, 235);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "科目三考试成绩表";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -816,7 +817,7 @@ namespace DS.Plugins.Student
             this.tabPage6.Controls.Add(this.label48);
             this.tabPage6.Location = new System.Drawing.Point(4, 34);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(590, 235);
+            this.tabPage6.Size = new System.Drawing.Size(695, 235);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "套打申请表";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -856,7 +857,7 @@ namespace DS.Plugins.Student
             // cbApply2Dimension
             // 
             this.cbApply2Dimension.AutoSize = true;
-            this.cbApply2Dimension.Location = new System.Drawing.Point(345, 24);
+            this.cbApply2Dimension.Location = new System.Drawing.Point(378, 24);
             this.cbApply2Dimension.Name = "cbApply2Dimension";
             this.cbApply2Dimension.Size = new System.Drawing.Size(146, 19);
             this.cbApply2Dimension.TabIndex = 17;
@@ -866,7 +867,7 @@ namespace DS.Plugins.Student
             // cbApplyProfile
             // 
             this.cbApplyProfile.AutoSize = true;
-            this.cbApplyProfile.Location = new System.Drawing.Point(187, 24);
+            this.cbApplyProfile.Location = new System.Drawing.Point(222, 24);
             this.cbApplyProfile.Name = "cbApplyProfile";
             this.cbApplyProfile.Size = new System.Drawing.Size(146, 19);
             this.cbApplyProfile.TabIndex = 16;
@@ -990,7 +991,7 @@ namespace DS.Plugins.Student
             this.tabPage4.Controls.Add(this.cbApplySkin);
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(590, 235);
+            this.tabPage4.Size = new System.Drawing.Size(695, 235);
             this.tabPage4.TabIndex = 6;
             this.tabPage4.Text = "系统配置";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -998,7 +999,7 @@ namespace DS.Plugins.Student
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(318, 33);
+            this.label63.Location = new System.Drawing.Point(349, 33);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(82, 15);
             this.label63.TabIndex = 12;
@@ -1011,7 +1012,7 @@ namespace DS.Plugins.Student
             this.cbDbType.Items.AddRange(new object[] {
             "sqlserver",
             "oracle"});
-            this.cbDbType.Location = new System.Drawing.Point(389, 25);
+            this.cbDbType.Location = new System.Drawing.Point(443, 25);
             this.cbDbType.Name = "cbDbType";
             this.cbDbType.Size = new System.Drawing.Size(121, 23);
             this.cbDbType.TabIndex = 11;
@@ -1028,7 +1029,7 @@ namespace DS.Plugins.Student
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(276, 92);
+            this.txtPwd.Location = new System.Drawing.Point(300, 92);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(100, 24);
             this.txtPwd.TabIndex = 9;
@@ -1044,7 +1045,7 @@ namespace DS.Plugins.Student
             // 
             // txtUID
             // 
-            this.txtUID.Location = new System.Drawing.Point(99, 92);
+            this.txtUID.Location = new System.Drawing.Point(113, 92);
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(100, 24);
             this.txtUID.TabIndex = 7;
@@ -1060,7 +1061,7 @@ namespace DS.Plugins.Student
             // 
             // txtDbName
             // 
-            this.txtDbName.Location = new System.Drawing.Point(276, 65);
+            this.txtDbName.Location = new System.Drawing.Point(300, 65);
             this.txtDbName.Name = "txtDbName";
             this.txtDbName.Size = new System.Drawing.Size(100, 24);
             this.txtDbName.TabIndex = 5;
@@ -1068,7 +1069,7 @@ namespace DS.Plugins.Student
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(205, 74);
+            this.label60.Location = new System.Drawing.Point(219, 74);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(82, 15);
             this.label60.TabIndex = 4;
@@ -1076,7 +1077,7 @@ namespace DS.Plugins.Student
             // 
             // txtIp
             // 
-            this.txtIp.Location = new System.Drawing.Point(99, 65);
+            this.txtIp.Location = new System.Drawing.Point(113, 65);
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(100, 24);
             this.txtIp.TabIndex = 3;
@@ -1119,7 +1120,7 @@ namespace DS.Plugins.Student
             this.tabPage7.Location = new System.Drawing.Point(4, 34);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(590, 235);
+            this.tabPage7.Size = new System.Drawing.Size(695, 235);
             this.tabPage7.TabIndex = 7;
             this.tabPage7.Text = "数据共享";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1146,7 +1147,7 @@ namespace DS.Plugins.Student
             // 
             // txtShareDbIp
             // 
-            this.txtShareDbIp.Location = new System.Drawing.Point(102, 16);
+            this.txtShareDbIp.Location = new System.Drawing.Point(110, 16);
             this.txtShareDbIp.Name = "txtShareDbIp";
             this.txtShareDbIp.Size = new System.Drawing.Size(127, 24);
             this.txtShareDbIp.TabIndex = 1;
@@ -1162,6 +1163,7 @@ namespace DS.Plugins.Student
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("宋体", 11F);
             this.btnSave.Location = new System.Drawing.Point(23, 12);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -1172,6 +1174,7 @@ namespace DS.Plugins.Student
             // 
             // btnRestore
             // 
+            this.btnRestore.Font = new System.Drawing.Font("宋体", 11F);
             this.btnRestore.Location = new System.Drawing.Point(472, 12);
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(75, 23);
@@ -1182,6 +1185,7 @@ namespace DS.Plugins.Student
             // 
             // btnBack
             // 
+            this.btnBack.Font = new System.Drawing.Font("宋体", 11F);
             this.btnBack.Location = new System.Drawing.Point(342, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -1336,12 +1340,14 @@ namespace DS.Plugins.Student
             // 
             // PrintSettingForm
             // 
+            this.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(703, 337);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

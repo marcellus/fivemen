@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using FT.Commons.Tools;
 
 namespace DS.Plugins.Student
 {
-    public partial class ApplyPrinterForm : Form
+    public partial class ApplyPrinterForm : BaseSkinForm
     {
         public ApplyPrinterForm()
         {

@@ -29,10 +29,10 @@ namespace FT.Windows.CommonsPlugin
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtText = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtText = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +43,7 @@ namespace FT.Windows.CommonsPlugin
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtText);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(2, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(307, 98);
@@ -50,39 +51,39 @@ namespace FT.Windows.CommonsPlugin
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
             // 
-            // label2
+            // txtCode
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "省份名称";
-            // 
-            // txtText
-            // 
-            this.txtText.Location = new System.Drawing.Point(71, 27);
-            this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(213, 21);
-            this.txtText.TabIndex = 1;
-            this.txtText.Validating += new System.ComponentModel.CancelEventHandler(this.txtText_Validating);
+            this.txtCode.Location = new System.Drawing.Point(81, 54);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(211, 24);
+            this.txtCode.TabIndex = 3;
+            this.txtCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtCode_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "省份代码";
             // 
-            // txtCode
+            // txtText
             // 
-            this.txtCode.Location = new System.Drawing.Point(71, 54);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(211, 21);
-            this.txtCode.TabIndex = 3;
-            this.txtCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtCode_Validating);
+            this.txtText.Location = new System.Drawing.Point(81, 27);
+            this.txtText.Name = "txtText";
+            this.txtText.Size = new System.Drawing.Size(213, 24);
+            this.txtText.TabIndex = 1;
+            this.txtText.Validating += new System.ComponentModel.CancelEventHandler(this.txtText_Validating);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "省份名称";
             // 
             // ProvinceBrowser
             // 

@@ -29,6 +29,7 @@ namespace DS.Plugins.Student
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbStudentId = new System.Windows.Forms.Label();
             this.txtScore = new FT.Windows.Controls.TextBoxEx.NumberInput();
             this.dateExamDate = new System.Windows.Forms.DateTimePicker();
             this.cbResult = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@ namespace DS.Plugins.Student
             this.label7 = new System.Windows.Forms.Label();
             this.cbIdCard = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbStudentId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,25 +85,35 @@ namespace DS.Plugins.Student
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbIdCard);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(2, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 253);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // lbStudentId
+            // 
+            this.lbStudentId.AutoSize = true;
+            this.lbStudentId.Location = new System.Drawing.Point(337, 51);
+            this.lbStudentId.Name = "lbStudentId";
+            this.lbStudentId.Size = new System.Drawing.Size(0, 15);
+            this.lbStudentId.TabIndex = 37;
+            this.lbStudentId.Visible = false;
+            // 
             // txtScore
             // 
-            this.txtScore.Location = new System.Drawing.Point(73, 197);
+            this.txtScore.Location = new System.Drawing.Point(76, 197);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(100, 21);
+            this.txtScore.Size = new System.Drawing.Size(100, 24);
             this.txtScore.TabIndex = 32;
             this.txtScore.Validating += new System.ComponentModel.CancelEventHandler(this.txtScore_Validating);
             // 
             // dateExamDate
             // 
-            this.dateExamDate.Location = new System.Drawing.Point(269, 133);
+            this.dateExamDate.Location = new System.Drawing.Point(278, 133);
             this.dateExamDate.Name = "dateExamDate";
-            this.dateExamDate.Size = new System.Drawing.Size(100, 21);
+            this.dateExamDate.Size = new System.Drawing.Size(100, 24);
             this.dateExamDate.TabIndex = 36;
             // 
             // cbResult
@@ -113,9 +123,9 @@ namespace DS.Plugins.Student
             this.cbResult.Items.AddRange(new object[] {
             "合格",
             "不合格"});
-            this.cbResult.Location = new System.Drawing.Point(269, 198);
+            this.cbResult.Location = new System.Drawing.Point(278, 198);
             this.cbResult.Name = "cbResult";
-            this.cbResult.Size = new System.Drawing.Size(100, 20);
+            this.cbResult.Size = new System.Drawing.Size(100, 23);
             this.cbResult.TabIndex = 35;
             // 
             // label13
@@ -123,7 +133,7 @@ namespace DS.Plugins.Student
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(208, 206);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.Size = new System.Drawing.Size(67, 15);
             this.label13.TabIndex = 34;
             this.label13.Text = "考试结果";
             // 
@@ -132,15 +142,15 @@ namespace DS.Plugins.Student
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(0, 206);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 12);
+            this.label12.Size = new System.Drawing.Size(75, 15);
             this.label12.TabIndex = 32;
             this.label12.Text = " 考试成绩";
             // 
             // txtExamPerson
             // 
-            this.txtExamPerson.Location = new System.Drawing.Point(269, 165);
+            this.txtExamPerson.Location = new System.Drawing.Point(278, 165);
             this.txtExamPerson.Name = "txtExamPerson";
-            this.txtExamPerson.Size = new System.Drawing.Size(100, 21);
+            this.txtExamPerson.Size = new System.Drawing.Size(100, 24);
             this.txtExamPerson.TabIndex = 31;
             // 
             // label11
@@ -148,7 +158,7 @@ namespace DS.Plugins.Student
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(220, 174);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.Size = new System.Drawing.Size(52, 15);
             this.label11.TabIndex = 30;
             this.label11.Text = "考试员";
             // 
@@ -157,9 +167,9 @@ namespace DS.Plugins.Student
             this.cbSubject.BackColor = System.Drawing.SystemColors.Control;
             this.cbSubject.Enabled = false;
             this.cbSubject.FormattingEnabled = true;
-            this.cbSubject.Location = new System.Drawing.Point(73, 166);
+            this.cbSubject.Location = new System.Drawing.Point(76, 166);
             this.cbSubject.Name = "cbSubject";
-            this.cbSubject.Size = new System.Drawing.Size(100, 20);
+            this.cbSubject.Size = new System.Drawing.Size(100, 23);
             this.cbSubject.TabIndex = 29;
             // 
             // label10
@@ -167,7 +177,7 @@ namespace DS.Plugins.Student
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 174);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.Size = new System.Drawing.Size(67, 15);
             this.label10.TabIndex = 28;
             this.label10.Text = "考试科目";
             // 
@@ -176,16 +186,16 @@ namespace DS.Plugins.Student
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(208, 142);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.Size = new System.Drawing.Size(67, 15);
             this.label9.TabIndex = 26;
             this.label9.Text = "考试日期";
             // 
             // txtAllowExamDate
             // 
             this.txtAllowExamDate.Enabled = false;
-            this.txtAllowExamDate.Location = new System.Drawing.Point(73, 133);
+            this.txtAllowExamDate.Location = new System.Drawing.Point(76, 133);
             this.txtAllowExamDate.Name = "txtAllowExamDate";
-            this.txtAllowExamDate.Size = new System.Drawing.Size(100, 21);
+            this.txtAllowExamDate.Size = new System.Drawing.Size(100, 24);
             this.txtAllowExamDate.TabIndex = 25;
             // 
             // label8
@@ -193,16 +203,16 @@ namespace DS.Plugins.Student
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 142);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 24;
             this.label8.Text = "准考日期";
             // 
             // txtExamId
             // 
             this.txtExamId.Enabled = false;
-            this.txtExamId.Location = new System.Drawing.Point(269, 101);
+            this.txtExamId.Location = new System.Drawing.Point(278, 101);
             this.txtExamId.Name = "txtExamId";
-            this.txtExamId.Size = new System.Drawing.Size(100, 21);
+            this.txtExamId.Size = new System.Drawing.Size(100, 24);
             this.txtExamId.TabIndex = 23;
             // 
             // label6
@@ -210,16 +220,16 @@ namespace DS.Plugins.Student
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(208, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 22;
             this.label6.Text = "准考证号";
             // 
             // txtCoachName
             // 
             this.txtCoachName.Enabled = false;
-            this.txtCoachName.Location = new System.Drawing.Point(73, 101);
+            this.txtCoachName.Location = new System.Drawing.Point(76, 101);
             this.txtCoachName.Name = "txtCoachName";
-            this.txtCoachName.Size = new System.Drawing.Size(100, 21);
+            this.txtCoachName.Size = new System.Drawing.Size(100, 24);
             this.txtCoachName.TabIndex = 21;
             // 
             // label5
@@ -227,16 +237,16 @@ namespace DS.Plugins.Student
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(18, 110);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 20;
             this.label5.Text = "教练员";
             // 
             // txtNewCarType
             // 
             this.txtNewCarType.Enabled = false;
-            this.txtNewCarType.Location = new System.Drawing.Point(269, 69);
+            this.txtNewCarType.Location = new System.Drawing.Point(278, 69);
             this.txtNewCarType.Name = "txtNewCarType";
-            this.txtNewCarType.Size = new System.Drawing.Size(100, 21);
+            this.txtNewCarType.Size = new System.Drawing.Size(100, 24);
             this.txtNewCarType.TabIndex = 19;
             // 
             // label4
@@ -244,16 +254,16 @@ namespace DS.Plugins.Student
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(208, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 18;
             this.label4.Text = "学习车型";
             // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(73, 69);
+            this.txtName.Location = new System.Drawing.Point(76, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 21);
+            this.txtName.Size = new System.Drawing.Size(100, 24);
             this.txtName.TabIndex = 17;
             // 
             // label2
@@ -261,15 +271,15 @@ namespace DS.Plugins.Student
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(30, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "姓名";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 14);
+            this.textBox1.Location = new System.Drawing.Point(150, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 21);
+            this.textBox1.Size = new System.Drawing.Size(200, 24);
             this.textBox1.TabIndex = 11;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -278,16 +288,16 @@ namespace DS.Plugins.Student
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(18, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 12);
+            this.label7.Size = new System.Drawing.Size(127, 15);
             this.label7.TabIndex = 14;
             this.label7.Text = "查找的身份证明号";
             // 
             // cbIdCard
             // 
             this.cbIdCard.FormattingEnabled = true;
-            this.cbIdCard.Location = new System.Drawing.Point(130, 45);
+            this.cbIdCard.Location = new System.Drawing.Point(150, 45);
             this.cbIdCard.Name = "cbIdCard";
-            this.cbIdCard.Size = new System.Drawing.Size(200, 20);
+            this.cbIdCard.Size = new System.Drawing.Size(200, 23);
             this.cbIdCard.TabIndex = 13;
             this.cbIdCard.TextChanged += new System.EventHandler(this.cbIdCard_TextChanged);
             // 
@@ -296,18 +306,9 @@ namespace DS.Plugins.Student
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(30, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 12;
             this.label3.Text = "学生身份证明号";
-            // 
-            // lbStudentId
-            // 
-            this.lbStudentId.AutoSize = true;
-            this.lbStudentId.Location = new System.Drawing.Point(337, 51);
-            this.lbStudentId.Name = "lbStudentId";
-            this.lbStudentId.Size = new System.Drawing.Size(0, 12);
-            this.lbStudentId.TabIndex = 37;
-            this.lbStudentId.Visible = false;
             // 
             // StudentExamBrowser
             // 

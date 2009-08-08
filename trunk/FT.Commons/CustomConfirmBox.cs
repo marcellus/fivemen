@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FT.Commons
 {
-    public partial class CustomConfirmBox : Form
+    public partial class CustomConfirmBox : DevExpress.XtraEditors.XtraForm
     {
         public CustomConfirmBox()
         {

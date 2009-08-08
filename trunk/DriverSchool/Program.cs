@@ -13,9 +13,8 @@ namespace DriverSchool
         [STAThread]
         static void Main()
         {
-            //System.Threading.Thread.Sleep()
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            FT.Windows.Forms.AppicationHelper.BeforeStart();
+            
             FT.Windows.Forms.AppicationHelper.StartLimitDays("driverschool", DriverSchool.Properties.Resources.bg
            , 10, "15814584509", true, typeof(InitButtonPanel), "操作快捷界面");
         }

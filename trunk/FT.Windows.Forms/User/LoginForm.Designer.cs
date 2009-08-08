@@ -45,9 +45,10 @@
             this.groupBox1.Controls.Add(this.txtPwd);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(19, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(186, 79);
+            this.groupBox1.Size = new System.Drawing.Size(228, 91);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入";
@@ -55,34 +56,34 @@
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(56, 16);
+            this.cbName.Location = new System.Drawing.Point(84, 20);
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 20);
+            this.cbName.Size = new System.Drawing.Size(121, 23);
             this.cbName.TabIndex = 3;
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(56, 43);
+            this.txtPwd.Location = new System.Drawing.Point(84, 47);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
-            this.txtPwd.Size = new System.Drawing.Size(121, 21);
+            this.txtPwd.Size = new System.Drawing.Size(121, 24);
             this.txtPwd.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 52);
+            this.label2.Location = new System.Drawing.Point(18, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "密  码";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 24);
+            this.label1.Location = new System.Drawing.Point(19, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "用户名";
             // 
@@ -91,7 +92,7 @@
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLogin.Image = global::FT.Windows.Forms.Properties.Resources.Login;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(19, 92);
+            this.btnLogin.Location = new System.Drawing.Point(40, 113);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 1;
@@ -104,7 +105,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::FT.Windows.Forms.Properties.Resources.Logout;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(130, 92);
+            this.btnCancel.Location = new System.Drawing.Point(151, 113);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -115,10 +116,12 @@
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
+            this.Appearance.Font = new System.Drawing.Font("宋体", 11F);
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(224, 122);
+            this.ClientSize = new System.Drawing.Size(259, 151);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.groupBox1);

@@ -9,7 +9,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class DbAutoBakConfigForm : Form
+    public partial class DbAutoBakConfigForm : DevExpress.XtraEditors.XtraForm
     {
         ConfigLoader<DbAutoBakConfig> loader = null;
         public DbAutoBakConfigForm()

@@ -10,7 +10,7 @@ using FT.Commons.Tools;
 
 namespace FT.Windows.Forms
 {
-    public partial class SimpleAbout : Form
+    public partial class SimpleAbout : DevExpress.XtraEditors.XtraForm
     {
         public SimpleAbout()
         {

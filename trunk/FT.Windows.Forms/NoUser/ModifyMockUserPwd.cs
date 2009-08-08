@@ -11,7 +11,7 @@ using FT.Commons.Cache;
 
 namespace FT.Windows.Forms.NoUser
 {
-    public partial class ModifyMockUserPwd : Form
+    public partial class ModifyMockUserPwd : DevExpress.XtraEditors.XtraForm
     {
         public ModifyMockUserPwd()
         {

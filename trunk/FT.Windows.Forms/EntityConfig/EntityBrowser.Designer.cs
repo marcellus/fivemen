@@ -46,6 +46,7 @@ namespace FT.Windows.Forms
             this.groupBox1.Controls.Add(this.txtClassFullName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(13, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(417, 136);
@@ -65,16 +66,16 @@ namespace FT.Windows.Forms
             // 
             // txtClassCnName
             // 
-            this.txtClassCnName.Location = new System.Drawing.Point(71, 55);
+            this.txtClassCnName.Location = new System.Drawing.Point(78, 55);
             this.txtClassCnName.Name = "txtClassCnName";
-            this.txtClassCnName.Size = new System.Drawing.Size(321, 21);
+            this.txtClassCnName.Size = new System.Drawing.Size(321, 24);
             this.txtClassCnName.TabIndex = 2;
             // 
             // txtClassFullName
             // 
-            this.txtClassFullName.Location = new System.Drawing.Point(72, 21);
+            this.txtClassFullName.Location = new System.Drawing.Point(79, 21);
             this.txtClassFullName.Name = "txtClassFullName";
-            this.txtClassFullName.Size = new System.Drawing.Size(321, 21);
+            this.txtClassFullName.Size = new System.Drawing.Size(321, 24);
             this.txtClassFullName.TabIndex = 2;
             // 
             // label3
@@ -82,7 +83,7 @@ namespace FT.Windows.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "中文名";
             // 
@@ -91,7 +92,7 @@ namespace FT.Windows.Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(36, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "类名";
             // 
