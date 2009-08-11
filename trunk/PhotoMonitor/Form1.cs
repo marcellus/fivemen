@@ -165,9 +165,10 @@ namespace PhotoMonitor
                          else{
                              idcard = filename.Substring(0, filename.IndexOf("."));
                          }
-                         tmpimgdata = this.GetService(config).getDrvimage(idcardtype, idcard, config.ServiceReadSn);
+                         tmpimgdata = string.Empty;
+                             //= this.GetService(config).getDrvimageAsync(idcardtype, idcard, config.ServiceReadSn,null);
                          log.Debug("读取驾驶人" + idcardtype + "-" + idcard + "照片信息");
-                         log.Debug(tmpimgdata);
+                         log.Debug("读取结果-》"+tmpimgdata);
                          if(tmpimgdata!=null&&tmpimgdata.Length>0)
                          {
                              this.CreateLog("已存在照片" + file.Name);
@@ -195,6 +196,8 @@ namespace PhotoMonitor
                      
                      catch (System.Exception ex)
                      {
+                         log.Info("services的ip设置：" + this.GetService(config).Url);
+                         log.Info(ex);
                          error++;
                          FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
                          this.CreateLog("处理失败的照片" + file.Name + "失败的原因" + ex.Message);

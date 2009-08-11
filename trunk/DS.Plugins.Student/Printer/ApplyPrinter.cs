@@ -55,7 +55,7 @@ namespace DS.Plugins.Student
                     //string path = Application.StartupPath + "/tempcode39.jpg";
                     ImageHelper.SaveCoderPic(this.GetQRImage(Student.Dimension),path);
                    // MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(516 + width, 720 + height), new Size(150, 150)));
-                    MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(368 + width, 775 + height), new Size(130, 130)));
+                    MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(370 + width, 775 + height), new Size(130, 130)));
                 }
             }
             DateTime regDate = System.DateTime.Now;
