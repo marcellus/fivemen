@@ -38,6 +38,7 @@
             this.txtMonitorPath = new System.Windows.Forms.TextBox();
             this.btnMonitorPath = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkSuccessBak = new System.Windows.Forms.CheckBox();
             this.txtBakPath = new System.Windows.Forms.TextBox();
             this.btnBakPath = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,6 @@
             this.txtServiceIp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.checkSuccessBak = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -91,7 +91,6 @@
             this.checkAutoStart.TabIndex = 3;
             this.checkAutoStart.Text = "自动启动";
             this.checkAutoStart.UseVisualStyleBackColor = true;
-            this.checkAutoStart.Visible = false;
             // 
             // label5
             // 
@@ -152,6 +151,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "图片备份路径配置";
             // 
+            // checkSuccessBak
+            // 
+            this.checkSuccessBak.AutoSize = true;
+            this.checkSuccessBak.Checked = true;
+            this.checkSuccessBak.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkSuccessBak.Location = new System.Drawing.Point(14, 56);
+            this.checkSuccessBak.Name = "checkSuccessBak";
+            this.checkSuccessBak.Size = new System.Drawing.Size(101, 19);
+            this.checkSuccessBak.TabIndex = 9;
+            this.checkSuccessBak.Text = "成功的备份";
+            this.checkSuccessBak.UseVisualStyleBackColor = true;
+            // 
             // txtBakPath
             // 
             this.txtBakPath.Location = new System.Drawing.Point(9, 25);
@@ -191,6 +202,7 @@
             // 
             this.txtServiceWriteSn.Location = new System.Drawing.Point(100, 105);
             this.txtServiceWriteSn.Name = "txtServiceWriteSn";
+            this.txtServiceWriteSn.PasswordChar = '*';
             this.txtServiceWriteSn.Size = new System.Drawing.Size(481, 24);
             this.txtServiceWriteSn.TabIndex = 8;
             // 
@@ -198,6 +210,7 @@
             // 
             this.txtServiceReadSn.Location = new System.Drawing.Point(100, 70);
             this.txtServiceReadSn.Name = "txtServiceReadSn";
+            this.txtServiceReadSn.PasswordChar = '*';
             this.txtServiceReadSn.Size = new System.Drawing.Size(481, 24);
             this.txtServiceReadSn.TabIndex = 7;
             // 
@@ -244,18 +257,6 @@
             this.btnSave.Text = "保存配置";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // checkSuccessBak
-            // 
-            this.checkSuccessBak.AutoSize = true;
-            this.checkSuccessBak.Checked = true;
-            this.checkSuccessBak.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkSuccessBak.Location = new System.Drawing.Point(14, 56);
-            this.checkSuccessBak.Name = "checkSuccessBak";
-            this.checkSuccessBak.Size = new System.Drawing.Size(101, 19);
-            this.checkSuccessBak.TabIndex = 9;
-            this.checkSuccessBak.Text = "成功的备份";
-            this.checkSuccessBak.UseVisualStyleBackColor = true;
             // 
             // SystemMonitorConfig
             // 

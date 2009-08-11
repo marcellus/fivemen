@@ -13,7 +13,7 @@ namespace PhotoMonitor
 
         public int MonitorTimes=500;
 
-        public bool AutoStart = true;
+        public bool AutoStart = false;
 
         public bool HintImport = true;
 

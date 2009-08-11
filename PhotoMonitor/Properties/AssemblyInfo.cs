@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("驾驶人图片监控软件")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HT")]
-[assembly: AssemblyProduct("PhotoMonitor")]
+[assembly: AssemblyProduct("驾驶人图片监控软件")]
 [assembly: AssemblyCopyright("版权所有 (C) HT 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

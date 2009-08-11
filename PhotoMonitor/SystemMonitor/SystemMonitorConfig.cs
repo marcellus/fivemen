@@ -25,10 +25,12 @@ namespace PhotoMonitor
             MessageBoxHelper.Show("±£¥Ê≈‰÷√≥…π¶£°");
             if(this.checkAutoStart.Checked)
             {
+                ShortcutHelper.CreateStartUpShortcut();
                 //RegisterHelper.SetAutoStart("PhotoMonitor_Drv");
             }
             else
             {
+                ShortcutHelper.DeleteStartUpShortcut();
                 //RegisterHelper.ClearAutoStart("PhotoMonitor_Drv");
             }
            
