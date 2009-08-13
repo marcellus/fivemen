@@ -34,6 +34,15 @@ namespace FT.Exam
         {
             if (!this.DesignMode)
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("key");
+                dt.Columns.Add("value");
+                dt.Rows.Add(new string[] { "1", "1:≈–∂œÃ‚" });
+                dt.Rows.Add(new string[] { "2", "2:—°‘ÒÃ‚" });
+                this.cbTopicTypeValue.DataSource = dt;
+                this.cbTopicTypeValue.DropDownStyle = ComboBoxStyle.DropDown;
+                this.cbTopicTypeValue.ValueMember = "key";
+                this.cbTopicTypeValue.DisplayMember = "value";
             }
         }
 

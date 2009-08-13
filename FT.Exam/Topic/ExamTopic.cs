@@ -28,7 +28,7 @@ namespace FT.Exam
         /// <summary>
         /// 考生答案,临时存放用来错题回顾用
         /// </summary>
-        [SimpleColumn(Column = "c_range",AllowInsert=false,AllowSelect=false,AllowUpdate=false)]
+        [SimpleColumn(Column = "c_user_answer",AllowInsert=false,AllowSelect=false,AllowUpdate=false)]
         public string UserAnswer;
 
         public string 考生答案

@@ -30,7 +30,7 @@ namespace FT.Exam
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTopicText = new System.Windows.Forms.TextBox();
-            this.cbTopicType = new System.Windows.Forms.ComboBox();
+            this.cbTopicTypeValue = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAnswerD = new System.Windows.Forms.TextBox();
@@ -42,7 +42,9 @@ namespace FT.Exam
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtAnswerBelong = new System.Windows.Forms.TextBox();
             this.txtRange = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@ namespace FT.Exam
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPicPath = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtAnswerBelong = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,23 +76,23 @@ namespace FT.Exam
             this.txtTopicText.Size = new System.Drawing.Size(550, 52);
             this.txtTopicText.TabIndex = 0;
             // 
-            // cbTopicType
+            // cbTopicTypeValue
             // 
-            this.cbTopicType.FormattingEnabled = true;
-            this.cbTopicType.Items.AddRange(new object[] {
+            this.cbTopicTypeValue.FormattingEnabled = true;
+            this.cbTopicTypeValue.Items.AddRange(new object[] {
             "判断题",
             "选择题"});
-            this.cbTopicType.Location = new System.Drawing.Point(73, 48);
-            this.cbTopicType.Name = "cbTopicType";
-            this.cbTopicType.Size = new System.Drawing.Size(140, 20);
-            this.cbTopicType.TabIndex = 4;
+            this.cbTopicTypeValue.Location = new System.Drawing.Point(73, 48);
+            this.cbTopicTypeValue.Name = "cbTopicTypeValue";
+            this.cbTopicTypeValue.Size = new System.Drawing.Size(140, 20);
+            this.cbTopicTypeValue.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(55, 14);
             this.label2.TabIndex = 5;
             this.label2.Text = "题目类型";
             // 
@@ -146,7 +146,7 @@ namespace FT.Exam
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(20, 105);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(11, 12);
+            this.label6.Size = new System.Drawing.Size(15, 14);
             this.label6.TabIndex = 3;
             this.label6.Text = "D";
             // 
@@ -155,7 +155,7 @@ namespace FT.Exam
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(20, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(11, 12);
+            this.label5.Size = new System.Drawing.Size(14, 14);
             this.label5.TabIndex = 2;
             this.label5.Text = "C";
             // 
@@ -164,7 +164,7 @@ namespace FT.Exam
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(20, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(11, 12);
+            this.label4.Size = new System.Drawing.Size(14, 14);
             this.label4.TabIndex = 1;
             this.label4.Text = "B";
             // 
@@ -173,7 +173,7 @@ namespace FT.Exam
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 12);
+            this.label3.Size = new System.Drawing.Size(15, 14);
             this.label3.TabIndex = 0;
             this.label3.Text = "A";
             // 
@@ -194,6 +194,13 @@ namespace FT.Exam
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "答案";
             // 
+            // txtAnswerBelong
+            // 
+            this.txtAnswerBelong.Location = new System.Drawing.Point(69, 88);
+            this.txtAnswerBelong.Name = "txtAnswerBelong";
+            this.txtAnswerBelong.Size = new System.Drawing.Size(503, 21);
+            this.txtAnswerBelong.TabIndex = 5;
+            // 
             // txtRange
             // 
             this.txtRange.Location = new System.Drawing.Point(69, 55);
@@ -201,12 +208,21 @@ namespace FT.Exam
             this.txtRange.Size = new System.Drawing.Size(503, 21);
             this.txtRange.TabIndex = 5;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 14);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "答案类别";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(9, 65);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.Size = new System.Drawing.Size(55, 14);
             this.label10.TabIndex = 4;
             this.label10.Text = "题目范围";
             // 
@@ -223,7 +239,7 @@ namespace FT.Exam
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(157, 31);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.Size = new System.Drawing.Size(31, 14);
             this.label9.TabIndex = 2;
             this.label9.Text = "分值";
             // 
@@ -239,7 +255,7 @@ namespace FT.Exam
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(55, 14);
             this.label7.TabIndex = 0;
             this.label7.Text = "标准答案";
             // 
@@ -248,7 +264,7 @@ namespace FT.Exam
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(244, 56);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 12);
+            this.label8.Size = new System.Drawing.Size(103, 14);
             this.label8.TabIndex = 8;
             this.label8.Text = "题目图片相对路径";
             // 
@@ -258,22 +274,6 @@ namespace FT.Exam
             this.txtPicPath.Name = "txtPicPath";
             this.txtPicPath.Size = new System.Drawing.Size(234, 21);
             this.txtPicPath.TabIndex = 9;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 98);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "答案类别";
-            // 
-            // txtAnswerBelong
-            // 
-            this.txtAnswerBelong.Location = new System.Drawing.Point(69, 88);
-            this.txtAnswerBelong.Name = "txtAnswerBelong";
-            this.txtAnswerBelong.Size = new System.Drawing.Size(503, 21);
-            this.txtAnswerBelong.TabIndex = 5;
             // 
             // ExamTopicBrowser
             // 
@@ -285,10 +285,10 @@ namespace FT.Exam
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.cbTopicType);
+            this.Controls.Add(this.cbTopicTypeValue);
             this.Name = "ExamTopicBrowser";
             this.Text = "考题数据";
-            this.Controls.SetChildIndex(this.cbTopicType, 0);
+            this.Controls.SetChildIndex(this.cbTopicTypeValue, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -311,7 +311,7 @@ namespace FT.Exam
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbTopicType;
+        private System.Windows.Forms.ComboBox cbTopicTypeValue;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;

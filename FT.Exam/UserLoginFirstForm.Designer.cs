@@ -43,6 +43,8 @@
             this.lbTrain3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lbAllCount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtLearnCar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,7 @@
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(20, 78);
+            this.txtIdCard.Location = new System.Drawing.Point(20, 60);
             this.txtIdCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdCard.Name = "txtIdCard";
             this.txtIdCard.Size = new System.Drawing.Size(352, 24);
@@ -186,12 +188,31 @@
             this.lbAllCount.Text = "label3";
             this.lbAllCount.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 15);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "请输入驾照类型";
+            // 
+            // txtLearnCar
+            // 
+            this.txtLearnCar.Location = new System.Drawing.Point(150, 85);
+            this.txtLearnCar.Name = "txtLearnCar";
+            this.txtLearnCar.Size = new System.Drawing.Size(100, 24);
+            this.txtLearnCar.TabIndex = 16;
+            this.txtLearnCar.Text = "C1";
+            // 
             // UserLoginFirstForm
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 245);
+            this.Controls.Add(this.txtLearnCar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbAllCount);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.lbTrain3);
@@ -236,5 +257,7 @@
         private System.Windows.Forms.Label lbTrain3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbAllCount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtLearnCar;
     }
 }

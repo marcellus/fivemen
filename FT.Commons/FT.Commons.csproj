@@ -54,6 +54,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -206,6 +207,7 @@
       <DependentUpon>RegexTest.cs</DependentUpon>
     </Compile>
     <Compile Include="WebCatcher\SimpleCatcher.cs" />
+    <Compile Include="Web\Tools\FileExportHelper.cs" />
     <Compile Include="Win32\SetWindowEnv.cs">
       <SubType>Form</SubType>
     </Compile>

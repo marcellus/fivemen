@@ -76,7 +76,16 @@ namespace FT.Exam
         {
             get
             {
-                return this.topic.Answer == this.lbAnswer.Text;
+                string tmp = this.topic.Answer;
+                if(tmp=="Y")
+                {
+                    tmp = "¡Ì";
+                }
+                if (tmp == "N")
+                {
+                    tmp = "¡Á";
+                }
+                return tmp == this.lbAnswer.Text;
             }
         }
         /// <summary>
@@ -86,8 +95,16 @@ namespace FT.Exam
         {
             get
             {
-
-                return this.lbAnswer.Text.Trim();
+                string tmp = this.lbAnswer.Text.Trim();
+                if (tmp == "¡Ì")
+                {
+                    tmp = "Y";
+                }
+                if (tmp == "¡Á")
+                {
+                    tmp = "N";
+                }
+                return tmp;
             }
         }
     }

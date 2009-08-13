@@ -156,15 +156,31 @@ namespace PhotoMonitor
                      filename = file.Name;
                      try
                      {
-                         
-                         if(! Regex.IsMatch(file.Name[0].ToString(),"[0-9]"))
+                         if(filename.IndexOf("-")!=-1)
                          {
-                             idcardtype=file.Name[0].ToString();
-                             idcard = filename.Substring(0, filename.IndexOf("."));
+                             string[] filenames = filename.Split('-');
+                             string tmpsplit = filenames[0];
+                             if (!Regex.IsMatch(tmpsplit[0].ToString(), "[0-9]"))
+                             {
+                                 idcardtype = tmpsplit.ToString();
+                                 idcard = tmpsplit;
+                             }
+                             else
+                             {
+                                 idcard = tmpsplit;
+                             }
                          }
-                         else{
-                             idcard = filename.Substring(0, filename.IndexOf("."));
-                         }
+                         else
+                         {
+                             if(! Regex.IsMatch(file.Name[0].ToString(),"[0-9]"))
+                             {
+                                 idcardtype=file.Name[0].ToString();
+                                 idcard = filename.Substring(0, filename.IndexOf("."));
+                             }
+                             else{
+                                 idcard = filename.Substring(0, filename.IndexOf("."));
+                             }
+                        }
                          tmpimgdata = string.Empty;
                              //= this.GetService(config).getDrvimageAsync(idcardtype, idcard, config.ServiceReadSn,null);
                          log.Debug("读取驾驶人" + idcardtype + "-" + idcard + "照片信息");

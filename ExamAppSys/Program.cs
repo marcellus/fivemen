@@ -12,8 +12,8 @@ namespace ExamAppSys
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            FT.Windows.Forms.AppicationHelper.BeforeStart();
+            
              Form form= new FT.Exam.UserLoginFirstForm();
              DialogResult result = form.ShowDialog();
             if(result==DialogResult.OK)
