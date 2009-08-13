@@ -131,7 +131,7 @@ user.NotPassCount.ToString();
             ExamTopic tmp = this.topics[index] as ExamTopic;
             if(tmp!=null)
             {
-                if (tmp.TopicType == "判断题")
+                if (tmp.TopicType == "1")
                 {
                     this.btnA.Visible = false;
                     this.btnB.Visible = false;
@@ -202,7 +202,7 @@ user.NotPassCount.ToString();
         {
             if (MessageBoxHelper.Confirm("请再次确认是否要交卷结束考试！"))
             {
-                ScoreHintForm form =new  ScoreHintForm("模拟用户",this.topicsControl);
+                ScoreHintForm form =new  ScoreHintForm(this.user.Name,this.topicsControl);
                 form.ShowDialog();
             }
 
@@ -253,11 +253,11 @@ user.NotPassCount.ToString();
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteTransaction(sqls);
                 
                
-                Environment.Exit(0);
+                //Environment.Exit(0);
                 //Application.Exit();
             }
             else{
-                Environment.Exit(0);
+                //Environment.Exit(0);
                 //Application.Exit();
             }
         }

@@ -30,11 +30,19 @@ namespace FT.Exam
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string learncar = this.txtLearnCar.Text.Trim().ToUpper();
+            if(learncar.Length==0)
+            {
+                MessageBoxHelper.Show("对不起，必须输入申请的驾照型号！");
+                return;
+
+            }
             ArrayList list = SimpleOrmOperator.QueryConditionList<ExamUser>(" where c_idcard='"+DALSecurityTool.TransferInsertField(this.txtIdCard.Text.Trim())+"'");
             if(list==null||list.Count==0)
             {
 
                 MessageBoxHelper.Show("对不起，不存在该学员，请咨询管理员！");
+                return;
             }
             else
             {
@@ -45,9 +53,10 @@ namespace FT.Exam
                     MessageBoxHelper.Show("对不起，您已经合格了"+user.PassCount.ToString()+"次，无法再次进行考试!");
                     return;
                 }
+                
                 // 判断是否考试合格次数超过了配置的考试合格次数限制
-                ArrayList topics= this.GetRandomTopic();
-                this.Hide();
+                ArrayList topics = this.GetRandomTopic(learncar);
+                //this.Hide();
                 ExamWorkStation form = new ExamWorkStation(topics,user,this.checkTrain.Checked);
                 form.ShowDialog();
                 
@@ -55,15 +64,31 @@ namespace FT.Exam
             
         }
 
-        public ArrayList GetRandomTopic()
+        public ArrayList GetRandomTopic(string learncar)
         {
              ArrayList topics=null;
             if(this.checkExam.Checked)
             {
+                Random d = new Random();
+                int tmpint = Convert.ToInt32(d.NextDouble() * 1000) + 1;
+                
                 ///TODO:随机抽题
-                string sql = "select top 100 * from table_exam_topic "
-                    + " order by id asc";
+                string sql = "select * from (select top 40 * from table_exam_topic "
+                   + "where c_topictype='1' and c_range like '%" +
+                    FT.DAL.DALSecurityTool.TransferInsertField(learncar) + "%'" + " order by rnd(-1*"+tmpint+"*id)) order by id asc ";
                 topics = FT.DAL.Orm.SimpleOrmOperator.QueryList(typeof(ExamTopic), sql);
+
+                sql = "select * from (select top 60 * from table_exam_topic "
+                  + "where c_topictype='2' and c_range like '%" +
+                   FT.DAL.DALSecurityTool.TransferInsertField(learncar) + "%'" + " order by rnd(-1*" + tmpint + "*id)) order by id asc ";
+                ArrayList topicstmp = FT.DAL.Orm.SimpleOrmOperator.QueryList(typeof(ExamTopic), sql);
+                if(topicstmp!=null&&topicstmp.Count>0)
+                {
+                    for(int i=0;i<topicstmp.Count;i++)
+                    {
+                        topics.Add(topicstmp[i]);
+                    }
+                }
             }
             else
             {
@@ -80,7 +105,9 @@ namespace FT.Exam
                     int count = Convert.ToInt32(this.txtEndNum.Text.Trim());
                     int all = from + count;
                     string sql = "select top " + count + " * from ( select top " + all + " * from table_exam_topic "
-                        + " order by id asc) order by id desc";
+                        + "where c_range like '%" +
+                    FT.DAL.DALSecurityTool.TransferInsertField(learncar) + "%'" 
+                    + " order by id asc) order by id desc";
                     topics = FT.DAL.Orm.SimpleOrmOperator.QueryList(typeof(ExamTopic), sql);
                 }
                 catch (System.Exception e)

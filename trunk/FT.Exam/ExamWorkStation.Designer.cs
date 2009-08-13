@@ -34,8 +34,8 @@
             this.lbAnswerC = new System.Windows.Forms.Label();
             this.lbAnswerB = new System.Windows.Forms.Label();
             this.lbAnswerA = new System.Windows.Forms.Label();
-            this.lbTopic = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.lbAnswer = new System.Windows.Forms.Label();
             this.picImage = new System.Windows.Forms.PictureBox();
             this.lbWelcome = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.lbTopic = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -59,11 +59,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbTopic);
             this.groupBox1.Controls.Add(this.lbAnswerD);
             this.groupBox1.Controls.Add(this.lbAnswerC);
             this.groupBox1.Controls.Add(this.lbAnswerB);
             this.groupBox1.Controls.Add(this.lbAnswerA);
-            this.groupBox1.Controls.Add(this.lbTopic);
             this.groupBox1.Location = new System.Drawing.Point(16, 90);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -113,16 +113,6 @@
             this.lbAnswerA.TabIndex = 1;
             this.lbAnswerA.Text = "label3";
             // 
-            // lbTopic
-            // 
-            this.lbTopic.AutoSize = true;
-            this.lbTopic.Location = new System.Drawing.Point(12, 26);
-            this.lbTopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTopic.Name = "lbTopic";
-            this.lbTopic.Size = new System.Drawing.Size(55, 15);
-            this.lbTopic.TabIndex = 0;
-            this.lbTopic.Text = "label2";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
@@ -135,6 +125,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "考试提示";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(601, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "查找我的考试记录";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -285,15 +285,15 @@
             this.lbWelcome.TabIndex = 8;
             this.lbWelcome.Text = "欢迎您，身份证明号码为";
             // 
-            // button3
+            // lbTopic
             // 
-            this.button3.Location = new System.Drawing.Point(601, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "查找我的考试记录";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.lbTopic.BackColor = System.Drawing.SystemColors.Control;
+            this.lbTopic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbTopic.Location = new System.Drawing.Point(15, 17);
+            this.lbTopic.Multiline = true;
+            this.lbTopic.Name = "lbTopic";
+            this.lbTopic.Size = new System.Drawing.Size(719, 40);
+            this.lbTopic.TabIndex = 5;
             // 
             // ExamWorkStation
             // 
@@ -322,7 +322,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ExamWorkStation";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "科目一无纸化模拟考试台";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExamWorkStation_FormClosing);
@@ -346,7 +345,6 @@
         private System.Windows.Forms.Label lbAnswerC;
         private System.Windows.Forms.Label lbAnswerB;
         private System.Windows.Forms.Label lbAnswerA;
-        private System.Windows.Forms.Label lbTopic;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnB;
@@ -361,5 +359,6 @@
         private System.Windows.Forms.PictureBox picImage;
         private System.Windows.Forms.Label lbWelcome;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox lbTopic;
     }
 }
