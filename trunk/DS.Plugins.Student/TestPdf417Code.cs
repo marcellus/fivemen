@@ -111,5 +111,19 @@ namespace DS.Plugins.Student
                 this.GrantString();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string data = "汉字简体+繁體";
+            byte[] bytes = System.Text.Encoding.GetEncoding("gb2312").GetBytes(data);
+            string data2 = System.Text.Encoding.GetEncoding("gb2312").GetString(bytes);
+
+            this.txtRightCode.Text="默认的系统编码是：" + System.Text.Encoding.Default.EncodingName
+            +"\r\n初始数据是:" + data
+           
+
+                +"\r\n经过GB2312编码后的数据是:" + data2;
+            
+        }
     }
 }

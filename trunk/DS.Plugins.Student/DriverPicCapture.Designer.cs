@@ -86,7 +86,7 @@
             // 
             this.cbIdCardType.FormattingEnabled = true;
             this.cbIdCardType.Location = new System.Drawing.Point(115, 44);
-            this.cbIdCardType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbIdCardType.Margin = new System.Windows.Forms.Padding(2);
             this.cbIdCardType.Name = "cbIdCardType";
             this.cbIdCardType.Size = new System.Drawing.Size(152, 23);
             this.cbIdCardType.TabIndex = 4;
@@ -146,8 +146,10 @@
             this.picPic.Location = new System.Drawing.Point(180, 224);
             this.picPic.Name = "picPic";
             this.picPic.Size = new System.Drawing.Size(99, 138);
+            this.picPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPic.TabIndex = 6;
             this.picPic.TabStop = false;
+            this.picPic.Click += new System.EventHandler(this.picPic_Click);
             // 
             // groupBox3
             // 
@@ -183,7 +185,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 11F);
             this.button1.Location = new System.Drawing.Point(12, 257);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 18);
             this.button1.TabIndex = 7;
@@ -194,6 +196,8 @@
             // 
             // DriverPicCapture
             // 
+            this.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 390);
@@ -202,7 +206,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("宋体", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -183,30 +183,47 @@ namespace PhotoMonitor
                         }
                          tmpimgdata = string.Empty;
                              //= this.GetService(config).getDrvimageAsync(idcardtype, idcard, config.ServiceReadSn,null);
-                         log.Debug("读取驾驶人" + idcardtype + "-" + idcard + "照片信息");
-                         log.Debug("读取结果-》"+tmpimgdata);
-                         if(tmpimgdata!=null&&tmpimgdata.Length>0)
-                         {
-                             this.CreateLog("已存在照片" + file.Name);
-                             FileHelper.CheckDirExistsAndCreate(bakdir + "已存在照片/");
-                             File.Copy(file.FullName, bakdir +"已存在照片/"+ file.Name, true);
-                             file.Delete();
+                         //log.Debug("读取驾驶人" + idcardtype + "-" + idcard + "照片信息");
+                         //log.Debug("读取结果-》"+tmpimgdata);
+                         //if(tmpimgdata!=null&&tmpimgdata.Length>0)
+                        // {
+                            // this.CreateLog("已存在照片" + file.Name);
+                            // FileHelper.CheckDirExistsAndCreate(bakdir + "已存在照片/");
+                            // File.Copy(file.FullName, bakdir +"已存在照片/"+ file.Name, true);
+                            // file.Delete();
                              
-                         }
-                         else
-                         {
+                         //}
+                         //else
+                         //{
                              tmpimgdata=this.GetService(config).write_drvimage(idcardtype, idcard,
                                  ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
                              log.Debug("写入驾驶人" + idcardtype + "-" + idcard + "照片信息");
                              log.Debug(tmpimgdata);
-                             if(config.SuccessBak)
+                             string code = this.GetTextInXml(tmpimgdata, "//code");
+
+                             if (code == "0")
                              {
-                                 File.Copy(file.FullName, bakdir + file.Name, true);
+                                 
+                                 if (config.SuccessBak)
+                                 {
+                                     File.Copy(file.FullName, bakdir + file.Name, true);
+                                 }
+                                 file.Delete();
+                                 success++;
                              }
+                             else
+                             {
+                                 string message = this.GetTextInXml(tmpimgdata, "//message");
+                                 error++;
+                                 FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
+                                 this.CreateLog("处理失败的照片" + file.Name + "失败的原因" + message);
+                                 File.Copy(file.FullName, bakdir + "处理失败的照片/" + file.Name, true);
+                                 file.Delete();
+                             }
+
                              
-                             file.Delete();
-                         }
-                         success++;
+                         //}
+                         
                          
                      }
                      

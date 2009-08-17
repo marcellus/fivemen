@@ -10,6 +10,7 @@ using FT.DAL;
 using System.Collections;
 using FT.Commons.Tools;
 using FT.Commons.Cache;
+using FT.Windows.CommonsPlugin;
 
 namespace FT.Exam
 {
@@ -18,6 +19,8 @@ namespace FT.Exam
         public UserLoginFirstForm()
         {
             InitializeComponent();
+            DictManager.BindCarType(this.cbLearnCar);
+            this.cbLearnCar.Text = "C1";
         }
 
         private void UserLoginFirstForm_Load(object sender, EventArgs e)
@@ -30,7 +33,7 @@ namespace FT.Exam
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string learncar = this.txtLearnCar.Text.Trim().ToUpper();
+            string learncar = this.cbLearnCar.Text.Trim().ToUpper();
             if(learncar.Length==0)
             {
                 MessageBoxHelper.Show("对不起，必须输入申请的驾照型号！");
@@ -172,6 +175,14 @@ namespace FT.Exam
                     tmp.Controls.Add(ctr);
                     tmp.ShowDialog();
             }
+        }
+
+        private void cbLearnCar_TextChanged(object sender, EventArgs e)
+        {
+            string learncar = this.cbLearnCar.Text.Trim().ToUpper();
+            this.lbAllCount.Text = "题库共有"
+            + FT.DAL.Orm.SimpleOrmOperator.QueryCounts(typeof(ExamTopic), " where c_range like '%"+
+             FT.DAL.DALSecurityTool.TransferInsertField(learncar) + "%' ").ToString() + "题";
         }
     }
 }
