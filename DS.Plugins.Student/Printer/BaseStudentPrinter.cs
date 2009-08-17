@@ -10,6 +10,7 @@ using FT.Windows.Forms.Domain;
 using ThoughtWorks.QRCode.Codec;
 using ThoughtWorks.QRCode.Codec.Data;
 using ThoughtWorks.QRCode.Codec.Util;
+using log4net;
 
 namespace DS.Plugins.Student
 {
@@ -394,9 +395,21 @@ namespace DS.Plugins.Student
             Image image;
             //,System.Text.Encoding.UTF8
             int length = data.Length;
+            log.Debug("默认的系统编码是：" + System.Text.Encoding.Default.EncodingName);
+            log.Debug("从数据库提取的数据是:" + data);
             image = qrCodeEncoder.Encode(data, System.Text.Encoding.GetEncoding("gb2312"));
+            if(log.IsDebugEnabled)
+            {
+                byte[] bytes = System.Text.Encoding.GetEncoding("gb2312").GetBytes(data);
+                string data2=System.Text.Encoding.GetEncoding("gb2312").GetString(bytes);
+
+                log.Debug("经过GB2312编码后的数据是:" + data2);
+            }
+            
             return image;
         }
+
+        protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
 
     }
 }

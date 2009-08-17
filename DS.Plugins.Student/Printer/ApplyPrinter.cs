@@ -8,14 +8,18 @@ using FT.Commons.Cache;
 using FT.Windows.Forms;
 using FT.Windows.Forms.Domain;
 using FT.Commons.Tools;
+using System.IO;
+using System.Collections;
 
 namespace DS.Plugins.Student
 {
     public class ApplyPrinter:BaseStudentPrinter
     {
+
         public ApplyPrinter(StudentInfo student)
             : base(student)
         {
+           
         }
         public override int GetTotalPage()
         {
@@ -125,13 +129,8 @@ namespace DS.Plugins.Student
                 // MyGraphics.DrawRectangle(blackPen, 332 + 17 * i + (i / 2) * 1, height - 7, 17, 36);
                 // this.Draw11String(idCard[i].ToString(), new Point(334 + i * tempIdSep, height));
             }
-            //»­ÏñÆ¬
-            //if (this.picture != null)
-            //{
-                //MyGraphics.DrawImage(this.picture, new RectangleF(647, 175, 137, 168));
-                //MyGraphics.DrawImage(this.picture, new RectangleF(653, 175, 134, 170));
-            //}
 
+            this.PrintSelfPhoto();
             height += sep - 3;
             //»­ÔÝ×¡Ö¤Ã÷
 
@@ -182,6 +181,40 @@ namespace DS.Plugins.Student
                 //this.Draw11String("¡Ì", new Point(width+18, height+sep-1));
                 this.DrawStringHor("¡Ì", check, new Point(width - 18, height + sep - 1));
                 this.Draw15String(Student.OldCarType, new Point(568 + width, height));
+            }
+        }
+
+        private void PrintSelfPhoto()
+        {
+            //»­ÏñÆ¬
+            string filename = this.GetFileName(Student.IdCardType, Student.IdCard);
+            if(filename.Length>0&&File.Exists(filename))
+            {
+            //MyGraphics.DrawImage(this.picture, new RectangleF(647, 175, 137, 168));
+            MyGraphics.DrawImage(Image.FromFile(filename), new RectangleF(653, 175, 130, 160));
+            }
+        }
+
+        private string GetFileName(string type,string idcard)
+        {
+            DriverPicCaptureConfig config=StaticCacheManager.GetConfig<DriverPicCaptureConfig>();
+            ArrayList list=FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FT.Windows.CommonsPlugin.Dict>(" where c_text='"+type+"'");
+            if(list.Count==1)
+            {
+                type = ((FT.Windows.CommonsPlugin.Dict)list[0]).Value;
+            }
+            else
+            {
+                return string.Empty;
+            }
+            if (type != "A")
+            {
+                return Path.Combine(config.PicPath,type + idcard + ".jpg");
+            }
+            else
+            {
+                return Path.Combine(config.PicPath, idcard + ".jpg");
+
             }
         }
 

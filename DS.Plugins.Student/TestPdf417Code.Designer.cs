@@ -89,6 +89,7 @@
             this.textBox30 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.txtRightCode = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -104,7 +105,7 @@
             // txtBarCode
             // 
             this.txtBarCode.Location = new System.Drawing.Point(176, 5);
-            this.txtBarCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBarCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtBarCode.Name = "txtBarCode";
             this.txtBarCode.Size = new System.Drawing.Size(800, 24);
             this.txtBarCode.TabIndex = 1;
@@ -123,7 +124,7 @@
             // txtIdType
             // 
             this.txtIdType.Location = new System.Drawing.Point(176, 44);
-            this.txtIdType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdType.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdType.Name = "txtIdType";
             this.txtIdType.Size = new System.Drawing.Size(132, 24);
             this.txtIdType.TabIndex = 3;
@@ -141,7 +142,7 @@
             // txtIdCard
             // 
             this.txtIdCard.Location = new System.Drawing.Point(465, 44);
-            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdCard.Name = "txtIdCard";
             this.txtIdCard.Size = new System.Drawing.Size(193, 24);
             this.txtIdCard.TabIndex = 5;
@@ -159,7 +160,7 @@
             // txtNation
             // 
             this.txtNation.Location = new System.Drawing.Point(753, 44);
-            this.txtNation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNation.Margin = new System.Windows.Forms.Padding(4);
             this.txtNation.Name = "txtNation";
             this.txtNation.Size = new System.Drawing.Size(223, 24);
             this.txtNation.TabIndex = 7;
@@ -177,7 +178,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(176, 82);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 24);
             this.txtName.TabIndex = 9;
@@ -195,7 +196,7 @@
             // txtSex
             // 
             this.txtSex.Location = new System.Drawing.Point(465, 82);
-            this.txtSex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSex.Margin = new System.Windows.Forms.Padding(4);
             this.txtSex.Name = "txtSex";
             this.txtSex.Size = new System.Drawing.Size(193, 24);
             this.txtSex.TabIndex = 11;
@@ -213,7 +214,7 @@
             // txtBirthday
             // 
             this.txtBirthday.Location = new System.Drawing.Point(753, 82);
-            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBirthday.Margin = new System.Windows.Forms.Padding(4);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(223, 24);
             this.txtBirthday.TabIndex = 13;
@@ -231,7 +232,7 @@
             // txtRegArea
             // 
             this.txtRegArea.Location = new System.Drawing.Point(176, 121);
-            this.txtRegArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRegArea.Margin = new System.Windows.Forms.Padding(4);
             this.txtRegArea.Name = "txtRegArea";
             this.txtRegArea.Size = new System.Drawing.Size(132, 24);
             this.txtRegArea.TabIndex = 15;
@@ -239,7 +240,7 @@
             // txtRegAddress
             // 
             this.txtRegAddress.Location = new System.Drawing.Point(329, 121);
-            this.txtRegAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRegAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtRegAddress.Name = "txtRegAddress";
             this.txtRegAddress.Size = new System.Drawing.Size(647, 24);
             this.txtRegAddress.TabIndex = 16;
@@ -257,7 +258,7 @@
             // txtConnArea
             // 
             this.txtConnArea.Location = new System.Drawing.Point(176, 160);
-            this.txtConnArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtConnArea.Margin = new System.Windows.Forms.Padding(4);
             this.txtConnArea.Name = "txtConnArea";
             this.txtConnArea.Size = new System.Drawing.Size(132, 24);
             this.txtConnArea.TabIndex = 18;
@@ -265,7 +266,7 @@
             // txtConnAddress
             // 
             this.txtConnAddress.Location = new System.Drawing.Point(329, 160);
-            this.txtConnAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtConnAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtConnAddress.Name = "txtConnAddress";
             this.txtConnAddress.Size = new System.Drawing.Size(647, 24);
             this.txtConnAddress.TabIndex = 19;
@@ -283,7 +284,7 @@
             // txtPostCode
             // 
             this.txtPostCode.Location = new System.Drawing.Point(176, 199);
-            this.txtPostCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPostCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(132, 24);
             this.txtPostCode.TabIndex = 21;
@@ -301,7 +302,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(420, 199);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(132, 24);
             this.txtPhone.TabIndex = 23;
@@ -319,7 +320,7 @@
             // txtArea
             // 
             this.txtArea.Location = new System.Drawing.Point(657, 199);
-            this.txtArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(4);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(132, 24);
             this.txtArea.TabIndex = 25;
@@ -337,7 +338,7 @@
             // txtLearnCar
             // 
             this.txtLearnCar.Location = new System.Drawing.Point(176, 238);
-            this.txtLearnCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLearnCar.Margin = new System.Windows.Forms.Padding(4);
             this.txtLearnCar.Name = "txtLearnCar";
             this.txtLearnCar.Size = new System.Drawing.Size(132, 24);
             this.txtLearnCar.TabIndex = 27;
@@ -355,7 +356,7 @@
             // txtFrom
             // 
             this.txtFrom.Location = new System.Drawing.Point(420, 238);
-            this.txtFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFrom.Margin = new System.Windows.Forms.Padding(4);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(132, 24);
             this.txtFrom.TabIndex = 29;
@@ -373,7 +374,7 @@
             // txtTempId
             // 
             this.txtTempId.Location = new System.Drawing.Point(657, 238);
-            this.txtTempId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTempId.Margin = new System.Windows.Forms.Padding(4);
             this.txtTempId.Name = "txtTempId";
             this.txtTempId.Size = new System.Drawing.Size(132, 24);
             this.txtTempId.TabIndex = 31;
@@ -391,7 +392,7 @@
             // txtSchoolName
             // 
             this.txtSchoolName.Location = new System.Drawing.Point(176, 276);
-            this.txtSchoolName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSchoolName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSchoolName.Name = "txtSchoolName";
             this.txtSchoolName.Size = new System.Drawing.Size(800, 24);
             this.txtSchoolName.TabIndex = 33;
@@ -409,7 +410,7 @@
             // txtHeight
             // 
             this.txtHeight.Location = new System.Drawing.Point(176, 315);
-            this.txtHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(132, 24);
             this.txtHeight.TabIndex = 35;
@@ -427,7 +428,7 @@
             // txtLeftEye
             // 
             this.txtLeftEye.Location = new System.Drawing.Point(405, 315);
-            this.txtLeftEye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLeftEye.Margin = new System.Windows.Forms.Padding(4);
             this.txtLeftEye.Name = "txtLeftEye";
             this.txtLeftEye.Size = new System.Drawing.Size(48, 24);
             this.txtLeftEye.TabIndex = 37;
@@ -445,7 +446,7 @@
             // txtRightEye
             // 
             this.txtRightEye.Location = new System.Drawing.Point(509, 315);
-            this.txtRightEye.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRightEye.Margin = new System.Windows.Forms.Padding(4);
             this.txtRightEye.Name = "txtRightEye";
             this.txtRightEye.Size = new System.Drawing.Size(43, 24);
             this.txtRightEye.TabIndex = 39;
@@ -463,7 +464,7 @@
             // txtColor
             // 
             this.txtColor.Location = new System.Drawing.Point(657, 315);
-            this.txtColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtColor.Margin = new System.Windows.Forms.Padding(4);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(132, 24);
             this.txtColor.TabIndex = 41;
@@ -481,7 +482,7 @@
             // txtListening
             // 
             this.txtListening.Location = new System.Drawing.Point(887, 315);
-            this.txtListening.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtListening.Margin = new System.Windows.Forms.Padding(4);
             this.txtListening.Name = "txtListening";
             this.txtListening.Size = new System.Drawing.Size(89, 24);
             this.txtListening.TabIndex = 43;
@@ -499,7 +500,7 @@
             // txtTopBody
             // 
             this.txtTopBody.Location = new System.Drawing.Point(176, 354);
-            this.txtTopBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTopBody.Margin = new System.Windows.Forms.Padding(4);
             this.txtTopBody.Name = "txtTopBody";
             this.txtTopBody.Size = new System.Drawing.Size(132, 24);
             this.txtTopBody.TabIndex = 45;
@@ -517,7 +518,7 @@
             // txtLeftDownBody
             // 
             this.txtLeftDownBody.Location = new System.Drawing.Point(401, 354);
-            this.txtLeftDownBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLeftDownBody.Margin = new System.Windows.Forms.Padding(4);
             this.txtLeftDownBody.Name = "txtLeftDownBody";
             this.txtLeftDownBody.Size = new System.Drawing.Size(132, 24);
             this.txtLeftDownBody.TabIndex = 47;
@@ -535,7 +536,7 @@
             // txtRightDownBody
             // 
             this.txtRightDownBody.Location = new System.Drawing.Point(657, 354);
-            this.txtRightDownBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRightDownBody.Margin = new System.Windows.Forms.Padding(4);
             this.txtRightDownBody.Name = "txtRightDownBody";
             this.txtRightDownBody.Size = new System.Drawing.Size(132, 24);
             this.txtRightDownBody.TabIndex = 49;
@@ -553,7 +554,7 @@
             // txtBody
             // 
             this.txtBody.Location = new System.Drawing.Point(887, 354);
-            this.txtBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBody.Margin = new System.Windows.Forms.Padding(4);
             this.txtBody.Name = "txtBody";
             this.txtBody.Size = new System.Drawing.Size(89, 24);
             this.txtBody.TabIndex = 51;
@@ -571,7 +572,7 @@
             // txtHospital
             // 
             this.txtHospital.Location = new System.Drawing.Point(176, 392);
-            this.txtHospital.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHospital.Margin = new System.Windows.Forms.Padding(4);
             this.txtHospital.Name = "txtHospital";
             this.txtHospital.Size = new System.Drawing.Size(516, 24);
             this.txtHospital.TabIndex = 53;
@@ -589,7 +590,7 @@
             // txtCheckDate
             // 
             this.txtCheckDate.Location = new System.Drawing.Point(789, 392);
-            this.txtCheckDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCheckDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCheckDate.Name = "txtCheckDate";
             this.txtCheckDate.Size = new System.Drawing.Size(187, 24);
             this.txtCheckDate.TabIndex = 55;
@@ -607,7 +608,7 @@
             // textBox30
             // 
             this.textBox30.Location = new System.Drawing.Point(176, 431);
-            this.textBox30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox30.Margin = new System.Windows.Forms.Padding(4);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(800, 24);
             this.textBox30.TabIndex = 57;
@@ -625,16 +626,28 @@
             // txtRightCode
             // 
             this.txtRightCode.Location = new System.Drawing.Point(176, 470);
-            this.txtRightCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRightCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRightCode.Multiline = true;
             this.txtRightCode.Name = "txtRightCode";
-            this.txtRightCode.Size = new System.Drawing.Size(800, 24);
+            this.txtRightCode.Size = new System.Drawing.Size(689, 36);
             this.txtRightCode.TabIndex = 59;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(887, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "测试系统编码 ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TestPdf417Code
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 519);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtRightCode);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.textBox30);
@@ -697,7 +710,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TestPdf417Code";
@@ -769,5 +782,6 @@
         private System.Windows.Forms.TextBox textBox30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtRightCode;
+        private System.Windows.Forms.Button button1;
     }
 }

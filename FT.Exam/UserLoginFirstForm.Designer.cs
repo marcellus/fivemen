@@ -44,7 +44,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.lbAllCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtLearnCar = new System.Windows.Forms.TextBox();
+            this.cbLearnCar = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +72,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 2;
-            this.button1.Text = "模拟考试";
+            this.button1.Text = "开始考试";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -191,19 +191,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 92);
+            this.label3.Location = new System.Drawing.Point(15, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 15);
             this.label3.TabIndex = 15;
             this.label3.Text = "请输入驾照类型";
             // 
-            // txtLearnCar
+            // cbLearnCar
             // 
-            this.txtLearnCar.Location = new System.Drawing.Point(150, 85);
-            this.txtLearnCar.Name = "txtLearnCar";
-            this.txtLearnCar.Size = new System.Drawing.Size(100, 24);
-            this.txtLearnCar.TabIndex = 16;
-            this.txtLearnCar.Text = "C1";
+            this.cbLearnCar.FormattingEnabled = true;
+            this.cbLearnCar.Location = new System.Drawing.Point(139, 86);
+            this.cbLearnCar.Name = "cbLearnCar";
+            this.cbLearnCar.Size = new System.Drawing.Size(121, 23);
+            this.cbLearnCar.TabIndex = 16;
+            this.cbLearnCar.TextChanged += new System.EventHandler(this.cbLearnCar_TextChanged);
             // 
             // UserLoginFirstForm
             // 
@@ -211,7 +212,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 245);
-            this.Controls.Add(this.txtLearnCar);
+            this.Controls.Add(this.cbLearnCar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbAllCount);
             this.Controls.Add(this.button3);
@@ -258,6 +259,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbAllCount;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtLearnCar;
+        private System.Windows.Forms.ComboBox cbLearnCar;
     }
 }

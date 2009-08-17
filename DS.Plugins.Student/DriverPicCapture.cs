@@ -436,6 +436,26 @@ namespace DS.Plugins.Student
             this.SavePic();
         }
 
+        private void picPic_Click(object sender, EventArgs e)
+        {
+            string path = FileDialogHelper.OpenImage();
+
+            if (path != string.Empty)
+            {
+
+                try
+                {
+                    this.picPic.Image = Image.FromFile(path);
+                    this.SavePic();
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxHelper.Show("图片格式不对或正被其他程序使用！");
+                }
+            }
+        }
+
       
     }
 }
