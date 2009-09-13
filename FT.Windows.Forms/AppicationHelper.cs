@@ -15,6 +15,59 @@ namespace FT.Windows.Forms
     /// </summary>
     public class AppicationHelper
     {
+        public static void StartSimpleMonitor(string key,Form form,bool needregister)
+        {
+            
+            if (CheckMutex(key))
+            {
+                GetProgramState();
+                string text = Application.ProductName + Application.ProductVersion;
+                form.Text = text;
+                if (needregister && productState != ProgramState.Registed)
+                {
+
+                    SimpleRegister register = new SimpleRegister();
+                    if (register.ShowDialog() == DialogResult.OK)
+                    {
+                        GetProgramState();
+                        if (productState != ProgramState.Registed)
+                        {
+                            Application.ExitThread();
+                        }
+                        else{
+                            Application.Run(form);
+                        }
+
+
+                    }
+                    else
+                    {
+                        Application.ExitThread();
+                    }
+                    
+                    return;
+
+                }
+                else
+                {
+
+                    Application.Run(form);
+                }
+
+
+                //判断是否有使用文件配置存在
+                //二如果发生时间
+                //把需要附加到Winform的text的信息传递过去
+
+            }
+            else
+            {
+                //这里用不到
+                MessageBoxHelper.Show("已经运行了一个这样的程序！");
+            }
+        }
+
+
         /// <summary>
         /// 执行皮肤的初始化
         /// </summary>

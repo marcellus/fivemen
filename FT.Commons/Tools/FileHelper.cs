@@ -20,6 +20,22 @@ namespace FT.Commons.Tools
     public class FileHelper : BaseHelper
     {
        
+        public static void CutFolder2Another(string src,string dest)
+        {
+            FileHelper.CheckDirExistsAndCreate(src);
+            FileHelper.CheckDirExistsAndCreate(dest);
+            DirectoryInfo dir = new DirectoryInfo(src);
+            FileInfo file=null;
+            FileInfo[] files=dir.GetFiles();
+            for(int i=0;i<files.Length;i++)
+            {
+                 file=files[i];
+                 File.Copy(file.FullName, Path.Combine(dest,file.Name), true);
+                 file.Delete();
+            }
+        }
+
+
         public static bool CheckDirExists(string path)
         {
             if(path!=null&&path.Length>0)
@@ -168,6 +184,7 @@ namespace FT.Commons.Tools
 
         #region 压缩解压
 
+       
         public static bool ZipDir(string path, string zipfile)
         {
            return ZipDir(path, zipfile, string.Empty);
@@ -270,6 +287,7 @@ namespace FT.Commons.Tools
             FastZip fastZip = new FastZip();
             try
             {
+                CheckDirExistsAndCreate(path);
                 if (pwd.Length > 0)
                 {
                     fastZip.Password = pwd;

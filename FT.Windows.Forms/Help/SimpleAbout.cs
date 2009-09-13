@@ -15,7 +15,7 @@ namespace FT.Windows.Forms
         public SimpleAbout()
         {
             InitializeComponent();
-            FormHelper.InitHabitToForm(this);
+            //FormHelper.InitHabitToForm(this);
             this.lbCopyRight.Text = this.AssemblyCopyright;
             this.lbDescription.Text = this.AssemblyDescription;
             this.lbProduct.Text=this.AssemblyProduct;

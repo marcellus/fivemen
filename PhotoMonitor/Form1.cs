@@ -162,12 +162,21 @@ namespace PhotoMonitor
                              string tmpsplit = filenames[0];
                              if (!Regex.IsMatch(tmpsplit[0].ToString(), "[0-9]"))
                              {
-                                 idcardtype = tmpsplit.ToString();
-                                 idcard = tmpsplit;
+                                 idcardtype = tmpsplit[0].ToString();
+                                 idcard = tmpsplit.Substring(1);
                              }
                              else
                              {
                                  idcard = tmpsplit;
+                                 if (FT.Commons.Tools.IDCardHelper.Validate(idcard).Length > 0)
+                                 {
+                                     error++;
+                                     FileHelper.CheckDirExistsAndCreate(bakdir + "非法身份证号码/");
+                                     this.CreateLog("非法身份证号码" + file.Name);
+                                     File.Copy(file.FullName, bakdir + "非法身份证号码/" + file.Name, true);
+                                     file.Delete();
+                                     continue;
+                                 }
                              }
                          }
                          else
@@ -175,10 +184,19 @@ namespace PhotoMonitor
                              if(! Regex.IsMatch(file.Name[0].ToString(),"[0-9]"))
                              {
                                  idcardtype=file.Name[0].ToString();
-                                 idcard = filename.Substring(0, filename.IndexOf("."));
+                                 idcard = filename.Substring(1, filename.IndexOf("."));
                              }
                              else{
                                  idcard = filename.Substring(0, filename.IndexOf("."));
+                                 if(FT.Commons.Tools.IDCardHelper.Validate(idcard).Length>0)
+                                 {
+                                     error++;
+                                     FileHelper.CheckDirExistsAndCreate(bakdir + "非法身份证号码/");
+                                     this.CreateLog("非法身份证号码" + file.Name);
+                                     File.Copy(file.FullName, bakdir + "非法身份证号码/" + file.Name, true);
+                                     file.Delete();
+                                     continue;
+                                 }
                              }
                         }
                          tmpimgdata = string.Empty;
@@ -199,11 +217,43 @@ namespace PhotoMonitor
                                  ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
                              log.Debug("写入驾驶人" + idcardtype + "-" + idcard + "照片信息");
                              log.Debug(tmpimgdata);
-                             string code = this.GetTextInXml(tmpimgdata, "//code");
+                             //-31 ORA-00001 主键约束
+                             //-31 ORA-12899:  超出范围
+                             //0 成功
 
+                             //if (tmpimgdata.StartsWith("0 成功"))
+                             //{
+                             //    if (config.SuccessBak)
+                             //    {
+                             //        File.Copy(file.FullName, bakdir + file.Name, true);
+                             //    }
+                             //    file.Delete();
+                             //    success++;
+                             //}
+                             //else if (tmpimgdata.StartsWith("-31 ORA-00001"))
+                             //{
+                             //    error++;
+                             //    FileHelper.CheckDirExistsAndCreate(bakdir + "已存在的照片/");
+                             //    this.CreateLog("已存在的照片" + file.Name);
+                             //    File.Copy(file.FullName, bakdir + "已存在的照片/" + file.Name, true);
+                             //    file.Delete();
+                             //}
+                             //else
+                             //{
+                             //    //string message = this.GetTextInXml(tmpimgdata, "//message");
+                             //    error++;
+                             //    FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
+                             //    this.CreateLog("处理失败的照片" + file.Name + "失败的原因未知");
+                             //    File.Copy(file.FullName, bakdir + "处理失败的照片/" + file.Name, true);
+                             //    file.Delete();
+                             //}
+
+
+                             string code = this.GetTextInXml(tmpimgdata, "//code");
+                             log.Debug("返回的result-code为：" + "'" + code + "'");
                              if (code == "0")
                              {
-                                 
+
                                  if (config.SuccessBak)
                                  {
                                      File.Copy(file.FullName, bakdir + file.Name, true);
@@ -211,16 +261,25 @@ namespace PhotoMonitor
                                  file.Delete();
                                  success++;
                              }
+                             else if (code == "-2")
+                             {
+                                 error++;
+                                 FileHelper.CheckDirExistsAndCreate(bakdir + "已存在的照片/");
+                                 this.CreateLog("已存在的照片" + file.Name);
+                                 File.Copy(file.FullName, bakdir + "已存在的照片/" + file.Name, true);
+                                 file.Delete();
+                             }
                              else
                              {
                                  string message = this.GetTextInXml(tmpimgdata, "//message");
                                  error++;
+                                 log.Debug("返回的message为：" + "'" + message + "'");
                                  FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
                                  this.CreateLog("处理失败的照片" + file.Name + "失败的原因" + message);
                                  File.Copy(file.FullName, bakdir + "处理失败的照片/" + file.Name, true);
                                  file.Delete();
                              }
-
+                         
                              
                          //}
                          
@@ -249,6 +308,7 @@ namespace PhotoMonitor
                      file.Delete();
                     
                  }
+                 System.GC.Collect();
              }
              int all=error+success;
              this.SetHintText("处理完毕，共" + all.ToString() + "照片，成功" + success + "张，失败" + error + "张！");

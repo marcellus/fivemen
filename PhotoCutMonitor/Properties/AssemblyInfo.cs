@@ -5,15 +5,14 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("驾校预录入系统")]
-[assembly: AssemblyDescription("本系统主要用于驾校预录入系统；\r\n\r\n能有效提高驾驶员申请的工作效率。")]
+[assembly: AssemblyTitle("PhotoCutMonitor")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("深圳互通信达科技有限公司")]
-[assembly: AssemblyProduct("驾校预录入系统")]
-[assembly: AssemblyCopyright("版权所有 (C) 深圳互通信达科技有限公司")]
+[assembly: AssemblyCompany("Mircosoft")]
+[assembly: AssemblyProduct("驾驶人照片裁剪工具")]
+[assembly: AssemblyCopyright("版权所有 (C) Mircosoft 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log.xml", Watch = true)]
 
 // 将 ComVisible 设置为 false 使此程序集中的类型
 // 对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型，
@@ -21,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("c57cbd2a-25fe-4475-b9bc-e08dc8f56313")]
+[assembly: Guid("2ceb230b-62dc-46e9-ac69-8c075aafabcb")]
 
 // 程序集的版本信息由下面四个值组成:
 //
@@ -30,5 +29,5 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("2.0.1.7")]
-[assembly: AssemblyFileVersion("2.0.1.7")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
