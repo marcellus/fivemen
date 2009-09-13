@@ -138,11 +138,11 @@ namespace DS.Plugins.Student
             {
                 if (Student.IdCardType.Length < IdCardTypeMaxLen)
                 {
-                    this.Draw15String("暂住证", new Point(width, height + 5));
+                    this.Draw15String(Student.IdCardType, new Point(width, height + 5));
                 }
                 else
                 {
-                    this.Draw9String("暂住证", new Point(width, height + 5));
+                    this.Draw9String(Student.IdCardType, new Point(width, height + 5));
                 }
                 
                 for (int i = 0; i < Student.TempId.Length; i++)
@@ -151,13 +151,21 @@ namespace DS.Plugins.Student
                 }
             }
             height += sep + 5;
-            this.Draw15String(Student.RegAddress, new Point(width, height));
+            if (Student.RegAddress.Length < ConnAddressMaxLen)
+            {
+                this.Draw15String(Student.RegAddress, new Point(width, height));
+            }
+            else
+            {
+                this.Draw12String(Student.RegAddress, new Point(width, height));
+            }
+            //this.Draw15String(Student.RegAddress, new Point(width, height));
 
             height += sep + 5;
             string connadd = this.GetConnAddress();
             if (connadd.Length >= ConnAddressMaxLen)
             {
-                this.Draw9String(this.GetConnAddress(), new Point(width, height));
+                this.Draw12String(this.GetConnAddress(), new Point(width, height));
             }
             else{
             this.Draw15String(this.GetConnAddress(), new Point(width, height));

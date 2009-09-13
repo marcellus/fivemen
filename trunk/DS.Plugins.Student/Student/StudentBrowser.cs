@@ -469,16 +469,24 @@ namespace DS.Plugins.Student
 
         protected override void BeforeSave(object entity)
         {
-            string dimension = this.ComputeDimension();
-            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Dimension", dimension);
+            
             base.BeforeSave(entity);
             FT.Commons.Tools.FormHelper.SetDataToObject(entity, "CoachId", this.cbCoachName.SelectedValue==null?"-1":this.cbCoachName.SelectedValue.ToString());
         }
 
         protected override void BeforeCreateEntity(object entity)
         {
+            string dimension = this.ComputeDimension();
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Dimension", dimension);
             base.BeforeCreateEntity(entity);
             FT.Commons.Tools.FormHelper.SetDataToObject(entity, "BaoMingDate", System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        }
+
+        protected override void BeforeUpdateEntity(object entity)
+        {
+            string dimension = this.ComputeDimension();
+            FT.Commons.Tools.FormHelper.SetDataToObject(entity, "Dimension", dimension);
+            base.BeforeUpdateEntity(entity);
         }
         #endregion
 
@@ -940,7 +948,7 @@ namespace DS.Plugins.Student
                 if (result)
                 {
                     this.ClearValidateError();
-                    this.Save();
+                    if(this.Save())
                     StudentHelper.Print(this.entity as StudentInfo, key);
                 }
                 else
