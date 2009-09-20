@@ -42,13 +42,15 @@
             this.txtBakPath = new System.Windows.Forms.TextBox();
             this.btnBakPath = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkAutoUpload = new System.Windows.Forms.CheckBox();
             this.checkAutoStart = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMonitorTimes = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMonitorPath = new System.Windows.Forms.TextBox();
             this.btnMonitorPath = new System.Windows.Forms.Button();
-            this.checkAutoUpload = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFtpFolder = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,7 +72,9 @@
             this.groupBox3.Controls.Add(this.txtFtpName);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.txtFtpFolder);
             this.groupBox3.Controls.Add(this.txtFtpUrl);
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(16, 215);
             this.groupBox3.Name = "groupBox3";
@@ -115,9 +119,9 @@
             // 
             // txtFtpUrl
             // 
-            this.txtFtpUrl.Location = new System.Drawing.Point(100, 35);
+            this.txtFtpUrl.Location = new System.Drawing.Point(100, 36);
             this.txtFtpUrl.Name = "txtFtpUrl";
-            this.txtFtpUrl.Size = new System.Drawing.Size(481, 21);
+            this.txtFtpUrl.Size = new System.Drawing.Size(188, 21);
             this.txtFtpUrl.TabIndex = 6;
             // 
             // label1
@@ -193,6 +197,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "监控图片路径配置";
             // 
+            // checkAutoUpload
+            // 
+            this.checkAutoUpload.AutoSize = true;
+            this.checkAutoUpload.Location = new System.Drawing.Point(350, 65);
+            this.checkAutoUpload.Name = "checkAutoUpload";
+            this.checkAutoUpload.Size = new System.Drawing.Size(96, 16);
+            this.checkAutoUpload.TabIndex = 3;
+            this.checkAutoUpload.Text = "自动上传照片";
+            this.checkAutoUpload.UseVisualStyleBackColor = true;
+            // 
             // checkAutoStart
             // 
             this.checkAutoStart.AutoSize = true;
@@ -248,15 +262,21 @@
             this.btnMonitorPath.UseVisualStyleBackColor = true;
             this.btnMonitorPath.Click += new System.EventHandler(this.btnMonitorPath_Click);
             // 
-            // checkAutoUpload
+            // label6
             // 
-            this.checkAutoUpload.AutoSize = true;
-            this.checkAutoUpload.Location = new System.Drawing.Point(350, 65);
-            this.checkAutoUpload.Name = "checkAutoUpload";
-            this.checkAutoUpload.Size = new System.Drawing.Size(96, 16);
-            this.checkAutoUpload.TabIndex = 3;
-            this.checkAutoUpload.Text = "自动上传照片";
-            this.checkAutoUpload.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(315, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "FTP子文件夹";
+            // 
+            // txtFtpFolder
+            // 
+            this.txtFtpFolder.Location = new System.Drawing.Point(392, 36);
+            this.txtFtpFolder.Name = "txtFtpFolder";
+            this.txtFtpFolder.Size = new System.Drawing.Size(188, 21);
+            this.txtFtpFolder.TabIndex = 6;
             // 
             // SystemConfigForm
             // 
@@ -304,5 +324,7 @@
         private System.Windows.Forms.TextBox txtMonitorPath;
         private System.Windows.Forms.Button btnMonitorPath;
         private System.Windows.Forms.CheckBox checkAutoUpload;
+        private System.Windows.Forms.TextBox txtFtpFolder;
+        private System.Windows.Forms.Label label6;
     }
 }

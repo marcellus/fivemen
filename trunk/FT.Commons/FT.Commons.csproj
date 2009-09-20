@@ -173,6 +173,7 @@
     <Compile Include="Tools\FileDialogHelper.cs" />
     <Compile Include="Tools\FileHelper.cs" />
     <Compile Include="Tools\FormHelper.cs" />
+    <Compile Include="Tools\FTPHelper.cs" />
     <Compile Include="Tools\HardwareManager.cs" />
     <Compile Include="Tools\IDCardHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
