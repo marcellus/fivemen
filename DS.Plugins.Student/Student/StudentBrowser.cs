@@ -354,6 +354,10 @@ namespace DS.Plugins.Student
                 }
             }
             decimal stature;
+            if (config.ApplyConfig.IsBodyCheck)
+            {
+
+            
             try
             {
                 stature = height;
@@ -386,6 +390,7 @@ namespace DS.Plugins.Student
                 return false;
             }
 
+        }
 
             if (config.ApplyConfig.IsBodyCheck)
             {

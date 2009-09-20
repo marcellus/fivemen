@@ -207,7 +207,7 @@ namespace DS.Plugins.Student
 
         private void btnTestShareDb_Click(object sender, EventArgs e)
         {
-            FT.DAL.Access.AccessDataHelper access = new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;User Id=admin;Password=;");
+            FT.DAL.Access.AccessDataHelper access = new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=true;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;Jet OLEDB:Database Password=SQL");
             try
             {
                 if (access.Open())
@@ -228,7 +228,7 @@ namespace DS.Plugins.Student
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FT.DAL.Access.AccessDataHelper access = new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;User Id=admin;Password=;");
+            FT.DAL.Access.AccessDataHelper access = new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=true;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;Jet OLEDB:Database Password=SQL");
             try
             {
                 if (access.Open())
@@ -238,7 +238,7 @@ namespace DS.Plugins.Student
 
                     XmlNode node1 = doc.SelectSingleNode(@"//add[@key='" + connKey + "']");
                     XmlElement ele1 = (XmlElement)node1;
-                    ele1.SetAttribute("value", FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;User Id=admin;Password=;"));
+                    ele1.SetAttribute("value", FT.Commons.Security.SecurityFactory.GetSecurity().Encrypt("Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=true;Data Source=\\\\" + this.txtShareDbIp.Text.Trim() + "\\db\\db.mdb;Jet OLEDB:Database Password=SQL"));
                     doc.Save(Application.ExecutablePath + ".config");
                     MessageBoxHelper.Show("保存成功，请退出重进！");
                     access.Close();

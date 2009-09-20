@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using FT.Commons.Cache;
 using FT.Windows.Forms.Domain;
+using FT.Commons.Security;
 
 namespace FT.Windows.Forms
 {
@@ -257,7 +258,18 @@ namespace FT.Windows.Forms
             ProgramRegConfig config = StaticCacheManager.GetConfig<ProgramRegConfig>();
             if (config.KeyCode != null && config.KeyCode.Length > 0)
             {
-                productState = ProgramState.Registed;
+                ISecurity md5 = new MD5Security();
+                ISecurity sec = FT.Commons.Security.SecurityFactory.GetSecurity();
+                string hardwarecode=FT.Commons.Tools.HardwareManager.GetMachineCode();
+                if (config.KeyCode == md5.Encrypt(sec.Encrypt(hardwarecode + config.Company + hardwarecode)))
+                {
+                    productState = ProgramState.Registed;
+                }
+                else
+                {
+                    productState = ProgramState.None;
+                }
+                
             }
             else if (config.RightCode.Length != 0)
             {

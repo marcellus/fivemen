@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhotoCutMonitor</RootNamespace>
     <AssemblyName>PhotoCutMonitor</AssemblyName>
+    <ApplicationIcon>application_xp_terminal.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

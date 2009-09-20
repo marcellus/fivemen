@@ -159,9 +159,38 @@ namespace PhotoZipUpTools
                 this.notifyIcon1.Text = "2、正在准备打包照片，请稍候...";
                 string filename = this.ZipFiles(config);
                 this.notifyIcon1.Text = "3、正在准备上传到FTP，请稍候...";
-                this.notifyIcon1.Text = "4、上传到FTP成功！";
-                FileHelper.CutFolder2Another(config.MonitorPath, Path.Combine(config.BakPath, System.DateTime.Now.ToString("yyyyMMddHHmmss")));
-                this.notifyIcon1.Text = "5、删除并备份文件，顺利完成本次上传！";
+
+                try
+                {
+                    FTPHelper ftp = new FTPHelper(config.FtpUrl, config.FtpName, config.FtpPassword);
+                    //ftp.Connect(config.FtpUrl, config.FtpName, config.FtpPassword);
+                    int perc = 0;
+                    //int tmp1 = filename.LastIndexOf("/");
+                   // int tmp2 = filename.LastIndexOf("\\");
+                    if(config.FtpFolder.Trim().Length>0)
+                    {
+                        ftp.ChangeDir(config.FtpFolder);
+                    }
+                    string name=filename.Substring(filename.LastIndexOf("\\")+1);
+                    ftp.OpenUpload(filename,name);
+                    while(ftp.DoUpload()>0)
+                    {
+                        perc = (int)((ftp.BytesTotal * 100) / ftp.FileSize);
+                       this.notifyIcon1.Text=String.Format("\r上传: {0}/{1} {2}%",
+                          ftp.BytesTotal, ftp.FileSize, perc);
+                    }
+                    
+                    this.notifyIcon1.Text = "4、上传到FTP成功！";
+                    FileHelper.CutFolder2Another(config.MonitorPath, Path.Combine(config.BakPath, System.DateTime.Now.ToString("yyyyMMddHHmmss")));
+                    this.notifyIcon1.Text = "5、删除并备份文件，顺利完成本次上传！";
+                }
+                catch(Exception ex)
+                {
+                    this.notifyIcon1.Text = "4、上传到FTP被中断，错误信息请看日志！";
+                    this.CreateLog(ex.ToString());
+                }
+
+               
             }
             else{
 

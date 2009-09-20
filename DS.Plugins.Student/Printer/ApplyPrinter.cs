@@ -125,6 +125,8 @@ namespace DS.Plugins.Student
             for (int i = 0; i < Student.IdCard.Length; i++)
             {
                 //MyGraphics.DrawString(idCard[i].ToString(), body11Font, blackBrush, new RectangleF(332 + 17 * i+(i/2)*1, height - 7, 17, 35), stringFormat);
+                
+                    
                 MyGraphics.DrawString(Student.IdCard[i].ToString(), body15Font, blackBrush, new RectangleF(width + 165 + 22 * i + (i / 6) * 1, height - 7, 22, 35), stringFormat);
                 // MyGraphics.DrawRectangle(blackPen, 332 + 17 * i + (i / 2) * 1, height - 7, 17, 36);
                 // this.Draw11String(idCard[i].ToString(), new Point(334 + i * tempIdSep, height));
@@ -136,20 +138,14 @@ namespace DS.Plugins.Student
 
             if (Student.TempId!=null&&Student.TempId != string.Empty)
             {
-                if (Student.IdCardType.Length < IdCardTypeMaxLen)
-                {
-                    this.Draw15String(Student.IdCardType, new Point(width, height + 5));
-                }
-                else
-                {
-                    this.Draw9String(Student.IdCardType, new Point(width, height + 5));
-                }
+                 this.Draw15String("ÔÝ×¡Ö¤", new Point(width, height + 5));
+                
                 
                 for (int i = 0; i < Student.TempId.Length; i++)
                 {
                     MyGraphics.DrawString(Student.TempId[i].ToString(), body15Font, blackBrush, new RectangleF(width + 165 + 21 * i + (i / 2) * 1, height - 5, 21, 35), stringFormat);
                 }
-            }
+           }
             height += sep + 5;
             if (Student.RegAddress.Length < ConnAddressMaxLen)
             {

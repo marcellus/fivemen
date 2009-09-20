@@ -137,7 +137,7 @@ namespace PhotoCutMonitor
                         error++;  
                        FileHelper.CheckDirExistsAndCreate(dir);
                         File.Copy(file.FullName, Path.Combine
-                            (dir, file.Name));
+                            (dir, file.Name),true);
                         File.Delete(file.FullName);
                     }
                     

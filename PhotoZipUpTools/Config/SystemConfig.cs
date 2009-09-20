@@ -21,6 +21,8 @@ namespace PhotoZipUpTools
 
         public string FtpUrl;
 
+        public string FtpFolder;
+
         public string FtpName;
 
         public string FtpPassword;
