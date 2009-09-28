@@ -75,6 +75,12 @@ namespace FT.Device.IDCard
         
         public event De_ReadICCardComplete ReadICCardComplete;
         private IDCard objEDZ = new IDCard();
+
+        public IDCard UserIdCard
+        {
+            get { return objEDZ; }
+            set { objEDZ = value; }
+        }
         private int EdziIfOpen = 1;               //自动开关串口
         int EdziPortID;
         public IDCardReader()
@@ -268,7 +274,8 @@ namespace FT.Device.IDCard
                 img = null;
             }
             
-            ReadICCardComplete(objEDZ);
+           // ReadICCardComplete(objEDZ);
+            //System.Threading.Thread.Sleep(50);
             return 0;
         }
     }
