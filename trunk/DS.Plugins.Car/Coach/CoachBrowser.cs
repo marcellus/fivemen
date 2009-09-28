@@ -91,7 +91,7 @@ namespace DS.Plugins.Car
             {
                 IDCardConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<IDCardConfig>();
                 if(config.UseIDCard)
-                    reader = new IDCardReaderHelper(new De_ReadICCardComplete(AfterReadIdCard));
+                    reader = new IDCardReaderHelper(new De_ReadICCardComplete(this.AfterReadIdCard));
             }
         }
         private IDCardReaderHelper reader = null;

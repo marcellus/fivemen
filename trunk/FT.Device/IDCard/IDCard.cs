@@ -213,6 +213,28 @@ namespace FT.Device.IDCard
             set { _PIC_Image = value; }
         }
 
+        public IDCard Clone()
+        {
+            IDCard tmp = new IDCard();
+            tmp.ADDRESS = this.ADDRESS;
+            tmp.BIRTH = this.BIRTH;
+            tmp.ENDDATE = this.ENDDATE;
+            tmp.IDC = this.IDC;
+            tmp.Name = this.Name;
+            tmp.NATION_CName = this.NATION_CName;
+            tmp.NATION_Code = this.NATION_Code;
+            tmp.Period_Of_Validity_CName = this.Period_Of_Validity_CName;
+            tmp.Period_Of_Validity_Code = this.Period_Of_Validity_Code;
+            tmp.PIC_Byte = this.PIC_Byte;
+            tmp.PIC_Image = this.PIC_Image;
+            tmp.REGORG = this.REGORG;
+            tmp.Sex_CName = this.Sex_CName;
+            tmp.Sex_Code = this.Sex_Code;
+            tmp.STARTDATE = this.STARTDATE;
+            return tmp;
+           
+        }
+
 
 
     }

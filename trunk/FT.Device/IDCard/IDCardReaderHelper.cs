@@ -13,6 +13,7 @@ namespace FT.Device.IDCard
     {
         private IDCardReader reader;
         private Timer timer;
+        private De_ReadICCardComplete completeDelegate;
         public IDCardReaderHelper(De_ReadICCardComplete completeDelegate)
         {
             IDCardConfig config=StaticCacheManager.GetConfig<IDCardConfig>();
@@ -21,6 +22,7 @@ namespace FT.Device.IDCard
             timer.Interval = config.MiniSecond;
             timer.Tick += new EventHandler(timer_Tick);
             reader.ReadICCardComplete += completeDelegate;
+            this.completeDelegate = completeDelegate;
             timer.Start();
         }
         public IDCardReaderHelper(De_ReadICCardComplete completeDelegate, int minisecond)
@@ -30,6 +32,7 @@ namespace FT.Device.IDCard
             timer.Interval = minisecond;
             timer.Tick += new EventHandler(timer_Tick);
             reader.ReadICCardComplete += completeDelegate;
+            this.completeDelegate = completeDelegate;
             timer.Start();
         }
 
@@ -42,6 +45,12 @@ namespace FT.Device.IDCard
             {
                 
             }
+            if (result == 0 && completeDelegate!=null)
+            {
+                completeDelegate(reader.UserIdCard.Clone());
+                //System.Threading.Thread.Sleep(80);
+            }
+            
             if (result == -1)
             {
                 log.Debug("Ã»ÓÐÕÒµ½ºÏÊÊµÄ¶Á¿¨Æ÷£¬Í£Ö¹¶Á¿¨£¡");
