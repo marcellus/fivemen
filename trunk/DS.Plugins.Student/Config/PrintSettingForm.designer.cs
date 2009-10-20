@@ -149,6 +149,8 @@ namespace DS.Plugins.Student
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
+            this.txtSysDefaultEye = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numF2Right)).BeginInit();
@@ -976,6 +978,8 @@ namespace DS.Plugins.Student
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.txtSysDefaultEye);
+            this.tabPage4.Controls.Add(this.label75);
             this.tabPage4.Controls.Add(this.label63);
             this.tabPage4.Controls.Add(this.cbDbType);
             this.tabPage4.Controls.Add(this.button1);
@@ -1011,7 +1015,8 @@ namespace DS.Plugins.Student
             this.cbDbType.FormattingEnabled = true;
             this.cbDbType.Items.AddRange(new object[] {
             "sqlserver",
-            "oracle"});
+            "oracle",
+            "access"});
             this.cbDbType.Location = new System.Drawing.Point(443, 25);
             this.cbDbType.Name = "cbDbType";
             this.cbDbType.Size = new System.Drawing.Size(121, 23);
@@ -1031,6 +1036,7 @@ namespace DS.Plugins.Student
             // 
             this.txtPwd.Location = new System.Drawing.Point(300, 92);
             this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(100, 24);
             this.txtPwd.TabIndex = 9;
             // 
@@ -1047,6 +1053,7 @@ namespace DS.Plugins.Student
             // 
             this.txtUID.Location = new System.Drawing.Point(113, 92);
             this.txtUID.Name = "txtUID";
+            this.txtUID.PasswordChar = '*';
             this.txtUID.Size = new System.Drawing.Size(100, 24);
             this.txtUID.TabIndex = 7;
             // 
@@ -1338,6 +1345,22 @@ namespace DS.Plugins.Student
             this.label58.TabIndex = 5;
             this.label58.Text = "向上";
             // 
+            // txtSysDefaultEye
+            // 
+            this.txtSysDefaultEye.Location = new System.Drawing.Point(133, 141);
+            this.txtSysDefaultEye.Name = "txtSysDefaultEye";
+            this.txtSysDefaultEye.Size = new System.Drawing.Size(145, 24);
+            this.txtSysDefaultEye.TabIndex = 16;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(27, 150);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(97, 15);
+            this.label75.TabIndex = 15;
+            this.label75.Text = "默认体检视力";
+            // 
             // PrintSettingForm
             // 
             this.Appearance.Font = new System.Drawing.Font("宋体", 9F);
@@ -1516,5 +1539,7 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Button btnTestShareDb;
         private System.Windows.Forms.CheckBox cbApplyBodyCheck;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtSysDefaultEye;
+        private System.Windows.Forms.Label label75;
     }
 }

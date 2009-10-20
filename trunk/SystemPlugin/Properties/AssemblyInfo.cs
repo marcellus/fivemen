@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("FT.Commons")]
+[assembly: AssemblyTitle("SystemPlugin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Fivemen company")]
-[assembly: AssemblyProduct("FT.Commons")]
-[assembly: AssemblyCopyright("版权所有 (C) Fivemen company 2008")]
+[assembly: AssemblyCompany("Mircosoft")]
+[assembly: AssemblyProduct("SystemPlugin")]
+[assembly: AssemblyCopyright("版权所有 (C) Mircosoft 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("8ea0ce0d-8eef-4ceb-a25d-0dcf6aca288d")]
+[assembly: Guid("e0322a6a-c553-4bc2-b61a-c665761a90f3")]
 
 // 程序集的版本信息由下面四个值组成:
 //
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // 可以指定所有这些值，也可以使用“修订号”和“内部版本号”的默认值，
 // 方法是按如下所示使用“*”:
-[assembly: AssemblyVersion("3.0.0.0")]
-[assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

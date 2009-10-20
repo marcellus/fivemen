@@ -168,8 +168,13 @@ namespace PhotoMonitor
                              else
                              {
                                  idcard = tmpsplit;
+                                 
                                  if (FT.Commons.Tools.IDCardHelper.Validate(idcard).Length > 0)
                                  {
+                                     if (idcard.Length == 15)
+                                     {
+                                         idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
+                                     }
                                      error++;
                                      FileHelper.CheckDirExistsAndCreate(bakdir + "非法身份证号码/");
                                      this.CreateLog("非法身份证号码" + file.Name);

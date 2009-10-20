@@ -24,6 +24,8 @@ namespace DS.Plugins.Student
 
         public string DbType = string.Empty;
 
+        public string DefaultEye = string.Empty;
+
         
     }
 }

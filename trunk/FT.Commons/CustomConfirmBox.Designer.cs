@@ -38,20 +38,19 @@
             // 
             this.lbHint.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold);
             this.lbHint.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbHint.Location = new System.Drawing.Point(16, 44);
-            this.lbHint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHint.Location = new System.Drawing.Point(12, 9);
             this.lbHint.Name = "lbHint";
-            this.lbHint.Size = new System.Drawing.Size(385, 40);
+            this.lbHint.Size = new System.Drawing.Size(289, 80);
             this.lbHint.TabIndex = 3;
             this.lbHint.Text = "label1";
             this.lbHint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSure
             // 
-            this.btnSure.Location = new System.Drawing.Point(42, 116);
-            this.btnSure.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSure.Location = new System.Drawing.Point(32, 93);
+            this.btnSure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSure.Name = "btnSure";
-            this.btnSure.Size = new System.Drawing.Size(133, 36);
+            this.btnSure.Size = new System.Drawing.Size(100, 29);
             this.btnSure.TabIndex = 1;
             this.btnSure.Text = "是";
             this.btnSure.UseVisualStyleBackColor = true;
@@ -60,10 +59,10 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(228, 116);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCancel.Location = new System.Drawing.Point(171, 93);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(133, 36);
+            this.btnCancel.Size = new System.Drawing.Size(100, 29);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "否";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -72,16 +71,16 @@
             // CustomConfirmBox
             // 
             this.AcceptButton = this.btnSure;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.Appearance.Font = new System.Drawing.Font("宋体", 11F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(430, 190);
+            this.ClientSize = new System.Drawing.Size(322, 152);
             this.Controls.Add(this.lbHint);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSure);
-            this.Font = new System.Drawing.Font("宋体", 11F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomConfirmBox";
