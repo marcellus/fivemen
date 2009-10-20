@@ -12,6 +12,7 @@ using FT.Windows.CommonsPlugin;
 using FT.Commons.Cache;
 using FT.Windows.Forms.Domain;
 using FT.Device.IDCard;
+using System.IO;
 
 namespace DS.Plugins.Student
 {
@@ -548,6 +549,17 @@ namespace DS.Plugins.Student
             if(obj!=null)
             {
                 FT.Windows.CommonsPlugin.BindingHelper.BindArea(this.cbRegArea, obj.ToString());
+                if(this.cbRegArea.Items.Count==0)
+                {
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("name");
+                    dt.Columns.Add("code");
+                    dt.Rows.Add(new string[] {"市区",obj.ToString() });
+                    
+                    this.cbRegArea.DisplayMember = "name";
+                    this.cbRegArea.ValueMember = "code";
+                    this.cbRegArea.DataSource = dt;
+                }
             }
             this.SetAddress();
         }
@@ -641,45 +653,64 @@ namespace DS.Plugins.Student
                 IDCardConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<IDCardConfig>();
                 if (config.UseIDCard)
                     reader = new IDCardReaderHelper(new De_ReadICCardComplete(AfterReadIdCard));
-                this.txtDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
-                if (this.entity != null)
+                AllPrinterConfig printconfig = AllPrinterConfig.GetPrinterConfig();
+                if (printconfig.SysConfig.DefaultEye!=null&&printconfig.SysConfig.DefaultEye.Length != 0)
                 {
-                    object city = FormHelper.GetObjectValue(this.entity, "RegCity");
-                    object area = FormHelper.GetObjectValue(this.entity, "RegArea");
-                    object regaddress = FormHelper.GetObjectValue(this.entity, "RegAddress");
-                    object connaddress = FormHelper.GetObjectValue(this.entity, "ConnAddress");
-                    object cun = FormHelper.GetObjectValue(this.entity, "BelongCun");
-                    object xiang = FormHelper.GetObjectValue(this.entity, "BelongXiang");
-                    if (city != null)
+                    try
                     {
-                        this.cbRegCity.Text = city.ToString();
-                    }
-                    if (area != null)
-                    {
-                        this.cbRegArea.Text = area.ToString();
-                    }
-                    if (regaddress != null)
-                    {
-                        this.txtRegAddress.Text = regaddress.ToString();
-                    }
-                    if (connaddress != null)
-                    {
-                        this.txtConnAddress.Text = connaddress.ToString();
-                    }
-                    if (xiang != null)
-                    {
-                        this.cbBelongXiang.Text = xiang.ToString();
-                    }
-                    if (cun != null)
-                    {
-                        this.cbBelongCun.Text = cun.ToString();
-                    }
 
+                        this.txtLeftEye.Text = this.txtRightEye.Text = printconfig.SysConfig.DefaultEye;
+                    }
+                    catch (System.Exception exe)
+                    {
+                	
+                    }
+                
                 }
-                else
+                this.txtDescription.KeyDown -= new KeyEventHandler(FormHelper.EnterToTab);
+                this.InitAllAddress();
+            }
+        }
+
+        private void InitAllAddress()
+        {
+            if (this.entity != null)
+            {
+                object city = FormHelper.GetObjectValue(this.entity, "RegCity");
+                object area = FormHelper.GetObjectValue(this.entity, "RegArea");
+                object regaddress = FormHelper.GetObjectValue(this.entity, "RegAddress");
+                object connaddress = FormHelper.GetObjectValue(this.entity, "ConnAddress");
+                object cun = FormHelper.GetObjectValue(this.entity, "BelongCun");
+                object xiang = FormHelper.GetObjectValue(this.entity, "BelongXiang");
+                if (city != null)
                 {
-                    this.SetAddress();
+                    this.cbRegCity.Text = city.ToString();
                 }
+                if (area != null)
+                {
+                    this.cbRegArea.Text = area.ToString();
+                }
+                if (regaddress != null)
+                {
+                    this.txtRegAddress.Text = regaddress.ToString();
+                }
+                if (connaddress != null)
+                {
+                    this.txtConnAddress.Text = connaddress.ToString();
+                }
+                if (xiang != null)
+                {
+                    this.cbBelongXiang.Text = xiang.ToString();
+                }
+                if (cun != null)
+                {
+                    this.cbBelongCun.Text = cun.ToString();
+                }
+
+            }
+            else
+            {
+                this.SetAddress();
             }
         }
         #endregion
@@ -713,7 +744,9 @@ namespace DS.Plugins.Student
                         MessageBoxHelper.Show("身份证明为"+id+"的学员处于在学状态,准备提取当前信息！");
                         StudentInfo student = students[0] as StudentInfo;
                         FormHelper.SetDataToForm(this, student);
+                        
                         this.entity = student;
+                        this.InitAllAddress();
 
                     }
                     else
@@ -992,6 +1025,184 @@ namespace DS.Plugins.Student
         {
             this.Print(Keys.F5);
         }
+
+
+        #region 系统集成
+
+        protected override void AfterSuccessUpdate()
+        {
+            base.AfterSuccessUpdate();
+            this.UpdatePluginProcess();
+        }
+        protected override void AfterSuccessCreate()
+        {
+            base.AfterSuccessCreate();
+            this.AddPluginProcess();
+        }
+
+        SynStudentInfoPlugin plugin;
+
+        private bool firstPlugin = true;
+
+        private void CreatePlugin()
+        {
+            if (firstPlugin)
+            {
+                string path = Application.StartupPath + "/plugins/SystemPlugin.dll";
+                FileInfo dir = new FileInfo(path);
+                AllPrinterConfig config = AllPrinterConfig.GetPrinterConfig();
+                string ip = config.SysConfig.Ip;
+                string dbname = config.SysConfig.DbName;
+                string userid = config.SysConfig.UID;
+                string pwd = config.SysConfig.Pwd;
+                if (dir.Exists && dbname.Length > 0 && userid.Length > 0)
+                {
+                    System.Reflection.Assembly ass = System.Reflection.Assembly.LoadFile(path);
+                    Type t = ass.GetType("SystemPlugin.StudentPlugin");
+                    Type t1 = typeof(FT.DAL.IDataAccess);
+                    System.Reflection.ConstructorInfo cinfo = t.GetConstructor(new Type[] { t1 });
+
+                    object o1 = null;
+                    if (config.SysConfig.DbType.ToLower() == "sqlserver")
+                    {
+                        o1 = new FT.DAL.SqlServer.SqlServerDataHelper(ip, dbname, userid, pwd);
+                    }
+                    else if (config.SysConfig.DbType.ToLower() == "oracle")
+                    {
+                        o1 = new FT.DAL.Oracle.OracleDataHelper(dbname, userid, pwd);
+                    }
+                    else if (config.SysConfig.DbType.ToLower() == "access")
+                    {
+                        if (pwd.Length > 0)
+                        {
+                            o1 = new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=true;Data Source=" + dbname + ";Jet OLEDB:Database Password=" + pwd);
+                        }
+                        else
+                        {
+                            o1 = new FT.DAL.Access.AccessDataHelper(dbname, userid, pwd);
+                        }
+                    }
+                    object o = cinfo.Invoke(new object[] { o1 });
+
+                    plugin = o as SynStudentInfoPlugin;
+                    if (plugin == null)
+                    {
+                        MessageBoxHelper.Show("没有找到插件类，无法同步！");
+                    }
+                }
+
+                firstPlugin = false;
+            }
+
+        }
+        public void AddPluginProcess()
+        {
+            this.CreatePlugin();
+            if (plugin != null)
+            {
+                if (!plugin.AddStudent(this.GetStudentAllInfo()))
+                {
+                    MessageBoxHelper.Show("同步数据库失败！");
+                }
+            }
+
+
+        }
+
+        public void UpdatePluginProcess()
+        {
+            this.CreatePlugin();
+            if (plugin != null)
+            {
+                if (!plugin.UpdateStudent(this.GetStudentAllInfo()))
+                {
+                    MessageBoxHelper.Show("同步数据库失败！");
+                }
+            }
+
+
+        }
+
+        private string GetCode(ComboBox cb)
+        {
+            object obj = cb.SelectedValue;
+            return obj == null ? string.Empty : obj.ToString();
+        }
+
+        private string GetText(ComboBox cb)
+        {
+            return cb.Text.Trim();
+        }
+
+        private string GetDate(DateTimePicker date)
+        {
+            return date.Value.ToString("yyyy-MM-dd");
+        }
+
+        private string GetText(TextBox txt)
+        {
+            return txt.Text.Trim();
+        }
+        private string GetText(NumericUpDown num)
+        {
+            return num.Value.ToString();
+        }
+
+        public StudentAllInfo GetStudentAllInfo()
+        {
+            StudentAllInfo info = new StudentAllInfo();
+            info.BelongAreaCode = this.GetCode(this.cbBelongArea);
+            info.BelongAreaString = this.GetText(this.cbBelongArea);
+            info.Birthday = this.GetDate(this.dateBirthday);
+            info.CarTypeCode = this.GetCode(this.cbNewCarType);
+            info.CarTypeString = this.GetText(this.cbNewCarType);
+            info.CheckDate = this.GetDate(this.dateCheckDate);
+            info.ConnAddress = this.GetText(this.txtConnAddress);
+            info.Cun = this.GetText(this.cbBelongCun);
+            info.Description = this.GetText(this.txtDescription);
+            info.Height = this.GetText(this.txtHeight);
+            info.HospitalCode = GetCode(this.cbHospital);
+            info.HospitalString = GetText(this.cbHospital);
+            info.IdCard = this.GetText(this.txtIdCard);
+            info.IdCardTypeCode = this.GetCode(this.cbIdCardType);
+            info.IdCardTypeString = this.GetText(this.cbIdCardType);
+            info.LearnType = this.GetText(this.cbLearnType);
+            info.LeftDownBody = this.GetText(this.cbLeftDownBody);
+            info.LeftEye = this.GetText(this.txtLeftEye);
+            info.Light = this.GetText(this.cbColor);
+            info.Listening = this.GetText(this.cbListen);
+            info.MainBody = this.GetText(this.cbMainBody);
+            info.Name = this.GetText(this.txtName);
+            info.NationCode = this.GetCode(this.cbNation);
+            info.NationString = this.GetText(this.cbNation);
+            info.OldCarType = this.GetText(this.txtOldCarType);
+            info.Phone1 = this.GetText(this.txtPhone);
+            info.Phone2 = this.GetText(this.txtMobile);
+            info.PostCode = this.GetText(this.txtPostCode);
+            info.ProfileId = this.GetText(this.txtProfile);
+            info.Recommender = this.GetText(this.cbRecommend);
+            info.RegAddress = this.GetText(this.txtRegAddress);
+            info.RegAreaCode = this.GetCode(this.cbRegArea);
+            info.RegAreaString = this.GetText(this.cbRegArea);
+            info.RegCityCode = this.GetCode(this.cbRegCity);
+            info.RegCityString = this.GetText(this.cbRegCity);
+            info.RegDate = this.lbBaoMingDate.Text.Length>0?Convert.ToDateTime(this.lbBaoMingDate.Text).ToString("yyyy-MM-dd"):"";
+            info.RegProvinceCode = this.GetCode(this.cbRegProvince);
+            info.RegProvinceString = this.GetText(this.cbRegProvince);
+            info.RightDownBody = this.GetText(this.cbRightDownBody);
+            info.RightEye = this.GetText(this.txtRightEye);
+            info.Sex = this.GetText(this.cbSex);
+            info.TempId = this.GetText(this.txtTempId);
+            info.TopBody = this.GetText(this.cbTopBody);
+            info.Xiang = this.GetText(this.cbBelongXiang);
+
+            //info.Fee = this.GetText(this.txt);
+
+            info.CarType = this.GetText(this.cbNewCarStyle);
+
+            return info;
+        }
+        #endregion
     }
 }
 

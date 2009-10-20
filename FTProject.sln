@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoCutMonitor", "PhotoCut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoZipUpTools", "PhotoZipUpTools\PhotoZipUpTools.csproj", "{0AEA68D2-6B79-4824-AD6C-388E4EA17645}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemPlugin", "SystemPlugin\SystemPlugin.csproj", "{350120F9-7752-426A-92A0-E3F50FE07BDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -335,6 +337,16 @@ Global
 		{0AEA68D2-6B79-4824-AD6C-388E4EA17645}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0AEA68D2-6B79-4824-AD6C-388E4EA17645}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0AEA68D2-6B79-4824-AD6C-388E4EA17645}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|.NET.ActiveCfg = Release|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

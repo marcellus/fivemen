@@ -66,6 +66,7 @@ namespace DS.Plugins.Student
             this.txtUID.Text = config.SysConfig.UID;
             this.cbDbType.Text = config.SysConfig.DbType;
             this.txtPwd.Text = config.SysConfig.Pwd;
+            this.txtSysDefaultEye.Text = config.SysConfig.DefaultEye;
 
             if(config.ShareConfig!=null)
                 this.txtShareDbIp.Text = config.ShareConfig.Ip;
@@ -127,6 +128,7 @@ namespace DS.Plugins.Student
                 config.SysConfig.UID = this.txtUID.Text.Trim();
                 config.SysConfig.Pwd = this.txtPwd.Text.Trim();
                 config.SysConfig.DbType = this.cbDbType.Text.Trim();
+                config.SysConfig.DefaultEye = this.txtSysDefaultEye.Text.Trim();
 
                 if (config.ShareConfig == null)
                 {
@@ -179,6 +181,17 @@ namespace DS.Plugins.Student
                 else if (this.cbDbType.Text.Trim().ToLower() == "oracle")
                 {
                     access = new FT.DAL.Oracle.OracleDataHelper(dbname, userid, pwd);
+                }
+                else if (this.cbDbType.Text.Trim().ToLower() == "access")
+                {
+                    if(pwd.Length>0)
+                    {
+                        access=new FT.DAL.Access.AccessDataHelper("Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=true;Data Source=" + dbname + ";Jet OLEDB:Database Password="+pwd);
+                    }
+                    else
+                    {
+                    access = new FT.DAL.Access.AccessDataHelper(dbname, userid, pwd);
+                    }
                 }
                 try
                 {

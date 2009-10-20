@@ -207,6 +207,7 @@
     <Compile Include="StudentSystemConfigForm.Designer.cs">
       <DependentUpon>StudentSystemConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student\StudentAllInfo.cs" />
     <Compile Include="Student\StudentBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +225,7 @@
     <Compile Include="Student\StudentInfo.cs" />
     <Compile Include="StudentPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student\SynStudentInfoPlugin.cs" />
     <Compile Include="SubjectHelper.cs" />
     <Compile Include="SystemConfigPlugin.cs" />
     <Compile Include="TestPdf417Code.cs">
