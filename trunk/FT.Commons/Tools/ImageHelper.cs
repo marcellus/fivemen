@@ -326,15 +326,19 @@ namespace FT.Commons.Tools
                 ImageCodecInfo myImageCodecInfo;
                 EncoderParameters myEncoderParameters;
                 myImageCodecInfo = ImageHelper.GetCodecInfo("image/jpeg");
+               // myImageCodecInfo = null;
                 myEncoderParameters = new EncoderParameters(2);
                 myEncoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, (long)100);
                 myEncoderParameters.Param[1] = new EncoderParameter(Encoder.ColorDepth, (long)ColorDepth.Depth32Bit);
                 image.Save(path, myImageCodecInfo, myEncoderParameters);
+               // image.c;
                 image.Dispose();
+                log.Debug("保存条码图片成功！");
             }
             catch (System.Exception e)
             {
                 log.Fatal(e);
+                MessageBoxHelper.Show("图片正在使用中，请重新打印！");
             }
         }
             #endregion
