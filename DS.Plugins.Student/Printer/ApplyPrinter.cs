@@ -59,7 +59,9 @@ namespace DS.Plugins.Student
                     //string path = Application.StartupPath + "/tempcode39.jpg";
                     ImageHelper.SaveCoderPic(this.GetQRImage(Student.Dimension),path);
                    // MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(516 + width, 720 + height), new Size(150, 150)));
-                    MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(370 + width, 775 + height), new Size(130, 130)));
+                    Image imagetest = Image.FromFile(path);
+                    MyGraphics.DrawImage(imagetest, new Rectangle(new Point(370 + width, 775 + height), new Size(130, 130)));
+                    imagetest.Dispose();
                 }
             }
             DateTime regDate = System.DateTime.Now;
@@ -88,7 +90,9 @@ namespace DS.Plugins.Student
                 Bitmap map = code39.CreateBarCode(Student.IdCard);
                 string path = Application.StartupPath + "/tempcode39.jpg";
                 ImageHelper.SaveCoderPic(map, path);
-                MyGraphics.DrawImage(Image.FromFile(path), new RectangleF(width - 40, height - 46, 240, 30));
+                Image imagetest2 = Image.FromFile(path);
+                MyGraphics.DrawImage(imagetest2, new RectangleF(width - 40, height - 46, 240, 30));
+                imagetest2.Dispose();
             }
             catch (Exception ex)
             {
