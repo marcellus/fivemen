@@ -168,13 +168,14 @@ namespace PhotoMonitor
                              else
                              {
                                  idcard = tmpsplit;
+                                 if (idcard.Length == 15)
+                                 {
+                                     idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
+                                 }
                                  
                                  if (FT.Commons.Tools.IDCardHelper.Validate(idcard).Length > 0)
                                  {
-                                     if (idcard.Length == 15)
-                                     {
-                                         idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
-                                     }
+                                     
                                      error++;
                                      FileHelper.CheckDirExistsAndCreate(bakdir + "非法身份证号码/");
                                      this.CreateLog("非法身份证号码" + file.Name);
@@ -189,10 +190,14 @@ namespace PhotoMonitor
                              if(! Regex.IsMatch(file.Name[0].ToString(),"[0-9]"))
                              {
                                  idcardtype=file.Name[0].ToString();
-                                 idcard = filename.Substring(1, filename.IndexOf("."));
+                                 idcard = filename.Substring(1, filename.IndexOf(".")-1);
                              }
                              else{
-                                 idcard = filename.Substring(0, filename.IndexOf("."));
+                                 idcard = filename.Substring(0, filename.IndexOf(".")-1);
+                                 if (idcard.Length == 15)
+                                 {
+                                     idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
+                                 }
                                  if(FT.Commons.Tools.IDCardHelper.Validate(idcard).Length>0)
                                  {
                                      error++;

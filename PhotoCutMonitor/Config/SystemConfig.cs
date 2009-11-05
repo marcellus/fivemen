@@ -24,5 +24,12 @@ namespace PhotoCutMonitor
         public int StartY;
         public int CutLength;
         public int CutWidth;
+
+        public bool IsRar=true;
+
+        public int KitWidth = 417;
+
+        public int KitHeight = 566;
+
     }
 }

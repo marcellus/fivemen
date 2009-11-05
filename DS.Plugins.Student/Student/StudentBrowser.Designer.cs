@@ -30,6 +30,7 @@ namespace DS.Plugins.Student
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbPrintedState = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.txtPostCode = new FT.Windows.Controls.TextBoxEx.NumberInput();
@@ -149,6 +150,7 @@ namespace DS.Plugins.Student
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.lbPrintedState);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.txtPostCode);
@@ -218,6 +220,17 @@ namespace DS.Plugins.Student
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(537, 116);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 23);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "查询";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbPrintedState
             // 
@@ -1281,5 +1294,6 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Button btnPrintF3;
         private System.Windows.Forms.Button btnPrintF4;
         private System.Windows.Forms.Button btnPrintF5;
+        private System.Windows.Forms.Button button1;
     }
 }

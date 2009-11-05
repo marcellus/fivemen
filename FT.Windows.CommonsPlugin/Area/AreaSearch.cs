@@ -13,9 +13,31 @@ namespace FT.Windows.CommonsPlugin
         public AreaSearch()
         {
             InitializeComponent();
+            //this.AddSearch();
             this.EntityType = typeof(Area);
             this.DetailFormType = typeof(AreaBrowser);
         }
+        private void AddSearch()
+        {
+            this.toolStrip1.Items.Add("输入省市县地区名称");
+            ToolStripTextBox txt = new System.Windows.Forms.ToolStripTextBox();
+
+            txt.KeyDown += new KeyEventHandler(txt_KeyDown);
+            txt.ToolTipText = "请输入省市县地区名称按回车查询";
+            this.toolStrip1.Items.Add(txt);
+
+        }
+
+        void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ToolStripTextBox txt = sender as ToolStripTextBox;
+                this.SetConditions(" c_hmhp like '%" + txt.Text.Trim() + "%'");
+            }
+            //throw new Exception("The method or operation is not implemented.");
+        }
+
         protected override void InitPager()
         {
             base.InitPager();

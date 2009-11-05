@@ -9,9 +9,11 @@ using FT.Commons.Tools;
 using FT.Commons.PrinterEx.SupportObject;
 using FT.DAL.Orm;
 using FT.Commons.Cache;
+using log4net;
 
 namespace FT.Windows.Forms
 {
+    
     ///初始化顺序，父类构造，子类构造，父类load，子类load
     /// 所以操作习惯可在父类的load方法实现
     /// <summary>
@@ -19,7 +21,7 @@ namespace FT.Windows.Forms
     /// </summary>
     public partial class DataBrowseForm : DevExpress.XtraEditors.XtraForm
     {
-       
+        protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
         public DataBrowseForm()
         {
             InitializeComponent();
@@ -612,23 +614,39 @@ namespace FT.Windows.Forms
         {
         }
 
+        /// <summary>
+        /// 调试日志
+        /// </summary>
+        /// <param name="obj"></param>
+        protected static void Debug(object obj)
+        {
+            if (log != null && log.IsDebugEnabled)
+            {
+                log.Debug(obj);
+            }
+        }
+
         protected virtual bool Save()
         {
             if (this.entity == null)
             {
+                log.Debug("实体为空，开始创建实体！");
                 this.entity = this.GetEntity();
             }
+            log.Debug("从窗体上获取实体值！");
             FormHelper.GetDataFromForm(this, entity);
+            log.Debug("保存或者创建新实体之前的动作！");
             this.BeforeSave(entity);
             if (this.lbId.Text.Length==0||this.lbId.Text.Trim()=="0")
             {
+                log.Debug("开始检查创建新实体的数据校验！");
                 if (this.CheckBeforeCreate())
                 {
-
+                    log.Debug("开始把新实体插入数据库前的数据组合！");
                     this.BeforeCreateEntity(entity);
                     if (SimpleOrmOperator.Create(entity))
                     {
-
+                        log.Debug("插入数据库完成，并准备同步数据！");
                         this.AfterSuccessCreate();
                         FormHelper.SetDataToForm(this, entity);
                         MessageBoxHelper.Show("添加成功！");
@@ -652,11 +670,14 @@ namespace FT.Windows.Forms
             }
             else
             {
+                log.Debug("开始检查更新新实体的数据校验！");
                 if (this.CheckBeforeUpdate())
                 {
+                    log.Debug("开始把新实体更新数据库前的数据组合！");
                     this.BeforeUpdateEntity(entity);
                     if (SimpleOrmOperator.Update(entity))
                     {
+                        log.Debug("更新新实体成功，并准备数据库同步！");
                         this.AfterSuccessUpdate();
                         MessageBoxHelper.Show("修改成功！");
                         if (refresher != null)
@@ -714,6 +735,9 @@ namespace FT.Windows.Forms
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
+            this.ClearValidateError();
+            this.lbId.Text = string.Empty;
+            this.entity = null;
             //this.entity=
             this.ClearAdd();
 
@@ -732,10 +756,8 @@ namespace FT.Windows.Forms
         /// </summary>
         protected virtual void ClearAdd()
         {
-            this.ClearValidateError();
+            
             this.ClearControl(this);
-            this.lbId.Text= string.Empty;
-            this.entity = null;
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)

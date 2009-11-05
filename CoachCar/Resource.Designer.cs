@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DS.Plugins.Student {
+namespace CoachCar {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DS.Plugins.Student {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DS.Plugins.Student.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CoachCar.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,23 +60,9 @@ namespace DS.Plugins.Student {
             }
         }
         
-        internal static System.Drawing.Bitmap Alert {
+        internal static System.Drawing.Bitmap Car {
             get {
-                object obj = ResourceManager.GetObject("Alert", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Icon Search {
-            get {
-                object obj = ResourceManager.GetObject("Search", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Student {
-            get {
-                object obj = ResourceManager.GetObject("Student", resourceCulture);
+                object obj = ResourceManager.GetObject("Car", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

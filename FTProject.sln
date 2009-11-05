@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoZipUpTools", "PhotoZip
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemPlugin", "SystemPlugin\SystemPlugin.csproj", "{350120F9-7752-426A-92A0-E3F50FE07BDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCoachCar", "SimpleCoachCar\SimpleCoachCar.csproj", "{C5E39488-EE48-485B-842D-C1B359318316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachCar", "CoachCar\CoachCar.csproj", "{8788E71A-3F78-443F-8474-88255E48694E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -347,6 +351,26 @@ Global
 		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{350120F9-7752-426A-92A0-E3F50FE07BDA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Release|.NET.ActiveCfg = Release|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C5E39488-EE48-485B-842D-C1B359318316}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Release|.NET.ActiveCfg = Release|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
