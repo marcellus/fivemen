@@ -31,9 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SystemConfigForm));
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtStartY = new System.Windows.Forms.TextBox();
+            this.txtCutWidth = new System.Windows.Forms.TextBox();
+            this.txtCutLength = new System.Windows.Forms.TextBox();
+            this.txtStartX = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtCutPath = new System.Windows.Forms.TextBox();
             this.btnCutPath = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkIsRar = new System.Windows.Forms.CheckBox();
             this.checkAutoStart = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMonitorTimes = new System.Windows.Forms.TextBox();
@@ -43,14 +52,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBakPath = new System.Windows.Forms.TextBox();
             this.btnBakPath = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtStartX = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtStartY = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCutLength = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCutWidth = new System.Windows.Forms.TextBox();
+            this.txtKitWidth = new System.Windows.Forms.TextBox();
+            this.txtKitHeight = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,6 +73,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtKitWidth);
+            this.groupBox1.Controls.Add(this.txtKitHeight);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtStartY);
             this.groupBox1.Controls.Add(this.txtCutWidth);
             this.groupBox1.Controls.Add(this.txtCutLength);
@@ -86,6 +95,73 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "图片裁剪后路径配置";
+            // 
+            // txtStartY
+            // 
+            this.txtStartY.Location = new System.Drawing.Point(280, 53);
+            this.txtStartY.Name = "txtStartY";
+            this.txtStartY.Size = new System.Drawing.Size(100, 21);
+            this.txtStartY.TabIndex = 7;
+            // 
+            // txtCutWidth
+            // 
+            this.txtCutWidth.Location = new System.Drawing.Point(280, 86);
+            this.txtCutWidth.Name = "txtCutWidth";
+            this.txtCutWidth.Size = new System.Drawing.Size(100, 21);
+            this.txtCutWidth.TabIndex = 7;
+            // 
+            // txtCutLength
+            // 
+            this.txtCutLength.Location = new System.Drawing.Point(81, 87);
+            this.txtCutLength.Name = "txtCutLength";
+            this.txtCutLength.Size = new System.Drawing.Size(100, 21);
+            this.txtCutLength.TabIndex = 7;
+            this.txtCutLength.TextChanged += new System.EventHandler(this.txtCutLength_TextChanged);
+            // 
+            // txtStartX
+            // 
+            this.txtStartX.Location = new System.Drawing.Point(81, 53);
+            this.txtStartX.Name = "txtStartX";
+            this.txtStartX.Size = new System.Drawing.Size(100, 21);
+            this.txtStartX.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(208, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "起始坐标Y";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(208, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "裁剪后的宽";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "裁剪后的长";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "起始坐标X";
             // 
             // txtCutPath
             // 
@@ -109,6 +185,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkIsRar);
             this.groupBox2.Controls.Add(this.checkAutoStart);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtMonitorTimes);
@@ -124,10 +201,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "监控图片路径配置";
             // 
+            // checkIsRar
+            // 
+            this.checkIsRar.AutoSize = true;
+            this.checkIsRar.Location = new System.Drawing.Point(326, 63);
+            this.checkIsRar.Name = "checkIsRar";
+            this.checkIsRar.Size = new System.Drawing.Size(60, 16);
+            this.checkIsRar.TabIndex = 3;
+            this.checkIsRar.Text = "压缩包";
+            this.checkIsRar.UseVisualStyleBackColor = true;
+            // 
             // checkAutoStart
             // 
             this.checkAutoStart.AutoSize = true;
-            this.checkAutoStart.Location = new System.Drawing.Point(238, 65);
+            this.checkAutoStart.Location = new System.Drawing.Point(237, 63);
             this.checkAutoStart.Name = "checkAutoStart";
             this.checkAutoStart.Size = new System.Drawing.Size(72, 16);
             this.checkAutoStart.TabIndex = 3;
@@ -212,69 +299,38 @@
             this.btnBakPath.UseVisualStyleBackColor = true;
             this.btnBakPath.Click += new System.EventHandler(this.btnBakPath_Click);
             // 
-            // label1
+            // txtKitWidth
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "起始坐标X";
+            this.txtKitWidth.Location = new System.Drawing.Point(485, 86);
+            this.txtKitWidth.Name = "txtKitWidth";
+            this.txtKitWidth.Size = new System.Drawing.Size(100, 21);
+            this.txtKitWidth.TabIndex = 10;
             // 
-            // txtStartX
+            // txtKitHeight
             // 
-            this.txtStartX.Location = new System.Drawing.Point(81, 53);
-            this.txtStartX.Name = "txtStartX";
-            this.txtStartX.Size = new System.Drawing.Size(100, 21);
-            this.txtStartX.TabIndex = 7;
+            this.txtKitHeight.Location = new System.Drawing.Point(485, 58);
+            this.txtKitHeight.Name = "txtKitHeight";
+            this.txtKitHeight.Size = new System.Drawing.Size(100, 21);
+            this.txtKitHeight.TabIndex = 11;
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "起始坐标Y";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(413, 96);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "缩放后的宽";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtStartY
+            // label8
             // 
-            this.txtStartY.Location = new System.Drawing.Point(280, 53);
-            this.txtStartY.Name = "txtStartY";
-            this.txtStartY.Size = new System.Drawing.Size(100, 21);
-            this.txtStartY.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "裁剪后的长";
-            // 
-            // txtCutLength
-            // 
-            this.txtCutLength.Location = new System.Drawing.Point(81, 87);
-            this.txtCutLength.Name = "txtCutLength";
-            this.txtCutLength.Size = new System.Drawing.Size(100, 21);
-            this.txtCutLength.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(208, 96);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "裁剪后的宽";
-            // 
-            // txtCutWidth
-            // 
-            this.txtCutWidth.Location = new System.Drawing.Point(280, 86);
-            this.txtCutWidth.Name = "txtCutWidth";
-            this.txtCutWidth.Size = new System.Drawing.Size(100, 21);
-            this.txtCutWidth.TabIndex = 7;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(413, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "缩放后的长";
             // 
             // SystemConfigForm
             // 
@@ -324,5 +380,10 @@
         private System.Windows.Forms.TextBox txtCutLength;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkIsRar;
+        private System.Windows.Forms.TextBox txtKitWidth;
+        private System.Windows.Forms.TextBox txtKitHeight;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

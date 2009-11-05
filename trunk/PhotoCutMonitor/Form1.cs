@@ -102,12 +102,14 @@ namespace PhotoCutMonitor
         {
             FileInfo file = null;
             int error = 0;
+            string unzipdir = Path.Combine(config.BakPath, System.DateTime.Now.ToString("yyyyMMddHHmmss"));
+            FileHelper.CheckDirExistsAndCreate(unzipdir);
             for (int i = 0; i < files.Length; i++)
             {
                 file = files[i];
                 if(file.Extension.ToUpper()==".RAR")
                 {
-                    string unzipdir=Path.Combine(config.BakPath, System.DateTime.Now.ToString("yyyyMMddHHmmss"));
+                    
                     if (FileHelper.UnZipDir(file.FullName, unzipdir
                          , "htcompany")
                      )
@@ -120,10 +122,13 @@ namespace PhotoCutMonitor
                         {
                             tmpfile=tmpfiles[j];
                             tmpsrc = (Bitmap)Bitmap.FromFile(tmpfile.FullName);
-                            Bitmap map = ImageHelper.KiCut(tmpsrc, config.StartX, config.StartY, config.CutWidth, config.CutLength);
+                            Bitmap map2= ImageHelper.KiResizeImage(tmpsrc, config.KitWidth, config.KitHeight, 1);
+                            Bitmap map = ImageHelper.KiCut(map2, config.StartX, config.StartY, config.CutWidth, config.CutLength);
                             map.Save(Path.Combine(config.CutPath, tmpfile.Name), System.Drawing.Imaging.ImageFormat.Jpeg);
                             tmpsrc.Dispose();
                             tmpsrc = null;
+                            map2.Dispose();
+                            map2 = null;
                             map.Dispose();
                             map = null;
                         }
@@ -141,6 +146,24 @@ namespace PhotoCutMonitor
                         File.Delete(file.FullName);
                     }
                     
+                }
+                else
+                {
+                    Bitmap tmpsrc = null;
+                   
+                        tmpsrc = (Bitmap)Bitmap.FromFile(file.FullName);
+                        Bitmap map2 = ImageHelper.KiResizeImage(tmpsrc, config.KitWidth, config.KitHeight, 1);
+                        Bitmap map = ImageHelper.KiCut(map2, config.StartX, config.StartY, config.CutWidth, config.CutLength);
+                        map.Save(Path.Combine(config.CutPath, file.Name), System.Drawing.Imaging.ImageFormat.Jpeg);
+                        tmpsrc.Dispose();
+                        tmpsrc = null;
+                        map2.Dispose();
+                        map2 = null;
+                        map.Dispose();
+                        map = null;
+                        File.Copy(file.FullName, Path.Combine(unzipdir, file.Name));
+                    //TODO:¿ªÊ¼²Ã¼ô
+                    File.Delete(file.FullName);
                 }
                 
             }

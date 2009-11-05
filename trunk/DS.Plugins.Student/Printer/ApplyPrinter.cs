@@ -57,11 +57,21 @@ namespace DS.Plugins.Student
                 {
                     string path = Application.StartupPath + "/temp.jpg";
                     //string path = Application.StartupPath + "/tempcode39.jpg";
+                    log.Debug("要打印人的姓名：" + Student.Name);
+                    log.Debug("要打印人的身份证号码：" + Student.IdCard);
+                    log.Debug("要打印人的二维条码信息为:" + Student.Dimension);
                     ImageHelper.SaveCoderPic(this.GetQRImage(Student.Dimension),path);
                    // MyGraphics.DrawImage(Image.FromFile(path), new Rectangle(new Point(516 + width, 720 + height), new Size(150, 150)));
                     Image imagetest = Image.FromFile(path);
+                    
+                   Image imagetmp=new System.Drawing.Bitmap(imagetest);
+
+
                     MyGraphics.DrawImage(imagetest, new Rectangle(new Point(370 + width, 775 + height), new Size(130, 130)));
-                    imagetest.Dispose();
+                   imagetest.Dispose();
+                    File.Delete(path);
+                    imagetmp.Dispose();
+                    
                 }
             }
             DateTime regDate = System.DateTime.Now;
@@ -91,8 +101,12 @@ namespace DS.Plugins.Student
                 string path = Application.StartupPath + "/tempcode39.jpg";
                 ImageHelper.SaveCoderPic(map, path);
                 Image imagetest2 = Image.FromFile(path);
-                MyGraphics.DrawImage(imagetest2, new RectangleF(width - 40, height - 46, 240, 30));
+                Image imagetmp2 = new System.Drawing.Bitmap(imagetest2);
+
+                MyGraphics.DrawImage(imagetmp2, new RectangleF(width - 40, height - 46, 240, 30));
                 imagetest2.Dispose();
+                File.Delete(path);
+                imagetmp2.Dispose();
             }
             catch (Exception ex)
             {

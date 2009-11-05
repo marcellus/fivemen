@@ -787,8 +787,24 @@ namespace DS.Plugins.Student
                     }
                     
                 }
+                else
+                {
+                    try
+                    {
+                        this.InitByIdCard(id);
+                        this.dateBirthday.Value = IDCardHelper.GetBirthday(id);
+                        this.cbSex.Text = IDCardHelper.GetSexName(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        //this.SetError(sender, "手机号码格式错误！");
+                        //MessageBoxHelper.Show("错误:"+ex.Message);
+                    }
+
+                }
                 
             }
+          
         }
 
         private void cbIdCardType_SelectedIndexChanged(object sender, EventArgs e)
@@ -963,6 +979,7 @@ namespace DS.Plugins.Student
             this.txtExamId.Text = string.Empty;
             this.lbState.Text = "初始报名";
             this.lbPrintedState.Text = "未打印";
+            
             //base.ClearAdd();
         }
         #endregion
@@ -987,7 +1004,11 @@ namespace DS.Plugins.Student
                 {
                     this.ClearValidateError();
                     if(this.Save())
-                    StudentHelper.Print(this.entity as StudentInfo, key);
+                    {
+                        log.Debug("保存并套打第一步保存成功！");
+                        StudentHelper.Print(this.entity as StudentInfo, key);
+                    }
+                    
                 }
                 else
                 {
@@ -1203,6 +1224,12 @@ namespace DS.Plugins.Student
             return info;
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form = new FT.Windows.CommonsPlugin.AreaSearchForm();
+            form.Show();
+        }
     }
 }
 
