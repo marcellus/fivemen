@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCoachCar", "SimpleCoa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachCar", "CoachCar\CoachCar.csproj", "{8788E71A-3F78-443F-8474-88255E48694E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FtDbConnectionTest", "FtDbConnectionTest\FtDbConnectionTest.csproj", "{989F2412-2156-4F44-AC2E-ED6BAC71C228}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -371,6 +373,16 @@ Global
 		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8788E71A-3F78-443F-8474-88255E48694E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Release|.NET.ActiveCfg = Release|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{989F2412-2156-4F44-AC2E-ED6BAC71C228}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
