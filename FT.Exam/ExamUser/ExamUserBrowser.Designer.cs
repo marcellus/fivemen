@@ -55,6 +55,7 @@ namespace FT.Exam
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtIdCard);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox1.Location = new System.Drawing.Point(13, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(427, 190);
@@ -65,27 +66,27 @@ namespace FT.Exam
             // lbNotPassCount
             // 
             this.lbNotPassCount.AutoSize = true;
-            this.lbNotPassCount.Location = new System.Drawing.Point(104, 154);
+            this.lbNotPassCount.Location = new System.Drawing.Point(120, 154);
             this.lbNotPassCount.Name = "lbNotPassCount";
-            this.lbNotPassCount.Size = new System.Drawing.Size(11, 12);
+            this.lbNotPassCount.Size = new System.Drawing.Size(15, 15);
             this.lbNotPassCount.TabIndex = 5;
             this.lbNotPassCount.Text = "0";
             // 
             // lbPassCount
             // 
             this.lbPassCount.AutoSize = true;
-            this.lbPassCount.Location = new System.Drawing.Point(104, 124);
+            this.lbPassCount.Location = new System.Drawing.Point(120, 124);
             this.lbPassCount.Name = "lbPassCount";
-            this.lbPassCount.Size = new System.Drawing.Size(11, 12);
+            this.lbPassCount.Size = new System.Drawing.Size(15, 15);
             this.lbPassCount.TabIndex = 5;
             this.lbPassCount.Text = "0";
             // 
             // lbAllCount
             // 
             this.lbAllCount.AutoSize = true;
-            this.lbAllCount.Location = new System.Drawing.Point(104, 94);
+            this.lbAllCount.Location = new System.Drawing.Point(120, 94);
             this.lbAllCount.Name = "lbAllCount";
-            this.lbAllCount.Size = new System.Drawing.Size(11, 12);
+            this.lbAllCount.Size = new System.Drawing.Size(15, 15);
             this.lbAllCount.TabIndex = 5;
             this.lbAllCount.Text = "0";
             // 
@@ -94,7 +95,7 @@ namespace FT.Exam
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(26, 155);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(82, 15);
             this.label8.TabIndex = 4;
             this.label8.Text = "不合格次数";
             // 
@@ -103,7 +104,7 @@ namespace FT.Exam
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(38, 125);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 4;
             this.label6.Text = "合格次数";
             // 
@@ -112,31 +113,31 @@ namespace FT.Exam
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(26, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "考试总次数";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(104, 53);
+            this.txtName.Location = new System.Drawing.Point(117, 53);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(272, 21);
+            this.txtName.Size = new System.Drawing.Size(272, 24);
             this.txtName.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 63);
+            this.label3.Location = new System.Drawing.Point(71, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "姓名";
             // 
             // txtIdCard
             // 
-            this.txtIdCard.Location = new System.Drawing.Point(104, 22);
+            this.txtIdCard.Location = new System.Drawing.Point(117, 22);
             this.txtIdCard.Name = "txtIdCard";
-            this.txtIdCard.Size = new System.Drawing.Size(272, 21);
+            this.txtIdCard.Size = new System.Drawing.Size(272, 24);
             this.txtIdCard.TabIndex = 1;
             // 
             // label2
@@ -144,7 +145,7 @@ namespace FT.Exam
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(97, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "身份证明号码";
             // 
