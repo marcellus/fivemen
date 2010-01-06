@@ -36,6 +36,9 @@ namespace FT.Exam
             this.AddSeparatorToMenu(top);
             tmp = this.BuildSubMenu("øº ‘º«¬º≤È—Ø", typeof(ExamLogSearch));
             top.DropDownItems.Add(tmp);
+            this.AddSeparatorToMenu(top);
+            tmp = this.BuildSubMenu("øº ‘≤ﬂ¬‘≈‰÷√", typeof(ExamPolicySetting));
+            top.DropDownItems.Add(tmp);
             /*
             tmp = this.BuildTopMenu("ƒ£ƒ‚øº ‘");
             tmp.Click += new EventHandler(tmp_Click);

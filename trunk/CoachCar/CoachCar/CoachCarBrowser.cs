@@ -87,6 +87,21 @@ namespace CoachCar
             FT.Commons.Tools.FormHelper.SetDataToObject(entity, "KeyWords", this.GetKeyWords());
             //base.BeforeSave(entity);
         }
+
+        protected override bool CheckBeforeCreate()
+        {
+            DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select * from table_coach_cars where c_car_no='"+
+                FT.DAL.DALSecurityTool.TransferInsertField(this.txtCarNo.Text.Trim()) + "' and c_coach_name='" +
+
+                FT.DAL.DALSecurityTool.TransferInsertField(this.txtCoachName.Text.Trim()) + "'", "tmp");
+            if(dt!=null&&dt.Rows.Count>0)
+            {
+                MessageBoxHelper.Show("已存在教练车号为：" + this.txtCarNo.Text.Trim() + "\r\n教练名：" + this.txtCoachName.Text.Trim()+"的记录");
+                return false;
+            }
+            return true;
+            //return base.CheckBeforeCreate();
+        }
     }
 }
 

@@ -19,6 +19,16 @@ namespace CoachCar
             set { Id = value; }
         }
 
+        [SimpleColumn(Column = "c_cartype")]
+        [Alias("准教车型")]
+        public String CarType;
+
+        public String 准教车型
+        {
+            get { return CarType; }
+            set { CarType = value; }
+        }
+
 
         [SimpleColumn(Column = "c_company")]
         [Alias("单位")]
@@ -90,10 +100,10 @@ namespace CoachCar
         }
 
         [SimpleColumn(Column = "c_description")]
-        [Alias("备注")]
+        [Alias("车辆类型")]
         public string Description;
 
-        public string 备注
+        public string 车辆类型
         {
             get { return Description; }
             set { Description = value; }
