@@ -150,7 +150,7 @@ namespace DS.Plugins.Student
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            this.ValidateNotNull(sender, e, "联系电话1不得为空！");
+           // this.ValidateNotNull(sender, e, "联系电话1不得为空！");
         }
 
         private void txtRegAddress_Validating(object sender, CancelEventArgs e)

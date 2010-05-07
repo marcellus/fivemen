@@ -188,7 +188,7 @@ namespace DS.Plugins.Student
 
             height += sep + 10;
             //this.Draw11String(this.allowCar, new Point(470, height));
-            this.Draw15String(Student.NewCarType, new Point(width+170, height + 50));
+            this.Draw15String(Student.NewCarType, new Point(width + 170 + (config.CarRight - config.CarLeft) * BaseStudentPrinter.PixelUnit, (config.CarDown - config.CarUp) * BaseStudentPrinter.PixelUnit + height + 50));
             //为增驾或者初学打钩
             Font check = new Font("宋体", 20);
             if (Student.LearnType == "初学")

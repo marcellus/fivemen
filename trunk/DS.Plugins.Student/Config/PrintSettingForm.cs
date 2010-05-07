@@ -31,6 +31,10 @@ namespace DS.Plugins.Student
             this.cbApplyBodyCheck.Checked = config.ApplyConfig.IsBodyCheck;
             this.numApplyNameDown.Value = config.ApplyConfig.NameDown;
             this.numApplyNameLeft.Value = config.ApplyConfig.NameLeft;
+            this.numApplyDownCar.Value=config.ApplyConfig.CarDown ;
+            this.numApplyUpCar.Value=config.ApplyConfig.CarUp;
+            this.numApplyLeftCar.Value=config.ApplyConfig.CarLeft;
+            this.numApplyRightCar.Value=config.ApplyConfig.CarRight ;
 
             this.numF2Up.Value = config.F2Config.Up;
             this.numF2Down.Value = config.F2Config.Down;
@@ -94,6 +98,12 @@ namespace DS.Plugins.Student
                 config.ApplyConfig.IsBodyCheck = this.cbApplyBodyCheck.Checked;
                 config.ApplyConfig.NameDown = (int)this.numApplyNameDown.Value;
                 config.ApplyConfig.NameLeft = (int)this.numApplyNameLeft.Value;
+
+                config.ApplyConfig.CarDown = (int)this.numApplyDownCar.Value;
+                config.ApplyConfig.CarUp = (int)this.numApplyUpCar.Value;
+                config.ApplyConfig.CarLeft = (int)this.numApplyLeftCar.Value;
+                config.ApplyConfig.CarRight = (int)this.numApplyRightCar.Value;
+
 
                 config.F2Config.Up = (int)this.numF2Up.Value;
                 config.F2Config.Down = (int)this.numF2Down.Value;
