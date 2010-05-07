@@ -177,7 +177,7 @@ namespace DS.Plugins.Student
             }
 
             height += sep;
-            this.Draw15String(Student.Phone, new Point(width + 300, height));
+            this.Draw15String(Student.Mobile, new Point(width + 300, height));
             Font check = new Font("ËÎÌו", 20);
             this.DrawStringHor("¡Ì", check, new Point(width + 93, height + sep));//MyGraphics.DrawImageUnscaled(Image.FromFile(Gou), new Point(width + 63, height));
         }

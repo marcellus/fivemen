@@ -94,21 +94,28 @@ namespace DS.Plugins.Student
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label65 = new System.Windows.Forms.Label();
             this.cbApplyBodyCheck = new System.Windows.Forms.CheckBox();
             this.cbPrintApplyDate = new System.Windows.Forms.CheckBox();
             this.cbPrintXiangCun = new System.Windows.Forms.CheckBox();
             this.cbApply2Dimension = new System.Windows.Forms.CheckBox();
             this.cbApplyProfile = new System.Windows.Forms.CheckBox();
             this.label41 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.numApplyRight = new System.Windows.Forms.NumericUpDown();
+            this.numApplyNameLeft = new System.Windows.Forms.NumericUpDown();
             this.numApplyLeft = new System.Windows.Forms.NumericUpDown();
+            this.numApplyNameDown = new System.Windows.Forms.NumericUpDown();
             this.numApplyDown = new System.Windows.Forms.NumericUpDown();
             this.numApplyUp = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -151,13 +158,19 @@ namespace DS.Plugins.Student
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.numApplyNameLeft = new System.Windows.Forms.NumericUpDown();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.numApplyNameDown = new System.Windows.Forms.NumericUpDown();
-            this.label69 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.numApplyUpCar = new System.Windows.Forms.NumericUpDown();
+            this.numApplyDownCar = new System.Windows.Forms.NumericUpDown();
+            this.numApplyLeftCar = new System.Windows.Forms.NumericUpDown();
+            this.numApplyRightCar = new System.Windows.Forms.NumericUpDown();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numF2Right)).BeginInit();
@@ -181,13 +194,18 @@ namespace DS.Plugins.Student
             ((System.ComponentModel.ISupportInitialize)(this.numF6Up)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyUp)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyUpCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyDownCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyLeftCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyRightCar)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -809,6 +827,7 @@ namespace DS.Plugins.Student
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.groupBox1);
             this.tabPage6.Controls.Add(this.label65);
             this.tabPage6.Controls.Add(this.cbApplyBodyCheck);
             this.tabPage6.Controls.Add(this.cbPrintApplyDate);
@@ -840,6 +859,15 @@ namespace DS.Plugins.Student
             this.tabPage6.Text = "套打申请表";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(27, 184);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(97, 15);
+            this.label65.TabIndex = 21;
+            this.label65.Text = "驾校简称位置";
             // 
             // cbApplyBodyCheck
             // 
@@ -895,25 +923,43 @@ namespace DS.Plugins.Student
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(411, 136);
+            this.label41.Location = new System.Drawing.Point(300, 137);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(37, 15);
             this.label41.TabIndex = 12;
             this.label41.Text = "毫米";
             // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(411, 182);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(37, 15);
+            this.label67.TabIndex = 11;
+            this.label67.Text = "毫米";
+            // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(411, 91);
+            this.label42.Location = new System.Drawing.Point(300, 92);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(37, 15);
             this.label42.TabIndex = 11;
             this.label42.Text = "毫米";
             // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(253, 182);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(37, 15);
+            this.label69.TabIndex = 14;
+            this.label69.Text = "毫米";
+            // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(253, 138);
+            this.label43.Location = new System.Drawing.Point(142, 139);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(37, 15);
             this.label43.TabIndex = 14;
@@ -922,7 +968,7 @@ namespace DS.Plugins.Student
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(253, 91);
+            this.label44.Location = new System.Drawing.Point(142, 92);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(37, 15);
             this.label44.TabIndex = 13;
@@ -930,28 +976,42 @@ namespace DS.Plugins.Student
             // 
             // numApplyRight
             // 
-            this.numApplyRight.Location = new System.Drawing.Point(345, 128);
+            this.numApplyRight.Location = new System.Drawing.Point(234, 129);
             this.numApplyRight.Name = "numApplyRight";
             this.numApplyRight.Size = new System.Drawing.Size(59, 24);
             this.numApplyRight.TabIndex = 9;
             // 
+            // numApplyNameLeft
+            // 
+            this.numApplyNameLeft.Location = new System.Drawing.Point(345, 174);
+            this.numApplyNameLeft.Name = "numApplyNameLeft";
+            this.numApplyNameLeft.Size = new System.Drawing.Size(59, 24);
+            this.numApplyNameLeft.TabIndex = 10;
+            // 
             // numApplyLeft
             // 
-            this.numApplyLeft.Location = new System.Drawing.Point(345, 83);
+            this.numApplyLeft.Location = new System.Drawing.Point(234, 84);
             this.numApplyLeft.Name = "numApplyLeft";
             this.numApplyLeft.Size = new System.Drawing.Size(59, 24);
             this.numApplyLeft.TabIndex = 10;
             // 
+            // numApplyNameDown
+            // 
+            this.numApplyNameDown.Location = new System.Drawing.Point(187, 174);
+            this.numApplyNameDown.Name = "numApplyNameDown";
+            this.numApplyNameDown.Size = new System.Drawing.Size(59, 24);
+            this.numApplyNameDown.TabIndex = 7;
+            // 
             // numApplyDown
             // 
-            this.numApplyDown.Location = new System.Drawing.Point(187, 130);
+            this.numApplyDown.Location = new System.Drawing.Point(76, 131);
             this.numApplyDown.Name = "numApplyDown";
             this.numApplyDown.Size = new System.Drawing.Size(59, 24);
             this.numApplyDown.TabIndex = 7;
             // 
             // numApplyUp
             // 
-            this.numApplyUp.Location = new System.Drawing.Point(187, 83);
+            this.numApplyUp.Location = new System.Drawing.Point(76, 84);
             this.numApplyUp.Name = "numApplyUp";
             this.numApplyUp.Size = new System.Drawing.Size(59, 24);
             this.numApplyUp.TabIndex = 8;
@@ -959,25 +1019,43 @@ namespace DS.Plugins.Student
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(309, 138);
+            this.label45.Location = new System.Drawing.Point(198, 139);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(37, 15);
             this.label45.TabIndex = 4;
             this.label45.Text = "向右";
             // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(309, 183);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(37, 15);
+            this.label66.TabIndex = 3;
+            this.label66.Text = "向左";
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(309, 93);
+            this.label46.Location = new System.Drawing.Point(198, 94);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(37, 15);
             this.label46.TabIndex = 3;
             this.label46.Text = "向左";
             // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(151, 184);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(37, 15);
+            this.label68.TabIndex = 6;
+            this.label68.Text = "向下";
+            // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(151, 140);
+            this.label47.Location = new System.Drawing.Point(40, 141);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(37, 15);
             this.label47.TabIndex = 6;
@@ -986,7 +1064,7 @@ namespace DS.Plugins.Student
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(151, 93);
+            this.label48.Location = new System.Drawing.Point(40, 94);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(37, 15);
             this.label48.TabIndex = 5;
@@ -1377,64 +1455,126 @@ namespace DS.Plugins.Student
             this.label58.TabIndex = 5;
             this.label58.Text = "向上";
             // 
-            // label65
+            // groupBox1
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(27, 184);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(97, 15);
-            this.label65.TabIndex = 21;
-            this.label65.Text = "驾校简称位置";
+            this.groupBox1.Controls.Add(this.label70);
+            this.groupBox1.Controls.Add(this.label71);
+            this.groupBox1.Controls.Add(this.label72);
+            this.groupBox1.Controls.Add(this.label73);
+            this.groupBox1.Controls.Add(this.numApplyUpCar);
+            this.groupBox1.Controls.Add(this.numApplyDownCar);
+            this.groupBox1.Controls.Add(this.numApplyLeftCar);
+            this.groupBox1.Controls.Add(this.label78);
+            this.groupBox1.Controls.Add(this.numApplyRightCar);
+            this.groupBox1.Controls.Add(this.label74);
+            this.groupBox1.Controls.Add(this.label77);
+            this.groupBox1.Controls.Add(this.label76);
+            this.groupBox1.Location = new System.Drawing.Point(369, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(318, 114);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "车型位置偏移";
             // 
-            // label66
+            // label70
             // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(309, 183);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(37, 15);
-            this.label66.TabIndex = 3;
-            this.label66.Text = "向左";
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(6, 32);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(37, 15);
+            this.label70.TabIndex = 5;
+            this.label70.Text = "向上";
             // 
-            // numApplyNameLeft
+            // label71
             // 
-            this.numApplyNameLeft.Location = new System.Drawing.Point(345, 174);
-            this.numApplyNameLeft.Name = "numApplyNameLeft";
-            this.numApplyNameLeft.Size = new System.Drawing.Size(59, 24);
-            this.numApplyNameLeft.TabIndex = 10;
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(6, 79);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(37, 15);
+            this.label71.TabIndex = 6;
+            this.label71.Text = "向下";
             // 
-            // label67
+            // label72
             // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(411, 182);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(37, 15);
-            this.label67.TabIndex = 11;
-            this.label67.Text = "毫米";
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(164, 32);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(37, 15);
+            this.label72.TabIndex = 3;
+            this.label72.Text = "向左";
             // 
-            // label68
+            // label73
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(151, 184);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(37, 15);
-            this.label68.TabIndex = 6;
-            this.label68.Text = "向下";
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(164, 77);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(37, 15);
+            this.label73.TabIndex = 4;
+            this.label73.Text = "向右";
             // 
-            // numApplyNameDown
+            // numApplyUpCar
             // 
-            this.numApplyNameDown.Location = new System.Drawing.Point(187, 174);
-            this.numApplyNameDown.Name = "numApplyNameDown";
-            this.numApplyNameDown.Size = new System.Drawing.Size(59, 24);
-            this.numApplyNameDown.TabIndex = 7;
+            this.numApplyUpCar.Location = new System.Drawing.Point(42, 22);
+            this.numApplyUpCar.Name = "numApplyUpCar";
+            this.numApplyUpCar.Size = new System.Drawing.Size(59, 24);
+            this.numApplyUpCar.TabIndex = 8;
             // 
-            // label69
+            // numApplyDownCar
             // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(253, 182);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(37, 15);
-            this.label69.TabIndex = 14;
-            this.label69.Text = "毫米";
+            this.numApplyDownCar.Location = new System.Drawing.Point(42, 69);
+            this.numApplyDownCar.Name = "numApplyDownCar";
+            this.numApplyDownCar.Size = new System.Drawing.Size(59, 24);
+            this.numApplyDownCar.TabIndex = 7;
+            // 
+            // numApplyLeftCar
+            // 
+            this.numApplyLeftCar.Location = new System.Drawing.Point(200, 22);
+            this.numApplyLeftCar.Name = "numApplyLeftCar";
+            this.numApplyLeftCar.Size = new System.Drawing.Size(59, 24);
+            this.numApplyLeftCar.TabIndex = 10;
+            // 
+            // numApplyRightCar
+            // 
+            this.numApplyRightCar.Location = new System.Drawing.Point(200, 67);
+            this.numApplyRightCar.Name = "numApplyRightCar";
+            this.numApplyRightCar.Size = new System.Drawing.Size(59, 24);
+            this.numApplyRightCar.TabIndex = 9;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(108, 30);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(37, 15);
+            this.label74.TabIndex = 13;
+            this.label74.Text = "毫米";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(108, 77);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(37, 15);
+            this.label76.TabIndex = 14;
+            this.label76.Text = "毫米";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(266, 30);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(37, 15);
+            this.label77.TabIndex = 11;
+            this.label77.Text = "毫米";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(266, 75);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(37, 15);
+            this.label78.TabIndex = 12;
+            this.label78.Text = "毫米";
             // 
             // PrintSettingForm
             // 
@@ -1480,15 +1620,21 @@ namespace DS.Plugins.Student
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numApplyUp)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyUpCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyDownCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyLeftCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyRightCar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1625,5 +1771,18 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.NumericUpDown numApplyNameDown;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.NumericUpDown numApplyUpCar;
+        private System.Windows.Forms.NumericUpDown numApplyDownCar;
+        private System.Windows.Forms.NumericUpDown numApplyLeftCar;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.NumericUpDown numApplyRightCar;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label76;
     }
 }

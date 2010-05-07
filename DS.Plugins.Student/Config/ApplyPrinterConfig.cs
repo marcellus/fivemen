@@ -46,6 +46,26 @@ namespace DS.Plugins.Student
         /// </summary>
         public int NameLeft=0;
 
+        /// <summary>
+        /// 向上多少毫米
+        /// </summary>
+        public int CarUp;
+
+        /// <summary>
+        /// 向下多少毫米
+        /// </summary>
+        public int CarDown;
+
+        /// <summary>
+        /// 向左多少毫米
+        /// </summary>
+        public int CarLeft;
+
+        /// <summary>
+        /// 向右多少毫米
+        /// </summary>
+        public int CarRight;
+
        
     }
 }
