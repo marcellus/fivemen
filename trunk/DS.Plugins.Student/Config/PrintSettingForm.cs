@@ -29,6 +29,8 @@ namespace DS.Plugins.Student
             this.cbPrintXiangCun.Checked = config.ApplyConfig.PrintXiangCun;
             this.cbPrintApplyDate.Checked = config.ApplyConfig.PrintApplyDate;
             this.cbApplyBodyCheck.Checked = config.ApplyConfig.IsBodyCheck;
+            this.numApplyNameDown.Value = config.ApplyConfig.NameDown;
+            this.numApplyNameLeft.Value = config.ApplyConfig.NameLeft;
 
             this.numF2Up.Value = config.F2Config.Up;
             this.numF2Down.Value = config.F2Config.Down;
@@ -90,6 +92,8 @@ namespace DS.Plugins.Student
                 config.ApplyConfig.PrintXiangCun = this.cbPrintXiangCun.Checked;
                 config.ApplyConfig.PrintApplyDate=this.cbPrintApplyDate.Checked;
                 config.ApplyConfig.IsBodyCheck = this.cbApplyBodyCheck.Checked;
+                config.ApplyConfig.NameDown = (int)this.numApplyNameDown.Value;
+                config.ApplyConfig.NameLeft = (int)this.numApplyNameLeft.Value;
 
                 config.F2Config.Up = (int)this.numF2Up.Value;
                 config.F2Config.Down = (int)this.numF2Down.Value;

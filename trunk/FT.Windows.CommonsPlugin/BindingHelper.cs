@@ -73,7 +73,7 @@ namespace FT.Windows.CommonsPlugin
         public static void BindArea(ComboBox cb, string parent)
         {
             //cb.DropDownStyle = ComboBoxStyle.DropDownList;
-            string key = "city_" + parent;
+            string key = "area_" + parent;
             ArrayList list = StaticCacheManager.Get(key) as ArrayList;
             if (list == null)
             {

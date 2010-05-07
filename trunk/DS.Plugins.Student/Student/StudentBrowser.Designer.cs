@@ -315,11 +315,11 @@ namespace DS.Plugins.Student
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(65, 329);
+            this.label28.Location = new System.Drawing.Point(33, 329);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(37, 15);
+            this.label28.Size = new System.Drawing.Size(67, 15);
             this.label28.TabIndex = 55;
-            this.label28.Text = "备注";
+            this.label28.Text = "电子信箱";
             // 
             // lbGraduationDate
             // 
@@ -628,9 +628,9 @@ namespace DS.Plugins.Student
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(27, 95);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 15);
+            this.label11.Size = new System.Drawing.Size(67, 15);
             this.label11.TabIndex = 18;
-            this.label11.Text = "联系电话2";
+            this.label11.Text = "移动电话";
             // 
             // txtPhone
             // 
@@ -643,11 +643,11 @@ namespace DS.Plugins.Student
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(456, 69);
+            this.label10.Location = new System.Drawing.Point(463, 69);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 15);
+            this.label10.Size = new System.Drawing.Size(67, 15);
             this.label10.TabIndex = 16;
-            this.label10.Text = "联系电话1";
+            this.label10.Text = "固定电话";
             // 
             // txtTempId
             // 

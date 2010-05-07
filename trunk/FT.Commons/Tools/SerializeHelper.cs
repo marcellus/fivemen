@@ -55,11 +55,13 @@ namespace FT.Commons.Tools
         /// <returns>是否正确序列化</returns>
         public static bool SerializeToFile(object obj,string filename)
         {
+            Debug("开始序列化到文件->" + filename);
+            Stream stream=null;
             try
             {
-                Debug("开始序列化到文件->"+filename);
+                
                 IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
+                stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
                 formatter.Serialize(stream, obj);
                 stream.Close();
                 Debug("序列化到文件完毕！");
@@ -67,6 +69,8 @@ namespace FT.Commons.Tools
             }
             catch (Exception ex)
             {
+                if (stream != null)
+                    stream.Close();
                 Info(ex);
                 return false;
             }

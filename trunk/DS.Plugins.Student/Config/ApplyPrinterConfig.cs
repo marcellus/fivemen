@@ -33,5 +33,19 @@ namespace DS.Plugins.Student
         /// 是否打印的时候必须填写体检信息
         /// </summary>
         public bool IsBodyCheck = false;
+
+        
+
+        /// <summary>
+        /// 驾校简称向下多少毫米
+        /// </summary>
+        public int NameDown=0;
+
+        /// <summary>
+        /// 驾校简称向左多少毫米
+        /// </summary>
+        public int NameLeft=0;
+
+       
     }
 }
