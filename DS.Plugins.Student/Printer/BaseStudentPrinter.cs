@@ -19,7 +19,7 @@ namespace DS.Plugins.Student
         protected static  string[] allowCars=new string[]{"A1","A2","A3","B1","B2","C1","C2","C3","C4","D","E","F","M","N","P"};
         private StudentInfo student;
 
-        public const int ConnAddressMaxLen = 27;
+        public const int ConnAddressMaxLen = 25;
         public const int IdCardTypeMaxLen = 6;
         //public const int TempIdTypeMaxLen = 5;
 
@@ -147,8 +147,8 @@ namespace DS.Plugins.Student
             F3PrinterConfig config = AllPrinterConfig.GetPrinterConfig().F3Config;
             //this.Draw13String(Fm.Windows.Forms.CompanyInfoForm.Info.NickName, new System.Drawing.Point(610, 75));
             this.DrawTitle(new System.Drawing.Point(610, 75));
-            int height = (config.Down - config.Up) * PixelUnit + 272;
-            int width = (config.Right - config.Left) * PixelUnit + 170;
+            int height = (config.Down - config.Up) * PixelUnit + 150;
+            int width = (config.Right - config.Left) * PixelUnit + 150;
             int sep = 36;
 
             this.Draw15String(Student.Name, new Point(width, height));
@@ -164,21 +164,22 @@ namespace DS.Plugins.Student
 
             for (int i = 0; i < Student.IdCard.Length; i++)
             {
-                MyGraphics.DrawString(Student.IdCard[i].ToString(), body15Font, blackBrush, new RectangleF(width+216 + 22 * i, height - 6, 22, 35), stringFormat);
+                MyGraphics.DrawString(Student.IdCard[i].ToString(), body15Font, blackBrush, new RectangleF(width + 216 + 22 * i, height - 6, 22, 35), stringFormat);
                 //MyGraphics.DrawString(idCard[i].ToString(), body9Font, blackBrush, new RectangleF(445 + 19 * i , height - 6, 19, 35), stringFormat);
                 // MyGraphics.DrawRectangle(blackPen, 332 + 17 * i + (i / 2) * 1, height - 7, 17, 36);+ (i / 2) * 1
                 // this.Draw15String(idCard[i].ToString(), new Point(334 + i * tempIdSep, height));
             }
-            height += sep + 5;
+            height += sep + 10;
             this.Draw15String(Student.NewCarType, new Point(width + 150, height));
-            if (config.PrintProfile&&student.LearnType=="Ôö¼Ý")
+            if (config.PrintProfile && student.LearnType == "Ôö¼Ý")
             {
                 this.Draw15String(Student.Profile, new Point(width + 300, height));
             }
-            height += sep - 5;
+
+            height += sep;
+            this.Draw15String(Student.Phone, new Point(width + 300, height));
             Font check = new Font("ËÎÌå", 20);
-            this.DrawStringHor("¡Ì", check, new Point(width + 93, height));
-            //MyGraphics.DrawImageUnscaled(Image.FromFile(Gou), new Point(width + 63, height));
+            this.DrawStringHor("¡Ì", check, new Point(width + 93, height + sep));//MyGraphics.DrawImageUnscaled(Image.FromFile(Gou), new Point(width + 63, height));
         }
         protected void PrintF4()
         {

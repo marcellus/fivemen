@@ -67,7 +67,7 @@ namespace DS.Plugins.Student
                    Image imagetmp=new System.Drawing.Bitmap(imagetest);
 
 
-                    MyGraphics.DrawImage(imagetest, new Rectangle(new Point(370 + width, 775 + height), new Size(130, 130)));
+                    MyGraphics.DrawImage(imagetest, new Rectangle(new Point(356 + width, 790 + height), new Size(130, 130)));
                    imagetest.Dispose();
                     File.Delete(path);
                     imagetmp.Dispose();
@@ -79,13 +79,14 @@ namespace DS.Plugins.Student
             {
                 this.Draw10String(regDate.Year + "   " + regDate.Month + "  " + regDate.Day, new Point(width + 567, height + 920));
             }
+            
             //MyGraphics.DrawImage(this.GetQRImage(this.GetQRString()), new Point(320, 460));
             //画出驾校简称
             //MyGraphics.DrawRectangle(blackPen, 600, 10, 680, 30);
             //this.DrawStringHor("驾校简称：" + Fm.Windows.Forms.CompanyInfoForm.Info.NickName,  new Point(605, 55));
             // this.Draw11String("驾校简称：" + Fm.Windows.Forms.CompanyInfoForm.Info.NickName, new Point(605,55));
             CompanyInfo comp = StaticCacheManager.GetConfig<CompanyInfo>();
-            this.DrawStringHor("驾校：" + comp.NickName, new Font("黑体", 15), new Point(480 + width, height - 120));
+            this.DrawStringHor("驾校：" + comp.NickName, new Font("黑体", 15), new Point(480 + width - config.NameLeft * BaseStudentPrinter.PixelUnit, height - 120 + config.NameDown * BaseStudentPrinter.PixelUnit));
             // 画出身份证明号码的一维条码
 
 
@@ -165,44 +166,41 @@ namespace DS.Plugins.Student
                 }
            }
             height += sep + 5;
+            //string connadd = this.GetConnAddress();
+            string connadd = Student.RegAddress;
             if (Student.RegAddress.Length < ConnAddressMaxLen)
             {
-                this.Draw15String(Student.RegAddress, new Point(width, height));
+                this.Draw15String(connadd, new Point(width, height));
             }
             else
             {
-                this.Draw12String(Student.RegAddress, new Point(width, height));
+                this.Draw12String(connadd, new Point(width, height));
             }
             //this.Draw15String(Student.RegAddress, new Point(width, height));
 
             height += sep + 5;
-            string connadd = this.GetConnAddress();
-            if (connadd.Length >= ConnAddressMaxLen)
-            {
-                this.Draw12String(this.GetConnAddress(), new Point(width, height));
-            }
-            else{
-            this.Draw15String(this.GetConnAddress(), new Point(width, height));
-        }
-            height += sep + 6;
             this.Draw15String(Student.Phone, new Point(width, height));
+            this.Draw15String(Student.Description, new Point(410 + 100, height));
+
+            height += sep + 6;
+            this.Draw15String(Student.Mobile, new Point(width, height));
             this.Draw15String(Student.PostCode, new Point(410 + 100, height));
 
             height += sep + 10;
             //this.Draw11String(this.allowCar, new Point(470, height));
-            this.Draw15String(Student.NewCarType, new Point(400, height));
+            this.Draw15String(Student.NewCarType, new Point(width+170, height + 50));
             //为增驾或者初学打钩
             Font check = new Font("宋体", 20);
             if (Student.LearnType == "初学")
             {
                 // this.Draw11String("√", new Point(width+18, height+2));
-                this.DrawStringHor("√", check, new Point(width - 18, height + 1));
+                this.DrawStringHor("√", check, new Point(width - 58, height -5));
             }
             else
             {
                 //this.Draw11String("√", new Point(width+18, height+sep-1));
-                this.DrawStringHor("√", check, new Point(width - 18, height + sep - 1));
-                this.Draw15String(Student.OldCarType, new Point(568 + width, height));
+                this.DrawStringHor("√", check, new Point(width - 58, height + sep - 6));
+                //this.Draw15String(Student.OldCarType, new Point(568 + width, height));
             }
         }
 

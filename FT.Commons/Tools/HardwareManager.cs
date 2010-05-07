@@ -129,17 +129,92 @@ namespace FT.Commons.Tools
             {
                 try
                 {
-                    ManagementClass mcMAC = new ManagementClass("Win32_NetworkAdapterConfiguration");
-                    ManagementObjectCollection mocMAC = mcMAC.GetInstances();
-                    foreach (ManagementObject m in mocMAC)
-                    {
-                        if ((bool)m["IPEnabled"])
-                        {
-                            macNo = m["MacAddress"].ToString();
+                    /*
+                    ManagementObjectSearcher query = null;
+                  ManagementObjectCollection queryCollection = null;
+
+                    query = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration");
+
+queryCollection = query.Get();
+
+foreach( ManagementObject mo in queryCollection )
+{
+    if (mo["MacAddress"] == null)
+                            {
+                                Info("m[MacAddress] is null!");
+                            }
+                            macNo = mo["MacAddress"].ToString();
                             return macNo;
+}*/
+                    #region 2
+                    /*       
+                           ManagementClass mcMAC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+                           if (mcMAC == null)
+                           {
+                               Info("mcMAC is null!");
+                           }
+                           ManagementObjectCollection mocMAC = mcMAC.GetInstances();
+                           if(mocMAC==null)
+                           {
+                               Info("mocMAC is null!");
+                           }
+                           foreach (ManagementObject m in mocMAC)
+                           {
+                               if ((bool)m["IPEnabled"])
+                               {
+                                   //m.Properties["MACAddress"].Value.ToString(); 
+                                   if (m["MacAddress"]==null)
+                                   {
+                                       Info("m[MacAddress] is null!");
+                                   }
+                                   if (m.Properties["MACAddress"] != null)
+                                   {
+                                       Info("m.Properties[MACAddress] is not null!");
+
+                                   }
+                                   if (m.Properties["MACAddress"].Value!=null)
+                                   {
+                                       Info("m.Properties[MACAddress].Value is not null!");
+                                
+                                   }
+                                   macNo = m["MacAddress"].ToString();
+                                   return macNo;
+                               }
+                               else
+                               {
+                                   if (m["MacAddress"] == null)
+                                   {
+                                       Info("m[MacAddress] is null!");
+                                   }
+                                   macNo = m["MacAddress"].ToString();
+                                   return macNo;
+                               }
+                           }*/
+                    #endregion
+
+                    #region 3
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT MACAddress FROM Win32_NetworkAdapter WHERE ((MACAddress Is Not NULL)AND (Manufacturer <> 'Microsoft'))");
+                    ManagementObjectCollection moCollection = searcher.Get();
+                    foreach (ManagementObject mObject in moCollection)
+                    {
+                        if (mObject["MacAddress"] == null)
+                        {
+                            Info("mObject[MacAddress] is null!");
                         }
+                        else
+                        {
+                            macNo = mObject["MACAddress"].ToString() + "";
+                            break;
+                        }
+                        
                     }
+                    #endregion
+
                 }
+                    
+
+
+
                 catch (Exception ex)
                 {
                     Info(ex);
@@ -147,6 +222,9 @@ namespace FT.Commons.Tools
                 }
             }
 			return macNo;
-		}
+        }
+              
+
+
 	}
 }

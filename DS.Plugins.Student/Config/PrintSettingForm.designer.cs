@@ -112,6 +112,8 @@ namespace DS.Plugins.Student
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtSysDefaultEye = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.cbDbType = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -149,8 +151,13 @@ namespace DS.Plugins.Student
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.txtSysDefaultEye = new System.Windows.Forms.TextBox();
-            this.label75 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.numApplyNameLeft = new System.Windows.Forms.NumericUpDown();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.numApplyNameDown = new System.Windows.Forms.NumericUpDown();
+            this.label69 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numF2Right)).BeginInit();
@@ -179,6 +186,8 @@ namespace DS.Plugins.Student
             ((System.ComponentModel.ISupportInitialize)(this.numApplyUp)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -800,21 +809,28 @@ namespace DS.Plugins.Student
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label65);
             this.tabPage6.Controls.Add(this.cbApplyBodyCheck);
             this.tabPage6.Controls.Add(this.cbPrintApplyDate);
             this.tabPage6.Controls.Add(this.cbPrintXiangCun);
             this.tabPage6.Controls.Add(this.cbApply2Dimension);
             this.tabPage6.Controls.Add(this.cbApplyProfile);
             this.tabPage6.Controls.Add(this.label41);
+            this.tabPage6.Controls.Add(this.label67);
             this.tabPage6.Controls.Add(this.label42);
+            this.tabPage6.Controls.Add(this.label69);
             this.tabPage6.Controls.Add(this.label43);
             this.tabPage6.Controls.Add(this.label44);
             this.tabPage6.Controls.Add(this.numApplyRight);
+            this.tabPage6.Controls.Add(this.numApplyNameLeft);
             this.tabPage6.Controls.Add(this.numApplyLeft);
+            this.tabPage6.Controls.Add(this.numApplyNameDown);
             this.tabPage6.Controls.Add(this.numApplyDown);
             this.tabPage6.Controls.Add(this.numApplyUp);
             this.tabPage6.Controls.Add(this.label45);
+            this.tabPage6.Controls.Add(this.label66);
             this.tabPage6.Controls.Add(this.label46);
+            this.tabPage6.Controls.Add(this.label68);
             this.tabPage6.Controls.Add(this.label47);
             this.tabPage6.Controls.Add(this.label48);
             this.tabPage6.Location = new System.Drawing.Point(4, 34);
@@ -999,6 +1015,22 @@ namespace DS.Plugins.Student
             this.tabPage4.TabIndex = 6;
             this.tabPage4.Text = "系统配置";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // txtSysDefaultEye
+            // 
+            this.txtSysDefaultEye.Location = new System.Drawing.Point(133, 141);
+            this.txtSysDefaultEye.Name = "txtSysDefaultEye";
+            this.txtSysDefaultEye.Size = new System.Drawing.Size(145, 24);
+            this.txtSysDefaultEye.TabIndex = 16;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(27, 150);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(97, 15);
+            this.label75.TabIndex = 15;
+            this.label75.Text = "默认体检视力";
             // 
             // label63
             // 
@@ -1345,21 +1377,64 @@ namespace DS.Plugins.Student
             this.label58.TabIndex = 5;
             this.label58.Text = "向上";
             // 
-            // txtSysDefaultEye
+            // label65
             // 
-            this.txtSysDefaultEye.Location = new System.Drawing.Point(133, 141);
-            this.txtSysDefaultEye.Name = "txtSysDefaultEye";
-            this.txtSysDefaultEye.Size = new System.Drawing.Size(145, 24);
-            this.txtSysDefaultEye.TabIndex = 16;
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(27, 184);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(97, 15);
+            this.label65.TabIndex = 21;
+            this.label65.Text = "驾校简称位置";
             // 
-            // label75
+            // label66
             // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(27, 150);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(97, 15);
-            this.label75.TabIndex = 15;
-            this.label75.Text = "默认体检视力";
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(309, 183);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(37, 15);
+            this.label66.TabIndex = 3;
+            this.label66.Text = "向左";
+            // 
+            // numApplyNameLeft
+            // 
+            this.numApplyNameLeft.Location = new System.Drawing.Point(345, 174);
+            this.numApplyNameLeft.Name = "numApplyNameLeft";
+            this.numApplyNameLeft.Size = new System.Drawing.Size(59, 24);
+            this.numApplyNameLeft.TabIndex = 10;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(411, 182);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(37, 15);
+            this.label67.TabIndex = 11;
+            this.label67.Text = "毫米";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(151, 184);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(37, 15);
+            this.label68.TabIndex = 6;
+            this.label68.Text = "向下";
+            // 
+            // numApplyNameDown
+            // 
+            this.numApplyNameDown.Location = new System.Drawing.Point(187, 174);
+            this.numApplyNameDown.Name = "numApplyNameDown";
+            this.numApplyNameDown.Size = new System.Drawing.Size(59, 24);
+            this.numApplyNameDown.TabIndex = 7;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(253, 182);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(37, 15);
+            this.label69.TabIndex = 14;
+            this.label69.Text = "毫米";
             // 
             // PrintSettingForm
             // 
@@ -1412,6 +1487,8 @@ namespace DS.Plugins.Student
             this.tabPage4.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numApplyNameDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1541,5 +1618,12 @@ namespace DS.Plugins.Student
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtSysDefaultEye;
         private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.NumericUpDown numApplyNameLeft;
+        private System.Windows.Forms.NumericUpDown numApplyNameDown;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label68;
     }
 }

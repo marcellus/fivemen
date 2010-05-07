@@ -215,6 +215,10 @@ namespace DS.Plugins.Student
             StudentHelper.AppendString(sb, this.cbMainBody.SelectedIndex.ToString());
             StudentHelper.AppendString(sb, this.cbHospital.Text);//医院编号还是医院具体信息？ 体检医院名称
             StudentHelper.AppendString(sb, this.dateCheckDate.Value.ToString("yyyy-MM-dd"));
+
+            StudentHelper.AppendString(sb, this.txtMobile.Text.Trim());
+            StudentHelper.AppendString(sb, this.txtDescription.Text.Trim());
+
             StudentHelper.AppendString(sb, reg.RightCode.Replace("-", "").Replace("－", ""));
             Console.WriteLine("二维条码数据：" + sb.ToString());
             return sb.ToString();
