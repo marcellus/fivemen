@@ -46,7 +46,7 @@ namespace SystemPlugin
                 #endregion
 
                 #region 珠海万里
-                /*
+                
                 string sql1 = "select isnull(max(stucode),0)+1 from jc_student";
                 object obj = this.dataAccess.SelectScalar(sql1);
                 int id =(int)obj;
@@ -66,18 +66,18 @@ namespace SystemPlugin
                     // FT.DAL.DALSecurityTool.TransferInsertField(info.IdCardTypeString == "居民身份证" ? "身份证" : info.IdCardTypeString) + "','" +
                                    FT.DAL.DALSecurityTool.TransferInsertField(info.IdCard) + "','" +
 
-                                   FT.DAL.DALSecurityTool.TransferInsertField(info.Phone1) + "'" +
+                                   FT.DAL.DALSecurityTool.TransferInsertField(info.Phone2) + "'" +
                                   
                     //FT.DAL.DALSecurityTool.TransferInsertField(info.Recommender) + "','" +
                                    
                                    
                                   // FT.DAL.DALSecurityTool.TransferInsertField(info.Fee == string.Empty ? "0" : info.Fee) 
                                     ")";
-                 */
+                 
                 #endregion
 
                 #region 珠海柏宁
-
+                /*
                 string sql1 = "select isnull(max(编号),0)+1 from student";
                 object obj = this.dataAccess.SelectScalar(sql1);
                 int id = (int)obj;
@@ -106,6 +106,7 @@ namespace SystemPlugin
 
                                   // FT.DAL.DALSecurityTool.TransferInsertField(info.Fee == string.Empty ? "0" : info.Fee) 
                                     ")";
+                 */ 
                 #endregion
 
                 return this.dataAccess.ExecuteSql(sql);
@@ -163,7 +164,7 @@ namespace SystemPlugin
                     // FT.DAL.DALSecurityTool.TransferInsertField(info.IdCardTypeString == "居民身份证" ? "身份证" : info.IdCardTypeString) + "','" +
                                    FT.DAL.DALSecurityTool.TransferInsertField(info.IdCard) + "','" +
 
-                                   FT.DAL.DALSecurityTool.TransferInsertField(info.Phone1) + "','" +
+                                   FT.DAL.DALSecurityTool.TransferInsertField(info.Phone2) + "','" +
 
                     //FT.DAL.DALSecurityTool.TransferInsertField(info.Recommender) + "','" +
 
