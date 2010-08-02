@@ -189,6 +189,7 @@
     <Compile Include="Tools\SerializeHelper.cs" />
     <Compile Include="Tools\ShortcutHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
+    <Compile Include="Tools\WebFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
     <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
     <Compile Include="WebCatcher\CatcherConfig.cs" />
