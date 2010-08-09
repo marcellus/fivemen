@@ -48,6 +48,8 @@
             this.simpleButton3 = new FT.Windows.Controls.ButtonEx.SimpleButton();
             this.simpleComboBox1 = new FT.Windows.Controls.ComboBoxEx.SimpleComboBox();
             this.simpleButton1 = new FT.Windows.Controls.ButtonEx.SimpleButton();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -174,10 +176,26 @@
             this.simpleButton1.Skin = FT.Windows.Controls.SimpleSkinType.Normal;
             this.simpleButton1.UseVisualStyleBackColor = true;
             // 
+            // button15
+            // 
+            resources.ApplyResources(this.button15, "button15");
+            this.button15.Name = "button15";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button16
+            // 
+            resources.ApplyResources(this.button16, "button16");
+            this.button16.Name = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // BaseForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button16);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
@@ -221,5 +239,7 @@
         private System.Windows.Forms.Button button13;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
     }
 }
