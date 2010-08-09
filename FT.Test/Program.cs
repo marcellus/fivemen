@@ -15,7 +15,7 @@ namespace FT.Test
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
           
-            //Application.Run(new BaseForm());
+            Application.Run(new BaseForm());
             //Form form = new FT.Windows.CommonsPlugin.LoginForm();
             //if (form.ShowDialog() == DialogResult.OK)
             //{
@@ -29,8 +29,8 @@ namespace FT.Test
 
             //FT.Windows.Forms.AppicationHelper.StartLimitTimes("keywords", FT.Test.Properties.Resources.bg
             //, 8, "15814584509", true);
-            FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", FT.Test.Properties.Resources.bg
-            , 8, "15814584509",false);
+            //FT.Windows.Forms.AppicationHelper.StartLimitDays("keywords", FT.Test.Properties.Resources.bg
+            //, 8, "15814584509",false);
 
           //  FT.Windows.Forms.AppicationHelper.Start("keywords", FT.Test.Properties.Resources.bg);
 

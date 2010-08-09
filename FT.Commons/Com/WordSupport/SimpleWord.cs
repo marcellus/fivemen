@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Office.Interop.Word;
 using FT.Commons.Tools;
+using System.IO;
 
 namespace FT.Commons.Com.WordSupport
 {
@@ -15,6 +16,73 @@ namespace FT.Commons.Com.WordSupport
         /// com对象常用的参数
         /// </summary>
        public static object Miss_Object = System.Reflection.Missing.Value;
+
+       public static void Printview(string path)
+       {
+           if (!File.Exists(path))
+           {
+               return;
+           }
+           Document doc = null;
+           Application app = new ApplicationClass();
+           object refPath = path;
+           doc = app.Documents.Add(ref refPath, ref Miss_Object, ref Miss_Object, ref Miss_Object);
+           try
+           {
+               app.Visible = true;
+               doc.PrintPreview();
+
+           }
+           catch (System.Exception e)
+           {
+
+           }
+           finally
+           {
+               object saveChange = Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges;
+               if (doc != null)
+                   doc.Close(ref saveChange, ref Miss_Object, ref Miss_Object);
+               if (app != null)
+                   app.Quit(ref Miss_Object, ref Miss_Object, ref Miss_Object);
+
+           }
+       }
+
+       public static void Print(string path)
+       {
+           if(!File.Exists(path))
+           {
+               return;
+           }
+           Document doc = null;
+           Application app = new ApplicationClass();
+           object refPath = path;
+           doc = app.Documents.Add(ref refPath, ref Miss_Object, ref Miss_Object, ref Miss_Object);
+           try
+           {
+               doc.PrintOut(ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object,
+                   ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object,
+                   ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object,
+                   ref Miss_Object, ref Miss_Object, ref Miss_Object, ref Miss_Object);
+             
+
+           }
+           catch (System.Exception e)
+           {
+               throw e;
+           }
+           finally
+           {
+               object saveChange = Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges;
+               if (doc != null)
+                   doc.Close(ref saveChange, ref Miss_Object, ref Miss_Object);
+               if (app != null)
+                   app.Quit(ref Miss_Object, ref Miss_Object, ref Miss_Object);
+
+           }
+
+
+       }
        /// <summary>
        /// 合并word文档
        /// </summary>

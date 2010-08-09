@@ -173,5 +173,16 @@ namespace FT.Test
             fm.ShowDialog();
         }
 
+        private const string path = "c:\\test.doc";
+        private void button15_Click(object sender, EventArgs e)
+        {
+            FT.Commons.Com.WordSupport.SimpleWord.Print(path);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            FT.Commons.Com.WordSupport.SimpleWord.Printview(path);
+        }
+
     }
 }
