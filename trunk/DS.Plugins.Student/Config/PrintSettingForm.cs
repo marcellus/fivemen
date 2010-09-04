@@ -36,6 +36,11 @@ namespace DS.Plugins.Student
             this.numApplyLeftCar.Value=config.ApplyConfig.CarLeft;
             this.numApplyRightCar.Value=config.ApplyConfig.CarRight ;
 
+            this.numGouDown.Value= config.ApplyConfig.GouDown;
+            this.numGouUp.Value= config.ApplyConfig.GouUp;
+            this.numGouLeft.Value=config.ApplyConfig.GouLeft;
+            this.numGouRight.Value=config.ApplyConfig.GouRight;
+
             this.numF2Up.Value = config.F2Config.Up;
             this.numF2Down.Value = config.F2Config.Down;
             this.numF2Left.Value = config.F2Config.Left;
@@ -103,6 +108,11 @@ namespace DS.Plugins.Student
                 config.ApplyConfig.CarUp = (int)this.numApplyUpCar.Value;
                 config.ApplyConfig.CarLeft = (int)this.numApplyLeftCar.Value;
                 config.ApplyConfig.CarRight = (int)this.numApplyRightCar.Value;
+
+                config.ApplyConfig.GouDown = (int)this.numGouDown.Value;
+                config.ApplyConfig.GouUp = (int)this.numGouUp.Value;
+                config.ApplyConfig.GouLeft = (int)this.numGouLeft.Value;
+                config.ApplyConfig.GouRight = (int)this.numGouRight.Value;
 
 
                 config.F2Config.Up = (int)this.numF2Up.Value;
@@ -279,6 +289,11 @@ namespace DS.Plugins.Student
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+
         }
 
       

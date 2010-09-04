@@ -194,12 +194,12 @@ namespace DS.Plugins.Student
             if (Student.LearnType == "≥ı—ß")
             {
                 // this.Draw11String("°Ã", new Point(width+18, height+2));
-                this.DrawStringHor("°Ã", check, new Point(width - 58, height -5));
+                this.DrawStringHor("°Ã", check, new Point(width - 58 + (config.GouDown - config.GouUp) * BaseStudentPrinter.PixelUnit, height - 5+(config.GouRight - config.GouLeft) * BaseStudentPrinter.PixelUnit));
             }
             else
             {
                 //this.Draw11String("°Ã", new Point(width+18, height+sep-1));
-                this.DrawStringHor("°Ã", check, new Point(width - 58, height + sep - 6));
+                this.DrawStringHor("°Ã", check, new Point(width - 58 + (config.GouDown - config.GouUp) * BaseStudentPrinter.PixelUnit, height + sep - 6 + (config.GouRight - config.GouLeft) * BaseStudentPrinter.PixelUnit));
                 //this.Draw15String(Student.OldCarType, new Point(568 + width, height));
             }
         }

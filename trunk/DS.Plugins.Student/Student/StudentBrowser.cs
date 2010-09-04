@@ -686,6 +686,7 @@ namespace DS.Plugins.Student
                 object connaddress = FormHelper.GetObjectValue(this.entity, "ConnAddress");
                 object cun = FormHelper.GetObjectValue(this.entity, "BelongCun");
                 object xiang = FormHelper.GetObjectValue(this.entity, "BelongXiang");
+                 object belongarea = FormHelper.GetObjectValue(this.entity, "BelongArea");
                 if (city != null)
                 {
                     this.cbRegCity.Text = city.ToString();
@@ -701,6 +702,10 @@ namespace DS.Plugins.Student
                 if (connaddress != null)
                 {
                     this.txtConnAddress.Text = connaddress.ToString();
+                }
+                if (belongarea!=null)
+                {
+                    this.cbBelongArea.Text = belongarea.ToString();
                 }
                 if (xiang != null)
                 {
