@@ -1,0 +1,1252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="useName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSql">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="useName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecSqlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSqls">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sqls" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="useName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExecSqlsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecSqlsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAsnDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="asn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAsnDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAsnDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveAsn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveAsnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveAsnResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePutAway">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtDisk">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtLoc">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="al" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSku">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePutAwayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePutAwayResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPutAway">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="putAwayBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPutAwayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPutAwayResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserRightResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPickData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PickKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPickDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPickDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePickData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtPick">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtDisk">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePickDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePickDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartDisk">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPartDiskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartDiskResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePartDisk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePartDiskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePartDiskResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedBackData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedBackDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFeedBackDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFeedBackData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFeedBackDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveFeedBackDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndUpdateDiskForOpen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndUpdateDiskForOpenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAndUpdateDiskForOpenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndSaveDiskForBegin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scantype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndSaveDiskForBeginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAndSaveDiskForBeginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndSaveDiskForEnd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scantype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAndSaveDiskForEndResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAndSaveDiskForEndResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompany">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiskList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="diskid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sku" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="asn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiskListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDiskListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInDataBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInDataBaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsInDataBaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPickDisk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pickid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPickDiskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPickDiskResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveLocData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveLocDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveLocDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMoveLoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMoveLocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMoveLocResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveLotData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="billid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lot" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveLotDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveLotDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMoveLotData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMoveLotDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMoveLotDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSql" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSqls" />
+  </wsdl:message>
+  <wsdl:message name="ExecSqlsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSqlsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAsnDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:getAsnDetail" />
+  </wsdl:message>
+  <wsdl:message name="getAsnDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:getAsnDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveAsnSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveAsn" />
+  </wsdl:message>
+  <wsdl:message name="SaveAsnSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveAsnResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePutAwaySoapIn">
+    <wsdl:part name="parameters" element="tns:SavePutAway" />
+  </wsdl:message>
+  <wsdl:message name="SavePutAwaySoapOut">
+    <wsdl:part name="parameters" element="tns:SavePutAwayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPutAwaySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPutAway" />
+  </wsdl:message>
+  <wsdl:message name="GetPutAwaySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPutAwayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRightSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserRight" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRightSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPickDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPickData" />
+  </wsdl:message>
+  <wsdl:message name="GetPickDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPickDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePickDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePickData" />
+  </wsdl:message>
+  <wsdl:message name="SavePickDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePickDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartDiskSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartDisk" />
+  </wsdl:message>
+  <wsdl:message name="GetPartDiskSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartDiskResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePartDiskSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePartDisk" />
+  </wsdl:message>
+  <wsdl:message name="SavePartDiskSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePartDiskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedBackDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFeedBackData" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedBackDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFeedBackDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveFeedBackDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveFeedBackData" />
+  </wsdl:message>
+  <wsdl:message name="SaveFeedBackDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveFeedBackDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAndUpdateDiskForOpenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAndUpdateDiskForOpen" />
+  </wsdl:message>
+  <wsdl:message name="GetAndUpdateDiskForOpenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAndUpdateDiskForOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAndSaveDiskForBeginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAndSaveDiskForBegin" />
+  </wsdl:message>
+  <wsdl:message name="GetAndSaveDiskForBeginSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAndSaveDiskForBeginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAndSaveDiskForEndSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAndSaveDiskForEnd" />
+  </wsdl:message>
+  <wsdl:message name="GetAndSaveDiskForEndSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAndSaveDiskForEndResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompany" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDiskListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDiskList" />
+  </wsdl:message>
+  <wsdl:message name="GetDiskListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDiskListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsInDataBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:IsInDataBase" />
+  </wsdl:message>
+  <wsdl:message name="IsInDataBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:IsInDataBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPickDiskSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPickDisk" />
+  </wsdl:message>
+  <wsdl:message name="GetPickDiskSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPickDiskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveLocDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveLocData" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveLocDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveLocDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMoveLocSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMoveLoc" />
+  </wsdl:message>
+  <wsdl:message name="SaveMoveLocSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMoveLocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveLotDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveLotData" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveLotDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveLotDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMoveLotDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMoveLotData" />
+  </wsdl:message>
+  <wsdl:message name="SaveMoveLotDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMoveLotDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="GetDataSet">
+      <wsdl:input message="tns:GetDataSetSoapIn" />
+      <wsdl:output message="tns:GetDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <wsdl:input message="tns:ExecSqlSoapIn" />
+      <wsdl:output message="tns:ExecSqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqls">
+      <wsdl:input message="tns:ExecSqlsSoapIn" />
+      <wsdl:output message="tns:ExecSqlsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAsnDetail">
+      <wsdl:input message="tns:getAsnDetailSoapIn" />
+      <wsdl:output message="tns:getAsnDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAsn">
+      <wsdl:input message="tns:SaveAsnSoapIn" />
+      <wsdl:output message="tns:SaveAsnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePutAway">
+      <wsdl:input message="tns:SavePutAwaySoapIn" />
+      <wsdl:output message="tns:SavePutAwaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPutAway">
+      <wsdl:input message="tns:GetPutAwaySoapIn" />
+      <wsdl:output message="tns:GetPutAwaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <wsdl:input message="tns:GetUserRightSoapIn" />
+      <wsdl:output message="tns:GetUserRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPickData">
+      <wsdl:input message="tns:GetPickDataSoapIn" />
+      <wsdl:output message="tns:GetPickDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePickData">
+      <wsdl:input message="tns:SavePickDataSoapIn" />
+      <wsdl:output message="tns:SavePickDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartDisk">
+      <wsdl:input message="tns:GetPartDiskSoapIn" />
+      <wsdl:output message="tns:GetPartDiskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePartDisk">
+      <wsdl:input message="tns:SavePartDiskSoapIn" />
+      <wsdl:output message="tns:SavePartDiskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedBackData">
+      <wsdl:input message="tns:GetFeedBackDataSoapIn" />
+      <wsdl:output message="tns:GetFeedBackDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBackData">
+      <wsdl:input message="tns:SaveFeedBackDataSoapIn" />
+      <wsdl:output message="tns:SaveFeedBackDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAndUpdateDiskForOpen">
+      <wsdl:input message="tns:GetAndUpdateDiskForOpenSoapIn" />
+      <wsdl:output message="tns:GetAndUpdateDiskForOpenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForBegin">
+      <wsdl:input message="tns:GetAndSaveDiskForBeginSoapIn" />
+      <wsdl:output message="tns:GetAndSaveDiskForBeginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForEnd">
+      <wsdl:input message="tns:GetAndSaveDiskForEndSoapIn" />
+      <wsdl:output message="tns:GetAndSaveDiskForEndSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompany">
+      <wsdl:input message="tns:GetCompanySoapIn" />
+      <wsdl:output message="tns:GetCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskList">
+      <wsdl:input message="tns:GetDiskListSoapIn" />
+      <wsdl:output message="tns:GetDiskListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInDataBase">
+      <wsdl:input message="tns:IsInDataBaseSoapIn" />
+      <wsdl:output message="tns:IsInDataBaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPickDisk">
+      <wsdl:input message="tns:GetPickDiskSoapIn" />
+      <wsdl:output message="tns:GetPickDiskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLocData">
+      <wsdl:input message="tns:GetMoveLocDataSoapIn" />
+      <wsdl:output message="tns:GetMoveLocDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLoc">
+      <wsdl:input message="tns:SaveMoveLocSoapIn" />
+      <wsdl:output message="tns:SaveMoveLocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLotData">
+      <wsdl:input message="tns:GetMoveLotDataSoapIn" />
+      <wsdl:output message="tns:GetMoveLotDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLotData">
+      <wsdl:input message="tns:SaveMoveLotDataSoapIn" />
+      <wsdl:output message="tns:SaveMoveLotDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataSet">
+      <soap:operation soapAction="http://tempuri.org/GetDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <soap:operation soapAction="http://tempuri.org/ExecSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqls">
+      <soap:operation soapAction="http://tempuri.org/ExecSqls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAsnDetail">
+      <soap:operation soapAction="http://tempuri.org/getAsnDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAsn">
+      <soap:operation soapAction="http://tempuri.org/SaveAsn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePutAway">
+      <soap:operation soapAction="http://tempuri.org/SavePutAway" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPutAway">
+      <soap:operation soapAction="http://tempuri.org/GetPutAway" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <soap:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPickData">
+      <soap:operation soapAction="http://tempuri.org/GetPickData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePickData">
+      <soap:operation soapAction="http://tempuri.org/SavePickData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartDisk">
+      <soap:operation soapAction="http://tempuri.org/GetPartDisk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePartDisk">
+      <soap:operation soapAction="http://tempuri.org/SavePartDisk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedBackData">
+      <soap:operation soapAction="http://tempuri.org/GetFeedBackData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBackData">
+      <soap:operation soapAction="http://tempuri.org/SaveFeedBackData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndUpdateDiskForOpen">
+      <soap:operation soapAction="http://tempuri.org/GetAndUpdateDiskForOpen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForBegin">
+      <soap:operation soapAction="http://tempuri.org/GetAndSaveDiskForBegin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForEnd">
+      <soap:operation soapAction="http://tempuri.org/GetAndSaveDiskForEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompany">
+      <soap:operation soapAction="http://tempuri.org/GetCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskList">
+      <soap:operation soapAction="http://tempuri.org/GetDiskList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInDataBase">
+      <soap:operation soapAction="http://tempuri.org/IsInDataBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPickDisk">
+      <soap:operation soapAction="http://tempuri.org/GetPickDisk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLocData">
+      <soap:operation soapAction="http://tempuri.org/GetMoveLocData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLoc">
+      <soap:operation soapAction="http://tempuri.org/SaveMoveLoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLotData">
+      <soap:operation soapAction="http://tempuri.org/GetMoveLotData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLotData">
+      <soap:operation soapAction="http://tempuri.org/SaveMoveLotData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataSet">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSql">
+      <soap12:operation soapAction="http://tempuri.org/ExecSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSqls">
+      <soap12:operation soapAction="http://tempuri.org/ExecSqls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAsnDetail">
+      <soap12:operation soapAction="http://tempuri.org/getAsnDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAsn">
+      <soap12:operation soapAction="http://tempuri.org/SaveAsn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePutAway">
+      <soap12:operation soapAction="http://tempuri.org/SavePutAway" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPutAway">
+      <soap12:operation soapAction="http://tempuri.org/GetPutAway" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <soap12:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPickData">
+      <soap12:operation soapAction="http://tempuri.org/GetPickData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePickData">
+      <soap12:operation soapAction="http://tempuri.org/SavePickData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartDisk">
+      <soap12:operation soapAction="http://tempuri.org/GetPartDisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePartDisk">
+      <soap12:operation soapAction="http://tempuri.org/SavePartDisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedBackData">
+      <soap12:operation soapAction="http://tempuri.org/GetFeedBackData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFeedBackData">
+      <soap12:operation soapAction="http://tempuri.org/SaveFeedBackData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndUpdateDiskForOpen">
+      <soap12:operation soapAction="http://tempuri.org/GetAndUpdateDiskForOpen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForBegin">
+      <soap12:operation soapAction="http://tempuri.org/GetAndSaveDiskForBegin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAndSaveDiskForEnd">
+      <soap12:operation soapAction="http://tempuri.org/GetAndSaveDiskForEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompany">
+      <soap12:operation soapAction="http://tempuri.org/GetCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiskList">
+      <soap12:operation soapAction="http://tempuri.org/GetDiskList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInDataBase">
+      <soap12:operation soapAction="http://tempuri.org/IsInDataBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPickDisk">
+      <soap12:operation soapAction="http://tempuri.org/GetPickDisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLocData">
+      <soap12:operation soapAction="http://tempuri.org/GetMoveLocData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLoc">
+      <soap12:operation soapAction="http://tempuri.org/SaveMoveLoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveLotData">
+      <soap12:operation soapAction="http://tempuri.org/GetMoveLotData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMoveLotData">
+      <soap12:operation soapAction="http://tempuri.org/SaveMoveLotData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://192.168.1.123:100/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://192.168.1.123:100/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,407 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2A720D8-031E-46B9-A6B0-393507297D37}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDA</RootNamespace>
+    <AssemblyName>PDA</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>PDA</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <StartupObject>PDA.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASN.cs">
+    </Compile>
+    <Compile Include="AsnDetailScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsnDetailScan.Designer.cs">
+      <DependentUpon>AsnDetailScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakeBeginScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakeBeginScan.Designer.cs">
+      <DependentUpon>BakeBeginScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakeEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakeEnd.Designer.cs">
+      <DependentUpon>BakeEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakeOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakeOpen.Designer.cs">
+      <DependentUpon>BakeOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Begin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Begin.Designer.cs">
+      <DependentUpon>Begin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnName.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="Disk.cs" />
+    <Compile Include="ASNScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ASNScan.Designer.cs">
+      <DependentUpon>ASNScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiskList.Designer.cs">
+      <DependentUpon>DiskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DryDiskBegin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DryDiskBegin.Designer.cs">
+      <DependentUpon>DryDiskBegin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DryDiskEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DryDiskEnd.Designer.cs">
+      <DependentUpon>DryDiskEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBackDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedBackDetail.Designer.cs">
+      <DependentUpon>FeedBackDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBackScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedBackScan.Designer.cs">
+      <DependentUpon>FeedBackScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBackSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedBackSelect.Designer.cs">
+      <DependentUpon>FeedBackSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_List.Designer.cs">
+      <DependentUpon>Function_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockTaskBar.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLoc.cs" />
+    <Compile Include="MoveLocDeatilNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveLocDeatilNew.Designer.cs">
+      <DependentUpon>MoveLocDeatilNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLocDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveLocDetail.Designer.cs">
+      <DependentUpon>MoveLocDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLocScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveLocScan.Designer.cs">
+      <DependentUpon>MoveLocScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLot.cs" />
+    <Compile Include="MoveLotDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveLotDetail.Designer.cs">
+      <DependentUpon>MoveLotDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveLotScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveLotScan.Designer.cs">
+      <DependentUpon>MoveLotScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySerialization.cs" />
+    <Compile Include="PartDisk.cs" />
+    <Compile Include="PartScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartScan.Designer.cs">
+      <DependentUpon>PartScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartSelect.Designer.cs">
+      <DependentUpon>PartSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pick.cs" />
+    <Compile Include="PickDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickDetail.Designer.cs">
+      <DependentUpon>PickDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PickScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickScan.Designer.cs">
+      <DependentUpon>PickScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PickSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickSelect.Designer.cs">
+      <DependentUpon>PickSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pro2Col.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AsnDetailScan.resx">
+      <DependentUpon>AsnDetailScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ASNScan.resx">
+      <DependentUpon>ASNScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakeBeginScan.resx">
+      <DependentUpon>BakeBeginScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakeEnd.resx">
+      <DependentUpon>BakeEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakeOpen.resx">
+      <DependentUpon>BakeOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Begin.resx">
+      <DependentUpon>Begin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiskList.resx">
+      <DependentUpon>DiskList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DryDiskBegin.resx">
+      <DependentUpon>DryDiskBegin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DryDiskEnd.resx">
+      <DependentUpon>DryDiskEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedBackDetail.resx">
+      <DependentUpon>FeedBackDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedBackScan.resx">
+      <DependentUpon>FeedBackScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedBackSelect.resx">
+      <DependentUpon>FeedBackSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_List.resx">
+      <DependentUpon>Function_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveLocDeatilNew.resx">
+      <DependentUpon>MoveLocDeatilNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveLocDetail.resx">
+      <DependentUpon>MoveLocDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveLocScan.resx">
+      <DependentUpon>MoveLocScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveLotDetail.resx">
+      <DependentUpon>MoveLotDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveLotScan.resx">
+      <DependentUpon>MoveLotScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartScan.resx">
+      <DependentUpon>PartScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartSelect.resx">
+      <DependentUpon>PartSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickDetail.resx">
+      <DependentUpon>PickDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickScan.resx">
+      <DependentUpon>PickScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickSelect.resx">
+      <DependentUpon>PickSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PutAwayDetail.resx">
+      <DependentUpon>PutAwayDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PutAwayScan.resx">
+      <DependentUpon>PutAwayScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PutAwaySelect.resx">
+      <DependentUpon>PutAwaySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receive.resx">
+      <DependentUpon>Receive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockCondition.resx">
+      <DependentUpon>StockCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PutAway.cs" />
+    <Compile Include="PutAwayDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PutAwayDetail.Designer.cs">
+      <DependentUpon>PutAwayDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PutAwayScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PutAwayScan.Designer.cs">
+      <DependentUpon>PutAwayScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PutAwaySelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PutAwaySelect.Designer.cs">
+      <DependentUpon>PutAwaySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receive.Designer.cs">
+      <DependentUpon>Receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnDisk.cs" />
+    <Compile Include="SKU.cs" />
+    <Compile Include="StockCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockCondition.Designer.cs">
+      <DependentUpon>StockCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Types.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Config.xml" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\Service1.disco" />
+    <None Include="Web References\WebReference\Service1.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.123:100/Service1.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.123:100/Service1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

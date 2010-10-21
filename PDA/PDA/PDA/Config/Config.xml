@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<WebServices>
+		<Url>http://127.0.0.1:100/Service1.asmx</Url>
+	</WebServices>
+</config>

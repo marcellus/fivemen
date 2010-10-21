@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PDA.ASN" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SQCAAAAAACAABgEAAgIAAgAAABiACkIggBEmAAAAIAI=</HashCode>
+      <FileName>ASN.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PDA.AsnDetailScan" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAAhAgAASQAAACAgCIgAAACkAABAAAQAA=</HashCode>
+      <FileName>AsnDetailScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.ASNScan" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEgAAACAAABAAAASAAAAGAAAAAAI4ABAACABAQAA=</HashCode>
+      <FileName>ASNScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.BakeBeginScan" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAQBAAAACAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BakeBeginScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.BakeEnd" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAQBAAAACAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BakeEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.BakeOpen" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAQBAAAACAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BakeOpen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.ColumnNameAttribute" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ColumnName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.OpenDisk" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.RoastBegin" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.RoastEnd" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Common" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CSCAAAAAAAACAgAAAAAAAgAAAAiAAgIIgBAiAAAAIAI=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.DB" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAIACAAAAABAABABEAAEEBAICAIAAAAQAAAAkI=</HashCode>
+      <FileName>DB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Disk" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAQSAAIAIAAAhABARIwAjEQoQIkAQNAREgCQERIAwwA=</HashCode>
+      <FileName>Disk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.FeedBackDetail" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAAQBAAAACQAAACAAAIkAAAAgABBAAAAAA=</HashCode>
+      <FileName>FeedBackDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.FeedBackScan" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEgAAACAAAFACQACAAAACAAAAAAA4AAABAABgAAA=</HashCode>
+      <FileName>FeedBackScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.FeedBackSelect" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAEAAAACAAQACBAAAAAACAgAAAAAAAAA=</HashCode>
+      <FileName>FeedBackSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Function_List" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAICAAIAAGgAIECBAACAAAACAIQCEBAAAAAIIAEAAEA=</HashCode>
+      <FileName>Function_List.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Login" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAICAAABgAAACIAAACAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.MySerialization" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MySerialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PartDisk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCCAAAAAAAACBgAAAAAQAgAAAAgAAgIMgBAiBAAAIAI=</HashCode>
+      <FileName>PartDisk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PDA.PartScan" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAQABCABQBAAAACAAAACAAAMgQAAAAACAAAAAAQ=</HashCode>
+      <FileName>PartScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PartSelect" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAEAACBAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>PartSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Pick" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SQCAAAAAACAABgAAAgIAAAAAABgACkIgQBgiAAAAIAI=</HashCode>
+      <FileName>Pick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PDA.PickDetail" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACBCABQBAABACAAAACAAgIgAAACEACBAAAAAA=</HashCode>
+      <FileName>PickDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PickScan" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEgAAACAAABAAAACAAAACEAAAEEI8QAAAAABAAAA=</HashCode>
+      <FileName>PickScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PickSelect" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAgAAAAAACAAAACBAAAAAAAAiAAAAAAAAA=</HashCode>
+      <FileName>PickSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Pro2Col" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Pro2Col.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Program" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PutAway" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SQCAAAAAACAADgAACgIAAgAAABgACkIhAJAiAgBAKAI=</HashCode>
+      <FileName>PutAway.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PDA.PutAwayDetail" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACACAAQBAgBACQAAACAAAIgAAAAgAABAAIAAA=</HashCode>
+      <FileName>PutAwayDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PutAwayScan" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEiAAACAAABAAAACAAAACAAAA0AI8AAAAAABAAAA=</HashCode>
+      <FileName>PutAwayScan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.PutAwaySelect" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAACAAAAAAAACEAAACBAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>PutAwaySelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Receive" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABICAAAAAAAACAAAAChAAAEAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Receive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.ReturnDisk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQCAAAAAAAACBgAAAAAAAAAAAAgAAgIIAAAiAAAAIAI=</HashCode>
+      <FileName>ReturnDisk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PDA.LOC" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>SKU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.SKU" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQCAggRAAIIEQAABAgACAQYAAgAEBBIAAgURBIKAgQ=</HashCode>
+      <FileName>SKU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.StockCondition" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAAABACAACAAAACAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>StockCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Types" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PDA.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAEAAAAQAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="PDA.IMySerializable" Collapsed="true">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>MySerialization.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
