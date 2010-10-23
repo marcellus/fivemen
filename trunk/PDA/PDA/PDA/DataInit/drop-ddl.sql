@@ -1,0 +1,14 @@
+drop table myusers;
+drop table mydicts;
+drop table receiverecord;
+drop table receivedetail;
+drop table anhuoyiku;
+drop table antuoyiku;
+drop table zutuo;
+drop table jietuo;
+drop table pintuo;
+drop table ztpintuo;
+drop table sendrecord;
+drop table senddetail;
+drop table pandianrecord;
+drop table pandiandetail;

@@ -57,5 +57,11 @@ namespace PDA.DataInit
             this.ExecuteFiles("drop-ddl.sql");
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            String config=StaticCacheManager.GetConfig(this.textBox1.Text.Trim());
+            MessageBox.Show("配置项为" + this.textBox1.Text.Trim() + "配置值为：" + config);
+        }
     }
 }
