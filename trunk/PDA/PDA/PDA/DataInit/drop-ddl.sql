@@ -12,3 +12,4 @@ drop table sendrecord;
 drop table senddetail;
 drop table pandianrecord;
 drop table pandiandetail;
+drop table kuweiinfo
