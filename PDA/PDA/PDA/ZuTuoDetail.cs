@@ -6,6 +6,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PDA.DataInit;
+using PDA.DbManager;
+
 
 namespace PDA
 {
@@ -35,8 +38,11 @@ namespace PDA
                 }
                 else
                 {
-                    ClearInput();
                     //TODO:逻辑处理
+                    this.SaveData();
+                    this.RebindData();
+                    ClearInput();
+                    
                 }
             }
         }
@@ -71,6 +77,26 @@ namespace PDA
         {
             ClearInput();
             txt_SN.Focus();
+        }
+
+        private void ZuTuoDetail_Load(object sender, EventArgs e)
+        {
+            this.RebindData();
+        }
+
+        private void RebindData()
+        {
+            this.dg_ScanList.DataSource = ZuTuoManager.GetUserData(Program.UserID);
+        }
+
+        private void SaveData()
+        {
+            ZuTuo zutuo = new ZuTuo();
+            zutuo.Tph = this.txt_TrayNo.Text.Trim();
+            zutuo.Xxjh = this.txt_XiaXiangJi.Text.Trim();
+            zutuo.Sn = this.txt_SN.Text.Trim();
+            ZuTuoManager.Save(zutuo);
+
         }
     }
 }
