@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B2A720D8-031E-46B9-A6B0-393507297D37}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -95,6 +95,7 @@
     <Compile Include="DataInit\SqliteTestForm.Designer.cs">
       <DependentUpon>SqliteTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataInit\StaticCacheManager.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Disk.cs" />
     <Compile Include="ASNScan.cs">
