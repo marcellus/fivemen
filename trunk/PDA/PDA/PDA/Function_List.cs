@@ -24,69 +24,83 @@ namespace PDA
             this.Show();
         }
 
-
-        private void btn_MoveLot_Click(object sender, EventArgs e)
+        private void btn_PingtuoHadTray_Click(object sender, EventArgs e)
         {
-            MoveLotScan mls = new MoveLotScan();
-            mls.Show();
-            mls.Closed += new EventHandler(this_Closed);
-            this.Hide();
+            PinTuoDetailHadTray ptdh = new PinTuoDetailHadTray();
+            OpenForm(ptdh);
         }
 
         private void btn_Pingtuo_Click(object sender, EventArgs e)
         {
-            FeedBackDetail fbd = new FeedBackDetail();
-            fbd.Show();
-            fbd.Closed += new EventHandler(this_Closed);
-            this.Hide();
+            PinTuoDetail ptd = new PinTuoDetail();
+            OpenForm(ptd);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_JieTuo_Click(object sender, EventArgs e)
         {
-            FeedBackScan fbs = new FeedBackScan();
-            fbs.Show();
-            fbs.Closed += new EventHandler(this_Closed);
-            this.Hide();
+            JieTuoDetail jt = new JieTuoDetail();
+            OpenForm(jt);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_ZuTuo_Click(object sender, EventArgs e)
         {
-            PartScan ps = new PartScan();
-            ps.Show();
-            ps.Closed += new EventHandler(this_Closed);
-            this.Hide();
+            ZuTuoDetail zt = new ZuTuoDetail();
+            OpenForm(zt);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_CheckHadTray_Click(object sender, EventArgs e)
         {
-            PutAwayDetail pad = new PutAwayDetail();
-            pad.Show();
-            pad.Closed += new EventHandler(this_Closed);
-            this.Hide();
+            CheckDetailHadTray cdh = new CheckDetailHadTray();
+            OpenForm(cdh);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_Check_Click(object sender, EventArgs e)
+        {
+            CheckDetail cd = new CheckDetail();
+            OpenForm(cd);
+        }
+
+        private void btn_MoveLocHadTray_Click(object sender, EventArgs e)
+        {
+            MoveLocDetailHadTray mldh = new MoveLocDetailHadTray();
+            OpenForm(mldh);
+        }
+
+        private void btn_MoveLoc_Click(object sender, EventArgs e)
         {
             MoveLocDetail mld = new MoveLocDetail();
-            mld.Show();
-            mld.Closed += new EventHandler(this_Closed);
+            OpenForm(mld);
+        }
+
+        private void btn_PickHadTray_Click(object sender, EventArgs e)
+        {
+            PickScan ps = new PickScan(true);
+            OpenForm(ps);
+        }
+        private void btn_Pick_Click(object sender, EventArgs e)
+        {
+            PickScan ps = new PickScan(false);
+            OpenForm(ps);
+        }
+
+        private void btn_ASNHadTray_Click(object sender, EventArgs e)
+        {
+            ASNScan asns = new ASNScan(true);
+            OpenForm(asns);
+        }
+
+        private void btn_ASN_Click(object sender, EventArgs e)
+        {
+            ASNScan asns = new ASNScan(false);
+            OpenForm(asns);
+        }
+
+        private void OpenForm(Form f)
+        {
+            f.Show();
+            f.Closed += new EventHandler(this_Closed);
             this.Hide();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            PickScan ps = new PickScan();
-            ps.Show();
-            ps.Closed += new EventHandler(this_Closed);
-            this.Hide();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ASNScan asns = new ASNScan();
-            asns.Show();
-            asns.Closed += new EventHandler(this_Closed);
-            this.Hide();
-        }
     }
 }

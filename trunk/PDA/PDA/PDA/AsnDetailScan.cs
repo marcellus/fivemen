@@ -11,7 +11,6 @@ namespace PDA
 {
     public partial class AsnDetailScan : Form
     {
-        private ASN asn;
         public AsnDetailScan()
         {
 
@@ -21,45 +20,51 @@ namespace PDA
 
         void asn_onScanFinish(object sender, EventArgs e)
         {
-            MessageBox.Show(asn.CurrentDisk.BillNo + "已完成扫描！");
-        }
-
-        private void txt_PN_KeyUp(object sender, KeyEventArgs e)
-        {
             
         }
 
-        private void txt_Disk_KeyUp(object sender, KeyEventArgs e)
+        private void txt_SN_KeyUp(object sender, KeyEventArgs e)
         {
-           
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txt_Optional.Enabled)
+                {
+                    txt_Optional.Focus();
+                }
+                else
+                {
+                    ClearInput();
+                    //TODO:处理逻辑
+                }
+            }
         }
 
-        private void btn_Finish_Click(object sender, EventArgs e)
+        private void txt_Optional_KeyUp(object sender, KeyEventArgs e)
         {
-            
+            ClearInput();
+            txt_SN.Focus();
         }
 
-        private void btn_TempSave_Click(object sender, EventArgs e)
+        
+        private void ck_Optional_CheckStateChanged(object sender, EventArgs e)
         {
-            
+            txt_Optional.Enabled = ck_Optional.Checked;
         }
 
-        private void txt_Loc_KeyUp(object sender, KeyEventArgs e)
+        private void ck_Rollback_CheckStateChanged(object sender, EventArgs e)
         {
+            ClearInput();
+            this.txt_SN.Focus();
+        }
+        private void ClearInput()
+        {
+            this.txt_SN.Text = string.Empty;
+            this.txt_Optional.Text = string.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            DiskList dl = new DiskList();
-            dl.Show();
-            dl.Closed += new EventHandler(dl_Closed);
-            this.Hide();
-        }
-
-        void dl_Closed(object sender, EventArgs e)
-        {
-            this.Show();
+            MessageBox.Show("hello pc"+this.tabControl1.SelectedIndex.ToString());
         }
     }
 }

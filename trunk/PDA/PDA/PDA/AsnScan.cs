@@ -11,9 +11,11 @@ namespace PDA
 {
     public partial class ASNScan : Form
     {
-        public ASNScan()
+        private bool hadTray;
+        public ASNScan(bool hadTray)
         {
             InitializeComponent();
+            init(hadTray);
         }
 
         public ASNScan(DataSet ds)
@@ -22,9 +24,9 @@ namespace PDA
             init(ds);
         }
 
-        private void init()
+        private void init(bool hadTray)
         {
-            
+            this.hadTray = hadTray;
         }
 
         private void init(DataSet ds)
@@ -34,7 +36,16 @@ namespace PDA
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            AsnDetailScan ads = new AsnDetailScan();
+            Form ads;
+            //TODO:保存界面信息
+            if (this.hadTray)
+            {
+                ads = new AsnDetailScanHadTray();
+            }
+            else
+            {
+                ads = new AsnDetailScan();
+            }
             ads.Show();
             ads.Closed += new EventHandler(ads_Closed);
             this.Hide();
@@ -44,10 +55,10 @@ namespace PDA
         {
             this.Close();
         }
-
-        private void txt_ASN_KeyUp(object sender, KeyEventArgs e)
+                
+        private void chk_Different_CheckStateChanged(object sender, EventArgs e)
         {
-
+            this.txt_Different.Enabled = this.ck_Different.Checked;
         }
     }
 }
