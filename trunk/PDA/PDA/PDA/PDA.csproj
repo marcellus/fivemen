@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="DataInit\StaticCacheManager.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="DbManager\BaseEntity.cs" />
+    <Compile Include="DbManager\ZuTuo.cs" />
+    <Compile Include="DbManager\ZuTuoManager.cs" />
     <Compile Include="Disk.cs" />
     <Compile Include="ASNScan.cs">
       <SubType>Form</SubType>

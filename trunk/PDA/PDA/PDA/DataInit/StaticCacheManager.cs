@@ -70,9 +70,40 @@ namespace PDA.DataInit
 
         public static void BindDict(ComboBox cb, int dicttype)
         {
-            cb.DisplayMember = "dicttext";
-            cb.ValueMember = "dictvalue";
-            cb.DataSource = GetDictTable(dicttype);
+            ArrayList al = new ArrayList();
+            DataTable dt =GetDictTable(dicttype);
+            foreach (DataRow dr in dt.Rows)
+            {
+                al.Add(new ComboBoxDataObject(dr["dicttext"], dr["dictvalue"]));
+            }
+            cb.DataSource = al;
+            cb.DisplayMember = "MyText";
+            cb.ValueMember = "MyValue";
+            cb.SelectedIndex = 0;
+        }
+    }
+    public class ComboBoxDataObject
+    {
+        private object myText;
+        private object myValue;
+        public object MyText
+        {
+            get
+            {
+                return myText;
+            }
+        }
+        public object MyValue
+        {
+            get
+            {
+                return myValue;
+            }
+        }
+        public ComboBoxDataObject(object text, object value)
+        {
+            this.myText = text;
+            this.myValue = value;
         }
     }
 }

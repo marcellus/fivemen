@@ -53,7 +53,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Location = new System.Drawing.Point(7, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.Text = "S/N：";
@@ -70,7 +70,7 @@
             // txt_SN
             // 
             this.txt_SN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_SN.Location = new System.Drawing.Point(78, 27);
+            this.txt_SN.Location = new System.Drawing.Point(78, 53);
             this.txt_SN.Name = "txt_SN";
             this.txt_SN.Size = new System.Drawing.Size(152, 21);
             this.txt_SN.TabIndex = 2;
@@ -96,6 +96,7 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
@@ -105,7 +106,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 6;
-            this.btn_Save.Text = "完成";
+            this.btn_Save.Text = "提交";
             // 
             // btn_ClearTray
             // 
@@ -121,7 +122,7 @@
             // 
             this.txt_XiaXiangJi.Enabled = false;
             this.txt_XiaXiangJi.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_XiaXiangJi.Location = new System.Drawing.Point(78, 53);
+            this.txt_XiaXiangJi.Location = new System.Drawing.Point(78, 30);
             this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
             this.txt_XiaXiangJi.Size = new System.Drawing.Size(152, 20);
             this.txt_XiaXiangJi.TabIndex = 3;
@@ -130,7 +131,7 @@
             // cb_XiaXiangJi
             // 
             this.cb_XiaXiangJi.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.cb_XiaXiangJi.Location = new System.Drawing.Point(4, 53);
+            this.cb_XiaXiangJi.Location = new System.Drawing.Point(4, 30);
             this.cb_XiaXiangJi.Name = "cb_XiaXiangJi";
             this.cb_XiaXiangJi.Size = new System.Drawing.Size(87, 20);
             this.cb_XiaXiangJi.TabIndex = 8;
@@ -175,6 +176,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.Name = "ZuTuoDetail";
             this.Text = "组托";
+            this.Load += new System.EventHandler(this.ZuTuoDetail_Load);
             this.ResumeLayout(false);
 
         }

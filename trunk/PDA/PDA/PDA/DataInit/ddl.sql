@@ -4,7 +4,7 @@ create table receiverecord(id integer primary key autoincrement,receiveno varcha
 create table receivedetail(id integer primary key autoincrement,pnno varchar(20),tno varchar(20),hold varchar(20),cuno varchar(20),scaner varchar(30),scantime datetime,status integer);
 create table anhuoyiku(id integer primary key autoincrement,ykw varchar(20),cp varchar(20),sl integer,mdkw varchar(20));
 create table antuoyiku(id integer primary key autoincrement,tph varchar(20),mdkw varchar(20));
-create table zutuo(id integer primary key autoincrement,tph varchar(20),sn varchar(20),xxjh varchar(20));
+create table zutuo(id integer primary key autoincrement,tph varchar(20),sn varchar(20),xxjh varchar(20),scaner varchar(30),scantime datetime);
 create table jietuo(id integer primary key autoincrement,tph varchar(20),sn varchar(20),iswhole integer);
 create table pintuo(id integer primary key autoincrement,tph varchar(20),sn varchar(20),wz varchar(30),xxjh varchar(20));
 create table ztpintuo(id integer primary key autoincrement,tph varchar(20),ytph varchar(20));
