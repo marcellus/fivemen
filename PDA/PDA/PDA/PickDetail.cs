@@ -12,62 +12,52 @@ namespace PDA
 {
     public partial class PickDetail : Form
     {
-        private Pick p;
-        private string Loc;
         public PickDetail()
         {
             InitializeComponent();
            
         }
-
-        void p_onScanFinish(object sender, EventArgs e)
+        
+        private void txt_XiaXiangJi_KeyUp(object sender, KeyEventArgs e)
         {
+            clearInput();
+            txt_SN.Focus();
+        }       
 
+        private void cb_Rollback_CheckStateChanged(object sender, EventArgs e)
+        {
+            clearInput();
+            txt_SN.Focus();
         }
 
-        void p_onPick(object sender, EventArgs e)
+        private void cb_XiaXiangJi_CheckStateChanged(object sender, EventArgs e)
         {
-;
+            txt_XiaXiangJi.Enabled = cb_XiaXiangJi.Checked;
         }
 
-        private void txt_Disk_KeyUp(object sender, KeyEventArgs e)
+        private void txt_SN_KeyUp(object sender, KeyEventArgs e)
         {
-            
+            if (cb_Rollback.Checked)
+            {
+                clearInput();
+                //TODO:逻辑处理
+                return;
+            }
+            if (txt_XiaXiangJi.Enabled)
+            {
+                txt_XiaXiangJi.Focus();
+            }
+            else
+            {
+                clearInput();
+                //TODO:逻辑处理
+            }
+        }
+        private void clearInput()
+        {
+            txt_XiaXiangJi.Text = string.Empty;
+            txt_SN.Text = string.Empty;
         }
 
-        private void btn_TempSave_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txt_PN_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-            DiskList dl = new DiskList();
-            dl.Show();
-            dl.Closed += new EventHandler(dl_Closed);
-            this.Hide();
-        }
-
-        void dl_Closed(object sender, EventArgs e)
-        {
-            this.Show();
-        }
     }
 }

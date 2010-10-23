@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B2A720D8-031E-46B9-A6B0-393507297D37}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -57,6 +57,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=1fdb50b1b62b4c84, processorArchitecture=MSIL" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -72,32 +73,28 @@
     <Compile Include="AsnDetailScan.Designer.cs">
       <DependentUpon>AsnDetailScan.cs</DependentUpon>
     </Compile>
-    <Compile Include="BakeBeginScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BakeBeginScan.Designer.cs">
-      <DependentUpon>BakeBeginScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BakeEnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BakeEnd.Designer.cs">
-      <DependentUpon>BakeEnd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BakeOpen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BakeOpen.Designer.cs">
-      <DependentUpon>BakeOpen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Begin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Begin.Designer.cs">
-      <DependentUpon>Begin.cs</DependentUpon>
-    </Compile>
     <Compile Include="ColumnName.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="DataInit\CreateTablesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataInit\CreateTablesForm.Designer.cs">
+      <DependentUpon>CreateTablesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataInit\DataGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataInit\DataGridForm.Designer.cs">
+      <DependentUpon>DataGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataInit\SqliteDbFactory.cs" />
+    <Compile Include="DataInit\SqliteDbOperator.cs" />
+    <Compile Include="DataInit\SqliteTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataInit\SqliteTestForm.Designer.cs">
+      <DependentUpon>SqliteTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Disk.cs" />
     <Compile Include="ASNScan.cs">
@@ -106,41 +103,17 @@
     <Compile Include="ASNScan.Designer.cs">
       <DependentUpon>ASNScan.cs</DependentUpon>
     </Compile>
-    <Compile Include="DiskList.cs">
+    <Compile Include="PinTuoDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DiskList.Designer.cs">
-      <DependentUpon>DiskList.cs</DependentUpon>
+    <Compile Include="PinTuoDetail.Designer.cs">
+      <DependentUpon>PinTuoDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="DryDiskBegin.cs">
+    <Compile Include="JieTuoDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DryDiskBegin.Designer.cs">
-      <DependentUpon>DryDiskBegin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DryDiskEnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DryDiskEnd.Designer.cs">
-      <DependentUpon>DryDiskEnd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBackDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedBackDetail.Designer.cs">
-      <DependentUpon>FeedBackDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBackScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedBackScan.Designer.cs">
-      <DependentUpon>FeedBackScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FeedBackSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedBackSelect.Designer.cs">
-      <DependentUpon>FeedBackSelect.cs</DependentUpon>
+    <Compile Include="JieTuoDetail.Designer.cs">
+      <DependentUpon>JieTuoDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Function_List.cs">
       <SubType>Form</SubType>
@@ -156,11 +129,11 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="MoveLoc.cs" />
-    <Compile Include="MoveLocDeatilNew.cs">
+    <Compile Include="MoveLocDetailHadTray.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MoveLocDeatilNew.Designer.cs">
-      <DependentUpon>MoveLocDeatilNew.cs</DependentUpon>
+    <Compile Include="MoveLocDetailHadTray.Designer.cs">
+      <DependentUpon>MoveLocDetailHadTray.cs</DependentUpon>
     </Compile>
     <Compile Include="MoveLocDetail.cs">
       <SubType>Form</SubType>
@@ -168,38 +141,13 @@
     <Compile Include="MoveLocDetail.Designer.cs">
       <DependentUpon>MoveLocDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="MoveLocScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MoveLocScan.Designer.cs">
-      <DependentUpon>MoveLocScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MoveLot.cs" />
-    <Compile Include="MoveLotDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MoveLotDetail.Designer.cs">
-      <DependentUpon>MoveLotDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MoveLotScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MoveLotScan.Designer.cs">
-      <DependentUpon>MoveLotScan.cs</DependentUpon>
-    </Compile>
     <Compile Include="MySerialization.cs" />
     <Compile Include="PartDisk.cs" />
-    <Compile Include="PartScan.cs">
+    <Compile Include="ZuTuoDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PartScan.Designer.cs">
-      <DependentUpon>PartScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PartSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PartSelect.Designer.cs">
-      <DependentUpon>PartSelect.cs</DependentUpon>
+    <Compile Include="ZuTuoDetail.Designer.cs">
+      <DependentUpon>ZuTuoDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Pick.cs" />
     <Compile Include="PickDetail.cs">
@@ -214,12 +162,6 @@
     <Compile Include="PickScan.Designer.cs">
       <DependentUpon>PickScan.cs</DependentUpon>
     </Compile>
-    <Compile Include="PickSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PickSelect.Designer.cs">
-      <DependentUpon>PickSelect.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pro2Col.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,44 +173,21 @@
       <DependentUpon>ASNScan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BakeBeginScan.resx">
-      <DependentUpon>BakeBeginScan.cs</DependentUpon>
+    <EmbeddedResource Include="DataInit\CreateTablesForm.resx">
+      <DependentUpon>CreateTablesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataInit\DataGridForm.resx">
+      <DependentUpon>DataGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataInit\SqliteTestForm.resx">
+      <DependentUpon>SqliteTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinTuoDetail.resx">
+      <DependentUpon>PinTuoDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BakeEnd.resx">
-      <DependentUpon>BakeEnd.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BakeOpen.resx">
-      <DependentUpon>BakeOpen.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Begin.resx">
-      <DependentUpon>Begin.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DiskList.resx">
-      <DependentUpon>DiskList.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DryDiskBegin.resx">
-      <DependentUpon>DryDiskBegin.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DryDiskEnd.resx">
-      <DependentUpon>DryDiskEnd.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FeedBackDetail.resx">
-      <DependentUpon>FeedBackDetail.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FeedBackScan.resx">
-      <DependentUpon>FeedBackScan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FeedBackSelect.resx">
-      <DependentUpon>FeedBackSelect.cs</DependentUpon>
+    <EmbeddedResource Include="JieTuoDetail.resx">
+      <DependentUpon>JieTuoDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Function_List.resx">
@@ -279,32 +198,16 @@
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MoveLocDeatilNew.resx">
-      <DependentUpon>MoveLocDeatilNew.cs</DependentUpon>
+    <EmbeddedResource Include="MoveLocDetailHadTray.resx">
+      <DependentUpon>MoveLocDetailHadTray.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MoveLocDetail.resx">
       <DependentUpon>MoveLocDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MoveLocScan.resx">
-      <DependentUpon>MoveLocScan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MoveLotDetail.resx">
-      <DependentUpon>MoveLotDetail.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MoveLotScan.resx">
-      <DependentUpon>MoveLotScan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartScan.resx">
-      <DependentUpon>PartScan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PartSelect.resx">
-      <DependentUpon>PartSelect.cs</DependentUpon>
+    <EmbeddedResource Include="ZuTuoDetail.resx">
+      <DependentUpon>ZuTuoDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PickDetail.resx">
@@ -315,33 +218,29 @@
       <DependentUpon>PickScan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PickSelect.resx">
-      <DependentUpon>PickSelect.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PutAwayDetail.resx">
-      <DependentUpon>PutAwayDetail.cs</DependentUpon>
+    <EmbeddedResource Include="CheckDetailHadTray.resx">
+      <DependentUpon>CheckDetailHadTray.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PutAwayScan.resx">
-      <DependentUpon>PutAwayScan.cs</DependentUpon>
+    <EmbeddedResource Include="AsnDetailScanHadTray.resx">
+      <DependentUpon>AsnDetailScanHadTray.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PutAwaySelect.resx">
-      <DependentUpon>PutAwaySelect.cs</DependentUpon>
+    <EmbeddedResource Include="PickDetailHadTray.resx">
+      <DependentUpon>PickDetailHadTray.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receive.resx">
-      <DependentUpon>Receive.cs</DependentUpon>
+    <EmbeddedResource Include="CheckDetail.resx">
+      <DependentUpon>CheckDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockCondition.resx">
-      <DependentUpon>StockCondition.cs</DependentUpon>
+    <EmbeddedResource Include="PinTuoDetailHadTray.resx">
+      <DependentUpon>PinTuoDetailHadTray.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -349,43 +248,43 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PutAway.cs" />
-    <Compile Include="PutAwayDetail.cs">
+    <Compile Include="CheckDetailHadTray.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PutAwayDetail.Designer.cs">
-      <DependentUpon>PutAwayDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PutAwayScan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PutAwayScan.Designer.cs">
-      <DependentUpon>PutAwayScan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PutAwaySelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PutAwaySelect.Designer.cs">
-      <DependentUpon>PutAwaySelect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Receive.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Receive.Designer.cs">
-      <DependentUpon>Receive.cs</DependentUpon>
+    <Compile Include="CheckDetailHadTray.Designer.cs">
+      <DependentUpon>CheckDetailHadTray.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnDisk.cs" />
     <Compile Include="SKU.cs" />
-    <Compile Include="StockCondition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StockCondition.Designer.cs">
-      <DependentUpon>StockCondition.cs</DependentUpon>
-    </Compile>
     <Compile Include="Types.cs" />
     <Compile Include="Web References\WebReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="AsnDetailScanHadTray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsnDetailScanHadTray.Designer.cs">
+      <DependentUpon>AsnDetailScanHadTray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PickDetailHadTray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PickDetailHadTray.Designer.cs">
+      <DependentUpon>PickDetailHadTray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckDetail.Designer.cs">
+      <DependentUpon>CheckDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinTuoDetailHadTray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinTuoDetailHadTray.Designer.cs">
+      <DependentUpon>PinTuoDetailHadTray.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -396,6 +295,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Config.xml" />
+    <Content Include="DataInit\SQLite.Interop.066.DLL" />
+    <Content Include="DataInit\System.Data.SQLite.dll" />
+    <None Include="DataInit\db.db3" />
     <None Include="Web References\WebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -20,36 +20,61 @@ namespace PDA
         {
             InitializeComponent();
         }
-        private void btn_Finish_Click(object sender, EventArgs e)
+        
+
+        private void txt_Product_KeyUp(object sender, KeyEventArgs e)
         {
-            MoveLocDeatilNew mn = new MoveLocDeatilNew(this.moveLoc);
-            mn.Closed += new EventHandler(mn_Closed);
-            mn.Show();
-            this.Hide();
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.txt_Count.Text = "1";
+                if (!this.ck_Rollback.Checked)
+                {
+                    this.txt_NewLoc.Focus();
+                }
+                else
+                {
+                    this.txt_Count.Text = string.Empty;
+                    this.txt_Product.Text = string.Empty;
+                }
+            }
+        }               
+
+        private void txt_OldLoc_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.txt_Product.Focus();
+            }
         }
 
-        void mn_Closed(object sender, EventArgs e)
+        private void txt_NewLoc_KeyUp(object sender, KeyEventArgs e)
         {
-            this.Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                ClearInput();
+                this.txt_OldLoc.Focus();
+            }
         }
 
-        private void txt_Disk_KeyUp(object sender, KeyEventArgs e)
+        private void ck_Rollback_CheckStateChanged(object sender, EventArgs e)
         {
-            
+            ClearInput();
+            if (ck_Rollback.Checked)
+            {
+                this.txt_Product.Focus();
+            }
+            else
+            {
+                this.txt_OldLoc.Focus();
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ClearInput()
         {
-
-            DiskList dl = new DiskList();
-            dl.Show();
-            dl.Closed += new EventHandler(dl_Closed);
-            this.Hide();
-        }
-
-        void dl_Closed(object sender, EventArgs e)
-        {
-            this.Show();
+            this.txt_NewLoc.Text = string.Empty;
+            this.txt_Product.Text = string.Empty;
+            this.txt_Count.Text = string.Empty;
+            this.txt_OldLoc.Text = string.Empty;
         }
 
     }

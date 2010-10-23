@@ -1,6 +1,6 @@
 ﻿namespace PDA
 {
-    partial class PickDetail
+    partial class PickDetailHadTray
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_XiaXiangJi = new System.Windows.Forms.TextBox();
             this.cb_Rollback = new System.Windows.Forms.CheckBox();
             this.btn_TempSave = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
-            this.txt_SN = new System.Windows.Forms.TextBox();
+            this.txt_TrayNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cb_XiaXiangJi = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_DiskDetail = new System.Windows.Forms.TextBox();
@@ -48,21 +46,11 @@
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_XiaXiangJi
-            // 
-            this.txt_XiaXiangJi.Enabled = false;
-            this.txt_XiaXiangJi.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_XiaXiangJi.Location = new System.Drawing.Point(91, 39);
-            this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
-            this.txt_XiaXiangJi.Size = new System.Drawing.Size(137, 21);
-            this.txt_XiaXiangJi.TabIndex = 4;
-            this.txt_XiaXiangJi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_XiaXiangJi_KeyUp);
-            // 
             // cb_Rollback
             // 
             this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
-            this.cb_Rollback.Location = new System.Drawing.Point(85, 65);
+            this.cb_Rollback.Location = new System.Drawing.Point(87, 48);
             this.cb_Rollback.Name = "cb_Rollback";
             this.cb_Rollback.Size = new System.Drawing.Size(146, 20);
             this.cb_Rollback.TabIndex = 9;
@@ -73,7 +61,7 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(13, 242);
+            this.btn_TempSave.Location = new System.Drawing.Point(13, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
             this.btn_TempSave.TabIndex = 10;
@@ -83,48 +71,39 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(170, 242);
+            this.btn_Save.Location = new System.Drawing.Point(169, 240);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
             this.btn_Save.TabIndex = 11;
             this.btn_Save.Text = "提交";
             // 
-            // txt_SN
+            // txt_TrayNo
             // 
-            this.txt_SN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_SN.Location = new System.Drawing.Point(91, 9);
-            this.txt_SN.Name = "txt_SN";
-            this.txt_SN.Size = new System.Drawing.Size(137, 21);
-            this.txt_SN.TabIndex = 20;
-            this.txt_SN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SN_KeyUp);
+            this.txt_TrayNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_TrayNo.Location = new System.Drawing.Point(91, 12);
+            this.txt_TrayNo.Name = "txt_TrayNo";
+            this.txt_TrayNo.Size = new System.Drawing.Size(137, 21);
+            this.txt_TrayNo.TabIndex = 20;
+            this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.label2.Location = new System.Drawing.Point(10, 9);
+            this.label2.Location = new System.Drawing.Point(10, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 21);
-            this.label2.Text = "S/N:";
-            // 
-            // cb_XiaXiangJi
-            // 
-            this.cb_XiaXiangJi.Location = new System.Drawing.Point(6, 39);
-            this.cb_XiaXiangJi.Name = "cb_XiaXiangJi";
-            this.cb_XiaXiangJi.Size = new System.Drawing.Size(88, 20);
-            this.cb_XiaXiangJi.TabIndex = 41;
-            this.cb_XiaXiangJi.Text = "下乡机：";
-            this.cb_XiaXiangJi.CheckStateChanged += new System.EventHandler(this.cb_XiaXiangJi_CheckStateChanged);
+            this.label2.Size = new System.Drawing.Size(62, 21);
+            this.label2.Text = "托盘号：";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(6, 95);
+            this.tabControl1.Location = new System.Drawing.Point(6, 89);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
-            this.tabControl1.TabIndex = 42;
+            this.tabControl1.TabIndex = 43;
             // 
             // tabPage1
             // 
@@ -179,7 +158,7 @@
             this.dg_Summarizing.Size = new System.Drawing.Size(210, 105);
             this.dg_Summarizing.TabIndex = 0;
             // 
-            // PickDetail
+            // PickDetailHadTray
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -187,15 +166,13 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(238, 270);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.txt_SN);
+            this.Controls.Add(this.txt_TrayNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_TempSave);
             this.Controls.Add(this.cb_Rollback);
-            this.Controls.Add(this.txt_XiaXiangJi);
-            this.Controls.Add(this.cb_XiaXiangJi);
-            this.Name = "PickDetail";
-            this.Text = "无托发货";
+            this.Name = "PickDetailHadTray";
+            this.Text = "有托发货";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -206,13 +183,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_XiaXiangJi;
         private System.Windows.Forms.CheckBox cb_Rollback;
         private System.Windows.Forms.Button btn_TempSave;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.TextBox txt_SN;
+        private System.Windows.Forms.TextBox txt_TrayNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox cb_XiaXiangJi;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_DiskDetail;

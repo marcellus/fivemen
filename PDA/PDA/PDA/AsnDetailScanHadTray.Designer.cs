@@ -1,6 +1,6 @@
 ﻿namespace PDA
 {
-    partial class PickDetail
+    partial class AsnDetailScanHadTray
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_XiaXiangJi = new System.Windows.Forms.TextBox();
-            this.cb_Rollback = new System.Windows.Forms.CheckBox();
-            this.btn_TempSave = new System.Windows.Forms.Button();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.txt_SN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cb_XiaXiangJi = new System.Windows.Forms.CheckBox();
+            this.txt_TrayNo = new System.Windows.Forms.TextBox();
+            this.ck_Rollback = new System.Windows.Forms.CheckBox();
+            this.btn_TempSave = new System.Windows.Forms.Button();
+            this.btn_Finish = new System.Windows.Forms.Button();
+            this.ck_HOLD = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_DiskDetail = new System.Windows.Forms.TextBox();
@@ -48,83 +47,73 @@
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_XiaXiangJi
+            // label2
             // 
-            this.txt_XiaXiangJi.Enabled = false;
-            this.txt_XiaXiangJi.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_XiaXiangJi.Location = new System.Drawing.Point(91, 39);
-            this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
-            this.txt_XiaXiangJi.Size = new System.Drawing.Size(137, 21);
-            this.txt_XiaXiangJi.TabIndex = 4;
-            this.txt_XiaXiangJi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_XiaXiangJi_KeyUp);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Location = new System.Drawing.Point(10, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 21);
+            this.label2.Text = "托盘号：";
             // 
-            // cb_Rollback
+            // txt_TrayNo
             // 
-            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
-            this.cb_Rollback.Location = new System.Drawing.Point(85, 65);
-            this.cb_Rollback.Name = "cb_Rollback";
-            this.cb_Rollback.Size = new System.Drawing.Size(146, 20);
-            this.cb_Rollback.TabIndex = 9;
-            this.cb_Rollback.Text = "撤销产品扫描";
-            this.cb_Rollback.CheckStateChanged += new System.EventHandler(this.cb_Rollback_CheckStateChanged);
+            this.txt_TrayNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_TrayNo.Location = new System.Drawing.Point(91, 15);
+            this.txt_TrayNo.Name = "txt_TrayNo";
+            this.txt_TrayNo.Size = new System.Drawing.Size(134, 21);
+            this.txt_TrayNo.TabIndex = 1;
+            this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
+            // 
+            // ck_Rollback
+            // 
+            this.ck_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Rollback.ForeColor = System.Drawing.Color.Red;
+            this.ck_Rollback.Location = new System.Drawing.Point(91, 54);
+            this.ck_Rollback.Name = "ck_Rollback";
+            this.ck_Rollback.Size = new System.Drawing.Size(111, 20);
+            this.ck_Rollback.TabIndex = 3;
+            this.ck_Rollback.Text = "撤销产品扫描";
+            this.ck_Rollback.CheckStateChanged += new System.EventHandler(this.ck_Rollback_CheckStateChanged);
             // 
             // btn_TempSave
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(13, 242);
+            this.btn_TempSave.Location = new System.Drawing.Point(10, 240);
             this.btn_TempSave.Name = "btn_TempSave";
-            this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
-            this.btn_TempSave.TabIndex = 10;
+            this.btn_TempSave.Size = new System.Drawing.Size(75, 25);
+            this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
             // 
-            // btn_Save
+            // btn_Finish
             // 
-            this.btn_Save.BackColor = System.Drawing.Color.Beige;
-            this.btn_Save.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(170, 242);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(55, 22);
-            this.btn_Save.TabIndex = 11;
-            this.btn_Save.Text = "提交";
+            this.btn_Finish.BackColor = System.Drawing.Color.Beige;
+            this.btn_Finish.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Finish.Location = new System.Drawing.Point(150, 242);
+            this.btn_Finish.Name = "btn_Finish";
+            this.btn_Finish.Size = new System.Drawing.Size(75, 25);
+            this.btn_Finish.TabIndex = 6;
+            this.btn_Finish.Text = "提交";
             // 
-            // txt_SN
+            // ck_HOLD
             // 
-            this.txt_SN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_SN.Location = new System.Drawing.Point(91, 9);
-            this.txt_SN.Name = "txt_SN";
-            this.txt_SN.Size = new System.Drawing.Size(137, 21);
-            this.txt_SN.TabIndex = 20;
-            this.txt_SN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SN_KeyUp);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.label2.Location = new System.Drawing.Point(10, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 21);
-            this.label2.Text = "S/N:";
-            // 
-            // cb_XiaXiangJi
-            // 
-            this.cb_XiaXiangJi.Location = new System.Drawing.Point(6, 39);
-            this.cb_XiaXiangJi.Name = "cb_XiaXiangJi";
-            this.cb_XiaXiangJi.Size = new System.Drawing.Size(88, 20);
-            this.cb_XiaXiangJi.TabIndex = 41;
-            this.cb_XiaXiangJi.Text = "下乡机：";
-            this.cb_XiaXiangJi.CheckStateChanged += new System.EventHandler(this.cb_XiaXiangJi_CheckStateChanged);
+            this.ck_HOLD.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_HOLD.Location = new System.Drawing.Point(11, 54);
+            this.ck_HOLD.Name = "ck_HOLD";
+            this.ck_HOLD.Size = new System.Drawing.Size(59, 20);
+            this.ck_HOLD.TabIndex = 2;
+            this.ck_HOLD.Text = "HOLD";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(6, 95);
+            this.tabControl1.Location = new System.Drawing.Point(4, 90);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
-            this.tabControl1.TabIndex = 42;
+            this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
@@ -179,7 +168,7 @@
             this.dg_Summarizing.Size = new System.Drawing.Size(210, 105);
             this.dg_Summarizing.TabIndex = 0;
             // 
-            // PickDetail
+            // AsnDetailScanHadTray
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -187,15 +176,14 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(238, 270);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.txt_SN);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_Save);
+            this.Controls.Add(this.ck_HOLD);
+            this.Controls.Add(this.btn_Finish);
             this.Controls.Add(this.btn_TempSave);
-            this.Controls.Add(this.cb_Rollback);
-            this.Controls.Add(this.txt_XiaXiangJi);
-            this.Controls.Add(this.cb_XiaXiangJi);
-            this.Name = "PickDetail";
-            this.Text = "无托发货";
+            this.Controls.Add(this.ck_Rollback);
+            this.Controls.Add(this.txt_TrayNo);
+            this.Controls.Add(this.label2);
+            this.Name = "AsnDetailScanHadTray";
+            this.Text = "有托收货";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -206,13 +194,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_XiaXiangJi;
-        private System.Windows.Forms.CheckBox cb_Rollback;
-        private System.Windows.Forms.Button btn_TempSave;
-        private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.TextBox txt_SN;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox cb_XiaXiangJi;
+        private System.Windows.Forms.TextBox txt_TrayNo;
+        private System.Windows.Forms.CheckBox ck_Rollback;
+        private System.Windows.Forms.Button btn_TempSave;
+        private System.Windows.Forms.Button btn_Finish;
+        private System.Windows.Forms.CheckBox ck_HOLD;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_DiskDetail;
