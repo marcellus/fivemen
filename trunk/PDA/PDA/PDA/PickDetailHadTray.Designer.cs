@@ -66,6 +66,7 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
             this.btn_TempSave.TabIndex = 10;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
@@ -96,6 +97,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -135,7 +137,6 @@
             // dg_Resume
             // 
             this.dg_Resume.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Resume.ColumnHeadersVisible = false;
             this.dg_Resume.Location = new System.Drawing.Point(4, 4);
             this.dg_Resume.Name = "dg_Resume";
             this.dg_Resume.Size = new System.Drawing.Size(210, 105);

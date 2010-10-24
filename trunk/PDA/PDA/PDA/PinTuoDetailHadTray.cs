@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PDA.DbManager;
 
 namespace PDA
 {
@@ -52,11 +53,65 @@ namespace PDA
 
         private void txt_OldTrayNo_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == e.KeyCode)
+            if (e.KeyCode == Keys.Enter)
             {
+                    if(!this.cb_Rollback.Checked)
+                    {
+                        this.SaveData();
+                        this.RebindData();
+                    }
+                    else
+                    {
+                        this.RemoveData();
+                        this.RebindData();
+                    }
                 ClearInput();
                 txt_TrayNo.Focus();
             }
+        }
+
+        private void RebindData()
+        {
+            this.dg_ScanList.DataSource = ZtPinTuoManager.GetUserData(Program.UserID);
+        }
+
+        private ZtPinTuo ComputeData()
+        {
+
+            ZtPinTuo entity = new ZtPinTuo();
+           
+            entity.Tph = this.txt_TrayNo.Text.Trim();
+            entity.Ytph = this.txt_OldTrayNo.Text.Trim();
+
+            entity.Scaner = Program.UserID;
+            entity.date = System.DateTime.Now;
+            return entity;
+        }
+
+        private void RemoveData()
+        {
+            ZtPinTuoManager.Delete(this.ComputeData());
+        }
+
+        private void SaveData()
+        {
+
+            ZtPinTuo entity = this.ComputeData();
+            if (ZtPinTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("您已经扫描过该产品！");
+            }
+            else
+            {
+                ZtPinTuoManager.Save(entity);
+            }
+            
+
+        }
+
+        private void PinTuoDetailHadTray_Load(object sender, EventArgs e)
+        {
+this.RebindData();
         }
     }
 }

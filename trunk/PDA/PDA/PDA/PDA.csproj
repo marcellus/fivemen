@@ -98,8 +98,22 @@
     <Compile Include="DataInit\StaticCacheManager.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="DbManager\BaseEntity.cs" />
+    <Compile Include="DbManager\JieTuo.cs" />
+    <Compile Include="DbManager\JieTuoManager.cs" />
+    <Compile Include="DbManager\PinTuo.cs" />
+    <Compile Include="DbManager\PinTuoManager.cs" />
+    <Compile Include="DbManager\SendDetail.cs" />
+    <Compile Include="DbManager\SendDetailManager.cs" />
+    <Compile Include="DbManager\SendRecord.cs" />
+    <Compile Include="DbManager\SendRecordManager.cs" />
+    <Compile Include="DbManager\ZtPinTuo.cs" />
+    <Compile Include="DbManager\ZtPinTuoManager.cs" />
     <Compile Include="DbManager\ZuTuo.cs" />
     <Compile Include="DbManager\ZuTuoManager.cs" />
+    <Compile Include="DbManager\AnHuoYiKu.cs" />
+    <Compile Include="DbManager\AnHuoYiKuManager.cs" />
+    <Compile Include="DbManager\AnTuoYiKu.cs" />
+    <Compile Include="DbManager\AnTuoYiKuManager.cs" />
     <Compile Include="Disk.cs" />
     <Compile Include="ASNScan.cs">
       <SubType>Form</SubType>
@@ -179,12 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataInit\CreateTablesForm.resx">
       <DependentUpon>CreateTablesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DataInit\DataGridForm.resx">
       <DependentUpon>DataGridForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DataInit\SqliteTestForm.resx">
       <DependentUpon>SqliteTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PinTuoDetail.resx">
       <DependentUpon>PinTuoDetail.cs</DependentUpon>

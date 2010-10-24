@@ -59,7 +59,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 6;
-            this.btn_Save.Text = "完成";
+            this.btn_Save.Text = "提交";
             // 
             // btn_TempSave
             // 
@@ -70,6 +70,7 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // cb_Rollback
             // 

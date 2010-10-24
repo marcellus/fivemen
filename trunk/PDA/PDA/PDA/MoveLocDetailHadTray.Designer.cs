@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btn_Finish = new System.Windows.Forms.Button();
-            this.ck_Rollback = new System.Windows.Forms.CheckBox();
+            this.cb_Rollback = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_TrayNo = new System.Windows.Forms.TextBox();
@@ -49,16 +49,16 @@
             this.btn_Finish.TabIndex = 6;
             this.btn_Finish.Text = "提交";
             // 
-            // ck_Rollback
+            // cb_Rollback
             // 
-            this.ck_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.ck_Rollback.ForeColor = System.Drawing.Color.Red;
-            this.ck_Rollback.Location = new System.Drawing.Point(92, 63);
-            this.ck_Rollback.Name = "ck_Rollback";
-            this.ck_Rollback.Size = new System.Drawing.Size(110, 20);
-            this.ck_Rollback.TabIndex = 3;
-            this.ck_Rollback.Text = "撤销产品扫描";
-            this.ck_Rollback.CheckStateChanged += new System.EventHandler(this.ck_Rollback_CheckStateChanged);
+            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
+            this.cb_Rollback.Location = new System.Drawing.Point(92, 63);
+            this.cb_Rollback.Name = "cb_Rollback";
+            this.cb_Rollback.Size = new System.Drawing.Size(110, 20);
+            this.cb_Rollback.TabIndex = 3;
+            this.cb_Rollback.Text = "撤销产品扫描";
+            this.cb_Rollback.CheckStateChanged += new System.EventHandler(this.ck_Rollback_CheckStateChanged);
             // 
             // label2
             // 
@@ -103,6 +103,7 @@
             this.button1.Size = new System.Drawing.Size(83, 25);
             this.button1.TabIndex = 5;
             this.button1.Text = "临时保存";
+            this.button1.Visible = false;
             // 
             // label3
             // 
@@ -114,7 +115,6 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.ColumnHeadersVisible = false;
             this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(6, 89);
             this.dg_ScanList.Name = "dg_ScanList";
@@ -131,7 +131,7 @@
             this.Controls.Add(this.dg_ScanList);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Finish);
-            this.Controls.Add(this.ck_Rollback);
+            this.Controls.Add(this.cb_Rollback);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_TrayNo);
@@ -139,6 +139,7 @@
             this.Controls.Add(this.label3);
             this.Name = "MoveLocDetailHadTray";
             this.Text = "有托移库";
+            this.Load += new System.EventHandler(this.MoveLocDetailHadTray_Load);
             this.ResumeLayout(false);
 
         }
@@ -146,7 +147,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Finish;
-        private System.Windows.Forms.CheckBox ck_Rollback;
+        private System.Windows.Forms.CheckBox cb_Rollback;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_TrayNo;

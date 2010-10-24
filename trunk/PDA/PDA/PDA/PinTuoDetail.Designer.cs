@@ -51,7 +51,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 8;
-            this.btn_Save.Text = "完成";
+            this.btn_Save.Text = "提交";
             // 
             // btn_TempSave
             // 
@@ -62,6 +62,7 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 7;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // cb_Rollback
             // 
@@ -77,7 +78,7 @@
             // txt_SN
             // 
             this.txt_SN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_SN.Location = new System.Drawing.Point(76, 30);
+            this.txt_SN.Location = new System.Drawing.Point(76, 54);
             this.txt_SN.Name = "txt_SN";
             this.txt_SN.Size = new System.Drawing.Size(152, 20);
             this.txt_SN.TabIndex = 2;
@@ -95,7 +96,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.label2.Location = new System.Drawing.Point(3, 30);
+            this.label2.Location = new System.Drawing.Point(3, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.Text = "S/N：";
@@ -111,7 +112,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.label3.Location = new System.Drawing.Point(3, 54);
+            this.label3.Location = new System.Drawing.Point(3, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.Text = "位置：";
@@ -119,7 +120,7 @@
             // txt_Location
             // 
             this.txt_Location.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_Location.Location = new System.Drawing.Point(76, 54);
+            this.txt_Location.Location = new System.Drawing.Point(76, 78);
             this.txt_Location.Name = "txt_Location";
             this.txt_Location.Size = new System.Drawing.Size(152, 20);
             this.txt_Location.TabIndex = 3;
@@ -128,7 +129,7 @@
             // cb_XiaXiangJi
             // 
             this.cb_XiaXiangJi.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.cb_XiaXiangJi.Location = new System.Drawing.Point(2, 78);
+            this.cb_XiaXiangJi.Location = new System.Drawing.Point(2, 30);
             this.cb_XiaXiangJi.Name = "cb_XiaXiangJi";
             this.cb_XiaXiangJi.Size = new System.Drawing.Size(87, 20);
             this.cb_XiaXiangJi.TabIndex = 4;
@@ -139,7 +140,7 @@
             // 
             this.txt_XiaXiangJi.Enabled = false;
             this.txt_XiaXiangJi.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.txt_XiaXiangJi.Location = new System.Drawing.Point(76, 78);
+            this.txt_XiaXiangJi.Location = new System.Drawing.Point(76, 30);
             this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
             this.txt_XiaXiangJi.Size = new System.Drawing.Size(152, 20);
             this.txt_XiaXiangJi.TabIndex = 5;
@@ -183,6 +184,7 @@
             this.Controls.Add(this.label4);
             this.Name = "PinTuoDetail";
             this.Text = "拼托";
+            this.Load += new System.EventHandler(this.PinTuoDetail_Load);
             this.ResumeLayout(false);
 
         }

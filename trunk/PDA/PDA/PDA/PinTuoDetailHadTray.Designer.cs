@@ -47,7 +47,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 8;
-            this.btn_Save.Text = "完成";
+            this.btn_Save.Text = "提交";
             // 
             // btn_TempSave
             // 
@@ -58,6 +58,7 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 7;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // cb_Rollback
             // 
@@ -137,7 +138,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Name = "PinTuoDetailHadTray";
-            this.Text = "拼托";
+            this.Text = "整托拼托";
+            this.Load += new System.EventHandler(this.PinTuoDetailHadTray_Load);
             this.ResumeLayout(false);
 
         }
