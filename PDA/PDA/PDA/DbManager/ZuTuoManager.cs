@@ -14,22 +14,48 @@ namespace PDA.DbManager
         ,tph varchar(20),sn varchar(20),xxjh varchar(20),
          scaner varchar(30),scantime datetime);
          */
-        public static void Save(ZuTuo zutuo)
+        public static void Save(ZuTuo entity)
         {
             string sql = string.Empty;
             sql = "insert into zutuo(tph,sn,xxjh,scaner,scantime) values('" +
-                zutuo.Tph + "','" + zutuo.Sn + "','" +
-                zutuo.Xxjh + "','" + Program.UserID + "','" +
-                System.DateTime.Now.ToString("s")
+                entity.Tph + "','" + entity.Sn + "','" +
+                entity.Xxjh + "','" + entity.Scaner + "','" +
+                entity.date.ToString("s")
                 +"')";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }
+
+        public static bool CheckExists(ZuTuo entity)
+        {
+            string sql = string.Empty;
+            sql = "select * from zutuo where tph='" +
+                 entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
+                 entity.Xxjh + "' and scaner='" + entity.Scaner + "'";
+            DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
+
+            return dt != null && dt.Rows.Count == 1;
+        }
+
+        public static void Delete(ZuTuo entity)
+        {
+            string sql = string.Empty;
+            sql = "delete from zutuo where tph='" +
+                entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
+                entity.Xxjh + "' and scaner='" + entity.Scaner + "'";
+            SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
+
+        }
+
+
+
         public static DataTable GetUserData(string uid)
         {
             string sql = "select tph as 托盘号,sn as SN,xxjh as 下乡机号 from zutuo where scaner='"+uid+"'";
             return SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
         }
+
+      
 
     }
 }

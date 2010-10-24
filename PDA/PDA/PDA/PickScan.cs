@@ -6,6 +6,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PDA.DbManager;
+using PDA.DataInit;
+
 
 namespace PDA
 {
@@ -65,16 +68,18 @@ namespace PDA
             }
         }
 
+        private SendRecord current;
         private void btn_OK_Click(object sender, EventArgs e)
         {
             Form pd;
+            this.SaveData();
             if (hadTray)
             {
-                pd = new PickDetailHadTray();
+                pd = new PickDetailHadTray(this.current);
             }
             else
             {
-                pd = new PickDetail();
+                pd = new PickDetail(this.current);
             }
             pd.Show();
             pd.Closed += new EventHandler(pd_Closed);
@@ -90,6 +95,45 @@ namespace PDA
         {
             txt_Different.Enabled = ck_Different.Checked;
         }
+
+
+        private SendRecord ComputeData()
+        {
+
+            SendRecord entity = new SendRecord();
+            entity.So = this.txt_SO.Text.Trim();
+            entity.OtherSo = this.txt_MoreSO.Text.Trim();
+            entity.CarNo = this.txt_CarNo.Text.Trim();
+            entity.QuFen = this.txt_Different.Text.Trim();
+            entity.Status = 0;
+            entity.CpQuFen = string.Empty;
+            entity.PnNo = string.Empty;
+            entity.Scaner = Program.UserID;
+            entity.date = System.DateTime.Now;
+            return entity;
+        }
+
+
+        private void SaveData()
+        {
+            SendRecord entity = this.ComputeData();
+            if (SendRecordManager.CheckExists(entity))
+            {
+                MessageBox.Show("您已经扫描过该产品！");
+            }
+            else
+            {
+                SendRecordManager.Save(entity);
+                DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql("select max(id) from sendrecord");
+                entity.Id = int.Parse(dt.Rows[0][0].ToString());
+                this.current = entity;
+            }
+           
+
+        }
+
+
+
         
     }
 }

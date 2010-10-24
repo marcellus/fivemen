@@ -32,18 +32,20 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (txt_XiaXiangJi.Enabled)
+               
+                    //TODO:逻辑处理
+                if (!this.cb_Rollback.Checked)
                 {
-                    txt_XiaXiangJi.Focus();
+                    this.SaveData();
+                    this.RebindData();
                 }
                 else
                 {
-                    //TODO:逻辑处理
-                    this.SaveData();
+                    this.RemoveData();
                     this.RebindData();
+                }
                     ClearInput();
                     
-                }
             }
         }
         
@@ -62,13 +64,23 @@ namespace PDA
         private void cb_XiaXiangJi_CheckStateChanged_1(object sender, EventArgs e)
         {
             txt_XiaXiangJi.Enabled = cb_XiaXiangJi.Checked;
+            if(this.txt_XiaXiangJi.Enabled)
+            {
+                txt_XiaXiangJi.Text = string.Empty;
+                txt_XiaXiangJi.Focus();
+            }
+            else
+            {
+                txt_XiaXiangJi.Text=string.Empty;
+
+            }
         }
 
         private void txt_XiaXiangJi_KeyUp_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ClearInput();
+                //ClearInput();
                 txt_SN.Focus();
             }
         }
@@ -89,13 +101,34 @@ namespace PDA
             this.dg_ScanList.DataSource = ZuTuoManager.GetUserData(Program.UserID);
         }
 
-        private void SaveData()
+        private ZuTuo ComputeData()
         {
+
             ZuTuo zutuo = new ZuTuo();
             zutuo.Tph = this.txt_TrayNo.Text.Trim();
             zutuo.Xxjh = this.txt_XiaXiangJi.Text.Trim();
             zutuo.Sn = this.txt_SN.Text.Trim();
-            ZuTuoManager.Save(zutuo);
+            zutuo.Scaner = Program.UserID;
+            zutuo.date = System.DateTime.Now;
+            return zutuo;
+        }
+
+        private void RemoveData()
+        {
+            ZuTuoManager.Delete(this.ComputeData());
+        }
+
+        private void SaveData()
+        {
+            ZuTuo entity = this.ComputeData();
+            if (ZuTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("您已经扫描过该产品！");
+            }
+            else
+            {
+                ZuTuoManager.Save(entity);
+            }
 
         }
     }

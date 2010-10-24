@@ -7,6 +7,7 @@ namespace PDA.DbManager
 {
     public class BaseEntity
     {
+        public int Id;
         public string Scaner;
 
         public DateTime date;

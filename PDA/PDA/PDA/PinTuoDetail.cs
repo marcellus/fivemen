@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PDA.DbManager;
 
 namespace PDA
 {
@@ -41,21 +42,36 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (txt_XiaXiangJi.Enabled)
-                {
-                    txt_XiaXiangJi.Focus();
-                }
-                else
-                {
+               
+                    if (!this.cb_Rollback.Checked)
+                    {
+                        this.SaveData();
+                        this.RebindData();
+                    }
+                    else
+                    {
+                        this.RemoveData();
+                        this.RebindData();
+                    }
                     ClearInput();
                     txt_TrayNo.Focus();
-                }
+                
             }
         }
 
         private void cb_XiaXiangJi_CheckStateChanged(object sender, EventArgs e)
         {
             txt_XiaXiangJi.Enabled = cb_XiaXiangJi.Checked;
+            if (this.txt_XiaXiangJi.Enabled)
+            {
+                txt_XiaXiangJi.Text = string.Empty;
+                txt_XiaXiangJi.Focus();
+            }
+            else
+            {
+                txt_XiaXiangJi.Text = string.Empty;
+
+            }
         }
         private void ClearInput()
         {
@@ -75,9 +91,54 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ClearInput();
+                //ClearInput();
                 txt_TrayNo.Focus();
             }
         }
+
+        private void RebindData()
+        {
+            this.dg_ScanList.DataSource = PinTuoManager.GetUserData(Program.UserID);
+        }
+
+        private PinTuo ComputeData()
+        {
+
+            PinTuo pintuo = new PinTuo();
+            pintuo.Sn = this.txt_SN.Text.Trim();
+            pintuo.Tph = this.txt_TrayNo.Text.Trim();
+            pintuo.Wz = this.txt_Location.Text.Trim();
+            pintuo.Xxjh = this.txt_XiaXiangJi.Text.Trim();
+            pintuo.Scaner = Program.UserID;
+            pintuo.date = System.DateTime.Now;
+            return pintuo;
+        }
+
+        private void RemoveData()
+        {
+            PinTuoManager.Delete(this.ComputeData());
+        }
+
+        private void SaveData()
+        {
+            PinTuo entity = this.ComputeData();
+            if (PinTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("您已经扫描过该产品！");
+            }
+            else
+            {
+                PinTuoManager.Save(entity);
+            }
+           
+
+        }
+
+        private void PinTuoDetail_Load(object sender, EventArgs e)
+        {
+this.RebindData();
+        }
+
+       
     }
 }

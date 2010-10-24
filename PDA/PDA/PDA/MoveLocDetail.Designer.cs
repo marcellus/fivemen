@@ -40,7 +40,7 @@
             this.txt_NewLoc = new System.Windows.Forms.TextBox();
             this.dg_ScanList = new System.Windows.Forms.DataGrid();
             this.label5 = new System.Windows.Forms.Label();
-            this.ck_Rollback = new System.Windows.Forms.CheckBox();
+            this.cb_Rollback = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_Finish
@@ -112,6 +112,7 @@
             this.button1.Size = new System.Drawing.Size(73, 22);
             this.button1.TabIndex = 6;
             this.button1.Text = "临时保存";
+            this.button1.Visible = false;
             // 
             // label4
             // 
@@ -133,7 +134,6 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.ColumnHeadersVisible = false;
             this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(8, 111);
             this.dg_ScanList.Name = "dg_ScanList";
@@ -148,16 +148,16 @@
             this.label5.Size = new System.Drawing.Size(100, 20);
             this.label5.Text = "扫描记录：";
             // 
-            // ck_Rollback
+            // cb_Rollback
             // 
-            this.ck_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.ck_Rollback.ForeColor = System.Drawing.Color.Red;
-            this.ck_Rollback.Location = new System.Drawing.Point(125, 88);
-            this.ck_Rollback.Name = "ck_Rollback";
-            this.ck_Rollback.Size = new System.Drawing.Size(110, 20);
-            this.ck_Rollback.TabIndex = 4;
-            this.ck_Rollback.Text = "撤销产品扫描";
-            this.ck_Rollback.CheckStateChanged += new System.EventHandler(this.ck_Rollback_CheckStateChanged);
+            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
+            this.cb_Rollback.Location = new System.Drawing.Point(125, 88);
+            this.cb_Rollback.Name = "cb_Rollback";
+            this.cb_Rollback.Size = new System.Drawing.Size(110, 20);
+            this.cb_Rollback.TabIndex = 4;
+            this.cb_Rollback.Text = "撤销产品扫描";
+            this.cb_Rollback.CheckStateChanged += new System.EventHandler(this.ck_Rollback_CheckStateChanged);
             // 
             // MoveLocDetail
             // 
@@ -166,7 +166,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(238, 270);
-            this.Controls.Add(this.ck_Rollback);
+            this.Controls.Add(this.cb_Rollback);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_OldLoc);
             this.Controls.Add(this.dg_ScanList);
@@ -181,6 +181,7 @@
             this.Controls.Add(this.txt_Product);
             this.Name = "MoveLocDetail";
             this.Text = "无托移库";
+            this.Load += new System.EventHandler(this.MoveLocDetail_Load);
             this.ResumeLayout(false);
 
         }
@@ -199,6 +200,6 @@
         private System.Windows.Forms.TextBox txt_NewLoc;
         private System.Windows.Forms.DataGrid dg_ScanList;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox ck_Rollback;
+        private System.Windows.Forms.CheckBox cb_Rollback;
     }
 }
