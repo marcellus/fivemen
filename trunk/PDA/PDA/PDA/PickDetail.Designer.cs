@@ -174,7 +174,6 @@
             // dg_Summarizing
             // 
             this.dg_Summarizing.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Summarizing.ColumnHeadersVisible = false;
             this.dg_Summarizing.Location = new System.Drawing.Point(4, 4);
             this.dg_Summarizing.Name = "dg_Summarizing";
             this.dg_Summarizing.Size = new System.Drawing.Size(210, 105);

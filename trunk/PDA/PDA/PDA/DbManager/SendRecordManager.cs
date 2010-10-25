@@ -32,6 +32,11 @@ namespace PDA.DbManager
 
         }
 
+        public static DataTable Count(string so)
+        {
+            return SqliteDbFactory.GetSqliteDbOperator().SelectFromSql("select so as 单号, pnno as 产品号,sl as 数量 from sendrecord where so='"+so+"'");
+        }
+
         public static bool CheckExists(SendRecord entity)
         {
             string sql = string.Empty;

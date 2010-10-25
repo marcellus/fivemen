@@ -64,7 +64,8 @@ namespace PDA
 
         private void RebindData()
         {
-            this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.Id, Program.UserID);
+            this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.So, Program.UserID);
+            this.dg_Summarizing.DataSource = SendRecordManager.Count(record.So);
         }
 
         private SendDetail ComputeData()
@@ -75,7 +76,7 @@ namespace PDA
             entity.Tph = this.txt_TrayNo.Text.Trim();
             entity.Xxjh = string.Empty;
             entity.FahuoType = 1;
-            entity.Pid = record.Id;
+            entity.So = record.So;
             entity.Scaner = Program.UserID;
             entity.date = System.DateTime.Now;
             return entity;
@@ -83,7 +84,7 @@ namespace PDA
 
         private void RemoveData()
         {
-            SendDetailManager.Delete(this.ComputeData());
+            SendDetailManager.Delete(this.ComputeData(),this.record);
         }
 
         private void SaveData()
@@ -95,7 +96,7 @@ namespace PDA
             }
             else
             {
-                SendDetailManager.Save(entity);
+                SendDetailManager.Save(entity,this.record);
             }
 
         }

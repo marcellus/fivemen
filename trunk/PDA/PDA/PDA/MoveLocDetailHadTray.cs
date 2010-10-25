@@ -35,15 +35,22 @@ namespace PDA
             if (e.KeyCode == Keys.Enter)
             {
                 //txt_SN.Focus();
-                if (!this.cb_Rollback.Checked)
+                if (KuWeiManager.IsExists(this.txt_NewLoc.Text.Trim()))
                 {
-                    this.SaveData();
-                    this.RebindData();
+                    if (!this.cb_Rollback.Checked)
+                    {
+                        this.SaveData();
+                        this.RebindData();
+                    }
+                    else
+                    {
+                        this.RemoveData();
+                        this.RebindData();
+                    }
                 }
                 else
                 {
-                    this.RemoveData();
-                    this.RebindData();
+                    MessageBox.Show("库位:" + this.txt_NewLoc.Text.Trim() + "已经不再使用！");
                 }
                 ClearInput();
                 txt_TrayNo.Focus();

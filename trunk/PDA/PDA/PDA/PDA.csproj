@@ -100,6 +100,7 @@
     <Compile Include="DbManager\BaseEntity.cs" />
     <Compile Include="DbManager\JieTuo.cs" />
     <Compile Include="DbManager\JieTuoManager.cs" />
+    <Compile Include="DbManager\KuWeiManager.cs" />
     <Compile Include="DbManager\PinTuo.cs" />
     <Compile Include="DbManager\PinTuoManager.cs" />
     <Compile Include="DbManager\SendDetail.cs" />
