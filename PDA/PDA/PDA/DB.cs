@@ -10,7 +10,7 @@ namespace PDA
 {
     class DB
     {
-        public static string RootPath = @"Program Files\PMD\";
+        public static string RootPath = @"Program Files\PDA\";
         private string userid = Program.UserID;
         public static string GetWSUrl()
         {
@@ -41,7 +41,7 @@ namespace PDA
             service.Url = wsurl;
             return service;
         }
-
+        #region old
         /// <summary>
         /// 根据输入的asn获取对应的信息，包括所有料盘信息
         /// </summary>
@@ -144,18 +144,7 @@ namespace PDA
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public DataSet GetUserRightList(string user, string pwd)
-        {
-            try
-            {
-                Service1 service = GetService();
-                return service.GetUserRight(user, pwd);
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        
 
         public DataSet GetPick(string PickKey, string loc)
         {
@@ -340,6 +329,7 @@ namespace PDA
             return service.GetDiskList(diskid, sku, dt, asn);
         }
 
+        #endregion
         //公共
 
         public class ComboBoxDataObject
@@ -428,6 +418,54 @@ namespace PDA
         {
             Service1 service = GetService();
             return service.SaveMoveLotData(dt, userid);
+        }
+        public DataSet GetUserRightList(string user, string pwd)
+        {
+            try
+            {
+                Service1 service = GetService();
+                return service.GetUserRight(user, pwd);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataSet GetUserAndFunction()
+        {
+            try
+            {
+                Service1 service = GetService();
+                return service.GetUserAndFunction();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataSet GetFactoryAndStorage()
+        {
+            try
+            {
+                Service1 service = GetService();
+                return service.GetFactoryAndStorage();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataSet GetLoc()
+        {
+            try
+            {
+                Service1 service = GetService();
+                return service.GetLoc();
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

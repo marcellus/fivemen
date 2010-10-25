@@ -111,7 +111,7 @@ namespace WebService2
                 }
             }
         }
-
+        #region old
         public string isInDataBase(string id)
         {
             string sql = "select disk_id from lm_disk where disk_id='" + id + "'";
@@ -785,36 +785,6 @@ select'{0}','{1}','{2}',1,{3},'{4}',sysdate from dual;", dt.Rows[i]["DISK_ID"].T
         }
         
 
-        /// <summary>
-        /// 判断用户是否登陆成功并却返回可用模块代码
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="pwd"></param>
-        /// <returns></returns>
-        public DataSet GetUserRightList(string user, string pwd)
-        {
-            DataSet ds = new DataSet();
-            string sql = "select * from P_USER where USER_Code='" + user + "' and PDA_PWD='" + pwd + "'";
-            using (OracleConnection conn = new OracleConnection(ConnString))
-            {
-                conn.Open();
-                OracleCommand oc1 = new OracleCommand(sql, conn);
-                OracleDataAdapter oda1 = new OracleDataAdapter(oc1);
-                oda1.Fill(ds, "user");
-                if (ds.Tables["user"].Rows.Count > 0)
-                {
-                    string sqlforright = "select FUNCTION_CODE from P_PDA_PRIVILEGE pp join P_USER pu on pp.USER_CODE=pu.USER_CODE where pu.USER_Code='" + user + "'";
-                    OracleCommand oc2 = new OracleCommand(sqlforright, conn);
-                    OracleDataAdapter oda2 = new OracleDataAdapter(oc2);
-                    oda2.Fill(ds, "right");
-                }
-                else
-                {
-                    return ds;
-                }
-            }
-            return ds;
-        }
 
         /// <summary>
         /// 获取拣货单信息及料盘信息
@@ -1659,6 +1629,92 @@ and ld.lock_qty>0";
                     return false;
                 }
             }
+        }
+        #endregion
+
+        /// <summary>
+        /// 判断用户是否登陆成功并却返回可用模块代码
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public DataSet GetUserRightList(string user, string pwd)
+        {
+            DataSet ds = new DataSet();
+            string sql = "select * from P_USERS where USER_Code='" + user + "' and USER_PWD='" + pwd + "'";
+            using (OracleConnection conn = new OracleConnection(ConnString))
+            {
+                conn.Open();
+                OracleCommand oc1 = new OracleCommand(sql, conn);
+                OracleDataAdapter oda1 = new OracleDataAdapter(oc1);
+                oda1.Fill(ds, "user");
+                if (ds.Tables["user"].Rows.Count > 0)
+                {
+                    string sqlforright = "select FUNCTION_CODE from p_privilege where USER_Code='" + user + "'";
+                    OracleCommand oc2 = new OracleCommand(sqlforright, conn);
+                    OracleDataAdapter oda2 = new OracleDataAdapter(oc2);
+                    oda2.Fill(ds, "right");
+                }
+                else
+                {
+                    return ds;
+                }
+            }
+            return ds;
+        }
+        public DataSet GetUserAndFunction()
+        {
+            string sqlUser = @"select * from P_USERS", sqlFunction = @"select * from p_privilege";
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(ConnString))
+                {
+                    conn.Open();
+                    OracleCommand oc1 = new OracleCommand(sqlUser, conn);
+                    OracleDataAdapter oda1 = new OracleDataAdapter(oc1);
+                    DataSet ds = new DataSet();
+                    oda1.Fill(ds, "User");
+
+                    OracleCommand oc2 = new OracleCommand(sqlFunction, conn);
+                    OracleDataAdapter oda2 = new OracleDataAdapter(oc2);
+                    oda2.Fill(ds, "Function");
+                    return ds;
+                }
+            }
+            catch
+            {
+                return new DataSet();
+            }
+        }
+        public DataSet GetFactoryAndStorage()
+        {
+            string sqlFactory = @"select * from Factory", sqlStorage = @"select * from Storage";
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(ConnString))
+                {
+                    conn.Open();
+                    OracleCommand oc1 = new OracleCommand(sqlFactory, conn);
+                    OracleDataAdapter oda1 = new OracleDataAdapter(oc1);
+                    DataSet ds = new DataSet();
+                    oda1.Fill(ds, "Factory");
+
+                    OracleCommand oc2 = new OracleCommand(sqlStorage, conn);
+                    OracleDataAdapter oda2 = new OracleDataAdapter(oc2);
+                    oda2.Fill(ds, "Storage");
+                    return ds;
+                }
+            }
+            catch
+            {
+                return new DataSet();
+            }
+        }
+
+        public DataSet GetLoc()
+        {
+            string sql = @"select * from loc";
+            return GetDataSet(sql);
         }
     }
 }
