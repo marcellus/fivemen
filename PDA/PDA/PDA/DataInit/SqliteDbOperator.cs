@@ -28,7 +28,7 @@ namespace PDA.DataInit
 
         public int BatchExecute(string[] sqls)
         {
-            int n;
+            int count=0;
             con.Open();
             using (SQLiteTransaction mytransaction = con.BeginTransaction())
             {
@@ -36,17 +36,21 @@ namespace PDA.DataInit
                 {
                    
                    
-                    for (n = 0; n < sqls.Length; n++)
+                    for (int n = 0; n < sqls.Length; n++)
                     {
-                        mycommand.CommandText = sqls[n];
-                        mycommand.ExecuteNonQuery();
+                        if (sqls[n] != null && sqls[n].Length > 0)
+                        {
+                            mycommand.CommandText = sqls[n];
+                            mycommand.ExecuteNonQuery();
+                            count++;
+                        }
                     }
                     
                 }
                 mytransaction.Commit();
             }
             con.Close();
-            return n;
+            return count;
         }
 
         public bool CheckDbExists()

@@ -44,7 +44,16 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.txt_Product.Focus();
+                if (KuWeiManager.IsExists(this.txt_OldLoc.Text.Trim())) 
+                {
+                    this.txt_Product.Focus();
+                }
+                else
+                {
+
+                    MessageBox.Show("库位:" + this.txt_OldLoc.Text.Trim()+"已经不再使用！");
+                }
+                
             }
         }
 
@@ -52,7 +61,9 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                    if(!this.cb_Rollback.Checked)
+                if (KuWeiManager.IsExists(this.txt_NewLoc.Text.Trim()))
+                {
+                    if (!this.cb_Rollback.Checked)
                     {
                         this.SaveData();
                         this.RebindData();
@@ -62,6 +73,14 @@ namespace PDA
                         this.RemoveData();
                         this.RebindData();
                     }
+                }
+                else
+                {
+
+                    MessageBox.Show("库位:" + this.txt_NewLoc.Text.Trim() + "已经不再使用！");
+                }
+                
+                    
                 ClearInput();
                 this.txt_OldLoc.Focus();
             }

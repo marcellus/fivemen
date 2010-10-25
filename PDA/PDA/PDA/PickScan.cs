@@ -117,7 +117,8 @@ namespace PDA
         private void SaveData()
         {
             SendRecord entity = this.ComputeData();
-            if (SendRecordManager.CheckExists(entity))
+            this.current = entity;
+            /*if (SendRecordManager.CheckExists(entity))
             {
                 MessageBox.Show("您已经扫描过该产品！");
             }
@@ -128,7 +129,7 @@ namespace PDA
                 entity.Id = int.Parse(dt.Rows[0][0].ToString());
                 this.current = entity;
             }
-           
+           */
 
         }
 

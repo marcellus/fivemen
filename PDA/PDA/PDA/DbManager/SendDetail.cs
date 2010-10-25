@@ -14,8 +14,7 @@ namespace PDA.DbManager
          * scaner varchar(30),scantime datetime,status integer);
                       */
 
-        public int Pid;
-
+        public string So;
         public string Sn;
         public int FahuoType;
         public string Xxjh;

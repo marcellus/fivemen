@@ -102,6 +102,7 @@
             this.txt_Count.Name = "txt_Count";
             this.txt_Count.Size = new System.Drawing.Size(27, 20);
             this.txt_Count.TabIndex = 2;
+            this.txt_Count.Text = "1";
             // 
             // button1
             // 

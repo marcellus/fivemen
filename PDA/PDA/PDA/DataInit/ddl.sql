@@ -9,7 +9,7 @@ create table jietuo(id integer primary key autoincrement,tph varchar(20),sn varc
 create table pintuo(id integer primary key autoincrement,tph varchar(20),sn varchar(20),wz varchar(30),xxjh varchar(20),scaner varchar(30),scantime datetime);
 create table ztpintuo(id integer primary key autoincrement,tph varchar(20),ytph varchar(20),scaner varchar(30),scantime datetime);
 create table sendrecord(id integer primary key autoincrement,so varchar(20),otherso varchar(200),qufen varchar(20),pnno varchar(20),cpqufen varchar(20),sl integer,carno varchar(30),status integer,scaner varchar(30),scantime datetime);
-create table senddetail(pid integer,sn varchar(20),fahuotype integer,xxjh varchar(20),tph varchar(20),scaner varchar(30),scantime datetime,status integer);
+create table senddetail(id integer primary key autoincrement,so varchar(20),sn varchar(20),fahuotype integer,xxjh varchar(20),tph varchar(20),scaner varchar(30),scantime datetime,status integer);
 create table pandianrecord(id integer primary key autoincrement,kw varchar(20),pnno varchar(20),cpqufen varchar(20),sl integer,status integer,scaner varchar(30),scantime datetime);
 create table pandiandetail(pid integer,sn varchar(20),xxjh varchar(20),tph varchar(20),scaner varchar(30),scantime datetime);
 create table kuweiinfo(id integer primary key autoincrement,kuweicode varchar(20),fenqucode varchar(20),status integer)

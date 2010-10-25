@@ -28,8 +28,11 @@ namespace PDA
         
         private void txt_XiaXiangJi_KeyUp(object sender, KeyEventArgs e)
         {
-            clearInput();
-            txt_SN.Focus();
+            if (e.KeyCode == Keys.Enter)
+            {
+                //clearInput();
+                txt_SN.Focus();
+            }
         }       
 
         private void cb_Rollback_CheckStateChanged(object sender, EventArgs e)
@@ -47,7 +50,11 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-
+                if (this.txt_SN.Text.Length < 12)
+                {
+                    MessageBox.Show("SN长度太小！");
+                    return;
+                }
                 this.ShowDiskDetail();
                 if (!this.cb_Rollback.Checked)
                 {
@@ -59,23 +66,10 @@ namespace PDA
                     this.RemoveData();
                     this.RebindData();
                 }
-                if (cb_Rollback.Checked)
-                {
-
-                    clearInput();
-                    //TODO:逻辑处理
-                    return;
-                }
-            }
-            if (txt_XiaXiangJi.Enabled)
-            {
-                txt_XiaXiangJi.Focus();
-            }
-            else
-            {
                 clearInput();
-                //TODO:逻辑处理
+                
             }
+            
         }
         private void clearInput()
         {
@@ -99,7 +93,8 @@ namespace PDA
         
         private void RebindData()
         {
-            this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.Id,Program.UserID);
+            this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.So, Program.UserID);
+            this.dg_Summarizing.DataSource = SendRecordManager.Count(record.So);
         }
 
         private SendDetail ComputeData()
@@ -110,7 +105,7 @@ namespace PDA
             entity.Tph = string.Empty;
             entity.Xxjh = this.txt_XiaXiangJi.Text.Trim();
             entity.FahuoType = 0;
-            entity.Pid = record.Id;
+            entity.So = record.So;
             entity.Scaner = Program.UserID;
             entity.date = System.DateTime.Now;
             return entity;
@@ -118,7 +113,7 @@ namespace PDA
 
         private void RemoveData()
         {
-            SendDetailManager.Delete(this.ComputeData());
+            SendDetailManager.Delete(this.ComputeData(),this.record);
         }
 
         private void SaveData()
@@ -130,7 +125,7 @@ namespace PDA
             }
             else
             {
-                SendDetailManager.Save(entity);
+                SendDetailManager.Save(entity,this.record);
             }
          
 

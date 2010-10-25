@@ -8,7 +8,7 @@ namespace PDA
 {
     static class Program
     {
-        public static string UserID;
+        public static string UserID="testuser";
         public static string UserName = string.Empty;
         /// <summary>
         /// 应用程序的主入口点。
