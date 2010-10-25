@@ -18,6 +18,7 @@ namespace WebService2
     // [System.Web.Script.Services.ScriptService]
     public class Service1 : System.Web.Services.WebService
     {
+        #region old
 
         [WebMethod]
         public DataSet GetDataSet(string sql, string useName, string passWord)
@@ -55,12 +56,6 @@ namespace WebService2
         public DataSet GetPutAway(string putAwayBillNo)
         {
             return new DB().GetPutAwayData(putAwayBillNo);
-        }
-
-        [WebMethod]
-        public DataSet GetUserRight(string user, string pwd)
-        {
-            return new DB().GetUserRightList(user, pwd);
         }
 
         [WebMethod]
@@ -161,6 +156,29 @@ namespace WebService2
         public bool SaveMoveLotData(DataTable dt,string userid)
         {
             return new DB().SaveMoveLotData(dt, userid);
+        }
+        #endregion
+
+
+        [WebMethod]
+        public DataSet GetUserRight(string user, string pwd)
+        {
+            return new DB().GetUserRightList(user, pwd);
+        }
+        [WebMethod]
+        public DataSet GetFactoryAndStorage()
+        {
+            return new DB().GetFactoryAndStorage();
+        }
+        [WebMethod]
+        public DataSet GetLoc()
+        {
+            return new DB().GetLoc();
+        }
+        [WebMethod]
+        public DataSet GetUserAndFunction()
+        {
+            return new DB().GetUserAndFunction();
         }
     }
 

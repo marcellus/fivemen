@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Collections;
+using PDA.DataInit;
 
 namespace PDA
 {
@@ -42,31 +43,23 @@ namespace PDA
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            //DataSet ds = new DB().GetUserRightList(this.txt_User.Text.ToUpper(), this.txt_Pwd.Text);
-            //if (ds == null)
-            //{
-            //    MessageBox.Show("获取数据失败，请检查网络！");
-            //}
-            //else
-            //{
-            //    if (ds.Tables["user"].Rows.Count == 0)
-            //    {
-            //        MessageBox.Show("登陆失败，请检查用户名和密码！");
-            //    }
-            //    else
-            //    {
-                    ArrayList al = new ArrayList();
-                    //for (int i = 0; i < ds.Tables["right"].Rows.Count; i++)
-                    //{
-                    //    al.Add(ds.Tables["right"].Rows[i]["FUNCTION_CODE"].ToString());
-                    //}
-                    //Program.UserID = this.txt_User.Text;
-                    Function_List fl = new Function_List(al);
-                    fl.Show();
-                    fl.Closed += new EventHandler(fl_Closed);
-                    this.Hide();
-                //}
-            //}
+            if (cb_UpdateUserData.Checked)
+            {
+                if (!UpdateUserData()) { return; }
+            }
+            string sql = string.Format("select rightstr from myUsers where name='{0}' and pwd = '{1}'", txt_User.Text.Trim(), txt_Pwd.Text.Trim());
+            DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("登陆失败，请检查用户名和密码！");
+                return;
+            }
+            string[] functions = dt.Rows[0]["rightstr"].ToString().Split(",".ToCharArray());
+            Program.UserID = this.txt_User.Text;
+            Function_List fl = new Function_List(functions);
+            fl.Show();
+            fl.Closed += new EventHandler(fl_Closed);
+            this.Hide();
         }
 
         private void padInit()
@@ -103,6 +96,35 @@ namespace PDA
         {
             IntPtr lpClassName = FindWindow("HHTaskBar", null);
             ShowWindow(lpClassName, 0); //隐藏任务栏   
+        }
+        private bool UpdateUserData()
+        {
+            DataSet ds = new DB().GetUserAndFunction();
+            if (ds == null || ds.Tables.Count < 2)
+            {
+                MessageBox.Show("获取数据失败，请检查网络！");
+                return false;
+            }
+
+            ds.Tables["User"].Columns.Add("rightstr", typeof(string));
+
+            foreach (DataRow dr in ds.Tables["Function"].Rows)
+            {
+                DataRow[] drs = ds.Tables["User"].Select(string.Format("USER_CODE = '{0}'", dr["USER_CODE"]));
+                if (drs.Length == 0) { continue; }
+                drs[0]["rightstr"] = drs[0]["rightstr"] is DBNull ? dr["FUNCTION_CODE"].ToString() : drs[0]["rightstr"].ToString() + "," + dr["FUNCTION_CODE"].ToString();
+            }
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("delete from myUsers;");
+            sql.Append("insert into myUsers(name,pwd,rightstr) ");
+            foreach (DataRow dr in ds.Tables["User"].Rows)
+            {
+                sql.AppendFormat(System.Globalization.CultureInfo.CurrentCulture, "select '{0}','{1}','{2}' union all ", dr["USER_CODE"], dr["USER_PWD"], dr["rightstr"]);
+            }
+            sql.Length = sql.Length - "union all ".Length;
+            SqliteDbFactory.GetSqliteDbOperator().BatchExecute(sql.ToString().Split(";".ToCharArray()));
+            return true;
         }
     }
 }

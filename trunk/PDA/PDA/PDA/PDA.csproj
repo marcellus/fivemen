@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B2A720D8-031E-46B9-A6B0-393507297D37}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -57,7 +57,10 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=1fdb50b1b62b4c84, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=1fdb50b1b62b4c84, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -316,10 +319,20 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Config.xml" />
-    <Content Include="DataInit\SQLite.Interop.066.DLL" />
+    <Content Include="bin\Debug\SQLite.Interop.066.DLL">
+    </Content>
+    <Content Include="bin\Debug\System.Data.SQLite.dll">
+    </Content>
+    <Content Include="Config\Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataInit\SQLite.Interop.066.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataInit\System.Data.SQLite.dll" />
-    <None Include="DataInit\db.db3" />
+    <Content Include="DataInit\db.db3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Web References\WebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -328,10 +341,10 @@
     <None Include="Web References\WebReference\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.1.123:100/Service1.asmx">
+    <WebReferenceUrl Include="http://192.168.1.99:100/Service1.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\WebReference\</RelPath>
-      <UpdateFromURL>http://192.168.1.123:100/Service1.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.1.99:100/Service1.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

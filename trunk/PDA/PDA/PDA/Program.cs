@@ -28,7 +28,8 @@ namespace PDA
             al.Add("09");
             al.Add("10");
             //Application.Run(new DiskList(al));
-            Application.Run(new Function_List(al));
+            //Application.Run(new Function_List(al.ToArray()));
+            Application.Run(new Login());
             //Application.Run(new DataInit.SqliteTestForm());
         }
     }

@@ -40,13 +40,15 @@
             this.btn_MoveLoc = new System.Windows.Forms.Button();
             this.btn_Check = new System.Windows.Forms.Button();
             this.btn_Pingtuo = new System.Windows.Forms.Button();
+            this.btn_UpdataBaseData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_PingtuoHadTray
             // 
             this.btn_PingtuoHadTray.BackColor = System.Drawing.Color.Beige;
+            this.btn_PingtuoHadTray.Enabled = false;
             this.btn_PingtuoHadTray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_PingtuoHadTray.Location = new System.Drawing.Point(15, 185);
+            this.btn_PingtuoHadTray.Location = new System.Drawing.Point(15, 165);
             this.btn_PingtuoHadTray.Name = "btn_PingtuoHadTray";
             this.btn_PingtuoHadTray.Size = new System.Drawing.Size(93, 23);
             this.btn_PingtuoHadTray.TabIndex = 8;
@@ -56,8 +58,9 @@
             // btn_JieTuo
             // 
             this.btn_JieTuo.BackColor = System.Drawing.Color.Beige;
+            this.btn_JieTuo.Enabled = false;
             this.btn_JieTuo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_JieTuo.Location = new System.Drawing.Point(130, 227);
+            this.btn_JieTuo.Location = new System.Drawing.Point(130, 202);
             this.btn_JieTuo.Name = "btn_JieTuo";
             this.btn_JieTuo.Size = new System.Drawing.Size(93, 23);
             this.btn_JieTuo.TabIndex = 11;
@@ -67,8 +70,9 @@
             // btn_ZuTuo
             // 
             this.btn_ZuTuo.BackColor = System.Drawing.Color.Beige;
+            this.btn_ZuTuo.Enabled = false;
             this.btn_ZuTuo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_ZuTuo.Location = new System.Drawing.Point(15, 227);
+            this.btn_ZuTuo.Location = new System.Drawing.Point(15, 202);
             this.btn_ZuTuo.Name = "btn_ZuTuo";
             this.btn_ZuTuo.Size = new System.Drawing.Size(93, 23);
             this.btn_ZuTuo.TabIndex = 10;
@@ -78,8 +82,9 @@
             // btn_CheckHadTray
             // 
             this.btn_CheckHadTray.BackColor = System.Drawing.Color.Beige;
+            this.btn_CheckHadTray.Enabled = false;
             this.btn_CheckHadTray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_CheckHadTray.Location = new System.Drawing.Point(15, 143);
+            this.btn_CheckHadTray.Location = new System.Drawing.Point(15, 128);
             this.btn_CheckHadTray.Name = "btn_CheckHadTray";
             this.btn_CheckHadTray.Size = new System.Drawing.Size(93, 23);
             this.btn_CheckHadTray.TabIndex = 6;
@@ -89,8 +94,9 @@
             // btn_MoveLocHadTray
             // 
             this.btn_MoveLocHadTray.BackColor = System.Drawing.Color.Beige;
+            this.btn_MoveLocHadTray.Enabled = false;
             this.btn_MoveLocHadTray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_MoveLocHadTray.Location = new System.Drawing.Point(15, 59);
+            this.btn_MoveLocHadTray.Location = new System.Drawing.Point(15, 54);
             this.btn_MoveLocHadTray.Name = "btn_MoveLocHadTray";
             this.btn_MoveLocHadTray.Size = new System.Drawing.Size(93, 23);
             this.btn_MoveLocHadTray.TabIndex = 2;
@@ -100,8 +106,9 @@
             // btn_PickHadTray
             // 
             this.btn_PickHadTray.BackColor = System.Drawing.Color.Beige;
+            this.btn_PickHadTray.Enabled = false;
             this.btn_PickHadTray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_PickHadTray.Location = new System.Drawing.Point(15, 101);
+            this.btn_PickHadTray.Location = new System.Drawing.Point(15, 91);
             this.btn_PickHadTray.Name = "btn_PickHadTray";
             this.btn_PickHadTray.Size = new System.Drawing.Size(93, 23);
             this.btn_PickHadTray.TabIndex = 4;
@@ -111,6 +118,7 @@
             // btn_ASNHadTray
             // 
             this.btn_ASNHadTray.BackColor = System.Drawing.Color.Beige;
+            this.btn_ASNHadTray.Enabled = false;
             this.btn_ASNHadTray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btn_ASNHadTray.Location = new System.Drawing.Point(15, 17);
             this.btn_ASNHadTray.Name = "btn_ASNHadTray";
@@ -122,6 +130,7 @@
             // btn_ASN
             // 
             this.btn_ASN.BackColor = System.Drawing.Color.Beige;
+            this.btn_ASN.Enabled = false;
             this.btn_ASN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btn_ASN.Location = new System.Drawing.Point(130, 17);
             this.btn_ASN.Name = "btn_ASN";
@@ -133,8 +142,9 @@
             // btn_Pick
             // 
             this.btn_Pick.BackColor = System.Drawing.Color.Beige;
+            this.btn_Pick.Enabled = false;
             this.btn_Pick.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Pick.Location = new System.Drawing.Point(130, 101);
+            this.btn_Pick.Location = new System.Drawing.Point(130, 91);
             this.btn_Pick.Name = "btn_Pick";
             this.btn_Pick.Size = new System.Drawing.Size(93, 23);
             this.btn_Pick.TabIndex = 5;
@@ -144,8 +154,9 @@
             // btn_MoveLoc
             // 
             this.btn_MoveLoc.BackColor = System.Drawing.Color.Beige;
+            this.btn_MoveLoc.Enabled = false;
             this.btn_MoveLoc.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_MoveLoc.Location = new System.Drawing.Point(130, 59);
+            this.btn_MoveLoc.Location = new System.Drawing.Point(130, 54);
             this.btn_MoveLoc.Name = "btn_MoveLoc";
             this.btn_MoveLoc.Size = new System.Drawing.Size(93, 23);
             this.btn_MoveLoc.TabIndex = 3;
@@ -155,8 +166,9 @@
             // btn_Check
             // 
             this.btn_Check.BackColor = System.Drawing.Color.Beige;
+            this.btn_Check.Enabled = false;
             this.btn_Check.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Check.Location = new System.Drawing.Point(130, 143);
+            this.btn_Check.Location = new System.Drawing.Point(130, 128);
             this.btn_Check.Name = "btn_Check";
             this.btn_Check.Size = new System.Drawing.Size(93, 23);
             this.btn_Check.TabIndex = 7;
@@ -166,13 +178,26 @@
             // btn_Pingtuo
             // 
             this.btn_Pingtuo.BackColor = System.Drawing.Color.Beige;
+            this.btn_Pingtuo.Enabled = false;
             this.btn_Pingtuo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Pingtuo.Location = new System.Drawing.Point(130, 185);
+            this.btn_Pingtuo.Location = new System.Drawing.Point(130, 165);
             this.btn_Pingtuo.Name = "btn_Pingtuo";
             this.btn_Pingtuo.Size = new System.Drawing.Size(93, 23);
             this.btn_Pingtuo.TabIndex = 9;
             this.btn_Pingtuo.Text = "无托拼托";
             this.btn_Pingtuo.Click += new System.EventHandler(this.btn_Pingtuo_Click);
+            // 
+            // btn_UpdataBaseData
+            // 
+            this.btn_UpdataBaseData.BackColor = System.Drawing.Color.Beige;
+            this.btn_UpdataBaseData.Enabled = false;
+            this.btn_UpdataBaseData.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_UpdataBaseData.Location = new System.Drawing.Point(15, 239);
+            this.btn_UpdataBaseData.Name = "btn_UpdataBaseData";
+            this.btn_UpdataBaseData.Size = new System.Drawing.Size(208, 23);
+            this.btn_UpdataBaseData.TabIndex = 12;
+            this.btn_UpdataBaseData.Text = "同步基础数据";
+            this.btn_UpdataBaseData.Click += new System.EventHandler(this.btn_UpdataBaseData_Click);
             // 
             // Function_List
             // 
@@ -181,6 +206,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(238, 270);
+            this.Controls.Add(this.btn_UpdataBaseData);
             this.Controls.Add(this.btn_Pingtuo);
             this.Controls.Add(this.btn_Check);
             this.Controls.Add(this.btn_MoveLoc);
@@ -214,5 +240,6 @@
         private System.Windows.Forms.Button btn_MoveLoc;
         private System.Windows.Forms.Button btn_Check;
         private System.Windows.Forms.Button btn_Pingtuo;
+        private System.Windows.Forms.Button btn_UpdataBaseData;
     }
 }

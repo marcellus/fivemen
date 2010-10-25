@@ -165,28 +165,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetUserRight">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetUserRightResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetUserRightResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetPickData">
         <s:complexType>
           <s:sequence>
@@ -531,6 +509,79 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetUserRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserRightResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFactoryAndStorage">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFactoryAndStorageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFactoryAndStorageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoc">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserAndFunction">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserAndFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserAndFunctionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetDataSetSoapIn">
@@ -574,12 +625,6 @@
   </wsdl:message>
   <wsdl:message name="GetPutAwaySoapOut">
     <wsdl:part name="parameters" element="tns:GetPutAwayResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetUserRightSoapIn">
-    <wsdl:part name="parameters" element="tns:GetUserRight" />
-  </wsdl:message>
-  <wsdl:message name="GetUserRightSoapOut">
-    <wsdl:part name="parameters" element="tns:GetUserRightResponse" />
   </wsdl:message>
   <wsdl:message name="GetPickDataSoapIn">
     <wsdl:part name="parameters" element="tns:GetPickData" />
@@ -683,6 +728,30 @@
   <wsdl:message name="SaveMoveLotDataSoapOut">
     <wsdl:part name="parameters" element="tns:SaveMoveLotDataResponse" />
   </wsdl:message>
+  <wsdl:message name="GetUserRightSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserRight" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRightSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFactoryAndStorageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFactoryAndStorage" />
+  </wsdl:message>
+  <wsdl:message name="GetFactoryAndStorageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFactoryAndStorageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoc" />
+  </wsdl:message>
+  <wsdl:message name="GetLocSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAndFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserAndFunction" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAndFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserAndFunctionResponse" />
+  </wsdl:message>
   <wsdl:portType name="Service1Soap">
     <wsdl:operation name="GetDataSet">
       <wsdl:input message="tns:GetDataSetSoapIn" />
@@ -711,10 +780,6 @@
     <wsdl:operation name="GetPutAway">
       <wsdl:input message="tns:GetPutAwaySoapIn" />
       <wsdl:output message="tns:GetPutAwaySoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUserRight">
-      <wsdl:input message="tns:GetUserRightSoapIn" />
-      <wsdl:output message="tns:GetUserRightSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetPickData">
       <wsdl:input message="tns:GetPickDataSoapIn" />
@@ -784,6 +849,22 @@
       <wsdl:input message="tns:SaveMoveLotDataSoapIn" />
       <wsdl:output message="tns:SaveMoveLotDataSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <wsdl:input message="tns:GetUserRightSoapIn" />
+      <wsdl:output message="tns:GetUserRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactoryAndStorage">
+      <wsdl:input message="tns:GetFactoryAndStorageSoapIn" />
+      <wsdl:output message="tns:GetFactoryAndStorageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoc">
+      <wsdl:input message="tns:GetLocSoapIn" />
+      <wsdl:output message="tns:GetLocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAndFunction">
+      <wsdl:input message="tns:GetUserAndFunctionSoapIn" />
+      <wsdl:output message="tns:GetUserAndFunctionSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -843,15 +924,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPutAway">
       <soap:operation soapAction="http://tempuri.org/GetPutAway" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUserRight">
-      <soap:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1012,6 +1084,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <soap:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFactoryAndStorage">
+      <soap:operation soapAction="http://tempuri.org/GetFactoryAndStorage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoc">
+      <soap:operation soapAction="http://tempuri.org/GetLoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAndFunction">
+      <soap:operation soapAction="http://tempuri.org/GetUserAndFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1071,15 +1179,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPutAway">
       <soap12:operation soapAction="http://tempuri.org/GetPutAway" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUserRight">
-      <soap12:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1240,13 +1339,49 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <soap12:operation soapAction="http://tempuri.org/GetUserRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFactoryAndStorage">
+      <soap12:operation soapAction="http://tempuri.org/GetFactoryAndStorage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoc">
+      <soap12:operation soapAction="http://tempuri.org/GetLoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAndFunction">
+      <soap12:operation soapAction="http://tempuri.org/GetUserAndFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">
     <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
-      <soap:address location="http://192.168.1.123:100/Service1.asmx" />
+      <soap:address location="http://192.168.1.99:100/Service1.asmx" />
     </wsdl:port>
     <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
-      <soap12:address location="http://192.168.1.123:100/Service1.asmx" />
+      <soap12:address location="http://192.168.1.99:100/Service1.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

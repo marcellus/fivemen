@@ -101,6 +101,7 @@
             this.txt_MoreSO.Location = new System.Drawing.Point(73, 80);
             this.txt_MoreSO.Multiline = true;
             this.txt_MoreSO.Name = "txt_MoreSO";
+            this.txt_MoreSO.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_MoreSO.Size = new System.Drawing.Size(152, 74);
             this.txt_MoreSO.TabIndex = 3;
             // 
