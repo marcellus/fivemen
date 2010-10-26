@@ -113,7 +113,6 @@
             this.button1.Size = new System.Drawing.Size(73, 22);
             this.button1.TabIndex = 6;
             this.button1.Text = "临时保存";
-            this.button1.Visible = false;
             // 
             // label4
             // 

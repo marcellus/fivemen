@@ -55,7 +55,7 @@
             this.txt_XiaXiangJi.Location = new System.Drawing.Point(91, 10);
             this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
             this.txt_XiaXiangJi.Size = new System.Drawing.Size(137, 21);
-            this.txt_XiaXiangJi.TabIndex = 4;
+            this.txt_XiaXiangJi.TabIndex = 0;
             this.txt_XiaXiangJi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_XiaXiangJi_KeyUp);
             // 
             // cb_Rollback
@@ -65,7 +65,7 @@
             this.cb_Rollback.Location = new System.Drawing.Point(85, 65);
             this.cb_Rollback.Name = "cb_Rollback";
             this.cb_Rollback.Size = new System.Drawing.Size(146, 20);
-            this.cb_Rollback.TabIndex = 9;
+            this.cb_Rollback.TabIndex = 2;
             this.cb_Rollback.Text = "撤销产品扫描";
             this.cb_Rollback.CheckStateChanged += new System.EventHandler(this.cb_Rollback_CheckStateChanged);
             // 
@@ -76,9 +76,8 @@
             this.btn_TempSave.Location = new System.Drawing.Point(13, 242);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
-            this.btn_TempSave.TabIndex = 10;
+            this.btn_TempSave.TabIndex = 4;
             this.btn_TempSave.Text = "临时保存";
-            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
@@ -87,7 +86,7 @@
             this.btn_Save.Location = new System.Drawing.Point(170, 242);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
-            this.btn_Save.TabIndex = 11;
+            this.btn_Save.TabIndex = 7;
             this.btn_Save.Text = "提交";
             // 
             // txt_SN
@@ -96,7 +95,7 @@
             this.txt_SN.Location = new System.Drawing.Point(91, 36);
             this.txt_SN.Name = "txt_SN";
             this.txt_SN.Size = new System.Drawing.Size(137, 21);
-            this.txt_SN.TabIndex = 20;
+            this.txt_SN.TabIndex = 1;
             this.txt_SN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SN_KeyUp);
             // 
             // label2
@@ -109,12 +108,14 @@
             // 
             // cb_XiaXiangJi
             // 
+            this.cb_XiaXiangJi.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.cb_XiaXiangJi.Location = new System.Drawing.Point(6, 10);
             this.cb_XiaXiangJi.Name = "cb_XiaXiangJi";
             this.cb_XiaXiangJi.Size = new System.Drawing.Size(88, 20);
             this.cb_XiaXiangJi.TabIndex = 41;
             this.cb_XiaXiangJi.Text = "下乡机：";
             this.cb_XiaXiangJi.CheckStateChanged += new System.EventHandler(this.cb_XiaXiangJi_CheckStateChanged);
+            this.cb_XiaXiangJi.Click += new System.EventHandler(this.cb_XiaXiangJi_CheckStateChanged);
             // 
             // tabControl1
             // 
@@ -126,7 +127,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
-            this.tabControl1.TabIndex = 42;
+            this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1

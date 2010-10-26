@@ -59,6 +59,8 @@ namespace PDA
         private void chk_Different_CheckStateChanged(object sender, EventArgs e)
         {
             this.txt_Different.Enabled = this.ck_Different.Checked;
+            if (this.txt_Different.Enabled) this.txt_Different.Focus();
+            else txt_Different.Text = string.Empty;
         }
     }
 }

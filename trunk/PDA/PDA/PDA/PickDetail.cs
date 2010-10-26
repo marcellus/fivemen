@@ -44,6 +44,8 @@ namespace PDA
         private void cb_XiaXiangJi_CheckStateChanged(object sender, EventArgs e)
         {
             txt_XiaXiangJi.Enabled = cb_XiaXiangJi.Checked;
+            if (txt_XiaXiangJi.Enabled) txt_XiaXiangJi.Focus();
+            else txt_XiaXiangJi.Text = string.Empty;
         }
 
         private void txt_SN_KeyUp(object sender, KeyEventArgs e)

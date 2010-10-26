@@ -43,16 +43,16 @@
             // 
             // txt_SO
             // 
-            this.txt_SO.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_SO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_SO.Location = new System.Drawing.Point(73, 13);
             this.txt_SO.Name = "txt_SO";
-            this.txt_SO.Size = new System.Drawing.Size(152, 21);
+            this.txt_SO.Size = new System.Drawing.Size(152, 20);
             this.txt_SO.TabIndex = 1;
             this.txt_SO.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SO_KeyUp);
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(7, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 14);
@@ -60,7 +60,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(7, 167);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 14);
@@ -68,17 +68,17 @@
             // 
             // txt_CarNo
             // 
-            this.txt_CarNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_CarNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_CarNo.Location = new System.Drawing.Point(73, 167);
             this.txt_CarNo.Name = "txt_CarNo";
-            this.txt_CarNo.Size = new System.Drawing.Size(152, 21);
+            this.txt_CarNo.Size = new System.Drawing.Size(152, 20);
             this.txt_CarNo.TabIndex = 4;
             this.txt_CarNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_CarNo_KeyUp);
             // 
             // btn_OK
             // 
             this.btn_OK.BackColor = System.Drawing.Color.Beige;
-            this.btn_OK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_OK.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_OK.Location = new System.Drawing.Point(73, 235);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(109, 25);
@@ -88,6 +88,7 @@
             // 
             // ck_MoreSO
             // 
+            this.ck_MoreSO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_MoreSO.Location = new System.Drawing.Point(73, 47);
             this.ck_MoreSO.Name = "ck_MoreSO";
             this.ck_MoreSO.Size = new System.Drawing.Size(100, 20);
@@ -98,6 +99,7 @@
             // txt_MoreSO
             // 
             this.txt_MoreSO.Enabled = false;
+            this.txt_MoreSO.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_MoreSO.Location = new System.Drawing.Point(73, 80);
             this.txt_MoreSO.Multiline = true;
             this.txt_MoreSO.Name = "txt_MoreSO";
@@ -107,6 +109,7 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(7, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
@@ -114,7 +117,7 @@
             // 
             // ck_Different
             // 
-            this.ck_Different.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Different.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_Different.Location = new System.Drawing.Point(206, 203);
             this.ck_Different.Name = "ck_Different";
             this.ck_Different.Size = new System.Drawing.Size(24, 20);
@@ -124,15 +127,15 @@
             // txt_Different
             // 
             this.txt_Different.Enabled = false;
-            this.txt_Different.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Different.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Different.Location = new System.Drawing.Point(73, 203);
             this.txt_Different.Name = "txt_Different";
-            this.txt_Different.Size = new System.Drawing.Size(130, 21);
+            this.txt_Different.Size = new System.Drawing.Size(130, 20);
             this.txt_Different.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label6.Location = new System.Drawing.Point(7, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);

@@ -70,7 +70,6 @@
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
-            this.btn_TempSave.Visible = false;
             // 
             // cb_Rollback
             // 

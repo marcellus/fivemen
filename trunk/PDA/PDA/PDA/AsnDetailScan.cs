@@ -49,6 +49,8 @@ namespace PDA
         private void ck_Optional_CheckStateChanged(object sender, EventArgs e)
         {
             txt_Optional.Enabled = ck_Optional.Checked;
+            if (txt_Optional.Enabled) txt_Optional.Focus();
+            else txt_Optional.Text = string.Empty;
         }
 
         private void ck_Rollback_CheckStateChanged(object sender, EventArgs e)
