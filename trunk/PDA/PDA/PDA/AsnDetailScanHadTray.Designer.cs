@@ -79,17 +79,18 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(10, 240);
+            this.btn_TempSave.Location = new System.Drawing.Point(2, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(75, 25);
             this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Finish
             // 
             this.btn_Finish.BackColor = System.Drawing.Color.Beige;
             this.btn_Finish.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Finish.Location = new System.Drawing.Point(150, 242);
+            this.btn_Finish.Location = new System.Drawing.Point(86, 240);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(75, 25);
             this.btn_Finish.TabIndex = 6;
@@ -114,6 +115,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 

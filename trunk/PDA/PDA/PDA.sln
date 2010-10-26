@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDA", "PDA\PDA.csproj", "{B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService4PDA", "..\WebService2\WebService2\WebService4PDA.csproj", "{6EC06132-2ADC-4889-B31D-57A8016BE967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDATest", "PDATest\PDATest.csproj", "{C187468F-8AFC-4173-AA4D-811D88334604}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D44BB12-6DB6-45F1-9438-2C028924C776}"
 	ProjectSection(SolutionItems) = preProject
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
@@ -40,10 +38,6 @@ Global
 		{6EC06132-2ADC-4889-B31D-57A8016BE967}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC06132-2ADC-4889-B31D-57A8016BE967}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EC06132-2ADC-4889-B31D-57A8016BE967}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C187468F-8AFC-4173-AA4D-811D88334604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C187468F-8AFC-4173-AA4D-811D88334604}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C187468F-8AFC-4173-AA4D-811D88334604}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C187468F-8AFC-4173-AA4D-811D88334604}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4B6A85D-3591-4E01-96EC-F7181076EB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4B6A85D-3591-4E01-96EC-F7181076EB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4B6A85D-3591-4E01-96EC-F7181076EB19}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
