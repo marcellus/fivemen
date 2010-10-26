@@ -52,7 +52,7 @@
             // txt_Optional
             // 
             this.txt_Optional.Enabled = false;
-            this.txt_Optional.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Optional.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Optional.Location = new System.Drawing.Point(91, 44);
             this.txt_Optional.Name = "txt_Optional";
             this.txt_Optional.Size = new System.Drawing.Size(134, 21);
@@ -61,7 +61,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(10, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 19);
@@ -69,7 +69,7 @@
             // 
             // txt_SN
             // 
-            this.txt_SN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_SN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_SN.Location = new System.Drawing.Point(91, 15);
             this.txt_SN.Name = "txt_SN";
             this.txt_SN.Size = new System.Drawing.Size(134, 21);
@@ -78,7 +78,7 @@
             // 
             // ck_Rollback
             // 
-            this.ck_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_Rollback.ForeColor = System.Drawing.Color.Red;
             this.ck_Rollback.Location = new System.Drawing.Point(91, 69);
             this.ck_Rollback.Name = "ck_Rollback";
@@ -90,7 +90,7 @@
             // btn_TempSave
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
-            this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_TempSave.Location = new System.Drawing.Point(14, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(75, 25);
@@ -100,7 +100,7 @@
             // btn_Finish
             // 
             this.btn_Finish.BackColor = System.Drawing.Color.Beige;
-            this.btn_Finish.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Finish.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_Finish.Location = new System.Drawing.Point(154, 240);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(75, 25);
@@ -109,7 +109,7 @@
             // 
             // ck_Optional
             // 
-            this.ck_Optional.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Optional.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_Optional.Location = new System.Drawing.Point(10, 44);
             this.ck_Optional.Name = "ck_Optional";
             this.ck_Optional.Size = new System.Drawing.Size(60, 20);
@@ -119,7 +119,7 @@
             // 
             // ck_HOLD
             // 
-            this.ck_HOLD.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_HOLD.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_HOLD.Location = new System.Drawing.Point(10, 69);
             this.ck_HOLD.Name = "ck_HOLD";
             this.ck_HOLD.Size = new System.Drawing.Size(60, 20);
@@ -148,7 +148,7 @@
             // 
             // txt_DiskDetail
             // 
-            this.txt_DiskDetail.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_DiskDetail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_DiskDetail.ForeColor = System.Drawing.Color.Black;
             this.txt_DiskDetail.Location = new System.Drawing.Point(3, 3);
             this.txt_DiskDetail.Multiline = true;

@@ -48,7 +48,7 @@
             // 
             // cb_Rollback
             // 
-            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
             this.cb_Rollback.Location = new System.Drawing.Point(87, 48);
             this.cb_Rollback.Name = "cb_Rollback";
@@ -60,7 +60,7 @@
             // btn_TempSave
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
-            this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_TempSave.Location = new System.Drawing.Point(13, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
@@ -70,7 +70,7 @@
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
-            this.btn_Save.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_Save.Location = new System.Drawing.Point(169, 240);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
@@ -79,7 +79,7 @@
             // 
             // txt_TrayNo
             // 
-            this.txt_TrayNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_TrayNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_TrayNo.Location = new System.Drawing.Point(91, 12);
             this.txt_TrayNo.Name = "txt_TrayNo";
             this.txt_TrayNo.Size = new System.Drawing.Size(137, 21);
@@ -88,7 +88,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(10, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 21);
@@ -117,7 +117,7 @@
             // 
             // txt_DiskDetail
             // 
-            this.txt_DiskDetail.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_DiskDetail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_DiskDetail.ForeColor = System.Drawing.Color.Black;
             this.txt_DiskDetail.Location = new System.Drawing.Point(3, 3);
             this.txt_DiskDetail.Multiline = true;
@@ -137,6 +137,7 @@
             // dg_Resume
             // 
             this.dg_Resume.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dg_Resume.ColumnHeadersVisible = false;
             this.dg_Resume.Location = new System.Drawing.Point(4, 4);
             this.dg_Resume.Name = "dg_Resume";
             this.dg_Resume.Size = new System.Drawing.Size(210, 105);
