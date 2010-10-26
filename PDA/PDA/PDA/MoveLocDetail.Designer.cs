@@ -134,6 +134,7 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dg_ScanList.ColumnHeadersVisible = false;
             this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(8, 111);
             this.dg_ScanList.Name = "dg_ScanList";
@@ -142,7 +143,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label5.Location = new System.Drawing.Point(3, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 20);
@@ -150,7 +151,7 @@
             // 
             // cb_Rollback
             // 
-            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
             this.cb_Rollback.Location = new System.Drawing.Point(125, 88);
             this.cb_Rollback.Name = "cb_Rollback";

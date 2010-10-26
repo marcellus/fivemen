@@ -44,7 +44,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(7, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 20);
@@ -52,7 +52,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(7, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 20);
@@ -60,7 +60,7 @@
             // 
             // txt_TrayNo
             // 
-            this.txt_TrayNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_TrayNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_TrayNo.Location = new System.Drawing.Point(78, 3);
             this.txt_TrayNo.Name = "txt_TrayNo";
             this.txt_TrayNo.Size = new System.Drawing.Size(121, 21);
@@ -69,7 +69,7 @@
             // 
             // txt_SN
             // 
-            this.txt_SN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_SN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_SN.Location = new System.Drawing.Point(78, 53);
             this.txt_SN.Name = "txt_SN";
             this.txt_SN.Size = new System.Drawing.Size(152, 21);
@@ -78,7 +78,7 @@
             // 
             // cb_Rollback
             // 
-            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
             this.cb_Rollback.Location = new System.Drawing.Point(72, 75);
             this.cb_Rollback.Name = "cb_Rollback";
@@ -90,7 +90,7 @@
             // btn_TempSave
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
-            this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_TempSave.Location = new System.Drawing.Point(19, 237);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
@@ -100,7 +100,7 @@
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
-            this.btn_Save.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_Save.Location = new System.Drawing.Point(148, 237);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
@@ -148,6 +148,7 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dg_ScanList.ColumnHeadersVisible = false;
             this.dg_ScanList.Location = new System.Drawing.Point(11, 98);
             this.dg_ScanList.Name = "dg_ScanList";
             this.dg_ScanList.Size = new System.Drawing.Size(217, 133);
@@ -172,7 +173,7 @@
             this.Controls.Add(this.txt_TrayNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.Name = "ZuTuoDetail";
             this.Text = "组托";
             this.Load += new System.EventHandler(this.ZuTuoDetail_Load);

@@ -46,7 +46,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
@@ -54,7 +54,7 @@
             // 
             // txt_ASN
             // 
-            this.txt_ASN.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_ASN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_ASN.Location = new System.Drawing.Point(84, 14);
             this.txt_ASN.Name = "txt_ASN";
             this.txt_ASN.Size = new System.Drawing.Size(138, 21);
@@ -63,7 +63,7 @@
             // btn_OK
             // 
             this.btn_OK.BackColor = System.Drawing.Color.Beige;
-            this.btn_OK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_OK.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_OK.Location = new System.Drawing.Point(84, 228);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(109, 25);
@@ -73,7 +73,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(3, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
@@ -81,7 +81,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(3, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
@@ -89,7 +89,7 @@
             // 
             // cb_Company
             // 
-            this.cb_Company.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Company.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Company.Location = new System.Drawing.Point(84, 48);
             this.cb_Company.Name = "cb_Company";
             this.cb_Company.Size = new System.Drawing.Size(138, 21);
@@ -97,7 +97,7 @@
             // 
             // cb_Storage
             // 
-            this.cb_Storage.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Storage.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Storage.Location = new System.Drawing.Point(84, 84);
             this.cb_Storage.Name = "cb_Storage";
             this.cb_Storage.Size = new System.Drawing.Size(138, 21);
@@ -105,7 +105,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label4.Location = new System.Drawing.Point(3, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
@@ -113,7 +113,7 @@
             // 
             // txt_CarNo
             // 
-            this.txt_CarNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_CarNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_CarNo.Location = new System.Drawing.Point(84, 120);
             this.txt_CarNo.Name = "txt_CarNo";
             this.txt_CarNo.Size = new System.Drawing.Size(138, 21);
@@ -121,7 +121,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label5.Location = new System.Drawing.Point(3, 156);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 20);
@@ -129,7 +129,7 @@
             // 
             // cb_ASNType
             // 
-            this.cb_ASNType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_ASNType.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_ASNType.Location = new System.Drawing.Point(84, 156);
             this.cb_ASNType.Name = "cb_ASNType";
             this.cb_ASNType.Size = new System.Drawing.Size(138, 21);
@@ -137,7 +137,7 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label6.Location = new System.Drawing.Point(3, 192);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
@@ -146,7 +146,7 @@
             // txt_Different
             // 
             this.txt_Different.Enabled = false;
-            this.txt_Different.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Different.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Different.Location = new System.Drawing.Point(84, 192);
             this.txt_Different.Name = "txt_Different";
             this.txt_Different.Size = new System.Drawing.Size(114, 21);
@@ -154,7 +154,7 @@
             // 
             // ck_Different
             // 
-            this.ck_Different.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Different.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_Different.Location = new System.Drawing.Point(204, 195);
             this.ck_Different.Name = "ck_Different";
             this.ck_Different.Size = new System.Drawing.Size(24, 20);

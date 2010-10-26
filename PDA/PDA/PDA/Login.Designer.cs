@@ -39,7 +39,7 @@
             // 
             // txt_User
             // 
-            this.txt_User.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_User.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_User.Location = new System.Drawing.Point(73, 36);
             this.txt_User.Name = "txt_User";
             this.txt_User.Size = new System.Drawing.Size(135, 21);
@@ -48,7 +48,7 @@
             // 
             // txt_Pwd
             // 
-            this.txt_Pwd.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Pwd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Pwd.Location = new System.Drawing.Point(73, 80);
             this.txt_Pwd.Name = "txt_Pwd";
             this.txt_Pwd.PasswordChar = '*';
@@ -58,7 +58,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(20, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 20);
@@ -66,7 +66,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(20, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
@@ -75,7 +75,7 @@
             // btn_OK
             // 
             this.btn_OK.BackColor = System.Drawing.Color.Beige;
-            this.btn_OK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_OK.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_OK.Location = new System.Drawing.Point(83, 194);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(72, 27);
@@ -85,6 +85,7 @@
             // 
             // cb_UpdateUserData
             // 
+            this.cb_UpdateUserData.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_UpdateUserData.Location = new System.Drawing.Point(73, 124);
             this.cb_UpdateUserData.Name = "cb_UpdateUserData";
             this.cb_UpdateUserData.Size = new System.Drawing.Size(135, 20);
@@ -93,6 +94,7 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label3.ForeColor = System.Drawing.Color.Maroon;
             this.label3.Location = new System.Drawing.Point(73, 156);
             this.label3.Name = "label3";
