@@ -55,16 +55,18 @@ namespace PDA
                     MessageBox.Show("SN长度太小！");
                     return;
                 }
+                this.tabControl1.SelectedIndex = 0;
                 this.ShowDiskDetail();
+                
                 if (!this.cb_Rollback.Checked)
                 {
                     this.SaveData();
-                    this.RebindData();
+                    //this.RebindData();
                 }
                 else
                 {
                     this.RemoveData();
-                    this.RebindData();
+                    //this.RebindData();
                 }
                 clearInput();
                 
@@ -93,8 +95,8 @@ namespace PDA
         
         private void RebindData()
         {
-            this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.So, Program.UserID);
-            this.dg_Summarizing.DataSource = SendRecordManager.Count(record.So);
+            
+            
         }
 
         private SendDetail ComputeData()
@@ -128,6 +130,21 @@ namespace PDA
                 SendDetailManager.Save(entity,this.record);
             }
          
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.tabControl1.SelectedIndex==1)
+            {
+
+                this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.So, Program.UserID);
+            }
+            else if(this.tabControl1.SelectedIndex==2)
+            {
+
+                this.dg_Summarizing.DataSource = SendRecordManager.Count(record.So);
+            }
 
         }
 
