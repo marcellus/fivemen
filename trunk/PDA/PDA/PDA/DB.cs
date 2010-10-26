@@ -5,6 +5,7 @@ using System.Data;
 using System.Text;
 using System.Xml;
 using PDA.WebReference;
+using System.Windows.Forms;
 
 namespace PDA
 {
@@ -144,7 +145,7 @@ namespace PDA
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        
+
 
         public DataSet GetPick(string PickKey, string loc)
         {
@@ -356,6 +357,13 @@ namespace PDA
                 this.myValue = value;
             }
         }
+        /// <summary>
+        /// 绑定ComboBox数据源
+        /// </summary>
+        /// <param name="comboBox">Combox</param>
+        /// <param name="dataSource">数据源</param>
+        /// <param name="ValueMember">值列名</param>
+        /// <param name="DisplayMember">显示列名</param>
         public void BindComboBoxDatasource(System.Windows.Forms.ComboBox comboBox, DataTable dataSource, string ValueMember, string DisplayMember)
         {
             if (dataSource == null || dataSource.Rows.Count == 0)
@@ -372,7 +380,27 @@ namespace PDA
             comboBox.ValueMember = "MyValue";
             comboBox.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// 自动设置DataGrid的列宽为平分目前只支持DataTable做数据源
+        /// </summary>
+        /// <param name="dg">DataGrid</param>
+        public void SetDataGridCloumnWidth(DataGrid dg)
+        {
+            int width = (dg.Width - dg.VisibleColumnCount - 2) / dg.VisibleColumnCount;
+            DataGridTableStyle dgts = new DataGridTableStyle();
+            if ((dg.DataSource as DataTable).TableName == string.Empty) (dg.DataSource as DataTable).TableName = "TableName1";
+            dgts.MappingName = (dg.DataSource as DataTable).TableName;
+            for (int i = 0; i < dg.VisibleColumnCount; i++)
+            {
+                DataGridTextBoxColumn dgtb = new DataGridTextBoxColumn();
+                dgtb.MappingName = (dg.DataSource as DataTable).Columns[i].ColumnName;
+                dgtb.HeaderText = (dg.DataSource as DataTable).Columns[i].ColumnName;
+                dgtb.Width = width;
+                dgts.GridColumnStyles.Add(dgtb);
+            }
+            dg.TableStyles.Clear();
+            dg.TableStyles.Add(dgts);
+        }
         /// <summary>
         /// 检测当前料盘是否在数据库中存在
         /// </summary>
@@ -405,7 +433,7 @@ namespace PDA
         public bool SaveMoveLoc(DataTable dt)
         {
             Service1 service = GetService();
-            return service.SaveMoveLoc(dt,userid);
+            return service.SaveMoveLoc(dt, userid);
         }
 
         public DataSet GetMoveLotData(string billid, string lot)
