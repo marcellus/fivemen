@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PDA.DataInit;
 
 namespace PDA
 {
@@ -16,12 +17,9 @@ namespace PDA
         {
             InitializeComponent();
             init(hadTray);
-        }
-
-        public ASNScan(DataSet ds)
-        {
-            InitializeComponent();
-            init(ds);
+            StaticCacheManager.BindDict(this.cb_Company, 1);
+            StaticCacheManager.BindDict(this.cb_Storage, 2);
+            StaticCacheManager.BindDict(this.cb_ASNType, 3);
         }
 
         private void init(bool hadTray)
@@ -40,11 +38,11 @@ namespace PDA
             //TODO:保存界面信息
             if (this.hadTray)
             {
-                ads = new AsnDetailScanHadTray();
+                ads = new AsnDetailScanHadTray(this.txt_ASN.Text, cb_Company.Text, cb_Company.SelectedValue.ToString(), cb_Storage.Text, cb_Storage.SelectedValue.ToString(), txt_CarNo.Text, cb_ASNType.Text, txt_Different.Text);
             }
             else
             {
-                ads = new AsnDetailScan();
+                ads = new AsnDetailScan(this.txt_ASN.Text, cb_Company.Text, cb_Company.SelectedValue.ToString(), cb_Storage.Text, cb_Storage.SelectedValue.ToString(), txt_CarNo.Text, cb_ASNType.Text, txt_Different.Text);
             }
             ads.Show();
             ads.Closed += new EventHandler(ads_Closed);
@@ -62,5 +60,7 @@ namespace PDA
             if (this.txt_Different.Enabled) this.txt_Different.Focus();
             else txt_Different.Text = string.Empty;
         }
+
+        
     }
 }
