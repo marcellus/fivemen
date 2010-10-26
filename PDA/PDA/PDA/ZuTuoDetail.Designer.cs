@@ -148,7 +148,7 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.ColumnHeadersVisible = false;
+            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Location = new System.Drawing.Point(11, 98);
             this.dg_ScanList.Name = "dg_ScanList";
             this.dg_ScanList.Size = new System.Drawing.Size(217, 133);

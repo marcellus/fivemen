@@ -115,7 +115,7 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.ColumnHeadersVisible = false;
+            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(8, 89);
             this.dg_ScanList.Name = "dg_ScanList";
