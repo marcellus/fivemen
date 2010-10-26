@@ -53,7 +53,7 @@
             this.cb_Rollback.Location = new System.Drawing.Point(87, 48);
             this.cb_Rollback.Name = "cb_Rollback";
             this.cb_Rollback.Size = new System.Drawing.Size(146, 20);
-            this.cb_Rollback.TabIndex = 9;
+            this.cb_Rollback.TabIndex = 1;
             this.cb_Rollback.Text = "撤销产品扫描";
             this.cb_Rollback.CheckStateChanged += new System.EventHandler(this.cb_Rollback_CheckStateChanged);
             // 
@@ -64,9 +64,8 @@
             this.btn_TempSave.Location = new System.Drawing.Point(13, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
-            this.btn_TempSave.TabIndex = 10;
+            this.btn_TempSave.TabIndex = 4;
             this.btn_TempSave.Text = "临时保存";
-            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
@@ -75,7 +74,7 @@
             this.btn_Save.Location = new System.Drawing.Point(169, 240);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
-            this.btn_Save.TabIndex = 11;
+            this.btn_Save.TabIndex = 5;
             this.btn_Save.Text = "提交";
             // 
             // txt_TrayNo
@@ -84,7 +83,7 @@
             this.txt_TrayNo.Location = new System.Drawing.Point(91, 12);
             this.txt_TrayNo.Name = "txt_TrayNo";
             this.txt_TrayNo.Size = new System.Drawing.Size(137, 21);
-            this.txt_TrayNo.TabIndex = 20;
+            this.txt_TrayNo.TabIndex = 0;
             this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
             // 
             // label2
@@ -105,7 +104,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
-            this.tabControl1.TabIndex = 43;
+            this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1

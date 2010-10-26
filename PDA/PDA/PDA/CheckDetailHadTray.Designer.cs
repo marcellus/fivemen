@@ -42,25 +42,25 @@
             // 
             // txt_Tray
             // 
-            this.txt_Tray.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Tray.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Tray.Location = new System.Drawing.Point(91, 28);
             this.txt_Tray.Name = "txt_Tray";
-            this.txt_Tray.Size = new System.Drawing.Size(141, 21);
+            this.txt_Tray.Size = new System.Drawing.Size(141, 20);
             this.txt_Tray.TabIndex = 2;
             this.txt_Tray.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Tray_KeyUp);
             // 
             // txt_Loc
             // 
-            this.txt_Loc.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_Loc.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_Loc.Location = new System.Drawing.Point(91, 4);
             this.txt_Loc.Name = "txt_Loc";
-            this.txt_Loc.Size = new System.Drawing.Size(109, 21);
+            this.txt_Loc.Size = new System.Drawing.Size(109, 20);
             this.txt_Loc.TabIndex = 1;
             this.txt_Loc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Loc_KeyUp);
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(10, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 15);
@@ -68,7 +68,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(10, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 18);
@@ -76,7 +76,7 @@
             // 
             // ck_Rollback
             // 
-            this.ck_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.ck_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_Rollback.ForeColor = System.Drawing.Color.Red;
             this.ck_Rollback.Location = new System.Drawing.Point(87, 54);
             this.ck_Rollback.Name = "ck_Rollback";
@@ -88,7 +88,7 @@
             // btn_TempSave
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
-            this.btn_TempSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_TempSave.Location = new System.Drawing.Point(19, 234);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
@@ -98,7 +98,7 @@
             // btn_Finish
             // 
             this.btn_Finish.BackColor = System.Drawing.Color.Beige;
-            this.btn_Finish.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Finish.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_Finish.Location = new System.Drawing.Point(157, 234);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(61, 25);
@@ -108,6 +108,7 @@
             // btn_ClearLoc
             // 
             this.btn_ClearLoc.BackColor = System.Drawing.Color.Beige;
+            this.btn_ClearLoc.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_ClearLoc.Location = new System.Drawing.Point(206, 3);
             this.btn_ClearLoc.Name = "btn_ClearLoc";
             this.btn_ClearLoc.Size = new System.Drawing.Size(25, 22);
@@ -118,6 +119,7 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(10, 82);
             this.dg_ScanList.Name = "dg_ScanList";
             this.dg_ScanList.Size = new System.Drawing.Size(217, 146);
@@ -125,6 +127,7 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(10, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 20);

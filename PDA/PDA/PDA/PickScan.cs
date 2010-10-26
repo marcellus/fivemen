@@ -89,11 +89,15 @@ namespace PDA
         private void ck_MoreSO_CheckStateChanged(object sender, EventArgs e)
         {
             txt_MoreSO.Enabled = ck_MoreSO.Checked;
+            if (txt_MoreSO.Enabled) txt_MoreSO.Focus();
+            else txt_MoreSO.Text = string.Empty;
         }
 
         private void ck_Different_CheckStateChanged(object sender, EventArgs e)
         {
             txt_Different.Enabled = ck_Different.Checked;
+            if (txt_Different.Enabled) txt_Different.Focus();
+            else txt_Different.Text = string.Empty;
         }
 
 

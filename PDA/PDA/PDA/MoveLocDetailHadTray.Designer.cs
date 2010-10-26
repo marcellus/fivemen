@@ -42,7 +42,7 @@
             // btn_Finish
             // 
             this.btn_Finish.BackColor = System.Drawing.Color.Beige;
-            this.btn_Finish.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.btn_Finish.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.btn_Finish.Location = new System.Drawing.Point(157, 238);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(61, 25);
@@ -51,7 +51,7 @@
             // 
             // cb_Rollback
             // 
-            this.cb_Rollback.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.cb_Rollback.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.cb_Rollback.ForeColor = System.Drawing.Color.Red;
             this.cb_Rollback.Location = new System.Drawing.Point(92, 63);
             this.cb_Rollback.Name = "cb_Rollback";
@@ -62,7 +62,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label2.Location = new System.Drawing.Point(11, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 18);
@@ -70,7 +70,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(11, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 19);
@@ -78,35 +78,35 @@
             // 
             // txt_TrayNo
             // 
-            this.txt_TrayNo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_TrayNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_TrayNo.Location = new System.Drawing.Point(92, 8);
             this.txt_TrayNo.Name = "txt_TrayNo";
-            this.txt_TrayNo.Size = new System.Drawing.Size(141, 21);
+            this.txt_TrayNo.Size = new System.Drawing.Size(141, 20);
             this.txt_TrayNo.TabIndex = 1;
             this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
             // 
             // txt_NewLoc
             // 
-            this.txt_NewLoc.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.txt_NewLoc.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_NewLoc.Location = new System.Drawing.Point(92, 32);
             this.txt_NewLoc.Name = "txt_NewLoc";
-            this.txt_NewLoc.Size = new System.Drawing.Size(141, 21);
+            this.txt_NewLoc.Size = new System.Drawing.Size(141, 20);
             this.txt_NewLoc.TabIndex = 2;
             this.txt_NewLoc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NewLoc_KeyUp);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Beige;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
+            this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.button1.Location = new System.Drawing.Point(11, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 25);
             this.button1.TabIndex = 5;
             this.button1.Text = "临时保存";
-            this.button1.Visible = false;
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(11, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
