@@ -31,7 +31,7 @@ namespace PDA.DbManager
         {
             string sql = string.Empty;
             sql = "select * from ztpintuo where tph='" +
-                entity.Tph + "' and ytph='" + entity.Ytph + "' and scaner='" + entity.Scaner + "'";
+                entity.Tph + "'";
             DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
 
             return dt != null && dt.Rows.Count == 1;
@@ -42,7 +42,7 @@ namespace PDA.DbManager
         {
             string sql = string.Empty;
             sql = "delete from ztpintuo where tph='" +
-                entity.Tph + "' and ytph='" + entity.Ytph + "' and scaner='" + entity.Scaner + "'";
+                entity.Tph + "'";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }

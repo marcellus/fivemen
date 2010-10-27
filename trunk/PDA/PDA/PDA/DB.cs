@@ -145,7 +145,7 @@ namespace PDA
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-
+        
 
         public DataSet GetPick(string PickKey, string loc)
         {
@@ -433,7 +433,7 @@ namespace PDA
         public bool SaveMoveLoc(DataTable dt)
         {
             Service1 service = GetService();
-            return service.SaveMoveLoc(dt, userid);
+            return service.SaveMoveLoc(dt,userid);
         }
 
         public DataSet GetMoveLotData(string billid, string lot)

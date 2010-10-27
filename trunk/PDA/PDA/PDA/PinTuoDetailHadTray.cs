@@ -26,10 +26,20 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txt_OldTrayNo.Focus();
+                if (!this.cb_Rollback.Checked)
+                {
+                    txt_OldTrayNo.Focus();
+                }
+                else
+                {
+                    this.RemoveData();
+                    this.RebindData();
+                    ClearInput();
+                    cb_Rollback.Checked = false;
+                }
             }
         }
-                
+
         private void ClearInput()
         {
             txt_TrayNo.Text = string.Empty;
@@ -55,16 +65,9 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                    if(!this.cb_Rollback.Checked)
-                    {
-                        this.SaveData();
-                        this.RebindData();
-                    }
-                    else
-                    {
-                        this.RemoveData();
-                        this.RebindData();
-                    }
+                this.SaveData();
+                this.RebindData();
+
                 ClearInput();
                 txt_TrayNo.Focus();
             }
@@ -79,7 +82,7 @@ namespace PDA
         {
 
             ZtPinTuo entity = new ZtPinTuo();
-           
+
             entity.Tph = this.txt_TrayNo.Text.Trim();
             entity.Ytph = this.txt_OldTrayNo.Text.Trim();
 
@@ -90,7 +93,13 @@ namespace PDA
 
         private void RemoveData()
         {
-            ZtPinTuoManager.Delete(this.ComputeData());
+            ZtPinTuo entity = this.ComputeData();
+            if (!ZtPinTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("托盘尚未扫描，不能撤消！");
+                return;
+            }
+            ZtPinTuoManager.Delete(entity);
         }
 
         private void SaveData()
@@ -99,19 +108,19 @@ namespace PDA
             ZtPinTuo entity = this.ComputeData();
             if (ZtPinTuoManager.CheckExists(entity))
             {
-                MessageBox.Show("您已经扫描过该产品！");
+                MessageBox.Show("您已经扫描过该托盘！");
             }
             else
             {
                 ZtPinTuoManager.Save(entity);
             }
-            
+
 
         }
 
         private void PinTuoDetailHadTray_Load(object sender, EventArgs e)
         {
-this.RebindData();
+            this.RebindData();
         }
     }
 }

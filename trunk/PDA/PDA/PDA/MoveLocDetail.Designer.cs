@@ -47,7 +47,7 @@
             // 
             this.btn_Finish.BackColor = System.Drawing.Color.Beige;
             this.btn_Finish.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Finish.Location = new System.Drawing.Point(157, 241);
+            this.btn_Finish.Location = new System.Drawing.Point(94, 241);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(64, 22);
             this.btn_Finish.TabIndex = 7;
@@ -108,11 +108,12 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Beige;
             this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.button1.Location = new System.Drawing.Point(18, 241);
+            this.button1.Location = new System.Drawing.Point(2, 241);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 22);
             this.button1.TabIndex = 6;
             this.button1.Text = "临时保存";
+            this.button1.Visible = false;
             // 
             // label4
             // 
@@ -134,10 +135,10 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.dg_ScanList.Location = new System.Drawing.Point(8, 111);
             this.dg_ScanList.Name = "dg_ScanList";
+            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Size = new System.Drawing.Size(222, 124);
             this.dg_ScanList.TabIndex = 5;
             // 

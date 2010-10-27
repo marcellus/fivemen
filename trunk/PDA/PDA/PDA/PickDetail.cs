@@ -17,7 +17,7 @@ namespace PDA
         public PickDetail()
         {
             InitializeComponent();
-
+           
         }
         public PickDetail(SendRecord record)
         {
@@ -25,7 +25,7 @@ namespace PDA
             InitializeComponent();
 
         }
-
+        
         private void txt_XiaXiangJi_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -33,7 +33,7 @@ namespace PDA
                 //clearInput();
                 txt_SN.Focus();
             }
-        }
+        }       
 
         private void cb_Rollback_CheckStateChanged(object sender, EventArgs e)
         {
@@ -52,14 +52,16 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
+                this.txt_DiskDetail.Text = string.Empty;
                 if (this.txt_SN.Text.Length < 12)
                 {
-                    MessageBox.Show("SN长度太小！");
+                    MessageBox.Show("SN非法，请扫描正确的SN！");
+                    this.txt_SN.Text = string.Empty;
                     return;
                 }
                 this.tabControl1.SelectedIndex = 0;
                 this.ShowDiskDetail();
-
+                
                 if (!this.cb_Rollback.Checked)
                 {
                     this.SaveData();
@@ -69,11 +71,13 @@ namespace PDA
                 {
                     this.RemoveData();
                     //this.RebindData();
+                    MessageBox.Show("撤销扫描成功！");
+                    this.txt_DiskDetail.Text = string.Empty;
                 }
                 clearInput();
-
+                this.cb_Rollback.Checked = false;
             }
-
+            
         }
         private void clearInput()
         {
@@ -87,18 +91,18 @@ namespace PDA
             this.txt_DiskDetail.Text += "其他发货单：" + record.OtherSo + "\r\n";
             this.txt_DiskDetail.Text += "车牌：" + record.CarNo + "\r\n";
             this.txt_DiskDetail.Text += "区分：" + record.QuFen + "\r\n";
-            if (this.cb_XiaXiangJi.Checked)
+            if(this.cb_XiaXiangJi.Checked)
             {
-                this.txt_DiskDetail.Text += "下乡机：" + this.txt_XiaXiangJi.Text.Trim() + "\r\n";
+                this.txt_DiskDetail.Text += "下乡机：" + this.txt_XiaXiangJi.Text.Trim() +"\r\n";
             }
             this.txt_DiskDetail.Text += "SN：" + this.txt_SN.Text.Trim();
 
         }
-
+        
         private void RebindData()
         {
-
-
+            
+            
         }
 
         private SendDetail ComputeData()
@@ -117,7 +121,13 @@ namespace PDA
 
         private void RemoveData()
         {
-            SendDetailManager.Delete(this.ComputeData(), this.record);
+            SendDetail entity = this.ComputeData();
+            if (!SendDetailManager.CheckExists(entity))
+            {
+                MessageBox.Show("该产品尚未扫描，不能撤销！");
+                return;
+            }
+            SendDetailManager.Delete(entity, this.record);
         }
 
         private void SaveData()
@@ -129,21 +139,19 @@ namespace PDA
             }
             else
             {
-                SendDetailManager.Save(entity, this.record);
+                SendDetailManager.Save(entity,this.record);
             }
-
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.tabControl1.SelectedIndex == 1)
+            if(this.tabControl1.SelectedIndex==1)
             {
 
                 this.dg_Resume.DataSource = SendDetailManager.GetUserData(record.So, Program.UserID);
                 new DB().SetDataGridCloumnWidth(this.dg_Resume);
             }
-            else if (this.tabControl1.SelectedIndex == 2)
+            else if(this.tabControl1.SelectedIndex==2)
             {
 
                 this.dg_Summarizing.DataSource = SendRecordManager.Count(record.So);
@@ -151,5 +159,6 @@ namespace PDA
             }
 
         }
+
     }
 }

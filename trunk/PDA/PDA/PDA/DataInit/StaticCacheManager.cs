@@ -65,6 +65,21 @@ namespace PDA.DataInit
 
         public static DataTable GetDictTable(int dicttype)
         {
+            if (dicttype == 3)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("dicttext",typeof(string));
+                dt.Columns.Add("dictvalue",typeof(string));
+                DataRow dr = dt.NewRow();
+                dr[0] = "正常收货";
+                dr[1] = "001";
+                dt.Rows.Add(dr);
+                dr = dt.NewRow();
+                dr[0] = "返厂品";
+                dr[1] = "000";
+                dt.Rows.Add(dr);
+                return dt;
+            }
             return SqliteDbFactory.GetSqliteDbOperator().SelectFromSql("select dicttext,dictvalue from mydicts where dicttype=" + dicttype);
         }
 

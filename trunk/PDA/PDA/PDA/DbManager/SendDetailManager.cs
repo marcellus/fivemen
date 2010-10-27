@@ -90,10 +90,17 @@ namespace PDA.DbManager
         {
             string sql = string.Empty;
             sql = "select * from senddetail where sn='" +
-               entity.Sn + "' and fahuotype='" + entity.FahuoType
-              + "' and xxjh='" + entity.Xxjh
-              + "' and tph='" + entity.Tph
-               + "' and scaner='" + entity.Scaner + "'";
+               entity.Sn + "'";
+            DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
+
+            return dt != null && dt.Rows.Count == 1;
+        }
+
+        public static bool CheckExistsTuopan(SendDetail entity)
+        {
+            string sql = string.Empty;
+            sql = "select * from senddetail where tph='" +
+               entity.Tph + "'";
             DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
 
             return dt != null && dt.Rows.Count == 1;
@@ -104,15 +111,22 @@ namespace PDA.DbManager
         {
             string[] sql = new string[2];
             sql[0] = "delete from senddetail where sn='" +
-                entity.Sn + "' and fahuotype='" + entity.FahuoType
-               +"' and xxjh='" + entity.Xxjh
-               + "' and tph='" + entity.Tph
-                + "' and scaner='" + entity.Scaner + "'";
+                entity.Sn + "'";
             if(entity.Sn!=null&&entity.Sn.Length>0)
                 sql[1] = "update sendrecord set sl=sl-1 where so='" + parent.So + "' and pnno='" + entity.Sn.Substring(2,10) + "'";
             SqliteDbFactory.GetSqliteDbOperator().BatchExecute(sql);
 
         }
+
+        public static void DeleteTuopan(SendDetail entity, SendRecord parent)
+        {
+            string[] sql = new string[1];
+            sql[0] = "delete from senddetail where tph='" +
+                entity.Tph + "'";
+            SqliteDbFactory.GetSqliteDbOperator().BatchExecute(sql);
+
+        }
+
         public static DataTable GetUserData(string so,string uid)
         {
             string sql = "select sn as SN,xxjh as 下乡机号,tph as 托盘号 from senddetail where so='"+so+"' and scaner='" + uid + "'";

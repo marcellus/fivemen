@@ -63,7 +63,7 @@
             this.txt_TrayNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_TrayNo.Location = new System.Drawing.Point(78, 3);
             this.txt_TrayNo.Name = "txt_TrayNo";
-            this.txt_TrayNo.Size = new System.Drawing.Size(121, 21);
+            this.txt_TrayNo.Size = new System.Drawing.Size(121, 20);
             this.txt_TrayNo.TabIndex = 1;
             this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
             // 
@@ -72,7 +72,7 @@
             this.txt_SN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_SN.Location = new System.Drawing.Point(78, 53);
             this.txt_SN.Name = "txt_SN";
-            this.txt_SN.Size = new System.Drawing.Size(152, 21);
+            this.txt_SN.Size = new System.Drawing.Size(152, 20);
             this.txt_SN.TabIndex = 2;
             this.txt_SN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SN_KeyUp);
             // 
@@ -91,17 +91,18 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(19, 237);
+            this.btn_TempSave.Location = new System.Drawing.Point(3, 237);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 5;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
             this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(148, 237);
+            this.btn_Save.Location = new System.Drawing.Point(89, 237);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 6;
@@ -148,9 +149,9 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Location = new System.Drawing.Point(11, 98);
             this.dg_ScanList.Name = "dg_ScanList";
+            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Size = new System.Drawing.Size(217, 133);
             this.dg_ScanList.TabIndex = 9;
             // 

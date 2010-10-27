@@ -47,7 +47,7 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
             this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(147, 240);
+            this.btn_Save.Location = new System.Drawing.Point(92, 240);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(72, 25);
             this.btn_Save.TabIndex = 8;
@@ -57,11 +57,12 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(15, 240);
+            this.btn_TempSave.Location = new System.Drawing.Point(1, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 25);
             this.btn_TempSave.TabIndex = 7;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // cb_Rollback
             // 
@@ -156,9 +157,9 @@
             // dg_ScanList
             // 
             this.dg_ScanList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Location = new System.Drawing.Point(11, 124);
             this.dg_ScanList.Name = "dg_ScanList";
+            this.dg_ScanList.RowHeadersVisible = false;
             this.dg_ScanList.Size = new System.Drawing.Size(217, 110);
             this.dg_ScanList.TabIndex = 9;
             // 

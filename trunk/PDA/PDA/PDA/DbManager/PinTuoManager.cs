@@ -30,9 +30,7 @@ namespace PDA.DbManager
         public static bool CheckExists(PinTuo entity)
         {
             string sql = string.Empty;
-            sql = "select * from pintuo where tph='" +
-                entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
-                entity.Xxjh + "' and wz='" + entity.Wz + "' and scaner='" + entity.Scaner + "'";
+            sql = "select * from pintuo where  sn='" + entity.Sn + "'";
             DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
 
             return dt != null && dt.Rows.Count == 1;
@@ -42,9 +40,7 @@ namespace PDA.DbManager
         public static void Delete(PinTuo entity)
         {
             string sql = string.Empty;
-            sql = "delete from pintuo where tph='" +
-                entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
-                entity.Xxjh + "' and wz='"+entity.Wz+"' and scaner='" + entity.Scaner + "'";
+            sql = "delete from pintuo where  sn='" + entity.Sn + "'";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }

@@ -29,9 +29,7 @@ namespace PDA.DbManager
         public static bool CheckExists(ZuTuo entity)
         {
             string sql = string.Empty;
-            sql = "select * from zutuo where tph='" +
-                 entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
-                 entity.Xxjh + "' and scaner='" + entity.Scaner + "'";
+            sql = "select * from zutuo where sn='" + entity.Sn + "'";
             DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
 
             return dt != null && dt.Rows.Count == 1;
@@ -40,9 +38,7 @@ namespace PDA.DbManager
         public static void Delete(ZuTuo entity)
         {
             string sql = string.Empty;
-            sql = "delete from zutuo where tph='" +
-                entity.Tph + "' and sn='" + entity.Sn + "' and xxjh='" +
-                entity.Xxjh + "' and scaner='" + entity.Scaner + "'";
+            sql = "delete from zutuo where sn='" + entity.Sn + "'";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }
