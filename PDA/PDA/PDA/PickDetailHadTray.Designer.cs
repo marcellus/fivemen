@@ -61,17 +61,18 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(13, 240);
+            this.btn_TempSave.Location = new System.Drawing.Point(3, 240);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
             this.btn_TempSave.TabIndex = 4;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
             this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(169, 240);
+            this.btn_Save.Location = new System.Drawing.Point(99, 240);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
             this.btn_Save.TabIndex = 5;
@@ -82,7 +83,7 @@
             this.txt_TrayNo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_TrayNo.Location = new System.Drawing.Point(91, 12);
             this.txt_TrayNo.Name = "txt_TrayNo";
-            this.txt_TrayNo.Size = new System.Drawing.Size(137, 21);
+            this.txt_TrayNo.Size = new System.Drawing.Size(137, 20);
             this.txt_TrayNo.TabIndex = 0;
             this.txt_TrayNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TrayNo_KeyUp);
             // 
@@ -137,9 +138,9 @@
             // dg_Resume
             // 
             this.dg_Resume.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Resume.RowHeadersVisible = false;
             this.dg_Resume.Location = new System.Drawing.Point(4, 4);
             this.dg_Resume.Name = "dg_Resume";
+            this.dg_Resume.RowHeadersVisible = false;
             this.dg_Resume.Size = new System.Drawing.Size(210, 105);
             this.dg_Resume.TabIndex = 0;
             // 
@@ -154,9 +155,9 @@
             // dg_Summarizing
             // 
             this.dg_Summarizing.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Summarizing.RowHeadersVisible = false;
             this.dg_Summarizing.Location = new System.Drawing.Point(4, 4);
             this.dg_Summarizing.Name = "dg_Summarizing";
+            this.dg_Summarizing.RowHeadersVisible = false;
             this.dg_Summarizing.Size = new System.Drawing.Size(210, 105);
             this.dg_Summarizing.TabIndex = 0;
             // 

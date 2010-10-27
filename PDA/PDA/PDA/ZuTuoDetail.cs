@@ -43,6 +43,7 @@ namespace PDA
                 {
                     this.RemoveData();
                     this.RebindData();
+                    cb_Rollback.Checked = false;
                 }
                     ClearInput();
                     
@@ -115,7 +116,13 @@ namespace PDA
 
         private void RemoveData()
         {
-            ZuTuoManager.Delete(this.ComputeData());
+            ZuTuo entity = this.ComputeData();
+            if (!ZuTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("产品尚未扫描，不能撤消！");
+                return;
+            }
+            ZuTuoManager.Delete(entity);
         }
 
         private void SaveData()

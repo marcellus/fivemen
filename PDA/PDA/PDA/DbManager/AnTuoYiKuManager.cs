@@ -41,8 +41,7 @@ namespace PDA.DbManager
         {
             string sql = string.Empty;
             sql = "delete from antuoyiku where tph='" +
-                entity.Tph + "' and mdkw='" + entity.Mdkw +
-                "' and scaner='" + entity.Scaner + "'";
+                entity.Tph+ "'";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }

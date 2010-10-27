@@ -17,16 +17,23 @@ namespace PDA
             InitializeComponent();
 
         }
-                
+
         private void txt_TrayNo_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!this.cb_Rollback.Checked)
+            if (e.KeyCode == Keys.Enter)
             {
-                this.txt_NewLoc.Focus();
-            }
-            else
-            {
-                //this.txt_TrayNo.Text = string.Empty;
+                if (!this.cb_Rollback.Checked)
+                {
+                    this.txt_NewLoc.Focus();
+                }
+                else
+                {
+                    this.RemoveData();
+                    this.RebindData();
+                    MessageBox.Show("撤消扫描成功！");
+                    ClearInput();
+                    cb_Rollback.Checked = false;
+                }
             }
         }
 
@@ -42,11 +49,6 @@ namespace PDA
                         this.SaveData();
                         this.RebindData();
                     }
-                    else
-                    {
-                        this.RemoveData();
-                        this.RebindData();
-                    }
                 }
                 else
                 {
@@ -56,9 +58,9 @@ namespace PDA
                 txt_TrayNo.Focus();
                 //this.txt_TrayNo.Enabled = false;
             }
-           
+
         }
-                
+
         private void ClearInput()
         {
             this.txt_TrayNo.Text = string.Empty;
@@ -70,7 +72,7 @@ namespace PDA
             ClearInput();
             this.txt_TrayNo.Focus();
         }
-private void RebindData()
+        private void RebindData()
         {
             this.dg_ScanList.DataSource = AnTuoYiKuManager.GetUserData(Program.UserID);
         }
@@ -88,7 +90,13 @@ private void RebindData()
 
         private void RemoveData()
         {
-            AnTuoYiKuManager.Delete(this.ComputeData());
+            AnTuoYiKu entity = this.ComputeData();
+            if (!AnTuoYiKuManager.CheckExists(entity))
+            {
+                MessageBox.Show("托盘尚未扫描，不能撤消！");
+                return;
+            }
+            AnTuoYiKuManager.Delete(entity);
         }
 
         private void SaveData()
@@ -107,7 +115,7 @@ private void RebindData()
 
         private void MoveLocDetailHadTray_Load(object sender, EventArgs e)
         {
-                this.RebindData();
+            this.RebindData();
         }
     }
 }

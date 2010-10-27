@@ -34,7 +34,17 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txt_Location.Focus();
+                if (!this.cb_Rollback.Checked)
+                {
+                    txt_Location.Focus();
+                }
+                else
+                {
+                    this.RemoveData();
+                    this.RebindData();
+                    ClearInput();
+                    cb_Rollback.Checked = false;
+                }
             }
         }
 
@@ -42,20 +52,11 @@ namespace PDA
         {
             if (e.KeyCode == Keys.Enter)
             {
-               
-                    if (!this.cb_Rollback.Checked)
-                    {
-                        this.SaveData();
-                        this.RebindData();
-                    }
-                    else
-                    {
-                        this.RemoveData();
-                        this.RebindData();
-                    }
-                    ClearInput();
-                    txt_TrayNo.Focus();
-                
+                this.SaveData();
+                this.RebindData();
+                ClearInput();
+                txt_TrayNo.Focus();
+
             }
         }
 
@@ -84,7 +85,7 @@ namespace PDA
         private void cb_Rollback_CheckStateChanged(object sender, EventArgs e)
         {
             ClearInput();
-            txt_TrayNo.Focus();
+            txt_SN.Focus();
         }
 
         private void txt_XiaXiangJi_KeyUp(object sender, KeyEventArgs e)
@@ -116,7 +117,13 @@ namespace PDA
 
         private void RemoveData()
         {
-            PinTuoManager.Delete(this.ComputeData());
+            PinTuo entity = this.ComputeData();
+            if (!PinTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("产品尚未扫描，不能撤消！");
+                return;
+            }
+            PinTuoManager.Delete(entity);
         }
 
         private void SaveData()
@@ -130,15 +137,15 @@ namespace PDA
             {
                 PinTuoManager.Save(entity);
             }
-           
+
 
         }
 
         private void PinTuoDetail_Load(object sender, EventArgs e)
         {
-this.RebindData();
+            this.RebindData();
         }
 
-       
+
     }
 }

@@ -58,6 +58,7 @@ namespace PDA
                 {
                     this.RemoveData();
                     this.RebindData();
+                    cb_Rollback.Checked = false;
                 }
                 ClearInput();
             }
@@ -107,8 +108,12 @@ namespace PDA
 
         private void RemoveData()
         {
-
-            JieTuoManager.Delete(this.ComputeData());
+            JieTuo entity = this.ComputeData();
+            if (JieTuoManager.CheckExists(entity))
+            {
+                MessageBox.Show("产品尚未扫描，不能撤消！");
+            }
+            JieTuoManager.Delete(entity);
         }
 
         private void SaveData()

@@ -34,8 +34,10 @@ namespace PDA
                 }
                 else
                 {
-                    this.txt_Count.Text = string.Empty;
-                    this.txt_Product.Text = string.Empty;
+                    this.RemoveData();
+                    this.RebindData();
+                    ClearInput();
+                    cb_Rollback.Checked = false;
                 }
             }
         }               
@@ -66,11 +68,6 @@ namespace PDA
                     if (!this.cb_Rollback.Checked)
                     {
                         this.SaveData();
-                        this.RebindData();
-                    }
-                    else
-                    {
-                        this.RemoveData();
                         this.RebindData();
                     }
                 }
@@ -128,7 +125,13 @@ private void RebindData()
 
         private void RemoveData()
         {
-            AnHuoYiKuManager.Delete(this.ComputeData());
+            AnHuoYiKu entity = this.ComputeData();
+            if (!AnHuoYiKuManager.CheckExists(entity))
+            {
+                MessageBox.Show("产品尚未扫描，不能撤消！");
+                return;
+            }
+            AnHuoYiKuManager.Delete(entity);
         }
 
         private void SaveData()

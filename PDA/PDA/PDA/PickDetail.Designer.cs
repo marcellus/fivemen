@@ -54,7 +54,7 @@
             this.txt_XiaXiangJi.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_XiaXiangJi.Location = new System.Drawing.Point(91, 10);
             this.txt_XiaXiangJi.Name = "txt_XiaXiangJi";
-            this.txt_XiaXiangJi.Size = new System.Drawing.Size(137, 21);
+            this.txt_XiaXiangJi.Size = new System.Drawing.Size(137, 20);
             this.txt_XiaXiangJi.TabIndex = 0;
             this.txt_XiaXiangJi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_XiaXiangJi_KeyUp);
             // 
@@ -73,17 +73,18 @@
             // 
             this.btn_TempSave.BackColor = System.Drawing.Color.Beige;
             this.btn_TempSave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_TempSave.Location = new System.Drawing.Point(13, 242);
+            this.btn_TempSave.Location = new System.Drawing.Point(1, 242);
             this.btn_TempSave.Name = "btn_TempSave";
             this.btn_TempSave.Size = new System.Drawing.Size(72, 22);
             this.btn_TempSave.TabIndex = 4;
             this.btn_TempSave.Text = "临时保存";
+            this.btn_TempSave.Visible = false;
             // 
             // btn_Save
             // 
             this.btn_Save.BackColor = System.Drawing.Color.Beige;
             this.btn_Save.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
-            this.btn_Save.Location = new System.Drawing.Point(170, 242);
+            this.btn_Save.Location = new System.Drawing.Point(95, 242);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(55, 22);
             this.btn_Save.TabIndex = 7;
@@ -94,7 +95,7 @@
             this.txt_SN.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.txt_SN.Location = new System.Drawing.Point(91, 36);
             this.txt_SN.Name = "txt_SN";
-            this.txt_SN.Size = new System.Drawing.Size(137, 21);
+            this.txt_SN.Size = new System.Drawing.Size(137, 20);
             this.txt_SN.TabIndex = 1;
             this.txt_SN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_SN_KeyUp);
             // 
@@ -123,7 +124,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(6, 95);
+            this.tabControl1.Location = new System.Drawing.Point(-1, 98);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(225, 141);
@@ -160,9 +161,9 @@
             // dg_Resume
             // 
             this.dg_Resume.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Resume.RowHeadersVisible = false;
             this.dg_Resume.Location = new System.Drawing.Point(4, 4);
             this.dg_Resume.Name = "dg_Resume";
+            this.dg_Resume.RowHeadersVisible = false;
             this.dg_Resume.Size = new System.Drawing.Size(210, 105);
             this.dg_Resume.TabIndex = 0;
             // 
@@ -177,9 +178,9 @@
             // dg_Summarizing
             // 
             this.dg_Summarizing.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dg_Summarizing.RowHeadersVisible = false;
             this.dg_Summarizing.Location = new System.Drawing.Point(4, 4);
             this.dg_Summarizing.Name = "dg_Summarizing";
+            this.dg_Summarizing.RowHeadersVisible = false;
             this.dg_Summarizing.Size = new System.Drawing.Size(210, 105);
             this.dg_Summarizing.TabIndex = 0;
             // 

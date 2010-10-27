@@ -100,7 +100,12 @@
     </Compile>
     <Compile Include="DataInit\StaticCacheManager.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="DbManager\ASNDetail.cs" />
+    <Compile Include="DbManager\ASNMain.cs" />
+    <Compile Include="DbManager\AsnRecord.cs" />
     <Compile Include="DbManager\BaseEntity.cs" />
+    <Compile Include="DbManager\CheckDetailRecord.cs" />
+    <Compile Include="DbManager\CheckMain.cs" />
     <Compile Include="DbManager\JieTuo.cs" />
     <Compile Include="DbManager\JieTuoManager.cs" />
     <Compile Include="DbManager\KuWeiManager.cs" />

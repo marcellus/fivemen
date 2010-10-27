@@ -37,6 +37,7 @@ namespace PDA
             if (e.KeyCode == Keys.Enter)
             {                
                 //TODO:逻辑处理
+                this.txt_DiskDetail.Text = string.Empty;
                 this.tabControl1.SelectedIndex = 0;
                 this.ShowDiskDetail();
                     if (!this.cb_Rollback.Checked)
@@ -48,8 +49,11 @@ namespace PDA
                     {
                         this.RemoveData();
                        // this.RebindData();
+                        MessageBox.Show("撤销扫描成功！");
+                        this.txt_DiskDetail.Text = string.Empty;
                     }
-
+                    this.txt_TrayNo.Text = string.Empty;
+                    this.cb_Rollback.Checked = false;
             }
         }
 
@@ -85,15 +89,21 @@ namespace PDA
 
         private void RemoveData()
         {
-            SendDetailManager.Delete(this.ComputeData(),this.record);
+            SendDetail entity = this.ComputeData();
+            if (!SendDetailManager.CheckExistsTuopan(entity))
+            {
+                MessageBox.Show("该托盘尚未扫描，不能撤销！");
+                return;
+            }
+            SendDetailManager.DeleteTuopan(entity, this.record);
         }
 
         private void SaveData()
         {
             SendDetail entity = this.ComputeData();
-            if (SendDetailManager.CheckExists(entity))
+            if (SendDetailManager.CheckExistsTuopan(entity))
             {
-                MessageBox.Show("您已经扫描过该产品！");
+                MessageBox.Show("您已经扫描过该托盘！");
             }
             else
             {
