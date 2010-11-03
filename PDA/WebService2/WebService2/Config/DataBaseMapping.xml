@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataBase>
+	<Table PdaName="receiverecord" ServerName="ASNRECORD">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="receiveno" ServerName="ASN" />
+		<Column PdaName="factoryid" ServerName="FACTORYID" />
+		<Column PdaName="storageid" ServerName="STORAGEID" />
+		<Column PdaName="carno" ServerName="CARNO" />
+		<Column PdaName="receivetype" ServerName="ASNTYPE" />
+		<Column PdaName="qufen" ServerName="DIFFERENT" />
+		<Column PdaName="pnno" ServerName="PN" />
+		<Column PdaName="tno" ServerName="PLANTNO" />
+		<Column PdaName="hold" ServerName="HOLD" />
+		<Column PdaName="sl" ServerName="QTY" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+		<Column PdaName="status" ServerName="STATUS" />
+	</Table>
+	<Table PdaName="receivedetail" ServerName="ASNDETAIL">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="receiveno" ServerName="ASN" />		
+		<Column PdaName="pnno" ServerName="PN" />
+		<Column PdaName="tno" ServerName="PLANTNO" />
+		<Column PdaName="hold" ServerName="HOLD" />
+		<Column PdaName="cuno" ServerName="SN" />
+		<Column PdaName="xxjh" ServerName="XXJH" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+		<Column PdaName="status" ServerName="STATUS" />
+	</Table>
+	<Table PdaName="anhuoyiku" ServerName="MOVELOC">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="ykw" ServerName="OLDLOC" />
+		<Column PdaName="cp" ServerName="SN" />
+		<Column PdaName="sl" ServerName="QTY" />
+		<Column PdaName="mdkw" ServerName="NEWLOC" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="antuoyiku" ServerName="MOVELOC">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="tph" ServerName="PLANTNO" />
+		<Column PdaName="mdkw" ServerName="NEWLOC" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="zutuo" ServerName="BUILDPLANT">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="tph" ServerName="PLANTNO" />
+		<Column PdaName="sn" ServerName="SN" />
+		<Column PdaName="xxjh" ServerName="XXJH" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="jietuo" ServerName="SPLITPLANT">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="tph" ServerName="PLANTNO" />
+		<Column PdaName="sn" ServerName="SN" />
+		<Column PdaName="iswhole" ServerName="ISWHOLE" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="pintuo" ServerName="ASSEMBLEPLANT">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="tph" ServerName="NEWPLANT" />
+		<Column PdaName="sn" ServerName="SN" />
+		<Column PdaName="wz" ServerName="POSITION" />
+		<Column PdaName="xxjh" ServerName="XXJH" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="ztpintuo" ServerName="ASSEMBLEPLANT">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="yttph" ServerName="OLDPLANT" />
+		<Column PdaName="ph" ServerName="NEWPLANT" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="sendrecord" ServerName="SHIPMENTRECORD">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="so" ServerName="SO" />
+		<Column PdaName="otherso" ServerName="OTHERSO" />
+		<Column PdaName="qufen" ServerName="DIFFERENT" />
+		<Column PdaName="pnno" ServerName="PN" />
+		<Column PdaName="cpqufen" ServerName="PRODUCTDIFFERENT" />
+		<Column PdaName="sl" ServerName="QTY" />
+		<Column PdaName="carno" ServerName="CARNO" />
+		<Column PdaName="status" ServerName="STATUS" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="senddetail" ServerName="SHIPMENTDETAIL">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="so" ServerName="SO" />
+		<Column PdaName="sn" ServerName="SN" />
+		<Column PdaName="fahuotype" ServerName="SHIPMENTTYPE" />
+		<Column PdaName="xxjh" ServerName="XXJH" />
+		<Column PdaName="tph" ServerName="PLANTNO" />
+		<Column PdaName="status" ServerName="STATUS" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="pandianrecord" ServerName="CHECKRECORD">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="kw" ServerName="LOC" />
+		<Column PdaName="pnno" ServerName="PN" />
+		<Column PdaName="cpqufen" ServerName="PRODUCTDIFFERENT" />
+		<Column PdaName="sl" ServerName="QTY" />
+		<Column PdaName="status" ServerName="STATUS" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+	<Table PdaName="pandiandetail" ServerName="CHECKDETAIL">
+		<Column PdaName="id" ServerName="ID" />
+		<Column PdaName="sn" ServerName="SN" />
+		<Column PdaName="xxjh" ServerName="XXJH" />
+		<Column PdaName="tph" ServerName="PLANTNO" />
+		<Column PdaName="kuwei" ServerName="LOC" />
+		<Column PdaName="scaner" ServerName="SCANER" />
+		<Column PdaName="scantime" ServerName="SCANTIME" />
+	</Table>
+</DataBase>

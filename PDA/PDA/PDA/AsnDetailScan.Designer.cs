@@ -133,7 +133,7 @@
             this.ck_HOLD.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular);
             this.ck_HOLD.Location = new System.Drawing.Point(3, 65);
             this.ck_HOLD.Name = "ck_HOLD";
-            this.ck_HOLD.Size = new System.Drawing.Size(60, 20);
+            this.ck_HOLD.Size = new System.Drawing.Size(71, 20);
             this.ck_HOLD.TabIndex = 2;
             this.ck_HOLD.Text = "HOLD";
             // 

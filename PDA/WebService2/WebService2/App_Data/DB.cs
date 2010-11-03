@@ -1716,5 +1716,94 @@ and ld.lock_qty>0";
             string sql = @"select * from loc";
             return GetDataSet(sql);
         }
+
+
+        private XmlDocument GetDataBaseMapping()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(System.Web.HttpContext.Current.Request.MapPath(@"/Config/DataBaseMapping.xml"));
+            return xmlDoc;
+        }
+
+        private XmlNodeList GetDataTableMappingNodes(string pdaDataTableName)
+        {
+            XmlDocument xmlDoc = GetDataBaseMapping();
+            return xmlDoc.DocumentElement.SelectSingleNode(string.Format("//Table[@PdaName='{0}']", pdaDataTableName)).ChildNodes;
+        }
+
+        public string UpdateServerByPda(DataSet ds)
+        {
+            if (ds == null || ds.Tables.Count == 0) { return "传入的数据为空！"; }
+            List<string> updataServerSqls = new List<string>();
+            try
+            {
+                foreach (DataTable dt in ds.Tables)
+                {
+                    updataServerSqls.AddRange(GetUpdateTableSqls(dt));
+                }
+            }
+            catch
+            {
+                return "更新服务器数据失败！";
+            }
+            if (ExecSql(updataServerSqls.ToArray()) != 0) { return "更新服务器数据失败！"; }
+            return string.Empty;
+        }
+
+        private string[] GetUpdateTableSqls(DataTable dt)
+        {
+            if (dt == null || dt.Rows.Count == 0) { return new string[0]; }
+            List<string> updateDataTableSqls = new List<string>();
+            XmlNodeList columnsMappingNodes = GetDataTableMappingNodes(dt.TableName);
+            if (columnsMappingNodes.Count == 0) { return new string[0]; }
+            string insertSql = GetUpdateColumnInsertSql(dt.TableName, columnsMappingNodes);
+            foreach (DataRow dr in dt.Rows)
+            {
+                updateDataTableSqls.Add(string.Format("BEGIN {0} {1}; END;", insertSql, GetUpdateColumnValueSql(dr, columnsMappingNodes)));
+            }
+            return updateDataTableSqls.ToArray();
+        }
+
+        private string GetUpdateColumnInsertSql(string tableNaem, XmlNodeList dataMappingNodes)
+        {
+            StringBuilder insertSql = new StringBuilder();
+            insertSql.AppendFormat("INSERT INTO {0} (", tableNaem);
+            foreach (XmlNode columnNode in dataMappingNodes)
+            {
+                insertSql.AppendFormat("{0},",columnNode.Attributes["ServerName"].Value);
+            }
+            insertSql.Length -= 1;
+            insertSql.Append(")");
+            return insertSql.ToString();
+        }
+
+        private string GetUpdateColumnValueSql(DataRow dr, XmlNodeList dataMappingNodes)
+        {
+            StringBuilder insertSql = new StringBuilder();
+            insertSql.Append("VALUES (");
+            foreach (XmlNode columnNode in dataMappingNodes)
+            {
+                insertSql.AppendFormat("{0},", GetFieldValueSql(dr, columnNode["PdaName"].Value));
+            }
+            insertSql.Length -= 1;
+            insertSql.Append(")");
+            return insertSql.ToString();
+        }
+
+        private string GetFieldValueSql(DataRow dr, string fieldName)
+        {
+            if (dr.Table.Columns[fieldName].DataType == typeof(DateTime))
+            {
+                return string.Format("TO_DATE('{0}','yyyy-mm-dd')",((DateTime)dr[fieldName]).ToString("yyyy-MM-dd"));
+            }
+            if (dr.Table.Columns[fieldName].DataType == typeof(decimal) || dr.Table.Columns[fieldName].DataType == typeof(float))
+            {
+                return dr[fieldName].ToString();
+            }
+            else
+            {
+                return string.Format("'{0}'",dr[fieldName]);
+            }
+        }
     }
 }
