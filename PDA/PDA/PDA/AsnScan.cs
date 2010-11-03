@@ -36,14 +36,14 @@ namespace PDA
         {
             Form ads;
             //TODO:保存界面信息
-            if (this.hadTray)
-            {
-                ads = new AsnDetailScanHadTray(this.txt_ASN.Text, cb_Company.Text, cb_Company.SelectedValue.ToString(), cb_Storage.Text, cb_Storage.SelectedValue.ToString(), txt_CarNo.Text, cb_ASNType.Text, txt_Different.Text);
-            }
-            else
-            {
+            //if (this.hadTray)
+            //{
+            //    ads = new AsnDetailScanHadTray(this.txt_ASN.Text, cb_Company.Text, cb_Company.SelectedValue.ToString(), cb_Storage.Text, cb_Storage.SelectedValue.ToString(), txt_CarNo.Text, cb_ASNType.Text, txt_Different.Text);
+            //}
+            //else
+            //{
                 ads = new AsnDetailScan(this.txt_ASN.Text, cb_Company.Text, cb_Company.SelectedValue.ToString(), cb_Storage.Text, cb_Storage.SelectedValue.ToString(), txt_CarNo.Text, cb_ASNType.Text, txt_Different.Text);
-            }
+            //}
             ads.Show();
             ads.Closed += new EventHandler(ads_Closed);
             this.Hide();

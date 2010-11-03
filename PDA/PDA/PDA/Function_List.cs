@@ -26,11 +26,11 @@ namespace PDA
             this.Show();
         }
 
-        private void btn_PingtuoHadTray_Click(object sender, EventArgs e)
-        {
-            PinTuoDetailHadTray ptdh = new PinTuoDetailHadTray();
-            OpenForm(ptdh);
-        }
+        //private void btn_PingtuoHadTray_Click(object sender, EventArgs e)
+        //{
+        //    PinTuoDetailHadTray ptdh = new PinTuoDetailHadTray();
+        //    OpenForm(ptdh);
+        //}
 
         private void btn_Pingtuo_Click(object sender, EventArgs e)
         {
@@ -50,11 +50,11 @@ namespace PDA
             OpenForm(zt);
         }
 
-        private void btn_CheckHadTray_Click(object sender, EventArgs e)
-        {
-            CheckDetailHadTray cdh = new CheckDetailHadTray();
-            OpenForm(cdh);
-        }
+        //private void btn_CheckHadTray_Click(object sender, EventArgs e)
+        //{
+        //    CheckDetailHadTray cdh = new CheckDetailHadTray();
+        //    OpenForm(cdh);
+        //}
 
         private void btn_Check_Click(object sender, EventArgs e)
         {
@@ -62,11 +62,11 @@ namespace PDA
             OpenForm(cd);
         }
 
-        private void btn_MoveLocHadTray_Click(object sender, EventArgs e)
-        {
-            MoveLocDetailHadTray mldh = new MoveLocDetailHadTray();
-            OpenForm(mldh);
-        }
+        //private void btn_MoveLocHadTray_Click(object sender, EventArgs e)
+        //{
+        //    MoveLocDetailHadTray mldh = new MoveLocDetailHadTray();
+        //    OpenForm(mldh);
+        //}
 
         private void btn_MoveLoc_Click(object sender, EventArgs e)
         {
@@ -106,11 +106,11 @@ namespace PDA
         private void SetRight(object[] rights)
         {
             Hashtable funRigthMapping = new Hashtable();
-            funRigthMapping.Add("01", new Control[] { btn_ASN, btn_ASNHadTray });
-            funRigthMapping.Add("02", new Control[] { btn_MoveLoc, btn_MoveLocHadTray });
-            funRigthMapping.Add("03", new Control[] { btn_Pick, btn_PickHadTray });
-            funRigthMapping.Add("04", new Control[] { btn_Check, btn_CheckHadTray });
-            funRigthMapping.Add("05", new Control[] { btn_Pingtuo, btn_PingtuoHadTray });
+            funRigthMapping.Add("01", new Control[] { btn_ASNHadTray });
+            funRigthMapping.Add("02", new Control[] { btn_MoveLocHadTray });
+            funRigthMapping.Add("03", new Control[] { btn_PickHadTray });
+            funRigthMapping.Add("04", new Control[] { btn_CheckHadTray });
+            funRigthMapping.Add("05", new Control[] { btn_PingtuoHadTray });
             funRigthMapping.Add("06", new Control[] { btn_ZuTuo });
             funRigthMapping.Add("07", new Control[] { btn_JieTuo });
             funRigthMapping.Add("08", new Control[] { btn_UpdataBaseData });

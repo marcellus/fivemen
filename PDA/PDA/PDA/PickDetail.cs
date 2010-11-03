@@ -83,6 +83,7 @@ namespace PDA
         {
             txt_XiaXiangJi.Text = string.Empty;
             txt_SN.Text = string.Empty;
+            txt_TrayNo.Text = string.Empty;
         }
 
         private void ShowDiskDetail()
@@ -160,5 +161,82 @@ namespace PDA
 
         }
 
+        private void txt_TrayNo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //TODO:逻辑处理
+                this.txt_DiskDetail.Text = string.Empty;
+                this.tabControl1.SelectedIndex = 0;
+                this.ShowTrayDetail();
+                if (!this.cb_RollbackTray.Checked)
+                {
+                    this.SaveDataTray();
+                    //this.RebindData();
+                }
+                else
+                {
+                    this.RemoveDataTray();
+                    // this.RebindData();
+                    MessageBox.Show("撤销扫描成功！");
+                    this.txt_DiskDetail.Text = string.Empty;
+                }
+                this.txt_TrayNo.Text = string.Empty;
+                this.cb_RollbackTray.Checked = false;
+            }
+        }
+
+        private void cb_RollBackTray_CheckStateChanged(object sender, EventArgs e)
+        {
+            txt_TrayNo.Text = string.Empty;
+            txt_TrayNo.Focus();
+        }
+        private SendDetail ComputeDataTray()
+        {
+
+            SendDetail entity = new SendDetail();
+            entity.Sn = string.Empty;
+            entity.Tph = this.txt_TrayNo.Text.Trim();
+            entity.Xxjh = string.Empty;
+            entity.FahuoType = 1;
+            entity.So = record.So;
+            entity.Scaner = Program.UserID;
+            entity.date = System.DateTime.Now;
+            return entity;
+        }
+
+        private void RemoveDataTray()
+        {
+            SendDetail entity = this.ComputeDataTray();
+            if (!SendDetailManager.CheckExistsTuopan(entity))
+            {
+                MessageBox.Show("该托盘尚未扫描，不能撤销！");
+                return;
+            }
+            SendDetailManager.DeleteTuopan(entity, this.record);
+        }
+
+        private void SaveDataTray()
+        {
+            SendDetail entity = this.ComputeDataTray();
+            if (SendDetailManager.CheckExistsTuopan(entity))
+            {
+                MessageBox.Show("您已经扫描过该托盘！");
+            }
+            else
+            {
+                SendDetailManager.Save(entity, this.record);
+            }
+
+        }
+        private void ShowTrayDetail()
+        {
+            this.txt_DiskDetail.Text = "发货单：" + record.So + "\r\n";
+            this.txt_DiskDetail.Text += "其他发货单：" + record.OtherSo + "\r\n";
+            this.txt_DiskDetail.Text += "车牌：" + record.CarNo + "\r\n";
+            this.txt_DiskDetail.Text += "区分：" + record.QuFen + "\r\n";
+            this.txt_DiskDetail.Text += "托盘号：" + this.txt_TrayNo.Text.Trim();
+
+        }
     }
 }

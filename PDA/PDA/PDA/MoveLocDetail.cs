@@ -21,7 +21,7 @@ namespace PDA
         {
             InitializeComponent();
         }
-        
+
 
         private void txt_Product_KeyUp(object sender, KeyEventArgs e)
         {
@@ -40,22 +40,22 @@ namespace PDA
                     cb_Rollback.Checked = false;
                 }
             }
-        }               
+        }
 
         private void txt_OldLoc_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (KuWeiManager.IsExists(this.txt_OldLoc.Text.Trim())) 
+                if (KuWeiManager.IsExists(this.txt_OldLoc.Text.Trim()))
                 {
                     this.txt_Product.Focus();
                 }
                 else
                 {
 
-                    MessageBox.Show("库位:" + this.txt_OldLoc.Text.Trim()+"已经不再使用！");
+                    MessageBox.Show("库位:" + this.txt_OldLoc.Text.Trim() + "已经不再使用！");
                 }
-                
+
             }
         }
 
@@ -76,8 +76,8 @@ namespace PDA
 
                     MessageBox.Show("库位:" + this.txt_NewLoc.Text.Trim() + "已经不再使用！");
                 }
-                
-                    
+
+
                 ClearInput();
                 this.txt_OldLoc.Focus();
             }
@@ -103,11 +103,14 @@ namespace PDA
             this.txt_Count.Text = string.Empty;
 
             this.txt_OldLoc.Text = string.Empty;
+            this.txt_TrayNo.Text = string.Empty;
+            this.txt_NewTrayLoc.Text = string.Empty;
         }
 
-private void RebindData()
+        private void RebindData()
         {
             this.dg_ScanList.DataSource = AnHuoYiKuManager.GetUserData(Program.UserID);
+            new DB().SetDataGridCloumnWidth(dg_ScanList);
         }
 
         private AnHuoYiKu ComputeData()
@@ -132,6 +135,7 @@ private void RebindData()
                 return;
             }
             AnHuoYiKuManager.Delete(entity);
+            MessageBox.Show("撤消扫描成功！");
         }
 
         private void SaveData()
@@ -147,11 +151,108 @@ private void RebindData()
             }
 
         }
+        private AnTuoYiKu ComputeTrayData()
+        {
+            AnTuoYiKu entity = new AnTuoYiKu();
+            entity.Mdkw = this.txt_NewTrayLoc.Text.Trim();
+            entity.Tph = this.txt_TrayNo.Text.Trim();
+            entity.Scaner = Program.UserID;
+            entity.date = System.DateTime.Now;
+            return entity;
+        }
+        private void SaveTrayData()
+        {
+            AnTuoYiKu entity = this.ComputeTrayData();
+            if (AnTuoYiKuManager.CheckExists(entity))
+            {
+                MessageBox.Show("您已经扫描过该产品！");
+            }
+            else
+            {
+                AnTuoYiKuManager.Save(entity);
+            }
 
+        }
         private void MoveLocDetail_Load(object sender, EventArgs e)
         {
-this.RebindData();
+            this.RebindData();
         }
 
+        private void txt_TrayNo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!this.cb_RollbackTray.Checked)
+                {
+                    this.txt_NewTrayLoc.Focus();
+                }
+                else
+                {
+                    this.RemoveTaryData();
+                    this.RebindTrayData();
+                    ClearInput();
+                    cb_RollbackTray.Checked = false;
+                }
+            }
+        }
+
+        private void txt_NewTrayLoc_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //txt_SN.Focus();
+                if (KuWeiManager.IsExists(this.txt_NewTrayLoc.Text.Trim()))
+                {
+                    if (!this.cb_RollbackTray.Checked)
+                    {
+                        this.SaveTrayData();
+                        this.RebindTrayData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("库位:" + this.txt_NewLoc.Text.Trim() + "已经不再使用！");
+                }
+                ClearInput();
+                txt_TrayNo.Focus();
+                //this.txt_TrayNo.Enabled = false;
+            } 
+        }
+
+        private void RebindTrayData()
+        {
+            this.dg_ScanList.DataSource = AnTuoYiKuManager.GetUserData(Program.UserID);
+            new DB().SetDataGridCloumnWidth(dg_ScanList);
+        }
+
+        private void cb_RollbackTray_CheckStateChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            this.txt_TrayNo.Focus();
+
+        }
+        private void RemoveTaryData()
+        {
+            AnTuoYiKu entity = this.ComputeTrayData();
+            if (!AnTuoYiKuManager.CheckExists(entity))
+            {
+                MessageBox.Show("托盘尚未扫描，不能撤消！");
+                return;
+            }
+            AnTuoYiKuManager.Delete(entity);
+            MessageBox.Show("撤消扫描成功！");
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                RebindData();
+            }
+            else
+            {
+                RebindTrayData();
+            }
+        }
     }
 }

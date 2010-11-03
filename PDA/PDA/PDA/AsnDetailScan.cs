@@ -125,6 +125,7 @@ namespace PDA
         {
             this.txt_SN.Text = string.Empty;
             this.txt_Optional.Text = string.Empty;
+            this.txt_TrayNo.Text = string.Empty;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,6 +143,74 @@ namespace PDA
                 this.dg_Summarizing.DataSource = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
                 new DB().SetDataGridCloumnWidth(dg_Summarizing);
             }
+        }
+
+        private void txt_TrayNo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.txt_DiskDetail.Text = string.Empty;
+                tabControl1.SelectedIndex = 0;
+                asnDetail.Tno = this.txt_TrayNo.Text;
+                if (this.cK_HOLDTray.Checked)
+                {
+                    asnDetail.Hold = 1;
+                }
+                else
+                {
+                    asnDetail.Hold = 0;
+                }
+
+                asnDetail.Status = 1;
+                //asnDetail.Scanner = Program.UserID;
+                asnDetail.Scantime = System.DateTime.Now;
+                asnDetail.Pnno = string.Empty;// this.txt_TrayNo.Text.Substring(2, 10);
+
+                //asnMain.Pnno = this.txt_SN.Text.Substring(2, 10);
+                //asnMain.Scanner = Program.UserID;
+                asnMain.Scantime = System.DateTime.Now;
+                asnMain.Sl = 1;//这个地方需要加数量提取处理
+
+                if (!this.ck_RollbackTray.Checked)
+                {
+                    //asnMain.SaveAsnMain(string.Empty);
+                    string msg = asnDetail.SaveAsnDetail(string.Empty, "Tray", asnMain, asnDetail);
+                    if (msg != string.Empty)
+                    {
+                        MessageBox.Show(msg);
+                    }
+                    else
+                    {
+                        //asnMain.SaveAsnMain(string.Empty);
+                        this.txt_DiskDetail.Text += "收货单：" + asnMain.Receiveno + "\r\n";
+                        this.txt_DiskDetail.Text += "工厂：" + asnMain.Factory + "\r\n";
+                        this.txt_DiskDetail.Text += "仓库：" + asnMain.Storage + "\r\n";
+                        this.txt_DiskDetail.Text += "车牌：" + asnMain.Carno + "\r\n";
+                        this.txt_DiskDetail.Text += "托盘号：" + this.txt_TrayNo.Text + "\r\n";
+                    }
+                }
+                else
+                {
+                    string msg = asnDetail.SaveAsnDetail("RollBack", "Tray", asnMain, asnDetail);
+                    if (msg != string.Empty)
+                    {
+                        MessageBox.Show(msg);
+                    }
+                }
+                ClearInput();
+                ck_RollbackTray.Checked = false;
+            }
+        }
+
+        private void ck_RollbackTray_CheckStateChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            txt_TrayNo.Focus();
+        }
+
+        private void cK_HOLDTray_KeyUp(object sender, KeyEventArgs e)
+        {
+            txt_TrayNo.Focus();
         }
     }
 }
