@@ -180,6 +180,11 @@ namespace WebService2
         {
             return new DB().GetUserAndFunction();
         }
+        [WebMethod]
+        public string UpdateServerByPda(DataSet ds)
+        {
+            return new DB().UpdateServerByPda(ds);
+        }
     }
 
 }
