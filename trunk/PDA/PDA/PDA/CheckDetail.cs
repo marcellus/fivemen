@@ -92,6 +92,7 @@ namespace PDA
         private void ClearInput()
         {
             txt_Product.Text = string.Empty;
+            txt_Tray.Text = string.Empty;
         }
 
         private void ck_Rollback_CheckStateChanged(object sender, EventArgs e)
@@ -122,6 +123,77 @@ namespace PDA
                 DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
                 this.dg_Summarizing.DataSource = dt;
                 new DB().SetDataGridCloumnWidth(dg_Summarizing);
+            }
+        }
+
+        private void txt_Tray_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.txt_DiskDetail.Text = string.Empty;
+                this.tabControl1.SelectedIndex = 0;
+                CheckMain cm = new CheckMain();
+                CheckDetailRecord cdr = new CheckDetailRecord();
+                cm.Kw = this.txt_Loc.Text;
+                cm.Pnno = string.Empty;
+                cm.Sl = 1;
+                cm.Status = 1;
+                cm.Cpqufen = string.Empty;
+
+                cdr.Tph = this.txt_Tray.Text;
+                cdr.Scantime = System.DateTime.Now;
+                cdr.Xxjh = string.Empty;
+                cdr.Sn = string.Empty;
+                cdr.Scaner = Program.UserID;
+                cdr.Kw = this.txt_Loc.Text;
+                string RollBack = string.Empty;
+                if (this.ck_RollbackTray.Checked)
+                {
+                    RollBack = "RollBack";
+                }
+                string msg = cdr.SaveCheckData(cm, cdr, "TP", RollBack);
+                if (msg != string.Empty)
+                {
+                    MessageBox.Show(msg);
+                }
+                else
+                {
+                    this.txt_DiskDetail.Text += "库位：" + this.txt_Loc.Text + "\r\n";
+                    this.txt_DiskDetail.Text += "托盘：" + this.txt_Tray.Text + "\r\n";
+                    this.txt_Loc.Enabled = false;
+                    this.txt_Tray.Focus();
+                }
+                ClearInput();
+                ck_RollbackTray.Checked = false;
+            }
+        }
+
+        private void txt_LocNoTray_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Tray.Focus();
+                txt_LocNoTray.Enabled = false;
+            }
+        }
+
+        private void btn_ClearLocTray_Click(object sender, EventArgs e)
+        {
+            this.txt_LocNoTray.Text = string.Empty;
+            this.txt_LocNoTray.Enabled = true;
+            this.txt_LocNoTray.Focus();
+        }
+
+        private void ck_RollbackTray_CheckStateChanged(object sender, EventArgs e)
+        {
+            ClearInput();
+            if (txt_Loc.Enabled)
+            {
+                txt_Loc.Focus();
+            }
+            else
+            {
+                txt_Tray.Focus();
             }
         }
     }

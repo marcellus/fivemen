@@ -31,9 +31,7 @@ namespace PDA.DbManager
         public static bool CheckExists(AnHuoYiKu entity)
         {
             string sql = string.Empty;
-            sql = "select * from anhuoyiku where ykw='" +
-                entity.Ykw + "' and cp='" + entity.Cp + "' and mdkw='" +
-                entity.MdKw + "' and scaner='" + entity.Scaner + "'";
+            sql = "select * from anhuoyiku where cp='" + entity.Cp + "'";
             DataTable dt = SqliteDbFactory.GetSqliteDbOperator().SelectFromSql(sql);
 
             return dt != null && dt.Rows.Count == 1;
@@ -42,9 +40,7 @@ namespace PDA.DbManager
         public static void Delete(AnHuoYiKu entity)
         {
             string sql = string.Empty;
-            sql = "delete from anhuoyiku where ykw='" +
-                entity.Ykw + "' and cp='" + entity.Cp + "' and mdkw='" +
-                entity.MdKw + "' and scaner='" + entity.Scaner + "'";
+            sql = "delete from anhuoyiku where cp='" + entity.Cp + "'";
             SqliteDbFactory.GetSqliteDbOperator().ExecuteNonQuery(sql);
 
         }

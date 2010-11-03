@@ -73,14 +73,14 @@ namespace PDA
         {
             Form pd;
             this.SaveData();
-            if (hadTray)
-            {
-                pd = new PickDetailHadTray(this.current);
-            }
-            else
-            {
+            //if (hadTray)
+            //{
+            //    pd = new PickDetailHadTray(this.current);
+            //}
+            //else
+            //{
                 pd = new PickDetail(this.current);
-            }
+            //}
             pd.Show();
             pd.Closed += new EventHandler(pd_Closed);
             this.Hide();
