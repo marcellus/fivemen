@@ -1,0 +1,479 @@
+﻿/**
+ * 
+ */
+package com.ft.site.web.preasign.serviceImpl;
+
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.dom4j.DocumentException;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ft.site.commons.dao.IGenericDao;
+import com.ft.site.commons.entity.BaseUser;
+import com.ft.site.commons.util.DateUtil;
+import com.ft.site.commons.web.framework.WebPropertyConfig;
+import com.ft.site.commons.web.util.HttpUtil;
+import com.ft.site.web.entity.BaseDrvEntity;
+import com.ft.site.web.preasign.domain.DrvQueryHelper;
+import com.ft.site.web.preasign.domain.LimitCondition;
+import com.ft.site.web.preasign.domain.SchoolCarInfo;
+import com.ft.site.web.preasign.domain.TempKscjInfo;
+import com.ft.site.web.preasign.domain.TempStudentInfo;
+import com.ft.site.web.preasign.domain.YuyueDayLimit;
+import com.ft.site.web.preasign.domain.YuyueInfo;
+import com.ft.site.web.preasign.service.YuyueService;
+import com.tmri.ws.services.second.TmriHelper;
+import com.tmri.ws.services.second.TmriResponse;
+
+/**
+ * @author austin
+ *
+ */
+@Transactional
+public class YuyueServiceImpl implements YuyueService {
+	protected Logger log = Logger.getLogger(this.getClass());
+	
+	private IGenericDao<YuyueInfo> yuyueDao;
+	private IGenericDao<LimitCondition> limitDao;
+
+	/* (non-Javadoc)
+	 * @see com.ft.site.web.preasign.service.YuyueService#check(com.ft.site.web.preasign.domain.YuyueInfo)
+	 */
+	public boolean check(Long id,int checkedresult,String reason) throws MalformedURLException, RemoteException, ParseException, DocumentException {
+		if(log.isDebugEnabled())
+		{
+			log.debug("注入的yuyueDao:"+yuyueDao);
+			log.debug("注入的limitDao:"+limitDao);
+		}
+		YuyueInfo yuyue=yuyueDao.get(id);
+		if(log.isDebugEnabled())
+		{
+			log.debug("注入的yuyueInfo:"+yuyue);
+		}
+		//tmp=(BaseDrvEntity)obj;
+		HttpUtil.initEdit(yuyue);
+		//tmp.setChecked(1);
+		yuyue.setChecked(checkedresult);
+		yuyue.setRefuseReason(reason);
+		int t=yuyue.getSyn();
+		boolean result=false;
+		BaseUser user=HttpUtil.getLoginUser();
+		if(user!=null)
+		{
+			(yuyue).setJbr(user.getRealName());
+		}
+		TmriResponse response=TmriHelper.yuyueInfo(yuyue);
+		if(log.isDebugEnabled())
+		{
+			log.debug("预约从服务器获取结果解析出来的Response对象为："+response);
+			
+		}
+		if(response!=null)
+		{
+			
+			if(log.isDebugEnabled())
+			{
+				log.debug("预约从服务器获取结果解析出来的Response的Code为："+response.getCode());
+			}
+			yuyue.setRefuseReason(response.getMessage());
+			if(response.getCode()!=1)
+			{
+				yuyue.setChecked(2);
+				result= false;
+			}
+			else
+			{
+				result=true;
+			}
+		}
+		if(log.isDebugEnabled())
+		{
+			log.debug("审批结果为："+result);
+			log.debug("审批后预约信息的数据内容为："+yuyue);
+		}
+		
+		if(result)
+		{
+			if(log.isDebugEnabled())
+			{
+				log.debug("查询排班id为"+yuyue.getPaibanid()+"通过LimitDao："+this.getLimitDao());
+			}
+			Object tmplimit=null;
+			try
+			{
+				Long limitid=Long.parseLong(String.valueOf(yuyue.getPaibanid()));
+				if(log.isDebugEnabled())
+				{
+					log.debug("转换排班id为"+limitid+"--实体类为："+LimitCondition.class);
+				}
+				tmplimit= this.getLimitDao().get(limitid);
+				//tmplimit=this.getYuyueDao().get(id)
+			}
+			catch(Exception ex)
+			{
+				log.debug("+获取排班记录出错！+"+ex);
+			}
+			if(log.isDebugEnabled())
+			{
+				log.debug("查询排期结果为"+tmplimit);
+			}
+			LimitCondition limit=(LimitCondition)tmplimit;
+			HttpUtil.initEdit(limit);
+			if(limit.getCheckNum()==limit.getTotal())
+			{
+				limit.setTpcheckNum(limit.getTpcheckNum()+1);
+			}
+			else
+			{
+				limit.setCheckNum(limit.getCheckNum()+1);
+			}
+			//this.limitDao.save(limit);
+			
+		}
+		if(yuyue.getSyn()!=1&&checkedresult==1&&result)
+		{
+			if(log.isDebugEnabled())
+				log.debug("准备把tmp对象的同步标志改成1："+yuyue);
+			yuyue.setSyn(1);
+		}
+		if(log.isDebugEnabled())
+			log.debug("审核完准备保存的对象为："+yuyue);
+		//yuyueDao.save(yuyue);
+		
+		return result;
+	}
+
+	public IGenericDao<YuyueInfo> getYuyueDao() {
+		return yuyueDao;
+	}
+
+	public void setYuyueDao(IGenericDao<YuyueInfo> yuyueDao) {
+		this.yuyueDao = yuyueDao;
+	}
+
+	public IGenericDao<LimitCondition> getLimitDao() {
+		return limitDao;
+	}
+
+	public void setLimitDao(IGenericDao<LimitCondition> limitDao) {
+		this.limitDao = limitDao;
+	}
+	
+	private DrvQueryHelper drvQueryhelper;
+
+	public DrvQueryHelper getDrvQueryhelper() {
+		return drvQueryhelper;
+	}
+
+	public void setDrvQueryhelper(DrvQueryHelper drvQueryhelper) {
+		this.drvQueryhelper = drvQueryhelper;
+	}
+
+	public String yuyue(YuyueInfo yuyue) throws ParseException {
+		String result="";
+		String objt=WebPropertyConfig.getNormalValue("DrvHelperSystem_bkjg");
+		if(log.isInfoEnabled())
+			log.info("获取补考间隔DrvHelperSystem_bkjg为："+objt);
+		int bkjg=Integer.parseInt(objt);
+		int km=yuyue.getKskm();
+		String glbm=yuyue.getGlbm();
+		Date ksrq=yuyue.getKsrq();
+		if(glbm==null||glbm.length()==0)
+		{
+			glbm=WebPropertyConfig.getNormalValue("DrvHelperSystem_glbm");
+		}
+		if(Boolean.parseBoolean(WebPropertyConfig.getNormalValue("Drv_Yuyue_After_Days_Boolean")))
+		{
+			int daystmp=Integer.parseInt(WebPropertyConfig.getNormalValue("Drv_Yuyue_After_Days"));
+			if(!DateUtil.addDays(new Date(), daystmp).after(ksrq))
+			{
+				result="只能预约"+daystmp+"天之后的排班！";
+				return result;
+			}
+		}
+		
+	
+		BaseUser user=HttpUtil.getLoginUser();
+		
+		String username="";
+		String depName="";
+		
+		if(user!=null)
+		{
+			glbm=user.getGlbm();
+			username=user.getRealName();
+			depName=user.getDepName();
+			yuyue.setCreator(user.getFullName());
+			yuyue.setCreateIp(HttpUtil.getUserIp());
+			yuyue.setCreateTime(new Date());
+			
+		}
+		else
+		{
+			yuyue.setCreator("netouter");
+			yuyue.setCreateIp("netouter");
+			yuyue.setCreateTime(new Date());
+		}
+		if(log.isInfoEnabled())
+		{
+			log.info("通过jsp传递过来的YuyueInfo-------》");
+			log.info(yuyue.toString());
+		}
+		TempStudentInfo info=drvQueryhelper.queryStudent(glbm, yuyue.getSfzmhm());
+		if(log.isInfoEnabled())
+		{
+			log.info("通过drvQueryHelper查询出来的TempStudentInfo------》");
+			if(info!=null)
+			log.info(info.toString());
+			else
+			{
+				log.info(info);
+			}
+		}
+		
+		if(info==null)
+		{
+			result="该学员不是本地车管所报名的！";
+			return result;
+		}
+		if(ksrq.after(DateUtil.parseDate(info.getYxqz())))
+		{
+			result="您的准考证明有效期到"+info.getYxqz()+"截止！";
+			return result;
+		}
+		if(info.getJxdm()!=null&&info.getJxdm().length()>0)
+		{
+			if(user==null)
+			{
+				result="驾校学员只能通过驾校帮您预约！";
+				return result;
+			}
+			else
+			{
+				if(!info.getJxdm().equals(user.getDepCode()))
+				{
+					result="该学员不是本驾校学员！";
+					return result;
+				}
+			}
+		}
+		else
+		{
+			System.out.println("非培训队报考人员进行预约！");
+		}
+		///TODO:读取事务隔离
+		List tmp2=yuyueDao.getAll("from YuyueInfo where sfzmhm='"+yuyue.getSfzmhm()+"' and kskm="+km);
+		if(km==1&&tmp2.size()>0)
+		{
+			result="科目一预约只能在本系统预约一次，补考预约请到业务大厅！";
+			return result;
+		}
+		if(km>1&&tmp2.size()==2)
+		{
+			result="科目二、三预约只能在本系统预约二次，补考预约请到业务大厅！";
+			return result;
+		}
+		if(km>1&&tmp2.size()>0)
+		{
+			YuyueInfo yytmp=(YuyueInfo)tmp2.get(0);
+			if(yytmp.getChecked()==0)
+			{
+				result="科目二、三预约您已经预约过考试日期为：！"+DateUtil.parseString(yytmp.getKsrq())+",处于待审核中！";
+				return result;
+			}
+		}
+		String zkcx=info.getZkcx();
+		
+		List limits=yuyueDao.getAll("from LimitCondition where id="+yuyue.getPaibanid());
+		LimitCondition limit=(LimitCondition)limits.get(0);
+		List daylimits=yuyueDao.getAll("from YuyueDayLimit where carType like '%"+info.getZkcx()+"%' and km="+yuyue.getKskm()+"");
+		TempKscjInfo kscjinfo=drvQueryhelper.queryKscj(glbm, yuyue.getSfzmhm());
+		if(log.isInfoEnabled())
+		{
+			log.info("通过drvQueryhelper查询出来的kscjinfo------》");
+			if(kscjinfo!=null)
+				log.info(kscjinfo.toString());
+			else
+			{
+				log.info(kscjinfo);
+			}
+		}
+		YuyueDayLimit daylimit=null;
+		if(daylimits.size()>0)
+		{
+			daylimit=(YuyueDayLimit)daylimits.get(0);
+		}
+		if(log.isInfoEnabled())
+		{
+			log.info("通过查询出来的YuyueDayLimit------》");
+			if(daylimit!=null)
+				log.info(daylimit.toString());
+			else
+			{
+				log.info(daylimit);
+			}
+		}
+		
+		if(km==1)
+		{
+			if(kscjinfo.getKm1()==1)
+			{
+				result="您的科目一已经合格！";
+				return result;
+			}
+		}
+		else if(km==2)
+		{
+			if(kscjinfo.getKm2yyrq()!=null)
+			{
+				if(kscjinfo.getKm2()==1)
+				{
+					result="您的科目二已经合格！";
+					return result;
+				}
+				else if(kscjinfo.getKm2()==2)
+				{
+					//是否达到补考20天的标准
+					if(ksrq.before(DateUtil.addDays(DateUtil.parseDate(kscjinfo.getKm2yyrq()),bkjg)))
+					{
+						result="您上次考试时间为："+kscjinfo.getKm2yyrq()+",科目二补考必须在上一次考试20天之后！";
+						return result;
+					}
+				}
+			}
+			//科目一合格科目二未预约过
+			else if(kscjinfo.getKm1()==1&&daylimit!=null)
+			{
+				if(ksrq.before(DateUtil.addDays(DateUtil.parseDate(kscjinfo.getKm1yyrq()),daylimit.getDays())))
+				{
+					result="您上次考试时间为："+kscjinfo.getKm1yyrq()+",申请"+daylimit.getCarType()+"牌照的科目二考试必须在"+daylimit.getDays()+"天之后！";
+					return result;
+				}
+			}
+			else
+			{
+				result="您科目一还没有合格！";
+				return result;
+			}
+		}
+		else if(km==3)
+		{
+			if(kscjinfo.getKm3yyrq()!=null)
+			{
+				if(kscjinfo.getKm3()==1)
+				{
+					result="您的科目三已经合格！";
+					return result;
+				}
+				else if(kscjinfo.getKm3()==2)
+				{
+					//是否达到补考20天的标准
+					if(ksrq.before(DateUtil.addDays(DateUtil.parseDate(kscjinfo.getKm3yyrq()),bkjg)))
+					{
+						result="您上次考试时间为："+kscjinfo.getKm3yyrq()+",科目三补考必须在上一次考试20天之后！";
+						return result;
+					}
+				}
+			}
+			//科目二合格科目三未预约过
+			else if(kscjinfo.getKm2()==1&&daylimit!=null)
+			{
+				if(ksrq.before(DateUtil.addDays(DateUtil.parseDate(kscjinfo.getKm2yyrq()),daylimit.getDays())))
+				{
+					result="您上次考试时间为："+kscjinfo.getKm2yyrq()+",申请"+daylimit.getCarType()+"牌照的科目三考试必须在"+daylimit.getDays()+"天之后！";
+					return result;
+				}
+			}
+			else
+			{
+				result="您科目二还没有合格！";
+				return result;
+			}
+		}
+		/*
+		YuyueInfo yuyue=new YuyueInfo();
+		yuyue.setCarNo(this.jlcp);
+		yuyue.setChecked(0);
+		HttpUtil.initAdd(yuyue);
+		yuyue.setGlbm(glbm);
+		yuyue.setKscc(this.kscd);
+		yuyue.setKskm(this.km);
+		yuyue.setKsrq(this.getDate());
+		yuyue.setKssj(this.getKssj());
+		yuyue.setPxshrq(pxshrq);
+		yuyue.setSfzmmc(this.sfzmmc);
+		yuyue.setSfzmhm(sfzmhm);
+		yuyue.setName(info.getName());
+		yuyue.setSyn(0);
+		yuyue.setKscc(kscc);
+		*/
+		if(yuyue.getCarNo()!=null&&yuyue.getCarNo().length()>0)
+		{
+			List carinforesult=yuyueDao.getAll("from SchoolCarInfo where hmhp='"+yuyue.getCarNo()+"'");
+			if(carinforesult!=null&&carinforesult.size()>0)
+			{
+				SchoolCarInfo carinfo=(SchoolCarInfo)carinforesult.get(0);
+				yuyue.setJly(carinfo.getIdCard());
+			}
+		}
+		else
+		{
+			yuyue.setJly(info.getJly());
+		}
+		yuyue.setCreator(username);
+		yuyue.setLsh(info.getLsh());
+		yuyue.setDlr(info.getJxdm());
+		yuyue.setGlbm(glbm);
+		yuyue.setName(info.getName());
+		yuyue.setSyn(0);
+		yuyue.setZjcx(info.getZkcx());
+		yuyue.setKeyword(info.getLsh()+";"+info.getIdCard());
+		
+		
+		
+		if(limit.getTotal()+limit.getTpTotal()>limit.getUsedNum()+limit.getTpusedNum())
+		{
+			try
+			{
+			if(log.isInfoEnabled())
+			{
+				log.info("需要保存的YuyueInfo对象为："+yuyue);
+			}
+			yuyueDao.save(yuyue);
+			//result="您已经预约成功！");
+			if(limit.getTotal()!=limit.getUsedNum())
+			{
+				limit.setUsedNum(limit.getUsedNum()+1);
+			}
+			else
+			{
+				limit.setTpusedNum(limit.getTpusedNum()+1);
+			}
+			if(log.isInfoEnabled())
+			{
+				log.info("需要保存的LimitCondition对象为："+limit);
+			}
+			//this.getBaseDao().e
+			limitDao.save(limit);
+			}
+			catch(Exception ex)
+			{
+				if(log.isInfoEnabled())
+				{
+					log.info(ex);
+				}
+			}
+		}
+		else
+		{
+			result="预约人数已满，无法进行预约！";
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,105 @@
+﻿BODY
+{
+	
+	background-color: #eef3f9;
+	font-size: 15pt;
+	height:100%;
+}
+fieldset
+{ 
+	border:1px solid #ccc; 
+	margin:1em auto; padding:0 1em; 
+	background-color:#f1f1f1; 
+	font-size: 9pt;
+}
+legend
+{ 
+	font-weight:bold;
+}
+
+* html legend {
+margin: -10px 0 0 0;
+position:fixed;
+}
+
+/*知识列表样式*/
+input
+{
+	border:solid 1px black;
+	font-size:14pt;
+}
+ddl
+{
+	font-size:15pt;
+}
+
+
+img
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+}
+.poptable-title
+{
+	background-image: url(   "../images/poptablebg.gif" );
+	height: 25px;
+	font-size:15pt;
+	font-weight: 700;
+}
+.table-content,.table-bottom
+{
+	 padding: 0 0 0 0;
+	 font-size: 13pt;
+	font-family: "宋体";
+	background-color: #f9fcff;
+	text-align: left;
+}
+.table-bottom
+{
+	text-align: right;
+	font-size: 13pt;
+}
+.table-title
+{
+	font-size: 15pt;
+	color: #000000;
+	font-family: "宋体";
+	background-color: #d0e3f8;
+}
+.table-border
+{
+	font-family: "宋体";
+	background-color: #0080c0;
+	text-align: center;
+	width: 100%;
+	table-layout:fixed;
+	word-break:break-all;
+	word-wrap:break-word;
+	height:auto;
+}
+.table-border td
+{
+	overflow:visible;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+form
+{
+	text-align:center;
+	vertical-align:middle;
+	height:100%;
+}
+form div:first-child
+{
+	text-align:center;
+	vertical-align:middle;
+	height:100%;
+}
+div table
+{
+	text-align:center;
+	vertical-align:middle;
+	height:100%;
+	margin-right: 0px;
+}

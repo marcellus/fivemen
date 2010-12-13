@@ -1,0 +1,49 @@
+
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<LINK href="include/span.css" 
+      type=text/css rel=stylesheet>
+<BODY id=xu onkeydown="if(event.keyCode==116){event.keyCode=0;return false}" 
+leftMargin=0 topMargin=0>
+<TABLE id=SHOW height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+  border=0><TBODY>
+  <TR>
+    <TD vAlign=top width="100%">
+      <SCRIPT>
+    function turn(){
+     if(parent.middleFrame.cols == "250,8,*"){
+		parent.middleFrame.cols = "0,8,*";
+		change.innerText=8
+	  }
+	  else{
+	    change.innerText=7
+   	    parent.middleFrame.cols = "250,8,*";
+	  }
+    }
+	
+	function biglist(){
+	  parent.frmright.frmMain.rows="*,70"
+	}
+
+	function bigcontent(){
+	  parent.frmright.frmMain.rows="0,*"
+	}
+
+	function balance(){
+	  parent.frmright.frmMain.rows="*,280"
+	}
+
+
+</SCRIPT>
+      <table height="100%" cellspacing=0 cellpadding=0 width="100%" 
+      background=include/span_bg.gif border=0>
+        <tbody>
+          <tr>
+            <td style="HEIGHT: 100%" onClick=turn()><span class=navPoint 
+            id=change title=关闭/打开左栏><font class=point>7</font> </span></td>
+          </tr>
+        </tbody>
+      </table></TD>
+  </TR></TBODY></TABLE>
+</BODY></HTML>

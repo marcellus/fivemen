@@ -1,0 +1,27 @@
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; LINE-HEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: #d0e3f8
+}
+TD {
+	FONT-SIZE: 9pt; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+.Point {
+	FONT-SIZE: 9pt; CURSOR: hand; COLOR: #000000; FONT-FAMILY: Webdings
+}
+.navPoint {
+	FONT-SIZE: 9pt; CURSOR: hand; COLOR: #000000; FONT-FAMILY: Webdings
+}
+P {
+	FONT-SIZE: 9pt
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}

@@ -1,0 +1,43 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+
+/// <summary>
+///TempKscjInfo 的摘要说明
+/// </summary>
+public class TempKscjInfo
+{
+    public TempKscjInfo()
+    {
+        //
+        //TODO: 在此处添加构造函数逻辑
+        //
+    }
+
+    public int km1;
+
+    public int km2;
+    public int km3;
+
+    public String km1yyrq;
+
+    public String km2yyrq;
+
+    public String km3yyrq;
+
+    public override string ToString()
+    {
+        return "km1:"+km1+"----km1yyrq:"+km1yyrq
+            +"<br/>"+"km2:"+km2+"----km2yyrq:"+km2yyrq
+        +"<br/>" + "km3:" + km3 + "----km3yyrq:" + km3yyrq;
+        //return base.ToString();
+    }
+
+   
+}

@@ -1,0 +1,189 @@
+﻿/**
+ * 
+ */
+package com.ft.site.web.preasign.domain;
+
+import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ft.site.commons.dao.IBaseDao;
+
+/**
+ * @author austin
+ *
+ */
+public class DrvQueryHelperImpl implements DrvQueryHelper {
+	protected Logger log = Logger.getLogger(this.getClass());
+	
+	private IBaseDao baseDaoDrv;
+
+	/* (non-Javadoc)
+	 * @see com.ft.site.web.preasign.domain.DrvQueryHelper#getBaseDaoDrv()
+	 */
+	public IBaseDao getBaseDaoDrv() {
+		return baseDaoDrv;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.ft.site.web.preasign.domain.DrvQueryHelper#setBaseDaoDrv(com.ft.site.commons.dao.IBaseDao)
+	 */
+	public void setBaseDaoDrv(IBaseDao baseDaoDrv) {
+		this.baseDaoDrv = baseDaoDrv;
+	}
+	/* (non-Javadoc)
+	 * @see com.ft.site.web.preasign.domain.DrvQueryHelper#queryKscj(java.lang.String, java.lang.String)
+	 */
+	//@Transactional(propagation=Propagation.NEVER)
+	public TempKscjInfo queryKscj(String glbm,String sfzmhm)
+	{
+		TempKscjInfo info=null;
+		SessionFactory sessionFactory =this.getBaseDaoDrv().getHibernateSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		//String glbm=((BaseUser)HttpUtil.getLoginUser()).getGlbm();
+		//String fzjg=HttpUtil.getLoginUser().getFzjg();
+		///TODO:移除固定的到配置文件中
+		//String glbm="4405";
+		String sql="(select kskm \"kskm\",zt \"zt\",to_char(ykrq,''yyyy-MM-dd'') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=1 and glbm like ''{0}%'' and sfzmhm=''{1}'' order by ykrq desc) where rownum=1)";
+		sql+=" union ";
+		sql+="(select kskm \"kskm\",zt \"zt\",to_char(ykrq,''yyyy-MM-dd'') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=2 and glbm like ''{0}%'' and sfzmhm=''{1}'' order by ykrq desc) where rownum=1)";
+		sql+=" union ";
+		sql+="(select kskm \"kskm\",zt \"zt\",to_char(ykrq,''yyyy-MM-dd'') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=3 and glbm like ''{0}%'' and sfzmhm=''{1}'' order by ykrq desc) where rownum=1)";
+		String queryStr=MessageFormat.format(sql,glbm,sfzmhm);
+		if(log.isInfoEnabled())
+		{
+			log.info("查询语句为："+queryStr.toString());
+		}
+		System.out.println("查询语句为："+queryStr.toString());
+		SQLQuery query = session.createSQLQuery(queryStr.toString());
+		query.addScalar("kskm", new org.hibernate.type.IntegerType());
+		query.addScalar("zt", new org.hibernate.type.IntegerType());
+		query.addScalar("yyrq", new org.hibernate.type.StringType());
+		
+
+		query.setResultTransformer(Transformers.aliasToBean(SingleKscjInfo.class));
+		try {
+			tx.begin();
+			//query.uniqueResult()
+			List listsTmp = query.list();
+			int listsTmpSize=listsTmp.size();
+			if(listsTmpSize>0)
+			{
+				info=new TempKscjInfo();
+				SingleKscjInfo single=null;
+				single=(SingleKscjInfo)listsTmp.get(0);
+				info.setKm1(single.getZt());
+				info.setKm1yyrq(single.getYyrq());
+				if(listsTmpSize>1)
+				{
+					single=(SingleKscjInfo)listsTmp.get(1);
+					info.setKm2(single.getZt());
+					info.setKm2yyrq(single.getYyrq());
+				}
+				if(listsTmpSize>2)
+				{
+					single=(SingleKscjInfo)listsTmp.get(2);
+					info.setKm3(single.getZt());
+					info.setKm3yyrq(single.getYyrq());
+				}
+			}
+			session.flush();
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(log.isInfoEnabled())
+			{
+				log.info(e);
+			}
+			System.out.println(e);
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			session.close();
+		}
+		return info;
+
+		//科目一待考
+		// and d.kskm=1 and d.zt=1
+		//科目二桩考已经合格，待考科目路考
+		//where a.glbm like ''{0}%'' and a.kscx<>''E''
+		//and a.kskm=2 and ((a.ckyy=1 and a.zksfhg=1)  or a.zt=1) 
+		
+		//科目二已合格
+		///and a.kskm=2 and ((a.ckyy<>1" +
+		//" and a.zksfhg=1) or a.zt=1) 
+	}
+	/* (non-Javadoc)
+	 * @see com.ft.site.web.preasign.domain.DrvQueryHelper#queryStudent(java.lang.String, java.lang.String)
+	 */
+	//@Transactional(propagation=Propagation.NEVER)
+	public TempStudentInfo queryStudent(String glbm,String sfzmhm)
+	{
+		TempStudentInfo info=null;
+		SessionFactory sessionFactory =this.getBaseDaoDrv().getHibernateSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		//String glbm=((BaseUser)HttpUtil.getLoginUser()).getGlbm();
+		//String fzjg=HttpUtil.getLoginUser().getFzjg();
+		///TODO:移除固定的到配置文件中
+		//String glbm="4405";
+		String sql="select distinct '''' \"jxmc\",b.jxmc \"jxdm\", ''A'' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,''yyyy-MM-dd'') \"yxqs\",to_char(b.yxqz,''yyyy-MM-dd'') \"yxqz\",b.jly \"jly\" from drv_admin.drv_flow a left join drv_admin.drv_examcard b on a.sfzmhm=b.sfzmhm where a.glbm like ''{0}%'' and a.ywlx in (''A'',''B'') and a.sfzmhm=''{1}''";
+		String queryStr=MessageFormat.format(sql,glbm,sfzmhm);
+		if(log.isInfoEnabled())
+		{
+			log.info("查询语句为："+queryStr.toString());
+		}
+		System.out.println("查询语句为："+queryStr.toString());
+		SQLQuery query = session.createSQLQuery(queryStr.toString());
+		query.addScalar("name", new org.hibernate.type.StringType());
+		query.addScalar("zkcx", new org.hibernate.type.StringType());
+		query.addScalar("jxmc", new org.hibernate.type.StringType());
+		query.addScalar("jxdm", new org.hibernate.type.StringType());
+		query.addScalar("idCard", new org.hibernate.type.StringType());
+		query.addScalar("idCardType", new org.hibernate.type.StringType());
+		query.addScalar("jly", new org.hibernate.type.StringType());
+		query.addScalar("yxqs", new org.hibernate.type.StringType());
+		query.addScalar("yxqz", new org.hibernate.type.StringType());
+		query.addScalar("lsh", new org.hibernate.type.StringType());
+
+		query.setResultTransformer(Transformers.aliasToBean(TempStudentInfo.class));
+		try {
+			tx.begin();
+			//query.uniqueResult()
+			List listsTmp = query.list();
+			if(listsTmp.size()>0)
+			{
+				info=(TempStudentInfo)listsTmp.get(0);
+			}
+			session.flush();
+			tx.commit();
+		} catch (Exception e) {
+			if(log.isInfoEnabled())
+			{
+				log.info(e);
+			}
+			e.printStackTrace();
+			System.out.println(e);
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			session.close();
+		}
+		return info;
+	}
+
+}
