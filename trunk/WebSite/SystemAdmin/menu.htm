@@ -1,0 +1,118 @@
+
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR><LINK href="include/outlook.css" 
+      type=text/css rel=stylesheet>
+</HEAD>
+<BODY id=xu onkeydown="if(event.keyCode==116){event.keyCode=0;return false}" 
+onresize=myOnResize(); leftMargin=0 topMargin=0 onload=resize_op5(); >
+<TABLE id=SHOW height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+  border=0><TBODY>
+  <TR>
+    <TD vAlign=top width="100%">
+      <SCRIPT src="include/crossbrowser.js"></SCRIPT>
+
+      <SCRIPT src="include/outlook.js"></SCRIPT>
+
+      <SCRIPT language=JavaScript>
+function right(e) {
+  if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2))
+     return false;
+  else if (navigator.appName == 'Microsoft Internet Explorer' &&
+    (event.button == 2 || event.button == 3)) {
+   // alert("同望科技欢迎您！");
+    return false;
+  }
+ return true;
+}
+//document.onmousedown=right;
+</SCRIPT>
+
+      <SCRIPT>
+ 
+ var o = new createOutlookBar('Bar',0,0,screenSize.width,screenSize.height,'white','imgs');
+ 
+  var p;
+  p = new createPanel('a0','用户管理');
+
+p.addButton('imgs/059.gif','用户管理','parent.main.location="../UserManage/RoleManage.aspx"');
+p.addButton('imgs/038.gif','角色管理','parent.main.location="../UserManage/RoleEdit.aspx"');
+p.addButton('imgs/022.gif','权限管理','parent.main.location="../UserManage/RoleAlter.aspx"');
+o.addPanel(p);
+	
+
+
+p1 = new createPanel('a1','物资管理');   
+p1.addButton('imgs/038.gif','厂商管理','parent.main.location="../StoreManage/FactoryManage.aspx"');
+p1.addButton('imgs/038.gif','库存管理','parent.main.location="../StoreManage/StoreSearch.aspx"');
+p1.addButton('imgs/038.gif','物品类别管理','parent.main.location="../StoreManage/StoreTypeManage.aspx"');
+o.addPanel(p1);
+
+p2 = new createPanel('a2','人才管理');  
+p2.addButton('imgs/038.gif','招聘管理','parent.main.location="../Position/AddPosition.aspx"');
+p2.addButton('imgs/038.gif','简历管理','parent.main.location="../Position/ResumeManage.aspx"');
+
+o.addPanel(p2);
+
+
+p3 = new createPanel('a3','新闻管理');   
+p3.addButton('imgs/038.gif','新闻管理','parent.main.location="../news/NewsList.aspx"');
+p3.addButton('imgs/038.gif','公告管理','parent.main.location="../AnnounceManage/AnnmentManage.aspx"');
+p3.addButton('imgs/038.gif','超级链接管理','parent.main.location="../HLink/LinkManage.aspx"');
+o.addPanel(p3);
+
+p4 = new createPanel('a4','留言管理');   
+p4.addButton('imgs/038.gif','留言管理','parent.main.location="../Message/Admin.aspx"');
+o.addPanel(p4);
+
+p6 = new createPanel('a6','工程管理');   
+p6.addButton('imgs/038.gif','工程管理','parent.main.location="../Project/ProjectManage.aspx"');
+o.addPanel(p6);
+
+p5 = new createPanel('a5','系统管理');   
+p5.addButton('imgs/038.gif','类别管理','parent.main.location="../StoreManage/TypeManage.aspx"');
+p5.addButton('imgs/038.gif','数据库管理','parent.main.location="../SystemAdmin/DBManage.aspx"');
+p5.addButton('imgs/038.gif','文件管理','parent.main.location="../SystemAdmin/FileManage.aspx"');
+p5.addButton('imgs/038.gif','企业邮箱','parent.main.location="http://mail.web611183622.w2.265idc.com:8383/login.html"');
+
+o.addPanel(p5);
+
+o.draw();         //draw the OutlookBar
+
+//-----------------------------------------------------------------------------
+//functions to manage window resize
+//-----------------------------------------------------------------------------
+//resize OP5 (test screenSize every 100ms)
+
+function resize_op5() {	
+  if (bt.op5) {
+    o.showPanel(o.aktPanel);
+    var s = new createPageSize();
+    if ((screenSize.width!=s.width) || (screenSize.height!=s.height)) {
+      screenSize=new createPageSize();
+      //need setTimeout or resize on window-maximize will not work correct!
+      //ben\uFFFDige das setTimeout oder das Maximieren funktioniert nicht richtig
+      setTimeout("o.resize(0,0,screenSize.width,screenSize.height)",100);
+    }
+    setTimeout("resize_op5()",100);
+  }
+  else {
+    o.showPanel(0);
+  }
+}
+
+//resize IE & NS (onResize event!)
+function myOnResize() {
+  if (bt.ie4 || bt.ie5 || bt.ns5) {
+    var s=new createPageSize();
+    o.resize(0,0,s.width,s.height);
+  }
+  else
+    if (bt.ns4) location.reload();
+}
+function openWin(m){
+	window.open(m, 'popupnav', 'top=0,left=0,resizable=1,scrollbars=1');
+}
+
+</SCRIPT>
+<!-- need an onResize event to redraw outlookbar after pagesize changes! --><!-- OP5 does not support onResize event! use setTimeout every 100ms --></TD></TR></TBODY></TABLE></BODY></HTML>

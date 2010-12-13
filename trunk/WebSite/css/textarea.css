@@ -1,0 +1,25 @@
+/*默认TextArea的样式*/
+ textarea{   
+  font-family:   "Tahoma",   "宋体";   
+  font-size:   9pt;   
+  font-color:#0066cc;   
+  color:   #0066cc;   
+  background-color:   #ffffff;   
+  font-style:   normal;   
+  border-top:   1px   solid   #93BEE2;   
+  border-right:   1px   solid   #93BEE2;   
+  border-bottom:   1px   solid   #93BEE2;   
+  border-left:   1px   solid   #93BEE2;   
+  }  
+ /*默认body的滚动条样式*/ 
+body   {SCROLLBAR-FACE-COLOR:#e8f4ff;/*立体滚动条凸出部分的颜色*/   
+  SCROLLBAR-HIGHLIGHT-COLOR:#ffffff;/*滚动条空白部分的颜色*/   
+  SCROLLBAR-SHADOW-COLOR:#0066cc;/*立体滚动条阴影的颜色*/   
+  SCROLLBAR-ARROW-COLOR:#0066cc;/*上下按钮上三角箭头的颜色*/   
+  SCROLLBAR-BASE-COLOR:#FFF0E1;   /*滚动条的基本颜色*/   
+  SCROLLBAR-DARK-SHADOW-COLOR:#ffffff;   /*立体滚动条强阴影的颜色*/   
+  font-size:   9pt;   
+  color:   #003366;   
+  overflow:auto;   
+    
+  }   

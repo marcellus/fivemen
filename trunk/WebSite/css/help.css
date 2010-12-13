@@ -1,0 +1,39 @@
+body
+{
+	font-size:9pt;
+}
+
+#menu {
+margin-top: 5px; /*定义层的外边框距离*/
+PADDING:15px; /*定义层的内边框为15px*/
+ BACKGROUND: #BCBC7A;/*定义背景颜色*/
+COLOR: #666; /*定义字体颜色*/
+BORDER:#444422 1px solid; /*定义边框为2px线条*/
+WIDTH:160px; /*定义内容的宽度为160px*/
+} 
+#menu ul {
+MARGIN: 0px;
+PADDING: 0px;
+BORDER: medium none; /*不显示边框*/
+LINE-HEIGHT: normal; 
+LIST-STYLE-TYPE: none;
+
+}
+#menu li {BORDER-TOP: #444422 1px solid; MARGIN: 0px;} 
+#menu li a {
+PADDING:5px 0px 5px 15px;
+DISPLAY: block; 
+FONT-WEIGHT: bold; 
+BACKGROUND: transparent no-repeat 2px 8px; 
+WIDTH: 100%; 
+COLOR: #444; 
+TEXT-DECORATION: none;
+}
+#menu li a:hover { BACKGROUND: #C61C18 no-repeat 2px 8px;
+COLOR: #ffffff; }
+.current
+{
+   background-color:red;
+   color:White;
+   font-weight:bolder;
+}

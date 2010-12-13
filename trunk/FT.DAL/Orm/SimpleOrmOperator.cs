@@ -30,7 +30,7 @@ namespace FT.DAL.Orm
 
         public static bool CreateTable(Type type)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             string sql = SimpleOrmCache.GetTableDDL(type);
 
             return dataAccess.ExecuteSql(sql);
@@ -38,10 +38,19 @@ namespace FT.DAL.Orm
 
         public static bool DropTable(Type type)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             string sql = "drop table "+SimpleOrmCache.GetTableName(type);
 
             return dataAccess.ExecuteSql(sql);
+        }
+
+        /// <summary>
+        /// 判断数据库连接，默认调用配置的连接
+        /// </summary>
+        private static IDataAccess CreateConn()
+        {
+            return  DAL.DataAccessFactory.GetDataAccess();
+
         }
 
         /// <summary>
@@ -116,7 +125,7 @@ namespace FT.DAL.Orm
         /// <returns>是否更新成功</returns>
         public static bool Update(object obj)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             Type type = obj.GetType();
             StringBuilder sql = new StringBuilder(SimpleOrmCache.GetUpdateSql(type));
             Hashtable table = SimpleOrmCache.GetUpdateField(type);
@@ -140,7 +149,7 @@ namespace FT.DAL.Orm
         /// <returns>是否插入成功</returns>
         public static bool Create(object obj)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             Type type = obj.GetType();
             StringBuilder sql = new StringBuilder(SimpleOrmCache.GetInsertSql(type));
             Hashtable table = SimpleOrmCache.GetInsertField(type);
@@ -178,7 +187,7 @@ namespace FT.DAL.Orm
         /// <returns>是否成功删除</returns>
         public static bool Delete<T>(object pk)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             if (pk == null || pk.ToString().Length == 0)
             {
                 throw new ArgumentException("删除的PK主键不得为空！");
@@ -196,7 +205,7 @@ namespace FT.DAL.Orm
                 //throw new ArgumentException("删除的PK主键不得为空！");
                 return false;
             }
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             
             Type type = entity.GetType();
             string pk=SimpleOrmCache.GetPK(type);
@@ -213,7 +222,7 @@ namespace FT.DAL.Orm
         /// <returns>一个对象</returns>
         public static T Query<T>(object pk)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             if (pk == null || pk.ToString().Length == 0)
             {
                 throw new ArgumentException("查询的PK主键不得为空！");
@@ -254,9 +263,8 @@ namespace FT.DAL.Orm
         /// <returns>一个对象</returns>
         public static ArrayList QueryList(Type type, string sql)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             ArrayList list = new ArrayList();
-            CheckConn();
             if (sql == null&&sql.Length==0)
             {
                 throw new ArgumentException("查询的语句不得为空！");
@@ -315,7 +323,7 @@ namespace FT.DAL.Orm
         /// <returns></returns>
         public static int QueryCounts(Type type,string condition)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             string sql = "select count(*) from " + SimpleOrmCache.GetTableName(type) + condition;
             object obj = dataAccess.SelectScalar(sql);
             return Convert.ToInt32(obj);
@@ -330,7 +338,7 @@ namespace FT.DAL.Orm
         /// <returns></returns>
         public static int QueryCounts(string table,string condition)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             string sql = "select count(*) from " + table + condition;
             object obj = dataAccess.SelectScalar(sql);
             return Convert.ToInt32(obj);
@@ -351,7 +359,7 @@ namespace FT.DAL.Orm
         /// <returns></returns>
         public List<T> Query<T>(string condition, Pager pager,string order ,bool isDesc)
         {
-            CheckConn();
+            IDataAccess dataAccess = CreateConn();
             List<T> result = new List<T>();
             string sql = dataAccess.GetPageSql(SimpleOrmCache.GetSelectSql(typeof(T)) + condition,pager,order,isDesc);
             

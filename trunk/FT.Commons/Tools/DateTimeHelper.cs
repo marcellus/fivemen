@@ -9,8 +9,30 @@ namespace FT.Commons.Tools
     /// </summary>
     public class DateTimeHelper : BaseHelper
     {
+
+
+        public static int GetWeekOfYear(DateTime date)
+        {
+            DateTime   curDay   =   Convert.ToDateTime(date); 
+            int   firstdayofweek   =   Convert.ToInt32(Convert.ToDateTime(curDay.Year.ToString()   +   "- "   +   "1-1 ").DayOfWeek); 
+            int   days   =   curDay.DayOfYear; 
+            int   daysOutOneWeek   =   days   -   (7   -   firstdayofweek); 
+            if   (daysOutOneWeek   <=   0) 
+            { 
+                return   1; 
+            } 
+            else 
+            { 
+                int   weeks   =   daysOutOneWeek   /   7; 
+                if   (daysOutOneWeek   %   7   !=   0) 
+                weeks   ++; 
+                return   weeks   +   1; 
+            } 
+
+        }
         public static DateTime GetSeasonFirstDay()
         {
+           
             return GetSeasonFirstDay(System.DateTime.Now);
         }
 
@@ -80,6 +102,29 @@ namespace FT.Commons.Tools
         public static DateTime GetMonthFirstDay()
         {
             return GetMonthFirstDay(System.DateTime.Now);
+        }
+
+        public static string GetChineseXq(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    return "星期一";
+                case 2:
+                    return "星期二";
+                case 3:
+                    return "星期三";
+                case 4:
+                    return "星期四";
+                case 5:
+                    return "星期五";
+                case 6:
+                    return "星期六";
+                case 7:
+                    return "星期日";
+                default:
+                    return "未知星期";
+            }
         }
 
         public static DateTime GetMonthFirstDay(DateTime now)

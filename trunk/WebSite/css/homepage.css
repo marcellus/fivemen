@@ -1,0 +1,470 @@
+body
+{
+	font-size:9pt;
+	background-color:white;
+	top:0;
+    left:0;
+    padding:0;
+    margin:0;
+    vertical-align:top;
+    position:absolute;
+}
+td
+{
+	font-size:9pt;
+}
+.edge
+{
+	width:10%;
+}
+.edge1
+{
+	width:10%;
+	float:left;
+}
+.center1
+{
+	width:80%;
+	float:left;
+}
+.center
+{
+	width:81%;
+}
+.header
+{
+	width:100%;
+	height:398px;
+    background-image:url("../images/top.gif");
+    text-align:center;
+}
+
+.login
+{
+	font-size:10pt;
+	height:30px;
+	line-height:30px;
+	vertical-align:middle;
+	position:absolute;
+	top:367px;
+	left:260px;
+	width:300px;
+	text-align:center;
+}
+.bottom
+{
+	width:100%;
+	height:15px;
+	background-image:url("../images/bottom.gif");
+	background-repeat:no-repeat;
+	text-align:center;
+	border-top:solid 1px #1688D7;
+}
+.bottom img
+{
+	position:relative;
+	left:80px;
+	 border-width:0px;
+}
+.seperate
+{
+	height:100%;
+	width:1px;
+	background-image:url("../images/bg.gif");
+}
+.left
+{
+	background-image:url("../images/leftbg.gif");
+	width:20%;
+	top:0;
+	margin:0;
+	vertical-align:top;
+}
+.right
+{
+	background-image:url("../images/rightbg.gif");
+	width:80%;
+	height:100%;
+	vertical-align:top;
+	margin:0;
+	top:0;
+	border:solid 1px #6e6e6e;
+}
+
+.notice
+{
+	padding:0;
+	border:0;
+	width:100%;
+	height:20px;
+}
+.notice li
+{
+	padding:0 10;
+	color:Red;
+}
+.clock
+{
+	padding:0;
+	border:0;
+	width:100%;
+	height:200px;
+}
+
+.column_bar
+{
+	background-image: url( "../images/column_bar1.gif" );
+	height:20px;	
+	text-indent:25px;
+    font-weight:bold;
+    line-height:20px;
+    
+    
+}
+.content
+{
+	 border-left:solid 1px #6e6e6e;
+	 border-right:solid 1px #6e6e6e;
+	 background-image: url( "../images/contentbg.gif" );
+}
+.L_borderbottom
+{
+	background-image: url( "../images/column_borderbottom.gif" );
+	height:6px;
+}
+hr
+{
+	clear: both;
+	height: 1px;
+	border-top: 1px solid #4682B4;
+}
+.L_box
+{
+	
+	width:180px;
+	padding:0px;
+	margin:0;
+	vertical-align:top;
+	
+}
+.L_box div
+{
+	padding:0;
+	margin:0;
+	
+}
+.seperator
+{
+	height:5px;
+}
+.contenttitle
+{
+	background-image: url( "../images/contentbg.gif" );
+	height:27px;
+	color:White;
+	text-indent:30px;
+	font-weight:bolder;
+	
+}
+.menu
+{
+	position:absolute;
+	top:32px;
+	right:10%;
+}
+.logo
+{
+	position:absolute;
+	top:34px;
+	left:130px;
+	height:40px;
+	width:121px ;
+}
+.myclock
+{
+    text-align:center;
+    left:20px;
+    margin-left:20px;
+}
+
+.links
+{
+     margin-bottom:0;
+     margin-top:0px;
+     left:3px;
+     text-indent:20px;
+     margin-left:0px;
+     height:140px;
+ 
+     vertical-align:middle;
+   
+}
+.links li
+{
+	padding:3px;
+	list-style-type:circle;
+}
+.topa a
+{
+    display:inline;	
+    width:60px;
+   
+    background-color:Transparent;
+    text-decoration:none;
+    color:Black;
+    cursor:hand;
+    text-align:center;
+}
+.topa span
+{
+	text-align:center;
+    margin-left:-10px;
+    left:-30px;
+    padding-left:-30px;
+}
+.topa a:hover
+{
+	background-color:black;
+	color:white;
+}
+
+.topa
+{
+	position:absolute;
+	top:5px;
+	width:100%;
+   
+   text-align:center;
+    /*left:430px;
+    width:160px;
+*/
+}
+.notice li
+{
+   word-spacing:3px;
+   margin-left:0px;
+   list-style-type:circle;
+  
+}
+.notice
+{
+	/*background-color:#6484B9;*/
+	color:red;
+	top:5px;
+	margin-top:5px;
+	padding-top:5px;
+	height:20px;
+	border-bottom:solid 1px black;
+}
+.noticesepeator
+{
+	height:1px;
+    background-color:Silver;
+}
+.noticebefore
+{
+}
+.y-blue-duan {
+	font-family: "Verdana";
+	font-size: 12px;
+	line-height: 18px;
+	color: #39495A;
+	letter-spacing: 0px;
+	}
+.bold1 {
+	FONT-WEIGHT: bold;
+	COLOR: #FF6600;
+	font-family: "Verdana";
+	font-size: 12px;
+	line-height: 18px;
+
+}
+.bold2
+{
+	font-weight: bold;
+	color: navy;
+	font-family: "Verdana";
+	font-size: 14px;
+	line-height: 18px;
+}
+.imgbtn
+{
+
+	vertical-align:top;
+
+}
+.beian
+{
+	background-image:url("../images/wa50000001500134.gif");
+	width:94px;
+	height:100px;
+	float:left;
+}
+.footercontent
+{
+	text-align:center;
+	width:500px;
+	height:100px;
+	line-height:33px;
+	vertical-align:middle;
+}
+.copyright
+{
+	position:relative;
+	float:left;
+	left:80px;
+	top:0px;
+	width:100%;
+	vertical-align:bottom;
+}
+.projecttitle
+{
+	font-size:15px;
+	font-weight:bolder;
+}
+.bottomright
+{
+	background-image:url("../images/bottomright.gif");
+	width:94px;
+	height:100px;
+	
+}
+.projectshow
+{
+	border-bottom:solid 1px black;
+	 left:20px;
+	 top:20px;
+	
+}
+.projectshow ul
+{
+	 padding:5px;
+	
+}
+.projectshow li
+{
+   width:200px;
+   text-align:center;
+   list-style:none;
+   text-decoration:none;
+}
+.nameinput
+{
+	
+  width:80px;
+  height:20px;
+}
+
+.table-border
+{
+	font-family: "宋体";
+	height: 24px;
+	background-color: #0080c0;
+    text-align:center;
+	
+}
+
+
+.table-border td
+{
+	height: 10px;
+}
+.table-border1
+{
+	font-family: "宋体";
+	height: 24px;
+	background-color: #999999;
+}
+.table-border2
+{
+	color: green;
+	font-family: "宋体";
+	height: 24px;
+}
+.table-title,.mytable-title
+{
+	font-weight: 700;
+	color: #000000;
+	font-family: "宋体";
+	height: 23px;
+	background-color: #d0e3f8;
+}
+.mytable-title
+{
+	text-align:right;
+}
+.table-title1
+{
+	color: #000000;
+	font-family: "宋体";
+	height: 23px;
+	background-color: #b3d7d7;
+}
+.table-content
+{
+	font-size: 12px;
+	font-family: "宋体";
+	height: 24px;
+	background-color: #f9fcff;
+	text-align:left;
+}
+.table-contentExtend
+{
+	
+	font-size: 12px;
+	font-family: "宋体";
+	background-color: #f9fcff;
+}
+.table-content1
+{
+	color: #cccccc;
+	font-family: "宋体";
+	height: 24px;
+	background-color: #ffffff;
+}
+.table-content2
+{
+	color: green;
+	font-family: "宋体";
+	height: 24px;
+	background-color: #ffffff;
+}
+.table-contentDark
+{
+	font-family: "宋体";
+	height: 24px;
+	background-color: #e2effc;
+}
+.table-extent
+{
+	font-family: "宋体";
+	height: 24px;
+	background-color: #cccccc;
+	
+}
+.button
+{
+	border-right: 1px solid;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	cursor: hand;
+	border-bottom: 1px solid;
+	font-family: "宋体";
+	background-color: #dddddd;
+	text-decoration: none;
+}
+.warning
+{
+	font-size: 12px;
+	color: red;
+	font-family: "宋体";
+	text-decoration: none;
+}
+FRAMESET
+{
+	border-left-color: green;
+	border-bottom-color: green;
+	border-top-color: green;
+	font-family: "宋体";
+	border-right-color: green;
+}

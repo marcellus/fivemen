@@ -1,0 +1,71 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetPwd.aspx.cs" Inherits="UserManage_GetPwd" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>无标题页</title>
+    <link rel="Stylesheet" type="text/css" href="../css/styles.css" />
+
+    <script language="javascript" src="../js/pub.js" />
+
+    <script>
+    function Check()
+    {
+        /*if(document.form1.tbUserName.value=='')
+        {
+            alert('请输入用户名！');
+            return false;
+        }
+        if(document.form1.tbEmail.value=='')
+        {
+            alert('请输入您的邮箱！');
+            return false;
+        }
+        return true;*/
+        if(!isEmpty(document.form1.tbUserName,'用户名不能为空！'))
+        {
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <hr />
+        <div style="text-align: left">
+            <img id="imget" runat="server" src="../images/app_icon_s1.gif" border="0" class="table-title"><strong>找回密码</strong></div>
+        <br />
+        <div>
+            <table border="0" cellpadding="4" cellspacing="1" class="table-border" width="500px">
+                <tr class="table-title" align="center">
+                    <td colspan="2">
+                        请输入您的用户名</td>
+                </tr>
+                <tr>
+                    <td class="table-title">
+                        用户名：</td>
+                    <td class="table-content">
+                        <asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>&nbsp; &nbsp;<span><font
+                            color="red">*</font></span></td>
+                </tr>
+                <tr>
+                    <td class="table-title">
+                        邮箱地址：</td>
+                    <td class="table-content">
+                        <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
+                        &nbsp; &nbsp;<span><font color="red">*</font></span></td>
+                </tr>
+                <tr style="text-align:center" class="table-content">
+                    <td colspan=2 style="height: 20px">
+                        <asp:Button ID="btnOK" runat="server" Text="确定" OnClick="btnOK_Click" CssClass="button" />&nbsp; 
+                        <asp:Button ID="btnReset" runat="server" Text="重置" OnClick="btnReset_Click" CssClass="button" />&nbsp; 
+                        <input id="btnReturn" type="button" value="返回" language="javascript" onclick="history.back(-1)"
+                            class="button" /></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

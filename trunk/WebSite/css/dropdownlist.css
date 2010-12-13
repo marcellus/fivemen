@@ -1,0 +1,35 @@
+﻿/*inputtext样式一,增加样式的时候请增加两个带有org和over的class，然后在initclass.js中控制初始化类型
+如果不想改initclass.js，请备份原来的input样式，直接更改原来的样式
+*/
+.ddlorgclass
+{
+	border: 1px #ccc solid;
+	background: #fff;
+	width: 160px;
+}
+
+.ddloverclass
+{
+	border: 1px #1688d7 solid;
+	background: #e6e6e6;
+	width: 160px;
+}
+
+/*默认的银色边框输入框，跟白色背景相称*/
+.ddlbaord
+{
+	border: #CCCCCC;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+
+select
+{
+	border: 1px #ccc solid;
+	background: #fff;
+	width: 160px;
+	
+}

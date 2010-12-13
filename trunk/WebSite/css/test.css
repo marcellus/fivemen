@@ -1,0 +1,38 @@
+body
+{
+	font-size:9pt;
+}
+.column_bar2_tit_2
+{
+	background-image: url( "../images/column_bar1.gif" );
+	height:24px;
+	
+	text-indent:30px;
+    font-weight:bold;
+    padding-top:5px;
+    
+}
+.content
+{
+	width:292px;
+	float:left;
+	 border-left:solid 1px black;
+	 border-right:solid 1px black;
+}
+.L_borderbottom
+{
+	background-image: url( "../images/column_borderbottom.gif" );
+	height:10px;
+}
+hr
+{
+	clear: both;
+	height: 1px;
+	border-top: 1px solid #4682B4;
+}
+.L_box
+{
+	
+	width:292px;
+	
+}

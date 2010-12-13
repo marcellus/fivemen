@@ -1,0 +1,98 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FT.Web</RootNamespace>
+    <AssemblyName>FT.Web</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\commons-dlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthenticatedPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConstString.cs" />
+    <Compile Include="Controls\CommonPager.cs" />
+    <Compile Include="Controls\DropDownListExtend.cs" />
+    <Compile Include="Controls\IDataSourceAdapter.cs" />
+    <Compile Include="Controls\MarqueeControl.cs" />
+    <Compile Include="Controls\MyITemplate.cs" />
+    <Compile Include="Controls\MyPager.cs" />
+    <Compile Include="Controls\PageTools.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PageTools.designer.cs">
+      <DependentUpon>PageTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProcedurePager.cs" />
+    <Compile Include="Controls\SimplePager.cs" />
+    <Compile Include="Controls\SubmitOnceButton.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\DATA_CONVERT.cs" />
+    <Compile Include="Tools\FileOperation.cs" />
+    <Compile Include="Tools\MyDataBinder.cs" />
+    <Compile Include="Tools\StringUtil.cs" />
+    <Compile Include="Tools\Tools.cs" />
+    <Compile Include="Tools\WebTools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\DropDownListExtend.bmp" />
+    <Content Include="Controls\favicon.ico" />
+    <Content Include="ProcedurePager.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

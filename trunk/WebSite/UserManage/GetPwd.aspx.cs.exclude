@@ -1,0 +1,54 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Net.Mail;
+
+public partial class UserManage_GetPwd : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.btnOK.Attributes.Add("onclick", "javascript:return Check();");
+    }
+    protected void btnReset_Click(object sender, EventArgs e)
+    {
+        this.tbUserName.Text = "";
+        this.tbEmail.Text = "";
+    }
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlDataReader reader = UserManage.UserRegisterValidate(this.tbUserName.Text.ToString()); //判断该用户是否存在
+            if (reader.Read())
+            {
+                System.Net.Mail.SmtpClient client = new SmtpClient("smtp.163.com"); //定义一个163邮件服务器
+                client.UseDefaultCredentials = false;          //不使用默认验证
+                client.Credentials = new System.Net.NetworkCredential("cbw123_1984", "913048910504");  //验证用户名和密码 
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;  //电子邮件通过网络发送到smtp邮件服务器
+
+                System.Net.Mail.MailMessage message = new MailMessage("cbw123_1984@163.com", this.tbEmail.Text, "2.0邮件测试", Convert.ToString(Common.WebTools.GeneratorRandom(6)));
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
+
+                client.Send(message);
+
+                Common.WebTools.Alert(this, "您已经拥有了新密码，请到你的邮箱里查看吧！");
+            }
+            else
+            {
+                Common.WebTools.Alert(this, "对不起，该用户名不存在！");
+                return;
+            }
+        }
+        catch
+        { }
+    }
+}

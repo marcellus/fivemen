@@ -7,6 +7,7 @@ namespace FT.Commons.Tools
 {
     public abstract class BaseHelper
     {
+
         protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
         //protected static ILog log = log4net.LogManager.GetLogger("tools");
 
