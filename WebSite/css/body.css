@@ -1,0 +1,40 @@
+﻿body
+{
+	font-size: 9pt;
+}
+#head ul
+{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+#head li
+{
+	float:left;
+	width:160px;
+}
+#head li ul
+{
+	display:none;
+	top:20px;
+}
+#head li:hover ul
+{
+	display:block;
+}
+#head li.over ul
+{
+	display:block;
+}
+
+ .transparent 
+ { BORDER-RIGHT: indianred 1px solid; BORDER-TOP: indianred 1px solid; DISPLAY: none; FILTER: alpha(opacity=85); BORDER-LEFT: indianred 1px solid; BORDER-BOTTOM: indianred 1px solid; POSITION: absolute; BACKGROUND-COLOR: infobackground } 
+ #Layer1 { 
+position:absolute; 
+left:208px; 
+top:15px; 
+width:180px; 
+height:108px; 
+z-index:1; 
+}
+

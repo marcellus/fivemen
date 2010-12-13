@@ -312,6 +312,7 @@ namespace FT.DAL.Orm
             StringBuilder inserttmp = new StringBuilder();
             StringBuilder exporttmp = new StringBuilder();
             AliasAttribute aliasAtt=null;
+            OracleSeqAttribute seqAtt = null;
             for (int i = 0; i < fields.Length;i++ )
             {
                 
@@ -326,9 +327,16 @@ namespace FT.DAL.Orm
                         findPk = true;
                         second.Add("pkcolumn",pk);
                         aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                        
                         if (aliasAtt != null)
                         {
                             exporttmp.Append(pk + " as " + aliasAtt.Name + ",");
+                        }
+                        seqAtt = Attribute.GetCustomAttribute(tmp, typeof(OracleSeqAttribute)) as OracleSeqAttribute;
+                        if(seqAtt!=null)
+                        {
+                            insertSql.Append(pk + ",");
+                            inserttmp.Append("" + seqAtt.SeqName + ".nextval,");
                         }
                         continue;
                     }

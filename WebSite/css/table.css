@@ -1,0 +1,21 @@
+﻿.mytable
+{
+	behavior: url(../htc/grid.htc);
+	border: 1px #ccc solid;
+	background: #fff;
+	width: 160px;
+}
+
+.addtable
+{
+	FONT-SIZE: 12px; FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #fefefe
+}
+.addtable .tdheader
+{
+	FONT-WEIGHT: 700; COLOR: #000000; FONT-FAMILY: "宋体"; HEIGHT: 23px; BACKGROUND-COLOR: #d0e3f8
+}
+
+.addtable span
+{
+    font-weight:bold;
+}

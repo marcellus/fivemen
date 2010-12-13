@@ -1,0 +1,15 @@
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; LINE-HEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: #d0e3f8
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: #ff6600 1px dotted
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}

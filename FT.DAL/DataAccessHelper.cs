@@ -134,6 +134,7 @@ namespace FT.DAL
                 catch (Exception e)
                 {
                     log.Error(e);
+                    throw e;
                     return false;
                 }
             }
@@ -158,6 +159,7 @@ namespace FT.DAL
             catch (Exception e)
             {
                 log.Error(e);
+                throw e;
                 return false;
             }
 
@@ -377,7 +379,14 @@ namespace FT.DAL
             {
                 foreach (DbParameter parm in cmdParms)
                 {
-                    log.Debug("param "+parm.ParameterName+" value is:"+parm.Value.ToString());
+                    if (parm.Value != null)
+                    {
+                        log.Debug("param " + parm.ParameterName + " value is:" + parm.Value.ToString());
+                    }
+                    else
+                    {
+                        log.Debug("param " + parm.ParameterName + " value is:null");
+                    }
                     _Command.Parameters.Add(parm);
                 }
             }
@@ -432,7 +441,7 @@ namespace FT.DAL
                 return false;
             }
             
-            return true;
+            return iRow>0;
         }
 
         /// <summary>

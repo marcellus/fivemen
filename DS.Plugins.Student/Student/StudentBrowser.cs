@@ -699,14 +699,15 @@ namespace DS.Plugins.Student
                 {
                     this.txtRegAddress.Text = regaddress.ToString();
                 }
+                if (belongarea != null)
+                {
+                    this.cbBelongArea.Text = belongarea.ToString();
+                }
                 if (connaddress != null)
                 {
                     this.txtConnAddress.Text = connaddress.ToString();
                 }
-                if (belongarea!=null)
-                {
-                    this.cbBelongArea.Text = belongarea.ToString();
-                }
+                
                 if (xiang != null)
                 {
                     this.cbBelongXiang.Text = xiang.ToString();

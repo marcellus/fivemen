@@ -1,0 +1,67 @@
+/*inputtext样式一,增加样式的时候请增加两个带有org和over的class，然后在initclass.js中控制初始化类型
+如果不想改initclass.js，请备份原来的input样式，直接更改原来的样式
+*/
+.textorgclass
+{
+	behavior: url("../htc/input.htc");
+	border: 1px #ccc solid;
+	background: #fff;
+	width: 160px;
+}
+
+.textoverclass
+{
+	behavior: url("../htc/input.htc");
+	border: 1px #1688d7 solid;
+	background: #e6e6e6;
+	width: 160px;
+}
+/*默认的样式，新增样式放下面备用*/
+/*只有下划线的textbox*/
+.textonlyunderline
+{
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #0066CC;
+	text-decoration: none;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #0066CC;
+	border-left-color: #FFFFFF;
+}
+
+/*默认的银色边框输入框，跟白色背景相称*/
+.tbbaord
+{
+	border: #CCCCCC;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+/*公告层 */
+.informtitle
+{
+BORDER:#bfceff 1px solid;
+height:18;FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr='#ddecfb',endColorStr='#ffffff');
+width:180;
+}
+.informbody
+{
+BORDER: #bfceff 1px solid;
+PADDING-TOP: 10px; 
+PADDING-LEFT: 10px;
+FONT-SIZE: 12px;
+HEIGHT: 100px;
+width:180;
+border-top:0;
+}

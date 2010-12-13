@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Address>
+  <Province id="1" brandname="江苏">
+    <City>南京</City>
+    <City>苏州</City>
+  </Province>
+  <Province id="2" brandname="安徽">
+    <City>合肥</City>
+    <City>淮南</City>
+  </Province>
+</Address>

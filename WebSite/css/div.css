@@ -1,0 +1,55 @@
+﻿
+.inserttable
+{
+	text-align: center;
+	vertical-align: middle; /*width:270px;*/
+}
+.inserttable div
+{
+	text-align: center;
+	vertical-align: middle; /*width:270px;*/
+}
+#head
+{
+	height:180px;
+	width:80%;	
+	z-index: 1;
+	padding-top: 0px;
+	position: absolute;
+	
+}
+#center
+{
+	height:100%;
+	width:80%;
+}
+#bottom
+{
+	width:80%;
+	position:absolute;
+     margin-bottom:0;
+     height:20px;
+}
+
+#head UL
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	
+	padding-top: 0px;
+}
+#head LI
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	padding-top: 0px;
+	list-style-type: none;
+	text-align: center;
+	
+}
+
+

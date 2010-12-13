@@ -19,7 +19,7 @@ namespace FT.Windows.ExternalTool
         {
             object dest=this.textBox3.Text.Trim();
             object template="c:\\template.doc";
-            FT.Commons.Com.WordSupport.SimpleWord.Combine(new string[] { "c:\\0.doc",
+           /* FT.Commons.Com.WordSupport.SimpleWord.Combine(new string[] { "c:\\0.doc",
                  "c:\\1.doc",
                 "c:\\2.doc",
                 "c:\\3.doc",
@@ -29,6 +29,7 @@ namespace FT.Windows.ExternalTool
                 "c:\\7.doc",
                 "c:\\8.doc",
                 "c:\\9.doc" }, ref dest);
+            */
         }
     }
 }

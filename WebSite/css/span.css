@@ -1,0 +1,11 @@
+﻿.colname
+{
+   background-color:#e6e6e6;
+   color:Blue;
+   text-align:right;
+   /*float:none;
+   width:100px;*/
+   vertical-align:middle;
+   height:23px;
+    line-height:23px;
+}

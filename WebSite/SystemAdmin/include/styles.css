@@ -1,0 +1,147 @@
+BODY {
+	SCROLLBAR-FACE-COLOR: #ebf1f9; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #91b7e8; SCROLLBAR-3DLIGHT-COLOR: #f0f5fb; SCROLLBAR-ARROW-COLOR: #53749c; SCROLLBAR-TRACK-COLOR: #d0e3f9; SCROLLBAR-DARKSHADOW-COLOR: #53749c; BACKGROUND-COLOR: #eef3f9
+}
+.navigation {
+	FONT-FAMILY: "宋体"; HEIGHT: 23px; BACKGROUND-COLOR: #d5e4f6
+}
+.navigationFont {
+	COLOR: #000066
+}
+.page {
+	FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #e2effc
+}
+.pageFont {
+	COLOR: #000000; FONT-FAMILY: "宋体"
+}
+.functionFont {
+	FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.functionButton {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; CURSOR: hand; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #eeeeee
+}
+.list {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; CURSOR: hand; BORDER-BOTTOM: 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.txt {
+	BORDER-RIGHT: #639a9c 1px solid; BORDER-TOP: #639a9c 1px solid; BORDER-LEFT: #639a9c 1px solid; BORDER-BOTTOM: #639a9c 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.check {
+	FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.radio {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; CURSOR: text; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.subject {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.screen {
+	COLOR: black; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #cccccc
+}
+.number {
+	COLOR: #000000
+}
+.table-border {
+	FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #0080c0
+}
+.table-border1 {
+	FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #999999
+}
+.table-border2 {
+	COLOR: green; FONT-FAMILY: "宋体"; HEIGHT: 24px
+}
+.table-title {
+	FONT-WEIGHT: 700; COLOR: #000000; FONT-FAMILY: "宋体"; HEIGHT: 23px; BACKGROUND-COLOR: #d0e3f8
+}
+.table-title1 {
+	COLOR: #000000; FONT-FAMILY: "宋体"; HEIGHT: 23px; BACKGROUND-COLOR: #b3d7d7
+}
+.table-content {
+	FONT-SIZE: 12px; FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #f9fcff
+}
+.table-contentExtend {
+	FONT-SIZE: 12px; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #f9fcff
+}
+.table-content1 {
+	COLOR: #cccccc; FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff
+}
+.table-content2 {
+	COLOR: green; FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #ffffff
+}
+.table-contentDark {
+	FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #e2effc
+}
+.table-extent {
+	FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #cccccc
+}
+.button {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; CURSOR: hand; BORDER-BOTTOM: 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #dddddd; TEXT-DECORATION: none
+}
+.warning {
+	FONT-SIZE: 12px; COLOR: red; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+FRAMESET {
+	BORDER-LEFT-COLOR: green; BORDER-BOTTOM-COLOR: green; BORDER-TOP-COLOR: green; FONT-FAMILY: "宋体"; BORDER-RIGHT-COLOR: green
+}
+.permsetBG {
+	FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff
+}
+.sign {
+	COLOR: #ffffff; BACKGROUND-COLOR: #000066
+}
+.over {
+	FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #eeeeee
+}
+.out {
+	FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff
+}
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+P {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+INPUT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+SELECT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; LINE-HEIGHT: normal; FONT-STYLE: normal
+}
+A.b1:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.b1:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.b1:link {
+	COLOR: #006600; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: #ff6600 1px dotted
+}
+A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.txt_disabled {
+	BORDER-RIGHT: #639a9c 1px solid; BORDER-TOP: #639a9c 1px solid; BORDER-LEFT: #639a9c 1px solid; BORDER-BOTTOM: #639a9c 1px solid; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none
+}
+.txt_content {
+	BORDER-RIGHT: #639a9c 0px solid; BORDER-TOP: #639a9c 0px solid; BORDER-LEFT: #639a9c 0px solid; BORDER-BOTTOM: #639a9c 0px solid; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.red_table-border {
+	FONT-FAMILY: "宋体"; HEIGHT: 24px; BACKGROUND-COLOR: #ff0000
+}
+INPUT.inputreadonly {
+	BORDER-RIGHT: #9c9c9c 0px solid; BORDER-TOP: #9c9c9c 0px solid; LEFT: 0px; BORDER-LEFT: #9c9c9c 0px solid; COLOR: #888888; BORDER-BOTTOM: #888888 1px solid; TOP: 0px; BACKGROUND-COLOR: transparent
+}
+INPUT.inputonly {
+	BORDER-RIGHT: #9c9c9c 0px solid; BORDER-TOP: #9c9c9c 0px solid; LEFT: 0px; BORDER-LEFT: #9c9c9c 0px solid; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; TOP: 0px; BACKGROUND-COLOR: transparent
+}

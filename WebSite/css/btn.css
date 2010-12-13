@@ -1,0 +1,174 @@
+/*btn样式一,增加样式的时候请增加两个带有org和over的class，然后在initclass.js中控制初始化类型
+如果不想改initclass.js，请备份原来的btn样式，直接更改原来的样式 over指鼠标移动到控件上的样式
+*/
+.btnorgclass
+{
+	behavior: url("../htc/input.htc");
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA);
+	border-left: #002D96 1px solid;
+	cursor: auto;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+}
+
+.btnoverclass
+{
+	behavior: url("../htc/input.htc");
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA);
+	border-left: #002D96 1px solid;
+	cursor: hand;
+	color: Blue;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+}
+
+/*以上是默认按钮样式，新增按钮样式位置*/
+.btn
+{
+	border-right: #7b9ebd 1px solid;
+	padding-right: 2px;
+	border-top: #7b9ebd 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	border-left: #7b9ebd 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #7b9ebd 1px solid;
+}
+.btn1_mouseout
+{
+	border-right: #7EBF4F 1px solid;
+	padding-right: 2px;
+	border-top: #7EBF4F 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#B3D997);
+	border-left: #7EBF4F 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #7EBF4F 1px solid;
+}
+.btn1_mouseover
+{
+	border-right: #7EBF4F 1px solid;
+	padding-right: 2px;
+	border-top: #7EBF4F 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#CAE4B6);
+	border-left: #7EBF4F 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #7EBF4F 1px solid;
+}
+.btn2
+{
+	padding: 2 4 0 4;
+	font-size: 12px;
+	height: 23;
+	background-color: #ece9d8;
+	border-width: 1;
+}
+.btn3_mouseout
+{
+	border-right: #2C59AA 1px solid;
+	padding-right: 2px;
+	border-top: #2C59AA 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+	border-left: #2C59AA 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #2C59AA 1px solid;
+}
+.btn3_mouseover
+{
+	border-right: #2C59AA 1px solid;
+	padding-right: 2px;
+	border-top: #2C59AA 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#D7E7FA);
+	border-left: #2C59AA 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #2C59AA 1px solid;
+}
+.btn3_mousedown
+{
+	border-right: #FFE400 1px solid;
+	padding-right: 2px;
+	border-top: #FFE400 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+	border-left: #FFE400 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #FFE400 1px solid;
+}
+.btn3_mouseup
+{
+	border-right: #2C59AA 1px solid;
+	padding-right: 2px;
+	border-top: #2C59AA 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+	border-left: #2C59AA 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #2C59AA 1px solid;
+}
+.btn_2k3
+{
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA);
+	border-left: #002D96 1px solid;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+}
+
+/*windows风格的按钮样式*/
+.btnover
+{
+	border-bottom: #808080 1px solid;
+	border-left: #ffffff 1px solid;
+	border-right: #808080 1px solid;
+	border-top: #ffffff 1px solid;
+	cursor: default;
+}
+.btndown
+{
+	border-bottom: #ffffff 1px solid;
+	border-left: #808080 1px solid;
+	border-right: #ffffff 1px solid;
+	border-top: #808080 1px solid;
+	cursor: default;
+}
