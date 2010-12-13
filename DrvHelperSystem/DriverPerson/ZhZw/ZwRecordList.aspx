@@ -22,15 +22,15 @@
                     号码号牌：<asp:TextBox ID="txtHphm" runat="server"></asp:TextBox>
                     &nbsp;
                     <asp:Button ID="btnSearch" runat="server"  Text="查询" 
-                        onclick="btnSearch_Click" />
+                         />
                     &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAdd" runat="server"  Text="添加" onclick="btnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server"  Text="添加"  />
                 </td>
             </tr>
             <tr class="table-content">
                 <td>
                     &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False"
-                        BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" OnItemCommand="DataGrid1_ItemCommand1"
+                        BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
                         Width="100%">
                         <Columns>
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
