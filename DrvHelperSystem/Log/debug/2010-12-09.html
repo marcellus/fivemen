@@ -1,0 +1,1216 @@
+<HR COLOR=red>
+异常时间：2010-12-09 14:46:33,953 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+DefaultConnString is:QP9Q4bFBp5VwW2BJBR5UUovqYu2YvZL1x28f/jOZ+iQBNBXCa3moWOPnNj2ICC4NlykuLpQvHK0= <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:34,171 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Security [(null)] <BR>
+before decrypt the string is:QP9Q4bFBp5VwW2BJBR5UUovqYu2YvZL1x28f/jOZ+iQBNBXCa3moWOPnNj2ICC4NlykuLpQvHK0= <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:34,218 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Security [(null)] <BR>
+after decrypt the string is:Data Source=oradrv;user=aspnet;password=stjj117; <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:35,250 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,609 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,781 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:36,984 [9] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:46:49,453 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:02,515 [9] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:48:10,234 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,296 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Security [(null)] <BR>
+before encrypt the string is:123456 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,296 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Security [(null)] <BR>
+after encrypt the string is:BKkQ2ROUZ7A= <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,312 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_users where c_login_name='admin' and c_pwd='BKkQ2ROUZ7A=' tableName is:table_users <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+开始创建类型UserObject的实例 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,500 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Web.RegularExpressions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Web.resources, Version=2.0.0.0, Culture=zh-CHS, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集Microsoft.JScript, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集CppCodeProvider, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,515 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Web.Mobile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集Ajax, Version=5.7.22.2, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集DevExpress.Data.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集DevExpress.XtraEditors.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集DrvService, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集FT.Commons, Version=3.0.0.5, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集FT.DAL, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集FT.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集Interop.Microsoft.Office.Core, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集Interop.VBIDE, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集IrisSkin2, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集TmriJaxRpcOutAccessService, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,750 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.Runtime.Serialization, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,812 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,812 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.IdentityModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,828 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,828 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,828 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,828 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.ServiceModel.Web, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.WorkflowServices, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集System.resources, Version=2.0.0.0, Culture=zh-CHS, PublicKeyToken=b77a5c561934e089 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+没有查找到合适的类型！ <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,843 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.Commons.Tools [(null)] <BR>
+查找类型UserObject在程序集App_Code.iis2t2_i, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,859 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select c_name,c_description,c_rolestring,id from table_roles where id=1 tableName is:table_roles <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:46,921 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select c_connector,c_deptype,c_mobile,c_phone,c_companycode,c_depfullname,c_depnickname,c_depcode,c_parentcode,id from table_departments where id=3 tableName is:table_departments <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:55:50,390 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select menutext,menuid,menuurl,menuimg,isparent,parentid from table_menus where menuid in(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,-1) order by ordernum asc tableName is:tmpdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:21,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:22,015 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,968 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,968 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:38,984 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:39,203 [4] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 14:56:43,468 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:04:55,765 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:05:51,140 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:05,953 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,031 [10] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:06,046 [10] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:13,390 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,921 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:06:22,937 [9] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:19,984 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试地点' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:19,984 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select * from table_dicts where c_typename ='考试场次' tableName is:tempdb <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:20,000 [11] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:25,890 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,pxshrq,kchp,ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:07:28,953 [11] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:13:03,406 [9] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,to_char(pxshrq,'yyyy-MM-dd'),kchp,to_char(ykrq,'yyyy-MM-dd'),jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:13:15,343 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,to_char(pxshrq,'yyyy-MM-dd'),kchp,to_char(ykrq,'yyyy-MM-dd'),jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:45,140 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,to_char(pxshrq,'yyyy-MM-dd') pxshrq,kchp,to_char(ykrq,'yyyy-MM-dd') ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,437 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:47,484 [4] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:14:54,343 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,to_char(pxshrq,'yyyy-MM-dd') pxshrq,kchp,to_char(ykrq,'yyyy-MM-dd') ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' and trunc(ykrq)=trunc(to_date('2010-12-09','yyyy-MM-dd')) tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:15:05,656 [4] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:18,718 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDataTable sql is:select distinct lsh,sfzmhm,decode(kskm,1,'科目一',2,'科目二',3,'科目三') kskm,xm,kscx,to_char(pxshrq,'yyyy-MM-dd') pxshrq,kchp,to_char(ykrq,'yyyy-MM-dd') ykrq,jbr,dmmc1  from drv_admin.drv_preasign t left join drv_admin.drv_code m on m.dmlb=42 and m.dmz=t.dlr  where t.glbm like '4405%' and trunc(ykrq)=trunc(to_date('2010-12-09','yyyy-MM-dd')) and kskm= 1 and kscc ='44051'  and ksdd='4405001' tableName is:tmp <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+SelectDSByProcedure procedure name is:ProcedurePager.Per_QuickPage <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TbName value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param FieldStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param RowFilter value is: 1=1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param SortStr value is: <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Pagesize value is:10 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param Currentindex value is:1 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param TotalCount value is:0 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param MaxPageSize value is:300 <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,000 [4] <BR>
+异常级别：DEBUG  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+param returncur value is:null <BR>
+ <HR Size=1><HR COLOR=red>
+异常时间：2010-12-09 15:24:21,046 [4] <BR>
+异常级别：ERROR  <BR>
+异 常 类：FT.DAL [(null)] <BR>
+System.Data.OracleClient.OracleException: ORA-00936: missing expression
+ORA-06512: at "ASPNET.PROCEDUREPAGER", line 35
+ORA-06512: at line 1
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   在 FT.DAL.DataAccessHelper.SelectDSByProcedure(String cmdText, DbParameter[] cmdParms) 位置 D:\develop-tools\c#project\fivemen\FT.DAL\DataAccessHelper.cs:行号 400 <BR>
+ <HR Size=1>

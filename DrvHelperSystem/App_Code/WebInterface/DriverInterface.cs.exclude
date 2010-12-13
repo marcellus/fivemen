@@ -1,0 +1,87 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using log4net;
+
+/// <summary>
+///DriverInterface 的摘要说明
+/// </summary>
+public class DriverInterface
+{
+    protected static ILog log = log4net.LogManager.GetLogger("DriverInterface");
+    public DriverInterface()
+    {
+        //
+        //TODO: 在此处添加构造函数逻辑
+        //
+    }
+
+    public static  BusAllInfo GetFromUser(string idcardtype, string idcard, string dabh)
+    {
+        BusAllInfo info = new BusAllInfo();
+        info.Dabh = "200120234";
+        info.Lsh = "44040120101022";
+        info.IdCardType = "身份证明号码";
+        info.IdCard = "350128198403122135";
+        info.Nation = "中国";
+        info.CarType = "C1";
+        info.Birthday = "1984-03-12";
+        info.Sex = "男";
+        info.Xm = "模拟用户1";
+        info.CheckDate = "2010-10-02";
+        return info;
+    }
+
+    public static bool WriteBusAllInfo(BusAllInfo info)
+    {
+        return true;
+    }
+
+    public static TmriResponse yuyueInfo(YuyueInfo info)
+    {
+        DrvPreasignRequest req = new DrvPreasignRequest();
+
+        req.Lsh=info.Lsh;
+        req.Dlr=info.DlrCode;
+        req.Jbr=info.CheckOperator;
+        //req.setKchp("");
+        //44051 上午第一场
+        req.Kscc=info.KsccCode;
+        req.Jly=info.JlyIdCard;
+        req.Kchp=info.Hmhp;
+        //汕头大学路考场
+        req.Ksdd=info.KsddCode;
+        req.Pxshrq=info.Pxshrq;
+        String sn = System.Configuration.ConfigurationManager.AppSettings["Drv_Yuyue_Sn"];
+        
+        req.Sn=sn;
+        req.Xxsj="0";
+        req.Kskm=info.Km;
+        req.Ykrq=info.Ksrq;
+        //req.setSn("15067833097144669758877122900559");
+       // ensureStub();
+        String encrptXmlDoc = req.ToXml();
+
+        log.Debug("预约写入接口的文本为："+encrptXmlDoc);
+        //String jkxlh="15067833097144669758877122900559";
+        //result=stub.writeObject("02", jkxlh, "02C71", encrptXmlDoc);
+        TmriJaxRpcOutAccessService service = new TmriJaxRpcOutAccessService();
+        service.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl"];
+        String jkxlh = System.Configuration.ConfigurationManager.AppSettings["Tmri_Preasign_jkxlh"];
+        String jkid = System.Configuration.ConfigurationManager.AppSettings["Tmri_Preasign_jkid"];
+        String xtlb = System.Configuration.ConfigurationManager.AppSettings["Tmri_Preasign_xtlb"];
+        string responseText = "";
+
+        responseText = service.writeObject(xtlb, jkxlh, jkid, encrptXmlDoc);
+        log.Debug("调用预约接口返回的文本为："+responseText);
+        TmriResponse response = new TmriResponse();
+        response.ParseFromXml(responseText);
+        return response;
+    }
+}
