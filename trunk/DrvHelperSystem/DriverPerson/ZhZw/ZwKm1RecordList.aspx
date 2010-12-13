@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ZwRecordList.aspx.cs" Inherits="DriverPerson_ZhZw_ZwRecordList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ZwKm1RecordList.aspx.cs" Inherits="DriverPerson_ZhZw_ZwKm1RecordList" %>
 <%@ Register assembly="FT.Web" namespace="WebControls" tagprefix="WC" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>入场训练指纹打卡记录</title>
+    <title>学习时间打卡记录</title>
       <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="../../js/popcalendar.js"></script>
 </head>
