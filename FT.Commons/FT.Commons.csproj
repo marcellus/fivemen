@@ -90,6 +90,8 @@
     <Compile Include="Bar\SimpleBarReader.cs" />
     <Compile Include="Cache\IRefreshCache.cs" />
     <Compile Include="Cache\StaticCacheManager.cs" />
+    <Compile Include="Cache\SystemWholeXmlConfigManager.cs" />
+    <Compile Include="Cache\SystemWholeXmlConfig.cs" />
     <Compile Include="Com\Excels\ExcelBorderEnum.cs" />
     <Compile Include="Com\Excels\ExcelHelper.cs" />
     <Compile Include="Com\Excels\ListExcel.cs" />
@@ -490,6 +492,9 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Com\Chm\" />
