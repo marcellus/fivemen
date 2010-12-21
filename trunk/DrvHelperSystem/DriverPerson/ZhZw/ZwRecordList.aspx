@@ -14,17 +14,15 @@
     <table border="0" cellpadding="4" cellspacing="1" class="table-border">
             <tr class="table-title">
                 <td>
-                    教练车列表<br />
+                    入场训练指纹打卡记录<br />
                 </td>
             </tr>
             <tr class="table-bottom">
                 <td>
-                    号码号牌：<asp:TextBox ID="txtHphm" runat="server"></asp:TextBox>
+                    身份证明号码：<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
                     &nbsp;
-                    <asp:Button ID="btnSearch" runat="server"  Text="查询" 
+                    <asp:Button ID="btnSearch" runat="server"  Text="查询" onclick="btnSearch_Click" 
                          />
-                    &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAdd" runat="server"  Text="添加"  />
                 </td>
             </tr>
             <tr class="table-content">
@@ -33,17 +31,27 @@
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
                         Width="100%">
                         <Columns>
-                            <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="clpp" HeaderText="车辆品牌"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>
                             
-                             <asp:BoundColumn DataField="hmhp" HeaderText="号码号牌"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="name" HeaderText="教练名"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="idcard" HeaderText="身份证号"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="coachno" HeaderText="教练证号"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="mobile" HeaderText="联系电话"></asp:BoundColumn>
-                            
-                           
-                            <asp:BoundColumn DataField="depname" HeaderText="驾校名称"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_enter_1" HeaderText="第一次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_1" HeaderText="第一次训练离场时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_enter_2" HeaderText="第二次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_2" HeaderText="第二次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_3" HeaderText="第三次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_3" HeaderText="第三次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_4" HeaderText="第四次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_4" HeaderText="第四次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_5" HeaderText="第五次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_5" HeaderText="第五次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_6" HeaderText="第六次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_6" HeaderText="第六次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_7" HeaderText="第七次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_7" HeaderText="第七次训练离场时间"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="train_enter_8" HeaderText="第八次入场训练时间"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="train_leave_8" HeaderText="第八次训练离场时间"></asp:BoundColumn>
+                                <asp:BoundColumn DataField="phone" HeaderText="联系电话"></asp:BoundColumn> 
+                            <asp:BoundColumn DataField="drv_school" HeaderText="驾校名称"></asp:BoundColumn>
                            
                         </Columns>
                         <HeaderStyle CssClass="table-title" />
