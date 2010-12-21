@@ -191,6 +191,7 @@
     <Compile Include="Tools\HardwareManager.cs" />
     <Compile Include="Tools\IDCardHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
+    <Compile Include="Tools\MathHelper.cs" />
     <Compile Include="Tools\MessageBoxHelper.cs" />
     <Compile Include="Tools\OperateHabitHelper.cs" />
     <Compile Include="Tools\ProgramState.cs" />
@@ -495,6 +496,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Com\Chm\" />
