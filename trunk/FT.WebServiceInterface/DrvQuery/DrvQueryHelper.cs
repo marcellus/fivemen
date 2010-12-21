@@ -77,6 +77,18 @@ namespace FT.WebServiceInterface.DrvQuery
                 info.yxqz = dr[8] == null ? string.Empty : dr[8].ToString();
                 info.jly = dr[9] == null ? string.Empty : dr[9].ToString();
 
+                sql = "select distinct decode(xb,1,'男',2,'女') sex,lxdh phone,lxdh mobile,lxzsxxdz address,to_char(csrq,'yyyy-MM-dd') csrq  from drv_admin.person a where a.sfzmhm='{1}'";
+                queryStr = string.Format(sql, new string[] { glbm, sfzmhm });
+                DataTable dt2 = access.SelectDataTable(queryStr, "tmp");
+                if (dt2 != null && dt2.Rows.Count > 0)
+                {
+                    dr = dt2.Rows[0];
+                    info.sex=dr[0] == null ? string.Empty : dr[0].ToString();
+                    info.phone = dr[1] == null ? string.Empty : dr[1].ToString();
+                    info.mobile = dr[2] == null ? string.Empty : dr[2].ToString();
+                    info.address = dr[3] == null ? string.Empty : dr[3].ToString();
+                    info.birthday = dr[4] == null ? string.Empty : dr[4].ToString();
+                }
             }
             return info;
         }
