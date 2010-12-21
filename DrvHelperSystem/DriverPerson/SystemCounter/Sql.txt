@@ -1,0 +1,117 @@
+﻿1、异地数量统计
+
+select  fzjg "str1",count(*) "int1",'' "str2",0 "int2",0 "int3",0 "int4" from
+ drv_admin.drivinglicense t where cclzrq between to_date('2010-11-30','yyyy-MM-dd')
+  and to_date('2010-12-15 23:59:59', 'yyyy-MM-dd HH24:mi:ss') and t.ly in ('B') and
+   zjcx like 'C%' and glbm like '4404%' and fzjg='粤C' group by fzjg order by fzjg
+
+2、考试员科目三一天考试次数超过50
+select m.*,'' "str2",0 "int2",0 "int3",0 "int4" from (select fzjg,km3ksy1 "str1",count(*) "int1"
+ from drv_admin.drv_grade t where
+  km3ksrq between to_date('2010-12-15','yyyy-MM-dd')
+   and to_date('2010-12-15 23:59:59', 'yyyy-MM-dd HH24:mi:ss') and
+    kscx like 'C%'   and fzjg='粤C' group by fzjg,km3ksy1 having count(*)>50 ) m order by "int1" desc
+    
+3、联系地址雷同30个以上
+select m.*,'' "str2",0 "int2",0 "int3",0 "int4"  from ( select d.lxzsxxdz "str1",count(*) "int1"
+ from drv_admin.person p, drv_admin.drivinglicense d  where p.sfzmhm=d.sfzmhm  and d.cclzrq
+  between to_date('2010-12-15','yyyy-MM-dd') and to_date('2010-12-15 23:59:59', 'yyyy-MM-dd HH24:mi:ss') 
+  and d.ly in ('B') and d.fzjg='粤C' group by fzjg,d.lxzsxxdz having count(*)>30) m order by "int1" desc
+
+4、异地驾驶人考试情况超过100的
+select m.*,0 "int2",0 "int3",0 "int4" from ( select to_char(km3ksrq,'yyyy-MM-dd')
+ "str1",to_char(km3ksrq,'DY') "str2",count(*) "int1" from  drv_admin.drv_grade t,drv_admin.person p,
+  drv_admin.drivinglicense d  where p.sfzmhm=t.sfzmhm and p.sfzmhm=d.sfzmhm  and d.cclzrq
+   between to_date('2010-12-15','yyyy-MM-dd') and to_date('2010-12-15 23:59:59', 'yyyy-MM-dd HH24:mi:ss')
+    and kscx like 'C%' and d.ly='B' and d.fzjg='粤C'  group by d.fzjg, km3ksrq,to_char(km3ksrq,'DY') 
+     having count(*)>100 Order By "int1" Desc ) m order by "int1" desc
+
+5、暂住证号码雷同超过3个
+select p.zzzm "str1",count(*) "int1",'' "str2",0 "int2",0 "int3",
+0 "int4" from drv_admin.person p, drv_admin.drivinglicense
+ d where p.sfzmhm=d.sfzmhm and d.ly in ('B') and d.fzjg='粤C'
+  and d.cclzrq between to_date('2010-12-15','yyyy-MM-dd')
+   and to_date('2010-12-15 23:59:59', 'yyyy-MM-dd HH24:mi:ss') group by p.zzzm having count(*)>3
+   
+   
+6、教练车查询
+select distinct  c.hphm "hphm",c.clpp "clpp",c.jxmc "jxmc",d.jlzh "jlzh",d.sj "phone",d.xm "xm",d.sfzmhm
+ "sfzmhm",d.jlcxh,d.zjcx "zjcx",to_char(c.cjsj,'yyyy-MM-dd HH24:mi:ss') "regdate"
+  from (select a.cjsj,b.jxmc,b.xh,a.jlcxh,a.hphm,a.clpp from drv_admin.drv_learner_vehicle a
+   left join drv_admin.drv_schoolinfo b on  a.jxxh=b.xh where a.fzjg='粤C'  ) c left join
+    drv_admin.drv_instructor d on d.jxxh=c.xh and d.jlcxh=c.jlcxh  where d.sfzmhm like '%233%'
+     or d.xm like '%233%' or d.jlzh like '%233%' or c.hphm like '%233%' or c.jxmc like '%233%'
+     
+7、驾校状况统计
+
+private final String CountStr1="select dmmc1 \"jxmc\"," +
+			" '''' \"countDate\", 0 \"onStudy\", sum(decode(kskm, 1, 1, 0)) \"km1\"," +
+			"sum(decode(kskm, 1, 1, 0) * decode(zt, 1, 1, 0)) \"km1hg\"," +
+			"sum(decode(kskm, 1, 1, 0) * decode(zt, 2, 1, 0)) \"km1bhg\"," +
+			"sum(decode(kskm, 2, 1, 0) * decode(ckyy, 1, 0, 1)) \"km20\"," +
+			" sum(decode(kskm, 2, 1, 0) * decode(ckyy, 1, 1, 0)) \"km21\"," +
+			"sum(decode(kskm, 3, 1, 0)) \"km3\",sum(decode(zksfhg, 1, 1, 0) * decode(kskm, 2, 1, 0) *decode(ckyy, 1, 0, 1)) \"km20hg\"," +
+			"sum(decode(zksfhg, 1, 0, 1) * decode(kskm, 2, 1, 0) *decode(ckyy, 1, 0, 1)) \"km20bhg\"," +
+			"sum(decode(zksfhg, 1, 1, 0) * decode(kskm, 2, 1, 0) *decode(ckyy, 1, 1, 0)) \"km21hg\"," +
+			"sum(decode(zksfhg, 1, 0, 1) * decode(kskm, 2, 1, 0) *decode(ckyy, 1, 1, 0)) \"km21bhg\"," +
+			"sum(decode(zt, 2, 1, 0) * decode(kskm, 3, 1, 0)) \"km3bhg\"," +
+			"sum(decode(zt, 1, 1, 0) * decode(kskm, 3, 1, 0)) \"km3hg\"" +
+					" from (select distinct b.dmmc1,a.sfzmhm,a.zt,a.kskm,a.kscx,a.ksrq,a.zksfhg,a.ckyy" +
+					" from drv_admin.drv_preasign a left join drv_admin.drv_code b on a.dlr = b.dmz and b.dmlb = ''42''" +
+					" where a.glbm like ''{0}%'' and a.kscx <> ''E'' and a.ksrq between to_date(''{1}''," +
+					"''yyyy-MM-dd'') and to_date(''{2} 23:59:59'', ''yyyy-MM-dd HH24:mi:ss'')) g " +
+					"group by g.dmmc1";
+	
+	private String CountStr2="select dmmc1  \"jxmc\",sum(decode(kskm,1,1,0)) \"km1hg\",sum(decode(kskm,2,1,0)) \"km20hg\",sum(decode(kskm,3,1,0)) \"km3hg\" from (select distinct d.lsh, b.dmmc1, d.sfzmhm,d.kskm,d.ksrq from drv_admin.drv_grade_log d left join " +
+			"drv_admin.drv_code b on d.jxdm = b.dmz  and b.dmlb = ''42'' where d.glbm like ''{0}%''  and d.zjcx <> ''E''  and d.ksrq between to_date(''{1}''," +
+					"''yyyy-MM-dd'') and to_date(''{2} 23:59:59'', ''yyyy-MM-dd HH24:mi:ss'') and d.zt = 1" +
+			" and not exists(select 1 from drv_admin.drv_preasign m where m.lsh=d.lsh)) g group by dmmc1";
+	
+	private String CountStr3="select dmmc1 \"jxmc\",count(1) \"onStudy\" from(select distinct q.lsh," +
+			" c.dmmc1 as dmmc1, q.sfzmhm, q.zjcx  from ( select distinct a.lsh, b.jxmc, a.sfzmhm, a.zjcx" +
+			" from drv_admin.drv_flow a " +
+			"   left join drv_admin.drv_examcard b on a.lsh = b.lsh" +
+			"  where a.glbm like ''{0}%''" +
+			" and a.zjcx <> ''E'' and a.KSSJ between to_date(''{1}-1-1'',''yyyy-MM-dd'') and sysdate" +
+			"   and a.ywlx in (''A'', ''B'')   ) q" +
+			" left join drv_admin.drv_code c on q.jxmc = c.dmz" +
+			"   and c.dmlb = ''42'') m group by dmmc1";
+	
+	private final String Km1DkStr="select dmmc1 \"jxmc\",0 \"km20c1dk\",0 \"km20nc1dk\",0 \"km21c1dk\",0 \"km21nc1dk\",0 \"km3c1dk\",0" +
+			" \"km3nc1dk\",sum(decode(zjcx,''C1'',1,0)) \"km1c1dk\",sum(decode(zjcx,''C1'',0,1)) \"km1nc1dk\" from ((select distinct q.lsh,c.dmmc1 " +
+			" as dmmc1,q.sfzmhm,q.zjcx from " +
+	"(select distinct  a.lsh,b.jxmc,a.sfzmhm,a.zjcx from drv_admin.drv_flow a left join  drv_admin.drv_examcard b on a.sfzmhm=b.sfzmhm" +
+	" where a.glbm like ''{0}%'' and a.zjcx<>''E'' and a.ywlx in (''A'',''B'')) q left join " +
+	"drv_admin.drv_code c on q.jxmc=c.dmz and c.dmlb=''42''  ) minus ( select distinct d.lsh,b.dmmc1,d.sfzmhm,d.zjcx" +
+	" from drv_admin.drv_grade_log d left join  drv_admin.drv_code b on d.jxdm=b.dmz and b.dmlb=''42'' where d.glbm like ''{0}%''" +
+	" and d.zjcx<>''E'' and d.kskm=1 and d.zt=1))  e" +
+	" where exists  ( select 1 from drv_admin.drv_examcard c where c.sfzmhm=e.sfzmhm and c.yxqz>sysdate-1)" +
+	" group by dmmc1";
+	
+	private final String Km20DkStr="select dmmc1 \"jxmc\",0 \"km1c1dk\",0 \"km1nc1dk\",0 \"km21c1dk\",0 \"km21nc1dk\",0 \"km3c1dk\"," +
+			"0 \"km3nc1dk\",sum(decode(kscx,''C1'',1,0)) \"km20c1dk\",sum(decode(kscx,''C1'',0,1)) \"km20nc1dk\" from ((select" +
+			" distinct  a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a left join " +
+			"drv_admin.drv_code b on a.dlr=b.dmz and b.dmlb=''42'' where exists ( select 1 from drv_admin.drv_flow f where f.sfzmhm=a.sfzmhm" +
+			" and f.ywlx in (''A'',''B'') ) and a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=1 and a.zt=1 ) minus (" +
+			" select distinct a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a left join " +
+			"drv_admin.drv_code b on a.dlr=b.dmz and b.dmlb=''42'' where a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=2 and ((a.ckyy<>1" +
+			" and a.zksfhg=1) or a.zt=1) )) " +
+			" e where exists (select 1 from drv_admin.drv_examcard c where c.sfzmhm=e.sfzmhm and c.yxqz>sysdate-1)" +
+			" group by dmmc1";
+	private final String Km21DkStr="select dmmc1 \"jxmc\",0 \"km20c1dk\",0 \"km20nc1dk\",0 \"km1c1dk\",0 \"km1nc1dk\",0 \"km3c1dk\"," +
+			"0 \"km3nc1dk\",sum(decode(kscx,''C1'',1,0)) \"km21c1dk\",sum(decode(kscx,''C1'',0,1)) \"km21nc1dk\" from" +
+			" ((select distinct  a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a left join drv_admin.drv_code b" +
+			" on a.dlr=b.dmz and b.dmlb=''42'' where a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=2 and ((a.ckyy<>1 and a.zksfhg=1)) )" +
+			" minus(select distinct a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a" +
+			" left join drv_admin.drv_code b on a.dlr=b.dmz and b.dmlb=''42''" +
+			" where a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=2 and ((a.ckyy=1 and a.zksfhg=1)))) " +
+			" e where exists ( select 1 from drv_admin.drv_examcard c where c.sfzmhm=e.sfzmhm and c.yxqz>sysdate-1)" +
+			" group by dmmc1";
+	private final String Km3DkStr="select dmmc1 \"jxmc\",0 \"km20c1dk\",0 \"km20nc1dk\",0 \"km21c1dk\",0 \"km21nc1dk\",0 \"km1c1dk\"," +
+			"0 \"km1nc1dk\",sum(decode(kscx,''C1'',1,0)) \"km3c1dk\",sum(decode(kscx,''C1'',0,1)) \"km3nc1dk\" from ((select distinct" +
+			"  a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a left join  drv_admin.drv_code b on a.dlr=b.dmz and" +
+			" b.dmlb=''42'' where a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=2 and ((a.ckyy=1 and a.zksfhg=1)  or a.zt=1)  )" +
+			" minus (  select distinct a.lsh,b.dmmc1,a.sfzmhm,a.kscx from drv_admin.drv_preasign a" +
+			" left join drv_admin.drv_code b on a.dlr=b.dmz and b.dmlb=''42'' where a.glbm like ''{0}%'' and a.kscx<>''E'' and a.kskm=3 and a.zt=1)" +
+			" )  e where exists (select 1 from drv_admin.drv_examcard c where c.sfzmhm=e.sfzmhm and c.yxqz>sysdate-1)" +
+			" group by dmmc1";

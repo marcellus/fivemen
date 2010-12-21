@@ -5,11 +5,11 @@
   </configSections>
   <log4net>
     <root>
-      <level value="ALL" />
+      <level value="DEBUG" />
       <appender-ref ref="debugAppender"/>
     </root>
     <logger name="debuglogger">
-      <level value="ALL"/>
+      <level value="DEBUG"/>
       <appender-ref ref="debugAppender"/>
     </logger>
     
