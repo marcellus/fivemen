@@ -62,6 +62,7 @@
     <Compile Include="DrvQuery\DrvQueryHelper.cs" />
     <Compile Include="DrvQuery\TempKscjInfo.cs" />
     <Compile Include="DrvQuery\TempStudentInfo.cs" />
+    <Compile Include="DrvQuery\ZhZwQueryHelper.cs" />
     <Compile Include="WebService\BusAllInfo.cs" />
     <Compile Include="WebService\DriverInterface.cs" />
     <Compile Include="WebService\DrvBaseTmriRequest.cs" />

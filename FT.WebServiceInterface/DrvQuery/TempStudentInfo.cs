@@ -28,5 +28,11 @@ namespace FT.WebServiceInterface.DrvQuery
 
         public String yxqs;
         public String yxqz;
+        public String phone;
+        public String address;
+        public String sex;
+        public String mobile;
+
+        public String birthday;
     }
 }
