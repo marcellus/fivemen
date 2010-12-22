@@ -10,6 +10,7 @@ namespace FT.Commons.Tools
     public class DateTimeHelper : BaseHelper
     {
 
+        public static int MILLISECOND_ONE_MINUTE=6000;
 
         public static int GetWeekOfYear(DateTime date)
         {
@@ -192,5 +193,37 @@ namespace FT.Commons.Tools
             Debug("获取周日 的日期为->" + result.ToShortDateString());
             return result;
         }
+
+
+        /// <summary>
+        /// 获取时间的绝对毫秒值
+        /// </summary>
+        /// <param name="pDt">日期</param>
+        /// <returns>毫秒数</returns>
+        public static double fnGetTotalMillsecond(DateTime pDt)
+        {
+
+            DateTime d2 = new DateTime(1970, 1, 1);
+            return pDt.Subtract(d2).TotalMilliseconds;
+
+        }
+
+
+        /// <summary>
+        /// 判断是否初始化日期
+        /// </summary>
+        /// <param name="pDt">日期</param>
+        /// <returns>是否</returns>
+        public static Boolean fnIsNewDateTime(DateTime pDt)
+        {
+            if (pDt == null)
+            {
+                return false;
+            }
+            return fnGetTotalMillsecond(pDt) == fnGetTotalMillsecond(new DateTime());
+        }
+
+
+
     }
 }
