@@ -3,19 +3,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<style>
+  .alertMsg
+  {
+    color:Red;
+    font-size:1.2em;
+  }
+</style>
 <h1>指纹信息采集</h1>
 <table style="width:80%" border="0" cellpadding="4" cellspacing="1" class="table-border">
      <tr>
-        <td class="table-title" style="width:25%">学员身份证号码</td>
+        <td class="table-title" style="width:20%">学员身份证查询</td>
         <td class="table-content" style="width:50%">
         <asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" />
-        <asp:Button  runat="server" ID="btnQueryStudent" Text="获取学员信息" onclick="btnQueryStudent_Click" 
-              />
-        <asp:Button runat="server" ID="btnVerifyStudent" Text="验证学员指纹" 
-                onclick="btnVerifyStudent_Click"  />
+        <asp:Button  runat="server" ID="btnQueryStudent" Text="身份证查询" onclick="btnQueryStudent_Click" />
+        <asp:Label runat="server" ID="lbQueryAlertMsg" CssClass="alertMsg"></asp:Label>
+         
+        </td>
+  
+     </tr>
+     <tr>
+        <td class="table-title">学员指纹查询</td>
+        <td class="table-content">
+          <asp:Button runat="server" ID="btnIdentity" Text="指纹查询" 
+           onclick="btnIdentity_Click" />
+           <asp:Label runat="server" ID="lbIdentityAlertMsg" CssClass="alertMsg"></asp:Label>
         </td>
      </tr>
-     
      
      <tr class="table-content">
         <td  colspan="2">
@@ -107,9 +121,12 @@
                 <tr>
                    <td colspan="4">
                        <asp:Button ID="btnSaveStudent" runat="server" Text="保存" 
-                           onclick="btnSaveStudent_Click"  />    
+                           onclick="btnSaveStudent_Click"  Visible="false" />    
                        <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
-                           onclick="btnNewEnrolStudent_Click" Visible="false"  />    
+                           onclick="btnNewEnrolStudent_Click" Visible="false"  /> 
+                       <asp:Button runat="server" ID="btnVerifyStudent" Text="检查指纹" 
+                            onclick="btnVerifyStudent_Click" Visible="false"  />   
+                         
                    </td>
                 </tr>
                 <tr>
