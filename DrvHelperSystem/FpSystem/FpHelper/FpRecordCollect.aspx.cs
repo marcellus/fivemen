@@ -17,6 +17,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     private const int ACTION_NONE = 0;
     private const int ACTION_NEW_ENROLL_STUDENT = 1;
     private const int ACTION_VERIFY_STUDENT = 2;
+    private const int ACTION_IDENTITY_STUDENT = 3;
     private FpBase _FP;
     
 
@@ -25,6 +26,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this._FP = new FpBase(this,new EventHandler(TrustLink_OperDlgPostEvent));
+        
     }
     protected void btnQueryStudent_Click(object sender, EventArgs e)
     {
@@ -32,9 +34,16 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
             return;
         FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.txtIDCard.Text);
         if (lObjStudent == null)
+        {
+            this.fnUIQuerySucess(false);
             return;
-        this.lbXm.Text = lObjStudent.NAME;
-        this.btnSaveStudent.Visible = true;
+        }
+        else
+        {
+            this.fnUIQuerySucess(true);
+            this.fnUISetStudentInfo(lObjStudent);
+        }
+
     }
     protected void btnVerifyStudent_Click(object sender, EventArgs e)
     {
@@ -56,6 +65,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         Session[ACTION_NAME] = ACTION_NEW_ENROLL_STUDENT;
     }
 
+    protected void btnIdentity_Click(object sender, EventArgs e)
+    {
+        _FP.FpIdentityUser();
+        Session[ACTION_NAME] = ACTION_IDENTITY_STUDENT;
+    }
+
 
 
     protected void btnSaveStudent_Click(object sender, EventArgs e)
@@ -68,9 +83,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         lObjStu.NAME = "hhlin";
         if (FPSystemBiz.fnAddOrEditStudentRecord(lObjStu))
         {
-            this.lbAlertMsg.Visible = true;
-            this.lbAlertMsg.Text = "学员信息保存成功，可进行指纹采集";
-            this.btnNewEnrolStudent.Visible = true;
+            fnUISaveStudentInfoSucess(true);
         }
     }
 
@@ -85,7 +98,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     private void TrustLink_OperDlgPostEvent(object sender, EventArgs e)
     {
         ResultCodeArgs re = (ResultCodeArgs)e;
-        string strMessage = re.ResultMessage;
+        string[] lArrUserIds = FpBase.getUserIds(re);
         FpStudentObject lObjStudent = null;
         int lIntAction =ACTION_NONE;
         if (Session[ACTION_NAME] == null)
@@ -99,19 +112,126 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         switch (lIntAction)
         {
             case ACTION_NONE: break;
-            case ACTION_NEW_ENROLL_STUDENT: 
-                 lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.txtIDCard.Text);
+            case ACTION_NEW_ENROLL_STUDENT:
+                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.lbIdCard.Text.Trim());
                 if (lObjStudent == null)
-                   return;
-                this.lbAlertMsg.Visible = true;
-                this.lbAlertMsg.Text = "学员:" + lObjStudent.NAME + "  " + lObjStudent.IDCARD + "  指纹采集成功";
+                {
+                    this.fnUINewEnrollStudentSucess(false);
+                    return;
+                }
+                else
+                {
+                    this.fnUINewEnrollStudentSucess(true);
+                }
                 break;
             case ACTION_VERIFY_STUDENT:
-                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.txtIDCard.Text);
-                if (lObjStudent == null)
+                if (lArrUserIds.Length < 1)
                     return;
+                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
+                if (lObjStudent == null)
+                {
+                    this.fnUIVerifyStudentInfoSucess(false);
+                    return; 
+                }
+                else
+                {
+                    this.fnUIVerifyStudentInfoSucess(true);
+                }
                 this.lbXm.Text = lObjStudent.NAME;
                 break;
+            case ACTION_IDENTITY_STUDENT:
+                if (lArrUserIds.Length < 1)
+                {
+                    this.lbIdentityAlertMsg.Text = "没有该学员的指纹信息";
+                    return;
+                } lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
+                if (lObjStudent == null)
+                {
+                    this.lbIdentityAlertMsg.Text = "没有该学员的信息";
+                    return;
+                }
+                this.fnUISetStudentInfo(lObjStudent);
+                this.btnSaveStudent.Visible = true;
+                this.lbIdentityAlertMsg.Text = "";
+                break;
+
         }
     }
+
+
+
+    private void fnUIQuerySucess( Boolean bl)
+    {
+        if (bl)
+        {
+            this.lbQueryAlertMsg.Text = "";
+            this.btnSaveStudent.Visible = true;
+        }
+        else
+        {
+ 
+            this.lbQueryAlertMsg.Text = "没有该学员的信息";
+            this.btnSaveStudent.Visible = false;
+        }
+    }
+
+    private void fnUISaveStudentInfoSucess(Boolean bl)
+    {
+        if (bl)
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员信息保存成功，可进行指纹采集";
+            this.btnNewEnrolStudent.Visible = true;
+        }
+        else
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员信息保存失败";
+            this.btnNewEnrolStudent.Visible = true;
+            this.btnNewEnrolStudent.Visible = false;
+        }
+    }
+
+    private void fnUINewEnrollStudentSucess(Boolean bl)
+    {
+        if (bl)
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员指纹采集成功";
+            this.btnVerifyStudent.Visible = true;
+        }
+        else
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员指纹采集失败";
+            this.btnVerifyStudent.Visible = false;
+        }
+    }
+
+
+    private void fnUIVerifyStudentInfoSucess(Boolean bl)
+    {
+        if (bl)
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员指纹匹配正确";
+            this.btnVerifyStudent.Visible = true;
+        }
+        else
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "学员指纹匹配错误";
+            this.btnVerifyStudent.Visible = false;
+        }
+    }
+
+
+
+    private void fnUISetStudentInfo(FpStudentObject fso)
+    {
+        this.lbXm.Text = fso.NAME;
+        this.lbIdCard.Text = fso.IDCARD;
+    }
+
+   
 }
