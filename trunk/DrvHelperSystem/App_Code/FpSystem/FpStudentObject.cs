@@ -79,6 +79,8 @@ public class FpStudentObject
     private DateTime train_leave_8;
 
 
+    private string remark;
+
     
     public string IDCARD
     {
@@ -238,4 +240,10 @@ public class FpStudentObject
         set { this.train_leave_8 = value; }
     }
 
+
+    public string REMARK
+    {
+        get { return this.remark; }
+        set { this.remark = value; }
+    }
 }
