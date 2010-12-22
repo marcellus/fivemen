@@ -148,5 +148,37 @@ public class FpBase
         return result;
     }
 
+
+    public static string[] getUserIds(ResultCodeArgs re)
+    {
+        string[] lArrUserIds = new string[] {};
+        if (re.ResultCode != SUCCESSED||re.ResultMessage=="")
+            return lArrUserIds;
+        else
+        {
+            if (re.ResultMessage.Contains(";"))
+            {
+                lArrUserIds = re.ResultMessage.Split(';');
+            }
+            else
+            {
+                lArrUserIds = new string[] { ""};
+                lArrUserIds[0]=re.ResultMessage;
+            } 
+            
+            for (int i = 0; i < lArrUserIds.Length; i++)
+            {
+                string val = lArrUserIds[i].ToString();
+                if (
+                    val.EndsWith("_R1") || val.EndsWith("_R2") || val.EndsWith("_R3") || val.EndsWith("_R4") || val.EndsWith("_R5") ||
+                    val.EndsWith("_L1") || val.EndsWith("_L2") || val.EndsWith("_L3") || val.EndsWith("_L4") || val.EndsWith("_L5")
+                    )
+                {
+                    lArrUserIds[i] = val.Substring(0, val.LastIndexOf('_'));
+                }
+            }
+        }
+        return lArrUserIds;
+    }
     
 }
