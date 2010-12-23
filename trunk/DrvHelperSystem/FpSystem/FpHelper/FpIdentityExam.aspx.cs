@@ -9,10 +9,12 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-public partial class FpSystem_FpHelper_FpList : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpIdentityExam : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
+
+
 }

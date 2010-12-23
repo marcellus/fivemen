@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<iframe id="frameViewStudent" name="frameViewStudent" src="FpViewStudentRecord.aspx" style="width:100%; height:80%; border-width:0px">
+<iframe id="frameViewLessonRecord" name="frameViewLessonRecord" src="FpViewLessonRecord.aspx" scrolling="no" style="width:100%; height:90%; border-width:0px">
 </iframe>
-<iframe src="FpIdentityLesson_TL.aspx"style="width:100%; height:20%; border-width:0px">
+<iframe src="FpIdentity_TL.aspx?targetframe=frameViewLessonRecord"style="width:100%; height:10%; border-width:0px" scrolling="no">
 </iframe>
 </asp:Content>
 
