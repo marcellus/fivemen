@@ -29,6 +29,22 @@ public class FpStudentObject
     private string idcard;
     [SimpleColumn(Column="NAME")]
     private string name;
+    [SimpleColumn(Column="SEX")]
+    private string sex;
+    [SimpleColumn(Column="BRITHDAY")]
+    private DateTime brithday;
+    [SimpleColumn(Column="PHONE")]
+    private string phone;
+    [SimpleColumn(Column="ADDRESS")]
+    private string address;
+    [SimpleColumn(Column="DRV_SCHOOL")]
+    private string drv_school;
+    [SimpleColumn(Column="DRV_TYPE")]
+    private string drv_type;
+    [SimpleColumn(Column="DRV_DOCNUM")]
+    private string drv_docnum;
+    [SimpleColumn(Column="REMARK")]
+    private string remark;
     [SimpleColumn(Column="CREATER")]
     private string creater;
     [SimpleColumn(Column="CREATE_TIME")]
@@ -79,7 +95,7 @@ public class FpStudentObject
     private DateTime train_leave_8;
 
 
-    private string remark;
+    
 
     
     public string IDCARD
@@ -94,6 +110,59 @@ public class FpStudentObject
         set { this.name = value; }
     }
 
+    public string SEX
+    {
+        get { return this.sex; }
+        set { this.sex = value; }
+    }
+    
+
+    public DateTime  BRITHDAY
+    {
+        get { return this.brithday ; }
+        set { this.brithday = value; }
+    }
+
+
+    public string PHONE
+    {
+        get { return this.phone; }
+        set { this.phone = value; }
+    }
+
+    public string ADDRESS
+    {
+        get { return this.address; }
+        set { this.address = value; }
+    }
+
+
+
+    public string DRV_SCHOOL
+    {
+        get { return this.drv_school; }
+        set { this.drv_school = value; }
+    }
+
+
+    public string DRV_TYPE
+    {
+        get { return this.drv_type; }
+        set { this.drv_type = value; }
+    }
+
+
+    public string DRV_DOCNUM
+    {
+        get { return this.drv_docnum; }
+        set { this.drv_docnum = value; }
+    }
+
+    public string REMARK
+    {
+        get { return this.remark; }
+        set { this.remark = value; }
+    }
    
     public string CREATER
     {
@@ -241,9 +310,5 @@ public class FpStudentObject
     }
 
 
-    public string REMARK
-    {
-        get { return this.remark; }
-        set { this.remark = value; }
-    }
+
 }

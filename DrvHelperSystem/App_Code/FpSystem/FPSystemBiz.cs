@@ -16,7 +16,7 @@ using FT.Commons.Tools;
 /// </summary>
 public class FPSystemBiz
 {
-
+    public static string PARAM_RESULT = "identityResult";
     private static int LESSON_ENTER_1_NEXT_MINUTE = 45;
     private static int LESSON_ENTER_2_NEXT_MINUTE = 45;
 
@@ -26,7 +26,7 @@ public class FPSystemBiz
     public static readonly int LESSON_ENTER_1_FAILE = 1;
     public static readonly int LESSON_ENTER_2_FAILE = 2;
     public static readonly int LESSON_LEAVE_2_FAILE = 3;
-
+    public static readonly int CHECK_SAMEDAY_FAILE = 4;
 
 
 
@@ -161,12 +161,20 @@ public class FPSystemBiz
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_1"; }
             
         }
+        else if(fnIsVaildTime(fso.TRAIN_ENTER_1, lDtIdentity))
+        {
+           lIntReturn=CHECK_SAMEDAY_FAILE;
+        }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_2))
         {
             if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || !fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_2"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_2"; }
+        }
+        else if(fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity))
+        {
+           lIntReturn=CHECK_SAMEDAY_FAILE;
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_3))
         {
@@ -175,12 +183,20 @@ public class FPSystemBiz
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_3"; }
         }
+        else if(fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity))
+        {
+           lIntReturn=CHECK_SAMEDAY_FAILE;
+        }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_4))
         {
             if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || !fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_4"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_4"; }
+        }
+        else if (fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity))
+        {
+            lIntReturn = CHECK_SAMEDAY_FAILE;
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_5))
         {
@@ -189,12 +205,20 @@ public class FPSystemBiz
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_5"; }
         }
+        else if (fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity))
+        {
+            lIntReturn = CHECK_SAMEDAY_FAILE;
+        }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_6))
         {
             if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || !fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_6"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_6"; }
+        }
+        else if (fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity))
+        {
+            lIntReturn = CHECK_SAMEDAY_FAILE;
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_7))
         {
@@ -203,6 +227,10 @@ public class FPSystemBiz
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_7"; }
         }
+        else if (fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity))
+        {
+            lIntReturn = CHECK_SAMEDAY_FAILE;
+        }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_8))
         {
             if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || !fnIsVaildTime(fso.TRAIN_ENTER_8, lDtIdentity))
@@ -210,7 +238,6 @@ public class FPSystemBiz
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_8"; }
         }
-
 
         if (lStrParm0 != null)
         {
