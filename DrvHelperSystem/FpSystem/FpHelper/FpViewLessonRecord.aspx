@@ -1,20 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default2.aspx.cs" Inherits="FpSystem_FpHelper_Default2" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpViewLessonRecord.aspx.cs" Inherits="FpSystem_FpHelper_FpViewStudentRecord" Title="无标题页" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>无标题页</title>
-</head>
-<body>
-<form id="fingerform" style="width:30px" runat="server">
-  <asp:Button  runat="server" Text="指纹验证" ID="Button1" 
-        onclick="btnIdentity_Click" />
-
-</form>
-
-    <form id="form1" runat="server">
-    <div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <table class="table-border">
       <tr>
          <td class="table-title">学员身份证</td>
@@ -51,7 +39,5 @@
          </td>
       </tr>
    </table>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+

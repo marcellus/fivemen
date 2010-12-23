@@ -11,50 +11,28 @@ using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
 
-public partial class FpSystem_FpHelper_Default2 : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
 {
-    private FpBase _FP;
+    private FpStudentObject gObjStu;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack)
-            _FP = new FpBase(this, new EventHandler(FpVerifyHandler), true);
-    }
 
-    private void FpVerifyHandler(object o, EventArgs e)
-    {
-        ResultCodeArgs re = (ResultCodeArgs)e;
-        string[] lStrUserIds = FpBase.getUserIds(re);
-
-        string idcard = lStrUserIds.Length > 0 ? lStrUserIds[0].ToString() : "";
-
-        int rcode = FPSystemBiz.fnIdendityStudentLesson(idcard);
-
-        if (rcode == FPSystemBiz.CHECHIN_NO_RECARD)
+        if (Request.Params[FPSystemBiz.PARAM_RESULT] == null) 
+            return;
+        string lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
+        if (lStrIDCard.Length < 1)
         {
-            this.lbStudentAlertMsg.Text = "没有该学员的指纹信息";
-            _FP.FpIdentityUser();
             return;
         }
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
+        int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         if (fso == null)
         {
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
-            _FP.FpIdentityUser();
             return;
         }
-        this.fnUILoadStudentRecord(fso, rcode);
-        _FP.FpIdentityUser();
-
-    }
-
-
-
-
-    protected void btnIdentity_Click(object sender, EventArgs e)
-    {
-
-        _FP.FpIdentityUser();
-
+        this.fnUILoadStudentRecord(fso, lIntResultCode);
     }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
@@ -64,7 +42,7 @@ public partial class FpSystem_FpHelper_Default2 : System.Web.UI.Page
         this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
         this.lbStuLessonLeave1.Text = "";
         this.lbStuLessonEnter2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_2) ? "" : pFso.LESSON_ENTER_2.ToString();
-        this.lbStuLessonLeave2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_1) ? "" : pFso.LESSON_LEAVE_1.ToString();
+        this.lbStuLessonLeave2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_2) ? "" : pFso.LESSON_LEAVE_2.ToString();
 
         if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)
         {
