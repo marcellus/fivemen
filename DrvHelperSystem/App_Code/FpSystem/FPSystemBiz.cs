@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Collections;
 using FT.DAL;
 using FT.Commons.Tools;
+using FT.Commons.Cache;
 
 /// <summary>
 ///FPSystemBiz 的摘要说明
@@ -17,8 +18,6 @@ using FT.Commons.Tools;
 public class FPSystemBiz
 {
     public static string PARAM_RESULT = "identityResult";
-    private static int LESSON_ENTER_1_NEXT_MINUTE = 45;
-    private static int LESSON_ENTER_2_NEXT_MINUTE = 45;
 
     public static readonly int CHECHIN_NO_RECARD = -2;
     public static readonly int CHECKIN_FAILE = -1;
@@ -71,6 +70,7 @@ public class FPSystemBiz
     {
         //FT.DAL.Orm.SimpleOrmOperator.QueryList
         int lIntReturn = CHECKIN_FAILE;
+        int lIntLessonInterval=StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"),45);
         FpStudentObject fso = null;
         ArrayList lArrStu= FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FpStudentObject>("where idcard='"+pStrIdCard+"'");
         if (lArrStu.Count != 1)
@@ -100,7 +100,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.LESSON_ENTER_2))
         {
-            if (fnIsVaildTime(fso.LESSON_ENTER_1, lDtIdentity, LESSON_ENTER_1_NEXT_MINUTE))
+            if (fnIsVaildTime(fso.LESSON_ENTER_1, lDtIdentity, lIntLessonInterval))
             {
                 lStrParm0 = lStrPrfLESSON_ENTER + "_2";
                 lIntReturn = CHECKIN_SUCCESS;
@@ -112,7 +112,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.LESSON_LEAVE_2))
         {
-            if (fnIsVaildTime(fso.LESSON_ENTER_2, lDtIdentity, LESSON_ENTER_2_NEXT_MINUTE))
+            if (fnIsVaildTime(fso.LESSON_ENTER_2, lDtIdentity, lIntLessonInterval))
             {
                 lStrParm0 = lStrPrfLESSON_LEAVE + "_2";
                 lIntReturn = CHECKIN_SUCCESS;
@@ -137,6 +137,7 @@ public class FPSystemBiz
     {
         //FT.DAL.Orm.SimpleOrmOperator.QueryList
         int lIntReturn = CHECKIN_FAILE;
+        int lIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
         FpStudentObject fso = null;
         ArrayList lArrStu = FT.DAL.Orm.SimpleOrmOperator.QueryConditionList<FpStudentObject>("where idcard='" + pStrIdCard + "'");
         if (lArrStu.Count != 1)
@@ -155,7 +156,7 @@ public class FPSystemBiz
 
         if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1)||DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_1))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1)|| !fnIsVaildTime(fso.TRAIN_ENTER_1,lDtIdentity) )
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1) || !fnIsVaildTime(fso.TRAIN_ENTER_1, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_1"; }
@@ -167,7 +168,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_2))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || !fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || !fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_2"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_2"; }
@@ -178,7 +179,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_3))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || !fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || !fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_3"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_3"; }
@@ -189,7 +190,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_4))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || !fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || !fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_4"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_4"; }
@@ -200,7 +201,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_5))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || !fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || !fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_5"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_5"; }
@@ -211,7 +212,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_6))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || !fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || !fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_6"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_6"; }
@@ -222,7 +223,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_7))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || !fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || !fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_7"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_7"; }
@@ -233,7 +234,7 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_8))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || !fnIsVaildTime(fso.TRAIN_ENTER_8, lDtIdentity))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || !fnIsVaildTime(fso.TRAIN_ENTER_8, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_8"; }
             else
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_8"; }
