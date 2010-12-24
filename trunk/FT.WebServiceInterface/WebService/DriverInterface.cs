@@ -59,7 +59,15 @@ namespace FT.WebServiceInterface.WebService
 
            
             string responseText = "";
-            responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            try
+            {
+                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                return new TmriResponse();
+            }
             log.Debug("调用写入接口返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();
             response.ParseFromXml(responseText);
@@ -75,7 +83,15 @@ namespace FT.WebServiceInterface.WebService
             log.Debug("预约写入接口的文本为：" + request.ToXml());
 
             string responseText = "";
-            responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            try
+            {
+                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                return new TmriResponse();
+            }
             log.Debug("调用写入接口返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();
             response.ParseFromXml(responseText);
