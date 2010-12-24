@@ -41,17 +41,41 @@ namespace FT.WebServiceInterface.WebService
         #endregion
 
         #region Tmri新接口
+
+        private static TmriJaxRpcOutAccessService GetNewService()
+        {
+            TmriJaxRpcOutAccessService service = new TmriJaxRpcOutAccessService();
+            service.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl"];
+            log.Debug("服务的URL：" + service.Url);
+            service.Timeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl-Timeout"]);
+            return service;
+        }
         public static TmriResponse WriteDrvBaseTmriRequest(DrvBaseTmriRequest request)
         {
             log.Debug("预约写入接口的xtlb：" + request.GetXtlb());
             log.Debug("预约写入接口的jkxlh：" + request.GetJkxlh());
             log.Debug("预约写入接口的jkid：" + request.GetJkid());
             log.Debug("预约写入接口的文本为：" + request.ToXml());
-            TmriJaxRpcOutAccessService service = new TmriJaxRpcOutAccessService();
-            service.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl"];
-            log.Debug("服务的URL："+service.Url);
+
+           
             string responseText = "";
-            responseText = service.writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            log.Debug("调用写入接口返回的文本为：" + responseText);
+            TmriResponse response = new TmriResponse();
+            response.ParseFromXml(responseText);
+            return response;
+
+        }
+
+        public static TmriResponse WritePersonInfoChange(DrvPresonInfoChangeRequest request)
+        {
+            log.Debug("预约写入接口的xtlb：" + request.GetXtlb());
+            log.Debug("预约写入接口的jkxlh：" + request.GetJkxlh());
+            log.Debug("预约写入接口的jkid：" + request.GetJkid());
+            log.Debug("预约写入接口的文本为：" + request.ToXml());
+
+            string responseText = "";
+            responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
             log.Debug("调用写入接口返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();
             response.ParseFromXml(responseText);
@@ -60,10 +84,56 @@ namespace FT.WebServiceInterface.WebService
         }
         #endregion
 
-        private DrvService GetOldService()
+        #region 老接口
+        /// <summary>
+        /// 身份证号
+        /// </summary>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public static string GetPersonPhoto(string idcard)
+        {
+            return GetPersonPhoto("A", idcard);
+        }
+        /// <summary>
+        /// 身份证明类别+身份证明号码查询
+        /// </summary>
+        /// <param name="idcardtype"></param>
+        /// <param name="idcard"></param>
+        /// <returns></returns>
+        public static  string GetPersonPhoto(string idcardtype, string idcard)
+        {
+            string result = string.Empty;
+            try
+            {
+                result = GetOldService().getDrvImage(idcardtype, idcard, System.Configuration.ConfigurationManager.AppSettings["getDrvimage-old-sn"]);
+
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                return string.Empty;
+            }
+            log.Debug("获取照片返回的xmldoc结果为："+result);
+            DrvOldGetImageResponse response = new DrvOldGetImageResponse();
+            response.ParseFromXml(result);
+            if (response.zp != null && response.zp.Length > 0)
+            {
+                result=response.zp;
+            }
+            else
+            {
+                result = string.Empty;
+            }
+            return result;
+
+        }
+        #endregion
+
+        private static DrvService GetOldService()
         {
             DrvService srv = new DrvService();
             srv.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrlOld"];
+            srv.Timeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrlOld-Timeout"]);
             return srv;
         }
     }
