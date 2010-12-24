@@ -495,10 +495,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Com\Chm\" />
     <Folder Include="Com\Pdf\" />
     <Folder Include="Com\WordSupport\" />
