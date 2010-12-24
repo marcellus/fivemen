@@ -73,6 +73,7 @@
     <Compile Include="WebService\DrvOldGetImageResponse.cs" />
     <Compile Include="WebService\DrvPreasignRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebService\DrvPresonInfoChangeRequest.cs" />
     <Compile Include="WebService\TmriResponse.cs" />
     <Compile Include="WebService\VehicleInterface.cs" />
   </ItemGroup>
