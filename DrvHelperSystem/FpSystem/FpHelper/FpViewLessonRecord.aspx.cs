@@ -37,8 +37,8 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
     {
-        this.lbStrName.Text = pFso.NAME;
-        this.lbStuIdCard.Text = pFso.IDCARD;
+        //this.lbStrName.Text = pFso.NAME;
+        //this.lbStuIdCard.Text = pFso.IDCARD;
         this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
         this.lbStuLessonLeave1.Text = "";
         this.lbStuLessonEnter2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_2) ? "" : pFso.LESSON_ENTER_2.ToString();

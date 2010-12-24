@@ -3,16 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <table class="table-border">
-      <tr>
-         <td class="table-title">学员身份证</td>
-         <td  class="table-content"><asp:Label  ID="lbStuIdCard" runat="server" /></td>
-         <td  class="table-title">学员姓名</td>
-         <td class="table-content"><asp:Label ID="lbStrName" runat="server" /></td>
-      </tr>
-      
-      <tr>
-         <td colspan="4" class="table-content">
+ <FpUCL:viewStudentInfo ID="ViewStudentInfo1"   runat="server"></FpUCL:viewStudentInfo>
              <table class="table-border">
                <tr>
                 <td class="table-title" style="width:25%"></td>
@@ -74,8 +65,5 @@
                   <td class="table-content" colspan="3" style="color:Red; font-size:1.5em"><asp:Label ID="lbStudentAlertMsg" runat="server"></asp:Label></td>
                 </tr>
              </table>
-         </td>
-      </tr>
-   </table>
 </asp:Content>
 

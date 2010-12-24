@@ -26,7 +26,13 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this._FP = new FpBase(this,new EventHandler(TrustLink_OperDlgPostEvent));
-        
+        if(Request.Params[FPSystemBiz.PARAM_RESULT]!=null)
+        {
+            this.txtIDCard.Text=Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
+            FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.txtIDCard.Text);
+            this.fnUIQuerySucess(lObjStudent != null);
+    
+        }
     }
     protected void btnQueryStudent_Click(object sender, EventArgs e)
     {
@@ -41,8 +47,9 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         else
         {
             this.fnUIQuerySucess(true);
-            this.fnUISetStudentInfo(lObjStudent);
+            Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text.Trim()));
         }
+        
 
     }
     protected void btnVerifyStudent_Click(object sender, EventArgs e)
@@ -113,7 +120,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         {
             case ACTION_NONE: break;
             case ACTION_NEW_ENROLL_STUDENT:
-                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.lbIdCard.Text.Trim());
+                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(this.txtIDCard.Text.Trim());
                 if (lObjStudent == null)
                 {
                     this.fnUINewEnrollStudentSucess(false);
@@ -136,13 +143,15 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 else
                 {
                     this.fnUIVerifyStudentInfoSucess(true);
+                    Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text.Trim()));
                 }
-                this.lbXm.Text = lObjStudent.NAME;
+                
+
                 break;
             case ACTION_IDENTITY_STUDENT:
                 if (lArrUserIds.Length < 1)
                 {
-                    this.lbIdentityAlertMsg.Text = "没有该学员的指纹信息";
+                    //this.lbIdentityAlertMsg.Text = "没有该学员的指纹信息";
                     return;
                 } lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
                 if (lObjStudent == null)
@@ -150,7 +159,8 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                     this.lbIdentityAlertMsg.Text = "没有该学员的信息";
                     return;
                 }
-                this.fnUISetStudentInfo(lObjStudent);
+                Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text.Trim()));
+   
                 this.btnSaveStudent.Visible = true;
                 this.lbIdentityAlertMsg.Text = "";
                 break;
@@ -159,7 +169,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     }
 
 
-
+    
     private void fnUIQuerySucess( Boolean bl)
     {
         if (bl)
@@ -226,12 +236,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     }
 
 
-
+    /**
     private void fnUISetStudentInfo(FpStudentObject fso)
     {
         this.lbXm.Text = fso.NAME;
         this.lbIdCard.Text = fso.IDCARD;
     }
-
+    **/
    
 }
