@@ -54,6 +54,11 @@ namespace FT.WebServiceInterface.DrvQuery
             return info;
         }
 
+        public static TempStudentInfo QueryStudent(String sfzmhm)
+        {
+            return QueryStudent(System.Configuration.ConfigurationManager.AppSettings["DrvHelperSystem_glbm"].ToString(), sfzmhm);
+        }
+
         public static TempStudentInfo QueryStudent(String glbm, String sfzmhm)
         {
             TempStudentInfo info = null;
