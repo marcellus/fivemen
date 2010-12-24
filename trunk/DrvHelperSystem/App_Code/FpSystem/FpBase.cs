@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
 using System.Globalization;
+using FT.Commons.Cache;
+using FT.Commons.Tools;
 
 /// <summary>
 ///FpBase 的摘要说明
@@ -34,8 +36,8 @@ public class FpBase
     private const string TRUSTLINK_INI_VERIFY = "Verify";
     private const string TRUSTLINK_INI_OCXNAME = "OcxName";
 
-    private const string ENROLL_CLSID = "540BE1A4-553C-4676-9932-85F61D4034E0";
-    private const string VERIFY_CLSID = "F4C54CF0-BBDD-40B4-98BC-96AC9DB8F091";
+    private string ENROLL_CLSID = "540BE1A4-553C-4676-9932-85F61D4034E0";
+    private string VERIFY_CLSID = "F4C54CF0-BBDD-40B4-98BC-96AC9DB8F091";
     //declare form public variable 
     private Boolean blDefaultAlert;     //是否使用内部错误提示
     private TrustLinkGeneralController _TG;
@@ -70,14 +72,32 @@ public class FpBase
 
     private void GetXParam()
     {
-        _TG.HostName = "127.0.0.1";
-        _TG.ProductID = "DEMO";
-        _TG.Port = 26057;
-        _TG.AuthenID = "sa";
-        _TG.AuthenPwd = "sa";
-        _TG.DeviceType = "31";
-        _TG.OcxClassID = VERIFY_CLSID;
-        _TG.OcxName = "XECtrl103.ocx";
+        try
+        {
+            _TG.HostName = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_HOST"), "127.0.0.1");
+            VERIFY_CLSID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_VERIFY_CLSID"), "F4C54CF0-BBDD-40B4-98BC-96AC9DB8F091");
+            ENROLL_CLSID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_ENROLL_CLSID"), "540BE1A4-553C-4676-9932-85F61D4034E0");
+            _TG.ProductID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_PRODRCTID"), "DEMO");
+            _TG.Port = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_PORT"), 26057);
+            _TG.AuthenID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENID"), "sa");
+            _TG.AuthenPwd = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENPWD"), "sa");
+            _TG.DeviceType = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("PF_DEVICETYPE"), "31");
+            _TG.OcxClassID = VERIFY_CLSID;
+            _TG.OcxName = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_OCXNAME"), "XECtrl103.ocx");
+        }
+        catch (NullReferenceException nre)
+        {
+            _TG.HostName = "127.0.0.1";
+            VERIFY_CLSID = "F4C54CF0-BBDD-40B4-98BC-96AC9DB8F091";
+            ENROLL_CLSID = "540BE1A4-553C-4676-9932-85F61D4034E0";
+            _TG.ProductID = "DEMO;";
+            _TG.Port = 26057;
+            _TG.AuthenID = "sa";
+            _TG.AuthenPwd = "sa";
+            _TG.DeviceType = "31";
+            _TG.OcxClassID = VERIFY_CLSID;
+            _TG.OcxName = "XECtrl103.ocx";
+        }
     }
 
 
