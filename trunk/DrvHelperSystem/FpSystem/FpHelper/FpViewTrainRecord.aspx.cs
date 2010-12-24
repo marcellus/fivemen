@@ -35,8 +35,7 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
     {
-        this.lbStrName.Text = pFso.NAME;
-        this.lbStuIdCard.Text = pFso.IDCARD;
+
         this.lbStuTrainEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_ENTER_1) ? "" : pFso.TRAIN_ENTER_1.ToString();
         this.lbStuTrainLeave1.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_LEAVE_1) ? "" : pFso.TRAIN_LEAVE_1.ToString();
 

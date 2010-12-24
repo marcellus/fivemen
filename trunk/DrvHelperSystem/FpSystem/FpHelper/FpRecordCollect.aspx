@@ -23,6 +23,7 @@
   
      </tr>
      <tr>
+   
         <td class="table-title">学员指纹查询</td>
         <td class="table-content">
           <asp:Button runat="server" ID="btnIdentity" Text="指纹查询" 
@@ -32,7 +33,9 @@
      </tr>
      
      <tr class="table-content">
-        <td  colspan="2">
+        <td  colspan="5">
+        <FpUCL:viewStudentInfo  runat="server" ID="ucl" ></FpUCL:viewStudentInfo>
+          <!--
             <table style="width:100%;"  border="0" cellpadding="4" cellspacing="1" class="table-border">
                 <tr class="table-content">
                     <td  class="table-title" style="width:80px">
@@ -117,6 +120,10 @@
                         <asp:Label ID="lbDescription" runat="server"></asp:Label>
                     </td>
                     
+                </tr>
+                
+                -->
+                </td>
                 </tr>
                 <tr>
                    <td colspan="4">
