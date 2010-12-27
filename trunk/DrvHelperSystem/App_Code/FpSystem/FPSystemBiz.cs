@@ -26,6 +26,7 @@ public class FPSystemBiz
     public static readonly int LESSON_ENTER_2_FAILE = 2;
     public static readonly int LESSON_LEAVE_2_FAILE = 3;
     public static readonly int CHECK_SAMEDAY_FAILE = 4;
+    public static readonly int TRAIN_LEAVE_FAILE = 5;
 
 
 
@@ -156,10 +157,14 @@ public class FPSystemBiz
 
         if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1)||DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_1))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1) || !fnIsVaildTime(fso.TRAIN_ENTER_1, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_1))
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_1, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_1"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
             
         }
         else if(fnIsVaildTime(fso.TRAIN_ENTER_1, lDtIdentity))
@@ -168,10 +173,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_2))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) || !fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_2) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_2"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_2"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if(fnIsVaildTime(fso.TRAIN_ENTER_2, lDtIdentity))
         {
@@ -179,10 +188,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_3))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) || !fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_3) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_3"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_3"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if(fnIsVaildTime(fso.TRAIN_ENTER_3, lDtIdentity))
         {
@@ -190,10 +203,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_4))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) || !fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_4) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_4"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_4"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if (fnIsVaildTime(fso.TRAIN_ENTER_4, lDtIdentity))
         {
@@ -201,10 +218,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_5))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) || !fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_5) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_5"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_5"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if (fnIsVaildTime(fso.TRAIN_ENTER_5, lDtIdentity))
         {
@@ -212,10 +233,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_6))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) || !fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_6) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_6"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_6"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if (fnIsVaildTime(fso.TRAIN_ENTER_6, lDtIdentity))
         {
@@ -223,10 +248,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_7))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) || !fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_7) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_7"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_7"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
         else if (fnIsVaildTime(fso.TRAIN_ENTER_7, lDtIdentity))
         {
@@ -234,10 +263,14 @@ public class FPSystemBiz
         }
         else if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || DateTimeHelper.fnIsNewDateTime(fso.TRAIN_LEAVE_8))
         {
-            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) || !fnIsVaildTime(fso.TRAIN_ENTER_8, lDtIdentity, lIntTrainInterval))
+            if (DateTimeHelper.fnIsNewDateTime(fso.TRAIN_ENTER_8) )
             { lStrParm0 = lStrPrfTRAIN_ENTER + "_8"; }
-            else
+            else if (fnIsVaildTime(fso.TRAIN_ENTER_8, lDtIdentity, lIntTrainInterval))
             { lStrParm0 = lStrPrfTRAIN_LEAVE + "_8"; }
+            else
+            {
+                lIntReturn = TRAIN_LEAVE_FAILE;
+            }
         }
 
         if (lStrParm0 != null)
