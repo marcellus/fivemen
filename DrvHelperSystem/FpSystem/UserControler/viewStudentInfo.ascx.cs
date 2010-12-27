@@ -16,16 +16,12 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
     protected void Page_Load(object sender, EventArgs e)
     {
         string lStrIDCard = "";
-        if (Request.Params[FPSystemBiz.PARAM_RESULT] != null)
-        {
-            lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
-        }
-        else
-        {
-            return;
-        }
+        if (Request.Params[FPSystemBiz.PARAM_RESULT] == null)
+          return ;
+        lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
         if (lStrIDCard.Length < 1)
         {
+            this.lbAlertMsg.Text = "没有该学员的指纹信息";
                 return;
         }
         int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
@@ -44,7 +40,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         this.lbName.Text = fso.NAME;
         this.lbSex.Text = fso.SEX;
         this.lbIdCard.Text = fso.IDCARD;
-        this.imgPerson.ImageUrl = string.Format("/ShowImage.aspx?idcardtype=A&idcard={0}", fso.IDCARD);
+        this.imgPerson.ImageUrl = string.Format("~/ShowImage.aspx?idcardtype=A&idcard={0}", fso.IDCARD);
         this.lbIDCardType.Text = "第二代身份证";
         this.lbBrithday.Text = DateTimeHelper.fnIsNewDateTime(fso.BRITHDAY) ? "" : fso.BRITHDAY.ToString();
         this.lbPhone.Text = fso.PHONE;
@@ -53,7 +49,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         this.lbDocNum.Text = fso.DRV_DOCNUM;
         this.lbDrvType.Text = fso.DRV_TYPE;
         this.lbRemark.Text = fso.REMARK;
-        this.lbAlertMsg.Visible = false;
+        this.lbAlertMsg.Text = "";
 
     }
 }

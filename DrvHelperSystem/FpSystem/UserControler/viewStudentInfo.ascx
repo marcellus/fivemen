@@ -17,7 +17,7 @@
                         <asp:Label ID="lbDocNum" runat="server"></asp:Label>
                     </td>
                     <td rowspan="4">
-                        <asp:Image ID="imgPerson" runat="server" Height="160px" Width="100px" 
+                        <asp:Image ID="imgPerson" runat="server" Height="160px" Width="150px" 
                             BorderStyle="Solid" BorderWidth="1px" ImageUrl="~/images/no_photo.jpg" />
                     </td>
                 </tr>
@@ -77,7 +77,7 @@
                 
                   <tr>
                     <td colspan="4" style="color:Red; font-size:1.5em">
-                       <asp:Label runat="server" ID="lbAlertMsg" Visible="false"></asp:Label>
+                       <asp:Label runat="server" ID="lbAlertMsg" ></asp:Label>
                     </td>
                 </tr>
                 
