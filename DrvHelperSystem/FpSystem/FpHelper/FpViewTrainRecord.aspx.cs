@@ -68,6 +68,10 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         {
             this.lbStudentAlertMsg.Text = "指纹确认成功";
         }
+        else if (pResultCode == FPSystemBiz.TRAIN_LEAVE_FAILE)
+        {
+            this.lbStudentAlertMsg.Text = "你今天的训练时间未够，提早离场将被视为考勤无效";
+        }
 
 
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)
