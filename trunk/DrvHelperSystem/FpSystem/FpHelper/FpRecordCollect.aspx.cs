@@ -132,20 +132,14 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 }
                 break;
             case ACTION_VERIFY_STUDENT:
-                if (lArrUserIds.Length < 1)
-                    return;
-                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
-                if (lObjStudent == null)
+                if (re.ResultCode == FpBase.SUCCESSED)
                 {
-                    this.fnUIVerifyStudentInfoSucess(false);
-                    return; 
+                    this.fnUIVerifyStudentInfoSucess(true);
                 }
                 else
                 {
-                    this.fnUIVerifyStudentInfoSucess(true);
-                    Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text.Trim()));
+                    this.fnUIVerifyStudentInfoSucess(false);
                 }
-                
 
                 break;
             case ACTION_IDENTITY_STUDENT:
@@ -159,7 +153,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                     this.lbIdentityAlertMsg.Text = "没有该学员的信息";
                     return;
                 }
-                Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text.Trim()));
+                Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, lArrUserIds[0].ToString()));
    
                 this.btnSaveStudent.Visible = true;
                 this.lbIdentityAlertMsg.Text = "";
@@ -231,7 +225,6 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "学员指纹匹配错误";
-            this.btnVerifyStudent.Visible = false;
         }
     }
 
@@ -243,5 +236,9 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         this.lbIdCard.Text = fso.IDCARD;
     }
     **/
-   
+
+    protected void btnClearStudent_Click(object sender, EventArgs e)
+    {
+        Response.Redirect(Request.Url.AbsolutePath);
+    }
 }
