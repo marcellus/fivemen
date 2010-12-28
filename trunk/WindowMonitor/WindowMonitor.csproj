@@ -63,6 +63,8 @@
     <Compile Include="BaseMonitorForm.Designer.cs">
       <DependentUpon>BaseMonitorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonChangeMonitor.cs">
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseMonitorForm.resx">
@@ -107,6 +109,10 @@
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.WebServiceInterface\FT.WebServiceInterface.csproj">
+      <Project>{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}</Project>
+      <Name>FT.WebServiceInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
       <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
