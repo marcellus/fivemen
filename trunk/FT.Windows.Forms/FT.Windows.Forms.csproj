@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -127,6 +127,8 @@
     <Compile Include="EntityConfig\EntitySearch.Designer.cs">
       <DependentUpon>EntitySearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Monitor\BaseMonitor.cs" />
+    <Compile Include="Monitor\SimpleTimeMonitor.cs" />
     <Compile Include="NoUser\MockUser.cs" />
     <Compile Include="NoUser\ModifyMockUserPwd.cs">
       <SubType>Form</SubType>
