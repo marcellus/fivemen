@@ -79,7 +79,7 @@ namespace FT.WebServiceInterface.WebService
         /**
          * 接口返回的代码
          */
-        private int code;
+        private int code = -1;
 
         public int Code
         {
@@ -87,10 +87,19 @@ namespace FT.WebServiceInterface.WebService
             set { code = value; }
         }
 
+        /// <summary>
+        /// 是否默认的web服务错误返回的结果
+        /// </summary>
+        /// <returns></returns>
+        public bool IsWebServiceErrorResponse()
+        {
+            return code == -1 && message.Length == 0;
+        }
+
         /**
          * 接口返回的message
          */
-        private String message;
+        private String message=string.Empty;
 
         public String Message
         {

@@ -80,11 +80,19 @@ namespace FT.WebServiceInterface.WebService
             get { return code; }
             set { code = value; }
         }
+        /// <summary>
+        /// 是否默认的web服务错误返回的结果
+        /// </summary>
+        /// <returns></returns>
+        public bool IsWebServiceErrorResponse()
+        {
+            return code == -1 && message.Length == 0;
+        }
 
         /**
          * 接口返回的message
          */
-        private String message;
+        private String message=string.Empty;
 
         public String Message
         {
