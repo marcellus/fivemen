@@ -8,6 +8,7 @@
     <title>考试预约</title>
        <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="../../js/popcalendar.js"></script>
+      <script type="text/javascript" src="../../js/setday.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,31 +28,25 @@
                    </tr>
                    <tr class="table-content"><td>
                     科目 
-        <asp:DropDownList ID="cbKm" runat="server" Enabled="False" Font-Size="15pt">
+        <asp:DropDownList ID="cbKm" runat="server"  Font-Size="15pt">
             <asp:ListItem Value="1">科目一</asp:ListItem>
             <asp:ListItem Value="2">科目二</asp:ListItem>
             <asp:ListItem Value="3">科目三</asp:ListItem>
         </asp:DropDownList>
                     &nbsp; 地点&nbsp; 
-        <asp:DropDownList ID="cbKsdd" runat="server" Enabled="False" Width="273px" Font-Size="15pt">
+        <asp:DropDownList ID="cbKsdd" runat="server" Width="273px" Font-Size="15pt">
         </asp:DropDownList>
-                    &nbsp; 场次&nbsp;<asp:DropDownList ID="cbKscc" runat="server" Enabled="False" 
+                    &nbsp; 场次&nbsp;<asp:DropDownList ID="cbKscc" runat="server" 
                         Font-Size="15pt">
         </asp:DropDownList>
                     &nbsp;
                 </td>
             </tr>
-            <tr class="table-bottom">
-                <td >
-                &nbsp;&nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server" Width="181px"></asp:TextBox>
-                  约考日期 <input  onclick="setday(this)"  id="txtYkrq" runat="server" />
-                &nbsp;培训审核日期 
-        <input  onclick="setday(this)"  id="txtDate" runat="server" />
-        </td>
-        </tr>
-         <tr class="table-bottom">
+             <tr class="table-content">
          <td>
-        驾校 <asp:DropDownList ID="cbSchool" runat="server" Height="16px" Width="114px" Font-Size="15pt">
+        驾校 <asp:DropDownList ID="cbSchool" runat="server" Height="16px" Width="418px" 
+                 Font-Size="15pt" onselectedindexchanged="cbSchool_SelectedIndexChanged" 
+                 AutoPostBack="True">
         </asp:DropDownList>&nbsp;
          号码号牌&nbsp;&nbsp;&nbsp; 
         <asp:DropDownList ID="cbCarNo" runat="server" Height="16px" Width="114px" Font-Size="15pt">
@@ -62,6 +57,15 @@
                     
                 </td>
             </tr>
+            <tr class="table-content">
+                <td >
+                &nbsp;&nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server" Width="181px"></asp:TextBox>
+                  约考日期 <input  onclick="setday(this)"  id="txtYkrq" runat="server" />
+                &nbsp;培训审核日期 
+        <input  onclick="setday(this)"  id="txtDate" runat="server" />
+        </td>
+        </tr>
+        
             <tr class="table-content"><td>
             
             证件号码&nbsp;<asp:TextBox ID="txtIdCardSearch" runat="server" Width="181px"></asp:TextBox>&nbsp;

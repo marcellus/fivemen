@@ -8,13 +8,22 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using FT.DAL;
+using FT.Web.Tools;
+using FT.DAL.Orm;
 
-public partial class DriverPerson_ZhZw_SimplePreasign : System.Web.UI.Page
+public partial class DriverPerson_ZhZw_SimplePreasign : FT.Web.AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
         {
+            DictOperator.BindDropDownList("考试地点", this.cbKsdd);
+            DictOperator.BindDropDownList("考试场次", this.cbKscc);
+            
+            DepartMentOperator.Bind(this.cbSchool, "驾校");
+            DictOperator.BindDropDownList("考试科目",this.cbKm);
+
             this.ProcedurePager1.TableName = "table_yuyue_info";
             this.ProcedurePager1.FieldString = @"id,c_lsh,date_ksrq,c_kscc,c_ksdd,i_km,c_idcard,
 c_xm,date_pxshrq,c_hmhp,c_jbr,
@@ -24,7 +33,20 @@ c_check_result
             this.ProcedurePager1.SortString = " order by id desc";
         }
     }
-    /*
+    
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        string idcard = this.txtIdCardSearch.Text.Trim();
+        if (idcard.Length == 15)
+        {
+            idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
+        }
+        this.ProcedurePager1.RowFilter = " c_idcard like '%" + idcard + "%'";
+        this.ProcedurePager1.Changed = true;
+    }
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        /*
      
       info = new YuyueInfo();
             info.Checked = 0;
@@ -50,14 +72,37 @@ c_check_result
      YuyueInfoOperator.Check(id,this.Operator.OperatorName);
      
      */
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        string idcard = this.txtIdCardSearch.Text.Trim();
-        if (idcard.Length == 15)
+
+        YuyueInfo info = new YuyueInfo();
+        info.Checked = 0;
+        info.Dlr = this.cbSchool.SelectedItem.Text;
+        info.DlrCode = this.cbSchool.SelectedItem.Value;
+        info.Hmhp = this.cbCarNo.SelectedItem.Text;
+        info.IdCard = this.txtIdCard.Text.Trim();
+        info.JlyIdCard = this.cbCarNo.SelectedItem.Value;
+
+        info.Km = int.Parse(this.cbKm.SelectedItem.Value);
+        info.Kscc = this.cbKscc.SelectedItem.Text;
+        info.KsccCode = this.cbKscc.SelectedItem.Value;
+        info.Ksdd = this.cbKsdd.SelectedItem.Text;
+        info.KsddCode = this.cbKsdd.SelectedItem.Value;
+        info.Ksrq = this.txtYkrq.Value.Trim();
+
+        info.PaibanId = int.Parse(this.hidPaiBanId.Value);
+        info.Pxshrq = this.txtDate.Value;
+
+        SimpleOrmOperator.Create(info);
+        ArrayList list = SimpleOrmOperator.QueryConditionList<YuyueInfo>(" where c_idcard='"+info.IdCard+"' order by id desc");
+        if (list.Count != 0)
         {
-            idcard = FT.Commons.Tools.IDCardHelper.IdCard15To18(idcard);
+            YuyueInfo tmp = list[0] as YuyueInfo;
+            YuyueInfoOperator.Check(tmp.Id, this.Operator.OperatorName);
+            this.btnSearch_Click(null, null);
         }
-        this.ProcedurePager1.RowFilter = " c_idcard='" + idcard + "'";
-        this.ProcedurePager1.Changed = true;
+
+    }
+    protected void cbSchool_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SchoolCarInfoOperator.Bind(this.cbCarNo, this.cbSchool.SelectedItem.Value);
     }
 }
