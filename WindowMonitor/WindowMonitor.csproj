@@ -63,6 +63,7 @@
     <Compile Include="BaseMonitorForm.Designer.cs">
       <DependentUpon>BaseMonitorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarOwnerInfoChangeMonitor.cs" />
     <Compile Include="PersonChangeMonitor.cs">
     </Compile>
     <Compile Include="Program.cs" />
