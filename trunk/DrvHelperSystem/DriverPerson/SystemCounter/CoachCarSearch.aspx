@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>教练车查询</title> 
+    <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
   <script language="JavaScript" src="js/drv/commpage.js" type="text/javascript"></script>
 	<script language="JavaScript" src="js/drv/common_check.js" type="text/javascript"></script>
 	<script language="JavaScript" src="js/drv/tools.js" type="text/javascript"></script>
