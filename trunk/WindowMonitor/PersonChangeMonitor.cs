@@ -12,7 +12,7 @@ namespace WindowMonitor
     {
         protected override void DoTask()
         {
-            string sql = "select sfzmhm,lxdh,yzbm,lxzs,sjhm,dzyx from table_person_change_info where syn=0";
+            string sql = "select idacard,c_new_phone,c_new_postcode,c_new_address,c_old_phone,c_email from table_person_change_info where syn=0";
             DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmpdb");
             string logstr = string.Empty;
             if (dt != null && dt.Rows.Count > 0)
