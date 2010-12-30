@@ -90,6 +90,25 @@ c_check_result
 
         info.PaibanId = int.Parse(this.hidPaiBanId.Value);
         info.Pxshrq = this.txtDate.Value;
+        DataTable dttmp = FT.WebServiceInterface.DrvQuery.ZhZwQueryHelper.GetDataTable(info.IdCard);
+        
+        if (info.Km == 1)
+        {
+            if (dttmp == null || dttmp.Rows.Count == 0 || dttmp.Rows[0]["lesson_result"].ToString() == "未完成")
+            {
+                WebTools.Alert(this, "该用户没有完成足够的学时，无法进行科目一预约！");
+                return;
+            }
+
+        }
+        else if (info.Km == 3)
+        {
+            if (dttmp == null || dttmp.Rows.Count == 0 || dttmp.Rows[0]["train_result"].ToString() == "未完成")
+            {
+                WebTools.Alert(this, "该用户没有完成足够的入场训练，无法进行科目三预约！");
+                return;
+            }
+        }
 
         SimpleOrmOperator.Create(info);
         ArrayList list = SimpleOrmOperator.QueryConditionList<YuyueInfo>(" where c_idcard='"+info.IdCard+"' order by id desc");

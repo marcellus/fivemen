@@ -52,7 +52,6 @@
         <asp:DropDownList ID="cbCarNo" runat="server" Height="16px" Width="114px" Font-Size="15pt">
         </asp:DropDownList>
                     &nbsp; 
-                    <asp:Button ID="btnAdd" runat="server" Text="约考" onclick="btnAdd_Click" />
                     &nbsp;&nbsp; 
                     
                 </td>
@@ -63,6 +62,8 @@
                   约考日期 <input  onclick="setday(this)"  id="txtYkrq" runat="server" />
                 &nbsp;培训审核日期 
         <input  onclick="setday(this)"  id="txtDate" runat="server" />
+                    <asp:Button ID="btnAdd" runat="server" Text="约考" onclick="btnAdd_Click" 
+                        Width="82px" />
         </td>
         </tr>
         
