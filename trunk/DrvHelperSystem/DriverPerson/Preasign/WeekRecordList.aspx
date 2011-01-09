@@ -34,7 +34,7 @@
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
                             <asp:BoundColumn DataField="i_week_num" HeaderText="第几周"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_week_range" HeaderText="时间范围"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_check_operator" HeaderText="审核人"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_check_operator" HeaderText="提交人/审核人"></asp:BoundColumn>
                             <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>
                             <asp:TemplateColumn HeaderText="详细">
                             <ItemTemplate>

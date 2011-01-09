@@ -71,6 +71,7 @@ namespace FT.WebServiceInterface.WebService
             log.Debug("调用写入接口返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();
             response.ParseFromXml(responseText);
+            log.Debug("返回的结果code为："+response.Code);
             return response;
 
         }
@@ -90,7 +91,9 @@ namespace FT.WebServiceInterface.WebService
             catch (Exception exe)
             {
                 log.Info(exe);
-                return new TmriResponse();
+                TmriResponse err = new TmriResponse();
+                err.Message = exe.Message;
+                return err;
             }
             log.Debug("调用写入接口返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();

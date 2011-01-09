@@ -86,6 +86,8 @@
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
                              <asp:BoundColumn DataField="c_idcard" HeaderText="身份证明号码"></asp:BoundColumn>
+                               <asp:BoundColumn DataField="i_km" HeaderText="考试科目"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="date_ksrq" HeaderText="考试日期"></asp:BoundColumn>
                               <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
                             <asp:BoundColumn DataField="date_pxshrq" HeaderText="培训审核日期"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_hmhp" HeaderText="号码号牌"></asp:BoundColumn>
@@ -101,8 +103,7 @@
                       <tr class="table-bottom">
                 <td>
                    <WC:ProcedurePager ID="ProcedurePager1" runat="server" AllowBinded="True" 
-                        BindControlString="DataGrid1">
-                    </WC:ProcedurePager>
+                        BindControlString="DataGrid1" PageSize="30"></WC:ProcedurePager>
                 </td>
             </tr>
                     

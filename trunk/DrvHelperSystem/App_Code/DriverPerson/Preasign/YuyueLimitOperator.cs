@@ -56,7 +56,7 @@ public class YuyueLimitOperator
             limit = new YuyueLimit();
             limit.WeekNum = weeknum;
             limit.Operator = week.CheckOperator;
-            limit.Ksrq = begin.AddDays(dayofweek-1).ToShortDateString();
+            limit.Ksrq = begin.AddDays(dayofweek-1).ToString("yyyy-MM-dd");
             limit.DayOfWeek = dayofweek;
             array2 = array1[i].Split(';');
             array3 = array2[0].Split(':');

@@ -54,6 +54,40 @@
                 <td >
                      <asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False"
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
+                        Width="100%" onitemcommand="DataGrid1_ItemCommand" >
+                        <Columns>
+                            <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="c_idcard" HeaderText="身份证明号码"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="date_pxshrq" HeaderText="培训审核日期"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_hmhp" HeaderText="号码号牌"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_jbr" HeaderText="经办人"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="c_check_result" HeaderText="审核信息"></asp:BoundColumn>
+                             <asp:TemplateColumn HeaderText="撤销">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="btnDelete" runat="server" AlternateText="撤销" CommandArgument='<%#Eval("id") %>'
+                                        CommandName="Delete" ImageUrl="~/images/delete.gif" OnClientClick="return confirm('确定撤销吗？');"
+                                        ToolTip="撤销" />
+                                </ItemTemplate>
+                            </asp:TemplateColumn>
+                            
+                        </Columns>
+                        <HeaderStyle CssClass="table-title" />
+                        <ItemStyle CssClass="table-content" />
+                        <EditItemStyle CssClass="table-content" />
+                    </asp:DataGrid></td>
+            </tr>
+             <tr class="table-content">
+                <td >
+                审核不过的人员名单
+            </td>
+            </tr>
+             <tr class="table-content">
+                <td >
+                     <asp:DataGrid ID="DataGrid2" runat="server" AutoGenerateColumns="False"
+                        BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
                         Width="100%" >
                         <Columns>
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>

@@ -37,7 +37,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
     {
         YuyueLimit entity = YuyueLimitOperator.Get(Convert.ToInt32(this.hidPaiBanId.Value));
         string sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
-            + "  where i_paibanid=" + entity.Id;
+            + "  where i_checked<>2 i_paibanid=" + entity.Id;
         dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
         if (dt != null)
         {
@@ -56,6 +56,16 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         }
         this.DataGrid1.DataSource = dt;
         this.DataGrid1.DataBind();
+
+        sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
+           + "  where i_checked=2 and i_paibanid=" + entity.Id;
+        dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
+        if (dt != null)
+        {
+            this.DataGrid2.DataSource = dt;
+            this.DataGrid2.DataBind();
+
+        }
     }
 
     private DataTable MockDataTable()
@@ -89,7 +99,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         this.hidPaiBanId.Value = entity.Id.ToString();
         this.lbSchoolName.Text = this.Operator.Desp4;
         string sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
-            + "  where i_paibanid="+entity.Id;
+            + "  where i_checked<>2 and i_paibanid="+entity.Id;
         dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmp");
         if (dt != null)
         {
@@ -108,6 +118,16 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         }
         this.DataGrid1.DataSource = dt;
         this.DataGrid1.DataBind();
+
+        sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
+           + "  where i_checked=2 and i_paibanid=" + entity.Id;
+        dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
+        if (dt != null)
+        {
+            this.DataGrid2.DataSource = dt;
+            this.DataGrid2.DataBind();
+
+        }
 
         
         
@@ -171,7 +191,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
                 return;
             }
         }
-        ArrayList list = SimpleOrmOperator.QueryConditionList<YuyueInfo>(" where i_km=" + km + " and c_idcard='" + idcard + "'");
+        ArrayList list = SimpleOrmOperator.QueryConditionList<YuyueInfo>(" where i_checked<>2 and i_km=" + km + " and c_idcard='" + idcard + "'");
         if (list != null && list.Count > 0 && km == 1)
         {
             WebTools.Alert(this, "科目一预约只能在本系统预约一次，补考预约请到业务大厅！");
@@ -258,5 +278,24 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         }
         WebTools.Alert(this, "预约已满人！");
         return;
+    }
+    protected void DataGrid1_ItemCommand(object source, DataGridCommandEventArgs e)
+    {
+        if (e.CommandName == "Delete")
+        {
+            int id = Convert.ToInt32(e.CommandArgument);
+            if (YuyueInfoOperator.Delete(id))
+            {
+                WebTools.Alert(this, "已经撤销申请成功！");
+                this.ReBind();
+            }
+            else
+            {
+                WebTools.Alert(this, "无法撤销审核过的申请！");
+            }
+            
+            
+        }
+        
     }
 }

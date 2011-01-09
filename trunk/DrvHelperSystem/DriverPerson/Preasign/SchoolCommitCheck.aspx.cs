@@ -26,6 +26,8 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
             c_idcard,
             c_xm,
             date_pxshrq,
+            date_ksrq,
+            decode(i_km,1,'科目一',2,'科目二',3,'科目三') i_km,
             c_hmhp,
             c_jbr,
             decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked

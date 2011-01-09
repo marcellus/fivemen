@@ -17,7 +17,7 @@ public partial class DriverPerson_Preasign_YuyueResultSearch : System.Web.UI.Pag
         {
             this.ProcedurePager1.AllowBinded = false;
             this.ProcedurePager1.TableName = "table_yuyue_info";
-            this.ProcedurePager1.FieldString = @"id,c_lsh,date_ksrq,c_kscc,c_ksdd,i_km,c_idcard,
+            this.ProcedurePager1.FieldString = @"id,c_lsh,date_ksrq,c_kscc,c_ksdd, decode(i_km,1,'科目一',2,'科目二',3,'科目三') i_km,c_idcard,
 c_xm,date_pxshrq,c_hmhp,c_jbr,
 decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,
 c_check_result

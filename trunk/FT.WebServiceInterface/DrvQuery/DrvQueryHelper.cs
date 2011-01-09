@@ -37,8 +37,8 @@ namespace FT.WebServiceInterface.DrvQuery
             if (dt != null && dt.Rows.Count > 0)
             {
                 info = new TempKscjInfo();
-                info.km1 = Convert.ToInt32(dt.Rows[1][1]);
-                info.km1yyrq = dt.Rows[1][2].ToString();
+                info.km1 = Convert.ToInt32(dt.Rows[0][1]);
+                info.km1yyrq = dt.Rows[0][2].ToString();
                 if (dt.Rows.Count > 1)
                 {
                     info.km2 = Convert.ToInt32(dt.Rows[1][1]);
@@ -46,8 +46,8 @@ namespace FT.WebServiceInterface.DrvQuery
                 }
                 if (dt.Rows.Count > 2)
                 {
-                    info.km3 = Convert.ToInt32(dt.Rows[1][1]);
-                    info.km3yyrq = dt.Rows[1][2].ToString();
+                    info.km3 = Convert.ToInt32(dt.Rows[2][1]);
+                    info.km3yyrq = dt.Rows[2][2].ToString();
                 }
 
             }
