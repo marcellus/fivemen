@@ -38,7 +38,8 @@ namespace FT.WebServiceInterface.WebService
             {
                 return string.Empty;
             }
-            return node.Value;
+
+            return node.Value==null?node.InnerText:node.Value;
         }
 
         public void ParseFromXml(String xml)

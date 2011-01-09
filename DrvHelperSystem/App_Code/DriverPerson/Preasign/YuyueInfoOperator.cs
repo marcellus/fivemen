@@ -24,6 +24,26 @@ public class YuyueInfoOperator
         //TODO: 在此处添加构造函数逻辑
         //
     }
+
+
+    public static bool Delete(int id)
+    {
+        YuyueInfo info=SimpleOrmOperator.Query<YuyueInfo>(id);
+        if (info.Checked != 0)
+        {
+            return false;
+        }
+       bool result=SimpleOrmOperator.Delete<YuyueInfo>(id);
+       if (result)
+       {
+           if (!DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_tpused_num=i_tpused_num-1 where i_tpused_num>0  and id=" + info.PaibanId))
+           {
+               DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_used_num=i_used_num-1 where i_used_num>0 and id=" + info.PaibanId);
+           }
+       }
+       return result;
+    }
+
     public static void SaveInfoCheckFail(YuyueInfo info, string name,string msg)
     {
         info.Checked = 2;
@@ -31,6 +51,10 @@ public class YuyueInfoOperator
         info.Jbr = name;
         info.CheckResult = msg;
         SimpleOrmOperator.Update(info);
+        if (!DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_tpused_num=i_tpused_num-1 where i_tpused_num>0  and id=" + info.PaibanId))
+        {
+            DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_used_num=i_used_num-1 where i_used_num>0 and id=" + info.PaibanId);
+        }
     }
 
     public static DrvPreasignRequest ConvertInfoToRequest(YuyueInfo info)
@@ -186,22 +210,27 @@ public class YuyueInfoOperator
             }
             catch (Exception exe)
             {
-                info.CheckResult = exe.Message;
-                SimpleOrmOperator.Update(info);
+                SaveInfoCheckFail(info, name, exe.Message);
+                //info.CheckResult = exe.Message;
+               // SimpleOrmOperator.Update(info);
                 return;
             }
-            if (resp.Code == 0)
+            if (resp.Code == 0||resp.Code==1)
             {
                 info.Checked = 1;
                 info.CheckResult = resp.Message;
                 SimpleOrmOperator.Update(info);
-                DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_checked_num=i_checked_num+1 where i_checked_num<i_used_num and id="+info.PaibanId);
+                if (!DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_checked_num=i_checked_num+1 where i_checked_num<i_used_num and id=" + info.PaibanId))
+                {
+                    DataAccessFactory.GetDataAccess().ExecuteSql("update table_yuyue_limit set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
+                }
             }
             else
             {
-                info.Checked = 2;
-                info.CheckResult = resp.Message;
-                SimpleOrmOperator.Update(info);
+                SaveInfoCheckFail(info, name, resp.Message);
+                //info.Checked = 2;
+                //info.CheckResult = resp.Message;
+               // SimpleOrmOperator.Update(info);
                 
             }
         }
