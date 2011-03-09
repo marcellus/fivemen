@@ -24,7 +24,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
             this.lbAlertMsg.Text = "没有该学员的指纹信息";
                 return;
         }
-        int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
+        //int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         if (fso == null)
         {
@@ -32,10 +32,10 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
             this.lbAlertMsg.Text = "没有该学员的个人信息";
             return;
         }
-        this.fnUILoadStudentRecord(fso, lIntResultCode);
+        this.fnUILoadStudentRecord(fso);
     }
 
-    private void fnUILoadStudentRecord(FpStudentObject fso, int lIntResultCode)
+    private void fnUILoadStudentRecord(FpStudentObject fso)
     {
         this.lbName.Text = fso.NAME;
         this.lbSex.Text = fso.SEX;

@@ -72,6 +72,9 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         {
             this.lbStudentAlertMsg.Text = "你今天的训练时间未够，提早离场将被视为考勤无效";
         }
+        else if (pResultCode == FPSystemBiz.TRAIN_ENTER_FAILE) {
+            this.lbStudentAlertMsg.Text = "你上次的训练未完成,上次的记录将被清空，请再次验证";
+        }
 
 
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)
