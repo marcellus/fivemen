@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="IndexMaster.master.cs" Inherits="IndexMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <style type="text/css">
+    img
+    {
+    	border:0px;
+    }
+    body
+    {
+       color:Gray;
+    }
+    p
+    {
+    	line-height:25pt;
+    }
+    a.hint
+    {
+    	padding-left:15px;
+    	padding-bottom:10px;
+    	margin-bottom:10px;
+    	color:Black;
+    }
+    a{TEXT-DECORATION:none}
+    a:hover{TEXT-DECORATION:underline}
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="Description" content="广州互信电子科技有限公司,指纹仪,TL-FRO510" />
+    <meta name="Keywords" content="广州互信电子科技有限公司,指纹仪,TL-FRO510" />
+</head>
+<body style="text-align:center">
+    <form id="form2" runat="server">
+    <div style=" width:1002px;text-align:center">
+        <div style="height:88px;background-image:url('images/logo.png');  background-repeat:no-repeat; background-position:bottom center;  background-position: left top; background-repeat:no-repeat; background-attachment:fixed; ">
+        <div style="height:80px;  padding-bottom:0px;text-align:right; font-size:13px;">
+        <a href="Introduction.aspx">返回首页&nbsp;</a>| <a href="#" onclick="javascript:window.external.AddFavorite('http://www.hxdz.net','广州互信电子科技有限公司')"> 
+加入收藏</a></div>
+        <div   style=" padding-top:10px; padding-bottom:-5px; margin-bottom:-4px; vertical-align:bottom; text-align:right; ">
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+        <a href="Introduction.aspx"><img  style=" margin-bottom:0px"  src="images/企业概况.png"/></a>
+        &nbsp;
+        <a href="News.aspx"><img  src="images/新闻资讯.png" /></a>&nbsp;
+        <a href="Product.aspx"><img  src="images/产品展示.png"/></a>&nbsp;
+        <a href="Hr.aspx"><img  src="images/人才招聘.png"/></a>&nbsp;
+        <a href="Contact.aspx"> <img  src="images/联系我们.png"/></a>
+         </div>
+        </div>
+        <div style=" padding: 0px; margin:0px; background-color:Blue"><img style="border:1px; border-color:Red;"  src="images/header.png"/></div>
+        <div  style=" padding: 0px; margin:0px;"><img  src="images/sep-header.png"/></div>
+        <div  style=" padding: 0px; margin:0px;">
+         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            
+        
+        </div>
+        <div><img  src="images/分隔符号.png"/></div>
+        <div><img  src="images/版权说明.png"/></div>
+    </div>
+    </form>
+</body>
+
+
+
+</html>
