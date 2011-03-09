@@ -18,7 +18,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (Request.Params[FPSystemBiz.PARAM_RESULT] == null) 
+        if (Request.Params[FPSystemBiz.PARAM_RESULT] == null||IsPostBack) 
             return;
         string lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
         if (lStrIDCard.Length < 1)
