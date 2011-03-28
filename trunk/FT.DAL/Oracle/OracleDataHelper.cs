@@ -11,6 +11,7 @@ using System.Data.OracleClient;
 using System.Data;
 using System.Data.Common;
 using FT.DAL;
+using System.Data.OracleClient;
 
 namespace FT.DAL.Oracle
 {
@@ -24,6 +25,7 @@ namespace FT.DAL.Oracle
         public OracleDataHelper(String str)
             : base(str)
         {
+            
         }
 
         public OracleDataHelper()
@@ -36,6 +38,7 @@ namespace FT.DAL.Oracle
         {
         }
 
+       
         /// <summary>
         /// 根据连接字符串connString 创建一个DbConnection
         /// </summary>

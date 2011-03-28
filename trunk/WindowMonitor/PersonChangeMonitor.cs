@@ -6,6 +6,7 @@ using FT.DAL;
 using System.Data;
 using FT.WebServiceInterface.WebService;
 using System.Windows.Forms;
+using FT.Commons.Tools;
 
 namespace WindowMonitor
 {
@@ -13,9 +14,10 @@ namespace WindowMonitor
     {
         protected override void DoTask()
         {
-            string sql = "select idacard,c_new_phone,c_new_postcode,c_new_address,c_old_phone,c_email from table_person_change_info where i_syn=0";
+            string sql = "select idacard,c_new_phone,c_new_postcode,c_new_address,c_old_phone,c_email,id from table_person_change_info where i_syn=0";
             DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmpdb");
             string logstr = string.Empty;
+            string id = string.Empty;
             if (dt != null && dt.Rows.Count > 0)
             {
                 for(int i=0;i<dt.Rows.Count;i++)
@@ -31,11 +33,13 @@ namespace WindowMonitor
                     this.SetHintText(logstr);
                     this.CreateLog(logstr);
                     TmriResponse response= DriverInterface.WritePersonInfoChange(request);
+                    id = dt.Rows[i][6].ToString();
                     if (response.Code == 0)
                     {
                         logstr = "成功处理身份证号码：" + request.sfzmhm;
                         this.SetHintText(logstr);
                         this.CreateLog(logstr);
+                        sql = "update table_person_change_info set  i_syn=1,I_CHECKED=1,C_CHECK_DATE='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',C_CHECK_RESULT='" + response.Message + "',C_CHECK_OPERATOR='" + this.monitorname + "'";
 
                     }
                     else
@@ -43,7 +47,11 @@ namespace WindowMonitor
                         logstr = "失败处理身份证号码：" + request.sfzmhm + ";code:" + response.Code;
                         this.SetHintText(logstr);
                         this.CreateLog(logstr);
+                        sql = "update table_person_change_info set  i_syn=1,I_CHECKED=0,C_CHECK_DATE='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',C_CHECK_RESULT='" + response.Message + "',C_CHECK_OPERATOR='" + this.monitorname + "'";
                     }
+                    sql += " where id="+id;
+
+                    DataAccessFactory.GetDataAccess().ExecuteSql(sql);
                 }
 
             }

@@ -199,6 +199,7 @@
     <Compile Include="Tools\RegisterHelper.cs" />
     <Compile Include="Tools\SerializeHelper.cs" />
     <Compile Include="Tools\ShortcutHelper.cs" />
+    <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\WebFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />

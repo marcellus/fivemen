@@ -26,6 +26,13 @@ namespace FT.WebServiceInterface.WebService
             return result;
         }
 
+        public string GetSn()
+        {
+            //string tmp = this.GetType().FullName + "_xtlb";
+
+            return GetConfig(this.GetType().FullName + "_sn");
+        }
+
         public string GetXtlb()
         {
             //string tmp = this.GetType().FullName + "_xtlb";

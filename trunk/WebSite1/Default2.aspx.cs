@@ -17,6 +17,6 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        FT.Commons.Com.WordSupport.SimpleWord.Print("c:\\test.doc");
+       // FT.Commons.Com.WordSupport.SimpleWord.Print("c:\\test.doc");
     }
 }
