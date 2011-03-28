@@ -133,7 +133,7 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
             {
                 this.Table1.Rows[i + 2].Cells[0].Text = this.GetChineseXq(i+1)+"("+begin.AddDays(i).ToString("yyyy-MM-dd")+")";
             }
-            this.InitWeekRecord(WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin)));
+            this.InitWeekRecord(WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin),begin.ToShortDateString()));
             
         }
 

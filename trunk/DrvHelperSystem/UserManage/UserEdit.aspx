@@ -93,6 +93,21 @@
                 </td>
                 
             </tr>
+            
+             <tr class="table-content">
+            <td class="table-title">
+                    默认管理科目：</td>
+                <td colspan="3" style="width:300px">
+                    <asp:DropDownList ID="cbKmValue" runat="server">
+                        <asp:ListItem Selected="True" Value="1">科目一</asp:ListItem>
+                        <asp:ListItem Value="2">科目二</asp:ListItem>
+                        <asp:ListItem Value="3">科目三</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+               
+                
+            </tr>
+           
            
            
             <tr  class="table-content">

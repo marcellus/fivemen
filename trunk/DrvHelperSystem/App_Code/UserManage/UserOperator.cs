@@ -45,6 +45,9 @@ public class UserOperator
             ot.Desp4 = dept.DepFullName;
             ot.Desp5 = user.FullName;
             ot.Desp6 = role.RoleName;
+            ot.Desp7 = user.Km;
+            ot.Desp8 = string.Empty;
+            
 
             return FT.Web.OperatorTick.GenerateOpTicket(ot);
         }

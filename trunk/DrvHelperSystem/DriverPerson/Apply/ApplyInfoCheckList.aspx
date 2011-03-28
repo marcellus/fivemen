@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SchoolCommitCheck.aspx.cs" Inherits="DriverPreson_Preasign_SchoolCommitCheck" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ApplyInfoCheckList.aspx.cs" Inherits="DriverPerson_Apply_ApplyInfoCheckList" %>
 <%@ Register assembly="FT.Web" namespace="WebControls" tagprefix="WC" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>驾校录入审核</title>
+    <title>初学+增驾审核列表</title>
      <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="../../js/popcalendar.js"></script>
     
@@ -43,23 +43,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div> <table border="0" cellpadding="4" cellspacing="1" class="table-border">
+    <div>
+    <table border="0" cellpadding="4" cellspacing="1" class="table-border">
             <tr class="table-title">
                 <td >
-                   考试预约录入审核
+                   初学+增驾审核列表
                 </td>
             </tr>
             <tr class="table-bottom">
                 <td >
                 &nbsp;&nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
                 
-&nbsp;考试科目：<asp:DropDownList ID="DropDownList1" runat="server" Font-Size="15pt">
-                        <asp:ListItem Selected="True" Value="-1">全部</asp:ListItem>
-                        <asp:ListItem Value="1">科目一</asp:ListItem>
-                        <asp:ListItem Value="2">科目二</asp:ListItem>
-                        <asp:ListItem Value="3">科目三</asp:ListItem>
-                    </asp:DropDownList>
-                    审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" Font-Size="15pt">
+&nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" Font-Size="15pt">
                         <asp:ListItem Value="0">未审核</asp:ListItem>
                         <asp:ListItem Value="1">已审核</asp:ListItem>
                         <asp:ListItem Value="2">审核失败</asp:ListItem>
@@ -75,7 +70,7 @@
                 <td >
                      <asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False"
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
-                        Width="100%" >
+                        Width="100%" onitemcommand="DataGrid1_ItemCommand" >
                         <Columns>
                             <asp:TemplateColumn> 
                                     <HeaderStyle   HorizontalAlign= "Center"> </HeaderStyle> 
@@ -89,16 +84,22 @@
                             </asp:TemplateColumn> 
 
 
-                            <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
+                         <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="c_idcard" HeaderText="身份证明号码"></asp:BoundColumn>
-                               <asp:BoundColumn DataField="i_km" HeaderText="考试科目"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="date_ksrq" HeaderText="考试日期"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"></asp:BoundColumn>
                               <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="date_pxshrq" HeaderText="培训审核日期"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_hmhp" HeaderText="号码号牌"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_jbr" HeaderText="经办人"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="c_jxmc" HeaderText="驾校名称"></asp:BoundColumn>
+                            
+                            <asp:BoundColumn DataField="c_check_operator" HeaderText="经办人"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="i_checked" HeaderText="信息审核"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="c_check_result" HeaderText="审核信息"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="c_photo_syn" HeaderText="相片审核"></asp:BoundColumn>
+                              <asp:TemplateColumn HeaderText="详细">
+                            <ItemTemplate>
+                            
+                            <asp:ImageButton runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>' ToolTip="详细" ID="btnDetail" CommandName="Detail" ImageUrl="~/images/modify.gif" />
+                            </ItemTemplate>
+                            </asp:TemplateColumn>
                             
                         </Columns>
                         <HeaderStyle CssClass="table-title" />

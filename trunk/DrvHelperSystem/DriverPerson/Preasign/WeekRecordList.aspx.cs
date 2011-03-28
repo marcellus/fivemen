@@ -21,7 +21,7 @@ public partial class DriverPerson_Preasign_WeekRecordList : FT.Web.Authenticated
 	i_week_num ,
 	c_week_range ,
 	c_check_operator,
-    decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked
+    decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
         }

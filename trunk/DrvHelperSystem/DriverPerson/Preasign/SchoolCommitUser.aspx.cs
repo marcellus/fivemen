@@ -37,7 +37,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
     {
         YuyueLimit entity = YuyueLimitOperator.Get(Convert.ToInt32(this.hidPaiBanId.Value));
         string sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
-            + "  where i_checked<>2 i_paibanid=" + entity.Id;
+            + "  where (i_checked<>2 or i_checked is null) and i_paibanid=" + entity.Id;
         dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
         if (dt != null)
         {
@@ -99,7 +99,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         this.hidPaiBanId.Value = entity.Id.ToString();
         this.lbSchoolName.Text = this.Operator.Desp4;
         string sql = "select id,c_lsh,c_idcard,c_xm,date_pxshrq,c_hmhp,c_jbr,decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked,c_check_result from table_yuyue_info"
-            + "  where i_checked<>2 and i_paibanid="+entity.Id;
+            + "  where (i_checked<>2 or i_checked is null) and i_paibanid="+entity.Id;
         dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmp");
         if (dt != null)
         {
@@ -219,6 +219,8 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
         
        // ArrayList cars = SimpleOrmOperator.QueryConditionList<SchoolCarInfo>(" where hmhp='"+this.cbCarNo.SelectedItem.Text+"'");
         string jly=this.cbCarNo.SelectedItem.Value==null?"":this.cbCarNo.SelectedItem.Value.ToString();
+        string sql1 = "update table_yuyue_limit t set t.i_used_num=(select count(*) from table_yuyue_info m where m.i_checked<>2 and m.i_paibanid=" + this.hidPaiBanId.Value + ") where t.id=" + this.hidPaiBanId.Value;
+        DataAccessFactory.GetDataAccess().ExecuteSql(sql1);
         string sql = "update table_yuyue_limit set i_used_num=i_used_num+1  where i_used_num<i_total and id=" + this.hidPaiBanId.Value;
         bool result = DataAccessFactory.GetDataAccess().ExecuteSql(sql);
         YuyueInfo info;

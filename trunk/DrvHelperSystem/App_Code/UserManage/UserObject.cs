@@ -133,4 +133,14 @@ public class UserObject
         get { return State; }
         set { State = value; }
     }
+
+    [SimpleColumn(Column = "c_km")]
+    [Alias("默认管理科目")]
+    public String Km;
+
+    public String 默认管理科目
+    {
+        get { return Km; }
+        set { Km = value; }
+    }
 }
