@@ -152,6 +152,28 @@ namespace FT.Web
             set { desp6 = value; }
         }
 
+        private string desp7;
+
+        /// <summary>
+        /// 默认管理科目
+        /// </summary>
+        public string Desp7
+        {
+            get { return desp7; }
+            set { desp7 = value; }
+        }
+
+        private string desp8;
+
+        /// <summary>
+        /// 备用
+        /// </summary>
+        public string Desp8
+        {
+            get { return desp8; }
+            set { desp8 = value; }
+        }
+
         public string Pwd
         {
             get
@@ -224,7 +246,9 @@ namespace FT.Web
                  + "\n" + this.desp3
                   + "\n" + this.desp4
                  + "\n" + this.desp5
-                 + "\n" + this.desp6;;
+                   + "\n" + this.desp6
+                 + "\n" + this.desp7
+                 + "\n" + this.desp8;
 
             return OpInfo;
         }
@@ -304,7 +328,7 @@ namespace FT.Web
                 string OpLoginInfo = Encoding.Unicode.GetString(OpLoginInfoByte);
 
                 string[] arra = OpLoginInfo.Split('\n');
-                if (arra.Length ==11)
+                if (arra.Length ==13)
                 {
                     OperatorTick op=new OperatorTick(Convert.ToInt32(arra[0]), arra[1], Convert.ToInt32(arra[2]), arra[3],arra[4]);
                     op.Desp1 = arra[5];
@@ -313,6 +337,8 @@ namespace FT.Web
                     op.Desp4 = arra[8];
                     op.Desp5 = arra[9];
                     op.Desp6 = arra[10];
+                    op.Desp7 = arra[11];
+                    op.Desp8 = arra[12];
                     return op;
                 }
                 else

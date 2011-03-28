@@ -3,6 +3,8 @@ using System.Data;
 using System.Configuration;
 using System.Web;
 using log4net;
+using System.Drawing;
+using FT.Commons.Tools;
 namespace FT.WebServiceInterface.WebService
 {
     /// <summary>
@@ -101,9 +103,73 @@ namespace FT.WebServiceInterface.WebService
             return response;
 
         }
+
+        public static TmriResponse WriteCarOwnerInfoChange(DrvCarOwnerInfoChangeRequest request)
+        {
+            log.Debug("预约写入接口的xtlb：" + request.GetXtlb());
+            log.Debug("预约写入接口的jkxlh：" + request.GetJkxlh());
+            log.Debug("预约写入接口的jkid：" + request.GetJkid());
+            log.Debug("预约写入接口的文本为：" + request.ToXml());
+
+            string responseText = "";
+            try
+            {
+                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                TmriResponse err = new TmriResponse();
+                err.Message = exe.Message;
+                return err;
+            }
+            log.Debug("调用写入接口返回的文本为：" + responseText);
+            TmriResponse response = new TmriResponse();
+            response.ParseFromXml(responseText);
+            return response;
+
+        }
         #endregion
 
         #region 老接口
+
+        public static bool WriteApplyOld(DrvPresonApplyInfoRequest req)
+        {
+
+            string str = GetOldService().write_drvtempmid(req.Sfzmhm, req.Sfzmmc, req.Hmcd, req.Xm, req.Xb,
+                req.Csrq, req.Gj, req.Djzsxzqh, req.Djzsxxdz, req.Lxzsxzqh, req.Lxzsxxdz,req.Lxzsyzbm,
+                req.Ly,req.Xzqh,req.Lxdh,req.Zzzm,req.Zkzmbh,req.Dabh,req.Zkcx,req.Jxmc,
+                req.Sg.ToString(),req.Zsl.ToString(),req.Ysl.ToString(),req.Bsl.ToString()
+                ,req.Tl.ToString(),req.Sz.ToString(),req.Zxz.ToString(),req.Yxz.ToString(),
+                req.Qgjb.ToString(),req.Tjrq,req.Tjyymc,req.Sn);
+            //.write_drvimage(idcardtype, idcard, ImageHelper.ImageToBase64Str(img), sn);
+            string code = XmlHelper.GetTextInXml(str, "//code");
+            return code == "0";
+
+        }
+
+
+        public static bool WritePreasignOld(DrvPreasignRequest req)
+        {
+
+            string str = GetOldService().write_yyxx(req.Lsh, req.Xxsj, req.Kskm,req.Ksdd, req.Jbr,
+                req.Dlr,req.Ykrq,req.Kscc,req.Kchp,req.Pxshrq,req.Sn);
+            //.write_drvimage(idcardtype, idcard, ImageHelper.ImageToBase64Str(img), sn);
+            string code=XmlHelper.GetTextInXml(str, "//code");
+            return code == "0";
+         
+        }
+
+        public static bool WritePersonPhoto(string idcardtype, string idcard,Image img)
+        {
+              //  tmpimgdata = WebService. GetService(config).write_drvimage(idcardtype, idcard,
+        //                        ImageHelper.ImageToBase64Str(file.FullName), config.ServiceWriteSn);
+            string sn =System.Configuration.ConfigurationManager.AppSettings["DriverInterface_WritePersonPhoto_Old_Sn"];
+            string str=GetOldService().write_drvimage(idcardtype, idcard, ImageHelper.ImageToBase64Str(img), sn);
+            string code=XmlHelper.GetTextInXml(str, "//code");
+            return code == "0";
+        }
+
         /// <summary>
         /// 身份证号
         /// </summary>

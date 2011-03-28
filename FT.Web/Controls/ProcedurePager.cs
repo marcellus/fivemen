@@ -165,7 +165,7 @@ namespace WebControls
 		{
 			get
 			{
-				if(ViewState["rowfilter"]==null)
+                if (ViewState["rowfilter"] == null || ViewState["rowfilter"].ToString().Length==0)
 				{
 					ViewState["rowfilter"]=" 1=1";
 

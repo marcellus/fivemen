@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Xml;
 
 namespace FT.Commons.Tools
 {
@@ -10,6 +11,18 @@ namespace FT.Commons.Tools
     /// </summary>
     public class XmlHelper : BaseHelper
     {
+        public static String GetTextInXml(string xml, string xpath)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node = doc.SelectSingleNode(xpath);
+            if (node != null)
+            {
+                return node.InnerText;
+            }
+            return string.Empty;
+        }
+
         #region ÐÞ¸Äapp.config
         /*
         private const string ipKey = "DbIp";

@@ -5,6 +5,9 @@ using FT.DAL.Oracle;
 using FT.DAL;
 using log4net;
 using System.Windows.Forms;
+using System.Web.UI.WebControls;
+using System.Web.UI;
+
 
 namespace FT.WebServiceInterface.DrvQuery
 {
@@ -110,6 +113,36 @@ namespace FT.WebServiceInterface.DrvQuery
             BindCombox(cb, 19);
         }
 
+        public static void BindDropDownListSfzmmc(DropDownList cb)
+        {
+            BindDropDownList(cb, 19);
+        }
+
+        public static void BindDropDownListZkcx(DropDownList cb)
+        {
+            BindDropDownList(cb, 1);
+        }
+
+        public static void BindDropDownListLy(DropDownList cb)
+        {
+            BindDropDownList(cb, 2);
+        }
+
+        public static void BindDropDownListLocalArea(DropDownList cb)
+        {
+            BindDropDownListByArea(cb, 50);
+        }
+
+        public static void BindDropDownListNational(DropDownList cb)
+        {
+            BindDropDownList(cb,31);
+        }
+
+        public static void BindDropDownListHospital(DropDownList cb)
+        {
+            BindDropDownListByArea(cb, 43);
+        }
+
         public static void BindComboxHospital(ComboBox cb)
         {
             BindComboxByArea(cb, 43);
@@ -137,6 +170,18 @@ namespace FT.WebServiceInterface.DrvQuery
             }
         }
 
+        public static void BindDropDownListByArea(DropDownList cb, int type)
+        {
+            DataTable dt1 = GetDictByAreaWeb(type);
+            if (dt1 != null)
+            {
+                cb.DataSource = dt1;
+                cb.DataTextField = "dmmc1";
+                cb.DataValueField = "dmz";
+                cb.DataBind();
+            }
+        }
+
         public static void BindCombox(ComboBox cb, int type)
         {
             DataTable dt1 = GetDict(type);
@@ -146,6 +191,102 @@ namespace FT.WebServiceInterface.DrvQuery
                 cb.DisplayMember = "dmmc1";
                 cb.ValueMember = "dmz";
             }
+        }
+
+        public static void BindDropDownList(DropDownList cb, int type)
+        {
+            DataTable dt1 = GetDictWeb(type);
+            if (dt1 != null)
+            {
+                cb.DataSource = dt1;
+                cb.DataTextField = "dmmc1";
+                cb.DataValueField = "dmz";
+                cb.DataBind();
+            
+            
+            }
+        }
+
+        public static void BindDDLArea(DropDownList cb, string citycode)
+        {
+            DataTable dt1 = GetArea(citycode);
+            if (dt1 != null)
+            {
+                cb.DataSource = dt1;
+                cb.DataTextField = "dmmc1";
+                cb.DataValueField = "dmz";
+                cb.DataBind();
+            }
+        }
+
+
+        private static DataTable GetArea(string citycode)
+        {
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz<>'"+citycode+"' and  dmz like '" + citycode.Substring(0, 4) + "%'";
+            IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            DataTable dt1 = access.SelectDataTable(sql, "tmp");
+            return dt1;
+        }
+
+        public static void BindDDLCity(DropDownList cb,string provicecode)
+        {
+            DataTable dt1 = GetCity(provicecode);
+            if (dt1 != null)
+            {
+                cb.DataSource = dt1;
+                cb.DataTextField = "dmmc1";
+                cb.DataValueField = "dmz";
+                cb.DataBind();
+            }
+        }
+
+        private static DataTable GetCity(string provicecode)
+        {
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz<>'" + provicecode + "' and dmz like '" + provicecode.Substring(0, 2) + "%00'";
+            IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            DataTable dt1 = access.SelectDataTable(sql, "tmp");
+            return dt1;
+        }
+
+       
+
+        public static void BindDDLProvince(DropDownList cb)
+        {
+            DataTable dt1 = GetDictProvince();
+            if (dt1 != null)
+            {
+                cb.DataSource = dt1;
+                cb.DataTextField = "dmmc1";
+                cb.DataValueField = "dmz";
+                cb.DataBind();
+            }
+        }
+
+        private static DataTable GetDictProvince()
+        {
+
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz like '%0000'";
+            IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            DataTable dt1 = access.SelectDataTable(sql, "tmp");
+            return dt1;
+        }
+
+        private static DataTable GetDictByAreaWeb(int type)
+        {
+            string glbm = System.Configuration.ConfigurationManager.AppSettings["glbm"];
+            string ksccsql = "select distinct dmz ,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=" + type + " and dmz like '" + glbm + "%'";
+            IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
+            return dt1;
+        }
+
+        private static DataTable GetDictWeb(int type)
+        {
+
+            string ksccsql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=" + type;
+            IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
+            return dt1;
         }
 
         private static DataTable GetDictByArea(int type)
