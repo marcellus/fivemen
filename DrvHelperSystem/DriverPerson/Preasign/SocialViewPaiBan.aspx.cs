@@ -184,7 +184,7 @@ public partial class DriverPerson_Preasign_SocialViewPaiBan : System.Web.UI.Page
             {
                 this.Table1.Rows[i + 2].Cells[0].Text = this.GetChineseXq(i + 1) + "(" + begin.AddDays(i).ToString("yyyy-MM-dd") + ")";
             }
-            WeekRecord week = WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin));
+            WeekRecord week = WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin),begin.ToShortDateString());
             if (week.Id <= 0||week.Checked!=1)
             {
                 WebTools.Alert("找不到" + date + "的周排班表！");

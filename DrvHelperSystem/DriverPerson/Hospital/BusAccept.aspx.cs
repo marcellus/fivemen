@@ -100,7 +100,7 @@ public partial class DriverPreson_Hospital_BusAccept : FT.Web.AuthenticatedPage
                 this.LogBus("补打申请表", "补打" + this.lbIdCard.Text.Trim() + "的申请表！");
 
             }
-            this.ClientScript.RegisterStartupScript(222.GetType(), "print", "<script type='text/javascript'>PrintTemplate();</script>");
+            this.ClientScript.RegisterStartupScript(222.GetType(), "print", "<script type='text/javascript'>printExcel();</script>");
             //WebTools.WriteScript("PrintTemplate();");
             ///TODO: 打印申请表并进行受理
         }

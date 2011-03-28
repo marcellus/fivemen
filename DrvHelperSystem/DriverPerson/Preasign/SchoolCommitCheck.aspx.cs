@@ -20,6 +20,14 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
         {
             //id, from 
            // /*
+            if (this.Operator.Desp7 == null||this.Operator.Desp7.Length==0)
+            {
+                this.DropDownList1.SelectedIndex = 0;
+            }
+            else
+            {
+                this.DropDownList1.SelectedIndex = Convert.ToInt32(this.Operator.Desp7);
+            }
             this.ProcedurePager1.TableName = "table_yuyue_info";
             this.ProcedurePager1.FieldString = @"id ,
 	        c_lsh,
@@ -33,7 +41,8 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
             decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') i_checked
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
-            this.ProcedurePager1.RowFilter = " i_checked=0 ";
+            this.SetCondition();
+           // this.ProcedurePager1.RowFilter = " i_checked=0 ";
             // */
            // this.MockBind();
         }
@@ -80,12 +89,30 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
         }
         this.ProcedurePager1.Changed = true;
     }
+
+    private void SetCondition()
+    {
+        if (this.cbCheckResult.SelectedItem.Value != "-1")
+        {
+            if (this.DropDownList1.SelectedIndex != 0)
+            {
+                this.ProcedurePager1.RowFilter = " i_km="+this.DropDownList1.SelectedIndex.ToString()+" and i_checked=" + this.cbCheckResult.SelectedItem.Value;
+            }
+            this.ProcedurePager1.RowFilter = "  i_checked=" + this.cbCheckResult.SelectedItem.Value;
+        }
+        else
+        {
+            if (this.DropDownList1.SelectedIndex != 0)
+            {
+                this.ProcedurePager1.RowFilter = " i_km=" + this.DropDownList1.SelectedIndex.ToString() ;
+            }
+            this.ProcedurePager1.RowFilter += "";
+        }
+    }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        if (this.cbCheckResult.SelectedItem.Value!="-1")
-            this.ProcedurePager1.RowFilter = " i_checked=" +this.cbCheckResult.SelectedItem.Value;
-        else
-            this.ProcedurePager1.RowFilter = "";
+        this.SetCondition();
+      
         this.ProcedurePager1.Changed = true;
     }
 }

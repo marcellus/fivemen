@@ -129,7 +129,7 @@ public partial class DriverPreson_Preasign_PaibanCheck : FT.Web.AuthenticatedPag
                 this.Table1.Rows[i + 2].Cells[0].Text = this.GetChineseXq(i + 1) + "(" + begin.AddDays(i).ToString("yyyy-MM-dd") + ")";
             }
 
-            this.InitWeekRecord(WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin)));
+            this.InitWeekRecord(WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(begin),begin.ToShortDateString()));
 
         }
 
@@ -137,7 +137,8 @@ public partial class DriverPreson_Preasign_PaibanCheck : FT.Web.AuthenticatedPag
     protected void btnSave_Click(object sender, EventArgs e)
     {
         DateTime date = Convert.ToDateTime(this.txtDate.Value);
-        WeekRecord week=WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(date));
+        DateTime begin = DateTimeHelper.GetMonday(date);
+        WeekRecord week = WeekRecordOperator.GetByWeekNum(DateTimeHelper.GetWeekOfYear(date), begin.ToShortDateString());
         if (week.Id <= 0)
         {
             WebTools.Alert("没有"+this.txtDate.Value+"本期的排班！");

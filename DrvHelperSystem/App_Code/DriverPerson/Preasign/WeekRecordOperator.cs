@@ -35,10 +35,10 @@ public class WeekRecordOperator
        return SimpleOrmOperator.Query<WeekRecord>(id);
        // SimpleOrmOperator.Delete<WeekRecord>(id);
     }
-    public static WeekRecord GetByWeekNum(int num)
+    public static WeekRecord GetByWeekNum(int num,string shortdate)
     {
         WeekRecord week = new WeekRecord();
-        ArrayList lists = SimpleOrmOperator.QueryConditionList<WeekRecord>(" where i_week_num="+num);
+        ArrayList lists = SimpleOrmOperator.QueryConditionList<WeekRecord>(" where i_week_num=" + num + " and c_week_range like '"+shortdate+"%'");
         if (lists.Count == 1)
         {
             week = lists[0] as WeekRecord;
@@ -50,10 +50,11 @@ public class WeekRecordOperator
     public static void Update(WeekRecord week)
     {
         SimpleOrmOperator.Update(week);
-        DataAccessFactory.GetDataAccess().ExecuteSql("delete from table_yuyue_limit where i_week_num="+week.WeekNum);
-
         string datestr = week.WeekRange.Substring(0, week.WeekRange.IndexOf('至'));
         DateTime begin = DateTimeHelper.GetMonday(DateTime.Parse(datestr));
+        DataAccessFactory.GetDataAccess().ExecuteSql("delete from table_yuyue_limit where i_week_num="+week.WeekNum+ " and date_ksrq like '"+begin.Year.ToString()+"%'");
+
+       
         YuyueLimitOperator.Save(week, 1, 1, datestr, week.Week1km1fp);
         YuyueLimitOperator.Save(week, 1, 2, datestr, week.Week1km2fp);
         YuyueLimitOperator.Save(week, 1, 3, datestr, week.Week1km3fp);

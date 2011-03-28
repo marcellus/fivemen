@@ -205,7 +205,28 @@ public class YuyueInfoOperator
              TmriResponse resp=null;
             try
             {
-                resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
+                string useold = System.Configuration.ConfigurationManager.AppSettings["Drv_Yuyue_Use_Old"];
+                if (useold == "true")
+                {
+                    resp = new TmriResponse();
+                    bool resultold = DriverInterface.WritePreasignOld(ConvertInfoToRequest(info));
+                   // resultold ? 0 : 2;
+                    if (resultold)
+                    {
+                        resp.Code = 0;
+                        resp.Message = "更新成功";
+                    }
+                    else
+                    {
+                        resp.Code = 2;
+                        resp.Message = "更新不成功";
+                    }
+                    
+                }
+                else
+                {
+                    resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
+                }
                 //resp= DriverInterface.yuyueInfo(info);
             }
             catch (Exception exe)

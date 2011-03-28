@@ -7,29 +7,113 @@
     <title>体检受理</title>
     <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript">
-    function PrintTemplate()
+    var idTmr = "";
+    var selectObj;
+    var str="";
+    function getSelectText(id)
     {
-    var xls;
-    try {
-       xls   = new ActiveXObject ("Excel.Application");
-     }
-    catch(e) {
-    alert(e);
-         alert( "要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX 控件”，您的浏览器须允许执行控件。 请点击【帮助】了解浏览器设置方法！");
-              return "";
-     }
-     xls.visible = true;
-     var xlBook = xls.Workbooks.Open("http://localhost/DriverHelperSystem/\Templates\\身体证明.xlt");
-     var xlsheet = xlBook.Worksheets(1);
-     xlBook.PrintOut();
-     xlsheet=null;
-     xlBook.Close();
-
+        selectObj=document.getElementById(id);
+        return selectObj.options[selectObj.selectedIndex].text;
+    }
     
+    function getText(id)
+    {
+        str=getSelectText(id);
+        return str.substring(str.indexOf("：")+1);
+    }
 
-
+    function printExcel()
+    {
+    //alert("exe the method->printExcel");
+       var xls;
+       try
+       {
+          xls=new ActiveXObject("Excel.Application");
+        }
+        catch(e)
+        {
+        alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
+        return;
+        }
+       xls.visible=true;
+       // alert("xls->"+xls);
+       //var objBook=excelapp.Workbooks.Add(); 
+      // var xlBook=xls.Workbooks.Add;
+       //alert("xlBook->"+xlBook);
+       /*var MissingValue=null;
+        var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt",MissingValue,
+  MissingValue,MissingValue,MissingValue,
+  MissingValue,MissingValue,MissingValue,
+  MissingValue,MissingValue,MissingValue,
+  MissingValue,MissingValue,MissingValue,
+  MissingValue);
+  */
+       var xlBook=xls.Workbooks.Open("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/身体证明.xlt");
+       // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");
+       // alert("xls.Workbooks.count->"+xls.Workbooks.Count)
+         //alert("xlBook->"+xlBook);
+         //xlBook.Save();
+        //var xlsheet=xlBook.Worksheets(1);
+        //alert("xlsheet->"+xlsheet);
+        
+        
+         var xlsheet2=xls.Workbooks(1).Worksheets(1);
+         
+         xlsheet2.Cells(4,4).Value=document.getElementById("lbXm").innerText;
+         
+         xlsheet2.Cells(4,8).Value=document.getElementById("lbSex").innerText;
+         //alert("csrq"+document.getElementById("txtCsrq").value);
+          xlsheet2.Cells(4,14).Value=document.getElementById("lbBrithday").innerText;
+          
+         //alert("cbGjValue"+getText("cbGjValue"));
+          xlsheet2.Cells(4,24).Value=document.getElementById("lbNation").innerText;
+          
+          
+          
+         
+          
+          var strtmp2=document.getElementById("lbIdCard").innerText;
+          
+          //alert(strtmp2);
+          
+          xlsheet2.Cells(5,4).Value=document.getElementById("lbIdCardType").innerText
+          var i=11;
+          var len=strtmp2.length;
+          for(var j=0;j<len;j++)
+          {
+             xlsheet2.Cells(5,i+j).Value=strtmp2.charAt(j);
+          }
+          
+           var oSheet = xls.Workbooks(1).ActiveSheet; 
+           //alert(oSheet);
+          oSheet.Cells(7,24).Select();//选中Excel中的单元格 
+          var url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPhoto.aspx?idcard="+strtmp2;
+          //document.write(url);
+          oSheet.Pictures.Insert(url);//插入图片
+          
+            xlsheet2.Cells(6,5).Value=document.getElementById("lbLearnCar").innerText;
+        
+            xlsheet2.Cells(6,14).Value=document.getElementById("lbDabh").innerText;
+         
+        //alert("xlsheet2->"+xlsheet2);
+       
+       xlsheet2=null;
+       xlsheet=null;
+       xlBook=null;
+        xls.Quit();
+       xls=null;
+       xlsheet2.Printout;
+       idTmr = window.setInterval("Cleanup();",1)
+       
+      
+       
     
     }
+    function Cleanup() {
+    window.clearInterval(idTmr);
+    CollectGarbage();
+  }
+
     
     </script>
 </head>

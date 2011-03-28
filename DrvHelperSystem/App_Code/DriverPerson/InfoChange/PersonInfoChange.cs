@@ -130,4 +130,46 @@ public class PersonInfoChange
         get { return Email; }
         set { Email = value; }
     }
+
+
+    [SimpleColumn(Column = "c_check_result")]
+    [Alias("审核结果")]
+    public String CheckResult;
+
+    public String 审核结果
+    {
+        get { return CheckResult; }
+        set { CheckResult = value; }
+    }
+
+    [SimpleColumn(Column = "c_check_operator")]
+    [Alias("审核人")]
+    public String CheckOperator;
+
+    public String 审核人
+    {
+        get { return CheckOperator; }
+        set { CheckOperator = value; }
+    }
+
+    [SimpleColumn(Column = "c_check_date")]
+    [Alias("审核时间")]
+    public String CheckDate;
+
+    public String 审核时间
+    {
+        get { return CheckDate; }
+        set { CheckDate = value; }
+    }
+
+
+    [SimpleColumn(Column = "i_checked")]
+    [Alias("是否审核")]
+    public int Checked;
+
+    public int 是否审核
+    {
+        get { return Checked; }
+        set { Checked = value; }
+    }
 }

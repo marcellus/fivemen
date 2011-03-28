@@ -2,7 +2,7 @@
 {
 	
 	background-color: #eef3f9;
-	font-size: 15pt;
+	font-size: 12pt;
 	height:100%;
 }
 fieldset
@@ -10,7 +10,7 @@ fieldset
 	border:1px solid #ccc; 
 	margin:1em auto; padding:0 1em; 
 	background-color:#f1f1f1; 
-	font-size: 9pt;
+	font-size: 12pt;
 }
 legend
 { 
@@ -26,11 +26,11 @@ position:fixed;
 input
 {
 	border:solid 1px black;
-	font-size:14pt;
+	font-size:12pt;
 }
 ddl
 {
-	font-size:15pt;
+	font-size:12pt;
 }
 
 
@@ -45,13 +45,13 @@ img
 {
 	background-image: url(   "../images/poptablebg.gif" );
 	height: 25px;
-	font-size:15pt;
+	font-size:12pt;
 	font-weight: 700;
 }
 .table-content,.table-bottom
 {
 	 padding: 0 0 0 0;
-	 font-size: 13pt;
+	 font-size: 12pt;
 	font-family: "宋体";
 	background-color: #f9fcff;
 	text-align: left;
@@ -59,11 +59,11 @@ img
 .table-bottom
 {
 	text-align: right;
-	font-size: 13pt;
+	font-size: 12pt;
 }
 .table-title
 {
-	font-size: 15pt;
+	font-size: 12pt;
 	color: #000000;
 	font-family: "宋体";
 	background-color: #d0e3f8;

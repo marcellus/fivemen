@@ -513,4 +513,7 @@ public class WeekRecord
         set { WeekRange = value; }
     }
 
+
+    
+
 }

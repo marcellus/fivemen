@@ -1,0 +1,4 @@
+﻿1、配置Drv_Yuyue_Use_Old项目，在web.config中
+2、为用户表新增c_km列名
+3、同步内外
+4、新建预录入表

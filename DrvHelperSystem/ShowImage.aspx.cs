@@ -26,14 +26,14 @@ public partial class ShowImage : System.Web.UI.Page
             string str = FT.WebServiceInterface.WebService.DriverInterface.GetPersonPhoto(idcardtype,Request.Params["idcard"].ToString());
             if (str == null || str.Length == 0)
             {
-                str = ImageHelper.ImageToBase64Str(Server.MapPath("images/no_photo.jpg"));
+                str = ImageHelper.ImageToBase64Str(Server.MapPath("~/images/no_photo.jpg"));
             }
             Bitmap image =ImageHelper.Base64StrToBmp(str);
 
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ClearContent();
+           // HttpContext.Current.Response.ClearContent();
             HttpContext.Current.Response.ContentType = "image/jpeg";
             HttpContext.Current.Response.BinaryWrite(ms.ToArray());
             image.Dispose();
