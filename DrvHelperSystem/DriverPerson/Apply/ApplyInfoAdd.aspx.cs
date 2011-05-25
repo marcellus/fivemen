@@ -31,6 +31,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             DrvQueryHelper.BindDropDownListNational(this.cbGjValue);
             DrvQueryHelper.BindDropDownListLocalArea(this.cbDjzsxzqhValue);
             DrvQueryHelper.BindDropDownListLocalArea(this.cbLxzsxzqhValue);
+            this.cbGjValue.SelectedValue = "156";
 
             if (Request.Params["id"] != null)
             {
@@ -38,6 +39,9 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 WebFormHelper.SetDataToForm(this, entity);
                 this.txtTjrq.Value = entity.Tjrq;
                 this.txtCsrq.Value = entity.Csrq;
+                //this.cbDjzsxzqhValue.Items.Add(entity.Djzsxzqh, entity.Djzsxzqh);
+                this.cbDjzsxzqhValue.Items.Clear();
+                this.cbDjzsxzqhValue.SelectedValue = entity.Djzsxzqh;
                 
             }
 
