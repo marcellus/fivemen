@@ -116,13 +116,15 @@ namespace FT.Device.IDCard
                 {
                     EdziPortID = iPort;
                     bUsbPort = true;
+
+                    log.Debug("二代证读卡器连接的端口为！"+iPort);
                     break;
                 }
             }
             //检测串口的机具连接
             if (!bUsbPort)
             {
-                for (int iPort = 1; iPort <= 2; iPort++)
+                for (int iPort = 1; iPort <= 8; iPort++)
                 {
                     intOpenPortRtn = SDT_OpenPort(iPort);
                     if (intOpenPortRtn == 144)

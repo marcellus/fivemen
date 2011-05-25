@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -52,6 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashCode\CashCodeImporter.cs" />
+    <Compile Include="EncryptKeyboard\Zt598Importer.cs" />
+    <Compile Include="HotPrinter\HotPrinterImporter.cs" />
+    <Compile Include="IDCardWithScan\A8ScannerReaderImporter.cs" />
     <Compile Include="IDCard\CV100UReader.cs" />
     <Compile Include="IDCard\IDCard.cs" />
     <Compile Include="IDCard\IDCardConfig.cs" />
@@ -68,7 +72,9 @@
     <Compile Include="ImageSupport\Gdip.cs" />
     <Compile Include="ImageSupport\ImageFromDevice.cs" />
     <Compile Include="ImageSupport\Twain.cs" />
+    <Compile Include="InvoicePrinter\InvoicePrinterImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VisaCardReader\TTCardReaderImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
