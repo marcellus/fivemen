@@ -1,0 +1,71 @@
+// ETTSelfHotPrinterActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTSelfHotPrinterActiveX.tlb)，该类型库将成为
+// ETTSelfHotPrinterActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(831D9190-4CF1-401A-8743-168C81E6D24D), version(1.0),
+  helpfile("ETTSelfHotPrinterActiveX.hlp"),
+  helpstring("ETTSelfHotPrinterActiveX ActiveX 控件模块"),
+  control ]
+library ETTSelfHotPrinterActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTSelfHotPrinterActiveXCtrl 的主调度接口
+
+	[ uuid(4FE5156D-091B-4A4B-98A0-E9856622D7D5),
+	  helpstring("ETTSelfHotPrinterActiveX Control 的调度接口")]
+	dispinterface _DETTSelfHotPrinterActiveX
+	{
+		properties:
+			[id(8) , helpstring("属性 FontStyle")] BSTR FontStyle;
+			[id(21) , helpstring("属性 Message")] BSTR Message;
+	methods:
+			[id(1), helpstring("方法LoadReceiptDll")] void LoadReceiptDll(void);
+			[id(2), helpstring("方法LoadInvoiceDll")] void LoadInvoiceDll(void);
+			[id(3), helpstring("方法DestroyDll")] void DestroyDll(void);
+			[id(4), helpstring("方法AddString")] void AddString(BSTR data);
+			[id(5), helpstring("方法TestArray")] void TestArray(void);
+			[id(6), helpstring("方法RemoveAllString")] void RemoveAllString(void);
+			[id(7), helpstring("方法PrintHot")] void PrintHot(SHORT port, SHORT distance);
+			[id(9), helpstring("方法OpenDeviceEx")] SHORT OpenDeviceEx(SHORT port);
+			[id(10), helpstring("方法CloseDeviceEx")] SHORT CloseDeviceEx(void);
+			[id(11), helpstring("方法GetDeviceStatusEx")] SHORT GetDeviceStatusEx(void);
+			[id(12), helpstring("方法SetRowDistanceEx")] SHORT SetRowDistanceEx(SHORT distance);
+			[id(13), helpstring("方法SetLeftDistanceEx")] SHORT SetLeftDistanceEx(SHORT distance);
+			[id(14), helpstring("方法PrintLineEx")] SHORT PrintLineEx(BSTR data);
+			[id(15), helpstring("方法CutPaperEx")] SHORT CutPaperEx(void);
+			[id(16), helpstring("方法PrintBitmapNVEx")] SHORT PrintBitmapNVEx(SHORT index, SHORT size, SHORT nspace);
+			[id(17), helpstring("方法SetTextStyleEx")] SHORT SetTextStyleEx(BSTR style);
+			[id(18), helpstring("方法SetBlackOffsetEx")] SHORT SetBlackOffsetEx(SHORT P, SHORT L, SHORT Q);
+			[id(19), helpstring("方法BlackMarkIdentifyEx")] SHORT BlackMarkIdentifyEx(void);
+			[id(20), helpstring("方法MovePaperEx")] SHORT MovePaperEx(SHORT distance);
+	};
+
+	//  CETTSelfHotPrinterActiveXCtrl 的事件调度接口
+
+	[ uuid(BBBBCF47-F600-4371-8DD3-3641C9DA182E),
+	  helpstring("ETTSelfHotPrinterActiveX Control 的事件接口") ]
+	dispinterface _DETTSelfHotPrinterActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTSelfHotPrinterActiveXCtrl 的类信息
+
+	[ uuid(CADA7DA3-25C6-43E6-B5C5-7A5E949A5296),
+	  helpstring("ETTSelfHotPrinterActiveX Control"), control ]
+	coclass ETTSelfHotPrinterActiveX
+	{
+		[default] dispinterface _DETTSelfHotPrinterActiveX;
+		[default, source] dispinterface _DETTSelfHotPrinterActiveXEvents;
+	};
+
+};

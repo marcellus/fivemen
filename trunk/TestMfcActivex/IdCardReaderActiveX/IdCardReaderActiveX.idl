@@ -1,0 +1,68 @@
+// IdCardReaderActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(IdCardReaderActiveX.tlb)，该类型库将成为
+// IdCardReaderActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(9A8805FE-745A-4C1C-93CD-84A2FE11315B), version(1.0),
+  helpfile("IdCardReaderActiveX.hlp"),
+  helpstring("IdCardReaderActiveX ActiveX 控件模块"),
+  control ]
+library IdCardReaderActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CIdCardReaderActiveXCtrl 的主调度接口
+
+	[ uuid(51F544AC-51EB-4BDC-BCF9-BC57153A95BB),
+	  helpstring("IdCardReaderActiveX Control 的调度接口")]
+	dispinterface _DIdCardReaderActiveX
+	{
+		properties:
+			[id(7)] BSTR Password;
+			[id(8)] short ComPort;
+			[id(9)] short baud;
+			[id(10)] BSTR parity;
+			[id(11)] short databits;
+			[id(12)] short stopbits;
+			[id(13)] short Change;
+			[id(14)] long Timeout;
+			[id(15)] short TrackNo;
+			[id(16)] BSTR Tk_Data2;
+			[id(17)] BSTR Tk_Data3;
+
+			[id(20)] BSTR ResultStr;
+		methods:
+
+			
+
+
+			[id(19)] short ReadString();
+	};
+
+	//  CIdCardReaderActiveXCtrl 的事件调度接口
+
+	[ uuid(EDCD5E37-21B4-4900-83B9-6AEDD92187D4),
+	  helpstring("IdCardReaderActiveX Control 的事件接口") ]
+	dispinterface _DIdCardReaderActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CIdCardReaderActiveXCtrl 的类信息
+
+	[ uuid(D25DB37E-0478-408C-95CA-1E630A88CABF),
+	  helpstring("IdCardReaderActiveX Control"), control ]
+	coclass IdCardReaderActiveX
+	{
+		[default] dispinterface _DIdCardReaderActiveX;
+		[default, source] dispinterface _DIdCardReaderActiveXEvents;
+	};
+
+};

@@ -1,0 +1,14 @@
+; TTCardReader.def : 声明 DLL 的模块参数。
+
+LIBRARY      "TTCardReader"
+
+EXPORTS
+    ; 此处可以是显式导出
+   ; ReadTracks @ 1
+   ; CaptureCard @ 2
+   ; EjectCard @ 3
+   ; DisableEntry @ 4
+    ;EnableEntry @ 5
+    ;GetDeviceStatus @ 6
+   ; CloseDevice @ 7
+    OpenDevice @8
