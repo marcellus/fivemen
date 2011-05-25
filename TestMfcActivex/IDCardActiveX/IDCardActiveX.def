@@ -1,9 +1,0 @@
-; IDCardActiveX.def : 定义模块参数。
-
-LIBRARY      "IDCardActiveX.OCX"
-
-EXPORTS
-	DllCanUnloadNow     PRIVATE
-	DllGetClassObject   PRIVATE
-	DllRegisterServer   PRIVATE
-	DllUnregisterServer PRIVATE
