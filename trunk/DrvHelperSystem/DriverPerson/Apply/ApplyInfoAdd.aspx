@@ -1,27 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  EnableEventValidation="false" CodeFile="ApplyInfoAdd.aspx.cs" Inherits="DriverPerson_Apply_ApplyInfoAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeFile="ApplyInfoAdd.aspx.cs"
+    Inherits="DriverPerson_Apply_ApplyInfoAdd" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>初学+增驾申请详细信息</title>
     <meta content="no-cache" http-equiv="pragma">
-    
     <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
-    
     <style type="text/css">
         input
         {
             width: 80px;
-            font-size: 12pt;
-            height: 28px;
+            font-size: 9pt;
+            height: 20px;
         }
     </style>
-
     <script type="text/javascript" src="../../js/calendar.js"></script>
-<script src="../../js/validate-helper.js" type="text/javascript" />
+    <script src="../../js/validate-helper.js" type="text/javascript" />
     <script type="text/javascript">
-    
-    var idTmr = "";
+     var idTmr = "";
     var selectObj;
     var str="";
     function getSelectText(id)
@@ -46,7 +43,8 @@
         }
         catch(e)
         {
-        alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
+        alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，
+您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
         return;
         }
        xls.visible=true;
@@ -62,7 +60,9 @@
   MissingValue,MissingValue,MissingValue,
   MissingValue);
   */
-       var xlBook=xls.Workbooks.Open("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/驾驶证申请表-初学.xlt");
+       var xlBook=xls.Workbooks.Open
+("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/驾驶证申请表-初
+学.xlt");
        // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");
        // alert("xls.Workbooks.count->"+xls.Workbooks.Count)
          //alert("xlBook->"+xlBook);
@@ -100,7 +100,9 @@
            var oSheet = xls.Workbooks(1).ActiveSheet; 
            //alert(oSheet);
           oSheet.Cells(5,25).Select();//选中Excel中的单元格 
-          var url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPhoto.aspx?idcard="+strtmp2;
+          var 
+url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPh
+oto.aspx?idcard="+strtmp2;
           //document.write(url);
           oSheet.Pictures.Insert(url);//插入图片
           
@@ -143,36 +145,37 @@
     window.clearInterval(idTmr);
     CollectGarbage();
   }
-  
-  function SearchArea()
-  {
-  var retval = window.showModalDialog('AreaSearch.aspx', '','dialogWidth:500px; dialogHeight:400px;');
-  if(retval)
-  {
-    var arr=retval.split("|");
-    document.getElementById("cbDjzsxzqhValue").options.length=0;
-    document.getElementById("cbDjzsxzqhValue").options[0]=new Option(arr[0],arr[1]);
     
-    document.getElementById('txtLxzsxxdz').value=document.getElementById('txtDjzsxxdz').value=arr[2];
-  }
-
-  }
   function SynText()
   {
-     document.getElementById('txtLxzsxxdz').value=document.getElementById('txtDjzsxxdz').value;
+     document.getElementById('txtLxzsxxdz').value=document.getElementById
+('txtDjzsxxdz').value;
   }
   function ValidateText()
   {
   
    var idcard=checkIdCardNo(document.getElementById('txtSfzmhm').value);
    var phone=CheckPhone(document.getElementById('txtLxdh').value);
-     var postcode=CheckPostCode(document.getElementById('txtLxzsyzbm').value);
- return idcard&&phone&&postcode;
+   var postcode=CheckPostCode(document.getElementById('txtLxzsyzbm').value);
+   return idcard&&phone&&postcode;
   
   }
+    </script>
+    <script type="text/javascript">
+    function searchArea()
+    {
+    
+        var retval = window.showModalDialog('AreaSearch.aspx', '','dialogWidth:600px; dialogHeight:300px;');
+          if(retval)
+          {
+            var arr=retval.split("|");
+            document.getElementById("cbDjzsxzqhValue").options.length=0;
+            document.getElementById("cbDjzsxzqhValue").options[0]=new Option(arr[0],arr[1]);
+            document.getElementById('txtLxzsxxdz').value=document.getElementById('txtDjzsxxdz').value=arr[2];
+          }
+    }
     
     </script>
-
     <base target="_self"></base>
 </head>
 <body>
@@ -192,7 +195,8 @@
                     证件名称
                 </td>
                 <td style="width: 600px">
-                    <asp:DropDownList ID="cbSfzmmcValue" runat="server" Width="110px" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbSfzmmcValue" runat="server" Width="110px" Height="16px" 
+                        Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
                 <td class="table-title" style="width: 90px">
@@ -246,12 +250,12 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="cbDjzsxzqhValue" runat="server" Height="16px" Width="110px"
-                        Font-Size="12pt">
+                        Font-Size="9pt">
                     </asp:DropDownList>
-                    
                 </td>
                 <td colspan="4">
-                    <a href="#" onclick="SearchArea();">查询</a>&nbsp;<asp:TextBox ID="txtDjzsxxdz"  onkeyup="SynText()" runat="server" Width="400px"></asp:TextBox>
+                    <a href="#" onclick="javascript:searchArea();">查询</a>&nbsp;<asp:TextBox
+                        ID="txtDjzsxxdz" onkeyup="SynText()" runat="server" Width="400px"></asp:TextBox>
                 </td>
             </tr>
             <tr class="table-content">
@@ -260,7 +264,7 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="cbLxzsxzqhValue" runat="server" Height="16px" Width="110px"
-                        Font-Size="12pt">
+                        Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
                 <td colspan="4">
@@ -278,13 +282,14 @@
                     联系电话
                 </td>
                 <td>
-                    <asp:TextBox ID="txtLxdh" runat="server" Width="120px"></asp:TextBox>
+                    <asp:TextBox ID="txtLxdh" runat="server" Width="110px"></asp:TextBox>
                 </td>
                 <td class="table-title" style="">
                     行政区划
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbXzqhValue" runat="server" Height="16px" Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbXzqhValue" runat="server" Height="16px" Width="110px" 
+                        Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -293,14 +298,16 @@
                     申请车型
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbZkcxValue" runat="server" Height="16px" Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbZkcxValue" runat="server" Height="16px" Width="110px" 
+                        Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
                 <td class="table-title" style="">
                     驾驶人来源
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbLyValue" runat="server" Height="16px" Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbLyValue" runat="server" Height="16px" Width="110px" 
+                        Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
                 <td class="table-title" style="">
@@ -417,7 +424,8 @@
             </tr>
             <tr class="table-content">
                 <td class="table-content" colspan="8" style="text-align: center">
-                    <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" OnClientClick="javascript:return ValidateText();" Text="保存" />
+                    <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" OnClientClick="javascript:return ValidateText();"
+                        Text="保存" />
                     &nbsp;&nbsp;
                     <asp:Button ID="btnCheck" runat="server" Text="审核" OnClick="btnCheck_Click" />&nbsp;&nbsp;
                     <input id="Button2" style="width: 140px" class="button" onclick="javascript:printExcel();"

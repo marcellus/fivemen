@@ -20,7 +20,7 @@
        var text=prov.options[prov.selectedIndex].text.split("：")[1]+
        city.options[city.selectedIndex].text.split("：")[1]+
        area.options[area.selectedIndex].text.split("：")[1];
-       alert(text);
+       //alert(text);
         window.returnValue = area.options[area.selectedIndex].text+"|"+area.options[area.selectedIndex].value+"|"+text;   
         window.opener=null;
         window.close();   
@@ -30,9 +30,9 @@
      <base target="_self"></base>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    <table>
+    <form id="form1" runat="server" style="text-align:center; margin-top:15px">
+    <div style="">
+    <table style="text-align:left;" width="600px">
     <tr>
     <td>
     代码<asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
@@ -42,8 +42,7 @@
     </td>
     </tr>
     <tr>
-    <td>省份
-        <asp:DropDownList ID="ddlProvince" runat="server" AutoPostBack="True" 
+    <td>省份<asp:DropDownList ID="ddlProvince" runat="server" AutoPostBack="True" 
             onselectedindexchanged="ddlProvince_SelectedIndexChanged">
         </asp:DropDownList>
     </td>
@@ -63,7 +62,7 @@
     </td>
     </tr>
     <tr>
-    <td>
+    <td style="text-align:center">
         <input id="Button1"  onclick="CloseSelfWin()" type="button" value="确定" />
         &nbsp;<input id="Button2" type="button" value="取消" />
     </td>

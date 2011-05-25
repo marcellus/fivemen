@@ -8,3 +8,14 @@
 后续的是驾驶人预录入和指纹验证放到3个科目预约中
 互联网互编互选
 违法查询，补换证，以及邮局代结算模块
+
+
+FT.WebServiceInterface.WebService.DrvPresonApplyInfoRequest_jkid
+
+FT.WebServiceInterface.WebService.DrvPresonApplyInfoRequest_jkxlh
+
+FT.WebServiceInterface.WebService.DrvPresonApplyInfoRequest_xtlb
+
+FT.WebServiceInterface.WebService.DrvPresonApplyInfoRequest_sn
+
+<?xml version="1.0" encoding="GBK"?><root><TempBean><lsh></lsh><sfzmhm>350128198403194910</sfzmhm><sfzmmc>A</sfzmmc><hmcd></hmcd><xm>testname</xm><xb>2</xb><csrq>2011-02-02</csrq><djzsxzqh></djzsxzqh><djzsxxdz>北京市县丰台区</djzsxxdz><lxzsxzqh>440523</lxzsxzqh><lxzsxxdz>北京市县丰台区</lxzsxxdz><lxzsyzbm>123123</lxzsyzbm><ly>A</ly><xzqh>440500</xzqh><lxdh>020-12345678</lxdh><zzzm></zzzm><zkzmbh></zkzmbh><dabh></dabh><zkcx>A1</zkcx><jxmc>珠海市平沙医院</jxmc><dzyx></dzyx><sjhm></sjhm><sg>600</sg><zsl>6</zsl><ysl>6</ysl><bsl>1</bsl><tl>1</tl><sz>1</sz><zxz>1</zxz><yxz>1</yxz><qgjb>1</qgjb><tjrq>2011-01-01</tjrq><tjyymc>汕头市职业病防治所</tjyymc><sn></sn></TempBean></root>

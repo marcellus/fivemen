@@ -42,16 +42,28 @@ public class StudentApplyInfoOperator
     public static bool CheckPhoto(StudentApplyInfo info)
     {
         bool result = false;
-        MemoryStream ms = new MemoryStream(GetPhoto(info.Sfzmhm));
-
-        Image image = Image.FromStream(ms, true);
-
-        result=DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
-        if (result)
+        try
         {
-            info.PhotoSyn = 1;
-            SimpleOrmOperator.Update(info);
+            MemoryStream ms = new MemoryStream(GetPhoto(info.Sfzmhm));
+
+            Image image = Image.FromStream(ms, true);
+
+            result = DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
+            if (result)
+            {
+                info.PhotoSyn = 1;
+                SimpleOrmOperator.Update(info);
+            }
         }
+        catch (System.Exception e)
+        {
+            result = false;
+            info.PhotoSyn = 2;
+            SimpleOrmOperator.Update(info);
+            
+        	
+        }
+       
     
         return result;
     }

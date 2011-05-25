@@ -20,7 +20,7 @@ public partial class DriverPerson_Apply_ApplyInfoCheckList : FT.Web.Authenticate
             this.ProcedurePager1.TableName = "table_student_apply_info";
             this.ProcedurePager1.FieldString = @"id,c_lsh,sfzmhm,c_xm,c_jxmc,
 decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
-c_check_result
+c_check_result,c_photo_syn,c_check_operator
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
         }
@@ -32,7 +32,10 @@ c_check_result
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        this.ProcedurePager1.RowFilter += " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+        if(this.cbCheckResult.SelectedIndex!=3)
+        this.ProcedurePager1.RowFilter =  "i_checked=" + this.cbCheckResult.SelectedItem.Value+"  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+        else
+            this.ProcedurePager1.RowFilter = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
         this.ProcedurePager1.Changed = true;
            
     }

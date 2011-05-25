@@ -230,7 +230,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
             info.Checked = 0;
             info.Dlr = this.Operator.Desp4;
             info.DlrCode = this.Operator.Desp3;
-            info.Hmhp = this.cbCarNo.SelectedItem.Text;
+            info.Hmhp = this.txtHphm.Text.Trim().Length==0?this.cbCarNo.SelectedItem.Text:this.txtHphm.Text.Trim();
             info.IdCard = this.txtIdCard.Text.Trim();
             info.JlyIdCard = jly;
             
@@ -260,7 +260,7 @@ public partial class DriverPreson_Preasign_SchoolCommitUser : AuthenticatedPage
                 info.Checked = 0;
                 info.Dlr = this.Operator.Desp4;
                 info.DlrCode = this.Operator.Desp3;
-                info.Hmhp = this.cbCarNo.SelectedItem.Text;
+                info.Hmhp = this.txtHphm.Text.Trim().Length == 0 ? this.cbCarNo.SelectedItem.Text : this.txtHphm.Text.Trim();
                 info.IdCard = this.txtIdCard.Text.Trim();
                 info.JlyIdCard = jly;
                 info.Km = km;

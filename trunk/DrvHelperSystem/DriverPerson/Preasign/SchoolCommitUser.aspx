@@ -42,10 +42,10 @@
                 
                 &nbsp;培训审核日期 
         <input  onclick="setday(this)"  id="txtDate" runat="server" /> 号码号牌&nbsp;&nbsp;&nbsp; 
-        <asp:DropDownList ID="cbCarNo" runat="server" Height="16px" Width="114px" Font-Size="15pt">
+        <asp:DropDownList ID="cbCarNo" Enabled="true" runat="server" Height="16px" Width="114px" Font-Size="15pt">
         </asp:DropDownList>
-                    &nbsp; 
-                    <asp:Button ID="btnAdd" runat="server" Text="约考" onclick="btnAdd_Click" />
+                    &nbsp;<asp:TextBox ID="txtHphm" runat="server"></asp:TextBox>
+&nbsp;<asp:Button ID="btnAdd" runat="server" Text="约考" onclick="btnAdd_Click" />
                     &nbsp;&nbsp; 
                     
                 </td>

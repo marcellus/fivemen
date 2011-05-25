@@ -97,8 +97,13 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
             if (this.DropDownList1.SelectedIndex != 0)
             {
                 this.ProcedurePager1.RowFilter = " i_km="+this.DropDownList1.SelectedIndex.ToString()+" and i_checked=" + this.cbCheckResult.SelectedItem.Value;
+                //this.ProcedurePager1.RowFilter += "  i_checked=" + this.cbCheckResult.SelectedItem.Value;
             }
-            this.ProcedurePager1.RowFilter = "  i_checked=" + this.cbCheckResult.SelectedItem.Value;
+            else
+            {
+                
+                this.ProcedurePager1.RowFilter = "  i_checked=" + this.cbCheckResult.SelectedItem.Value;
+            }
         }
         else
         {
@@ -106,7 +111,7 @@ public partial class DriverPreson_Preasign_SchoolCommitCheck :AuthenticatedPage
             {
                 this.ProcedurePager1.RowFilter = " i_km=" + this.DropDownList1.SelectedIndex.ToString() ;
             }
-            this.ProcedurePager1.RowFilter += "";
+            this.ProcedurePager1.RowFilter = "";
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
