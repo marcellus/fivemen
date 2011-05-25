@@ -47,11 +47,43 @@ namespace FT.WebServiceInterface.WebService
         private static TmriJaxRpcOutAccessService GetNewService()
         {
             TmriJaxRpcOutAccessService service = new TmriJaxRpcOutAccessService();
+            //service.AllowAutoRedirect
+            //service.RequestEncoding = System.Text.Encoding.UTF8;
+           // service.SoapVersion
+            log.Debug("服务默认的编码是：" + service.RequestEncoding);
+            //service
             service.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl"];
             log.Debug("服务的URL：" + service.Url);
             service.Timeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl-Timeout"]);
             return service;
         }
+
+        public static TmriResponse WriteDrvBaseTmriRequest(string xtlb,string jkxlh,string jkid,string xml)
+        {
+            log.Debug("预约写入接口的xtlb：" + xtlb);
+            log.Debug("预约写入接口的jkxlh：" + jkxlh);
+            log.Debug("预约写入接口的jkid：" + jkid);
+            log.Debug("预约写入接口的文本为：" + xml);
+
+
+            string responseText = "";
+            try
+            {
+                responseText = GetNewService().writeObject(xtlb,jkxlh,jkid,xml);
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                return new TmriResponse();
+            }
+            log.Debug("调用写入接口返回的文本为：" + responseText);
+            TmriResponse response = new TmriResponse();
+            response.ParseFromXml(responseText);
+            log.Debug("返回的结果code为：" + response.Code);
+            return response;
+
+        }
+
         public static TmriResponse WriteDrvBaseTmriRequest(DrvBaseTmriRequest request)
         {
             log.Debug("预约写入接口的xtlb：" + request.GetXtlb());
