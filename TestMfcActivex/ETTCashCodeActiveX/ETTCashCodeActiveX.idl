@@ -1,0 +1,68 @@
+// ETTCashCodeActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTCashCodeActiveX.tlb)，该类型库将成为
+// ETTCashCodeActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(5971B212-780E-4853-8FF4-3D7BA676ACC8), version(1.0),
+  helpfile("ETTCashCodeActiveX.hlp"),
+  helpstring("ETTCashCodeActiveX ActiveX 控件模块"),
+  control ]
+library ETTCashCodeActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTCashCodeActiveXCtrl 的主调度接口
+
+	[ uuid(D7039AD9-7364-4E65-BBA3-9CE8DF60E987),
+	  helpstring("ETTCashCodeActiveX Control 的调度接口")]
+	dispinterface _DETTCashCodeActiveX
+	{
+		properties:
+			[id(5) , helpstring("属性 HasAcceptMoney")] SHORT HasAcceptMoney;
+			[id(18) , helpstring("属性 Message")] BSTR Message;
+	methods:
+			[id(1), helpstring("方法TestMethod")] void TestMethod(void);
+			[id(2), helpstring("方法LoadDll")] SHORT LoadDll(void);
+			[id(3), helpstring("方法DestroyDll")] SHORT DestroyDll(void);
+			[id(4), helpstring("方法AcceptMoney")] SHORT AcceptMoney(SHORT port, SHORT money);
+			[id(6), helpstring("方法InitCashCode")] SHORT InitCashCode(SHORT port);
+			[id(7), helpstring("方法CloseCashCode")] SHORT CloseCashCode(void);
+			[id(8), helpstring("方法IdentifyEx")] SHORT IdentifyEx(void);
+			[id(9), helpstring("方法InitCashCodeV2")] SHORT InitCashCodeV2(SHORT port);
+			[id(10), helpstring("方法IdentifyExV2")] SHORT IdentifyExV2(SHORT maxmoney);
+			[id(11), helpstring("方法OpenDeviceEx")] SHORT OpenDeviceEx(SHORT port);
+			[id(12), helpstring("方法CloseDeviceEx")] SHORT CloseDeviceEx(void);
+			[id(13), helpstring("方法GetDeviceStatusEx")] SHORT GetDeviceStatusEx(void);
+			[id(14), helpstring("方法StartIdentifyEx")] SHORT StartIdentifyEx(BSTR denominations);
+			[id(15), helpstring("方法StopIdentifyEx")] SHORT StopIdentifyEx(void);
+			[id(16), helpstring("方法ResetEx")] SHORT ResetEx(void);
+			[id(17), helpstring("方法StartIdentifyV2Ex")] SHORT StartIdentifyV2Ex(BSTR denominations);
+	};
+
+	//  CETTCashCodeActiveXCtrl 的事件调度接口
+
+	[ uuid(3727E203-B8F8-40A9-A0A5-E2680AF6A1C2),
+	  helpstring("ETTCashCodeActiveX Control 的事件接口") ]
+	dispinterface _DETTCashCodeActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTCashCodeActiveXCtrl 的类信息
+
+	[ uuid(5A797850-BE8E-4939-8F6D-D9397B963765),
+	  helpstring("ETTCashCodeActiveX Control"), control ]
+	coclass ETTCashCodeActiveX
+	{
+		[default] dispinterface _DETTCashCodeActiveX;
+		[default, source] dispinterface _DETTCashCodeActiveXEvents;
+	};
+
+};

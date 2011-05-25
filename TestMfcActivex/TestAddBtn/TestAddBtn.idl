@@ -1,0 +1,18 @@
+// TestAddBtn.idl : TestAddBtn 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(TestAddBtn.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(066794BA-51C4-4D97-B7EA-54DE2BD56638),
+	version(1.0),
+	helpstring("TestAddBtn 1.0 类型库")
+]
+library TestAddBtnLib
+{
+	importlib("stdole2.tlb");
+};

@@ -1,0 +1,54 @@
+// ETTSelfUSBVideoActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTSelfUSBVideoActiveX.tlb)，该类型库将成为
+// ETTSelfUSBVideoActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(71885BFD-DA30-4D7D-B0AA-34A997B7ABB5), version(1.0),
+  helpfile("ETTSelfUSBVideoActiveX.hlp"),
+  helpstring("ETTSelfUSBVideoActiveX ActiveX 控件模块"),
+  control ]
+library ETTSelfUSBVideoActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTSelfUSBVideoActiveXCtrl 的主调度接口
+
+	[ uuid(922573C6-1BED-4891-B7B1-013905375763),
+	  helpstring("ETTSelfUSBVideoActiveX Control 的调度接口")]
+	dispinterface _DETTSelfUSBVideoActiveX
+	{
+		properties:
+		methods:
+	};
+
+	//  CETTSelfUSBVideoActiveXCtrl 的事件调度接口
+
+	[ uuid(5055CF7F-7352-4ECF-BAF3-9183FF65281E),
+	  helpstring("ETTSelfUSBVideoActiveX Control 的事件接口") ]
+	dispinterface _DETTSelfUSBVideoActiveXEvents
+	{
+		properties:
+			[id(3) , helpstring("属性 FileName")] BSTR FileName;
+			//  事件接口没有任何属性
+
+		methods:
+			[id(1), helpstring("方法BeginCapture")] BSTR BeginCapture(SHORT iDevId);
+			[id(2), helpstring("方法CaptureBmp")] BSTR CaptureBmp(BSTR filename);
+			[id(4), helpstring("方法CaptureBmpDpi")] SHORT CaptureBmpDpi(SHORT xdpi, SHORT ydpi);
+	};
+
+	//  CETTSelfUSBVideoActiveXCtrl 的类信息
+
+	[ uuid(07970878-4C36-470C-ACDC-9AB36FA2084B),
+	  helpstring("ETTSelfUSBVideoActiveX Control"), control ]
+	coclass ETTSelfUSBVideoActiveX
+	{
+		[default] dispinterface _DETTSelfUSBVideoActiveX;
+		[default, source] dispinterface _DETTSelfUSBVideoActiveXEvents;
+	};
+
+};

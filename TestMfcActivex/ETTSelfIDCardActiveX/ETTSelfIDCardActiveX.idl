@@ -1,0 +1,72 @@
+// ETTSelfIDCardActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTSelfIDCardActiveX.tlb)，该类型库将成为
+// ETTSelfIDCardActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(FD5A8311-18FF-4AF7-8056-B1D65A411DEA), version(1.0),
+  helpfile("ETTSelfIDCardActiveX.hlp"),
+  helpstring("ETTSelfIDCardActiveX ActiveX 控件模块"),
+  control ]
+library ETTSelfIDCardActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTSelfIDCardActiveXCtrl 的主调度接口
+
+	[ uuid(BC755F0E-4F1C-46A2-8C10-97E364974865),
+	  helpstring("ETTSelfIDCardActiveX Control 的调度接口")]
+	dispinterface _DETTSelfIDCardActiveX
+	{
+		properties:
+		methods:
+	};
+
+	//  CETTSelfIDCardActiveXCtrl 的事件调度接口
+
+	[ uuid(097A9E85-C96F-4B0F-B494-8D906D13E2EB),
+	  helpstring("ETTSelfIDCardActiveX Control 的事件接口") ]
+	dispinterface _DETTSelfIDCardActiveXEvents
+	{
+		properties:
+			[id(1) , helpstring("属性 IsReaded")] SHORT IsReaded;
+			[id(2) , helpstring("属性 Name")] BSTR Name;
+			[id(3) , helpstring("属性 SexCode")] SHORT SexCode;
+			[id(4) , helpstring("属性 SexName")] BSTR SexName;
+			[id(5) , helpstring("属性 IDCard")] BSTR IDCard;
+			[id(6) , helpstring("属性 NationCode")] BSTR NationCode;
+			[id(7) , helpstring("属性 NationName")] BSTR NationName;
+			[id(8) , helpstring("属性 Birth")] BSTR Birth;
+			[id(9) , helpstring("属性 Address")] BSTR Address;
+			[id(10) , helpstring("属性 Fzjg")] BSTR Fzjg;
+			[id(11) , helpstring("属性 StartDate")] BSTR StartDate;
+			[id(12) , helpstring("属性 EndDate")] BSTR EndDate;
+			[id(13) , helpstring("属性 YxqxCode")] BSTR YxqxCode;
+			[id(14) , helpstring("属性 YxqxName")] BSTR YxqxName;
+			[id(15) , helpstring("属性 ImagePath")] BYTE ImagePath;
+			[id(17) , helpstring("属性 IsUseCom")] SHORT IsUseCom;
+			[id(18) , helpstring("属性 HasLoadLib")] SHORT HasLoadLib;
+			[id(21) , helpstring("属性 ReadTick")] SHORT ReadTick;
+			//  事件接口没有任何属性
+
+		methods:
+			[id(16), helpstring("方法ReadIDCard")] SHORT ReadIDCard(void);
+			[id(19), helpstring("方法LoadDll")] SHORT LoadDll(void);
+			[id(20), helpstring("方法DestroyDll")] SHORT DestroyDll(void);
+			[id(22), helpstring("方法ReadFromFile")] BSTR ReadFromFile(BSTR filename);
+	};
+
+	//  CETTSelfIDCardActiveXCtrl 的类信息
+
+	[ uuid(447C4906-6678-461B-9E20-100BDE913828),
+	  helpstring("ETTSelfIDCardActiveX Control"), control ]
+	coclass ETTSelfIDCardActiveX
+	{
+		[default] dispinterface _DETTSelfIDCardActiveX;
+		[default, source] dispinterface _DETTSelfIDCardActiveXEvents;
+	};
+
+};

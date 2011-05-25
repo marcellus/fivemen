@@ -1,0 +1,51 @@
+// ETTCashActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTCashActiveX.tlb)，该类型库将成为
+// ETTCashActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(9E410F6F-ED28-4279-A37A-5E70E68771A1), version(1.0),
+  helpfile("ETTCashActiveX.hlp"),
+  helpstring("ETTCashActiveX ActiveX 控件模块"),
+  control ]
+library ETTCashActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTCashActiveXCtrl 的主调度接口
+
+	[ uuid(9DF7813F-13B1-4CFC-B0D1-51894095E62D),
+	  helpstring("ETTCashActiveX Control 的调度接口")]
+	dispinterface _DETTCashActiveX
+	{
+		properties:
+		methods:
+			[id(1), helpstring("方法TestMethod")] void TestMethod(void);
+	};
+
+	//  CETTCashActiveXCtrl 的事件调度接口
+
+	[ uuid(D026003A-10F7-44DF-A31D-A93A64A7A73F),
+	  helpstring("ETTCashActiveX Control 的事件接口") ]
+	dispinterface _DETTCashActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTCashActiveXCtrl 的类信息
+
+	[ uuid(52857B7E-9AEB-4273-B657-4641F54DB179), licensed,
+	  helpstring("ETTCashActiveX Control"), control ]
+	coclass ETTCashActiveX
+	{
+		[default] dispinterface _DETTCashActiveX;
+		[default, source] dispinterface _DETTCashActiveXEvents;
+	};
+
+};

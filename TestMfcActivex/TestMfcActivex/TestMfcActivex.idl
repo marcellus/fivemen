@@ -1,0 +1,52 @@
+// TestMfcActivex.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(TestMfcActivex.tlb)，该类型库将成为
+// TestMfcActivex.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(9D788FCF-E42C-4FED-AB59-885323DAEE73), version(1.0),
+  helpfile("TestMfcActivex.hlp"),
+  helpstring("TestMfcActivex ActiveX 控件模块"),
+  control ]
+library TestMfcActivexLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CTestMfcActivexCtrl 的主调度接口
+
+	[ uuid(8BB622EB-3854-4B1E-B975-1F75BEAD42F5),
+	  helpstring("TestMfcActivex Control 的调度接口")]
+	dispinterface _DTestMfcActivex
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  CTestMfcActivexCtrl 的事件调度接口
+
+	[ uuid(D8505EB0-1BCD-4E2F-91AD-115EF4CFAEF8),
+	  helpstring("TestMfcActivex Control 的事件接口") ]
+	dispinterface _DTestMfcActivexEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CTestMfcActivexCtrl 的类信息
+
+	[ uuid(E5DF618A-E0CC-4F68-ACB2-155A1D3BAFCA),
+	  helpstring("TestMfcActivex Control"), control ]
+	coclass TestMfcActivex
+	{
+		[default] dispinterface _DTestMfcActivex;
+		[default, source] dispinterface _DTestMfcActivexEvents;
+	};
+
+};
