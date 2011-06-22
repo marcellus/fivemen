@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A97140E7-0440-4366-8B73-CCF92BDE7095}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -78,7 +78,6 @@
     </Compile>
     <Compile Include="ExamUser\ExamUser.cs" />
     <Compile Include="ExamUser\ExamUserBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExamUser\ExamUserBrowser.Designer.cs">
       <DependentUpon>ExamUserBrowser.cs</DependentUpon>
@@ -109,7 +108,6 @@
     </Compile>
     <Compile Include="Topic\ExamTopic.cs" />
     <Compile Include="Topic\ExamTopicBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Topic\ExamTopicBrowser.Designer.cs">
       <DependentUpon>ExamTopicBrowser.cs</DependentUpon>

@@ -18,10 +18,12 @@
         <asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" />
         <asp:Button  runat="server" ID="btnQueryStudent" Text="身份证查询" onclick="btnQueryStudent_Click" />
         <asp:Label runat="server" ID="lbQueryAlertMsg" CssClass="alertMsg"></asp:Label>
-         
+         <asp:HiddenField runat="server" ID="hidIDCard" />
         </td>
   
      </tr>
+     
+     <!--
      <tr>
    
         <td class="table-title">学员指纹查询</td>
@@ -31,7 +33,7 @@
            <asp:Label runat="server" ID="lbIdentityAlertMsg" CssClass="alertMsg"></asp:Label>
         </td>
      </tr>
-     
+     -->
      <tr class="table-content">
         <td  colspan="2">
         <FpUCL:viewStudentInfo  runat="server" ID="ucl" ></FpUCL:viewStudentInfo>
@@ -45,9 +47,10 @@
                            onclick="btnClearStudent_Click" />   
                        <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
                            onclick="btnNewEnrolStudent_Click" Visible="false"  /> 
+                        
                        <asp:Button runat="server" ID="btnVerifyStudent" Text="检查指纹" 
                             onclick="btnVerifyStudent_Click" Visible="false"  />
-                          
+
                          
                    </td>
                 </tr>

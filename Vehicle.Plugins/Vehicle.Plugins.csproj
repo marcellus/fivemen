@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A20DA43E-00E2-483D-AC05-1F398BD6FEE1}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="Jbr\Jbr.cs" />
     <Compile Include="Jbr\JbrBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Jbr\JbrBrowser.Designer.cs">
       <DependentUpon>JbrBrowser.cs</DependentUpon>
@@ -118,7 +117,6 @@
     <Compile Include="VehiclePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VehicleInfo\VehicleBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="VehicleInfo\VehicleBrowser.Designer.cs">
       <DependentUpon>VehicleBrowser.cs</DependentUpon>

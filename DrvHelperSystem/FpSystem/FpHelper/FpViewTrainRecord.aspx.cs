@@ -23,7 +23,7 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
             return;
         }
         int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+lStrIDCard+"'");
         if (fso == null)
         {
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";

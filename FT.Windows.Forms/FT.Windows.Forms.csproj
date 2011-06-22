@@ -64,20 +64,17 @@
     <Compile Include="AppicationHelper.cs" />
     <Compile Include="ApplicationStartConfig.cs" />
     <Compile Include="CommonForm\CaptureImage.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CommonForm\CaptureImage.designer.cs">
       <DependentUpon>CaptureImage.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonForm\CapturePhotoSet.cs" />
     <Compile Include="CommonForm\CapturePhotoSetting.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CommonForm\CapturePhotoSetting.Designer.cs">
       <DependentUpon>CapturePhotoSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonForm\KeyCharMonitorForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CommonForm\KeyCharMonitorForm.Designer.cs">
       <DependentUpon>KeyCharMonitorForm.cs</DependentUpon>
@@ -96,20 +93,17 @@
     </Compile>
     <Compile Include="Help\DbAutoBakConfig.cs" />
     <Compile Include="Help\DbAutoBakConfigForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\DbAutoBakConfigForm.Designer.cs">
       <DependentUpon>DbAutoBakConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EntityConfig\EntityBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="EntityConfig\EntityBrowser.Designer.cs">
       <DependentUpon>EntityBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="EntityConfig\EntityColumnDefine.cs" />
     <Compile Include="EntityConfig\EntityConfigBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="EntityConfig\EntityConfigBrowser.Designer.cs">
       <DependentUpon>EntityConfigBrowser.cs</DependentUpon>
@@ -131,14 +125,12 @@
     <Compile Include="Monitor\SimpleTimeMonitor.cs" />
     <Compile Include="NoUser\MockUser.cs" />
     <Compile Include="NoUser\ModifyMockUserPwd.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="NoUser\ModifyMockUserPwd.Designer.cs">
       <DependentUpon>ModifyMockUserPwd.cs</DependentUpon>
     </Compile>
     <Compile Include="NoUser\NoUserHelper.cs" />
     <Compile Include="NoUser\UnlockSystem.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="NoUser\UnlockSystem.Designer.cs">
       <DependentUpon>UnlockSystem.cs</DependentUpon>
@@ -152,20 +144,17 @@
     </Compile>
     <Compile Include="SystemAllConfig.cs" />
     <Compile Include="User\LockSystemForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\LockSystemForm.Designer.cs">
       <DependentUpon>LockSystemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User\LoginForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Printer\DataTablePrinterContent.cs" />
     <Compile Include="Printer\CustomPrinterSetting.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Printer\CustomPrinterSetting.Designer.cs">
       <DependentUpon>CustomPrinterSetting.cs</DependentUpon>
@@ -173,19 +162,16 @@
     <Compile Include="Printer\GlobalPrintSetting.cs" />
     <Compile Include="Printer\AbstractPrinterContent.cs" />
     <Compile Include="BaseMainForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="BaseMainForm.Designer.cs">
       <DependentUpon>BaseMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConditionBuildForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ConditionBuildForm.Designer.cs">
       <DependentUpon>ConditionBuildForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\DataBrowseForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Control\DataBrowseForm.Designer.cs">
       <DependentUpon>DataBrowseForm.cs</DependentUpon>
@@ -207,25 +193,21 @@
       <DependentUpon>PersonDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="User\PwdChangeForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\PwdChangeForm.Designer.cs">
       <DependentUpon>PwdChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PluginConfigForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tools\PluginConfigForm.Designer.cs">
       <DependentUpon>PluginConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PluginDetailForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tools\PluginDetailForm.Designer.cs">
       <DependentUpon>PluginDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\PluginManageForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tools\PluginManageForm.Designer.cs">
       <DependentUpon>PluginManageForm.cs</DependentUpon>
@@ -239,7 +221,6 @@
     <Compile Include="Plugins\PluginsFileConfig.cs" />
     <Compile Include="ProcessObjectDelegate.cs" />
     <Compile Include="Help\ProgramRegConfigForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\ProgramRegConfigForm.Designer.cs">
       <DependentUpon>ProgramRegConfigForm.cs</DependentUpon>
@@ -251,26 +232,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Help\SimpleAbout.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\SimpleAbout.Designer.cs">
       <DependentUpon>SimpleAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\SimpleCompany.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\SimpleCompany.Designer.cs">
       <DependentUpon>SimpleCompany.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\SimpleRegister.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help\SimpleRegister.Designer.cs">
       <DependentUpon>SimpleRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\UserBrowser.Designer.cs">
       <DependentUpon>UserBrowser.cs</DependentUpon>

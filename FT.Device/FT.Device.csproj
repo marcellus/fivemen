@@ -60,7 +60,6 @@
     <Compile Include="IDCard\IDCard.cs" />
     <Compile Include="IDCard\IDCardConfig.cs" />
     <Compile Include="IDCard\IDCardConfigForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="IDCard\IDCardConfigForm.Designer.cs">
       <DependentUpon>IDCardConfigForm.cs</DependentUpon>

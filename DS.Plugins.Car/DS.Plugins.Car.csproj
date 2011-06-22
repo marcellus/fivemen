@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EAEC7C52-7FC6-484C-9199-DBAB71E19222}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -50,14 +50,12 @@
   <ItemGroup>
     <Compile Include="BindingHelper.cs" />
     <Compile Include="Car\CarBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Car\CarBrowser.Designer.cs">
       <DependentUpon>CarBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="CarFee\CarFee.cs" />
     <Compile Include="CarFee\CarFeeBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CarFee\CarFeeBrowser.Designer.cs">
       <DependentUpon>CarFeeBrowser.cs</DependentUpon>
@@ -70,7 +68,6 @@
     </Compile>
     <Compile Include="Car\CarInfo.cs" />
     <Compile Include="CarOut\CarOutBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CarOut\CarOutBrowser.Designer.cs">
       <DependentUpon>CarOutBrowser.cs</DependentUpon>
@@ -83,7 +80,6 @@
     </Compile>
     <Compile Include="CarOwner\CarOwner.cs" />
     <Compile Include="CarOwner\CarOwnerBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CarOwner\CarOwnerBrowser.Designer.cs">
       <DependentUpon>CarOwnerBrowser.cs</DependentUpon>
@@ -104,7 +100,6 @@
     <Compile Include="CarOut\CarOut.cs" />
     <Compile Include="CoachPlugin.cs" />
     <Compile Include="Coach\CoachBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Coach\CoachBrowser.Designer.cs">
       <DependentUpon>CoachBrowser.cs</DependentUpon>

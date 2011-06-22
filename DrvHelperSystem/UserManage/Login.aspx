@@ -16,8 +16,8 @@
       }
       if(document.all.txtPwd.value=="")
       {
-        alert("请输入密码!");
-         return false;
+        //alert("请输入密码!");
+         return true;
       }
       return true;
     }
@@ -46,7 +46,7 @@
     <tr height="50">
       <td align="center" style=" font-family:宋体;font-size:12pt;">
         <b>用户名</b>&nbsp;<asp:TextBox ID="txtLoginName" runat="server" Height="22px" 
-              MaxLength="20" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+              MaxLength="20" BorderStyle="Solid" BorderWidth="1px" ></asp:TextBox>
 &nbsp;
           
           &nbsp;&nbsp;
