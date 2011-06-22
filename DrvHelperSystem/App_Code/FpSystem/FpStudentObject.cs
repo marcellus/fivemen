@@ -8,6 +8,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
+using FT.WebServiceInterface.DrvQuery;
 
 /// <summary>
 ///FpStudentObject 的摘要说明
@@ -310,5 +311,15 @@ public class FpStudentObject
     }
 
 
+
+    public void fromTempStudentInfo(TempStudentInfo info) {
+        if (info == null) return;
+        this.name = info.name;
+        this.sex = info.sex;
+        this.phone = info.phone;
+        this.address = info.address;
+        this.brithday = DateTime.Parse(info.birthday);
+        this.idcard = info.idCard;
+    }
 
 }

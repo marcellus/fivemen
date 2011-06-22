@@ -56,6 +56,10 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         {
             this.lbStudentAlertMsg.Text = "下午离场确认失败";
         }
+        else if (pResultCode == FPSystemBiz.LESSON_FINISH)
+        {
+            this.lbStudentAlertMsg.Text = "学员已完成上课考勤";
+        }
 
     }
 }

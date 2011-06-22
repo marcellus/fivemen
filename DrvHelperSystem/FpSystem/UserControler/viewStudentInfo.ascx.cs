@@ -10,9 +10,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.Commons.Tools;
 using FT.DAL.Orm;
+using FT.WebServiceInterface.DrvQuery;
 
 public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.UserControl
 {
+    public static string SESSION_STUDENT="student";
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         string lStrIDCard = "";
@@ -25,14 +29,18 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
                 return;
         }
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
-        lStrIDCard = "'" + lStrIDCard + "'";
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
-        if (fso == null)
+        //lStrIDCard = "'" + lStrIDCard + "'";
+        //FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
+        TempStudentInfo tempStudentInfo= DrvQueryHelper.QueryStudent(lStrIDCard);
+        FpStudentObject fso = new FpStudentObject();
+        if (tempStudentInfo == null)
         {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "没有该学员的个人信息";
             return;
         }
+        fso.fromTempStudentInfo(tempStudentInfo);
+        Session[SESSION_STUDENT] = fso;
         this.fnUILoadStudentRecord(fso);
     }
 
@@ -53,4 +61,6 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         this.lbAlertMsg.Text = "";
 
     }
+
+
 }
