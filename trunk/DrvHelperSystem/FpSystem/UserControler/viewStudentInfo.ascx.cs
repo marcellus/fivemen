@@ -25,6 +25,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
                 return;
         }
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
+        lStrIDCard = "'" + lStrIDCard + "'";
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         if (fso == null)
         {

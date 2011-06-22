@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8788E71A-3F78-443F-8474-88255E48694E}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -53,7 +53,6 @@
   <ItemGroup>
     <Compile Include="CoachCarPlugin.cs" />
     <Compile Include="CoachCar\CoachCarBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoachCar\CoachCarBrowser.Designer.cs">
       <DependentUpon>CoachCarBrowser.cs</DependentUpon>

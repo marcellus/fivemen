@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="AboutPlugin.cs" />
     <Compile Include="Area\AreaBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Area\AreaBrowser.Designer.cs">
       <DependentUpon>AreaBrowser.cs</DependentUpon>
@@ -66,7 +65,6 @@
     </Compile>
     <Compile Include="BindingHelper.cs" />
     <Compile Include="City\CityBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="City\CityBrowser.Designer.cs">
       <DependentUpon>CityBrowser.cs</DependentUpon>
@@ -79,7 +77,6 @@
     </Compile>
     <Compile Include="City\City.cs" />
     <Compile Include="Cun\CunBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cun\CunBrowser.Designer.cs">
       <DependentUpon>CunBrowser.cs</DependentUpon>
@@ -92,7 +89,6 @@
     </Compile>
     <Compile Include="Cun\Cun.cs" />
     <Compile Include="Dict\DictBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dict\DictBrowser.Designer.cs">
       <DependentUpon>DictBrowser.cs</DependentUpon>
@@ -114,7 +110,6 @@
       <DependentUpon>ProvinceSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Province\ProvinceBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Province\ProvinceBrowser.Designer.cs">
       <DependentUpon>ProvinceBrowser.cs</DependentUpon>
@@ -134,7 +129,6 @@
       <DependentUpon>XiangSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Xiang\XiangBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Xiang\XiangBrowser.Designer.cs">
       <DependentUpon>XiangBrowser.cs</DependentUpon>

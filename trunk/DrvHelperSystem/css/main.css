@@ -99,8 +99,9 @@ form div:first-child
 }
 div table
 {
-	text-align:center;
-	vertical-align:middle;
-	height:100%;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
 	margin-right: 0px;
+	
 }

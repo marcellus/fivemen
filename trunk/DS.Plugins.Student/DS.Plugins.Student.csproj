@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F59AB405-CEC3-45AB-9D81-61FEE085A8A8}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplyPrinterForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplyPrinterForm.Designer.cs">
       <DependentUpon>ApplyPrinterForm.cs</DependentUpon>
@@ -86,7 +85,6 @@
     <Compile Include="Config\F4PrinterConfig.cs" />
     <Compile Include="Config\F6PrinterConfig.cs" />
     <Compile Include="Config\PrintSettingForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Config\PrintSettingForm.designer.cs">
       <DependentUpon>PrintSettingForm.cs</DependentUpon>
@@ -130,7 +128,6 @@
       <DependentUpon>StudentFeeCounter.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverPicCapture.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="DriverPicCapture.Designer.cs">
       <DependentUpon>DriverPicCapture.cs</DependentUpon>
@@ -144,7 +141,6 @@
     </Compile>
     <Compile Include="NewStudentPlugin.cs" />
     <Compile Include="OtherPrinterForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="OtherPrinterForm.Designer.cs">
       <DependentUpon>OtherPrinterForm.cs</DependentUpon>
@@ -169,7 +165,6 @@
       <DependentUpon>SimpleStudentCounter.cs</DependentUpon>
     </Compile>
     <Compile Include="QuitForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="QuitForm.Designer.cs">
       <DependentUpon>QuitForm.cs</DependentUpon>
@@ -181,7 +176,6 @@
     </Compile>
     <Compile Include="StudentCounterPlugin.cs" />
     <Compile Include="StudentExam\StudentExamBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentExam\StudentExamBrowser.Designer.cs">
       <DependentUpon>StudentExamBrowser.cs</DependentUpon>
@@ -193,7 +187,6 @@
       <DependentUpon>StudentExamSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentFee\StudentFeeBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentFee\StudentFeeBrowser.Designer.cs">
       <DependentUpon>StudentFeeBrowser.cs</DependentUpon>
@@ -207,14 +200,12 @@
     <Compile Include="StudentHelper.cs" />
     <Compile Include="StudentSystemConfig.cs" />
     <Compile Include="StudentSystemConfigForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentSystemConfigForm.Designer.cs">
       <DependentUpon>StudentSystemConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentAllInfo.cs" />
     <Compile Include="Student\StudentBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Student\StudentBrowser.Designer.cs">
       <DependentUpon>StudentBrowser.cs</DependentUpon>
@@ -240,7 +231,6 @@
       <DependentUpon>TestPdf417Code.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateForm.Designer.cs">
       <DependentUpon>UpdateForm.cs</DependentUpon>

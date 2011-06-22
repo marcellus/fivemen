@@ -57,7 +57,7 @@ alert(obj.document);
 
  <frameset border="0" id="middleFrame" frameSpacing="0" frameBorder="0" cols="250,8,*"> 
   <frame name="submenus"  src="Layout/LeftMenu.aspx" noResize scrolling="no"/>
-  <frame name="Links"  src="Layout/newspan.htm"  noResize scrolling="no"/>
+  <frame name="Links"  src="Layout/newspan.htm"  noResize scrolling="yes"/>
   <!--<iframe name="main" id="main" src="Welcome.aspx" scrolling="yes" ></iframe>-->
   <frame name="main"  src="Layout/MainWelcome.aspx"  scrolling="yes"/>
 </frameset>

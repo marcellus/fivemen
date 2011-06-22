@@ -18,6 +18,7 @@ public partial class UserManage_Login : System.Web.UI.Page
     }
     protected void imgBtnLogin_Click(object sender, ImageClickEventArgs e)
     {
+
         string result=UserOperator.Login(this.txtLoginName.Text.Trim(), this.txtPwd.Text.Trim());
         if (result =="2")
         {
