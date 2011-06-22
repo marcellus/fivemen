@@ -29,6 +29,9 @@ public class FPSystemBiz
     public static readonly int TRAIN_LEAVE_FAILE = 5;
     public static readonly int TRAIN_ENTER_FAILE = 6;
 
+    public static readonly int LESSON_FINISH = 7;
+    public static readonly int TRAIN_FINISH = 8;
+
 
     public FPSystemBiz()
     {
@@ -81,6 +84,7 @@ public class FPSystemBiz
         DateTime lDtIdentity=DateTime.Now;
         string lStrUpdateSql = "update fp_student set {0}=TO_DATE('{1}','yyyy-mm-dd hh24:mi:ss') where idcard='{2}'";
         string lStrUpdateSqlClearRecord = "update fp_student set LESSON_ENTER_1=null,LESSON_ENTER_2=null,LESSON_LEAVE_2=null where idcard='{0}'";
+        string lStrLessonFinishSql = "update fp_student set LESSON_FINISH=1 where idcard='{0}'";
         string lStrParm0=null;
         string lStrParm1= lDtIdentity.ToString();
         string lStrParm2 = fso.IDCARD;
@@ -91,7 +95,6 @@ public class FPSystemBiz
         if (DateTimeHelper.fnIsNewDateTime(fso.LESSON_ENTER_1) )
         {
             lStrParm0 = lStrPrfLESSON_ENTER+"_1";
-            lIntReturn = CHECKIN_SUCCESS;
         }
         else if (!fnIsVaildTime(fso.LESSON_ENTER_1, lDtIdentity, 0))
         {
@@ -104,7 +107,6 @@ public class FPSystemBiz
             if (fnIsVaildTime(fso.LESSON_ENTER_1, lDtIdentity, lIntLessonInterval))
             {
                 lStrParm0 = lStrPrfLESSON_ENTER + "_2";
-                lIntReturn = CHECKIN_SUCCESS;
             }
             else
             {
@@ -116,7 +118,7 @@ public class FPSystemBiz
             if (fnIsVaildTime(fso.LESSON_ENTER_2, lDtIdentity, lIntLessonInterval))
             {
                 lStrParm0 = lStrPrfLESSON_LEAVE + "_2";
-                lIntReturn = CHECKIN_SUCCESS;
+                
             }
             else
             {
@@ -128,6 +130,15 @@ public class FPSystemBiz
         {
             lStrUpdateSql = string.Format(lStrUpdateSql, lStrParm0, lStrParm1, lStrParm2);
             lBlResult=FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrUpdateSql);
+            lIntReturn = CHECKIN_SUCCESS;
+            if (lStrParm0 == lStrPrfLESSON_LEAVE + "_2")
+            {
+                lStrLessonFinishSql = string.Format(lStrLessonFinishSql, lStrParm2);
+                lBlResult = FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrLessonFinishSql);
+                if (lBlResult) {
+                    lIntReturn = LESSON_FINISH;
+                }
+            }
         }
 
         return lIntReturn;
@@ -147,7 +158,7 @@ public class FPSystemBiz
         bool lBlResult = false;
         DateTime lDtIdentity = DateTime.Now;
         string lStrUpdateSql = "update fp_student set {0}=TO_DATE('{1}','yyyy-mm-dd hh24:mi:ss') where idcard='{2}'";
-        
+        string lStrTrainFinishSql = "update fp_student set TRAIN_FINISH=1 where idcard='{0}'";
         string lStrParm0 = null;
         string lStrParm1 = lDtIdentity.ToString();
         string lStrParm2 = fso.IDCARD;
@@ -320,6 +331,14 @@ public class FPSystemBiz
             lStrUpdateSql = string.Format(lStrUpdateSql, lStrParm0, lStrParm1, lStrParm2);
             lBlResult = FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrUpdateSql);
             lIntReturn = CHECKIN_SUCCESS;
+            if (lStrParm0 == lStrPrfTRAIN_LEAVE + "_8")
+            {
+                lStrTrainFinishSql = string.Format(lStrTrainFinishSql,lStrParm2);
+                lBlResult = FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrTrainFinishSql);
+                if (lBlResult) {
+                    lIntReturn = TRAIN_FINISH;
+                }
+            }
         }
         else if (lStrClearParm0 != null) {
             string lStrUpdateSqlClearRecord = "update fp_student set TRAIN_LEAVE_{0}=null,TRAIN_ENTER_{0}=null where idcard='{1}'";

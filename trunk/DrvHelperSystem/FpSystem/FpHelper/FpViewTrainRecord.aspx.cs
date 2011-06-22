@@ -75,6 +75,9 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         else if (pResultCode == FPSystemBiz.TRAIN_ENTER_FAILE) {
             this.lbStudentAlertMsg.Text = "你上次的训练未完成,上次的记录将被清空，请再次验证";
         }
+        else if( pResultCode==FPSystemBiz.TRAIN_FINISH){
+           this.lbStudentAlertMsg.Text = "学员已完成入场训练";
+        }
 
 
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)

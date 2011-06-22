@@ -91,9 +91,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         if (this.hidIDCard.Value.Length == 0)
             return;
         string lStrIDCard = this.hidIDCard.Value.Trim();
-        FpStudentObject lObjStu = new FpStudentObject();
-        lObjStu.IDCARD = this.txtIDCard.Text.Trim();
-        if (FPSystemBiz.fnAddOrEditStudentRecord(lObjStu))
+        FpStudentObject fso = null;
+        Object lObjStu = Session["student"];
+        if (lObjStu != null) {
+            fso = lObjStu as FpStudentObject;
+        }
+        if (FPSystemBiz.fnAddOrEditStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
         }
