@@ -7,6 +7,8 @@ using log4net;
 using System.Windows.Forms;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using System.Data.Common;
+using System.Data.OracleClient;
 
 
 namespace FT.WebServiceInterface.DrvQuery
@@ -24,15 +26,41 @@ namespace FT.WebServiceInterface.DrvQuery
             //TODO: 在此处添加构造函数逻辑
             //
         }
+        public static void TestSql()
+        {
+            string queryStr="select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from trff_app.drv_flow a left join trff_app.drv_examcard b on a.sfzmhm=b.sfzmhm where a.ywlx in ('A','B') and a.sfzmhm='440583199005011018'";
+           // IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+            string tmp = System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"];
+           // log.Debug("DefaultConnString is:" + tmp);
+            string connStr = FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(tmp);
+            DbConnection conn=new OracleConnection(connStr);
+            DataTable dt = new DataTable("tmp");
+            try
+            {
+                DbDataAdapter oradp = new OracleDataAdapter();
+                DbCommand command = conn.CreateCommand();
+                command.CommandText = queryStr;
+                //command.CommandText = sql.Replace("\r\n","");
+                oradp.SelectCommand = command;
+                oradp.Fill(dt);
+            }
+            catch (Exception e)
+            {
+                string sql = "update table_yuyue_info set c_check_result='"+e.ToString()+"' where id=992 ";
+                FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
+                //log.Error(e);
+               // return null;
+            }
+        }
         #region 供网上预约使用
         public static TempKscjInfo QueryKscj(String glbm, String sfzmhm)
         {
             TempKscjInfo info = null;
-            String sql = "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=1 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
+            String sql = "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from trff_app.drv_preasign a where kskm=1 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
             sql += " union ";
-            sql += "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=2 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
+            sql += "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from trff_app.drv_preasign a where kskm=2 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
             sql += " union ";
-            sql += "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from drv_admin.drv_preasign a where kskm=3 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
+            sql += "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from trff_app.drv_preasign a where kskm=3 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
             String queryStr = string.Format(sql, new string[] { glbm, sfzmhm });
 
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
@@ -65,7 +93,8 @@ namespace FT.WebServiceInterface.DrvQuery
         public static TempStudentInfo QueryStudent(String glbm, String sfzmhm)
         {
             TempStudentInfo info = null;
-            String sql = "select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from drv_admin.drv_flow a left join drv_admin.drv_examcard b on a.sfzmhm=b.sfzmhm where a.glbm like '{0}%' and a.ywlx in ('A','B') and a.sfzmhm='{1}'";
+            //a.glbm like '{0}%' and
+            String sql = "select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from trff_app.drv_flow a left join trff_app.drv_examcard b on a.sfzmhm=b.sfzmhm where  a.ywlx in ('A','B') and a.sfzmhm='{1}'";
             String queryStr = string.Format(sql, new string[] { glbm, sfzmhm });
 
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
@@ -85,7 +114,7 @@ namespace FT.WebServiceInterface.DrvQuery
                 info.yxqz = dr[8] == null ? string.Empty : dr[8].ToString();
                 info.jly = dr[9] == null ? string.Empty : dr[9].ToString();
 
-                sql = "select distinct decode(xb,1,'男',2,'女') sex,lxdh phone,lxdh mobile,lxzsxxdz address,to_char(csrq,'yyyy-MM-dd') csrq  from drv_admin.person a where a.sfzmhm='{1}'";
+                sql = "select distinct decode(xb,1,'男',2,'女') sex,lxdh phone,lxdh mobile,lxzsxxdz address,to_char(csrq,'yyyy-MM-dd') csrq  from trff_app.person a where a.sfzmhm='{1}'";
                 queryStr = string.Format(sql, new string[] { glbm, sfzmhm });
                 DataTable dt2 = access.SelectDataTable(queryStr, "tmp");
                 if (dt2 != null && dt2.Rows.Count > 0)
@@ -222,7 +251,7 @@ namespace FT.WebServiceInterface.DrvQuery
 
         private static DataTable GetArea(string citycode)
         {
-            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz<>'"+citycode+"' and  dmz like '" + citycode.Substring(0, 4) + "%'";
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=33 and dmz<>'"+citycode+"' and  dmz like '" + citycode.Substring(0, 4) + "%'";
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(sql, "tmp");
             return dt1;
@@ -242,7 +271,7 @@ namespace FT.WebServiceInterface.DrvQuery
 
         private static DataTable GetCity(string provicecode)
         {
-            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz<>'" + provicecode + "' and dmz like '" + provicecode.Substring(0, 2) + "%00'";
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=33 and dmz<>'" + provicecode + "' and dmz like '" + provicecode.Substring(0, 2) + "%00'";
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(sql, "tmp");
             return dt1;
@@ -265,7 +294,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDictProvince()
         {
 
-            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz like '%0000'";
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=33 and dmz like '%0000'";
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(sql, "tmp");
             return dt1;
@@ -274,7 +303,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDictByAreaWeb(int type)
         {
             string glbm = System.Configuration.ConfigurationManager.AppSettings["glbm"];
-            string ksccsql = "select distinct dmz ,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=" + type + " and dmz like '" + glbm + "%'";
+            string ksccsql = "select distinct dmz ,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=" + type + " and dmz like '" + glbm + "%'";
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
             return dt1;
@@ -283,7 +312,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDictWeb(int type)
         {
 
-            string ksccsql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=" + type;
+            string ksccsql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=" + type;
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
             return dt1;
@@ -292,7 +321,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDictByArea(int type)
         {
             string glbm = System.Configuration.ConfigurationManager.AppSettings["glbm"];
-            string ksccsql = "select distinct dmz,dmmc1 from drv_admin.drv_code t where dmlb=" + type + " and dmz like '" + glbm + "%'";
+            string ksccsql = "select distinct dmz,dmmc1 from trff_app.drv_code t where dmlb=" + type + " and dmz like '" + glbm + "%'";
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
             return dt1;
@@ -301,7 +330,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDict(int type)
         {
             
-            string ksccsql = "select distinct dmz,dmmc1 from drv_admin.drv_code t where dmlb=" + type ;
+            string ksccsql = "select distinct dmz,dmmc1 from trff_app.drv_code t where dmlb=" + type ;
             IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = access.SelectDataTable(ksccsql, "tmp");
             return dt1;
