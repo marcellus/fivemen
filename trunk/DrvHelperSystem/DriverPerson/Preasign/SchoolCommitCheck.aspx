@@ -43,6 +43,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <div style="display:none;"><a href="http://127.0.0.1:1300/DrvHelperSystem/DriverPerson/Preasign/SchoolCommitCheckTest.aspx">查看测试同步数据</a></div>
     <div> <table border="0" cellpadding="4" cellspacing="1" class="table-border">
             <tr class="table-title">
                 <td >
