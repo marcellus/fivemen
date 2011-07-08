@@ -209,7 +209,8 @@ public class YuyueInfoOperator
                     }
                 }
             }
-            if (info != null && info.Checked == 0)
+            //&& info.Checked == 0
+            if (info != null )
             {
                 info.CheckOperator = name;
                 info.Jbr = name;

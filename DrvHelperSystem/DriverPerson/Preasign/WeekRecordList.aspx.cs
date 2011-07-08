@@ -57,7 +57,8 @@ public partial class DriverPerson_Preasign_WeekRecordList : FT.Web.Authenticated
         {
             url += "?id=" + id;
         }
-        WebTools.ShowModalWindows(this, url, 1000, 750);
+        //WebTools.ShowModalWindows(this, url, 1000, 750);
+        WebTools.Open(url, 1000, 750);
     }
     public static int GetWeekOfYear(DateTime date)
     {

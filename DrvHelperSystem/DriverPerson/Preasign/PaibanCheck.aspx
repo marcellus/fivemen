@@ -57,11 +57,40 @@ function line(x1,y1,x2,y2,color)
 }
 
 </script>
+<script type="text/javascript">
+function printviewex()
+{
+//alert("beginprintview");
+Table1.border='1';
+//alert('1');
+//Table1.style.borderWidth='3px';
+Table1.cellspacing='0';
+Table1.cellpadding='0';
+//alert('2');
+var obj=document.getElementById("wb");
+//alert("obj:"+obj);
+//alert(wb);
+obj.ExecWB(7,1);
+//alert("exebeginprintview");
+Table1.border='0';
+Table1.cellspacing='1';
+Table1.cellpadding='4';
+//alert('2');
+
+}
+</script>
+<style   media="print "> 
+.noprint   {   display:   none   } 
+</style>
 
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style=" width:100%">
+      <object id="wb" height="0" width="0"  
+classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" name="wb">
+
+     </object>
+    <div style=" width:100%" class="noprint">
     
     
         <br />
@@ -74,6 +103,9 @@ function line(x1,y1,x2,y2,color)
     
     <asp:Button ID="btnCheck" runat="server" onclick="btnSave_Click" 
         Text="审核本周排班" />
+        &nbsp;
+        <input type="button" value="打印预览" style="" id="printview" onclick="javascript:printviewex();" />
+   
     
     </div>
     

@@ -47,53 +47,53 @@ public partial class DriverPreson_Preasign_PaibanCheck : FT.Web.AuthenticatedPag
             this.Table1.Rows[i + 2].Cells[0].Text = this.GetChineseXq(i + 1) + "(" + begin.AddDays(i).ToString("yyyy-MM-dd") + ")";
         }
         this.txtxq1km1zs.Text = week.Week1km1Num.ToString();
-        this.Table1.Rows[2].Cells[2].Text = week.Week1km1fp == null ? "" : week.Week1km1fp.ToString();
+        this.Table1.Rows[2].Cells[2].Text = week.Week1km1fp == null ? "&nbsp;" : week.Week1km1fp.ToString();
         this.txtxq1km2zs.Text = week.Week1km2Num.ToString();
-        this.Table1.Rows[2].Cells[4].Text = week.Week1km2fp == null ? "" : week.Week1km2fp.ToString();
+        this.Table1.Rows[2].Cells[4].Text = week.Week1km2fp == null ? "&nbsp;" : week.Week1km2fp.ToString();
         this.txtxq1km3zs.Text = week.Week1km3Num.ToString();
-        this.Table1.Rows[2].Cells[6].Text = week.Week1km3fp == null ? "" : week.Week1km3fp.ToString();
+        this.Table1.Rows[2].Cells[6].Text = week.Week1km3fp == null ? "&nbsp;" : week.Week1km3fp.ToString();
 
         this.txtxq2km1zs.Text = week.Week2km1Num.ToString();
-        this.Table1.Rows[3].Cells[2].Text = week.Week2km1fp == null ? "" : week.Week2km1fp.ToString();
+        this.Table1.Rows[3].Cells[2].Text = week.Week2km1fp == null ? "&nbsp;" : week.Week2km1fp.ToString();
         this.txtxq2km2zs.Text = week.Week2km2Num.ToString();
-        this.Table1.Rows[3].Cells[4].Text = week.Week2km2fp == null ? "" : week.Week2km2fp.ToString();
+        this.Table1.Rows[3].Cells[4].Text = week.Week2km2fp == null ? "&nbsp;" : week.Week2km2fp.ToString();
         this.txtxq2km3zs.Text = week.Week2km3Num.ToString();
-        this.Table1.Rows[3].Cells[6].Text = week.Week2km3fp == null ? "" : week.Week2km3fp.ToString();
+        this.Table1.Rows[3].Cells[6].Text = week.Week2km3fp == null ? "&nbsp;" : week.Week2km3fp.ToString();
 
         this.txtxq3km1zs.Text = week.Week3km1Num.ToString();
-        this.Table1.Rows[4].Cells[2].Text = week.Week3km1fp == null ? "" : week.Week3km1fp.ToString();
+        this.Table1.Rows[4].Cells[2].Text = week.Week3km1fp == null ? "&nbsp;" : week.Week3km1fp.ToString();
         this.txtxq3km2zs.Text = week.Week3km2Num.ToString();
-        this.Table1.Rows[4].Cells[4].Text = week.Week3km2fp == null ? "" : week.Week3km2fp.ToString();
+        this.Table1.Rows[4].Cells[4].Text = week.Week3km2fp == null ? "&nbsp;" : week.Week3km2fp.ToString();
         this.txtxq3km3zs.Text = week.Week3km3Num.ToString();
-        this.Table1.Rows[4].Cells[6].Text = week.Week3km3fp == null ? "" : week.Week3km3fp.ToString();
+        this.Table1.Rows[4].Cells[6].Text = week.Week3km3fp == null ? "&nbsp;" : week.Week3km3fp.ToString();
 
         this.txtxq4km1zs.Text = week.Week4km1Num.ToString();
-        this.Table1.Rows[5].Cells[2].Text = week.Week4km1fp == null ? "" : week.Week4km1fp.ToString();
+        this.Table1.Rows[5].Cells[2].Text = week.Week4km1fp == null ? "&nbsp;" : week.Week4km1fp.ToString();
         this.txtxq4km2zs.Text = week.Week4km2Num.ToString();
-        this.Table1.Rows[5].Cells[4].Text = week.Week4km2fp == null ? "" : week.Week4km2fp.ToString();
+        this.Table1.Rows[5].Cells[4].Text = week.Week4km2fp == null ? "&nbsp;" : week.Week4km2fp.ToString();
         this.txtxq4km3zs.Text = week.Week4km3Num.ToString();
-        this.Table1.Rows[5].Cells[6].Text = week.Week4km3fp == null ? "" : week.Week4km3fp.ToString();
+        this.Table1.Rows[5].Cells[6].Text = week.Week4km3fp == null ? "&nbsp;" : week.Week4km3fp.ToString();
 
         this.txtxq5km1zs.Text = week.Week5km1Num.ToString();
-        this.Table1.Rows[6].Cells[2].Text = week.Week5km1fp == null ? "" : week.Week5km1fp.ToString();
+        this.Table1.Rows[6].Cells[2].Text = week.Week5km1fp == null ? "&nbsp;" : week.Week5km1fp.ToString();
         this.txtxq5km2zs.Text = week.Week5km2Num.ToString();
-        this.Table1.Rows[6].Cells[4].Text = week.Week5km2fp == null ? "" : week.Week5km2fp.ToString();
+        this.Table1.Rows[6].Cells[4].Text = week.Week5km2fp == null ? "&nbsp;" : week.Week5km2fp.ToString();
         this.txtxq5km3zs.Text = week.Week5km3Num.ToString();
-        this.Table1.Rows[6].Cells[6].Text = week.Week5km3fp == null ? "" : week.Week5km3fp.ToString();
+        this.Table1.Rows[6].Cells[6].Text = week.Week5km3fp == null ? "&nbsp;" : week.Week5km3fp.ToString();
 
         this.txtxq6km1zs.Text = week.Week6km1Num.ToString();
-        this.Table1.Rows[7].Cells[2].Text = week.Week6km1fp == null ? "" : week.Week6km1fp.ToString();
+        this.Table1.Rows[7].Cells[2].Text = week.Week6km1fp == null ? "&nbsp;" : week.Week6km1fp.ToString();
         this.txtxq6km2zs.Text = week.Week6km2Num.ToString();
-        this.Table1.Rows[7].Cells[4].Text = week.Week6km2fp == null ? "" : week.Week6km2fp.ToString();
+        this.Table1.Rows[7].Cells[4].Text = week.Week6km2fp == null ? "&nbsp;" : week.Week6km2fp.ToString();
         this.txtxq6km3zs.Text = week.Week6km3Num.ToString();
-        this.Table1.Rows[7].Cells[6].Text = week.Week6km3fp == null ? "" : week.Week6km3fp.ToString();
+        this.Table1.Rows[7].Cells[6].Text = week.Week6km3fp == null ? "&nbsp;" : week.Week6km3fp.ToString();
 
         this.txtxq7km1zs.Text = week.Week7km1Num.ToString();
-        this.Table1.Rows[8].Cells[2].Text = week.Week7km1fp == null ? "" : week.Week7km1fp.ToString();
+        this.Table1.Rows[8].Cells[2].Text = week.Week7km1fp == null ? "&nbsp;" : week.Week7km1fp.ToString();
         this.txtxq7km2zs.Text = week.Week7km2Num.ToString();
-        this.Table1.Rows[8].Cells[4].Text = week.Week7km2fp == null ? "" : week.Week7km2fp.ToString();
+        this.Table1.Rows[8].Cells[4].Text = week.Week7km2fp == null ? "&nbsp;" : week.Week7km2fp.ToString();
         this.txtxq7km3zs.Text = week.Week7km3Num.ToString();
-        this.Table1.Rows[8].Cells[6].Text = week.Week7km3fp == null ? "" : week.Week7km3fp.ToString();
+        this.Table1.Rows[8].Cells[6].Text = week.Week7km3fp == null ? "&nbsp;" : week.Week7km3fp.ToString();
 
 
 
