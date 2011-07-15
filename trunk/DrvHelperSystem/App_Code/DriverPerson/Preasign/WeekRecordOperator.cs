@@ -84,6 +84,19 @@ public class WeekRecordOperator
         YuyueLimitOperator.Save(week, 7, 3, datestr, week.Week7km3fp);
     }
 
+    public static void Update(WeekRecord week, ArrayList limits) {
+        SimpleOrmOperator.Update(week);
+        string datestr = week.WeekRange.Substring(0, week.WeekRange.IndexOf('至'));
+        DateTime begin = DateTimeHelper.GetMonday(DateTime.Parse(datestr));
+        string deleteSql = "delete from table_yuyue_limit where i_week_num=" + week.WeekNum + " and date_ksrq like '" + begin.Year.ToString() + "%'";
+        DataAccessFactory.GetDataAccess().ExecuteSql(deleteSql);
+
+        foreach (object obj in limits) {
+            YuyueLimit limit = obj as YuyueLimit;
+            YuyueLimitOperator.Save(week, limit, begin);
+        }
+    }
+
     public static void Create(WeekRecord week)
     {
         SimpleOrmOperator.Create(week);
@@ -116,6 +129,17 @@ public class WeekRecordOperator
         YuyueLimitOperator.Save(week, 7, 1, datestr, week.Week7km1fp);
         YuyueLimitOperator.Save(week, 7, 2, datestr, week.Week7km2fp);
         YuyueLimitOperator.Save(week, 7, 3, datestr, week.Week7km3fp);
+    }
+
+    public static void Create(WeekRecord week, ArrayList limits) {
+        SimpleOrmOperator.Create(week);
+        string datestr = week.WeekRange.Substring(0, week.WeekRange.IndexOf('至'));
+        DateTime begin = DateTimeHelper.GetMonday(DateTime.Parse(datestr));
+        foreach (object obj in limits)
+        {
+            YuyueLimit limit = obj as YuyueLimit;
+            YuyueLimitOperator.Save(week, limit, begin);
+        }
     }
 
 

@@ -148,7 +148,8 @@ public partial class DriverPreson_Preasign_PaibanCheck : FT.Web.AuthenticatedPag
         {
             week.Checked = 1;
             week.CheckOperator = this.Operator.OperatorName;
-            WeekRecordOperator.Update(week);
+            SimpleOrmOperator.Update(week);
+            //WeekRecordOperator.Update(week);
             WebTools.Alert("审核通过！");
 
 
