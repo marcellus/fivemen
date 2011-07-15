@@ -15,10 +15,16 @@ using FT.DAL.Orm;
 
 public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
 {
+
+
+    private static string VIEWSTATUE_LIMITS = "listLimits";
+    private static string VIEWSTATUE_WEEKRECORD = "weekRecord";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+           // ViewState
             DictOperator.BindDropDownList("考试地点", this.cbKsdd);
             DictOperator.BindDropDownList("考试场次", this.cbKscc);
             DepartMentOperator.BindNick(this.cbSchool, "驾校");
@@ -26,10 +32,18 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
             if (Request.Params["id"] != null)
             {
                 WeekRecord entity = WeekRecordOperator.Get(Convert.ToInt32(Request.Params["id"]));
+                //weekRocord = WeekRecordOperator.Get(Convert.ToInt32(Request.Params["id"]));
                 this.InitWeekRecord(entity);
+                string querySql = string.Format("where I_WEEK_NUM={0}", entity.WeekNum);
+                ArrayList listLimits = SimpleOrmOperator.QueryConditionList<YuyueDayLimit>(querySql);
+                ViewState[VIEWSTATUE_LIMITS] = listLimits;
+                ViewState[VIEWSTATUE_WEEKRECORD] = entity;
             }
         }
     }
+
+
+
 
     private void InitWeekRecord(WeekRecord week)
     {
@@ -37,6 +51,8 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
         if (week.Id <= 0)
         {
             datestr = this.txtDate.Value;
+            ViewState[VIEWSTATUE_LIMITS] = new ArrayList();
+            ViewState[VIEWSTATUE_WEEKRECORD] = new WeekRecord();
            // return;
         }
         else
@@ -174,6 +190,20 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
         {
            // row.
             row.Cells[i + 2].Text="";
+            ArrayList limits = ViewState[VIEWSTATUE_LIMITS] as ArrayList ;
+            ArrayList removeLimits = new ArrayList();
+            foreach (object obj in limits) {
+                YuyueLimit limit = obj as YuyueLimit;
+                int km = (i + 2) / 2;
+                int datyOfWeek = rownum - 1;
+                if (limit.DayOfWeek == datyOfWeek && limit.Km == km) {
+                    removeLimits.Add(obj);
+                }
+            }
+            foreach (object obj in removeLimits) {
+                limits.Remove(obj);
+            }
+            ViewState[VIEWSTATUE_LIMITS] = limits;
             //row.Cells[i + 2].Controls.Clear();
             //string s = "";
         }
@@ -207,10 +237,32 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
             int j = int.Parse(this.hidColOld.Value);
             int m = int.Parse(this.hidRowOld.Value);
             if (this.GetSl(this.txtNum) > 0)
-                this.Table1.Rows[m].Cells[j + 2].Text += "<br/>" + this.cbKsdd.SelectedItem.Value + ":" +
-                       this.cbKsdd.SelectedItem.Text + ";" + this.cbKscc.SelectedItem.Value
-                       + ":" + this.cbKscc.SelectedItem.Text + ";"
-                       + this.cbSchool.SelectedItem.Value + ":" + this.cbSchool.SelectedItem.Text + ";" + this.txtNum.Text.Trim();
+            {
+               // this.Table1.Rows[m].Cells[j + 2].Text += "<br/>" + this.cbKsdd.SelectedItem.Value + ":" +
+               //        this.cbKsdd.SelectedItem.Text + ";" + this.cbKscc.SelectedItem.Value
+               //        + ":" + this.cbKscc.SelectedItem.Text + ";"
+               //        + this.cbSchool.SelectedItem.Value + ":" + this.cbSchool.SelectedItem.Text + ";" + this.txtNum.Text.Trim();
+                string context = string.Format("<br/>{0}({1})",this.cbSchool.SelectedItem.Text,this.txtNum.Text.Trim());
+                this.Table1.Rows[m].Cells[j + 2].Text += context;
+                int km=(j+2)/2;
+                int datyOfWeek=m-1;
+
+                WeekRecord weekRecord=ViewState[VIEWSTATUE_WEEKRECORD] as WeekRecord;
+                ArrayList limits = ViewState[VIEWSTATUE_LIMITS] as ArrayList;
+                YuyueLimit tempLimit = new YuyueLimit();
+                tempLimit.DayOfWeek = datyOfWeek;
+                tempLimit.Km = km;
+                tempLimit.WeekNum = weekRecord.WeekNum;
+                tempLimit.Ksdd = this.cbKsdd.SelectedItem.Text;
+                tempLimit.KsddCode =this.cbKsdd.SelectedItem.Value;
+                tempLimit.Kscc = this.cbKscc.SelectedItem.Text;
+                tempLimit.KsccCode = this.cbKscc.SelectedItem.Value;
+                tempLimit.SchoolName = this.cbSchool.SelectedItem.Text;
+                tempLimit.SchoolCode = this.cbSchool.SelectedItem.Value;
+                tempLimit.Total = int.Parse(this.txtNum.Text.Trim());
+                limits.Add(tempLimit);
+                ViewState[VIEWSTATUE_LIMITS] = limits;
+            }
             else
             {
                 WebTools.Alert("分配的数量不得为0！");
@@ -310,14 +362,17 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
 
           
         }
+        ArrayList limits = ViewState[VIEWSTATUE_LIMITS] as ArrayList;
         if (week.Checked == 0 && week.Id > 0)
         {
-            WeekRecordOperator.Update(week);
+            //WeekRecordOperator.Update(week);
+            
+            WeekRecordOperator.Update(week, limits);
             WebTools.Alert("保存成功！");
         }
         else if(week.Id<1)
         {
-            WeekRecordOperator.Create(week);
+            WeekRecordOperator.Create(week,limits);
             WebTools.Alert("保存成功！");
         }
 

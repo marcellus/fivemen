@@ -14,6 +14,7 @@ using FT.DAL.Orm;
 /// </summary>
 [SimpleTable("table_yuyue_limit")]
 [Alias("限制条件")]
+[Serializable]
 public class YuyueLimit
 {
     public YuyueLimit()

@@ -38,6 +38,23 @@ public class YuyueLimitOperator
        return SimpleOrmOperator.Query<YuyueLimit>(id);
     }
 
+
+    public static Hashtable GetWeekLimits(WeekRecord week)
+    {
+        int weekNum = week.WeekNum;
+        //String weekRang = week.WeekRange;
+        //String year = weekRang.Substring(0,4);
+        Hashtable dictWeekLimits = new Hashtable();
+        ArrayList listWeekLimits = new ArrayList();
+        string querySql = string.Format("where I_WEEK_NUM={0}",weekNum);
+        listWeekLimits=SimpleOrmOperator.QueryConditionList<YuyueLimit>(querySql);
+        foreach (YuyueLimit limit in listWeekLimits) {
+            String key = genLimitKey(limit);
+            dictWeekLimits.Add(key,limit);
+        }
+        return dictWeekLimits;
+    }
+
     public static void Save(WeekRecord week,int dayofweek,int km,string begindate,string desc)
     {
         if (desc == null || desc.Length == 0)
@@ -80,9 +97,31 @@ public class YuyueLimitOperator
        // SimpleOrmOperator.Delete<YuyueLimit>(id);
     }
 
+    public static bool Save(WeekRecord week, YuyueLimit limit,DateTime beginDate) {
+
+        limit.Operator = week.CheckOperator;
+        limit.Ksrq = beginDate.AddDays(limit.DayOfWeek - 1).ToString("yyyy-MM-dd");
+        return SimpleOrmOperator.Create(limit);
+    }
+
 
     public static DataTable Search()
     {
         return DataAccessFactory.GetDataAccess().SelectDataTable("select * from table_yuyue_limit ", "tempdb");
     }
+
+    private static String genLimitKey(YuyueLimit limit) {
+        String key = "";
+        key = string.Format("{0}::{1}::{2}::{3}::{4}::{5}",
+            limit.WeekNum
+            ,limit.DayOfWeek
+            ,limit.Km
+            ,limit.KsccCode
+            ,limit.KsddCode
+            ,limit.SchoolCode
+            );
+        return key;
+         
+    }
+
 }

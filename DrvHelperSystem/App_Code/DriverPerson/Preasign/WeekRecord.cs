@@ -14,6 +14,7 @@ using FT.DAL.Orm;
 /// </summary>
 [SimpleTable("table_week_record")]
 [Alias("周排班表")]
+[Serializable]
 public class WeekRecord
 {
     public WeekRecord()
