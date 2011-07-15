@@ -2,16 +2,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BDFD098E-F081-4272-A08E-2ECEF74BB170}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhotoMonitor</RootNamespace>
     <AssemblyName>PhotoMonitor</AssemblyName>
-    <ApplicationIcon>
-    </ApplicationIcon>
-    <Win32Resource>D:\develop-tools\c#project\fivemen\PhotoMonitor\test.res</Win32Resource>
+    <ApplicationIcon>application_xp_terminal.ico</ApplicationIcon>
+    <Win32Resource>
+    </Win32Resource>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -38,7 +38,35 @@
   <ItemGroup>
     <Reference Include="DrvService, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\commons-dlls\DrvService.dll</HintPath>
+      <HintPath>bin\Release\DrvService.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Commons, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Windows.CommonsPlugin, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Windows.CommonsPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Windows.Controls, Version=1.0.3971.28597, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Windows.ExternalTool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Windows.ExternalTool.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Windows.ExternalTool.XmlSerializers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Windows.ExternalTool.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="FT.Windows.Forms, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\FT.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,6 +76,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -85,11 +115,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="test.res" />
+    <None Include="Web References\DrvNewService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DrvNewService\TmriOutAccess.wsdl" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SystemMonitor\RemoteXmlHelper.cs" />
     <Compile Include="SystemMonitor\SystemConfig.cs" />
     <Compile Include="SystemMonitor\SystemMonitorConfig.cs">
       <SubType>Form</SubType>
@@ -97,32 +133,11 @@
     <Compile Include="SystemMonitor\SystemMonitorConfig.Designer.cs">
       <DependentUpon>SystemMonitorConfig.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
-      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
-      <Name>FT.Commons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
-      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
-      <Name>FT.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
-      <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
-      <Name>FT.Windows.CommonsPlugin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FT.Windows.Controls\FT.Windows.Controls.csproj">
-      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
-      <Name>FT.Windows.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj">
-      <Project>{78DF4A96-58A9-442F-B047-ED8D56196172}</Project>
-      <Name>FT.Windows.ExternalTool</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FT.Windows.Forms\FT.Windows.Forms.csproj">
-      <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
-      <Name>FT.Windows.Forms</Name>
-    </ProjectReference>
+    <Compile Include="Web References\DrvNewService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="application_xp_terminal.ico" />
@@ -130,6 +145,22 @@
     <Content Include="log.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.40.30.92/trffweb/services/TmriOutAccess%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DrvNewService\</RelPath>
+      <UpdateFromURL>http://10.40.30.92/trffweb/services/TmriOutAccess%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PhotoMonitor_DrvNewService_TmriJaxRpcOutAccessService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://10.40.30.92/trffweb/services/TmriOutAccess" xmlns:impl="http://10.40.30.92/trffweb/services/TmriOutAccess" targetNamespace="http://10.40.30.92/trffweb/services/TmriOutAccess" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="queryObjectOutResponse">
+    <wsdl:part name="queryObjectOutReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="queryObjectOutRequest">
+    <wsdl:part name="xtlb" type="xsd:string" />
+    <wsdl:part name="jkxlh" type="xsd:string" />
+    <wsdl:part name="jkid" type="xsd:string" />
+    <wsdl:part name="UTF8XmlDoc" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="writeObjectOutRequest">
+    <wsdl:part name="xtlb" type="xsd:string" />
+    <wsdl:part name="jkxlh" type="xsd:string" />
+    <wsdl:part name="jkid" type="xsd:string" />
+    <wsdl:part name="UTF8XmlDoc" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="writeObjectOutResponse">
+    <wsdl:part name="writeObjectOutReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="TmriJaxRpcOutAccess">
+    <wsdl:operation name="queryObjectOut" parameterOrder="xtlb jkxlh jkid UTF8XmlDoc">
+      <wsdl:input name="queryObjectOutRequest" message="impl:queryObjectOutRequest" />
+      <wsdl:output name="queryObjectOutResponse" message="impl:queryObjectOutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="writeObjectOut" parameterOrder="xtlb jkxlh jkid UTF8XmlDoc">
+      <wsdl:input name="writeObjectOutRequest" message="impl:writeObjectOutRequest" />
+      <wsdl:output name="writeObjectOutResponse" message="impl:writeObjectOutResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TmriOutAccessSoapBinding" type="impl:TmriJaxRpcOutAccess">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="queryObjectOut">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="queryObjectOutRequest">
+        <wsdlsoap:body use="encoded" namespace="http://endpoint.axis.framework.tmri.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="queryObjectOutResponse">
+        <wsdlsoap:body use="encoded" namespace="http://10.40.30.92/trffweb/services/TmriOutAccess" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="writeObjectOut">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="writeObjectOutRequest">
+        <wsdlsoap:body use="encoded" namespace="http://endpoint.axis.framework.tmri.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="writeObjectOutResponse">
+        <wsdlsoap:body use="encoded" namespace="http://10.40.30.92/trffweb/services/TmriOutAccess" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TmriJaxRpcOutAccessService">
+    <wsdl:port name="TmriOutAccess" binding="impl:TmriOutAccessSoapBinding">
+      <wsdlsoap:address location="http://10.40.30.92/trffweb/services/TmriOutAccess" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

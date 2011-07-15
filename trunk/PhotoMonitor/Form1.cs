@@ -14,6 +14,9 @@ using System.Text.RegularExpressions;
 using log4net;
 using System.Xml;
 using FT.Windows.ExternalTool;
+using System.Web;
+using PhotoMonitor.DrvNewService;
+
 
 namespace PhotoMonitor
 {
@@ -109,9 +112,11 @@ namespace PhotoMonitor
             FT.DAL.Orm.SimpleOrmOperator.Create(log);
         }
 
-        private DrvService service;
+        //private DrvService service;
+        //新接口调用类
+        private TmriJaxRpcOutAccessService service;
 
-        private DrvService GetService(SystemConfig config)
+      /*  private DrvService GetService(SystemConfig config)
         {
 
             if(service==null)
@@ -122,6 +127,18 @@ namespace PhotoMonitor
             }
             return service;
         }
+       */
+
+        private TmriJaxRpcOutAccessService GetService(SystemConfig config) {
+            if (service == null)
+            {
+
+                service = new TmriJaxRpcOutAccessService();
+                service.Url = config.ServiceIp;
+            }
+            return service;
+        }
+
 
         public void ImportPhto(SystemConfig config)
         {
@@ -223,8 +240,29 @@ namespace PhotoMonitor
                          //}
                          //else
                          //{
-                             tmpimgdata=this.GetService(config).write_drvimage(idcardtype, idcard,
-                                 ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
+
+                         /*
+                          <?xml version="1.0" encoding="utf-8" ?>
+                          <root>
+                          <drvphoto>
+                             <sfzmhm></sfzmhm>
+                             <zp></zp>
+                          </drvphoto>
+                          </root>
+                          
+                          public string writeObjectOut ("02","","02C77",String WriteXmlDoc)
+                            
+                          */
+                         
+ 
+                        // tmpimgdata =this.GetService(config).write_drvimage(idcardtype, idcard,
+                        //         ImageHelper.ImageToBase64Str(file.FullName),config.ServiceWriteSn);
+                         String base64Zp = ImageHelper.ImageToBase64Str(file.FullName);
+                         byte[] bsZp = Encoding.UTF8.GetBytes(base64Zp);
+                         String zpUtf8 = Encoding.UTF8.GetString(bsZp);
+                         String writeXmlDoc = RemoteXmlHelper.toXml_02C77(idcard, zpUtf8);
+                       tmpimgdata = this.GetService(config).writeObjectOut("02", config.ServiceWriteSn, "02C77", writeXmlDoc);
+
                              log.Debug("写入驾驶人" + idcardtype + "-" + idcard + "照片信息");
                              log.Debug(tmpimgdata);
                              //-31 ORA-00001 主键约束
@@ -259,6 +297,7 @@ namespace PhotoMonitor
                              //}
 
 
+                         /*
                              string code = this.GetTextInXml(tmpimgdata, "//code");
                              log.Debug("返回的result-code为：" + "'" + code + "'");
                              if (code == "0")
@@ -290,7 +329,40 @@ namespace PhotoMonitor
                                  file.Delete();
                              }
                          
-                             
+                           */
+                             string code = this.GetTextInXml(tmpimgdata, "//code");
+                             string retcode = this.GetTextInXml(tmpimgdata, "//retcode");
+                             log.Debug("返回的result-code为：" + "'" + code + "'");
+                             if (code == "1"||retcode=="1")
+                             {
+
+                                 if (config.SuccessBak)
+                                 {
+                                     File.Copy(file.FullName, bakdir + file.Name, true);
+                                 }
+                                 try
+                                 {
+                                     file.Delete();
+                                 }
+                                 catch (Exception ex) { }
+                                 success++;
+                             }
+ 
+                             else
+                             {
+                                 string message = this.GetTextInXml(tmpimgdata, "//retdesc");
+                                 error++;
+                                 log.Debug("返回的message为：" + "'" + message + "'");
+                                 FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
+                                 this.CreateLog("处理失败的照片" + file.Name + "失败的原因" + message);
+                                 File.Copy(file.FullName, bakdir + "处理失败的照片/" + file.Name, true);
+                                 try{
+                                 file.Delete();
+                                 }
+                                 catch (Exception ex) { }
+                             }
+
+
                          //}
                          
                          
@@ -304,8 +376,10 @@ namespace PhotoMonitor
                          FileHelper.CheckDirExistsAndCreate(bakdir + "处理失败的照片/");
                          this.CreateLog("处理失败的照片" + file.Name + "失败的原因" + ex.Message);
                          File.Copy(file.FullName, bakdir + "处理失败的照片/" + file.Name, true);
-                         file.Delete();
-                         
+                         try{
+                               file.Delete();
+                             }
+                          catch (Exception ex1) { }
                      }
                      
                  }
@@ -315,7 +389,10 @@ namespace PhotoMonitor
                      this.CreateLog("非照片文件" + file.Name);
                      FileHelper.CheckDirExistsAndCreate(bakdir + "非照片文件/");
                      File.Copy(file.FullName, bakdir + "非照片文件/" + file.Name, true);
+                     try{
                      file.Delete();
+                     }
+                     catch (Exception ex1) { }
                     
                  }
                  System.GC.Collect();
@@ -422,6 +499,7 @@ namespace PhotoMonitor
             Image2Base64Test form = new Image2Base64Test();
             form.ShowInTaskbar = true;
             form.ShowDialog();
-        } 
+        }
+
     }
 }
