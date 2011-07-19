@@ -52,7 +52,9 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
         {
             datestr = this.txtDate.Value;
             ViewState[VIEWSTATUE_LIMITS] = new ArrayList();
-            ViewState[VIEWSTATUE_WEEKRECORD] = new WeekRecord();
+           // WeekRecord record=new WeekRecord();
+           // record.
+            ViewState[VIEWSTATUE_WEEKRECORD] = week;
            // return;
         }
         else
@@ -292,17 +294,18 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        WeekRecord week = new WeekRecord();
+        //WeekRecord week = new WeekRecord();
+        WeekRecord week = ViewState[VIEWSTATUE_WEEKRECORD] as WeekRecord;
         DateTime date = Convert.ToDateTime(this.txtDate.Value);
-        ArrayList weeks = SimpleOrmOperator.QueryConditionList<WeekRecord>(" where i_week_num="+GetWeekOfYear(date));
-        if (weeks.Count > 0)
-        {
-            week = weeks[0] as WeekRecord;
-        }
-        else
-        {
-            week.Checked = 0;
-        }
+       // ArrayList weeks = SimpleOrmOperator.QueryConditionList<WeekRecord>(" where i_week_num="+GetWeekOfYear(date));
+        //if (weeks.Count > 0)
+       // {
+           // week = weeks[0] as WeekRecord;
+       // }
+        //else
+       // {
+            //week.Checked = 0;
+       // }
         if (week.Checked == 0)
         {
             week.CheckOperator = this.Operator.OperatorName;

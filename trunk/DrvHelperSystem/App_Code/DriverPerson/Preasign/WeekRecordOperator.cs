@@ -43,6 +43,9 @@ public class WeekRecordOperator
         {
             week = lists[0] as WeekRecord;
         }
+        else{
+            week.WeekNum = num;
+        }
         return week;
         // SimpleOrmOperator.Delete<WeekRecord>(id);
     }
