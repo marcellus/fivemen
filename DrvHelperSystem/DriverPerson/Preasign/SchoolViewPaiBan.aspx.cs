@@ -60,7 +60,7 @@ public partial class DriverPerson_Preasign_SchoolViewPaiBan : AuthenticatedPage
             return string.Empty;
         }
         string sql = "select id,i_total,i_used_num,i_checked_num,c_kscc,c_kscc_code,c_ksdd,c_ksdd_code,c_school_name,c_school_code,date_ksrq from table_yuyue_limit "
-            +" where i_week_num="+week.WeekNum+" and i_dayofweek="+dayofweek+" and i_km="+km;
+            +" where date_ksrq like '"+System.DateTime.Now.Year.ToString()+"%' and i_week_num="+week.WeekNum+" and i_dayofweek="+dayofweek+" and i_km="+km;
         DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmp");
         string depcode=this.Operator.Desp3;
         StringBuilder sb = new StringBuilder();
