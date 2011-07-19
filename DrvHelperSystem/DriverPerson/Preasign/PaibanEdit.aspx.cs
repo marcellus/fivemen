@@ -308,7 +308,7 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
             week.CheckOperator = this.Operator.OperatorName;
 
             week.WeekRange = DateTimeHelper.GetMonday(date).ToShortDateString() + "至" + DateTimeHelper.GetSunday(date).ToShortDateString();
-            week.WeekNum = GetWeekOfYear(date);
+            week.WeekNum = DateTimeHelper.GetWeekOfYear(date);
             week.Week1km1Num = GetSl(this.txtxq1km1zs);
             week.Week1km1fp = this.Table1.Rows[2].Cells[2].Text;
             week.Week1km2Num = GetSl(this.txtxq1km2zs);
