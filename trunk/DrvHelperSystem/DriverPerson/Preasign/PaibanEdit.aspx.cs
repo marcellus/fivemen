@@ -35,7 +35,7 @@ public partial class DriverPreson_Preasign_PaibanEdit : AuthenticatedPage
                 //weekRocord = WeekRecordOperator.Get(Convert.ToInt32(Request.Params["id"]));
                 this.InitWeekRecord(entity);
                 string querySql = string.Format("where I_WEEK_NUM={0}", entity.WeekNum);
-                ArrayList listLimits = SimpleOrmOperator.QueryConditionList<YuyueDayLimit>(querySql);
+                ArrayList listLimits = SimpleOrmOperator.QueryConditionList<YuyueLimit>(querySql);
                 ViewState[VIEWSTATUE_LIMITS] = listLimits;
                 ViewState[VIEWSTATUE_WEEKRECORD] = entity;
             }
