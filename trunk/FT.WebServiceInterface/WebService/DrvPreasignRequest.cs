@@ -128,7 +128,8 @@ namespace FT.WebServiceInterface.WebService
             byte[] utf8Byte=Encoding.Convert(defaultE,utf8,defaultBytes);
             string utf8Str=utf8.GetString(utf8Byte);
             sb.Append("<root>");
-            sb.Append("<TempBean>");
+            //sb.Append("<TempBean>");
+            sb.Append("<DrvPreasign>");
             this.AppendTag(sb, "lsh", this.lsh);
             this.AppendTag(sb, "kskm", this.kskm);
             this.AppendTag(sb, "xxsj", this.xxsj);
@@ -145,7 +146,9 @@ namespace FT.WebServiceInterface.WebService
             this.AppendTag(sb, "pxshrq", this.pxshrq);
             this.AppendTag(sb, "jly", this.jly);
             this.AppendTag(sb, "sn", this.sn);
-            sb.Append("</TempBean>");
+            sb.Append("</DrvPreasign>");
+            
+            //sb.Append("</TempBean>");
             sb.Append("</root>");
             return sb.ToString();
            // return System.Text.Encoding.UTF8.GetEncoder().Convert()

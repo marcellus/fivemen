@@ -104,6 +104,7 @@ public class YuyueInfoOperator
             info.Lsh = student.lsh;
             info.Xm = student.name;
             info.Zjcx = student.zkcx;
+            /*
             try
             {
                 if (DateTime.Parse(student.yxqz).CompareTo(yyrq) < 0)
@@ -209,6 +210,8 @@ public class YuyueInfoOperator
                     }
                 }
             }
+             * 
+             * */
             //&& info.Checked == 0
             if (info != null )
             {
