@@ -64,10 +64,23 @@ namespace FT.WebServiceInterface.WebService
             if (Message == null || Message.Length == 0)
             {
                 Message = this.SelectNode("//root/head/retdesc");
+                
             }
+            
             if (Message == null || Message.Length == 0)
             {
                 Message = xml;
+            }
+            else
+            {
+                try
+                {
+                    Message = System.Web.HttpUtility.UrlDecode(Message);
+                }
+                catch (System.Exception e)
+                {
+                    Message = "UrlDecode返回值出错，" + e.ToString();
+                }
             }
         }
 

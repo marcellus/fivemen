@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>页头(只放图片和注销用户和欢迎用语)</title>
+    <style type="text/css">
+    a
+    {
+        text-decoration:none;	
+    }
+    </style>
     
 </head>
 <body style=" vertical-align:top; margin-top:0px; background-image:url('../images/banner1.jpg'); padding-top:0px;background-color:#efefef;background-repeat:repeat">

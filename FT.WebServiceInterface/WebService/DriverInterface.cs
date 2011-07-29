@@ -5,6 +5,7 @@ using System.Web;
 using log4net;
 using System.Drawing;
 using FT.Commons.Tools;
+using FT.WebServiceInterface.DrvQuery;
 namespace FT.WebServiceInterface.WebService
 {
     /// <summary>
@@ -51,9 +52,12 @@ namespace FT.WebServiceInterface.WebService
             //service.RequestEncoding = System.Text.Encoding.UTF8;
            // service.SoapVersion
             log.Debug("服务默认的编码是：" + service.RequestEncoding);
+            //TestLog.Log("服务的URL：" + service.Url);
             //service
             service.Url = System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl"];
             log.Debug("服务的URL：" + service.Url);
+           // TestLog.LogStep();
+            TestLog.Log("服务的URL：" + service.Url);
             service.Timeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["DefaultDrvSeriveUrl-Timeout"]);
             return service;
         }
@@ -69,7 +73,7 @@ namespace FT.WebServiceInterface.WebService
             string responseText = "";
             try
             {
-                responseText = GetNewService().writeObject(xtlb,jkxlh,jkid,xml);
+                responseText = GetNewService().writeObjectOut(xtlb,jkxlh,jkid,xml);
             }
             catch (Exception exe)
             {
@@ -90,22 +94,27 @@ namespace FT.WebServiceInterface.WebService
             log.Debug("预约写入接口的jkxlh：" + request.GetJkxlh());
             log.Debug("预约写入接口的jkid：" + request.GetJkid());
             log.Debug("预约写入接口的文本为：" + request.ToXml());
-
+           // TestLog.LogStep();
+            TestLog.Log("预约写入接口的文本为：" + request.ToXml());
            
             string responseText = "";
             try
             {
-                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+                responseText = GetNewService().writeObjectOut(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
             }
             catch (Exception exe)
             {
+                TestLog.Log("预约写入接口的返回为：" + exe.ToString());
                 log.Info(exe);
+                
                 return new TmriResponse();
             }
-            log.Debug("调用写入接口返回的文本为：" + responseText);
+            log.Debug("调用写入接口" + request.GetXtlb() + ";" + request.GetJkxlh() + ";" + request.GetJkid() + ";" + request.ToXml() + "返回的文本为：" + responseText);
+            TestLog.Log("调用写入接口" + request.GetXtlb() + ";" + request.GetJkxlh() + ";" + request.GetJkid() + ";" + request.ToXml() + "返回的文本为：" + responseText);
             TmriResponse response = new TmriResponse();
             response.ParseFromXml(responseText);
             log.Debug("返回的结果code为："+response.Code);
+            //TestLog.Log("返回的结果code为：" + response.Code);
             return response;
 
         }
@@ -120,7 +129,7 @@ namespace FT.WebServiceInterface.WebService
             string responseText = "";
             try
             {
-                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+                responseText = GetNewService().writeObjectOut(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
             }
             catch (Exception exe)
             {
@@ -146,7 +155,7 @@ namespace FT.WebServiceInterface.WebService
             string responseText = "";
             try
             {
-                responseText = GetNewService().writeObject(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+                responseText = GetNewService().writeObjectOut(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
             }
             catch (Exception exe)
             {

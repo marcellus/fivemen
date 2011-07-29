@@ -5,6 +5,10 @@
 	font-size: 12pt;
 	height:100%;
 }
+a
+{
+	text-decoration:none;
+}
 fieldset
 { 
 	border:1px solid #ccc; 
