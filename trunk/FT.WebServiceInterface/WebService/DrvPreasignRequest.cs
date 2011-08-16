@@ -130,6 +130,7 @@ namespace FT.WebServiceInterface.WebService
             sb.Append("<root>");
             //sb.Append("<TempBean>");
             sb.Append("<DrvPreasign>");
+            //sb.Append("<TempBean>");
             this.AppendTag(sb, "lsh", this.lsh);
             this.AppendTag(sb, "kskm", this.kskm);
             this.AppendTag(sb, "xxsj", this.xxsj);

@@ -4,6 +4,7 @@
 	background-color: #eef3f9;
 	font-size: 12pt;
 	height:100%;
+	overflow:scroll
 }
 a
 {
@@ -108,4 +109,9 @@ div table
 	height: 100%;
 	margin-right: 0px;
 	
+}
+
+div.b
+{
+	border: 1px solid #000000;
 }
