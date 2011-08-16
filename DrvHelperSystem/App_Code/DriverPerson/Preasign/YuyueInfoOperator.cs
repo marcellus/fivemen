@@ -91,6 +91,7 @@ public class YuyueInfoOperator
             string idcard = info.IdCard;
             DateTime yyrq = Convert.ToDateTime(info.Ksrq);
             int km = info.Km;
+            /*
             TempStudentInfo student = DrvQueryHelper.QueryStudent(glbm, info.IdCard);
             if (student == null)
             {
@@ -119,15 +120,18 @@ public class YuyueInfoOperator
             	
             }
             
+            
             if (student.jxdm != null && student.jxdm != info.DlrCode)
             {
                 SaveInfoCheckFail(info, name, "驾校学员只能通过相关驾校帮您预约！");
                 return;
 
             }
+             * */
+           
 
-
-            ArrayList daylimits = SimpleOrmOperator.QueryConditionList<YuyueDayLimit>(" where c_cartype like '%" + student.zkcx + "%' and i_km=" + km);
+            //ArrayList daylimits = SimpleOrmOperator.QueryConditionList<YuyueDayLimit>(" where c_cartype like '%" + student.zkcx + "%' and i_km=" + km);
+            ArrayList daylimits = SimpleOrmOperator.QueryConditionList<YuyueDayLimit>(" where c_cartype like '%" + "C1" + "%' and i_km=" + km);
             TempKscjInfo kscj = DrvQueryHelper.QueryKscj(glbm, idcard);
             YuyueDayLimit daylimit = null;
             if (daylimits != null && daylimits.Count > 0)
