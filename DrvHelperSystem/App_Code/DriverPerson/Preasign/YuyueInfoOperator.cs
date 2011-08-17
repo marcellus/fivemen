@@ -214,8 +214,7 @@ public class YuyueInfoOperator
                     }
                 }
             }
-             * 
-             * */
+   
             //&& info.Checked == 0
             if (info != null )
             {

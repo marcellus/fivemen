@@ -32,6 +32,9 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
             return;
         }
+        else {
+            fso.checkin("lesson");
+        }
         this.fnUILoadStudentRecord(fso, lIntResultCode);
     }
 
@@ -60,6 +63,8 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         {
             this.lbStudentAlertMsg.Text = "学员已完成上课考勤";
         }
+
+        this.lbStudentAlertMsg.Text = pFso.REMARK;
 
     }
 }
