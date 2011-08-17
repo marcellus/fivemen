@@ -41,6 +41,18 @@ public class FpStudentObject
     public static readonly int KM3_ENTER_SUCCESS = 13;
     public static readonly int KM3_ENTER_FAILE = 14;
 
+
+    public static readonly int STATUE_NEW = 0;
+    public static readonly int STATUE_LESSON_START=1;
+    public static readonly int STATUE_LESSON_END=2;
+    public static readonly int STATUE_KM1_ENTER = 3;
+    public static readonly int STATUE_KM2_ENTER = 4;
+    public static readonly int STATUE_TRAIN_START = 5;
+    public static readonly int STATUE_TRAIN_END = 6;
+    public static readonly int STATUE_KM3_ENTER = 7;
+    public static readonly int STATUE_FINISH = 8;
+
+
     private int gIntLessonInterval;
     private int gIntTrainInterval;
 
@@ -130,7 +142,7 @@ public class FpStudentObject
     [SimpleColumn(Column = "KM3_ENTER")]
     private DateTime km3_enter;
     [SimpleColumn(Column = "STATUE")]
-    private string statue;
+    private int statue;
     [SimpleColumn(Column = "LOCALTYPE")]
     private string localtype;
 
@@ -368,7 +380,7 @@ public class FpStudentObject
         set { this.km3_enter = value; }
     }
 
-    public string STATUE
+    public int STATUE
     {
         get { return this.statue; }
         set { this.statue=value; }
@@ -393,32 +405,51 @@ public class FpStudentObject
 
 
 
-    public int checkin(string bustype) {
+    public void checkin(string bustype) {
         int lIntReturn=0;
         DateTime lDtIdentity=DateTime.Now;
+        DateTime lDtNull=new DateTime(0);
+        string lStrIdentity= lDtIdentity.ToString("yyyy-MM-dd HH:mm:ss");
         switch (bustype)
         {
             case "lesson":
                 {
+                    if (this.statue < STATUE_NEW) {
+                        this.remark = string.Format("{0}  学员未进行指纹采集", lStrIdentity);
+                        break;
+                    }
+                    else if (this.statue >= STATUE_LESSON_END) {
+                        this.remark = string.Format("{0}  学员已完成上课学时", lStrIdentity);
+                        break;
+                    }
+
                     if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_1))
                     {
                         this.LESSON_ENTER_1 = lDtIdentity;
+                        this.statue = STATUE_LESSON_START;
+                        this.remark = string.Format("{0}  开始进行上午上课", lStrIdentity);
                     }
                     else if (!fnIsVaildTime(this.LESSON_ENTER_1, lDtIdentity, 0))
                     {
                         //lStrUpdateSqlClearRecord = string.Format(lStrUpdateSqlClearRecord, lStrParm2);
                         //FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrUpdateSqlClearRecord);
                         //lIntReturn = LESSON_ENTER_1_FAILE;
+                        this.LESSON_ENTER_1= lDtNull;
+                        this.LESSON_ENTER_2 = lDtNull;
+                        this.LESSON_LEAVE_2 = lDtNull;
+                        this.remark = string.Format("{0} 本次上课与上次不在同一天进行，旧上课记录已被清空，请再次确认上课", lStrIdentity);
                     }
                     else if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_2))
                     {
                         if (fnIsVaildTime(this.LESSON_ENTER_1, lDtIdentity, gIntLessonInterval))
-                        {
-                            //lStrParm0 = lStrPrfLESSON_ENTER + "_2";
+                        {               
+                            this.LESSON_ENTER_2 = lDtIdentity;
+                            this.remark = string.Format("{0} 开始进行下午上课", lStrIdentity);
                         }
                         else
                         {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
+                            this.remark = string.Format("{0} 上午上课时间未达到{1}分钟，不能进行下午上课", lStrIdentity,gIntLessonInterval);
                         }
                     }
                     else if (DateTimeHelper.fnIsNewDateTime(this.LESSON_LEAVE_2))
@@ -426,226 +457,338 @@ public class FpStudentObject
                         if (fnIsVaildTime(this.LESSON_ENTER_2, lDtIdentity, gIntLessonInterval))
                         {
                             // lStrParm0 = lStrPrfLESSON_LEAVE + "_2";
-
+                            this.LESSON_LEAVE_2 = lDtIdentity;
+                            this.statue = STATUE_LESSON_END;
+                            this.remark = string.Format("{0} 完成上课学时要求", lStrIdentity);
                         }
                         else
                         {
-                            // lIntReturn = LESSON_LEAVE_2_FAILE;
+                            this.remark = string.Format("{0} 下午上课时间未达到{1}分钟，不能提早离场", lStrIdentity, gIntLessonInterval);
                         }
                     }
                     break;
                 }//case "lesson"
             case "km1": {
-                this.km1_enter = lDtIdentity;
+                if (this.statue < STATUE_LESSON_END)
+                {
+                    this.remark = string.Format("{0} 未完成上课，不能进行科目1考试", lStrIdentity);
+                    break;
+                }
+                else if (this.statue >= STATUE_KM1_ENTER) {
+                    this.remark = string.Format("{0} 已完成科目1考试", lStrIdentity);
+                    break;
+                }
+  
+                    this.km1_enter = lDtIdentity;
+                    this.statue = STATUE_KM1_ENTER;
+                    this.remark = string.Format("{0} 科目1考试验证成功", lStrIdentity);
                 break; 
             } //case km1
             case "km2": {
-                this.km2_enter = lDtIdentity;
+                if (this.statue < STATUE_KM1_ENTER)
+                {
+                    this.remark = string.Format("{0} 未进行科目1考试，不能进行科目2考试", lStrIdentity);
+                    break;
+                }
+                else if (this.statue >= STATUE_KM2_ENTER)
+                {
+                    this.remark = string.Format("{0} 已完成科目2考试", lStrIdentity);
+                    break;
+                }
+
+                    this.km2_enter = lDtIdentity;
+                    this.statue = STATUE_KM2_ENTER;
+                    this.remark = string.Format("{0} 科目2考试验证成功", lStrIdentity);
                 break; 
             } //case km2
             case "train": {
+                if (this.statue < STATUE_KM1_ENTER)
+                {
+                    this.remark = string.Format("{0} 未进行科目1考试，不能进行入场训练", lStrIdentity);
+                    break;
+                }
+                else if (this.statue >=  STATUE_TRAIN_END)
+                {
+                    this.remark = string.Format("{0} 已完成入场训练", lStrIdentity);
+                    break;
+                }
+
+                string patternTrainEnter="{0}  开始进行第{1}次入场训练";
+                string patternTrainEnterNotToday = "{0} 第{1}次的训练未完成,第{1}次的记录将被清空，请再次验证";
+                string patternTrainLeave = "{0} 已完成今天的入场训练";
+                string patternTrainLeaveFaile = "{0} 今天的入场训练时间未达到{1}分钟，离场将被作为训练无效处理";
+                string patternTrainEnterIsToday = "{0}  今天的入场训练已完成，同一天不能入场两次";
+                //1
                 if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_1) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_1))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_1))
                     { 
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_1 = lDtIdentity;
+                        this.statue = STATUE_TRAIN_START;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity,1);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity))
                     {
-                       // lStrClearParm0 = "1";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 1);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity, gIntTrainInterval))
                     { 
-                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1"; 
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_1 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
 
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity))
                 {
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    //lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday,lDtIdentity);
                 }
+
+
+                //2
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_2) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_2))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_2))
-                    { 
-                      //  lStrParm0 = lStrPrfTRAIN_ENTER + "_2"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_2 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 2);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity))
                     {
-                      //  lStrClearParm0 = "2";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 2);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity, gIntTrainInterval))
-                    { 
-                       // lStrParm0 = lStrPrfTRAIN_LEAVE + "_2"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_2 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity))
                 {
 
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+                //3
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_3) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_3))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_3))
-                    { 
-                       // lStrParm0 = lStrPrfTRAIN_ENTER + "_3"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_3 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity,3);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity))
                     {
-                       // lStrClearParm0 = "3";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 3);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity, gIntTrainInterval))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_3"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_3 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity))
                 {
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+                //4
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_4) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_4))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_4))
-                    { 
-                       /// lStrParm0 = lStrPrfTRAIN_ENTER + "_4"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_4 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 4);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity))
                     {
-                        //lStrClearParm0 = "4";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 4);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity, gIntTrainInterval))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_4"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_4 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity))
                 {
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+
+                //5
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_5) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_5))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_5))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_5"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_5 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 5);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity))
                     {
-                        //lStrClearParm0 = "5";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 5);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity, gIntTrainInterval))
-                    { 
-                       // lStrParm0 = lStrPrfTRAIN_LEAVE + "_5"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_5 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity))
                 {
                     //lStrClearParm0 = "5";
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+
+                //6
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_6) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_6))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_6))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_6"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_6 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 6);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity))
                     {
-                       // lStrClearParm0 = "6";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 6);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity, gIntTrainInterval))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_6"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_6 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity))
                 {
                     //lStrClearParm0 = "6";
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+                //7
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_7) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_7))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_7))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_7"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_7 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 7);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity))
                     {
-                        //lStrClearParm0 = "7";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 7);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity, gIntTrainInterval))
-                    { 
-                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_7"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_7 = lDtIdentity;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity))
                 {
                     //lStrClearParm0 = "7";
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
+
+
+                //8
                 else if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_8) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_8))
                 {
                     if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_8))
-                    { 
-                       // lStrParm0 = lStrPrfTRAIN_ENTER + "_8"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
+                        this.train_enter_8 = lDtIdentity;
+                        this.remark = string.Format(patternTrainEnter, lStrIdentity, 8);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity))
                     {
-                        //lStrClearParm0 = "8";
+                        this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 8);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity, gIntTrainInterval))
-                    { 
-                       // lStrParm0 = lStrPrfTRAIN_LEAVE + "_8"; 
+                    {
+                        //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
+                        this.train_leave_8 = lDtIdentity;
+                        this.statue = STATUE_TRAIN_END;
+                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
                     {
-                        lIntReturn = TRAIN_LEAVE_FAILE;
+                        this.remark = string.Format(patternTrainLeaveFaile, lStrIdentity, gIntTrainInterval);
                     }
                 }
                 else if (fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity))
                 {
                     // lStrClearParm0 = "8";
-                    lIntReturn = CHECK_SAMEDAY_FAILE;
+                    this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
                 }
                 break; 
             }//case "train"
             case "km3": {
+                if (this.statue < STATUE_TRAIN_END)
+                {
+                    this.remark = string.Format("{0} 未完成入场训练，不能进行科目3考试", lStrIdentity);
+                    break;
+                }
+                else if (this.statue >= STATUE_KM3_ENTER)
+                {
+                    this.remark = string.Format("{0} 已完成科目3考试", lStrIdentity);
+                    break;
+                }
+
                 this.km3_enter = lDtIdentity;
+                this.statue = STATUE_KM3_ENTER;
+                this.remark = string.Format("{0} 科目3考试验证成功", lStrIdentity);
                 break; 
             }//case km3
             default : break;
         }   
           
-
-        return lIntReturn;
         }
     
 

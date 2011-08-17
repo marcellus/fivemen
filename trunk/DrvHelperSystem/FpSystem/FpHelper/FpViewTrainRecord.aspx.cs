@@ -29,6 +29,9 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
             return;
         }
+        else {
+            fso.checkin("train");
+        }
         this.fnUILoadStudentRecord(fso, lIntResultCode);
     }
 
@@ -79,7 +82,7 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
            this.lbStudentAlertMsg.Text = "学员已完成入场训练";
         }
 
-
+        this.lbStudentAlertMsg.Text = pFso.REMARK;
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)
         //       {
         //          this.lbStudentAlertMsg.Text = "本次上课与上次不在同一天进行，旧上课记录已被清空，请再次确认上课";
