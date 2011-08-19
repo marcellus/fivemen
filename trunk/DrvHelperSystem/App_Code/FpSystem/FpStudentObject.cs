@@ -53,16 +53,15 @@ public class FpStudentObject
     public static readonly int STATUE_FINISH = 8;
 
 
-    private int gIntLessonInterval;
-    private int gIntTrainInterval;
+    //private int gIntLessonInterval;
+    //private int gIntTrainInterval;
 
     public FpStudentObject()
     {
         //
         //TODO: 在此处添加构造函数逻辑
         //
-        gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
-        gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
+
     }
 
     [SimplePK]
@@ -72,7 +71,7 @@ public class FpStudentObject
     private string name;
     [SimpleColumn(Column="SEX")]
     private string sex;
-    [SimpleColumn(Column="BRITHDAY")]
+    [SimpleColumn(Column="BRITHDAY",ColumnType=SimpleColumnType.Date)]
     private DateTime brithday;
     [SimpleColumn(Column="PHONE")]
     private string phone;
@@ -88,60 +87,62 @@ public class FpStudentObject
     private string remark;
     [SimpleColumn(Column="CREATER")]
     private string creater;
-    [SimpleColumn(Column="CREATE_TIME")]
+    [SimpleColumn(Column = "CREATE_TIME", ColumnType = SimpleColumnType.Date)]
     private DateTime create_time;
-    [SimpleColumn(Column="LASTMODIFY_TIME")]
+    [SimpleColumn(Column = "LASTMODIFY_TIME", ColumnType = SimpleColumnType.Date)]
     private DateTime lastmodify_time;
-    [SimpleColumn(Column = "LESSON_ENTER_1")]
+    [SimpleColumn(Column = "LESSON_ENTER_1", ColumnType = SimpleColumnType.Date)]
     private DateTime lesson_enter_1;
-    [SimpleColumn(Column = "LESSON_LEAVE_1")]
+    [SimpleColumn(Column = "LESSON_LEAVE_1", ColumnType = SimpleColumnType.Date)]
     private DateTime lesson_leave_1;
-    [SimpleColumn(Column = "LESSON_ENTER_2")]
+    [SimpleColumn(Column = "LESSON_ENTER_2", ColumnType = SimpleColumnType.Date)]
     private DateTime lesson_enter_2;
-    [SimpleColumn(Column = "LESSON_LEAVE_2")]
+    [SimpleColumn(Column = "LESSON_LEAVE_2", ColumnType = SimpleColumnType.Date)]
     private DateTime lesson_leave_2;
 
 
-    [SimpleColumn(Column = "TRAIN_ENTER_1")]
+    [SimpleColumn(Column = "TRAIN_ENTER_1", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_1;
-    [SimpleColumn(Column = "TRAIN_LEAVE_1")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_1", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_1;
-    [SimpleColumn(Column = "TRAIN_ENTER_2")]
+    [SimpleColumn(Column = "TRAIN_ENTER_2", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_2;
-    [SimpleColumn(Column = "TRAIN_LEAVE_2")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_2", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_2;
-    [SimpleColumn(Column = "TRAIN_ENTER_3")]
+    [SimpleColumn(Column = "TRAIN_ENTER_3", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_3;
-    [SimpleColumn(Column = "TRAIN_LEAVE_3")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_3", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_3;
-    [SimpleColumn(Column = "TRAIN_ENTER_4")]
+    [SimpleColumn(Column = "TRAIN_ENTER_4", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_4;
-    [SimpleColumn(Column = "TRAIN_LEAVE_4")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_4", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_4;
-    [SimpleColumn(Column = "TRAIN_ENTER_5")]
+    [SimpleColumn(Column = "TRAIN_ENTER_5", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_5;
-    [SimpleColumn(Column = "TRAIN_LEAVE_5")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_5", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_5;
-    [SimpleColumn(Column = "TRAIN_ENTER_6")]
+    [SimpleColumn(Column = "TRAIN_ENTER_6", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_6;
-    [SimpleColumn(Column = "TRAIN_LEAVE_6")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_6", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_6;
-    [SimpleColumn(Column = "TRAIN_ENTER_7")]
+    [SimpleColumn(Column = "TRAIN_ENTER_7", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_7;
-    [SimpleColumn(Column = "TRAIN_LEAVE_7")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_7", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_7;
-    [SimpleColumn(Column = "TRAIN_ENTER_8")]
+    [SimpleColumn(Column = "TRAIN_ENTER_8", ColumnType = SimpleColumnType.Date)]
     private DateTime train_enter_8;
-    [SimpleColumn(Column = "TRAIN_LEAVE_8")]
+    [SimpleColumn(Column = "TRAIN_LEAVE_8", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_8;
 
-    [SimpleColumn(Column = "KM1_ENTER")]
+    [SimpleColumn(Column = "KM1_ENTER", ColumnType = SimpleColumnType.Date)]
     private DateTime km1_enter;
-    [SimpleColumn(Column = "KM2_ENTER")]
+    [SimpleColumn(Column = "KM2_ENTER", ColumnType = SimpleColumnType.Date)]
     private DateTime km2_enter;
-    [SimpleColumn(Column = "KM3_ENTER")]
+    [SimpleColumn(Column = "KM3_ENTER", ColumnType = SimpleColumnType.Date)]
     private DateTime km3_enter;
-    [SimpleColumn(Column = "STATUE")]
+
+
+    [SimpleColumn(Column = "STATUE",ColumnType=SimpleColumnType.Int)]
     private int statue;
     [SimpleColumn(Column = "LOCALTYPE")]
     private string localtype;
@@ -399,13 +400,15 @@ public class FpStudentObject
         this.sex = info.sex;
         this.phone = info.phone;
         this.address = info.address;
-        this.brithday = DateTime.Parse(info.birthday);
+       // this.brithday = DateTime.Parse(info.birthday);
         this.idcard = info.idCard;
     }
 
 
 
     public void checkin(string bustype) {
+        int gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
+        int gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
         int lIntReturn=0;
         DateTime lDtIdentity=DateTime.Now;
         DateTime lDtNull=new DateTime(0);

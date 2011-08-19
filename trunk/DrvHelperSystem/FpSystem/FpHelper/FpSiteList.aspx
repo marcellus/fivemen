@@ -25,7 +25,7 @@
         <%}
             else if (bustype == "km1" || bustype == "km2" || bustype == "km3")
             { %>
-             <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a>
+             <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><%# Eval("NAME") %></a>
         <%} %>
        </li>
      </ItemTemplate>

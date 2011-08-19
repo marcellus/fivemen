@@ -25,7 +25,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         {
             return;
         }
-        int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
+        //int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'" + lStrIDCard + "'");
         if (fso == null)
         {
@@ -35,7 +35,9 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         else {
             fso.checkin("lesson");
         }
-        this.fnUILoadStudentRecord(fso, lIntResultCode);
+        fso.IDCARD = "'" + fso.IDCARD + "'";
+        bool isok=SimpleOrmOperator.Update(fso);
+        this.fnUILoadStudentRecord(fso, 1);
     }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
