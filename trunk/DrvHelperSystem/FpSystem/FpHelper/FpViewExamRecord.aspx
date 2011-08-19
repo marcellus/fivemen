@@ -4,5 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   <FpUCL:viewStudentInfo ID="ViewStudentInfo1"   runat="server"></FpUCL:viewStudentInfo>
+  
+  <table class="table-border">
+        <tr>
+                  <td class="table-content" colspan="3" style="color:Red; font-size:1.5em"><asp:Label ID="lbStudentAlertMsg" runat="server"></asp:Label></td>
+         </tr>
+  </table>
+  
 </asp:Content>
 

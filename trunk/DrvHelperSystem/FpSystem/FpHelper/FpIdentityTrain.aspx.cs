@@ -13,6 +13,7 @@ public partial class FpSystem_FpHelper_FpIdentityTrain : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Session["site_id"] = Request.Params["site_id"];
+        Session["bustype"] = "train";
     }
 }
