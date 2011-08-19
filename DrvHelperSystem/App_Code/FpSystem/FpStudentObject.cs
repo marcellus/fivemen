@@ -406,11 +406,12 @@ public class FpStudentObject
 
 
 
-    public void checkin(string bustype) {
+    public bool checkin(string bustype, DateTime lDtIdentity)
+    {
         int gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
         int gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
-        int lIntReturn=0;
-        DateTime lDtIdentity=DateTime.Now;
+        bool isCheckin = false;
+       // DateTime lDtIdentity=DateTime.Now;
         DateTime lDtNull=new DateTime(0);
         string lStrIdentity= lDtIdentity.ToString("yyyy-MM-dd HH:mm:ss");
         switch (bustype)
@@ -431,6 +432,7 @@ public class FpStudentObject
                         this.LESSON_ENTER_1 = lDtIdentity;
                         this.statue = STATUE_LESSON_START;
                         this.remark = string.Format("{0}  开始进行上午上课", lStrIdentity);
+                        isCheckin = true;
                     }
                     else if (!fnIsVaildTime(this.LESSON_ENTER_1, lDtIdentity, 0))
                     {
@@ -448,6 +450,7 @@ public class FpStudentObject
                         {               
                             this.LESSON_ENTER_2 = lDtIdentity;
                             this.remark = string.Format("{0} 开始进行下午上课", lStrIdentity);
+                            isCheckin = true;
                         }
                         else
                         {
@@ -463,6 +466,7 @@ public class FpStudentObject
                             this.LESSON_LEAVE_2 = lDtIdentity;
                             this.statue = STATUE_LESSON_END;
                             this.remark = string.Format("{0} 完成上课学时要求", lStrIdentity);
+                            isCheckin = true;
                         }
                         else
                         {
@@ -485,6 +489,7 @@ public class FpStudentObject
                     this.km1_enter = lDtIdentity;
                     this.statue = STATUE_KM1_ENTER;
                     this.remark = string.Format("{0} 科目1考试验证成功", lStrIdentity);
+                    isCheckin = true;
                 break; 
             } //case km1
             case "km2": {
@@ -502,6 +507,7 @@ public class FpStudentObject
                     this.km2_enter = lDtIdentity;
                     this.statue = STATUE_KM2_ENTER;
                     this.remark = string.Format("{0} 科目2考试验证成功", lStrIdentity);
+                    isCheckin = true;
                 break; 
             } //case km2
             case "train": {
@@ -530,6 +536,7 @@ public class FpStudentObject
                         this.train_enter_1 = lDtIdentity;
                         this.statue = STATUE_TRAIN_START;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity,1);
+                        isCheckin = true;
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity))
                     {
@@ -540,6 +547,7 @@ public class FpStudentObject
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_1 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        isCheckin = true;
                     }
                     else
                     {
@@ -562,6 +570,7 @@ public class FpStudentObject
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_2 = lDtIdentity;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 2);
+                        isCheckin = true;
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity))
                     {
@@ -572,6 +581,7 @@ public class FpStudentObject
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_2 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        isCheckin = true;
                     }
                     else
                     {
@@ -593,6 +603,7 @@ public class FpStudentObject
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_3 = lDtIdentity;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity,3);
+                        isCheckin = true;
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity))
                     {
@@ -603,6 +614,7 @@ public class FpStudentObject
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_3 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        isCheckin = true;
                     }
                     else
                     {
@@ -622,6 +634,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_4 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 4);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity))
@@ -632,6 +645,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_4 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
@@ -653,6 +667,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_5 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 5);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity))
@@ -663,6 +678,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_5 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
@@ -685,6 +701,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_6 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 6);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity))
@@ -695,6 +712,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_6 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
@@ -716,6 +734,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_7 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 7);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity))
@@ -726,6 +745,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_7 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
                     else
@@ -747,6 +767,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_ENTER + "_1"; 
                         this.train_enter_8 = lDtIdentity;
+                        isCheckin = true;
                         this.remark = string.Format(patternTrainEnter, lStrIdentity, 8);
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity))
@@ -757,6 +778,7 @@ public class FpStudentObject
                     {
                         //lStrParm0 = lStrPrfTRAIN_LEAVE + "_1";
                         this.train_leave_8 = lDtIdentity;
+                        isCheckin = true;
                         this.statue = STATUE_TRAIN_END;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                     }
@@ -785,13 +807,14 @@ public class FpStudentObject
                 }
 
                 this.km3_enter = lDtIdentity;
+                isCheckin = true;
                 this.statue = STATUE_KM3_ENTER;
                 this.remark = string.Format("{0} 科目3考试验证成功", lStrIdentity);
                 break; 
             }//case km3
             default : break;
-        }   
-          
+        }
+        return isCheckin;
         }
     
 

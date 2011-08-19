@@ -30,7 +30,7 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
             return;
         }
         else {
-            fso.checkin("train");
+            fso.checkin("train",DateTime.Now);
         }
         this.fnUILoadStudentRecord(fso, lIntResultCode);
     }
