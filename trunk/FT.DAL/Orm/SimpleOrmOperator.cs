@@ -461,7 +461,7 @@ namespace FT.DAL.Orm
                 }
                 else if (typeof(DateTime) == fieldType)
                 {
-                    field.SetValue(obj, Convert.ToDateTime(value));
+                    field.SetValue(obj, Convert.ToDateTime(value.ToString()));
                 }
             }
             else
