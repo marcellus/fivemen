@@ -347,13 +347,37 @@ namespace FT.DAL.Orm
                     tmpstr = columnAtt.Column == null || columnAtt.Column.Length == 0 ? columnname : columnAtt.Column.ToLower();
                     if (columnAtt.AllowUpdate)
                     {
-                        updateSql.Append(tmpstr + "='#" + columnname + "#',");
+                        if(columnAtt.ColumnType==SimpleColumnType.Int)
+                        {
+                            updateSql.Append(tmpstr + "=#" + columnname + "#,");
+                        }
+                        else if (columnAtt.ColumnType == SimpleColumnType.Date)
+                        {
+                            updateSql.Append(tmpstr + "=to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
+                        }
+                        else
+                        {
+                            updateSql.Append(tmpstr + "='#" + columnname + "#',");
+                        }
+                        
                         updates.Add(columnname, columnname);
                     }
                     if (columnAtt.AllowInsert)
                     {
                         insertSql.Append(tmpstr + ",");
-                        inserttmp.Append("'#" + columnname + "#',");
+                        if (columnAtt.ColumnType == SimpleColumnType.Int)
+                        {
+                            inserttmp.Append("#" + columnname + "#,");
+                        }
+                        else if(columnAtt.ColumnType == SimpleColumnType.Date)
+                        {
+                            inserttmp.Append("to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
+                        }
+                        else
+                        {
+                            inserttmp.Append("'#" + columnname + "#',");
+                        }
+                      
                         inserts.Add(columnname, columnname);
                     }
                     if (columnAtt.AllowSelect)
