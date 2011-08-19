@@ -25,6 +25,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         {
             return;
         }
+        //lStrIDCard = Server.UrlDecode(lStrIDCard);
         //int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         bool isCheckin=false;
         bool isUpdateSuc=false;
@@ -46,7 +47,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
             log.BUSTYPE = "lesson";
             log.SITE_ID = site_id;
             log.CHECKIN_NAME = fso.NAME;
-            log.CHECKIN_IDCARD = fso.IDCARD;
+            log.CHECKIN_IDCARD = fso.IDCARD.Trim('\'');
             log.CHECKIN_DATE = lDtToday;
             log.REMARK = fso.REMARK;
             SimpleOrmOperator.Create(log);

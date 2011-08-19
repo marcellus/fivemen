@@ -22,17 +22,36 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         {
             return;
         }
-        int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
+        //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+lStrIDCard+"'");
+        bool isCheckin = false;
+        bool isUpdateSuc = false;
+        DateTime lDtToday = DateTime.Now;
         if (fso == null)
         {
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
             return;
         }
         else {
-            fso.checkin("train",DateTime.Now);
+            isCheckin= fso.checkin("train",DateTime.Now);
         }
-        this.fnUILoadStudentRecord(fso, lIntResultCode);
+
+        fso.IDCARD = "'" + fso.IDCARD + "'";
+        isUpdateSuc = SimpleOrmOperator.Update(fso);
+        if (isCheckin && isUpdateSuc)
+        {
+            int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
+            FpCheckinLog log = new FpCheckinLog();
+            log.BUSTYPE = "train";
+            log.SITE_ID = site_id;
+            log.CHECKIN_NAME = fso.NAME;
+            log.CHECKIN_IDCARD = fso.IDCARD.Trim('\'');
+            log.CHECKIN_DATE = lDtToday;
+            log.REMARK = fso.REMARK;
+            SimpleOrmOperator.Create(log);
+        }
+
+        this.fnUILoadStudentRecord(fso, 0);
     }
 
 

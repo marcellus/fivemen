@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL;
+using FT.WebServiceInterface.DrvQuery;
 
 public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
 {
@@ -32,8 +33,9 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
             if(Request.Params[FPSystemBiz.PARAM_RESULT]!=null){
                 string qIdCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
                 this.hidIDCard.Value = qIdCard;
-                FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'"+qIdCard+"'");
-                this.fnUIQuerySucess(lObjStudent != null);
+                //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'"+qIdCard+"'");
+                TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
+                this.fnUIQuerySucess(tempStudentInfo != null);
             }
 
     
@@ -44,8 +46,9 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         if (this.txtIDCard.Text.Length == 0)
             return;
         string qIdCard = this.txtIDCard.Text;
-        FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIdCard + "'");
-        if (lObjStudent == null)
+        //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIdCard + "'");
+        TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
+        if (tempStudentInfo == null)
         {
             this.fnUIQuerySucess(false);
             return;
