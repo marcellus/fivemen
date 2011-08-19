@@ -21,6 +21,7 @@ public class FpCheckinLog
 
     [SimplePK]
     [SimpleColumn(Column="ID")]
+    [OracleSeqAttribute(SeqName = "SEQ_FP_CHECKIN_LOG")]
     private int id;
 
     [SimpleColumn(Column = "CHECKIN_IDCARD")]
