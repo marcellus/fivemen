@@ -309,6 +309,7 @@ namespace FT.DAL.Orm
             bool findPk = false;
             string columnname = string.Empty;
             string tmpstr = string.Empty;
+            SimpleColumnType columntype = SimpleColumnType.String;
             StringBuilder inserttmp = new StringBuilder();
             StringBuilder exporttmp = new StringBuilder();
             AliasAttribute aliasAtt=null;

@@ -8,11 +8,14 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using FT.Commons.Tools;
+using FT.DAL.Orm;
 
 public partial class FpSystem_FpHelper_FpIdentityLesson : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Session["site_id"] = Request.Params["site_id"];
+        Session["bustype"] = "lesson";
     }
 }

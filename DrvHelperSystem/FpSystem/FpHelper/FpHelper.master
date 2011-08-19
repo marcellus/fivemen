@@ -4,10 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>无标题页</title>
+    <title><asp:Label ID="lbTitle" runat="server"></asp:Label></title>
     <link type="text/css" href="../../css/main.css" rel="Stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+      body{
+         overflow:auto;
+      }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
