@@ -25,7 +25,7 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'" + lStrIDCard + "'");
         bool isCheckin = false;
-        bool isUpdateSuc = false;
+
         DateTime lDtToday = DateTime.Now;
         string bustype = "km";
         if (Session["bustype"] != null) {
@@ -38,25 +38,18 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
         }
         else
         {
-            isCheckin = fso.checkin(bustype, lDtToday);
+            try
+            {
+                int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
+                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                this.fnUILoadStudentRecord(fso, 0);
+            }
+            catch (Exception ex) {
+                lbStudentAlertMsg.Text = ex.Message;
+            }
         }
 
-        fso.IDCARD = "'" + fso.IDCARD + "'";
-        isUpdateSuc = SimpleOrmOperator.Update(fso);
-        if (isCheckin && isUpdateSuc)
-        {
-            int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
-            FpCheckinLog log = new FpCheckinLog();
-            log.BUSTYPE = bustype;
-            log.SITE_ID = site_id;
-            log.CHECKIN_NAME = fso.NAME;
-            log.CHECKIN_IDCARD = fso.IDCARD.Trim('\'');
-            log.CHECKIN_DATE = lDtToday;
-            log.REMARK = fso.REMARK;
-            SimpleOrmOperator.Create(log);
-        }
-
-        this.fnUILoadStudentRecord(fso, 0);
+        
     }
 
 
