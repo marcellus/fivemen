@@ -11,6 +11,7 @@ using System.Collections;
 using FT.DAL;
 using FT.Commons.Tools;
 using FT.Commons.Cache;
+using FT.DAL.Orm;
 
 /// <summary>
 ///FPSystemBiz 的摘要说明
@@ -351,6 +352,51 @@ public class FPSystemBiz
     }
 
 
+    public static Boolean fnStudentCheckIn(ref FpStudentObject fso, int site_id, DateTime lDtCheckin)  {
+        bool isCheckin = false;
+        FpSite fpSite = SimpleOrmOperator.Query<FpSite>(site_id);
+        string bustype = fpSite.BUSTYPE;
+        int localType = fso.LOCALTYPE;
+        if (fpSite.LIMIT > 0)
+        {
+            string condition = string.Format(" where SITE_ID={0} and BUSTYPE='{1}' and to_char(CHECKIN_DATE,'YYYY-MM-DD') = '{2}' order by CHECKIN_DATE DESC "
+                , site_id
+                , bustype
+                , lDtCheckin
+            );
+
+            int checkinCount = SimpleOrmOperator.QueryCounts<FpSite>(condition);
+            if (checkinCount >= fpSite.LIMIT) {
+                string fullMsg=string.Format("场地：{0} 今天的入场人数已超过{1},不能再入场",fpSite.NAME,fpSite.LIMIT);
+                throw new Exception(fullMsg);
+            }
+        }
+
+        FpLocalType fpLocalType=SimpleOrmOperator.Query<FpLocalType>(localType);
+
+        isCheckin = fso.checkin(fpSite,fpLocalType,lDtCheckin);
+
+        if (isCheckin) {
+            fso.IDCARD="'"+fso.IDCARD+"'";
+            isCheckin = SimpleOrmOperator.Update(fso);
+            fso.IDCARD = fso.IDCARD.Trim('\''); ;
+        }
+
+        if (isCheckin) {
+            FpCheckinLog log = new FpCheckinLog();
+            log.BUSTYPE = bustype;
+            log.SITE_ID = site_id;
+            log.CHECKIN_NAME = fso.NAME;
+            log.CHECKIN_IDCARD = fso.IDCARD;
+            log.CHECKIN_DATE = lDtCheckin;
+            log.REMARK = fso.REMARK;
+            isCheckin= SimpleOrmOperator.Create(log);
+        }
+        return isCheckin;
+
+    }
+
+
     #endregion
 
 
@@ -403,4 +449,7 @@ public class FPSystemBiz
             return pDtTo.Subtract(pDtFrom).TotalMinutes >= pIntMinute;
         }
     }
+
+
+
 }

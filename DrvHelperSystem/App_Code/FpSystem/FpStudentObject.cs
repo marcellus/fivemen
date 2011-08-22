@@ -145,7 +145,7 @@ public class FpStudentObject
     [SimpleColumn(Column = "STATUE",ColumnType=SimpleColumnType.Int)]
     private int statue;
     [SimpleColumn(Column = "LOCALTYPE")]
-    private string localtype;
+    private int  localtype;
 
 
     
@@ -387,7 +387,7 @@ public class FpStudentObject
         set { this.statue=value; }
     }
 
-    public string LOCALTYPE
+    public int LOCALTYPE
     {
         get { return this.localtype; }
         set { this.localtype=value; }
@@ -406,7 +406,7 @@ public class FpStudentObject
 
 
 
-    public bool checkin(string bustype, DateTime lDtIdentity)
+    public bool checkin(FpSite fpSite,FpLocalType fpLocalType, DateTime lDtIdentity)
     {
         int gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
         int gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
@@ -414,7 +414,7 @@ public class FpStudentObject
        // DateTime lDtIdentity=DateTime.Now;
         DateTime lDtNull=new DateTime(0);
         string lStrIdentity= lDtIdentity.ToString("yyyy-MM-dd HH:mm:ss");
-        switch (bustype)
+        switch (fpSite.BUSTYPE)
         {
             case "lesson":
                 {
@@ -521,12 +521,13 @@ public class FpStudentObject
                     this.remark = string.Format("{0} 已完成入场训练", lStrIdentity);
                     break;
                 }
-
+                int trainTimes = 0;
                 string patternTrainEnter="{0}  开始进行第{1}次入场训练";
                 string patternTrainEnterNotToday = "{0} 第{1}次的训练未完成,第{1}次的记录将被清空，请再次验证";
                 string patternTrainLeave = "{0} 已完成今天的入场训练";
                 string patternTrainLeaveFaile = "{0} 今天的入场训练时间未达到{1}分钟，离场将被作为训练无效处理";
                 string patternTrainEnterIsToday = "{0}  今天的入场训练已完成，同一天不能入场两次";
+                string patternTrainFinish = "{0}  已进行{1}次入场训练，入场训练完成";
                 //1
                 if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_1) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_1))
                 {
@@ -548,6 +549,7 @@ public class FpStudentObject
                         this.train_leave_1 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                         isCheckin = true;
+                        trainTimes = 1;
                     }
                     else
                     {
@@ -582,6 +584,7 @@ public class FpStudentObject
                         this.train_leave_2 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                         isCheckin = true;
+                        trainTimes = 2;
                     }
                     else
                     {
@@ -615,6 +618,7 @@ public class FpStudentObject
                         this.train_leave_3 = lDtIdentity;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
                         isCheckin = true;
+                        trainTimes = 3;
                     }
                     else
                     {
@@ -647,6 +651,7 @@ public class FpStudentObject
                         this.train_leave_4 = lDtIdentity;
                         isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        trainTimes = 4;
                     }
                     else
                     {
@@ -680,6 +685,7 @@ public class FpStudentObject
                         this.train_leave_5 = lDtIdentity;
                         isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        trainTimes = 5;
                     }
                     else
                     {
@@ -714,6 +720,7 @@ public class FpStudentObject
                         this.train_leave_6 = lDtIdentity;
                         isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        trainTimes = 6;
                     }
                     else
                     {
@@ -747,6 +754,7 @@ public class FpStudentObject
                         this.train_leave_7 = lDtIdentity;
                         isCheckin = true;
                         this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        trainTimes = 7;
                     }
                     else
                     {
@@ -780,7 +788,8 @@ public class FpStudentObject
                         this.train_leave_8 = lDtIdentity;
                         isCheckin = true;
                         this.statue = STATUE_TRAIN_END;
-                        this.remark = string.Format(patternTrainLeave, lStrIdentity);
+                        this.remark = string.Format(patternTrainFinish, lStrIdentity,8);
+                        trainTimes = 8;
                     }
                     else
                     {
@@ -791,6 +800,12 @@ public class FpStudentObject
                 {
                     // lStrClearParm0 = "8";
                     this.remark = string.Format(patternTrainEnterIsToday, lDtIdentity);
+                }
+
+                //入场训练学员分类
+                if (trainTimes >= fpLocalType.TRAIN_TIMES) {
+                    this.statue = STATUE_TRAIN_END;
+                    this.remark = string.Format(patternTrainLeave, lStrIdentity,trainTimes);                 
                 }
                 break; 
             }//case "train"
