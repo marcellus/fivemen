@@ -9,6 +9,7 @@ using FT.DAL.Orm;
 /// 
 [SimpleTable("FP_LOCALTYPE")]
 [Alias("学员表")]
+[Serializable]
 public class FpLocalType
 {
     public FpLocalType()

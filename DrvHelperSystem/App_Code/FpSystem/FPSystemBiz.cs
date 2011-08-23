@@ -48,11 +48,8 @@ public class FPSystemBiz
     {
         if (fso == null || fso.IDCARD.Length < 1 || fso.NAME.Length < 1)
             return false;
-        if (fnStundentUdpate(fso))
-        {
-            return true;
-        }
-        else if (fnStundentInsert(fso))
+        fso.IDCARD = "'"+fso.IDCARD+"'";
+        if (SimpleOrmOperator.Create(fso) || SimpleOrmOperator.Update(fso))
         {
             return true;
         }

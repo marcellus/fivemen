@@ -41,17 +41,23 @@
                 </tr>
                 <tr>
                    <td colspan="2" class="table-content">
+                      <asp:Button ID="btnClearStudent" runat="server" Text="清空" 
+                           onclick="btnClearStudent_Click" />   &nbsp;
+                       <asp:DropDownList ID="ddlLocaltype" runat="server" Visible="false"  />&nbsp; 
                        <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 
-                           onclick="btnSaveStudent_Click"  Visible="false" /> 
-                       <asp:Button ID="btnClearStudent" runat="server" Text="清空" 
-                           onclick="btnClearStudent_Click" />   
-                       <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
+                           onclick="btnSaveStudent_Click"  Visible="false" /> &nbsp;
+                        
+
+
+                   </td>
+                </tr>
+                <tr>
+                   <td colspan="2" class="table-content">
+                                          <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
                            onclick="btnNewEnrolStudent_Click" Visible="false"  /> 
                         
                        <asp:Button runat="server" ID="btnVerifyStudent" Text="检查指纹" 
                             onclick="btnVerifyStudent_Click" Visible="false"  />
-
-                         
                    </td>
                 </tr>
                 <tr>

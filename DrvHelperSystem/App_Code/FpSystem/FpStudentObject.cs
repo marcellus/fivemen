@@ -144,7 +144,7 @@ public class FpStudentObject
 
     [SimpleColumn(Column = "STATUE",ColumnType=SimpleColumnType.Int)]
     private int statue;
-    [SimpleColumn(Column = "LOCALTYPE")]
+    [SimpleColumn(Column = "LOCALTYPE",ColumnType=SimpleColumnType.Int)]
     private int  localtype;
 
 
