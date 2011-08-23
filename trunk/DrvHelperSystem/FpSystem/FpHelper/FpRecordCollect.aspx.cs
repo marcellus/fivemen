@@ -9,6 +9,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL;
+using FT.DAL.Orm;
+using FT.Commons.Tools;
 using FT.WebServiceInterface.DrvQuery;
 
 public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
@@ -98,13 +100,16 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         Object lObjStu = Session["student"];
         if (lObjStu != null) {
             fso = lObjStu as FpStudentObject;
+            int localtype =StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
+            fso.LOCALTYPE = localtype;
+            fso.STATUE = FpStudentObject.STATUE_NEW;
         }
         if (FPSystemBiz.fnAddOrEditStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
         }
         else {
-            fnUISaveStudentInfoSucess(true);
+            fnUISaveStudentInfoSucess(false);
         }
     }
 
@@ -185,6 +190,24 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         {
             this.lbQueryAlertMsg.Text = "";
             this.btnSaveStudent.Visible = true;
+            this.ddlLocaltype.Visible = true;
+            ArrayList listLoacaltype;
+            if (ViewState["listLocalType"] == null)
+            {
+                listLoacaltype = SimpleOrmOperator.QueryConditionList<FpLocalType>("");
+                ViewState["listLocalType"] = listLoacaltype;
+                ddlLocaltype.DataSource = listLoacaltype;
+                ddlLocaltype.DataTextField = "NAME";
+                ddlLocaltype.DataValueField = "ID";
+                ddlLocaltype.DataBind();
+            }
+           // else {
+           //     listLoacaltype = ViewState["listLocalType"] as ArrayList;
+         //   }
+          //  int ddlIndex = ddlLocaltype.SelectedIndex;
+
+           // ddlLocaltype.SelectedIndex = ddlIndex;
+            
         }
         else
         {
