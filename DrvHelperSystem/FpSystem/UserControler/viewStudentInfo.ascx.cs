@@ -19,6 +19,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        /*
         string lStrIDCard = "";
         if (Request.Params[FPSystemBiz.PARAM_RESULT] == null)
           return ;
@@ -41,24 +42,54 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         }
         fso.fromTempStudentInfo(tempStudentInfo);
         Session[SESSION_STUDENT] = fso;
-        this.fnUILoadStudentRecord(fso);
+        this.fnUILoadStudentRecord(fso,tempStudentInfo);
+         */
     }
 
-    private void fnUILoadStudentRecord(FpStudentObject fso)
+    private void fnUILoadStudentRecord(FpStudentObject fso,TempStudentInfo tso)
     {
-        this.lbName.Text = fso.NAME;
-        this.lbSex.Text = fso.SEX;
-        this.lbIdCard.Text = fso.IDCARD;
-        this.imgPerson.ImageUrl = string.Format("~/ShowImage.aspx?idcardtype=A&idcard={0}", fso.IDCARD);
-        this.lbIDCardType.Text = "第二代身份证";
-        this.lbBrithday.Text = DateTimeHelper.fnIsNewDateTime(fso.BRITHDAY) ? "" : fso.BRITHDAY.ToString();
-        this.lbPhone.Text = fso.PHONE;
-        this.lbAddress.Text = fso.ADDRESS;
-        this.lbDrvSchool.Text = fso.DRV_SCHOOL;
-        this.lbDocNum.Text = fso.DRV_DOCNUM;
-        this.lbDrvType.Text = fso.DRV_TYPE;
-        this.lbRemark.Text = fso.REMARK;
-        this.lbAlertMsg.Text = "";
+        fso.fromTempStudentInfo(tso);
+        if (fso == null) {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "没有该学员的指纹记录信息";
+        }
+        else if (tso == null)
+        {
+            this.lbAlertMsg.Visible = true;
+            this.lbAlertMsg.Text = "没有该学员的个人信息";
+        }
+        else {
+
+            try {
+                this.lbName.Text = fso.NAME;
+                this.lbSex.Text = fso.SEX;
+                this.lbIdCard.Text = fso.IDCARD;
+                this.imgPerson.ImageUrl = string.Format("~/ShowImage.aspx?idcardtype=A&idcard={0}", fso.IDCARD);
+                this.lbIDCardType.Text = "第二代身份证";
+                this.lbBrithday.Text = DateTimeHelper.fnIsNewDateTime(fso.BRITHDAY) ? "" : fso.BRITHDAY.ToString();
+                this.lbPhone.Text = fso.PHONE;
+                this.lbAddress.Text = fso.ADDRESS;
+                this.lbDrvSchool.Text = fso.DRV_SCHOOL;
+                this.lbDocNum.Text = fso.DRV_DOCNUM;
+                this.lbDrvType.Text = fso.DRV_TYPE;
+                this.lbRemark.Text = fso.REMARK;
+                this.lbAlertMsg.Text = "";
+            }
+            catch (NullReferenceException nre) { 
+                      
+            }
+        
+        }
+    }
+
+    public void fnUILoadStudentRecord(string idcard)
+    {
+        idcard = StringHelper.fnFormatNullOrBlankString(idcard, "");
+        if (idcard != "") {
+            TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(idcard);
+            FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+idcard+"'");
+            fnUILoadStudentRecord(fso,tempStudentInfo);
+        }
 
     }
 

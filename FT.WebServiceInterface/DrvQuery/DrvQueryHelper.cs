@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Data.Common;
 using System.Data.OracleClient;
-
+using FT.WebServiceInterface.WebService;
 
 namespace FT.WebServiceInterface.DrvQuery
 {
@@ -446,5 +446,7 @@ namespace FT.WebServiceInterface.DrvQuery
             return dt1;
         }
         #endregion 绑定字典等等
+
+
     }
 }
