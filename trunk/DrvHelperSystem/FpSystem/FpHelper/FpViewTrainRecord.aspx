@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <FpUCL:viewStudentInfo ID="ViewStudentInfo1"   runat="server"></FpUCL:viewStudentInfo>
+ <FpUCL:viewStudentInfo ID="ucStudentInfo"   runat="server"></FpUCL:viewStudentInfo>
              <table class="table-border">
                <tr>
                 <td class="table-title" style="width:25%"></td>

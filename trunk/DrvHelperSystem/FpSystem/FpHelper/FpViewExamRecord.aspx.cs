@@ -17,12 +17,13 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
     {
         if (Request.Params[FPSystemBiz.PARAM_RESULT] == null)
             return;
-        string lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
-        if (lStrIDCard.Length < 1)
+        string lStrIDCard = StringHelper.fnFormatNullOrBlankString(Request.Params[FPSystemBiz.PARAM_RESULT],"");
+        if (lStrIDCard=="")
         {
             return;
         }
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
+        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'" + lStrIDCard + "'");
         bool isCheckin = false;
 

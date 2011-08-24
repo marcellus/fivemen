@@ -10,6 +10,7 @@
            <td style=" text-align:right">
                场地: <asp:DropDownList ID="dllSite" runat="server"></asp:DropDownList>&nbsp;
                业务: <asp:DropDownList ID="dllBustype" runat="server">
+                   <asp:ListItem Text="全部" Value=""></asp:ListItem>
                    <asp:ListItem Text="上课" Value="lesson"></asp:ListItem>
                     <asp:ListItem Text="科目一" Value="km1"></asp:ListItem>
                     <asp:ListItem Text="科目二" Value="km2"></asp:ListItem>
@@ -27,8 +28,8 @@
     <div>
        <asp:DataGrid ID="dgLogs" runat="server" AutoGenerateColumns="false" BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" Width="100%" >
          <Columns>
-            <asp:BoundColumn DataField="idcard" HeaderText="证件号码"></asp:BoundColumn>
-            <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>
+            <asp:BoundColumn DataField="checkin_idcard" HeaderText="证件号码"></asp:BoundColumn>
+            <asp:BoundColumn DataField="checkin_name" HeaderText="姓名"></asp:BoundColumn>
             <asp:BoundColumn DataField="site_name" HeaderText="场地名称"></asp:BoundColumn>
             <asp:BoundColumn DataField="checkin_date" HeaderText="验证时间"></asp:BoundColumn> 
             <asp:BoundColumn DataField="remark" HeaderText="备注"></asp:BoundColumn>

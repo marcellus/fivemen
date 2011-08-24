@@ -20,11 +20,12 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
 
         if (Request.Params[FPSystemBiz.PARAM_RESULT] == null||IsPostBack) 
             return;
-        string lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
-        if (lStrIDCard.Length < 1)
+        string lStrIDCard = StringHelper.fnFormatNullOrBlankString(Request.Params[FPSystemBiz.PARAM_RESULT],"");
+        if (lStrIDCard=="")
         {
             return;
         }
+        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
         //lStrIDCard = Server.UrlDecode(lStrIDCard);
         //int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         bool isCheckin=false;

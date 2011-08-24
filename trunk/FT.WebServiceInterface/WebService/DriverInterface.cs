@@ -170,6 +170,25 @@ namespace FT.WebServiceInterface.WebService
             return response;
 
         }
+
+        public static TmriResponse ReadStudentInfo(DrvStudentInfoRequest request) {
+
+            string responseText = "";
+            try
+            {
+                responseText = GetNewService().queryObjectOut(request.GetXtlb(), request.GetJkxlh(), request.GetJkid(), request.ToXml());
+            }
+            catch (Exception exe)
+            {
+                log.Info(exe);
+                TmriResponse err = new TmriResponse();
+                err.Message = exe.Message;
+                return err;
+            }
+            TmriResponse response = new TmriResponse();
+            response.ParseFromXml(responseText);
+            return response;
+        }
         #endregion
 
         #region 老接口

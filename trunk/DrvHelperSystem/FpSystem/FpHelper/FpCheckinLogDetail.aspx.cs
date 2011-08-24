@@ -1,54 +1,39 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System.Collections.Generic;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using FT.DAL.Orm;
 using FT.Commons.Tools;
+using FT.DAL.Orm;
 
-public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        string lStrIDCard =StringHelper.fnFormatNullOrBlankString(Request.Params[FPSystemBiz.PARAM_RESULT],"");
-        if (lStrIDCard=="")
-        {
-            return;
-        }
-        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
-        //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+lStrIDCard+"'");
-        bool isCheckin = false;
-        DateTime lDtToday = DateTime.Now;
-        if (fso == null)
-        {
-            this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
-            return;
-        }
-        else {
-            int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
-            try
-            {
-                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
-                this.fnUILoadStudentRecord(fso, 0);
-            }
-            catch (Exception ex) {
-                lbStudentAlertMsg.Text = ex.Message;
-            }
-        }
-
-        
     }
 
+    protected void btnQuery_Click(object sender, EventArgs e)
+    {
+        string idcard =StringHelper.fnFormatNullOrBlankString(txtIDCard.Text,"");
+        if (idcard == "") {
+            return;
+        }
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+idcard+"'");
+        if (fso != null) {
+            fnUILoadStudentRecord(fso, 0);
+        }
+        ucStudentInfo.fnUILoadStudentRecord(idcard);
+    }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
     {
+
+        this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
+        this.lbStuLessonLeave1.Text = "";
+        this.lbStuLessonEnter2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_2) ? "" : pFso.LESSON_ENTER_2.ToString();
+        this.lbStuLessonLeave2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_2) ? "" : pFso.LESSON_LEAVE_2.ToString();
+
 
         this.lbStuTrainEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_ENTER_1) ? "" : pFso.TRAIN_ENTER_1.ToString();
         this.lbStuTrainLeave1.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_LEAVE_1) ? "" : pFso.TRAIN_LEAVE_1.ToString();
@@ -74,24 +59,11 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         this.lbStuTrainEnter8.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_ENTER_8) ? "" : pFso.TRAIN_ENTER_8.ToString();
         this.lbStuTrainLeave8.Text = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_LEAVE_8) ? "" : pFso.TRAIN_LEAVE_8.ToString();
 
-        if (pResultCode == FPSystemBiz.CHECK_SAMEDAY_FAILE)
-        {
-            this.lbStudentAlertMsg.Text = "你今天的入场训练已完成，同一天不能入场两次";
-        }
-        else if (pResultCode == FPSystemBiz.CHECKIN_SUCCESS)
-        {
-            this.lbStudentAlertMsg.Text = "指纹确认成功";
-        }
-        else if (pResultCode == FPSystemBiz.TRAIN_LEAVE_FAILE)
-        {
-            this.lbStudentAlertMsg.Text = "你今天的训练时间未够，提早离场将被视为考勤无效";
-        }
-        else if (pResultCode == FPSystemBiz.TRAIN_ENTER_FAILE) {
-            this.lbStudentAlertMsg.Text = "你上次的训练未完成,上次的记录将被清空，请再次验证";
-        }
-        else if( pResultCode==FPSystemBiz.TRAIN_FINISH){
-           this.lbStudentAlertMsg.Text = "学员已完成入场训练";
-        }
+
+        this.lbStuKm1Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM1_ENTER) ? "" : pFso.KM1_ENTER.ToString();
+        this.lbStuKm2Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM2_ENTER) ? "" : pFso.KM2_ENTER.ToString();
+        this.lbStuKm3Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM3_ENTER) ? "" : pFso.KM3_ENTER.ToString();
+
 
         this.lbStudentAlertMsg.Text = pFso.REMARK;
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)

@@ -38,6 +38,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'"+qIdCard+"'");
                 TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
                 this.fnUIQuerySucess(tempStudentInfo != null);
+                ucStudentInfo.fnUILoadStudentRecord(qIdCard);
             }
 
     

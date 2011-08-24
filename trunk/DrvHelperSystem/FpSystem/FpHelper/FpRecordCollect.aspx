@@ -36,7 +36,7 @@
      -->
      <tr class="table-content">
         <td  colspan="2">
-        <FpUCL:viewStudentInfo  runat="server" ID="ucl" ></FpUCL:viewStudentInfo>
+        <FpUCL:viewStudentInfo  runat="server" ID="ucStudentInfo" ></FpUCL:viewStudentInfo>
                 </td>
                 </tr>
                 <tr>
