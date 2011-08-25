@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FT.WebServiceInterface.WebService
 {
-    class DrvStudentInfoRequest:DrvBaseTmriRequest
+    public class DrvStudentInfoRequest:DrvBaseTmriRequest
     {
 
  

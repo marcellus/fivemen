@@ -7,15 +7,15 @@ using FT.Web.Tools;
 using System.Data;
 using FT.DAL;
 
-public partial class FpSystem_FpHelper_FpSiteConfig : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpLocalTypeConfig : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string sql = "select * from fp_site";
+        string sql = "select * from fp_localtype";
         DataTable dt = new DataTable();
-        dt=DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmp");
-        dgSites.DataSource = dt;
-        dgSites.DataBind();
+        dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
+        dgLocalType.DataSource = dt;
+        dgLocalType.DataBind();
         //this.SimplePager1.Provider = new WebControls.PagerDataProvider(dt);
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -27,14 +27,14 @@ public partial class FpSystem_FpHelper_FpSiteConfig : System.Web.UI.Page
         this.Pop(-1);
     }
 
-    protected void dgSites_ItemCommand1(object source, DataGridCommandEventArgs e)
+    protected void dgLocalType_ItemCommand1(object source, DataGridCommandEventArgs e)
     {
         if (e.CommandName == "Delete")
         {
             int id = Convert.ToInt32(e.CommandArgument);
             RoleOperator.Delete(id);
             WebTools.Alert(this, "删除成功！");
-           // this.SimplePager1.Changed = true;
+            // this.SimplePager1.Changed = true;
         }
         else if (e.CommandName == "Detail")
         {
