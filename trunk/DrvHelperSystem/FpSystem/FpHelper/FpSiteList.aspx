@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-  
+
   <asp:Repeater ID="rpSite" runat="server">
      <HeaderTemplate>
-       <ol type=1>
+       <ul style=" list-style-type:none; float:left;">
      </HeaderTemplate>
      <ItemTemplate>
        <li>
@@ -17,20 +17,20 @@
             { 
             
         %>
-             <a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a>
+             <div class="site"><a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a></div>
         <% }
             else if (bustype == "train")
             { %>
-             <a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a>
+             <div class="site"><a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a></div>
         <%}
             else if (bustype == "km1" || bustype == "km2" || bustype == "km3")
             { %>
-             <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><%# Eval("NAME") %></a>
+             <div class="site"><a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><%# Eval("NAME") %></a></
         <%} %>
        </li>
      </ItemTemplate>
      <FooterTemplate>
-       </ol>
+       </ul>
      </FooterTemplate>
   </asp:Repeater>
 </asp:Content>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpLocalTypeConfig.aspx.cs" Inherits="FpSystem_FpHelper_FpLocalTypeConfig" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true"  
+ CodeFile="FpLocalTypeConfig.aspx.cs" Inherits="FpSystem_FpHelper_FpLocalTypeConfig" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -32,7 +33,7 @@
                             <asp:BoundColumn DataField="train_times" HeaderText="入场训练次数"></asp:BoundColumn>
                             <asp:TemplateColumn HeaderText="详细">
                                 <ItemTemplate>
-                                    <asp:ImageButton ID="btnDetail" runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>'
+                                    <asp:ImageButton ID="btnDetail"  runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>'
                                         CommandName="Detail" ImageUrl="~/images/modify.gif" ToolTip="详细" />
                                 </ItemTemplate>
                             </asp:TemplateColumn>

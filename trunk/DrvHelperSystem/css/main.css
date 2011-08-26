@@ -115,3 +115,15 @@ div.b
 {
 	border: 1px solid #000000;
 }
+
+div.site
+{
+	border: 3px solid #3333CC;
+	font-weight: bolder;
+	font-size: x-large;
+	color: #FFFFFF;
+	background-color: #59A4F7;
+	height: 80px;
+	width: 180px;
+	margin-bottom: 20px;
+}

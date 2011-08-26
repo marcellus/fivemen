@@ -443,6 +443,8 @@ public class FpStudentObject
                         this.LESSON_ENTER_2 = lDtNull;
                         this.LESSON_LEAVE_2 = lDtNull;
                         this.remark = string.Format("{0} 本次上课与上次不在同一天进行，旧上课记录已被清空，请再次确认上课", lStrIdentity);
+                        isCheckin = true;
+                        this.statue = STATUE_NEW;
                     }
                     else if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_2))
                     {
