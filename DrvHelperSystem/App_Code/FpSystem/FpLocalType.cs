@@ -22,6 +22,7 @@ public class FpLocalType
 
     [SimplePK]
     [SimpleColumn(Column="ID",ColumnType=SimpleColumnType.Int)]
+    [OracleSeqAttribute(SeqName = "SEQ_FP_LOCALTYPE")]
     private int id;
 
     [SimpleColumn(Column="NAME",ColumnType=SimpleColumnType.String)]

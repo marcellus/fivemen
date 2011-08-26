@@ -11,6 +11,9 @@ public partial class FpSystem_FpHelper_FpSiteConfig : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (IsPostBack) {
+            return;
+        }
         string sql = "select * from fp_site";
         DataTable dt = new DataTable();
         dt=DataAccessFactory.GetDataAccess().SelectDataTable(sql,"tmp");
@@ -46,11 +49,11 @@ public partial class FpSystem_FpHelper_FpSiteConfig : System.Web.UI.Page
 
     private void Pop(int id)
     {
-        string url = "RoleEdit.aspx";
+        string url = "FpSiteEdit.aspx";
         if (id > 0)
         {
             url += "?id=" + id;
         }
-        WebTools.ShowModalWindows(this, url, 620, 600);
+        WebTools.ShowModalWindows(this, url, 620, 280);
     }
 }

@@ -20,13 +20,14 @@ public class FpSite
     }
 
     [SimplePK]
-    [SimpleColumn(Column="ID")]
+    [SimpleColumn(Column="ID",ColumnType=SimpleColumnType.Int)]
+    [OracleSeqAttribute(SeqName = "SEQ_FP_SITE")]
     private int id;
 
     [SimpleColumn(Column="NAME")]
     private string name;
 
-    [SimpleColumn(Column = "LIMIT")]
+    [SimpleColumn(Column = "LIMIT",ColumnType=SimpleColumnType.Int)]
     private int limit;
 
     [SimpleColumn(Column="BUSTYPE")]

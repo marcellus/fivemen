@@ -7,15 +7,18 @@ using FT.Web.Tools;
 using System.Data;
 using FT.DAL;
 
-public partial class FpSystem_FpHelper_FpLocalTypeConfig : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpLocalTypeConfig : FT.Web.AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string sql = "select * from fp_localtype";
-        DataTable dt = new DataTable();
-        dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
-        dgLocalType.DataSource = dt;
-        dgLocalType.DataBind();
+        if (!IsPostBack)
+        {
+            string sql = "select * from fp_localtype";
+            DataTable dt = new DataTable();
+            dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
+            dgLocalType.DataSource = dt;
+            dgLocalType.DataBind();
+        }
         //this.SimplePager1.Provider = new WebControls.PagerDataProvider(dt);
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -46,11 +49,11 @@ public partial class FpSystem_FpHelper_FpLocalTypeConfig : System.Web.UI.Page
 
     private void Pop(int id)
     {
-        string url = "RoleEdit.aspx";
+        string url = "FpLocalTypeEdit.aspx";
         if (id > 0)
         {
             url += "?id=" + id;
         }
-        WebTools.ShowModalWindows(this, url, 620, 600);
+        WebTools.ShowModalWindows(this, url, 620, 300);
     }
 }
