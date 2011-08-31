@@ -44,12 +44,13 @@ public class FPSystemBiz
     #region 业务方法，供页面调用
 
     //添加或修改一条学员记录
-    public static Boolean fnAddOrEditStudentRecord(FpStudentObject fso)
+    public static Boolean fnAddOrUpdateStudentRecord(FpStudentObject fso)
     {
-        if (fso == null || fso.IDCARD.Length < 1 || fso.NAME.Length < 1)
-            return false;
+
+        string idCard = StringHelper.fnFormatNullOrBlankString(fso.IDCARD,"");
         fso.IDCARD = "'"+fso.IDCARD+"'";
-        if (SimpleOrmOperator.Create(fso) || SimpleOrmOperator.Update(fso))
+        fso.NAME = StringHelper.fnFormatNullOrBlankString(fso.NAME,"");
+        if (SimpleOrmOperator.Create(fso) || FPSystemBiz.fnStundentUdpate(fso))
         {
             return true;
         }
@@ -413,7 +414,7 @@ public class FPSystemBiz
     {
         string lStrInsert = "update fp_student set name='{1}' where idcard='{0}'";
         lStrInsert = string.Format(lStrInsert,
-                  fso.IDCARD,   //0
+                  fso.IDCARD.Trim('\''),   //0
                   fso.NAME      //1
              );
         return FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrInsert);

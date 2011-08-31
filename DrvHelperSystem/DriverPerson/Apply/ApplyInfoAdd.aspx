@@ -43,8 +43,7 @@
         }
         catch(e)
         {
-        alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，
-您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
+        alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
         return;
         }
        xls.visible=true;
@@ -61,8 +60,7 @@
   MissingValue);
   */
        var xlBook=xls.Workbooks.Open
-("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/驾驶证申请表-初
-学.xlt");
+("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/驾驶证申请表-初学.xlt");
        // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");
        // alert("xls.Workbooks.count->"+xls.Workbooks.Count)
          //alert("xlBook->"+xlBook);
@@ -101,8 +99,7 @@
            //alert(oSheet);
           oSheet.Cells(5,25).Select();//选中Excel中的单元格 
           var 
-url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPh
-oto.aspx?idcard="+strtmp2;
+url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPhoto.aspx?idcard="+strtmp2;
           //document.write(url);
           oSheet.Pictures.Insert(url);//插入图片
           

@@ -48,7 +48,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
 
     private void fnUILoadStudentRecord(FpStudentObject fso,TempStudentInfo tso)
     {
-        fso.fromTempStudentInfo(tso);
+        
         if (fso == null) {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "没有该学员的指纹记录信息";
@@ -59,7 +59,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
             this.lbAlertMsg.Text = "没有该学员的个人信息";
         }
         else {
-
+            fso.fromTempStudentInfo(tso);
             try {
                 this.lbName.Text = fso.NAME;
                 this.lbSex.Text = fso.SEX;
