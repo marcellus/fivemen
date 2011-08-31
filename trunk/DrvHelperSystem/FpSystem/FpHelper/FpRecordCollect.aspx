@@ -10,7 +10,6 @@
     font-size:1.2em;
   }
 </style>
-<h1>指纹信息采集</h1>
 <table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
      <tr>
         <td class="table-title" style="width:20%">学员身份证查询</td>

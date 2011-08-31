@@ -7,6 +7,8 @@ namespace FT.WebServiceInterface.DrvQuery
     /// <summary>
     ///TempStudentInfo 的摘要说明
     /// </summary>
+    /// 
+    [Serializable]
     public class TempStudentInfo
     {
         public TempStudentInfo()

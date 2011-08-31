@@ -22,8 +22,8 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     private const int ACTION_VERIFY_STUDENT = 2;
     private const int ACTION_IDENTITY_STUDENT = 3;
     private FpBase _FP;
-    
 
+    public const string VS_TEMP_STUDENT = "tempStudent";
    
 
     protected void Page_Load(object sender, EventArgs e)
@@ -39,6 +39,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
                 this.fnUIQuerySucess(tempStudentInfo != null);
                 ucStudentInfo.fnUILoadStudentRecord(qIdCard);
+                ViewState[VS_TEMP_STUDENT] = tempStudentInfo;
             }
 
     
@@ -50,6 +51,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
             return;
         string qIdCard = this.txtIDCard.Text;
         //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIdCard + "'");
+
         TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
         if (tempStudentInfo == null)
         {
@@ -97,15 +99,13 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         if (this.hidIDCard.Value.Length == 0)
             return;
         string lStrIDCard = this.hidIDCard.Value.Trim();
-        FpStudentObject fso = null;
-        Object lObjStu = Session["student"];
-        if (lObjStu != null) {
-            fso = lObjStu as FpStudentObject;
-            int localtype =StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
-            fso.LOCALTYPE = localtype;
-            fso.STATUE = FpStudentObject.STATUE_NEW;
-        }
-        if (FPSystemBiz.fnAddOrEditStudentRecord(fso))
+        TempStudentInfo tso = ViewState[VS_TEMP_STUDENT] as TempStudentInfo;
+        FpStudentObject fso = new FpStudentObject();
+        fso.fromTempStudentInfo(tso);
+        int localtype =StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
+        fso.LOCALTYPE = localtype;
+        fso.STATUE = FpStudentObject.STATUE_NEW;
+        if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
         }
