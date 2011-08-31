@@ -543,6 +543,9 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity))
                     {
+
+                        this.train_enter_1 = lDtNull;
+                        this.train_leave_1 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 1);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_1, lDtIdentity, gIntTrainInterval))
@@ -578,6 +581,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity))
                     {
+                        this.train_enter_2 = lDtNull;
+                        this.train_leave_2 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 2);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_2, lDtIdentity, gIntTrainInterval))
@@ -612,6 +617,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity))
                     {
+                        this.train_enter_3 = lDtNull;
+                        this.train_leave_3 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 3);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_3, lDtIdentity, gIntTrainInterval))
@@ -645,6 +652,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity))
                     {
+                        this.train_enter_4 = lDtNull;
+                        this.train_leave_4 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 4);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_4, lDtIdentity, gIntTrainInterval))
@@ -679,6 +688,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity))
                     {
+                        this.train_enter_5 = lDtNull;
+                        this.train_leave_5 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 5);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_5, lDtIdentity, gIntTrainInterval))
@@ -714,6 +725,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity))
                     {
+                        this.train_enter_6 = lDtNull;
+                        this.train_leave_6 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 6);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_6, lDtIdentity, gIntTrainInterval))
@@ -748,6 +761,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity))
                     {
+                        this.train_enter_7 = lDtNull;
+                        this.train_leave_7 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 7);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_7, lDtIdentity, gIntTrainInterval))
@@ -782,6 +797,8 @@ public class FpStudentObject
                     }
                     else if (!fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity))
                     {
+                        this.train_enter_8 = lDtNull;
+                        this.train_leave_8 = lDtNull;
                         this.remark = string.Format(patternTrainEnterNotToday, lStrIdentity, 8);
                     }
                     else if (fnIsVaildTime(this.TRAIN_ENTER_8, lDtIdentity, gIntTrainInterval))

@@ -374,11 +374,10 @@ public class FPSystemBiz
 
         isCheckin = fso.checkin(fpSite,fpLocalType,lDtCheckin);
 
-        if (isCheckin) {
-            fso.IDCARD="'"+fso.IDCARD+"'";
-            isCheckin = SimpleOrmOperator.Update(fso);
-            fso.IDCARD = fso.IDCARD.Trim('\''); ;
-        }
+        fso.IDCARD="'"+fso.IDCARD+"'";
+        SimpleOrmOperator.Update(fso);
+        fso.IDCARD = fso.IDCARD.Trim('\''); ;
+        
 
         if (isCheckin) {
             FpCheckinLog log = new FpCheckinLog();
