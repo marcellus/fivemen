@@ -17,15 +17,95 @@
             { 
             
         %>
-             <div class="site"><a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a></div>
+            
+             <table class="site">
+             <tr>
+               <td rowspan="2">
+                 <img src="../../images/car.jpg"></img>
+               </td>
+               <td>
+               <table class="site" border="1">
+               <tr>
+               <td colspan="2" align="center">
+               <%# Eval("NAME") %>
+               </td>
+               </tr>
+               <tr>
+               <td >业务类型：
+               <%# Eval("BUSTYPE") %>
+               </td>
+               <td>限制人数：
+               <%# Eval("LIMIT") %>
+               </td>
+               </tr>
+               </table >
+               </td>
+               <td>
+                 <a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" >进入</a>
+               </td>
+             </tr>
+             </table>
         <% }
             else if (bustype == "train")
             { %>
-             <div class="site"><a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><%# Eval("NAME") %></a></div>
+             <table class="site">
+             <tr>
+               <td rowspan="2">
+                 <img src="../../images/car.jpg"></img>
+               </td>
+               <td>
+               <table class="site" border="1">
+               <tr>
+               <td colspan="2" align="center">
+               <%#Eval("NAME") %>
+               </td>
+               </tr>
+               <tr>
+               <td >业务类型：
+               <%#Eval("BUSTYPE") %>
+               </td>
+               <td>限制人数：
+               <%#Eval("LIMIT") %>
+               </td>
+               </tr>
+               </table >
+               </td>
+               <td>
+                 <a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" >进入</a>
+               </td>
+             </tr>
+             </table>
+            
         <%}
             else if (bustype == "km1" || bustype == "km2" || bustype == "km3")
             { %>
-             <div class="site"><a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><%# Eval("NAME") %></a></
+             <table class="site">
+             <tr>
+               <td rowspan="2">
+                 <img src="../../images/car.jpg"></img>
+               </td>
+               <td >
+               <table class="site" border="1" cellspacing="1" >
+               <tr>
+               <td colspan="2" align="center">
+               <%# Eval("NAME") %>
+               </td>
+               </tr>
+               <tr>
+               <td >业务类型：
+               <%# Eval("BUSTYPE") %>
+               </td>
+               <td>限制人数：
+               <%# Eval("LIMIT") %>
+               </td>
+               </tr>
+               </table >
+               </td>
+               <td>
+                 <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" >进入</a>
+               </td>
+             </tr>
+             </table>
         <%} %>
        </li>
      </ItemTemplate>
