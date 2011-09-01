@@ -270,6 +270,17 @@ namespace FT.Web.Tools
 			System.Web.HttpContext.Current.Response.End();		
 		    
 		}
+
+
+        public static void PlaySound(string src) {
+            PlaySound(src, 1);
+        }
+
+        public static void PlaySound(string src, int loop) {
+            string tag = string.Format("<bgsound src='{0}' loop={1} />",src,loop);
+            System.Web.HttpContext.Current.Response.Write(tag);
+        }
+
 /*
 		public static void ShowErrorMessage (   String str ) 
 		{

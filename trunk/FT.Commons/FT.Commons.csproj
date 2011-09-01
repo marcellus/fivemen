@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -182,6 +182,7 @@
       <DependentUpon>TcpWatcherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\BaseHelper.cs" />
+    <Compile Include="Tools\BeepHelper.cs" />
     <Compile Include="Tools\ComboBoxHelper.cs" />
     <Compile Include="Tools\ConfigLoader.cs" />
     <Compile Include="Tools\DatabaseSetup.cs" />
