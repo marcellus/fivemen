@@ -1,0 +1,369 @@
+﻿body
+{
+	margin :0px 0px 0px 0px;
+	font-size:12px;
+	background-color:#EFF7FF;
+}
+
+form
+{
+	display:inline;
+}
+/**/
+
+table
+{
+	font-size:9pt;
+	font-family:Arial;
+	border:0,0,0;
+}
+
+tr
+{
+	font-size:9pt;
+	font-family:Arial;
+}
+td
+{
+	ffont-size:9pt;
+	font-family:Arial;
+}
+
+a
+{
+	 color:#003399;
+	 text-decoration: none;
+}
+a:hover
+{
+	color: #798073;
+	 text-decoration: none;
+}
+
+/*TreeView Control Begin*/
+
+
+.TreeViewTd
+{
+	padding-left:7px;
+	font-size:9pt;
+	vertical-align:bottom;
+	font-family:幼圆;
+}
+
+.TreeViewA
+{
+	 color:#003399;
+	text-decoration: none;
+}
+
+.TreeViewA:hover
+{
+	color: #798073;
+}
+
+.TreeViewA:Normal
+{
+	color:#7da7d9;
+}
+
+/*TreeView Control End*/
+
+/*Error  Style Begin*/
+.TextBoxFlatError
+{
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #000000;
+	border-style: groove;
+	border-top-width: thin;
+	border-right-width: thin; 
+	border-bottom-width: thin; 
+	border-left-width: thin;
+	border: 1px solid red;
+}
+/*Error  Style End*/
+
+.TextBoxNoBorder
+{
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #000000;
+	border-style:none;
+	
+}
+/*TextBox Control*/
+.TextBoxFlat
+{
+/*
+    border-width:1px;
+    border-style:solid;
+    border-color:#cccccc;
+*/
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #000000;
+	border-style: groove;
+	border-top-width: thin;
+	border-right-width: thin; 
+	border-bottom-width: thin; 
+	border-left-width: thin
+}
+
+/*日期文本框开始*/
+.textDate
+{
+    border-style:groove;   
+    width:90%;
+    height:13px;
+    cursor:hand;
+}
+/*日期文本框结束*/
+
+/*MultiLine TextBox*/
+
+.MultiLineTextBoxFlat
+{
+	/*
+    border-width:1px;
+    border-style:solid;
+    border-color:#cccccc;
+*/
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #000000;
+	border-style: groove;
+	border-top-width: thin;
+	border-right-width: thin; 
+	border-bottom-width: thin; 
+	border-left-width: thin
+}
+
+/*Label Control*/
+.Label
+{/*
+	font-size:9pt;
+	font-family:宋体,SimSun,tahoma,sans-serif;*/
+	/*
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #00234f
+    */
+    font-weight: normal;
+	font-size: 12px;
+	font-family: Arial;
+    color: #000000
+}
+
+
+.LabelTitle
+{
+	color:Blue;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial;
+}
+
+/*Button Style开始*/
+.ButtonFlat
+{
+	
+    BORDER-RIGHT: solid 1px #7b9ebd ;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: solid 1px #7b9ebd;
+    PADDING-LEFT: 2px;
+    FONT-SIZE: 12px;
+    FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff, EndColorStr=#cecfde);
+    BORDER-LEFT: #7b9ebd 1px solid;
+    CURSOR: hand;
+    COLOR: black;
+    PADDING-TOP: 2px; 
+    BORDER-BOTTOM: #7b9ebd 1px solid
+	
+	/*
+	font-weight: normal;
+	font-size: 12px;
+	width: 60px;
+	font-family: Arial;*/
+}
+
+.DropDownList
+{
+	/*
+	font-weight: normal;
+	font-size: 12px;
+    color: #000000;
+	border-style: groove;
+	border-top-width: thin;
+	border-right-width: thin; 
+	border-bottom-width: thin; 
+	border-left-width: thin;*/
+	font-weight: normal;
+	font-size: 11px;
+	font-family: Arial;
+    color: #00234f
+}
+/*Button Style结束*/
+
+/*DataGrid Control Begin*/
+.DataGrid
+{
+	border-color:#CCCCCC;
+	border-style:solid;
+	border-width:1px;
+	background-color:White;
+	color:Black;
+}			
+
+.DataGridHeader
+{
+	/*
+	height:20px;
+	font-style:normal;
+	font-weight:normal;
+	background-color:#DBEAF5;*/
+	BACKGROUND:#e9e9e5; 
+	COLOR: #000000; 
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	margin: 1px;
+	border-left:#A2A2A2 1px solid;
+	border-top:#A2A2A2 1px solid;
+	border-right:#A2A2A2 1px solid;
+	border-bottom: #A2A2A2 1px solid;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.DataGridHeaderText
+{
+	/*
+	height:20px;
+	font-style:normal;
+	font-weight:normal;
+	background-color:#DBEAF5;*/
+	BACKGROUND:#e9e9e5; 
+	COLOR: #000000; 
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	margin: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.DataGridFooter
+{
+	/*
+	height:28px;
+	font-style:normal;
+	font-weight:normal;
+	background-color:#DBEAF5;*/
+	font-size: 11px;
+	color: #00234f;
+	font-family: Arial;
+	font-weight: bold;
+	margin: 1px;
+	border-left:#bbbbbb 1px solid;
+	border-top:#bbbbbb 1px solid;
+	border-right:#bbbbbb 1px solid;
+	border-bottom: #bbbbbb 1px solid;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 1px;
+}
+
+.DataGridHeader0
+{
+	height:5px;
+}
+
+.DataGridItem
+{
+	/*
+	background-color:#FFFFFF;
+	height:20px;
+*/
+	background-color:#FFFFFF;
+	height:20px;
+	font-size: 12px;
+/*	color: #000000;*/
+	font-family: Arial;
+	margin: 1px;
+	border-left:#A2A2A2 1px solid;
+	border-top:#A2A2A2 1px solid;
+	border-right:#A2A2A2 1px solid;
+	border-bottom: #A2A2A2 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+.DataGridItem2
+{
+	color:#FF0000;
+	height:20px;
+	font-size: 12px;
+/*	color: #000000;*/
+	font-family: Arial;
+	margin: 1px;
+	border-left:#A2A2A2 1px solid;
+	border-top:#A2A2A2 1px solid;
+	border-right:#A2A2A2 1px solid;
+	border-bottom: #A2A2A2 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+
+}
+.DataGridAlter
+{
+	background-color:#FFFFFF;
+	height:20px;
+	font-size: 12px;
+/*	color: #000000;*/
+	font-family: Arial;
+	margin: 1px;
+	border-left:#A2A2A2 1px solid;
+	border-top:#A2A2A2 1px solid;
+	border-right:#A2A2A2 1px solid;
+	border-bottom: #A2A2A2 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.DataGridHighLight
+{
+	background-color:#cccccc;
+	height:20px;
+	font-size: 12px;
+/*	color: #000000;*/
+	font-family: Arial;
+	margin: 1px;
+	border-left:#A2A2A2 1px solid;
+	border-top:#A2A2A2 1px solid;
+	border-right:#A2A2A2 1px solid;
+	border-bottom: #A2A2A2 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+/*DataGrid Control End*/
+.TrBottomHr TD
+{
+	BORDER-BOTTOM: #618582 1px solid;
+}
