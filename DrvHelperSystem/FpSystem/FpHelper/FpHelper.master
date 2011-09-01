@@ -7,6 +7,7 @@
     <title><asp:Label ID="lbTitle" runat="server"></asp:Label></title>
     <base target="_self" />
     <link type="text/css" href="../../css/main.css" rel="Stylesheet" />
+    <script type="text/javascript" src="../../js/jquery-1.6.2.min.js"></script>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -15,7 +16,7 @@
       }
     </style>
 </head>
-<body>
+<body onload="on_load()">
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

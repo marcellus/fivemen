@@ -29,6 +29,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
             ddlLocaltype.DataValueField = "ID";
             ddlLocaltype.DataBind();
         }
+        //WebTools.PlayBackGroupSound("孙燕姿-02.追.是时候.mp3", 1);
+        //Response.Write("<bgsound loop=1 src='孙燕姿-02.追.是时候.mp3' />");
+        //WebTools.WriteScript("alert('hhlin');");
+        //WebTools.PlaySound("孙燕姿-02.追.是时候.mp3");
+        BeepHelper.Beep(800,8000);
+        
     }
     protected void btnSaveStudent_Click(object sender, EventArgs e)
     {
