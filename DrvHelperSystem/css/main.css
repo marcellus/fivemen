@@ -127,3 +127,12 @@ div.site
 	width: 180px;
 	margin-bottom: 20px;
 }
+table.site
+{
+	border: 1px solid #3333CC;
+	
+	color: black;
+	background-color: #d0e3f8;
+	margin-bottom: 20px;
+	width:100%;
+}
