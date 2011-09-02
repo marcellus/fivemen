@@ -16,7 +16,7 @@
       }
     </style>
 </head>
-<body onload="on_load()">
+<body >
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
