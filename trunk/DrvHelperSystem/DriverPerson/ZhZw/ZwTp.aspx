@@ -22,7 +22,8 @@
             <td>
             身份证明号码：<asp:TextBox ID="txtIdCardInput" runat="server"></asp:TextBox>
             &nbsp;&nbsp;特批类型：<asp:DropDownList ID="DropDownList1" runat="server" 
-                    Font-Size="15pt">
+                    Font-Size="15pt" 
+                    >
                     <asp:ListItem>上课</asp:ListItem>
                     <asp:ListItem>入场训练</asp:ListItem>
                 </asp:DropDownList>

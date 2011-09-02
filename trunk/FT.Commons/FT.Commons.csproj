@@ -185,7 +185,6 @@
     <Compile Include="Tools\BeepHelper.cs" />
     <Compile Include="Tools\ComboBoxHelper.cs" />
     <Compile Include="Tools\ConfigLoader.cs" />
-    <Compile Include="Tools\DatabaseSetup.cs" />
     <Compile Include="Tools\DateTimeHelper.cs" />
     <Compile Include="Tools\Dragger.cs" />
     <Compile Include="Tools\FileDialogHelper.cs" />

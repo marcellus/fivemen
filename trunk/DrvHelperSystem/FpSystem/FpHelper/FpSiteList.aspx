@@ -20,7 +20,7 @@
             
              <table class="site">
              <tr>
-               <td rowspan="2">
+               <td rowspan="2" style="width:255px">
                  <img src="../../images/car.jpg"></img>
                </td>
                <td>
@@ -41,7 +41,7 @@
                </table >
                </td>
                <td>
-                 <a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" >进入</a>
+                 <a href="FpIdentityLesson.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><img src="../../images/enter.jpg">进入</a>
                </td>
              </tr>
              </table>
@@ -50,7 +50,7 @@
             { %>
              <table class="site">
              <tr>
-               <td rowspan="2">
+               <td rowspan="2" style="width:255px">
                  <img src="../../images/car.jpg"></img>
                </td>
                <td>
@@ -71,7 +71,7 @@
                </table >
                </td>
                <td>
-                 <a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" >进入</a>
+                 <a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><img src="../../images/enter.jpg">进入</a>
                </td>
              </tr>
              </table>
