@@ -33,7 +33,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
         //Response.Write("<bgsound loop=1 src='孙燕姿-02.追.是时候.mp3' />");
         //WebTools.WriteScript("alert('hhlin');");
         //WebTools.PlaySound("孙燕姿-02.追.是时候.mp3");
-        BeepHelper.Beep(800,8000);
+       // BeepHelper.Beep(800,8000);
         
     }
     protected void btnSaveStudent_Click(object sender, EventArgs e)
@@ -114,6 +114,9 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
                 }
                 else
                 {
+                    lObjStudent.STATUE = FpStudentObject.STATUE_COLLECT;
+                    lObjStudent.IDCARD = "'" + lObjStudent.IDCARD + "'";
+                    FT.DAL.Orm.SimpleOrmOperator.Update(lObjStudent);
                     this.fnUINewEnrollStudentSucess(true);
                 }
                 break;

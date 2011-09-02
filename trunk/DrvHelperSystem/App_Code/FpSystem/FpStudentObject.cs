@@ -42,15 +42,16 @@ public class FpStudentObject
     public static readonly int KM3_ENTER_FAILE = 14;
 
 
-    public static readonly int STATUE_NEW = 0;
-    public static readonly int STATUE_LESSON_START=1;
-    public static readonly int STATUE_LESSON_END=2;
-    public static readonly int STATUE_KM1_ENTER = 3;
-    public static readonly int STATUE_KM2_ENTER = 4;
-    public static readonly int STATUE_TRAIN_START = 5;
-    public static readonly int STATUE_TRAIN_END = 6;
-    public static readonly int STATUE_KM3_ENTER = 7;
-    public static readonly int STATUE_FINISH = 8;
+    public static readonly int STATUE_NEW = -1;         //记录创建成功
+    public static readonly int STATUE_COLLECT = 0;         //采集成功
+    public static readonly int STATUE_LESSON_START=1;    //开始上课
+    public static readonly int STATUE_LESSON_END=2;        //完成上课
+    public static readonly int STATUE_KM1_ENTER = 3;       //科目一入场
+    public static readonly int STATUE_KM2_ENTER = 4;         //科目二入场
+    public static readonly int STATUE_TRAIN_START = 5;       //入场训练开始
+    public static readonly int STATUE_TRAIN_END = 6;          //入场训练结束
+    public static readonly int STATUE_KM3_ENTER = 7;          //科目三入场
+    public static readonly int STATUE_FINISH = 8;             //完成考勤
 
 
     //private int gIntLessonInterval;
