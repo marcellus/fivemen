@@ -79,9 +79,9 @@
         <%}
             else if (bustype == "km1" || bustype == "km2" || bustype == "km3")
             { %>
-             <table class="site">
+             <table class="site" >
              <tr>
-               <td rowspan="2">
+               <td rowspan="2" style="width:255px">
                  <img src="../../images/car.jpg"></img>
                </td>
                <td >
@@ -102,7 +102,7 @@
                </table >
                </td>
                <td>
-                 <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" >进入</a>
+                 <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><img src="../../images/enter.jpg">进入</a>
                </td>
              </tr>
              </table>
