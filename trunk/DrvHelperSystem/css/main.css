@@ -130,7 +130,7 @@ div.site
 table.site
 {
 	border: 1px solid #3333CC;
-	
+	font-weight:bold;
 	color: black;
 	background-color: #d0e3f8;
 	margin-bottom: 20px;
