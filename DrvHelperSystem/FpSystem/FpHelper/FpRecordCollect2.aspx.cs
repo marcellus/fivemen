@@ -115,9 +115,8 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
                 else
                 {
                     lObjStudent.STATUE = FpStudentObject.STATUE_COLLECT;
-                    lObjStudent.IDCARD = "'" + lObjStudent.IDCARD + "'";
-                    FT.DAL.Orm.SimpleOrmOperator.Update(lObjStudent);
-                    this.fnUINewEnrollStudentSucess(true);
+                    //FPSystemBiz.fnAddOrUpdateStudentRecord(lObjStudent);
+                    this.fnUINewEnrollStudentSucess(FPSystemBiz.fnAddOrUpdateStudentRecord(lObjStudent));
                 }
                 break;
            
