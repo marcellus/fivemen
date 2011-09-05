@@ -419,7 +419,7 @@ public class FpStudentObject
         {
             case "lesson":
                 {
-                    if (this.statue < STATUE_NEW) {
+                    if (this.statue < STATUE_COLLECT) {
                         this.remark = string.Format("{0}  学员未进行指纹采集", lStrIdentity);
                         break;
                     }

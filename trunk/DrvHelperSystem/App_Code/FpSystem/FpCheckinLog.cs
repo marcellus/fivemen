@@ -45,7 +45,8 @@ public class FpCheckinLog
     [SimpleColumn(Column="CREATER_ID")]
     private string createrId;
 
-
+    [SimpleColumn(Column = "CHECKIN_STATUE", ColumnType = SimpleColumnType.Int)]
+    private int checkinStatue;
 
     public int ID {
         get { return this.id; }
@@ -91,6 +92,12 @@ public class FpCheckinLog
     {
         get { return this.createrId; }
         set { this.createrId = value; }
+    }
+
+    public int CHECKIN_STATUE
+    {
+        get { return this.checkinStatue; }
+        set { this.checkinStatue = value; }
     }
 
 }

@@ -387,6 +387,7 @@ public class FPSystemBiz
             log.CHECKIN_IDCARD = fso.IDCARD;
             log.CHECKIN_DATE = lDtCheckin;
             log.REMARK = fso.REMARK;
+            log.CHECKIN_STATUE = fso.STATUE;
             isCheckin= SimpleOrmOperator.Create(log);
         }
         return isCheckin;
