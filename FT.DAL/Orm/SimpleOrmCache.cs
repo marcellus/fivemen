@@ -305,6 +305,7 @@ namespace FT.DAL.Orm
             SimpleColumnAttribute columnAtt;
            
             FieldInfo[] fields=type.GetFields(BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Public|BindingFlags.FlattenHierarchy);
+            //FieldInfo[] fields2 = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
             FieldInfo tmp = null;
             bool findPk = false;
             string columnname = string.Empty;
