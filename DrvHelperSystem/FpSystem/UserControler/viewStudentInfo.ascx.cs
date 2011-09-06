@@ -74,6 +74,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
                 this.lbDrvType.Text = fso.DRV_TYPE;
                 this.lbRemark.Text = fso.REMARK;
                 this.lbAlertMsg.Text = "";
+ 
             }
             catch (NullReferenceException nre) { 
                       

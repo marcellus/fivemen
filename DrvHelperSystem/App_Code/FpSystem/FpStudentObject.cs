@@ -66,7 +66,7 @@ public class FpStudentObject
     }
 
     [SimplePK]
-    [SimpleColumn(Column= "IDCARD")]
+    [SimpleColumn(Column= "IDCARD",AllowInsert=true)]
     private string idcard;
     [SimpleColumn(Column="NAME")]
     private string name;
@@ -504,7 +504,7 @@ public class FpStudentObject
                 else if (this.statue >= STATUE_KM2_ENTER)
                 {
                     this.remark = string.Format("{0} 已完成科目2考试", lStrIdentity);
-                    break;
+                    //break;
                 }
 
                     this.km2_enter = lDtIdentity;
