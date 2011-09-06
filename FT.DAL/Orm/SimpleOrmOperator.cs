@@ -145,7 +145,7 @@ namespace FT.DAL.Orm
            }
            else
            {
-                sql.Append("'"+key.GetValue(obj).ToString()+",");
+                sql.Append("'"+key.GetValue(obj).ToString()+"'");
            }
            
             return dataAccess.ExecuteSql(sql.ToString());
@@ -246,7 +246,7 @@ namespace FT.DAL.Orm
             }
             else
             {
-                sql += "'" + pk.ToString() + ",";
+                sql += "'" + pk.ToString() + "'";
             }
             DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(typeof(T)));
             if (dt!=null&&dt.Rows.Count > 0)
