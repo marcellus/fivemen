@@ -138,7 +138,16 @@ namespace FT.DAL.Orm
                 value = type.GetField(field, BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
                 sql.Replace("#" + field + "#", value == null ? "" : DALSecurityTool.TransferInsertField(TransObjectField(value)));
             }
-            sql.Append(type.GetField(SimpleOrmCache.GetPK(type),BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj).ToString());
+            FieldInfo key=type.GetField(SimpleOrmCache.GetPK(type),BindingFlags.IgnoreCase|BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+           if (typeof(int) == key.FieldType)
+                {
+                sql.Append(key.GetValue(obj).ToString());
+           }
+           else
+           {
+                sql.Append("'"+key.GetValue(obj).ToString()+",");
+           }
+           
             return dataAccess.ExecuteSql(sql.ToString());
         }
 
@@ -229,7 +238,16 @@ namespace FT.DAL.Orm
                 //return null;
             }
 
-            string sql = SimpleOrmCache.GetSelectSql(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" + pk.ToString();
+            string sql = SimpleOrmCache.GetSelectSql(typeof(T)) + " where " + SimpleOrmCache.GetPK(typeof(T)) + "=" ;
+            FieldInfo key = typeof(T).GetField(SimpleOrmCache.GetPK(typeof(T)), BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+            if (typeof(int) == key.FieldType)
+            {
+                sql += pk.ToString();
+            }
+            else
+            {
+                sql += "'" + pk.ToString() + ",";
+            }
             DataTable dt = dataAccess.SelectDataTable(sql, SimpleOrmCache.GetTableName(typeof(T)));
             if (dt!=null&&dt.Rows.Count > 0)
             {
