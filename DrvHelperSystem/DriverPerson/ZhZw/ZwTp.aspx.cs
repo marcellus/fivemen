@@ -11,6 +11,8 @@ using System.Web.UI.WebControls.WebParts;
 using FT.Web.Tools;
 using FT.WebServiceInterface.WebService;
 using FT.WebServiceInterface.DrvQuery;
+using FT.DAL.Orm;
+
 
 public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
 {
@@ -52,15 +54,19 @@ public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
         tp.Type = this.DropDownList1.Text;
         ZwTpOperator.Create(tp);
          */
-        TempStudentInfo info=DrvQueryHelper.QueryStudent(WholeWebConfig.Glbm, this.txtIdCard.Text.Trim());
+       // TempStudentInfo info=DrvQueryHelper.QueryStudent(WholeWebConfig.Glbm, this.txtIdCard.Text.Trim());
+        FpStudentObject f=new FpStudentObject();
+        f.IDCARD=this.txtIdCardInput.Text;
+        FpStudentObject info = SimpleOrmOperator.Query<FpStudentObject>("'"+f.IDCARD+"'");
        
-        if (info == null || info.name == null || info.name.Length == 0)
+       // if (info == null || info.name == null || info.name.Length == 0)
+        if(info==null)
         {
             WebTools.Alert(this, "未找到该学员在本车管所报名的信息！");
              return;
         }
         else
-        {
+        {   /*
             ZwTpObject tp = new ZwTpObject();
             tp.Approver = this.Operator.OperatorName;
             tp.ApproveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -70,6 +76,32 @@ public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
             tp.Type = this.DropDownList1.Text;
             ZwTpOperator.Create(tp);
             this.btnSearch_Click(null, null);
+             */
+            if (this.DropDownList1.Text == "上课")
+            {
+               
+                info.STATUE = FpStudentObject.STATUE_LESSON_END;
+            }
+            else if (this.DropDownList1.Text == "入场训练")
+            {
+                
+                info.STATUE = FpStudentObject.STATUE_TRAIN_END;                              
+            }
+            info.IDCARD="'"+info.IDCARD+"'";
+            if (ZwTpOperator.Update(info) == true)
+            {
+                WebTools.Alert(this, "修改成功！");
+                return;
+            }
+            else
+            {
+                WebTools.Alert(this, "修改失败！");
+                return;
+            }
+            
+
+            this.btnSearch_Click(null, null);
+            
         }
         
 

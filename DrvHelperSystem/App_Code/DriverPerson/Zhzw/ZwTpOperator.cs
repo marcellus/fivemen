@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
 using FT.DAL;
+using System.Collections;
 
 /// <summary>
 ///ZwTpOperator 的摘要说明
@@ -34,4 +35,17 @@ public class ZwTpOperator
         // DataAccessFactory.GetDataAccess().ExecuteSql("delete from table_yuyue_limit where i_week_num=" + week.WeekNum);
     }
 
+    public static FpStudentObject QueryByIdcard(FpStudentObject fp)
+    {
+       // ArrayList<FpStudentObject> info = SimpleOrmOperator.QueryConditionList<FpStudentObject>(" where IDCARD=? ", fp.IDCARD);string condition
+       // if (info.Count != 0)
+       // {
+      //      return info.IndexOf(0);
+      //  }
+        return null;
+    }
+    public static bool Update(FpStudentObject fp)
+    {
+        return SimpleOrmOperator.Update(fp);
+    }
 }
