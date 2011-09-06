@@ -48,7 +48,6 @@ public class FPSystemBiz
     {
 
         string idCard = StringHelper.fnFormatNullOrBlankString(fso.IDCARD,"");
-        fso.IDCARD = "'"+fso.IDCARD+"'";
         fso.NAME = StringHelper.fnFormatNullOrBlankString(fso.NAME,"");
         if (SimpleOrmOperator.Create(fso) || FPSystemBiz.fnStundentUdpate(fso))
         {

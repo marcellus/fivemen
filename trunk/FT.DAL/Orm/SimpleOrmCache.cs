@@ -319,8 +319,10 @@ namespace FT.DAL.Orm
                 
                 tmp = fields[i];
                 columnname = tmp.Name.ToLower();
+                columnAtt = Attribute.GetCustomAttribute(tmp, typeof(SimpleColumnAttribute)) as SimpleColumnAttribute;
                 if (!findPk)
                 {
+
                     //主键不允许设置别名
                     if (Attribute.IsDefined(tmp, typeof(SimplePKAttribute)))
                     {
@@ -339,10 +341,25 @@ namespace FT.DAL.Orm
                             insertSql.Append(pk + ",");
                             inserttmp.Append("" + seqAtt.SeqName + ".nextval,");
                         }
+                        else if (columnAtt.AllowInsert) {
+                            insertSql.Append(pk + ",");
+                            if (columnAtt.ColumnType == SimpleColumnType.Int)
+                            {
+                                inserttmp.Append("#" + columnname + "#,");
+                            }
+                            else if (columnAtt.ColumnType == SimpleColumnType.Date)
+                            {
+                                inserttmp.Append("to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
+                            }
+                            else
+                            {
+                                inserttmp.Append("'#" + columnname + "#',");
+                            }
+                            inserts.Add(columnname, columnname);
+                        }
                         continue;
                     }
-                }
-                columnAtt = Attribute.GetCustomAttribute(tmp, typeof(SimpleColumnAttribute)) as SimpleColumnAttribute;
+                }      
                 if (columnAtt != null)
                 {
                     tmpstr = columnAtt.Column == null || columnAtt.Column.Length == 0 ? columnname : columnAtt.Column.ToLower();
