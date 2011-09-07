@@ -373,7 +373,7 @@ public class FPSystemBiz
 
         isCheckin = fso.checkin(fpSite,fpLocalType,lDtCheckin);
 
-        fso.IDCARD="'"+fso.IDCARD+"'";
+        //fso.IDCARD="'"+fso.IDCARD+"'";
         SimpleOrmOperator.Update(fso);
         fso.IDCARD = fso.IDCARD.Trim('\''); ;
         

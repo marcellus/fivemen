@@ -24,7 +24,7 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
         }
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
         ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'" + lStrIDCard + "'");
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         bool isCheckin = false;
 
         DateTime lDtToday = DateTime.Now;

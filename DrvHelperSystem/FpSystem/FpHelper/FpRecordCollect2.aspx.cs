@@ -106,7 +106,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
             case ACTION_NONE: break;
             case ACTION_NEW_ENROLL_STUDENT:
                 string qIDCard = this.txtIDCard.Text;
-                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIDCard + "'");
+                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(qIDCard);
                 if (lObjStudent == null)
                 {
                     this.fnUINewEnrollStudentSucess(false);
@@ -116,7 +116,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
                 {
                     lObjStudent.STATUE = FpStudentObject.STATUE_COLLECT;
                     //FPSystemBiz.fnAddOrUpdateStudentRecord(lObjStudent);
-                    this.fnUINewEnrollStudentSucess(FPSystemBiz.fnAddOrUpdateStudentRecord(lObjStudent));
+                    this.fnUINewEnrollStudentSucess(SimpleOrmOperator.Update(lObjStudent));
                 }
                 break;
            

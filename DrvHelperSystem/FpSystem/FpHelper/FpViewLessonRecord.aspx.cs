@@ -30,7 +30,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         //int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         bool isCheckin=false;
         DateTime lDtToday = DateTime.Now;
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'" + lStrIDCard + "'");
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         if (fso == null)
         {
             this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
