@@ -1,4 +1,4 @@
-<%@ Page Language="C#"  AutoEventWireup="true" CodeFile="Login.aspx.cs" Theme="DefaultTheme" Inherits="Login" %>
+Ôªø<%@ Page Language="C#"  AutoEventWireup="true" CodeFile="Login.aspx.cs" Theme="DefaultTheme" Inherits="Login" %>
 
 <%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="ace" %>
 
@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-<script language="javascript">
+<script   type="javascript">
     function Clear() {
         document.getElementById("txt_UserName").value = "";
         document.getElementById("txt_Pwd").value = "";
@@ -14,6 +14,7 @@
     }
 </script>
     <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -74,7 +75,7 @@
                             </td>
                             <td colspan="4">
                                 <ace:LabelEx ID="LabelEx4" runat="server" CssClass="Label" Font-Bold="True" Font-Names="Arial"
-                                    Font-Size="Large" ForeColor="Red">ΩˆŒ÷È±¶ø‚¥Ê°¢œ˙ €π‹¿ÌœµÕ≥—› æ’æµ„</ace:LabelEx>
+                                    Font-Size="Large" ForeColor="Red">ÈáëÈë´Áè†ÂÆùÂ∫ìÂ≠ò„ÄÅÈîÄÂîÆÁÆ°ÁêÜÁ≥ªÁªüÊºîÁ§∫Á´ôÁÇπ</ace:LabelEx>
                             </td>
                             <td>
                             </td>
@@ -157,7 +158,7 @@
                             <td>
                             </td>
                             <td>
-                                <ace:labelex id="LabelEx1" runat="server" cssclass="Label" font-bold="True">”√ªß√˚:</ace:labelex>
+                                <ace:labelex id="LabelEx1" runat="server" cssclass="Label" font-bold="True">Áî®Êà∑Âêç:</ace:labelex>
                             </td>
                             <td>
                                 <ace:TextBoxEx ID="txt_UserName" runat="server"></ace:TextBoxEx></td>
@@ -180,7 +181,7 @@
                             <td>
                             </td>
                             <td>
-                                <ace:labelex id="LabelEx2" runat="server" cssclass="Label" font-bold="True">√‹¬Î:</ace:labelex>
+                                <ace:labelex id="LabelEx2" runat="server" cssclass="Label" font-bold="True">ÂØÜÁ†Å:</ace:labelex>
                             </td>
                             <td>
                                 <ace:textboxex id="txt_Pwd" runat="server" TextMode="Password"></ace:textboxex>
@@ -248,10 +249,10 @@
                             <td>
                             </td>
                             <td align="center">
-                                <ace:buttonex id="btn_OK" runat="server" text="µ«¬Ω" OnClick="btn_OK_Click"></ace:buttonex>
+                                <ace:buttonex id="btn_OK" runat="server" text="ÁôªÈôÜ" OnClick="btn_OK_Click"></ace:buttonex>
                             </td>
                             <td align="center">
-                                <ace:buttonex id="btn_Cancel" runat="server" text="÷ÿ÷√" onClientClick="javascript:return Clear();"></ace:buttonex>
+                                <ace:buttonex id="btn_Cancel" runat="server" text="ÈáçÁΩÆ" onClientClick="javascript:return Clear();"></ace:buttonex>
                             </td>
                             <td>
                             </td>
