@@ -141,7 +141,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
             case ACTION_NONE: break;
             case ACTION_NEW_ENROLL_STUDENT:
                 string qIDCard = this.hidIDCard.Value;
-                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIDCard + "'");
+                lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(qIDCard);
                 if (lObjStudent == null)
                 {
                     this.fnUINewEnrollStudentSucess(false);
@@ -168,7 +168,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 {
                     //this.lbIdentityAlertMsg.Text = "没有该学员的指纹信息";
                     return;
-                } lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + lArrUserIds[0].ToString() + "'");
+                } lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
                 if (lObjStudent == null)
                 {
                     this.lbIdentityAlertMsg.Text = "没有该学员的信息";

@@ -88,7 +88,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         idcard = StringHelper.fnFormatNullOrBlankString(idcard, "");
         if (idcard != "") {
             TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(idcard);
-            FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+idcard+"'");
+            FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
             fnUILoadStudentRecord(fso,tempStudentInfo);
         }
 
