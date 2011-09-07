@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Theme="DefaultTheme" 
+ï»¿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Theme="DefaultTheme" 
 CodeFile="Product_List.aspx.cs" Inherits="ProductList" %>
 
 <%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="ace" %>
@@ -20,7 +20,7 @@ CodeFile="Product_List.aspx.cs" Inherits="ProductList" %>
             }
             return false;
         }
-    //Çå³ı×Ö·û´®Ç°ºóµÄ¿Õ×Ö´®
+    //æ¸…é™¤å­—ç¬¦ä¸²å‰åçš„ç©ºå­—ä¸²
     String.prototype.trim = function(){
 	    return this.replace(/^[\s]+|[\s]+$/, "");
     };
@@ -65,7 +65,7 @@ CodeFile="Product_List.aspx.cs" Inherits="ProductList" %>
         return false;
     }
     function DeleteConfirm() {
-        var re = window.confirm("È·¶¨ÒªÉ¾³ı´ËÉÌÆ·Âğ ?");
+        var re = window.confirm("ç¡®å®šè¦åˆ é™¤æ­¤å•†å“å— ?");
         if (re) {
             return true;
         }
@@ -96,18 +96,18 @@ CodeFile="Product_List.aspx.cs" Inherits="ProductList" %>
     }
     function Product_OpenNormal(strUrl, windowName) {
         var vTmd=Math.random();
-        //»ñµÃ´°¿ÚµÄ´¹Ö±Î»ÖÃ
+        //è·å¾—çª—å£çš„å‚ç›´ä½ç½®
         var iTop = (window.screen.availHeight - 30 - 600) / 2;
-        //»ñµÃ´°¿ÚµÄË®Æ½Î»ÖÃ
+        //è·å¾—çª—å£çš„æ°´å¹³ä½ç½®
         var iLeft = (window.screen.availWidth - 10 - 830) / 2;
         window.open(strUrl, windowName, 'height=600px,width=830px,status=no,toolbar=no,menubar=no,top=' + iTop + ',left=' + iLeft + ',location=no,scrollbars=yes,resizable=no');
         
         //return window.showModalDialog(strUrl,windowName,'dialogWidth=830px;dialogHeight=600px;center:1;help:0;status:0;resizable:0');
     }
     function Open_AddWindow() {
-        //»ñµÃ´°¿ÚµÄ´¹Ö±Î»ÖÃ
+        //è·å¾—çª—å£çš„å‚ç›´ä½ç½®
         var iTop = (window.screen.availHeight - 30 - 600) / 2;
-        //»ñµÃ´°¿ÚµÄË®Æ½Î»ÖÃ
+        //è·å¾—çª—å£çš„æ°´å¹³ä½ç½®
         var iLeft = (window.screen.availWidth - 10 - 830) / 2;
         window.open('Product_Profile.aspx?PROID=0&flag=Add', 'Product', 'height=600px,width=830px,status=no,toolbar=no,menubar=no,top=' + iTop + ',left=' + iLeft + ',location=no,scrollbars=yes,resizable=no');
         return false;
@@ -156,7 +156,7 @@ function hiddenButton_onclick() {
                             <td align="left">
                                 <b><font size="4" color="gray">
                                     <asp:Label ID="lbl_BuildingProfile" runat="server"
-                                        Text="²úÆ·¹ÜÀí" Font-Size="Large"></asp:Label></font></b>
+                                        Text="äº§å“ç®¡ç†" Font-Size="Large"></asp:Label></font></b>
                             </td>
                         </tr>
         <tr>
@@ -168,39 +168,39 @@ function hiddenButton_onclick() {
         </tr>
         <tr>
             <td style="height: 23px; width:12%" align="right">
-                <ace:LabelEx ID="LabelEx1" runat="server" CssClass="Label">¹©»õÉÌ:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx1" runat="server" CssClass="Label">ä¾›è´§å•†:</ace:LabelEx>
             </td>
             <td style="height: 23px; width:15%">
                 <ace:DropDownListEx ID="ddl_OrderName" runat="server" Width="180px">
                     <asp:ListItem>---</asp:ListItem>
-                    <asp:ListItem>½ğÖÁ×ğ</asp:ListItem>
-                    <asp:ListItem>ÖÜ´óÉú</asp:ListItem>
+                    <asp:ListItem>é‡‘è‡³å°Š</asp:ListItem>
+                    <asp:ListItem>å‘¨å¤§ç”Ÿ</asp:ListItem>
                 </ace:DropDownListEx>
             </td>
             <%--</ajax:AjaxPanel>--%>
             <td style="height: 23px; width:10%" align="right">
-                <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">²úÆ·Àà±ğ:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">äº§å“ç±»åˆ«:</ace:LabelEx>
             </td>
             <td style="height: 23px; width:15%">
                 <ace:DropDownListEx ID="ddl_Type" runat="server" Width="132px">
                     <asp:ListItem>---</asp:ListItem>
-                    <asp:ListItem>×ê½ä</asp:ListItem>
-                    <asp:ListItem>ÏîÁ´</asp:ListItem>
-                    <asp:ListItem>¶ú»·</asp:ListItem>
-                    <asp:ListItem>ÊÖïí</asp:ListItem>
+                    <asp:ListItem>é’»æˆ’</asp:ListItem>
+                    <asp:ListItem>é¡¹é“¾</asp:ListItem>
+                    <asp:ListItem>è€³ç¯</asp:ListItem>
+                    <asp:ListItem>æ‰‹é•¯</asp:ListItem>
                 </ace:DropDownListEx>
             </td>
             <td style="height: 23px; width:12%" align="right">
-                <ace:LabelEx ID="LabelEx5" runat="server" CssClass="Label">²ÄÖÊÀà±ğ:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx5" runat="server" CssClass="Label">æè´¨ç±»åˆ«:</ace:LabelEx>
             </td>
             <td style="height: 23px; ">
                 
                 <ace:DropDownListEx ID="ddl_Type0" runat="server" Width="132px">
                     <asp:ListItem>---</asp:ListItem>
-                    <asp:ListItem>»Æ½ğ</asp:ListItem>
-                    <asp:ListItem>²¬½ğ</asp:ListItem>
-                    <asp:ListItem>îÙ½ğ</asp:ListItem>
-                    <asp:ListItem>°×Òø</asp:ListItem>
+                    <asp:ListItem>é»„é‡‘</asp:ListItem>
+                    <asp:ListItem>é“‚é‡‘</asp:ListItem>
+                    <asp:ListItem>é’¯é‡‘</asp:ListItem>
+                    <asp:ListItem>ç™½é“¶</asp:ListItem>
                 </ace:DropDownListEx>
             </td>
             <%--<input type="button" id="hiddenButton" runat="server" style="width: 83px" onclick="hiddenButton_Click"/>--%>
@@ -211,36 +211,36 @@ function hiddenButton_onclick() {
         </tr>
         <tr>
             <td align="right">
-                <ace:LabelEx ID="LabelEx2" runat="server" CssClass="Label">²úÆ·Ãû³Æ:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx2" runat="server" CssClass="Label">äº§å“åç§°:</ace:LabelEx>
             </td>
             <td>
                 <ace:TextBoxEx ID="txt_ProductName" runat="server" Width="175px"></ace:TextBoxEx>
             </td>
             <td align="right">
-                <ace:LabelEx ID="LabelEx4" runat="server" CssClass="Label">ÌõÂë:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx4" runat="server" CssClass="Label">æ¡ç :</ace:LabelEx>
             </td>
             <td>
                 <ace:TextBoxEx ID="txt_Barcode" runat="server"></ace:TextBoxEx>
             </td>
             <td align="right">
-                <ace:LabelEx ID="LabelEx6" runat="server" CssClass="Label">ËùÊôÃÅµê:</ace:LabelEx>
+                <ace:LabelEx ID="LabelEx6" runat="server" CssClass="Label">æ‰€å±é—¨åº—:</ace:LabelEx>
             </td>
             <td>
                 
                 <ace:DropDownListEx ID="ddl_Type1" runat="server" Width="132px">
                     <asp:ListItem>---</asp:ListItem>
-                    <asp:ListItem>µÚÒ»ÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚ¶şÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚÈıÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚËÄÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚÎåÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚÁùÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚÆßÃÅµê</asp:ListItem>
-                    <asp:ListItem>µÚ°ËÃÅµê</asp:ListItem>
+                    <asp:ListItem>ç¬¬ä¸€é—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬äºŒé—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬ä¸‰é—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬å››é—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬äº”é—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬å…­é—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬ä¸ƒé—¨åº—</asp:ListItem>
+                    <asp:ListItem>ç¬¬å…«é—¨åº—</asp:ListItem>
                 </ace:DropDownListEx>
             </td>
             <td style="height: 23px; ">
-                <asp:CheckBox ID="chk_IsSaled" runat="server" Text="ÒÑÊÛ³ö" />
+                <asp:CheckBox ID="chk_IsSaled" runat="server" Text="å·²å”®å‡º" />
             </td>
            
         </tr>
@@ -253,17 +253,17 @@ function hiddenButton_onclick() {
                 <table width="100%" border="0" cellspacing="0" cellpadding="1">
                     <tr>
                         <td style="white-space: nowrap">
-                            <ace:ButtonEx ID="btn_Search" runat="server" Text="²éÑ¯"
+                            <ace:ButtonEx ID="btn_Search" runat="server" Text="æŸ¥è¯¢"
                                 Width="70px" OnClick="btn_Search_Click" CssClass="ButtonFlat" 
                                 DialogHeight="400px" onClientClick="javascript:return CheckSearch();"
                                 DialogWidth="600px" LeftSpace="0" RightSpace="0"
                                 ShowConfirmMsg="False" ShowWaitingPanel="False" />
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <ace:ButtonEx ID="btn_Add" runat="server" Text="Èë¿â" Width="70px" onClientClick="javascript:return Open_AddWindow();"
+                            <ace:ButtonEx ID="btn_Add" runat="server" Text="å…¥åº“" Width="70px" onClientClick="javascript:return Open_AddWindow();"
                                 CssClass="ButtonFlat" DialogHeight="400px" DialogWidth="400px" LeftSpace="0"
                                  RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False" />
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <ace:ButtonEx ID="btn_Delete" runat="server" Text="É¾³ı" Width="70px" onClientClick="javascript:return DeleteCheck();"
+                            <ace:ButtonEx ID="btn_Delete" runat="server" Text="åˆ é™¤" Width="70px" onClientClick="javascript:return DeleteCheck();"
                                 CssClass="ButtonFlat" DialogHeight="400px" DialogWidth="400px" LeftSpace="0"
                                  RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False" 
                                 onclick="btn_Delete_Click" />
@@ -271,7 +271,7 @@ function hiddenButton_onclick() {
                         <td align="left" style="width: 100%;display:none;">
                             <asp:Button ID="hiddenButton" runat="server" onclick="hiddenButton_Click" />
                             <ace:ButtonEx ID="btn_Reset" runat="server" onClientClick="javascript:return ResetSearch();"
-                                Text="ÖØÖÃ" Width="70px" Visible="False" />
+                                Text="é‡ç½®" Width="70px" Visible="False" />
                         </td>
                     </tr>
                 </table>
@@ -294,7 +294,7 @@ function hiddenButton_onclick() {
                                         <ItemStyle Width="8px" Font-Bold="False" Font-Italic="False" Font-Overline="False"
                                             Font-Strikeout="False" Font-Underline="False" />
                                     </ace:CheckBoxColumn>
-                                    <ace:MultiQueryStringColumn WinType="Normal" DataTextField="Product_Name" HeaderText="Æ·Ãû"
+                                    <ace:MultiQueryStringColumn WinType="Normal" DataTextField="Product_Name" HeaderText="å“å"
                                         SortExpression="Product_Name" DataNavigateUrlField="Product_ID"
                                         DataNavigateUrlFormatString="javascript:Product_OpenNormal('Product_Profile.aspx?PROID={0}&flag=Edit','Product');"
                                         PopupWin="False" WinHeight="700px" WinWidth="1050px" CharCount="0" NavigateUrl=""
@@ -302,47 +302,47 @@ function hiddenButton_onclick() {
                                         <ItemStyle HorizontalAlign="Left" Width="17%" />
                                         <HeaderStyle HorizontalAlign="Left" />
                                     </ace:MultiQueryStringColumn>
-                                    <asp:boundcolumn DataField="Barcode" HeaderText="ÌõÂë" SortExpression="Barcode">
+                                    <asp:boundcolumn DataField="Barcode" HeaderText="æ¡ç " SortExpression="Barcode">
                                         <itemstyle horizontalalign="Left" width="12%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Factory_Weight" HeaderText="¹¤³§»õÖØ" SortExpression="Factory_Weight">
+                                    <asp:boundcolumn DataField="Factory_Weight" HeaderText="å·¥å‚è´§é‡" SortExpression="Factory_Weight">
                                         <itemstyle horizontalalign="Left" width="8%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Gold_NetWeight" HeaderText="¾»½ğÖØ" SortExpression="Gold_NetWeight">
+                                    <asp:boundcolumn DataField="Gold_NetWeight" HeaderText="å‡€é‡‘é‡" SortExpression="Gold_NetWeight">
                                         <itemstyle horizontalalign="Left" width="6%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="ShouCun" HeaderText="ÊÖ´ç" SortExpression="ShouCun">
+                                    <asp:boundcolumn DataField="ShouCun" HeaderText="æ‰‹å¯¸" SortExpression="ShouCun">
                                         <itemstyle horizontalalign="Left" width="5%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Price" HeaderText="ÁãÊÛ¼Û" SortExpression="Price">
+                                    <asp:boundcolumn DataField="Price" HeaderText="é›¶å”®ä»·" SortExpression="Price">
                                         <itemstyle horizontalalign="Left" width="6%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Style" HeaderText="¿îºÅ" SortExpression="ProducStylet_Size">
+                                    <asp:boundcolumn DataField="Style" HeaderText="æ¬¾å·" SortExpression="ProducStylet_Size">
                                         <itemstyle horizontalalign="Left" width="8%" />
                                         <headerstyle horizontalalign="Left" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Old_NO" HeaderText="Ô­±àºÅ" SortExpression="Old_NO">
+                                    <asp:boundcolumn DataField="Old_NO" HeaderText="åŸç¼–å·" SortExpression="Old_NO">
                                         <itemstyle horizontalalign="Right" width="8%" />
                                         <headerstyle horizontalalign="Right" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Real_Number" HeaderText="¼şÊı" SortExpression="Real_Number">
+                                    <asp:boundcolumn DataField="Real_Number" HeaderText="ä»¶æ•°" SortExpression="Real_Number">
                                         <itemstyle horizontalalign="Right" width="5%" />
                                         <headerstyle horizontalalign="Right" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="SuJinFeiYong" HeaderText="ËØ½ğ¹¤·Ñ" SortExpression="SuJinFeiYong">
+                                    <asp:boundcolumn DataField="SuJinFeiYong" HeaderText="ç´ é‡‘å·¥è´¹" SortExpression="SuJinFeiYong">
                                         <itemstyle horizontalalign="Right" width="8%" />
                                         <headerstyle horizontalalign="Right" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="GongFei" HeaderText="¹¤·Ñ" SortExpression="GongFei">
+                                    <asp:boundcolumn DataField="GongFei" HeaderText="å·¥è´¹" SortExpression="GongFei">
                                         <itemstyle horizontalalign="Right" width="5%" />
                                         <headerstyle horizontalalign="Right" />
                                     </asp:boundcolumn>
-                                    <asp:boundcolumn DataField="Factory_Name" HeaderText="¹©»õÉÌ" SortExpression="Factory_Name">
+                                    <asp:boundcolumn DataField="Factory_Name" HeaderText="ä¾›è´§å•†" SortExpression="Factory_Name">
                                         <itemstyle horizontalalign="Right" width="9%" />
                                         <headerstyle horizontalalign="Right" />
                                     </asp:boundcolumn>
