@@ -23,12 +23,13 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("<div><li  style=\"width:20px;\"></div></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_1\" href=\"../web/Product_List.aspx\">产品管理</a>");
-        //Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
-        //Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"../Product_List.aspx\">产品入库</a></li>");
-        //Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"../Product_Send.aspx\">产品调拨</a></li>");
-        //Html.Append("</ul></div></div></li>");
+        Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
+        Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"../Product_List.aspx\">入库单管理</a></li>");
+        Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"../Product_Send.aspx\">产品批量入库</a></li>");
+        Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"../Product_Send.aspx\">产品单个入库</a></li>");
+        Html.Append("</ul></div></div></li>");
 
-        Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+     //   Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_2\" href=\"#\"><span class=\"imea imeam\"><span></span></span>产品调拨</a>");
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
