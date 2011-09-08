@@ -25,7 +25,7 @@
        <asp:DataGrid ID="dgLogs" runat="server" AutoGenerateColumns="false" BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" Width="100%" >
          <Columns>
             <asp:BoundColumn DataField="name" HeaderText="场地名称"></asp:BoundColumn>
-            <asp:BoundColumn DataField="bustype" HeaderText="业务类型"></asp:BoundColumn>
+            <asp:BoundColumn DataField="bustype_name" HeaderText="业务类型"></asp:BoundColumn>
             <asp:BoundColumn DataField="tnum" HeaderText="成功审核次数"></asp:BoundColumn>
          </Columns>
          
