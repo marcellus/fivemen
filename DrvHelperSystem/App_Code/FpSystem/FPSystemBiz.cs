@@ -387,6 +387,27 @@ public class FPSystemBiz
             log.CHECKIN_DATE = lDtCheckin;
             log.REMARK = fso.REMARK;
             log.CHECKIN_STATUE = fso.STATUE;
+            int statue = fso.STATUE;
+            if (statue == FpStudentObject.STATUE_KM1_ENTER)
+            {
+                log.REMARK = "科目1进场";
+            }
+            else if (statue == FpStudentObject.STATUE_KM2_ENTER) {
+                log.REMARK = "科目2进场";
+            }
+            else if (statue == FpStudentObject.STATUE_KM1_ENTER)
+            {
+                log.REMARK = "科目3进场";
+            }
+            else if (statue == FpStudentObject.STATUE_LESSON_START)
+            {
+                log.REMARK = "上课进场";
+            }
+            else if (statue == FpStudentObject.STATUE_LESSON_END)
+            {
+                log.REMARK = "下课离场";
+            }
+            
             isCheckin= SimpleOrmOperator.Create(log);
         }
         return isCheckin;
