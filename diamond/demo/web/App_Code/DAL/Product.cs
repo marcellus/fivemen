@@ -351,6 +351,18 @@ public class Product : ModuleDALBase
                 return string.Empty;
             }
         }
+        public int getMaxID()
+        {
+            int maxid=0;
+            string sql = "select max(a.Product_ID) from product a ";
+            DataSet ds = this.DatabaseAccess.ExecuteDataset(sql);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                maxid = Int32.Parse(ds.Tables[0].Rows[0][0].ToString());
+            }
+            return maxid;
+        
+        }
         public string GetPictureNameList(string idlist)
         {
             string picnamelist = string.Empty;
