@@ -363,6 +363,29 @@ public class Product : ModuleDALBase
             return maxid;
         
         }
+    /// <summary>
+    /// 根据产品编号获取复秤
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <returns></returns>
+        public double GetComfirmWeight(string ID)
+        {
+            double weight = 0;
+            string sql = string.Format("select ComfirmWeight from Product where Product_ID={0}", ID);
+            DataSet ds = this.DatabaseAccess.ExecuteDataset(sql);
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            { 
+                weight=ds.Tables[0].Rows[0][0]==null?0:double.Parse(ds.Tables[0].Rows[0][0].ToString());
+            
+            }
+
+            return weight;
+        
+        
+        }
+       
+
+
         public string GetPictureNameList(string idlist)
         {
             string picnamelist = string.Empty;
