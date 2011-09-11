@@ -375,7 +375,7 @@ public class Product : ModuleDALBase
             DataSet ds = this.DatabaseAccess.ExecuteDataset(sql);
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             { 
-                weight=ds.Tables[0].Rows[0][0]==null?0:double.Parse(ds.Tables[0].Rows[0][0].ToString());
+                weight=ds.Tables[0].Rows[0][0].ToString()==""?0:double.Parse(ds.Tables[0].Rows[0][0].ToString());
             
             }
 
