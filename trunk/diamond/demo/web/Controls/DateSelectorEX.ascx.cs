@@ -19,7 +19,7 @@ public partial class Controls_DateSelectorEX : System.Web.UI.UserControl
         //if (Cul == "cn")
         //    jsfile = "../Controls/cal/popcalendar.js";
         //string formatstr = ModuleConfiguration.ModuleConfig.GetConfigValue("DateStringFormat").ToLower();
-        string formatstr = "yyyy-MM-dd";
+        string formatstr = "yyyy-mm-dd";
         string scriptStr = "javascript:return popUpCalendar(this," + getClientID() + @", '"+formatstr+@"', '__doPostBack(\'" + getClientID() + @"\')')";
         this.txt_Date.Width = Width;
         //Response.Write(scriptStr);
