@@ -1,0 +1,158 @@
+﻿body 
+{
+	font-size:10pt;
+	
+}
+
+
+fieldset
+{
+	border-color:black;border-width:1px;border-style:solid;
+}
+fieldset legend
+{
+	color:#333333;font-size:11pt;
+}
+fieldset div
+{
+	margin-left:10px;
+}
+input
+{
+	width:80px;
+}
+.btn
+{
+	height:30px;
+	width:100px;
+	
+}
+
+
+/*********************************************
+ mispig : the Gridview style
+*********************************************/
+.gvStyle {
+ border: 1px solid #CCC;
+}
+/*Header 標題*/
+.gvStyle th
+{
+    background-color: #E2EAF2;
+    font-weight: lighter;
+    border: 1px solid #ccc;
+    height:25px;
+    text-align:center;
+}
+/*OnMouseOver 滑鼠移過列表時, 背景色變更*/
+.gvStyle tr:hover
+{
+    background-color:#FFF4DA;
+}
+/*Rows 列表顏色*/
+.gvStyle td
+{
+    border: 1px solid #ccc;
+    height:25px;
+    text-align:center;
+}
+/*Change Rows 如果想要有單、雙列不同顏色替換, 在這裡更換*/
+.gvStyle .alt
+{
+    background-color:#efefef;
+    border: 1px solid #ccc;
+    height:25px;
+}
+/*Page 分頁顏色*/
+.gvStyle .pgr table
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+.gvStyle .pgr td
+{
+    background-color:#E2EAF2;
+    border-width: 0px;
+    padding:0px 3px 0px 3px;
+}
+.gvStyle .pgr a
+{
+    color: #666; text-decoration:underline;
+    padding:0px 3px 0px 3px;
+}
+.gvStyle .pgr a:hover
+{
+    color: #FF0000; text-decoration: none;
+}
+/*******************************************/
+
+/****/
+GridViewStyle
+{   
+    border-right: 2px solid #A7A6AA;
+    border-bottom: 2px solid #A7A6AA;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    padding: 4px;
+}
+
+.GridViewStyle a
+{
+    color: #FFFFFF;
+}
+
+.GridViewHeaderStyle th
+{
+    border-left: 1px solid #EBE9ED;
+    border-right: 1px solid #EBE9ED;
+}
+
+.GridViewHeaderStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle
+{
+    background-color: #F7F6F3;
+    color: #333333;
+}
+
+.GridViewAlternatingRowStyle
+{
+    background-color: #FFFFFF;
+    color: #284775;
+}
+
+.GridViewRowStyle td, .GridViewAlternatingRowStyle td
+{
+    border: 1px solid #EBE9ED;
+}
+
+.GridViewSelectedRowStyle
+{
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.GridViewPagerStyle
+{
+    background-color: #284775;
+    color: #FFFFFF;
+}
+
+.GridViewPagerStyle table /**//* to center the paging links*/
+{
+    margin: 0 auto 0 auto;
+}
+/****/

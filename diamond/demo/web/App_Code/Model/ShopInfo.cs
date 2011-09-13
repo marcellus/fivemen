@@ -1,0 +1,31 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using FT.DAL.Orm;
+
+/// <summary>
+///ShopInfo 的摘要说明
+/// </summary>
+[SimpleTable("Shop")]
+public class ShopInfo
+{
+    public ShopInfo()
+    {
+        //
+        //TODO: 在此处添加构造函数逻辑
+        //
+    }
+    [SimplePK]
+    //[SimpleColumn(Column = "Product_Id")]
+    public int Id;
+
+    [SimpleColumn(Column = "Name")]
+    public string Name;
+
+}

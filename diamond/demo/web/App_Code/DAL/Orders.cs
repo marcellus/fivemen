@@ -50,10 +50,10 @@ public class Orders : ModuleDALBase
 
 		#endregion
 
-		#region 字段属性
-		
+        #region 字段属性
 
-		/// <summary>
+
+        /// <summary>
 		/// 获取或设置Order_ID。
 		/// </summary>
 		[DBField("Order_ID",ACE.Common.EnumDBFieldUsage.PrimaryKey)]

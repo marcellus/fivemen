@@ -119,10 +119,10 @@ public class Users : ModuleDALBase
 		#region 对象属性
 		#endregion
 
-		#region 综合管理
-		#endregion
+        #region 综合管理
+        #endregion
 
-		#region 综合查询
-		#endregion
+        #region 综合查询
+        #endregion
 
-	}
+    }

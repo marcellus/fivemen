@@ -288,13 +288,13 @@ public class Product : ModuleDALBase
 		}
 		#endregion
 
-		#region 对象属性
-		#endregion
+        #region 对象属性
+        #endregion
 
-		#region 综合管理
-		#endregion
+        #region 综合管理
+        #endregion
 
-		#region 综合查询
+        #region 综合查询
         public DataSet GetExportData(string orderid, string typeid, string subtypeid)
         {
             string sql = @"select Product_Name as Name,StyleID as Style,Barcode,Type_Name,SType_Name,Product_Size as Size,Color_Name as Color,Order_Number,Real_Number,Descriptions,Picture from Product 

@@ -1,0 +1,11 @@
+﻿body {
+}
+
+
+.noPrint{
+display:none;
+}
+input.noPrint
+{
+	border:0px;
+}
