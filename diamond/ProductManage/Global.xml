@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--说明:-->
+<!--name:为提取该字符串的关键字-->
+<!--inscn:区域为简体中文下的值-->
+<!--inucn:区域为繁体中文下的值-->
+<!--ineng:区域为英文中文下的值-->
+<globe>
+
+  <!--Login Start-->
+  <item name="User_not_found" inscn="您输入的用户名不存在！"  inucn="您輸入的用戶名不存在！" ineng="--Invalid user name!"/>
+  <item name="User_pwd_error" inscn="您输入密码有误！"  inucn="您輸入的密碼有誤！" ineng="--Invalid password!"/>
+  <!--Login End-->
+  
+  
+  <!-- File Start-->
+  <item name="haveNotFile" inscn="文件不存在或文件为空"  inucn="文件不存在或文件为空" ineng="File Is Empty"/>
+  <item name="fileSizeError" inscn="文件最大不能超过(字节)"  inucn="文件最大不能超过(字节)" ineng="File Length Max(B)"/>
+  <item name="fileTypeError" inscn="文件类型错误"  inucn="文件类型错误" ineng="File Type Invalid"/>
+  <item name="fileSaveSuccessful" inscn="文件保存成功"  inucn="文件保存成功" ineng="Save File Successful"/>
+
+  <item name="SerialNumberIsEmpty" inscn="序列号不能为空"  inucn="序列号不能为空" ineng=" Serial Number is Empty！"/>
+  <item name="SerialNumberIsWrong" inscn="序列号不存在"  inucn="序列号不存在" ineng="Invalid Serial Number！"/>
+  <item name="DigiPassWrong" inscn="动态密码错误"  inucn="动态密码错误" ineng="DigiPass is Wrong！"/>
+  <item name="ExistSN" inscn="序列号已经绑定给其他用户"  inucn="序列号已经绑定给其他用户" ineng="The SN has distibuted to other user ！"/>
+  <!-- File End-->
+  <!--DPX START-->
+  <item name="initKeyTooShort" inscn="Key太短了"  inucn="Key太短了" ineng="The key is too short"/>
+  <!--DPX END-->
+</globe>

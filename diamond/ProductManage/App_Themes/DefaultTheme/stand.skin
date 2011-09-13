@@ -1,0 +1,98 @@
+﻿<%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="cc1" %>
+<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<%--
+<asp:TextBox runat="server" CssClass="NCTextBoxSmall"></asp:TextBox>
+<asp:Menu runat="server" BackColor="#D6ECFE" BorderColor="#78ACFF" border="0" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="13px" ForeColor="black"
+    Orientation="Horizontal" StaticSubMenuIndent="10px" Width="100%">
+    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+    <DynamicHoverStyle BackColor="#66CCFF" ForeColor="black" />
+    <DynamicMenuStyle BorderColor=ActiveBorder BorderWidth="1" BackColor="#78ACFF" />
+    <StaticSelectedStyle BackColor="#78ACFF" />
+    <DynamicSelectedStyle BackColor="#78ACFF" />
+    <DynamicMenuItemStyle BorderColor=ActiveBorder BorderWidth="1"  HorizontalPadding="5px" VerticalPadding="2px" />
+    <StaticHoverStyle BackColor="#66CCFF" ForeColor="black" />
+</asp:Menu>--%>
+                    
+<asp:image runat="server" Imageurl="Images/logo.jpg" skinid="logo" />
+<asp:image runat="server" Imageurl="Images/bullet.jpg" skinid="bullet" />
+
+<asp:Calendar runat="server"  BackColor="White" BorderColor="#EFE6F7"
+    CellPadding="4" DayNameFormat="Shortest" Font-Size="11px"
+    ForeColor="Black" Height="180px" Width="200px">
+    <SelectedDayStyle BackColor="#00732E" Font-Bold="True" ForeColor="White" Font-Size="11px"/>
+    <SelectorStyle BackColor="#00732E" Font-Size="11px"/>
+    <WeekendDayStyle BackColor="#EFF0E8" Font-Size="11px"/>
+    <OtherMonthDayStyle ForeColor="#00732E" Font-Size="12px"/>
+    <TodayDayStyle BackColor="#FFFBD6" ForeColor="Black" Font-Size="11px"/>
+    <NextPrevStyle VerticalAlign="Bottom" Font-Bold="True" ForeColor="White" Font-Size="11px"/>
+    <DayHeaderStyle Font-Bold="True" Font-Size="11px" BackColor="#FFFBD6"/>
+    <TitleStyle BackColor="#00732E" BorderColor="Black" Font-Bold="True" ForeColor="White" Font-Size="12px"/>
+    <DayStyle Font-Size="11px" />
+</asp:Calendar>
+
+<asp:DetailsView runat="server" AllowPaging="True" AutoGenerateRows="False"
+    BackColor="White" BorderColor="#EFE6F7" BorderStyle="None" BorderWidth="1px"
+    CellPadding="3" GridLines="Vertical" Height="50px">
+    <FooterStyle BackColor="#FFFBD6" ForeColor="White" Font-Size="11px"/>
+    <RowStyle BackColor="#FFFFFF" ForeColor="Black" Font-Size="11px"/>
+    <PagerStyle BackColor="#FFFFFF" ForeColor="Black" HorizontalAlign="Center" Font-Size="12px"/>
+    <HeaderStyle BackColor="#6baaa1" Font-Bold="True" ForeColor="White"  Font-Size="12px"/>
+    <EditRowStyle Font-Bold="True" Font-Size="11px"/>
+    <AlternatingRowStyle BackColor="#EFF0E8" Font-Size="11px"/>
+</asp:DetailsView>
+
+<asp:FormView  runat="server" BackColor="#c5e0db" BorderColor="#EFE6F7"
+    BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+    <FooterStyle BackColor="#c5e0db" ForeColor="White" Font-Size="12px"/>
+    <RowStyle BackColor="#c5e0db" ForeColor="Black" Font-Size="11px"/>
+    <PagerStyle BackColor="#c5e0db" ForeColor="Black" HorizontalAlign="Center" Font-Size="12px"/>
+    <HeaderStyle BackColor="#c5e0db" Font-Bold="True" ForeColor="White" Font-Size="12px"/>
+    <EditRowStyle BackColor="#c5e0db" Font-Bold="True" ForeColor="White" Font-Size="12px"/>
+</asp:FormView>
+
+<asp:GridView runat="server"  BackColor="White" BorderColor="#EFE6F7"
+    BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" Font-Size="11px">
+    <FooterStyle BackColor="#CCCCCC" Font-Size="11px" />
+    <PagerStyle BackColor="#E9E9E9" ForeColor="Black" HorizontalAlign="Center" Font-Size="12px"/>
+    <SelectedRowStyle BackColor="#00CCFF" Font-Bold="True" ForeColor="White" Font-Size="11px"/>
+    <HeaderStyle BackColor="#6baaa1" Font-Bold="True" ForeColor="White" Font-Size="11px"/>
+    <AlternatingRowStyle BackColor="#EFF0E8"/>
+</asp:GridView>
+
+<asp:Login runat=server  BackColor="#FFFBD6" BorderColor="#00732E" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="11px" ForeColor="#333333" >
+    <LoginButtonStyle BackColor="White" BorderColor="#00732E" BorderStyle="Solid" BorderWidth="1px"
+        Font-Size="11px" ForeColor="#00732E" />
+    <TextBoxStyle Font-Size="11px" />
+    <TitleTextStyle BackColor="#00732E" Font-Bold="True" Font-Size="11px" ForeColor="White" />
+    <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+</asp:Login>
+
+<asp:SiteMapPath Runat="server"  PathSeparator=" > " Font-Names="Verdana" Font-Size="x-small">
+	<PathSeparatorStyle Font-Bold="True" ForeColor="#00732E"></PathSeparatorStyle>
+	<CurrentNodeStyle ForeColor="#0F9143"></CurrentNodeStyle>
+	<NodeStyle Font-Bold="True" ForeColor="#00732E"></NodeStyle>
+	<RootNodeStyle Font-Bold="True" ForeColor="#000000"></RootNodeStyle>
+</asp:SiteMapPath>
+
+<asp:WebPartZone runat="server"  Width="184px" Height="80px" BorderColor="Black"
+    BorderStyle="None" DragHighlightColor="244, 198, 96" BackColor="Transparent">
+    <PartTitleStyle BackColor="#EFF0E8" ForeColor="#00732E" Font-Bold="true"></PartTitleStyle>
+    <CloseVerb Enabled="False" Visible="False"></CloseVerb>
+    <PartStyle BorderColor="#0F9143" BorderStyle="Outset" BorderWidth="1px" BackColor="#ffffff">
+    </PartStyle>
+</asp:WebPartZone>
