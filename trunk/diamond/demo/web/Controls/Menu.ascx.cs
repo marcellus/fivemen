@@ -58,7 +58,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
             Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
             if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
             {
-                Html.Append("<li><a  name=\"mu_4$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Show_view.aspx\">门店库存查询</a></li>");
+                Html.Append("<li><a  name=\"mu_4$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_List.aspx\">产品查询</a></li>");
             }
             
             if (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user")
