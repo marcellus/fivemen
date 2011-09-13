@@ -38,8 +38,14 @@ public class SaleRecordInfo
       public int  ShopId;
       public string  CustomerName;
        public string CustomerPhone;
+       //public string InVoiceNo;
        public decimal VisaMoney;
         public decimal UserCardMoney;
         public decimal CashMoney;
+        public decimal  TrueMoney;
+        public string Bz;
+
+        //public string SaleLsh;
+
 
 }
