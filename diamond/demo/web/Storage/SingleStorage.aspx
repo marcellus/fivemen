@@ -35,7 +35,7 @@
                         </td>
                         <td style="color: #FF0000" width="225">
                              <ace:DropDownListEx ID="ddl_StoNo" runat="server" Width="200px" DataTextField="StorageNo" 
-                    DataValueField="StorageNo" >
+                    DataValueField="StorageNo"  >
                 </ace:DropDownListEx>
                         </td>
                     </tr>
