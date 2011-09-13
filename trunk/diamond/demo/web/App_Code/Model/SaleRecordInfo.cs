@@ -12,7 +12,7 @@ using FT.DAL.Orm;
 /// <summary>
 ///SaleRecordInfo 的摘要说明
 /// </summary>
-[SimpleTable("Shop")]
+[SimpleTable("SaleRecord")]
 public class SaleRecordInfo
 {
     public SaleRecordInfo()
@@ -22,10 +22,12 @@ public class SaleRecordInfo
         //
     }
     [SimplePK]
+    //[SimpleColumn(Column = "Id")]
     public int Id;
 
     [SimpleColumn(Column = "ProductId")]
     public int ProductId;
+
 
     [SimpleColumn(Column = "SalePrice")]
     public decimal SalePrice;

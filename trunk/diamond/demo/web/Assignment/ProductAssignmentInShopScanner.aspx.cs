@@ -40,8 +40,11 @@ public partial class Assignment_ProductAssignmentInShopScanner : System.Web.UI.P
                 this.gridview.Rows[i].Cells[6].Text = loginuser;
                 string sql = "update Plan_Product set InShopTime=cast('" + now
                     + "',datetime),InShopScanner='"
-                    + loginuser + "',state='进店扫描完成' where PlanId=" + ViewState[Plan_Id].ToString()
+                    + loginuser + "',state='"+ProductStateEnum.InShopScanString+"' where PlanId=" + ViewState[Plan_Id].ToString()
                     + " and ProductId=" + productid;
+                FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
+
+                sql = "update Product set ProductStatus=" + ProductStateEnum.InShopScanInt + ",State='" + ProductStateEnum.InShopScanString + "' where Product_Id=" + productid;
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
             }
         }
@@ -86,7 +89,7 @@ public partial class Assignment_ProductAssignmentInShopScanner : System.Web.UI.P
 
         string sql = "update AssignmentPlan set InShopTime=cast('" + now
                     + "',datetime),InShopScanner='"
-                    + loginuser + "',state='进店扫描完成' where id=" + ViewState[Plan_Id].ToString();
+                    + loginuser + "',state='" + ProductStateEnum.InShopScanString + "' where id=" + ViewState[Plan_Id].ToString();
         FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
         //TODO.处理产品状态
         FT.Commons.Tools.WebFormHelper.Alert(this, "调拨单号" + ViewState[Plan_Name] + "的进店扫描完成！");
