@@ -52,7 +52,7 @@
 
 <td>客户姓名</td>
 <td>
-    <asp:TextBox ID="CustomerName" Width="160px"  runat="server"></asp:TextBox></td>
+    <asp:TextBox ID="txtCustomerName" Width="160px"  runat="server"></asp:TextBox></td>
  <td>联系电话</td>
  <td>
      <asp:TextBox ID="txtCustomerPhone" Width="160px"  runat="server"></asp:TextBox></td>
@@ -66,7 +66,7 @@
  <td><asp:TextBox ID="txtBz" Width="160px"  runat="server"></asp:TextBox></td>
 </tr>
 <tr><td colspan="4">
-<asp:Button ID="btnSave" runat="server" Width="300px" CssClass="ButtonFlat" Text="保存并打印销售单" />
+<asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Width="300px" CssClass="ButtonFlat" Text="保存并打印销售单" />
     <OBJECT ID="printobj" style="display:none"
 	CLASSID="CLSID:A561A382-7330-4A09-923E-85F74F60B851">
 </OBJECT> 
@@ -104,25 +104,52 @@ var obj=document.getElementById("printobj");
 	cs=cs+"Text,Text4,2.116669,"+height+",宋体,10.5,False,现金："+xj+"  找零："+zl+",-2147483640|";
 	//cs=cs+"Text,Text5,15.34585,31.75003,宋体,10.5,False,找零："+zl+",-2147483640|";
 	height=height+len;
-	cs=cs+"Text,Text5,2.116669,"+height+",宋体,10.5,False,品  名        条  码,-2147483640|";
+	cs=cs+"Text,Text5,2.116669,"+height+",宋体,10.5,False,品  名   工厂货重  零售价,-2147483640|";
 	//alert("beginlist");
 	
 	//height=height+len;
+	var table=$('#ctl00_ContentPlaceHolder1_gridview');
+	//alert(table);
+	var count=6;
+	var l=table.find("tr").length+6;
+	//alert( $("#ctl00_ContentPlaceHolder1_gridview").find("tr")[1]);
+    $("#ctl00_ContentPlaceHolder1_gridview tr").each(function () {
+            //alert("findtd");
+            var obj=$(this).find("td");
+            if(obj.length>0)
+            {
+               //alert("data"+obj.length);
+               //alert($(obj[0]).text());
+               // alert($(obj[0]).val());
+               // alert($(obj[0]).html());
+               var out=$(obj[1]).text()+" "+$(obj[6]).text()+" "+$(obj[8]).text();
+               height=height+len;
+               
+	           cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False,"+out+",-2147483640|";
+	           count=count+1;
+            }
+            
+      });
+
+/*
 	for(var i=6;i<16;i++)
 	{
 	    height=height+len;
 	    cs=cs+"Text,Text"+i+",2.116669,"+height+",宋体,10.5,False,翡翠手环        001,-2147483640|";
 	}
-	
+*/	
 	
 	//alert("list");
 	height=height+len;
-	cs=cs+"Text,Text16,2.116669,"+height+",宋体,10.5,False,顾客签名：____________,-2147483640|";
+	cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False,顾客签名：____________,-2147483640|";
 	height=height+len;
-	cs=cs+"Text,Text17,2.116669,"+height+",宋体,10.5,False,售后电话：0755-67303932,-2147483640|";
+	count=count+1;
+	cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False,售后电话：0755-67303932,-2147483640|";
 	height=height+len;
-	cs=cs+"Text,Text18,2.116669,"+height+",宋体,10.5,False, ,-2147483640	";
+	count=count+1;
+	cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False, ,-2147483640	";
 		//alert("sendprintdata");
+		alert(cs);
 	obj.printData(cs);
 	
 }	
@@ -131,6 +158,88 @@ var obj=document.getElementById("printobj");
 </script>
 </div>
     <input id="Button1" onclick="printSaleDetail();" class="ButtonFlat" type="button" value="测试打印销售单" />
+    <div>
+    <ft:GridViewEx CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" runat="server" AutoUpdateAfterCallBack="true"
+                                    Width="100%" ID="gridview" 
+            AutoGenerateColumns="False" AllowPaging="false" AllowSorting="false"
+            GridLines="Horizontal"  >
+                                    <AlternatingRowStyle BackColor="#F7F7F7" />
+                                    <Columns>
+                                       
+                                       
+                                        <asp:TemplateField HeaderText="序号" HeaderStyle-Width="60px"  ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                            <%#String.Format("{0}", (((GridViewRow)Container).RowIndex + 1) )%>
+                                            </ItemTemplate>
+
+<HeaderStyle Width="60px"></HeaderStyle>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                       </asp:TemplateField>
+                                        <asp:BoundField HeaderText="品名" DataField="Product_Name" 
+                                            ReadOnly="true"  HeaderStyle-Width="120px" ItemStyle-Width="120px" >
+<HeaderStyle Width="120px"></HeaderStyle>
+
+<ItemStyle Width="120px"></ItemStyle>
+                                        </asp:BoundField>
+                                        
+                                        <asp:BoundField HeaderText="条码" DataField="Barcode"
+                                            ReadOnly="true"  HeaderStyle-Width="120px" ItemStyle-Width="120px" >
+<HeaderStyle Width="120px"></HeaderStyle>
+
+<ItemStyle Width="120px"></ItemStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderText="款号" DataField="Style"
+                                            ReadOnly="true" HeaderStyle-Width="160px" ItemStyle-Width="160px" >
+<HeaderStyle Width="160px"></HeaderStyle>
+
+<ItemStyle Width="160px"></ItemStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderText="材质" DataField="Cailiao" 
+                                             ReadOnly="true"
+                                            HeaderStyle-Width="80px" ItemStyle-Width="80px" >
+<HeaderStyle Width="80px"></HeaderStyle>
+
+<ItemStyle Width="80px"></ItemStyle>
+                                        </asp:BoundField>
+                                         <asp:BoundField HeaderText="供货商" DataField="Factory_Name" 
+                                            ReadOnly="true" HeaderStyle-Width="80px" ItemStyle-Width="80px" >
+                                  
+<HeaderStyle Width="80px"></HeaderStyle>
+
+<ItemStyle Width="80px"></ItemStyle>
+                                        </asp:BoundField>
+                                        
+                                         <asp:BoundField HeaderText="工厂货重" DataField="Factory_Weight" 
+                                            ReadOnly="true" HeaderStyle-Width="80px" ItemStyle-Width="80px" >
+                                  
+<HeaderStyle Width="80px"></HeaderStyle>
+
+<ItemStyle Width="80px"></ItemStyle>
+                                        </asp:BoundField>
+                                        
+                                         <asp:BoundField HeaderText="净金重" DataField="Gold_NetWeight" 
+                                            ReadOnly="true" HeaderStyle-Width="80px" ItemStyle-Width="80px" >
+                                  
+<HeaderStyle Width="80px"></HeaderStyle>
+
+<ItemStyle Width="80px"></ItemStyle>
+
+                                        </asp:BoundField>
+                                         <asp:BoundField HeaderText="零售价" DataField="Price" 
+                                            ReadOnly="true" HeaderStyle-Width="80px" ItemStyle-Width="80px" >
+                                  
+<HeaderStyle Width="80px"></HeaderStyle>
+
+<ItemStyle Width="80px"></ItemStyle>
+                                        </asp:BoundField>
+                                         
+                                  
+                                    </Columns>
+                                    
+    </ft:GridViewEx>
+    
+    </div>
 </td></tr>
 
 </table>
@@ -139,211 +248,7 @@ var obj=document.getElementById("printobj");
 
 
 <td>
-<table style="width: 300px;">
-    <tr>
-        <td>
-            条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 码
-        </td>
-        <td colspan="3">
-            <input type="text" name="txtBarCode" id="txtBarCode"  style="width: 220px"
-              />  
-        </td>
-        
-      
-    </tr>
-    <tr>
-        <td>
-            供&nbsp; 货&nbsp; 商
-        </td>
-        <td class="style1">
-            <input name="txtGhs" type="text" id="txtGhs" />
-        </td>
-        <td>
-            品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名
-        </td>
-        <td>
-            <input name="txtPm" type="text" id="txtPm" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 号
-        </td>
-        <td class="style1">
-            <input name="txtKh" type="text" id="txtKh" />
-        </td>
-        <td>
-            产品类别
-        </td>
-        <td>
-            <input name="txtCplb" type="text" id="txtCplb" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            材&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 质
-        </td>
-        <td class="style1">
-            <input name="txtCz" type="text" id="txtCz" />
-        </td>
-        <td>
-            工厂货重
-        </td>
-        <td>
-            <input name="txtGchz" type="text" id="txtGchz" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            净&nbsp; 金&nbsp; 重
-        </td>
-        <td class="style1">
-            <input name="txtJjz" type="text" id="txtJjz" />
-        </td>
-        <td>
-            复&nbsp; 秤&nbsp; 重
-        </td>
-        <td>
-            <input name="txtFcz" type="text" id="txtFcz" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            原&nbsp; 编&nbsp; 号
-        </td>
-        <td class="style1">
-            <input name="txtYbh" type="text" id="txtYbh" />
-        </td>
-        <td>
-            手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 寸
-        </td>
-        <td>
-            <input name="txtSc" type="text" id="txtSc" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            零&nbsp; 售&nbsp; 价
-        </td>
-        <td class="style1">
-            <input name="txtLsj" type="text" id="txtLsj" />
-        </td>
-        <td>
-            素金工费
-        </td>
-        <td>
-            <input name="txtSjgf" type="text" id="txtSjgf" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数
-        </td>
-        <td class="style1">
-            <input name="txtJs" type="text" id="txtJs" />
-        </td>
-        <td>
-            工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 费
-        </td>
-        <td>
-            <input name="txtGf" type="text" id="txtGf" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注
-        </td>
-        <td colspan="3">
-            <input name="txtBz" type="text" id="txtBz" style="width:230px" />
-        </td>
-    </tr>
-    <tr>
-        <td style="vertical-align:top">
-            图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 片
-        </td>
-        <td colspan="3">
-            <img id="imgPic" src="" style="height:223px;width:230px;border-width:1px;" />
-        </td>
-    </tr>
-</table>
-<script type="text/javascript" language="javascript">
-function Self_TestMethod()
-{
-alert("123");
-}
-function ShowProductDetail()
-{
- //alert("begin");
-  $.ajax({              
-        type: "POST",             
-        url: "../Services/ProductDetailShow.aspx",              
-        data: "{}",              
-        contentType: "application/json; charset=utf-8",              
-        dataType: "json",               
-        success: function(msg) {               
-        //instantiate a template with data 
-           // alert("success");              
-              //  alert(msg.Ghs);
-              $("#txtGhs").val(msg.Ghs);
-               $("#txtPm").val(msg.Pm);
-               
-               $("#txtCplb").val(msg.Cplb);
-                $("#txtCz").val(msg.Cz);
-                 $("#txtKh").val(msg.Kh);
-               
-                $("#txtJs").val(msg.Js);
-               $("#txtLsj").val(msg.Lsj);
-               
-                $("#txtSjgf").val(msg.Sjgf);
-               $("#txtSc").val(msg.Sc);
-               
-               
-                $("#txtYbh").val(msg.Ybh);
-               $("#txtJjz").val(msg.Jjz);
-                $("#txtFcz").val(msg.Fcz);
-                 $("#txtGchz").val(msg.Gchz);
-               
-                $("#txtGf").val(msg.Gf);
-               $("#txtBz").val(msg.Bz);
-               
-                $("#txtGf").val(msg.Gf);
-               $("#txtBz").val(msg.Bz);
-               alert(msg.ImgPath);
-               $("#imgPic").attr("src",msg.ImgPath);
-                    if(AfterScanProcess)
-                    {
-                        AfterScanProcess(msg);
-                    }
-                },
-       error:function(msg)
-       { 
-       //alert("error");
-       //alert(msg.Ghs);
-         //alert("error");
-       }
-                
-                }); 
-  //alert("end");
-
-}
-
-//alert("123");
-$(document).ready(function() {
-//alert("beginonready");
-$("#txtBarCode").keydown(function(event){
-
-if(event.keyCode==13){  
-   //doSth  
-   ShowProductDetail();
-   }  
-
- 
-  
-});        
-});
-
-
-</script>
+<uc:Product ID="product1" runat="server" OnScanChanged="scanChange_Click" />
 
 </td></tr>
 
