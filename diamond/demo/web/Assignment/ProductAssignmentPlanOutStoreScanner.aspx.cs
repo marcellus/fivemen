@@ -37,8 +37,11 @@ public partial class Assignment_ProductAssignmentPlanOutStoreScanner : System.We
                 this.gridview.Rows[i].Cells[6].Text = loginuser;
                 string sql = "update Plan_Product set OutStoreTime=cast('" + now
                     + "',datetime),OutStoreScanner='"
-                    + loginuser + "',state='出库扫描完成' where PlanId=" + ViewState[Plan_Id].ToString()
+                    + loginuser + "',state='"+ProductStateEnum.OutStoreScanString+"' where PlanId=" + ViewState[Plan_Id].ToString()
                     +" and ProductId="+productid;
+                FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
+
+                sql = "update Product set ProductStatus=" + ProductStateEnum.OutStoreScanInt + ",State='" + ProductStateEnum.OutStoreScanString + "' where Product_Id=" + productid;
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
             }
         }
@@ -87,7 +90,7 @@ public partial class Assignment_ProductAssignmentPlanOutStoreScanner : System.We
 
         string sql = "update AssignmentPlan set OutStoreTime=cast('" + now
                     + "',datetime),OutStoreScanner='"
-                    + loginuser + "',state='出库扫描完成' where id=" + ViewState[Plan_Id].ToString();
+                    + loginuser + "',state='" + ProductStateEnum.OutStoreScanString + "' where id=" + ViewState[Plan_Id].ToString();
        FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
        //TODO.处理产品状态
        FT.Commons.Tools.WebFormHelper.Alert(this,"调拨单号"+ViewState[Plan_Name]+"的出库扫描完成！");

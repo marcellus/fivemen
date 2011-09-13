@@ -40,6 +40,7 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
         saleRecord.SaleLsh = System.DateTime.Now.ToString("yyyyMMddHHmmss");
         string loginuser = "贾名";
         saleRecord.Sales = loginuser;
+        saleRecord.ShopId = 2;
         FT.DAL.Orm.SimpleOrmOperator.Create(saleRecord);
 
         string sql = "";
@@ -50,6 +51,9 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
         for (int i = 0; i < lists.Count; i++)
         {
             sql = "insert into Sale_Product(SaleId,ProductId,State) values(" + id.ToString() + "," + lists[i].ToString() + ",'"+ProductStateEnum.BeginSaleString+"')";
+            access.ExecuteSql(sql);
+
+            sql = "update Product set ProductStatus="+ProductStateEnum.BeginSaleInt+",State='"+ProductStateEnum.BeginSaleString+"' where Product_Id=" + lists[i].ToString();
             access.ExecuteSql(sql);
          }
 
@@ -79,12 +83,12 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
         // this.lbPlanNum.Text = lists.Count.ToString();
         string sql = "select * from Product";
         
-        string condition=" where Barcode in('-1' ";
+        string condition=" where Product_Id in(-1 ";
         for (int i = 0; i < lists.Count;i++ )
         {
-            condition += ",'" + lists[i].ToString() + "'";
+            condition += "," + lists[i].ToString() + "";
         }
-        condition += ",'-2')";
+        condition += ",-2)";
         DataTable dt = new DataTable();
         dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable(sql+condition, "tmp");
         object obj = FT.DAL.DataAccessFactory.GetDataAccess().SelectScalar("select sum(Price) from Product "+condition);
@@ -97,15 +101,16 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
     {
         
         Controls_ProductShow show = sender as Controls_ProductShow;
-        string barcode = show.BarCode;
+        //string barcode = show.BarCode;
+        string productId=show.ProductId;
         ArrayList lists = ViewState[Sale_List] as ArrayList;
-        if(lists.Contains(barcode))
+        if (lists.Contains(productId))
         {
 
-            lists.Remove(barcode);
+            lists.Remove(productId);
         }
         else{
-            lists.Add(barcode);
+            lists.Add(productId);
         }
         //ViewState[Sale_List]=lists;
         this.ReBind();

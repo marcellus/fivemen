@@ -149,7 +149,7 @@ var obj=document.getElementById("printobj");
 	count=count+1;
 	cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False, ,-2147483640	";
 		//alert("sendprintdata");
-		alert(cs);
+		//alert(cs);
 	obj.printData(cs);
 	
 }	
@@ -157,8 +157,10 @@ var obj=document.getElementById("printobj");
 
 </script>
 </div>
-    <input id="Button1" onclick="printSaleDetail();" class="ButtonFlat" type="button" value="测试打印销售单" />
+
+    <input style="display:none" id="Button1" onclick="printSaleDetail();" class="ButtonFlat" type="button" value="测试打印销售单" />
     <div>
+    <br />
     <ft:GridViewEx CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" runat="server" AutoUpdateAfterCallBack="true"
                                     Width="100%" ID="gridview" 
             AutoGenerateColumns="False" AllowPaging="false" AllowSorting="false"
