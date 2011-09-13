@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="调拨单详情" AutoEventWireup="true"
     CodeFile="ProductAssignmentPlanDetail.aspx.cs" Inherits="Assignment_ProductAssignmentPlanDetail"
-    Title="无标题页" %>
+     %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div style="margin-left: 10px" class="noPrint">

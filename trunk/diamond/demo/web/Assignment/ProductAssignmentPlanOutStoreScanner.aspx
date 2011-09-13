@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProductAssignmentPlanOutStoreScanner.aspx.cs" Inherits="Assignment_ProductAssignmentPlanOutStoreScanner" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="调拨出库扫描" AutoEventWireup="true" CodeFile="ProductAssignmentPlanOutStoreScanner.aspx.cs" Inherits="Assignment_ProductAssignmentPlanOutStoreScanner"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ajax:AjaxPanel>

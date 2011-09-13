@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProductAssignmentList.aspx.cs" Inherits="Assignment_ProductAssignmentList" Title="无标题页" Theme="DefaultTheme" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="调拨单查询" AutoEventWireup="true" CodeFile="ProductAssignmentList.aspx.cs" Inherits="Assignment_ProductAssignmentList" Theme="DefaultTheme" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ajax:AjaxPanel>
@@ -15,7 +15,9 @@
         &nbsp;&nbsp;调拨单号&nbsp;<asp:TextBox ID="txtPlanName" runat="server"></asp:TextBox>
         &nbsp;&nbsp;<asp:Button ID="btnSearch" runat="server"  OnClick="btnSearch_Click" CssClass="ButtonFlat" Text="查询" />
         
-        &nbsp;&nbsp;<asp:Button ID="btnBeginPlan" runat="server"  CssClass="ButtonFlat" Text="新增调拨计划" />
+        &nbsp;&nbsp;
+        <asp:LinkButton ID="btnBeginPlan"  PostBackUrl="~/Assignment/ProductAssignmentPlan.aspx" runat="server">新增调拨计划</asp:LinkButton>
+
     </div>
     <div style="margin-left:10px">
       

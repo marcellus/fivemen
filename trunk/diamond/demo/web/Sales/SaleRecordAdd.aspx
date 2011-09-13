@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="SaleRecordAdd.aspx.cs" Inherits="Sales_SaleRecordAdd" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="产品销售" AutoEventWireup="true" CodeFile="SaleRecordAdd.aspx.cs" Inherits="Sales_SaleRecordAdd"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 

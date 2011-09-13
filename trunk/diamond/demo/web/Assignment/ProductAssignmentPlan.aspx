@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="新增调拨单" AutoEventWireup="true"
     CodeFile="ProductAssignmentPlan.aspx.cs" Inherits="Assignment_ProductAssignmentPlan"
-    Title="无标题页" StyleSheetTheme="" Theme="DefaultTheme" %>
+    StyleSheetTheme="" Theme="DefaultTheme" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <ajax:AjaxPanel>
