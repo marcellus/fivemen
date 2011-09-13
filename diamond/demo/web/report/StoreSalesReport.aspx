@@ -64,13 +64,13 @@
              <td align="right" style="height: 23px; width:10%">
                  <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">起始时间:</ace:LabelEx>
              </td>
-             <td style="height: 23px; width:15%">
+             <td style="height: 23px; width:15%;margin-top:5px;">
                 <uc:DateSelectorEX ID="txt_startDate" runat="server"  />
              </td>
              <td align="right" style="height: 23px; width:12%">
                  <ace:LabelEx ID="LabelEx5" runat="server" CssClass="Label">截止时间:</ace:LabelEx>
              </td>
-             <td style="height: 23px; ">
+             <td style="height: 23px; margin-top:5px;">
               <uc:DateSelectorEX ID="txt_endDate" runat="server" />
              </td>
              <%--<input type="button" id="hiddenButton" runat="server" style="width: 83px" onclick="hiddenButton_Click"/>--%>
