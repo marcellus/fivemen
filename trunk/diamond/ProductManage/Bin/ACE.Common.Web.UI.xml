@@ -1,0 +1,2254 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ACE.Common.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:ACE.Common.Web.UI.Designer.PanelDesignerEx">
+            <summary>
+            PanelEx控件设计器
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.PanelDesignerEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.PanelDesignerEx.MapPropertyToStyle(System.String,System.Object)">
+            <summary>
+            将指定的属性和值映射到指定的 HTML 样式
+            </summary>
+            <param name="propertyName">属性名</param>
+            <param name="propertyValue">属性值</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.PanelDesignerEx.OnBehaviorAttached">
+            <summary>
+            某一行为附加到设计器时提供通知
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ButtonEx">
+             <summary>
+             在 Web 页上显示普通按钮控件。
+             </summary>
+             <remarks>
+            使用 Button 控件在 Web 页上创建普通按钮。既可以创建 submit 按钮，也可以创建 command 按钮。
+            submit 按钮不具有与按钮关联的命令名（由 CommandName 属性指定）而只是将 Web 页回发到服务器。默认情况下，Button 控件是提交按钮。可以为 Click 事件提供事件处理程序，以便以编程方式控制在单击提交按钮时所执行的操作。
+            通过设置 CommandName 属性，command 按钮具有与该按钮关联的命令名，例如 Sort。这使您可以在一个 Web 页上创建多个 Button 控件，并以编程方式确定单击了哪个 Button 控件。您还可以将 CommandArgument 属性与命令按钮一起使用，提供有关要执行的命令的附加信息，例如 Ascending。可以为 Command 事件提供事件处理程序，以便以编程方式控制在单击 command 按钮时所执行的操作。
+            
+            功能：
+            	1.客户端的提示确认框.
+            	2.处理了页面有校验控件时不能弹出提示框的bug
+            	3.支持弹出模式窗口，并等模式窗口的业务处理完成后再执行服务端的点击事件
+            	4.可以定义按钮的前置、后置空格
+            	5.可以定义服务端事件执行之前要执行的客户端事件
+            	6.可以定义MouseOver、MouseOut的样式
+            	7.支持显示提交等待消息框(要求页面上有id="divWaitingMessage"的层(参见DM/WaitingPanel.ascx控件的实现)，按钮属性ShowWaithingPanel==true)
+            	8.支持在客户端校验通过后先执行指定的脚本再提交(AfterValidScript)。
+            </remarks>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.#cctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            已重写。<see cref="M:System.Web.UI.WebControls.WebControl.AddAttributesToRender(System.Web.UI.HtmlTextWriter)"/>
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.OnPreRender(System.EventArgs)">
+            <summary>
+            已重载。
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="writer"> 要写出到的 HTML 编写器。 </param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.OnClick(System.EventArgs)">
+            <summary>
+            引发 Button 控件的 Click 事件。
+            </summary>
+            <param name="e">包含事件数据的 System.EventArgs。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.OnCommand(System.Web.UI.WebControls.CommandEventArgs)">
+            <summary>
+            引发 Button 控件的 Command 事件。
+            </summary>
+            <param name="e">包含事件数据的 CommandEventArgs。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ButtonEx.System#Web#UI#IPostBackEventHandler#RaisePostBackEvent(System.String)">
+            <summary>
+            使服务器控件能够处理将窗体发送到服务器时引发的事件。
+            </summary>
+            <param name="eventArgument">表示要传递到事件处理程序的可选事件参数的 String。</param>
+        </member>
+        <member name="E:ACE.Common.Web.UI.ButtonEx.Click">
+            <summary>
+            在单击 Button 控件时发生。
+            </summary>
+        </member>
+        <member name="E:ACE.Common.Web.UI.ButtonEx.Command">
+            <summary>
+            在单击 Button 控件时发生。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.CausesValidation">
+            <summary>
+            获取或设置一个值，该值指示在单击 Button 控件时是否执行了验证。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.CommandArgument">
+            <summary>
+            获取或设置可选参数，该参数与关联的 CommandName 一起被传递到 Command 事件。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.CommandName">
+            <summary>
+            获取或设置命令名，该命令名与传递给 Command 事件的 Button 控件相关联。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.Text">
+            <summary>
+            获取或设置在 Button 控件中显示的文本标题。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.NeedRefreshAfterDialog">
+            <summary>
+            获取或设置一个值，该值指示在单击 Button 控件时是否执行了验证。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.DisplayReturnTextControlID">
+            <summary>
+            获取或设置在显示返回值Text的控件ID。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.DisplayReturnValueControlID">
+            <summary>
+            获取或设置在显示返回值Value的控件ID。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.ShowConfirmMsg">
+            <summary>
+            是否显示确认消息框,默认值为False.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.ConfirmMsg">
+            <summary>
+            要显示的提示消息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.LeftSpace">
+            <summary>
+            按钮前置空格数，默认为0。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.RightSpace">
+            <summary>
+            按钮后置空格数，默认为0。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.ShowWaitingPanel">
+            <summary>
+            是否在提交时显示等待消息框,默认值为False。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.PickerType">
+            <summary>
+            弹出窗口的类型。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.PickerPage">
+            <summary>
+            弹出窗口打开的页面。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.DialogHeight">
+            <summary>
+            弹出窗口的高度,默认值为400px。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.DialogWidth">
+            <summary>
+            弹出窗口的宽度,默认值为600px。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.DialogScroll">
+            <summary>
+            弹出窗口是否显示滚动条。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.ReturnValue">
+            <summary>
+            返回值。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.Parameters">
+            <summary>
+            入口参数(查询参数)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.ObjParameters">
+            <summary>
+            入口参数(客户端参数)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.onClientClick">
+            <summary>
+            在按钮的单击事件执行之前执行的脚本(提示框之后，客户端校验之前)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.AfterValidScript">
+            <summary>
+            在按钮的校验事件后要执行的脚本。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.MouseOverCssClass">
+            <summary>
+            MouseOver时的按钮的样式表。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ButtonEx.MouseOutCssClass">
+            <summary>
+            MouseOut时的按钮的样式表。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ButtonEx.PickerWindowType">
+            <summary>
+            弹出窗口的类型。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ButtonEx.PickerWindowType.Normal">
+            <summary>
+            普通窗口。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ButtonEx.PickerWindowType.Modal">
+            <summary>
+            模式窗口。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.RegularExpressionValidatorEx">
+            <summary>
+            RegularExpressionValidatorEx 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RegularExpressionValidatorEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ImageEx">
+            <summary>
+            在 Web 页上显示图像。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ImageEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CollapsePanel">
+            <summary>
+            可折迭的Panel控件。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CollapsePanel.CreateChildControls">
+            <summary>
+            创建子控件。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CollapsePanel.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出控件样式。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CollapsePanel.DataBind">
+            <summary>
+            数据绑定。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CollapsePanel.OnPreRender(System.EventArgs)">
+            <summary>
+            在控件输出之前输出相关的脚本。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.Title">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.Collapsed">
+            <summary>
+            折迭的初始状态。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.TitleIcon">
+            <summary>
+            标题栏左边图标。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.ExpandedIcon">
+            <summary>
+            展开时的图标。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.CollapsedIcon">
+            <summary>
+            关闭时的图标。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.ExpandedTitleColor">
+            <summary>
+            展开时标题栏的背影色。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.CollapsedTitleColor">
+            <summary>
+            关闭时标题栏的背影色。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.ItemPanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CollapsePanel.ItemTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ToolTipColumn">
+             <summary>
+             DataGrid 控件的列类型，带ToolTip和可定义显示字符数的数据列
+             </summary>
+             <example>
+             下面例子演示了ToolTipColumn的用法
+             DataField:要绑定的数据列
+             SortExpression:排序表达式
+             ShowToolTip:是否显示ToolTip
+             CharCount:要显示的字符数,0为全部显示
+             <code>
+             <![CDATA[
+            <%@ Register TagPrefix="ACE" Namespace="ACE.Common.Web.UI" Assembly="ACE.Common.Web.UI" %>
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+            <HTML>
+            <body MS_POSITIONING="GridLayout">
+            <form id="Form1" method="post" runat="server">
+            <ACE:DataGridEx id="DataGridEx1">
+            <Columns>
+            <ACE:ToolTipColumn DataField="category" ShowToolTip="True" SortExpression="category" HeaderText="tooltipcolumn" CharCount="2">
+            </ACE:ToolTipColumn>
+            </Columns>
+            </ACE:DataGridEx>	
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ToolTipColumn.#ctor">
+             <summary>
+            构造器
+             </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ToolTipColumn.FormatDataValue(System.Object)">
+            <summary>
+            将指定的值转换为 DataFormatString 属性指示的格式,
+            如果未设置 DataFormatString 属性，则此方法返回该值的等效字符串
+            </summary>
+            <param name="dataValue">要格式化的值</param>
+            <returns>已转换为由 DataFormatString 属性指示的格式的指定值</returns>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ToolTipColumn.CharCount">
+            <summary>
+            要显示的字符数，一个汉字当作两个字符
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ToolTipColumn.ShowToolTip">
+            <summary>
+            是否显示ToolTip
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CheckBoxListEx">
+            <summary>
+            创建多项选择复选框组，该复选框组可以通过将控件绑定到数据源动态创建。
+            扩展功能:
+            	1.支持验证是否至少选择一个选项；
+            	2.支持通过CheckedValue(2)属性来设置或获取选中的选项(String[]或StringCollection)；
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.Validate">
+            <summary>
+            计算它检查的条件并更新 IsValid 属性。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit方法。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.OnUnload(System.EventArgs)">
+            <summary>
+            重载OnUnload。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载Render。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.OnPreRender(System.EventArgs)">
+            <summary>
+            重载OnPreRender。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxListEx.GetSelectedItemValueList(System.Char)">
+            <summary>
+            获取CheckBoxList控件当前所有选择项的值列表（以split参数指定的字符分隔）。
+            </summary>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.IsRequired">
+            <summary>
+            至少必选一项。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.EnableClientScript">
+            <summary>
+            启用客户端校验。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.IsValid">
+            <summary>
+            获取或设置一个值，通过该值指示用户在指定控件中输入的内容是否通过验证。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.ErrorMessage">
+            <summary>
+            获取或设置条件验证失败时生成的错误信息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.CheckedValue">
+            <summary>
+            获取或设置控件当前选中的选项的值集合(StringCollection)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxListEx.CheckedValue2">
+            <summary>
+            获取或设置控件当前选中的选项的值集合(string[])。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.PagingNavigator">
+            <summary>
+            为列表控件提供统一的分页导航界面及功能实现。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PagingNavigator.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PagingNavigator.DataBind">
+            <summary>
+            将列表控件及其所有子控件绑定到 DataSource 属性指定的数据源。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PagingNavigator.CreateChildControls">
+            <summary>
+            重载。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PagingNavigator.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.AllowPaging">
+            <summary>
+            获取或设置指示是否启用分页的值。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.PageSize">
+            <summary>
+            获取或设置要在列表控件的单页上显示的项数。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.CurrentPageIndex">
+            <summary>
+            获取或设置当前显示页的索引(从零开始)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.DataSource">
+            <summary>
+            获取或设置为填充列表提供数据的数据源。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.ControlToPaging">
+            <summary>
+            要分页的列表控件的ID。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.ButtonType">
+            <summary>
+            设置导航控钮的显示样式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PagingNavigator.Controls">
+            <summary>
+            重载。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CheckBoxColumn">
+             <summary>
+             DataGrid 控件的列类型，用来选择DataGrid数据行，可以绑定到数据源中的字段
+             </summary>
+             <example>
+             下面例子演示了CheckBoxColumn的用法,主要是设置要绑定的CheckBox控件的Value属性的字段名称DataField
+             <code>
+             <![CDATA[
+            <%@ Register TagPrefix="ACE" Namespace="ACE.Common.Web.UI" Assembly="ACE.Common.Web.UI" %>
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+            <HTML>
+            <body MS_POSITIONING="GridLayout">
+            <form id="Form1" method="post" runat="server">
+            <ACE:DataGridEx id="DataGridEx1">
+            <Columns>
+            <ACE:CheckBoxColumn DataField="ID">
+            <HeaderStyle Width="8px">
+            </HeaderStyle>
+            </ACE:CheckBoxColumn>
+            </Columns>
+            </ACE:DataGridEx>	
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.#ctor">
+            <summary>
+            创建CheckBoxColumn实例 <see cref="T:System.Web.UI.WebControls.DataGridColumn"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.Initialize">
+            <summary>
+            重载<see cref="M:System.Web.UI.WebControls.DataGridColumn.Initialize"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            重载 <see cref="M:System.Web.UI.WebControls.DataGridColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.dataBindingContainer_PreRender(System.Object,System.EventArgs)">
+            <summary>
+            在控件呈现之前,如果控件之前已被选择,在已选择列中删除该控件的值.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.BindFieldToCell(System.Web.UI.Control)">
+            <summary>
+            将数据表字段的值绑定到指定的列上。
+            </summary>
+            <param name="bindingContainer">列单元格上的容器控件。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxColumn.ContainerDataBinding(System.Object,System.EventArgs)">
+            <summary>
+            创建绑定控件容器。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.CheckBoxColumn.DataField">
+            <summary>
+            要绑定的数据表字段。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.LabelEx">
+            <summary>
+            在 Web 页上显示文本的标签控件
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.LabelEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ItemPanel">
+            <summary>
+            可折迭的Panel控件的容器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ItemPanel.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Designer.CompositeDesigner">
+            <summary>
+            CompositeDesigner 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CompositeDesigner.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CompositeDesigner.GetDesignTimeHtml">
+            <summary>
+            重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CompositeDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            重载。
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CompareValidatorEx">
+            <summary>
+            将输入控件的值同常数值或其他输入控件的值相比较，
+            以确定这两个值是否与由比较运算符（小于、等于、大于等等）指定的关系相匹配。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CompareValidatorEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Designer.CollapsePanelDesigner">
+            <summary>
+            可折迭的Panel控件的设计器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.GetDesignTimeHtml">
+            <summary>
+            重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.GetEmptyDesignTimeHtml">
+            <summary>
+            重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.GetErrorDesignTimeHtml(System.Exception)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.GetCachedTemplateEditingVerbs">
+            <summary>
+            重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.CreateTemplateEditingFrame(System.Web.UI.Design.TemplateEditingVerb)">
+            <summary>
+            重载。
+            </summary>
+            <param name="verb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.GetTemplateContent(System.Web.UI.Design.ITemplateEditingFrame,System.String,System.Boolean@)">
+            <summary>
+            重载。
+            </summary>
+            <param name="editingFrame"></param>
+            <param name="templateName"></param>
+            <param name="allowEditing"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.SetTemplateContent(System.Web.UI.Design.ITemplateEditingFrame,System.String,System.String)">
+            <summary>
+            重载。
+            </summary>
+            <param name="editingFrame"></param>
+            <param name="templateName"></param>
+            <param name="templateContent"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.Dispose(System.Boolean)">
+            <summary>
+            重载。
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            初始化控件。
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.OnComponentChanged(System.Object,System.ComponentModel.Design.ComponentChangedEventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="sender"></param>
+            <param name="ce"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Designer.CollapsePanelDesigner.AllowResize">
+            <summary>
+            重载。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DataGrid.DataSourceType">
+            <summary>
+            DataSourceType 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.DataGrid.DataSourceType.SQL">
+            <summary>
+            SQL.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.DataGrid.DataSourceType.DataSet">
+            <summary>
+            DataSet.
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DropDownListEx">
+             <summary>
+             允许用户从下拉列表中选择一项的控件,
+             扩展功能：
+            		1.DataTextFiled支持多个数据列绑定,DataTextField多个字段之间用[,]分开;
+            		2.支持树状选项列表的显示(ShowTreeView属性);
+            		3.支持显示表示未定义选项或表示全部选项的选项
+            		(在ShowUnDefine属性为true时，通过UnDefineTitle,UndefineValue的值来构造选项;
+             </summary>
+            <example>下面例子演示了DropDownListEx控件的各种用法
+            <code>
+            <![CDATA[
+            DataSet ds=CreateDataSet();
+             //显示树状
+            ddl.ShowTreeView=true;
+            ddl.DataValueField="SystemID";
+            ddl.DataValueParentField="ParentSystemID";
+            ddl.DataTextField="SystemName";
+            ddl.DataSource=ds;
+            ddl.DataBind();
+             //显示平板状
+            ddl.DataValueField="SystemID";
+            ddl.DataTextField="SystemName";
+            ddl.DataSource=ds;
+            ddl.DataBind();
+             //显示未定义选项
+            ddl.ShowUnDefine=true;
+            ddl.UnDefineTitle="=====全部======";
+            ddl.UnDefineValue="";
+            ddl.DataValueField="SystemID";
+            ddl.DataTextField="SystemName";
+            ddl.DataSource=ds;
+            ddl.DataBind();
+             ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.Validate">
+            <summary>
+            计算它检查的条件并更新 IsValid 属性。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.OnInit(System.EventArgs)">
+            <summary>
+            重载OnInit方法。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.OnUnload(System.EventArgs)">
+            <summary>
+            重载OnUnload。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载Render。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.OnPreRender(System.EventArgs)">
+            <summary>
+            重载OnPreRender。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.OnDataBinding(System.EventArgs)">
+            <summary>
+            重载OnDataBinding方法用于绑定多个数据表字段。
+            </summary>
+            <param name="e">包含事件数据的 EventArgs 对象。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.BuildData">
+            <summary>
+            绑定数据---可用不建议用(用DataBind()代替)。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DropDownListEx.SelectItemByValue(System.String)">
+            <summary>
+            根据传入的值设置选项为选中状态( .NET Framework 1.1 版已支持SelectedValue，不建议再使用该方法)。
+            </summary>
+            <param name="strValue">值</param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.ShowTreeView">
+            <summary>
+            以树状形式显示列表数据。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.DataValueParentField">
+            <summary>
+            树状形式显示时过滤数据的父ID字段名称。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.ShowUnDefine">
+            <summary>
+            显示表示未定义选项或表示全部选项的项目。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.UnDefineTitle">
+            <summary>
+            表示未定义选项或表示全部选项的项目的标题。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.UnDefineValue">
+            <summary>
+            表示未定义选项或表示全部选项的项目的值。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.SplitChar">
+            <summary>
+            数据列之间的分隔符,默认为[:]。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.IsRequired">
+            <summary>
+            至少必选一项非空值。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.EnableClientScript">
+            <summary>
+            启用客户端校验。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.IsValid">
+            <summary>
+            获取或设置一个值，通过该值指示用户在指定控件中输入的内容是否通过验证。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DropDownListEx.ErrorMessage">
+            <summary>
+            获取或设置条件验证失败时生成的错误信息。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DataSourceHelper">
+            <summary>
+            DataSourceHelper 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataSourceHelper.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataSourceHelper.DataSource2IEnumerator(System.Object)">
+            <summary>
+            将object类型的数据转化为IEnumerator对象,现在只支持DataSet,DataTabel,DataView
+            </summary>
+            <param name="oDataSource"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ValidationSummaryEx">
+            <summary>
+            在 Web 页、消息框或在这两者中内联显示所有验证错误的摘要
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ValidationSummaryEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ValidationSummaryEx.OnPreRender(System.EventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ValidationSummaryEx.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ValidationSummaryEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:ACE.Common.Web.UI.RangeValidatorEx">
+            <summary>
+            RangeValidatorEx 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RangeValidatorEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.NavigationButtonType">
+            <summary>
+            导航控钮的类型。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.NavigationButtonType.Text">
+            <summary>
+            文字。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.NavigationButtonType.Image">
+            <summary>
+            图片。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.NavigationButtonType.English">
+            <summary>
+            英文按钮。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ShowType">
+            <summary>
+            提示消息的显示模式.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ShowType.Normal">
+            <summary>
+            普通(Windows默认样式)。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ShowType.Div">
+            <summary>
+            层样式。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ShowType.Drift">
+            <summary>
+            浮动样式。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.LinkButtonEx">
+            <summary>
+            在 Web 页上显示超级链接样式的按钮控件
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.LinkButtonEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.LinkButtonEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="writer"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.LinkButtonEx.ShowConfirmMsg">
+            <summary>
+            是否显示确认消息框,默认值为False.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.LinkButtonEx.ConfirmMsg">
+            <summary>
+            要显示的提示消息
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.LinkButtonEx.MouseOverCssClass">
+            <summary>
+            获取或设置鼠标停放在按钮上面时的按钮的样式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.LinkButtonEx.MouseOutCssClass">
+            <summary>
+            获取或设置鼠标离开按钮时按钮的样式。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.MultiQueryStringColumn">
+             <summary>
+             DataGrid 控件的列类型
+             </summary>
+             <example>
+             下面例子演示了MultiQueryStringColumn的用法.
+             DataTextField :要绑定的字段
+             Text:要列表项上显示的文字
+             Target:获取或设置单击列中的超级链接时显示链接到的 Web 页内容的目标窗口或框架
+             DataNavigateUrlFormatString:带格式的链接
+             datanavigateurlfield:Url所带的参数值绑定字段列表,以逗号（,）分隔
+             NavigateUrl:要打开的链接
+             <code>
+             <![CDATA[
+            <%@ Register TagPrefix="ACE" Namespace="ACE.Common.Web.UI" Assembly="ACE.Common.Web.UI" %>
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+            <HTML>
+            <body MS_POSITIONING="GridLayout">
+            <form id="Form1" method="post" runat="server">
+            <ACE:DataGridEx id="DataGridEx1">
+            <Columns>
+            <ACE:multiquerystringcolumn PopupWin="true" WinHeight="400px" WinWidth="600px" datanavigateurlfield="LeaveID" datanavigateurlformatstring="LeaveEdit.aspx?LeaveID={0}"
+            datatextfield="EmployeeName" sortexpression="EmployeeName" headertext="员工姓名">
+            <headerstyle width="15%"></headerstyle>
+            </ACE:multiquerystringcolumn>
+            
+            弹出模式窗口时如果返回值不为空支持回发，以用于刷新父窗口
+            
+            private void Page_Load(object sender, System.EventArgs e)
+            {
+            if(!Page.IsPostBack)
+            {
+            	this.BindList();
+            }
+            	else
+            {
+            	if(Request.Form["__EVENTARGUMENT"]=="__RefreshDataGrid")
+            {
+            	this.BindList();
+            }
+            }
+            }
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.Initialize">
+            <summary>
+            已重载<see cref="M:System.Web.UI.WebControls.DataGridColumn.Initialize"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            已重载<see cref="M:System.Web.UI.WebControls.DataGridColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.ContainerDataBinding(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.BindFieldToCell(System.Web.UI.Control)">
+            <summary>
+            构造连接。
+            </summary>
+            <param name="ctl">The control which recieves the databinding.</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.BuildNormalWin">
+            <summary>
+            生成并注册弹出普通窗口的脚本。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.MultiQueryStringColumn.BuildModalWin">
+            <summary>
+            生成并注册弹出模式窗口的脚本。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.DataTextField">
+            <summary>
+            获取或设置要绑定到Column 的数据源的字段名称。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.Text">
+             <summary>
+            连接显示的文本,当该属性不为空时，DataTextField 属性不起作用,Text和DataTextField 两者必须有一个不为空。
+             </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.DataNavigateUrlField">
+            <summary>
+            获取或设置数据源中要绑定到Column中的超级链接的 URL 的字段。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.DataNavigateUrlFormatString">
+            <summary>
+            获取或设置当 URL 数据绑定到数据源中的字段时，Column 中的超级链接的 URL 的显示格式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.CharCount">
+            <summary>
+            要显示的字符数，一个汉字当作两个字符;设置该属性时列表显示的文本具有ToolTip的功能。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.NavigateUrl">
+            <summary>
+            获取或设置当单击 列中的超级链接时链接到的 URL
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.PopupWin">
+            <summary>
+            是否弹出窗口,默认为false。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.WinType">
+            <summary>
+            弹出窗口的类别，默认为普通窗口
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.LinkClass">
+            <summary>
+            连接的样式表。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.LinkStyle">
+            <summary>
+            连接的样式表。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.WinHeight">
+            <summary>
+            获取或设置窗口的高度。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.WinWidth">
+            <summary>
+            获取或设置窗口的宽度。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.Target">
+            <summary>
+            获取或设置单击列中的超级链接时显示链接到的 Web 页内容的目标窗口或框架。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.MultiQueryStringColumn.ColumnSign">
+            <summary>
+            用来标识当前列的唯一性标志。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.MultiQueryStringColumn.PopupWinType">
+            <summary>
+            弹出窗口类型定义。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.MultiQueryStringColumn.PopupWinType.Modal">
+            <summary>
+            模式窗口。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.MultiQueryStringColumn.PopupWinType.Normal">
+            <summary>
+            普通窗口(没有IE菜单及工具栏)。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.MultiQueryStringColumn.PopupWinType.Normal2">
+            <summary>
+            普通窗口(带IE菜单及工具栏)。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ExportData">
+            <summary>
+            ExportData 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ExportData.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ExportData.Download">
+            <summary>
+            下载文件
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ExportData.DownloadFileName">
+            <summary>
+            下载文件保存的文件名
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ExportData.ExportFileType">
+            <summary>
+            导出文件的类型
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ExportData.ExportDatagrid">
+            <summary>
+            要导出数据的DataGrid对象
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ExportFileType">
+            <summary>
+            导出文件的类型
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ExportFileType.csv">
+            <summary>
+            CSV格式(逗分隔)
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.ExportFileType.txt">
+            <summary>
+            文本格式(制表符分隔)
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.RequiredFieldValidatorEx">
+            <summary>
+            RequiredFieldValidator
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RequiredFieldValidatorEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DataGridEx">
+             <summary>
+             DataGridEx : 自定义数据列表控件
+            		支持: 
+            			传入SQL语句直接实现分页，排序
+             </summary>
+             <example>
+             下面例子演示了DataGridEx的用法,基本用法与标准的DataGrid相似
+             <code>
+             <![CDATA[
+            <%@ Register TagPrefix="ACE" Namespace="ACE.Common.Web.UI" Assembly="ACE.Common.Web.UI" %>
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+            <HTML>
+            <body MS_POSITIONING="GridLayout">
+            <form id="Form1" method="post" runat="server">
+            <ACE:DataGridEx id="DataGridEx1" style="Z-INDEX: 101; LEFT: 16px; POSITION: absolute; TOP: 16px"
+            runat="server" Width="648px" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True"
+            SortDirection="ASC" CurrentPage="0" TableColumns="*">
+            <PagerStyle HorizontalAlign="Right" BackColor="#A1CFFB" PageButtonCount="5" Mode="NumericPages">
+            </PagerStyle>
+            <AlternatingItemStyle BackColor="#F7F7F7">
+            </AlternatingItemStyle>
+            <ItemStyle BackColor="White">
+            </ItemStyle>
+            <HeaderStyle HorizontalAlign="Center" BackColor="#A1CFFB">
+            </HeaderStyle>
+            <Columns>
+            <ACE:CheckBoxColumn DataField="ID">
+            <HeaderStyle Width="8px">
+            </HeaderStyle>
+            </ACE:CheckBoxColumn>
+            <asp:BoundColumn DataField="name" SortExpression="name" HeaderText="Name"></asp:BoundColumn>
+            <asp:BoundColumn DataField="mobileno" SortExpression="mobileno" HeaderText="mobileno"></asp:BoundColumn>
+            <asp:BoundColumn DataField="category" SortExpression="category" HeaderText="category"></asp:BoundColumn>
+            <ACE:ToolTipColumn DataField="category" ShowToolTip="True" SortExpression="category" HeaderText="tooltipcolumn" CharCount="2"></ACE:ToolTipColumn>
+            <ACE:MultiQueryStringColumn Text="" Target="_blank" DataField="name" QueryStringList="id,category" QueryStringListField="id,category" SortExpression="category" HeaderText="MultiQueryString" DataFormatString="" NavigateUrl="http://www.csdn.net"></ACE:MultiQueryStringColumn>
+            </Columns>
+            </ACE:DataGridEx>
+            </form>
+            </html>
+            
+            DataSource为SQL时绑定列表的代码
+            this.DataGridEx1.SQLString="select * from x25";
+            this.DataGridEx1.BuildData();
+            
+            DataSource为DataSet时绑定列表的代码
+            private void Page_Load(object sender, System.EventArgs e)
+            {
+            		this.DataGridEx1.DataSource=YourDataSet;
+            
+            		if(!Page.IsPostBack)
+            		{
+            			this.DataGridEx1.BuildData();
+            		}
+            	}
+            
+            按钮动作
+            
+            private void btnButton1_Click(object sender, System.EventArgs e)
+            {
+            		do something
+            		this.DataGridEx1.BuildData();
+            }
+            
+            获取已选择行的ID列表，结果以逗号(,)分开
+            string strIDList=this.DataGridEx1.SelectedIDList
+            
+             ]]>
+             </code>
+             </example>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.OnLoad(System.EventArgs)">
+            <summary>
+            在控件加载时执行。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.OnItemDataBound(System.Web.UI.WebControls.DataGridItemEventArgs)">
+            <summary>
+            在数据项被绑定到 DataGrid 控件后设置标题、行的样式。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary> 
+            将此控件呈现给指定的输出参数。
+            </summary>
+            <param name="output"> 要写出到的 HTML 编写器 </param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.OnItemCreated(System.Web.UI.WebControls.DataGridItemEventArgs)">
+            <summary>
+            引发 ItemCreated 事件。这使您可以为事件提供自定义处理程序。
+            </summary>
+            <param name="e">一个 DataGridItemEventArgs，它包含事件数据。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.OnSortCommand(System.Web.UI.WebControls.DataGridSortCommandEventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e">事件参数。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.SaveViewState">
+            <summary>
+            重载该方法为DataGrid瘦身(禁止最外面的子控件DataGridTable的视图状态)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.BuildData">
+             <summary>
+            根据DataSource属性传入数据源或SQLString属性传入的SQL语句生成的DataSet对象，
+            按照当前设置的分页、排序条件重新生成数据源并绑定到列表。
+             </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.LinkButtonClick(System.Object,System.Web.UI.WebControls.CommandEventArgs)">
+            <summary>
+            分页导航条的按钮事件。
+            </summary>
+            <param name="sender">发出事件的控件。</param>
+            <param name="e">为Command事件提供数据。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.BuildTextPagingUI">
+            <summary>
+            生成文本样式的分页导航条。
+            </summary>
+            <returns>表示分页导航条的表格。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.BuildImagePagingUI">
+            <summary>
+            生成图片样式的分页导航条。
+            </summary>
+            <returns>表示分页导航条的表格。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.BuildEnglishPagingUI">
+            <summary>
+            生成分页导航条(英文样式)。
+            </summary>
+            <returns>表示分页导航条的表格。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.TextBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            页面记录数据或页码文本框的值改变时触发的事件。
+            </summary>
+            <param name="sender">触发事件的文本框控件。</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.CreatePagingButton(System.String,System.String,System.String)">
+            <summary>
+            创建分面导航按钮。
+            </summary>
+            <param name="text">按钮显示的文本。</param>
+            <param name="commandName">命令名称。</param>
+            <param name="fontName">字体。</param>
+            <returns>导航按钮。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.CreateNumTextBox(System.String,System.Boolean)">
+            <summary>
+            创建用来输入页面显示记录数及页码的文本框。
+            </summary>
+            <param name="text">默认显示的文本。</param>
+            <param name="autoPostBack">是否支持自动事件回发。</param>
+            <returns>仅能输入数据的文本框。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.BuildPagingInfo">
+            <summary>
+            生成分页信息。
+            </summary>
+            <returns>表示分页信息的字符串。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.CreatePagingTableCell(System.String,System.String)">
+            <summary>
+            创建导航条的表格列。
+            </summary>
+            <param name="width">单元格的宽度。</param>
+            <param name="align">单元格内容对齐方式。</param>
+            <returns>表格列。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.OnBuildDataSource(System.EventArgs)">
+            <summary>
+            给DataGridEx控件提供数据源的方法。
+            </summary>
+            <param name="e">包含事件数据的对象。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataGridEx.InvokeBuildDataSource">
+            <summary>
+            触发获取数据源事件的方法。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.ButtonType">
+            <summary>
+            设置导航控钮的显示样式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.CheckedValue">
+            <summary>
+            选择列默认选中的值的集合,
+            (仅有CheckBoxColumn列时该属性才起作用)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.SelectedIDList">
+            <summary>
+            获取已选择行的ID列表,以逗号(,)分开
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.HighLight">
+            <summary>
+            是否高亮显示当前行。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.HighLightCssClass">
+            <summary>
+            高亮显示的样式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.SQLString">
+            <summary>
+            用来生成列表数据的SQL语句，绑定的数据类型为SQL时，设置该属性
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.DatabaseAccess">
+            <summary>
+            数据库访问对象。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.CurrentPageIndexEx">
+            <summary>
+            获取或设置当前显示页的索引(从零开始)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.PageCountEx">
+            <summary>
+            获取或设置显示DataGrid控件中各项所需的总页数。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.AllowAll">
+            <summary>
+            是否允许显示[全部]按钮。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.AllowExport">
+            <summary>
+            允许导出数据
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.DownloadFileName">
+            <summary>
+            导出保存的文件名
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.DataGridEx.ExportDataSource">
+            <summary>
+            要导出的数据源，为null时导出DataGrid对象的显示内容。
+            </summary>
+        </member>
+        <member name="E:ACE.Common.Web.UI.DataGridEx.BuildDataSource">
+            <summary>
+            给DataGridEx控件提供数据源的事件。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.RepeaterEx">
+            <summary>
+            RepeaterEx 的摘要说明。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RepeaterEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DataListEx">
+            <summary>
+            通过使用模板显示数据源中的项。
+            通过操作组成 DataList 控件的不同组件的模板（如 ItemTemplate 和 HeaderTemplate）， 可以自定义该控件的外观和内容。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.DataListEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CustomValidatorEx">
+            <summary>
+            计算输入控件的值以确定它是否通过自定义的验证逻辑。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CustomValidatorEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Converter.DataGridExConvert">
+            <summary>
+            DataGridEx控件的类型转换器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.DataGridExConvert.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.DataGridExConvert.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            使用指定的上下文返回此对象是否支持可以从列表中选取的标准值集。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <returns>如果应调用 GetStandardValues 来查找对象支持的一组公共值，则为 true；否则，为 false。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.DataGridExConvert.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            当与格式上下文一起提供时，返回此类型转换器设计用于的数据类型的标准值集合。
+            </summary>
+            <param name="context">提供格式上下文的 ITypeDescriptorContext，可用来提取有关从中调用此转换器的环境的附加信息。此参数或其属性可以为空引用。</param>
+            <returns>包含标准有效值集的 TypeConverter.StandardValuesCollection；如果数据类型不支持标准值集，则为空引用。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.DataGridExConvert.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            返回该转换器是否可以使用指定的上下文将给定类型的对象转换为此转换器的类型。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <param name="sourceType">表示要转换的类型。</param>
+            <returns>如果该转换器能够执行转换，则为 true；否则为 false。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.DataGridExConvert.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            使用指定的上下文和区域性信息将给定的对象转换为此转换器的类型。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <param name="culture">用作当前区域性的 CultureInfo。</param>
+            <param name="value">要转换的 Object。</param>
+            <returns>Object，表示已转换的值。</returns>
+        </member>
+        <member name="T:ACE.Common.Web.UI.TextBoxEx">
+            <summary>
+            为用户输入显示一个文本框控件
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.OnLoad(System.EventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            将需要呈现的 HTML 属性和样式添加到指定的 System.Web.UI.HtmlTextWriter 中
+            </summary>
+            <param name="writer">表示要在客户端呈现 HTML 内容的输出流</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.OnPreRender(System.EventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.CreateChildControls">
+            <summary>
+            重载。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.OnInit(System.EventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.TextBoxEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.EnableClientScript">
+            <summary>
+            允许客户端验证
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.RequiredErrorMessage">
+            <summary>
+            必填时的出错提示信息
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.IsRequired">
+            <summary>
+            是否是必选字段
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.RangeErrorMessage">
+            <summary>
+            输入值超出指定范围的提示信息
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.MinValue">
+            <summary>
+            允许输入的最小值
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.MaxValue">
+            <summary>
+            允许输入的最大值
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.CompareErrorMessage">
+            <summary>
+            输入值跟指定控件的值进行指定比较不相符时的提示信息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.ControlToCompare">
+            <summary>
+            要与所验证的输入控件进行比较的输入控件，不能与ValueToCompare同时设置。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.ValueToCompare">
+            <summary>
+            要与所验证的输入控件进行比较的值,不能与ControlToCompare同时设置。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.Operator">
+            <summary>
+            获取或设置要执行的比较操作。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.Type">
+            <summary>
+            获取或设置在比较之前将所比较的值转换到的数据类型。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.RegularErrorMessage">
+            <summary>
+            输入值跟指定正则表达式不匹配时的提示信息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.ValidationExpression">
+            <summary>
+            获取或设置确定字段验证模式的正则表达式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.OnlyNumber">
+            <summary>
+            只能输入由0-9组成的数字
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.TextBoxEx.EnterInvokeControlID">
+            <summary>
+            当前的文本框有焦点时按回车触发的按钮,没有指定时不作动作。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.RadioButtonEx">
+            <summary>
+            表示单选按钮控件。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ListBoxEx">
+            <summary>
+            允许单项或多项选择的列表框控件,
+            DataTextFiled支持多个数据列绑定,DataTextField多个字段之间用[,]分开
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ListBoxEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ListBoxEx.GetItemValueList(System.Char)">
+            <summary>
+            获取ListBox控件当前所有项的值列表（以split参数指定的字符分隔）。
+            </summary>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ListBoxEx.OnDataBinding(System.EventArgs)">
+            <summary>
+            重载OnDataBinding方法用于绑定多个字段。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ListBoxEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ListBoxEx.SplitChar">
+            <summary>
+            数据列之间的分隔符,默认为[:]。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ListBoxEx.CheckValue">
+            <summary>
+             获取或设置控件当前选中的选项的值集合(StringCollection)。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ListBoxEx.CheckedValue2">
+            <summary>
+            获取或设置控件当前选中的选项的值(String[])。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.HyperLinkEx">
+            <summary>
+            显示到其他 Web 页的链接的控件,可定义弹出窗口样式
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.HyperLinkEx.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.HyperLinkEx.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.ShowWindow">
+            <summary>
+            获取或设置是否用弹出窗口显示链接的地址。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.Location">
+            <summary>
+            是否显示地址输入框,默认为否
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.Status">
+            <summary>
+            是否显示状态栏,默认为否.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.MenuBar">
+            <summary>
+            是否显示菜单栏,默认为否
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.ToolBar">
+            <summary>
+            是否显示工具栏,默认为否
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.ScrollBars">
+            <summary>
+            是否显示滚动条,默认为是
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.Resizable">
+            <summary>
+            是否可以改变窗口大小,默认为是
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.WinTop">
+            <summary>
+            设置或读取顶点Y位置
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.WinLeft">
+            <summary>
+            设置或读取顶点X位
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.WinHeight">
+            <summary>
+            设置窗口的高度
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.WinWidth">
+            <summary>
+            设置窗口的宽度
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.MouseOverCssClass">
+            <summary>
+            获取或设置鼠标停放在按钮上面时的按钮的样式。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.HyperLinkEx.MouseOutCssClass">
+            <summary>
+            获取或设置鼠标离开按钮时按钮的样式。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonColumn.#ctor">
+            <summary>
+            创建RadioButtonColumn实例 <see cref="T:System.Web.UI.WebControls.DataGridColumn"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonColumn.Initialize">
+            <summary>
+            重载<see cref="M:System.Web.UI.WebControls.DataGridColumn.Initialize"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)">
+            <summary>
+            重载 <see cref="M:System.Web.UI.WebControls.DataGridColumn.InitializeCell(System.Web.UI.WebControls.TableCell,System.Int32,System.Web.UI.WebControls.ListItemType)"/>。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonColumn.BindFieldToCell(System.Web.UI.Control)">
+            <summary>
+            将数据表字段的值绑定到指定的列上。
+            </summary>
+            <param name="bindingContainer">列单元格上的容器控件。</param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.RadioButtonColumn.ContainerDataBinding(System.Object,System.EventArgs)">
+            <summary>
+            创建绑定控件容器。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.RadioButtonColumn.DataField">
+            <summary>
+            要绑定的数据表字段。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.RadioButtonColumn.TextField">
+            <summary>
+            要绑定的文本表字段。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Resource.DataGridResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.BuildTextPagingUI_Pagination_Name">
+            <summary>
+              Looks up a localized string similar to [Pagination].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Export_Format_Name">
+            <summary>
+              Looks up a localized string similar to Format.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Export_Name">
+            <summary>
+              Looks up a localized string similar to [Export].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Go_To_Page_1">
+            <summary>
+              Looks up a localized string similar to &amp;nbsp;&amp;nbsp;GoTo.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Go_To_Page_2">
+            <summary>
+              Looks up a localized string similar to &amp;nbsp;.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Page_All">
+            <summary>
+              Looks up a localized string similar to All.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Paging_First_Page">
+            <summary>
+              Looks up a localized string similar to [FIRST].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Paging_last_Page">
+            <summary>
+              Looks up a localized string similar to [LAST].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Paging_Next_Page">
+            <summary>
+              Looks up a localized string similar to [NEXT].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Paging_Pre_Page">
+            <summary>
+              Looks up a localized string similar to [PREV].
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Per_Page_Count">
+            <summary>
+              Looks up a localized string similar to Page Count.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count">
+            <summary>
+              Looks up a localized string similar to Total Count：.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count_1">
+            <summary>
+              Looks up a localized string similar to &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Current:&amp;nbsp;&amp;nbsp;.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count_2">
+            <summary>
+              Looks up a localized string similar to /.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count_3">
+            <summary>
+              Looks up a localized string similar to &amp;nbsp;.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count_4">
+            <summary>
+              Looks up a localized string similar to Total:.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.Resource.DataGridResource.Total_Record_Count_5">
+            <summary>
+              Looks up a localized string similar to &amp;nbsp;.
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.PanelEx">
+            <summary>
+            表示作为其他控件的容器的控件。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PanelEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PanelEx.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载AddAttributesToRender方法给控件加上滚动条。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.PanelEx.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PanelEx.ShowScrollBar">
+            <summary>
+            是否显示滚动条。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PanelEx.Title">
+            <summary>
+            标题。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.PanelEx.TitleAlign">
+            <summary>
+            标题的对齐方式。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.IPagination">
+            <summary>
+            应用分页导航控件实现自动分页的列表控件要实现的接口。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.IPagination.DataBind">
+            <summary>
+            将列表控件及其所有子控件绑定到 DataSource 属性指定的数据源。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.IPagination.DataSource">
+            <summary>
+            获取或设置为填充列表提供数据的数据源。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Converter.CommandNameConverter">
+            <summary>
+            CommandName的类型转换器，设计时支持ButtonEx控件CommandName属性从ACE.Common.CommandName枚举取值。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.CommandNameConverter.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.CommandNameConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            返回此类型转换器设计用于的数据类型的标准值集合。
+            </summary>
+            <param name="context">提供格式上下文的 ITypeDescriptorContext，可用来提取有关从中调用此转换器的环境的附加信息。此参数或其属性可以为空引用</param>
+            <returns>包含标准有效值集的 TypeConverter.StandardValuesCollection；如果数据类型不支持标准值集，则为空引用。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.CommandNameConverter.GetStandardValuesExclusive(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            获取一个值，该值指示从 GetStandardValues 返回的标准值集合是否为所有可能值的列表。
+            </summary>
+            <param name="context">可用于获取附加上下文信息的 ITypeDescriptorContext。</param>
+            <returns>如果从GetStandardValues返回的TypeConverter.StandardValuesCollection
+            是所有可能值的独占列表，则为 true；如果还可能有其他值，则为 false。
+            </returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.CommandNameConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            返回此对象是否支持可以从列表中选取的标准值集。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <returns>如果应调用 GetStandardValues 来查找对象支持的一组公共值，则为 true；否则，为 false。</returns>
+        </member>
+        <member name="T:ACE.Common.Web.UI.WebControls.Orientation">
+            <summary>
+            ScrollPanel 的摘要说明。
+            </summary>
+            
+            <summary>
+            Specifies the orientation that a control can be in.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.Orientation.Horizontal">
+            <summary>
+            Indicates a horizontal orientation.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.Orientation.Vertical">
+            <summary>
+            Indicates a vertical orientation.
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.WebControls.ScrollStyle">
+            <summary>
+            滚动条样式.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.ScrollStyle.Visible">
+            <summary>
+            Content is not clipped and scroll bars are not added.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.ScrollStyle.Scroll">
+            <summary>
+            Content is clipped and scroll bars are added.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.ScrollStyle.Hidden">
+            <summary>
+            Content that exceeds the dimensions of the containin is not shown.
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.WebControls.ScrollStyle.Auto">
+            <summary>
+            Content is clipped and scrolling is added only when necessary.
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.WebControls.ScrollPanel">
+            <summary>
+            ScrollPanel.
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.WebControls.ScrollPanel.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            This member overrides Control.AddAttributesToRender.
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.WebControls.ScrollPanel.HorizontalScrollStyle">
+            <summary>
+            Gets or sets the horizontal scroll style
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.WebControls.ScrollPanel.VerticalScrollStyle">
+            <summary>
+            Gets or sets the vertical scroll style
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ImageButtonEx">
+            <summary>
+            显示图像并对图像上的鼠标单击作出响应的控件
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ImageButtonEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.ServerAlert">
+            <summary>
+            在服务端实现与JavaScript的alert("message")等效的消息提示框。
+            说明：一个页面仅能有一个这样的控件。
+            由于本控件会重写页面的window.onload方法，为了在使用了本控件的页面上的onload事件里增加执行的方法，
+            特为控件增加属性BeforeAlertFunction。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ServerAlert.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ServerAlert.OnPreRender(System.EventArgs)">
+            <summary>
+            重载。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ServerAlert.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ACE.Common.Web.UI.ServerAlert.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            重载。
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ServerAlert.Message">
+            <summary>
+            获取或设置要显示的消息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ServerAlert.Alert">
+            <summary>
+            是否显示消息。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ServerAlert.BeforeAlertFunction">
+            <summary>
+            在发出提示信息前要执行的javascript方法。
+            </summary>
+        </member>
+        <member name="P:ACE.Common.Web.UI.ServerAlert.AfterAlertFunction">
+            <summary>
+            在发出提示信息后要执行的javascript方法。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.DataSourceType">
+            <summary>
+            数据源的类型。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.DataSourceType.SQL">
+            <summary>
+            SQL语句。
+            </summary>
+        </member>
+        <member name="F:ACE.Common.Web.UI.DataSourceType.DataSet">
+            <summary>
+            DataSet数据集。
+            </summary>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Converter.ButtonExConverter">
+            <summary>
+            ButtonEx控件的类型转换器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.ButtonExConverter.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.ButtonExConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            使用指定的上下文返回此对象是否支持可以从列表中选取的标准值集。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <returns>如果应调用 GetStandardValues 来查找对象支持的一组公共值，则为 true；否则，为 false。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.ButtonExConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            当与格式上下文一起提供时，返回此类型转换器设计用于的数据类型的标准值集合。
+            </summary>
+            <param name="context">提供格式上下文的 ITypeDescriptorContext，可用来提取有关从中调用此转换器的环境的附加信息。此参数或其属性可以为空引用。</param>
+            <returns>包含标准有效值集的 TypeConverter.StandardValuesCollection；如果数据类型不支持标准值集，则为空引用。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.ButtonExConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            返回该转换器是否可以使用指定的上下文将给定类型的对象转换为此转换器的类型。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <param name="sourceType">表示要转换的类型。</param>
+            <returns>如果该转换器能够执行转换，则为 true；否则为 false。</returns>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Converter.ButtonExConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            使用指定的上下文和区域性信息将给定的对象转换为此转换器的类型。
+            </summary>
+            <param name="context">ITypeDescriptorContext，它提供格式上下文。</param>
+            <param name="culture">用作当前区域性的 CultureInfo。</param>
+            <param name="value">要转换的 Object。</param>
+            <returns>Object，表示已转换的值。</returns>
+        </member>
+        <member name="T:ACE.Common.Web.UI.Designer.ButtonExDesigner">
+            <summary>
+            控钮控件(ButtonEx)的设计器
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.ButtonExDesigner.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.Designer.ButtonExDesigner.GetDesignTimeHtml">
+            <summary>
+            重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ACE.Common.Web.UI.CheckBoxEx">
+            <summary>
+            显示允许用户选择 true 或 false 条件的复选框
+            </summary>
+        </member>
+        <member name="M:ACE.Common.Web.UI.CheckBoxEx.#ctor">
+            <summary>
+            构造器。
+            </summary>
+        </member>
+    </members>
+</doc>
