@@ -12,8 +12,18 @@ public partial class Storage_ComfirmStorage : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            BindStorage();
             BindData();
         }
+
+    }
+    private void BindStorage()
+    {
+        StorageList storage = new StorageList();
+        string sql = "select StorageNo from StorageList";
+        this.ddl_StoNo.DataSource = storage.DatabaseAccess.ExecuteDataset(sql);
+        this.ddl_StoNo.DataBind();
+        this.ddl_StoNo.Items.Insert(0, new ListItem("----------", "-1"));
 
     }
     protected void btn_Submit_Click(object sender, EventArgs e)
@@ -85,7 +95,14 @@ public partial class Storage_ComfirmStorage : System.Web.UI.Page
         Product product = new Product();
         System.Text.StringBuilder sql = new System.Text.StringBuilder();
         sql.Append(@"select Product_ID,Barcode,Product_Name,Factory_Weight,Gold_NetWeight,ShouCun,Style,Factory_Name,StorageNo,Descriptions,ProductStatus,ComfirmWeight
-                    from Product where ProductStatus='0' or ProductStatus='1'   ");
+                    from Product where (ProductStatus='0' or ProductStatus='1')   ");
+        if (this.ddl_StoNo.SelectedValue != "-1")
+        {
+
+            sql.Append("  and  StorageNo='" + this.ddl_StoNo.SelectedValue + "' ");
+        
+        }
+
         sql.Append(" and Product.Delete_YN<>'Y'");
 
         sql.Append(" order by ProductStatus, Modify_Date desc");
@@ -107,14 +124,19 @@ public partial class Storage_ComfirmStorage : System.Web.UI.Page
             {
 
                 e.Item.Style.Add(HtmlTextWriterStyle.Color, "Black");
+                e.Item.Attributes.Add("ondblclick", string.Format("Product_OpenSmall('ComfirmWeightDetals.aspx?PROID={0}','Product');", rowView["Product_ID"].ToString().Trim()));
             }
-
-            e.Item.Attributes.Add("ondblclick", string.Format("Product_OpenSmall('ComfirmWeightDetals.aspx?PROID={0}','Product');", rowView["Product_ID"].ToString().Trim()));
+            
+          
 
 
           
         }
          
     }
-  
+
+    protected void ddl_StoNo_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindData();
+    }
 }

@@ -92,6 +92,18 @@
     </table>
     <ajax:AjaxPanel ID="ajaxPan1" runat="server">
         <table border="0" cellpadding="0" cellspacing="0" class="NCLabelSmall">
+          <tr>
+                        <td>
+                            <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">
+                                               入库单：</ace:LabelEx>
+                        </td>
+                        <td style="color: #FF0000" width="225">
+                             <ace:DropDownListEx ID="ddl_StoNo" runat="server" Width="200px" DataTextField="StorageNo" 
+                    DataValueField="StorageNo" AutoPostBack="True" 
+                                 onselectedindexchanged="ddl_StoNo_SelectedIndexChanged" >
+                </ace:DropDownListEx>
+                        </td>
+                    </tr>
             <tr>
                 <td>
                     <ace:LabelEx ID="LabelEx1" runat="server" CssClass="Label">
