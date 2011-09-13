@@ -35,11 +35,11 @@ public class SaleRecordInfo
        public string  Sales;
       public DateTime  SaleTime;
       public string   InVoiceNo;
-      public   ShopId
-        CustomerName
-        CustomerPhone
-        VisaMoney
-        UserCardMoney
-        CashMoney
+      public int  ShopId;
+      public string  CustomerName;
+       public string CustomerPhone;
+       public decimal VisaMoney;
+        public decimal UserCardMoney;
+        public decimal CashMoney;
 
 }
