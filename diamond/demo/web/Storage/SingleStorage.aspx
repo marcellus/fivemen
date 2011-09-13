@@ -3,6 +3,43 @@
 
 <%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="ace" %>
  <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="Server">
+ <script type="text/javascript">
+     var flag = false;
+     function limitImage(ImgD) {
+         //debugger;
+         var areaWidth = 350;  //你放置图片区域的宽度。   
+         var areaHeight = 390; //你放置图片区域的高度。   
+         var image = new Image();
+         image.src = ImgD.src;
+         var tempWidth = image.width;
+         var tempHeight = image.height;
+         var altWidth = image.width;
+         var altHeight = image.height;
+         ImgD.alt = altWidth + "×" + altHeight;
+         if (image.width > 0 && image.height > 0) {
+             flag = true;
+             if (tempWidth > areaWidth) {
+                 tempWidth = areaWidth;
+                 tempHeight = (image.height * areaWidth) / image.width;
+             }
+             if (tempHeight > areaHeight) {
+                 tempWidth = (tempWidth * areaHeight) / tempHeight;
+                 tempHeight = areaHeight;
+             }
+             ImgD.width = tempWidth;
+             ImgD.height = tempHeight;
+         }
+     }    
+ 
+ 
+ </script>
+     <style type="text/css">
+         #ImageEx1
+         {
+             height: 285px;
+             width: 325px;
+         }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table border="0" cellpadding="0" cellspacing="0" class="NCLabelSmall">
@@ -53,10 +90,11 @@
                             </ace:DropDownListEx>
                             <ace:LabelEx ID="lbl_Star1" runat="server" CssClass="Label" ForeColor="#CC0000">*</ace:LabelEx>
                         </td>
-                        <td align="center" class="style3" rowspan="12" height="365" colspan="3">
+                        <td align="center" class="style3" rowspan="8" height="350" colspan="3" style=" margin-bottom:10px;">
                             <%--<ace:ImageEx ID="ImageEx1" onload="changsize();" runat="server" 
                                                 ImageUrl="~/Images/DTZ_logo.jpg" />--%>
-                            <img id="ImageEx1" onload="javascript:limitImage(this);" alt="" src="Images/NoImage2.jpg" />
+                            <img id="ImageEx1" onload="javascript:limitImage(this);" alt="" 
+                                src="../Images/NoImage2.jpg" />
                             <%--<asp:Image ID="ImageEx1" runat="server" ImageUrl="Images/DTZ_logo.jpg" OnLoad="javascript:limitImage(this);" />--%>
                         </td>
                     </tr>
