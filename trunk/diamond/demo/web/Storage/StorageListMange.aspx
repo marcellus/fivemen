@@ -167,7 +167,7 @@
                              OnItemDataBound="dgProduct_ItemDataBound" OnSortCommand="dgProduct_SortCommand" 
                              PageCountEx="1" PageSize="20" ShowFooter="True" SQLString="" Width="100%">
                              <Columns>
-                                 <ace:CheckBoxColumn DataField="StorageNo">
+                                 <ace:CheckBoxColumn DataField="StorageNo"> 
                                      <HeaderStyle Width="8px" />
                                      <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" 
                                          Font-Strikeout="False" Font-Underline="False" Width="8px" />
