@@ -115,9 +115,9 @@ public partial class report_StoreSalesReport : System.Web.UI.Page
         if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
         {
             DataRowView rowView = (DataRowView)e.Item.DataItem;
-            e.Item.Attributes.Add("onclick", "selectGridItem(this);");
-            e.Item.Attributes.Add("ondblclick", string.Format("Product_OpenNormal('../Product_Profile.aspx?PROID={0}&flag=Edit','Product');", rowView["Product_ID"].ToString().Trim()));
-            e.Item.Attributes.Add("id", "TR" + rowView["Product_ID"].ToString().Trim());
+            //e.Item.Attributes.Add("onclick", "selectGridItem(this);");
+            //e.Item.Attributes.Add("ondblclick", string.Format("Product_OpenNormal('../Product_Profile.aspx?PROID={0}&flag=Edit','Product');", rowView["Product_ID"].ToString().Trim()));
+            //e.Item.Attributes.Add("id", "TR" + rowView["Product_ID"].ToString().Trim());
 
             int head = e.Item.Cells[1].Text.Substring(0, e.Item.Cells[1].Text.Length - 1).LastIndexOf(">") + 1;
             int tail = e.Item.Cells[1].Text.Length;
