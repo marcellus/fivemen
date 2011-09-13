@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StorageDetails.aspx.cs" Inherits="Storage_StorageDetails" Theme="DefaultTheme" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StorageDetails.aspx.cs" Inherits="Storage_StorageDetails" Theme="DefaultTheme"  %>
 
 <%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="ace" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,32 +43,41 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <div style="width: 100%">
-            <div class="DLabel">
-                入库单号:
-            </div>
-            <div class="DText">
-                <asp:TextBox ID="txt_SNo" runat="server"></asp:TextBox>
-            </div>
-            <div class="DLabel">
-                生成日期:
-            </div>
-            <div class="DText">
-                <asp:TextBox ID="txt_Date" runat="server" ReadOnly="true" BorderStyle="None"></asp:TextBox>
-            </div>
-        </div>
-        <div style="margin-top: 8px">
-            <div class="DLabel">
-                描述:
-            </div>
-            <div class="DText">
-                <asp:TextBox ID="txt_Description" runat="server" TextMode="MultiLine" Width="99%" Height="80px"></asp:TextBox>
-            </div>
-        </div>
-    </div>
-    <div style="clear: left;">
-    </div>
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr>
+    
+  <td align="left" style="height: 23px; width:10%">入库单号:
+  </td>
+    <td style="height: 23px; width:15%">
+     <asp:TextBox ID="txt_SNo" runat="server"></asp:TextBox>
+    </td>
+      <td align="left" style="height: 23px; width:10%">
+         生成日期:
+  </td>
+    <td style="height: 23px; width:15%">
+         <asp:TextBox ID="txt_Date" runat="server" ReadOnly="true" BorderStyle="None"></asp:TextBox>
+    </td>
+    <td style="height: 23px; width:46%"
+    
+    ></td>
+    </tr>
+    <tr>
+    <td>
+    描述:
+    </td>
+    </tr>
+    <tr>
+    <td colspan="5">
+      <asp:TextBox ID="txt_Description" runat="server" TextMode="MultiLine" Width="99%" Height="80px"></asp:TextBox>
+    
+    </td>
+    
+    </tr>
+    </table>
+    
+    
+    
+   
     <div style="width: 100%">
         <div class="DButton" id="dvClose">
             <ace:ButtonEx ID="btn_Close" runat="server" DialogHeight="400px" DialogWidth="400px"
