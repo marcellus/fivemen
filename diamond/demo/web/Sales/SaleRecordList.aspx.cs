@@ -34,16 +34,15 @@ public partial class Sales_SaleRecordList : System.Web.UI.Page
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         string name = this.txtSaleName.Text.Trim();
-        string sql = "SELECT AssignmentPlan.Name, AssignmentPlan.Id, AssignmentPlan.Creator, AssignmentPlan.CreateTime, AssignmentPlan.OutStoreTime, "
-      + " AssignmentPlan.OutStoreScanner, AssignmentPlan.ToShopId, AssignmentPlan.InShopTime, AssignmentPlan.InShopScanner, "
-      + "  AssignmentPlan.State, AssignmentPlan.Bz, Shop.Name AS ShopName"
- + " FROM AssignmentPlan INNER JOIN"
-      + "  Shop ON AssignmentPlan.ToShopId = Shop.Id where AssignmentPlan.Name like '%" + name + "%'";
+        string sql = "SELECT     Sale_Product.State AS SaleState, SaleRecord.*, Product.*"
++" FROM         Sale_Product INNER JOIN "
+                   +"  SaleRecord ON Sale_Product.SaleId = SaleRecord.Id INNER JOIN "
+                   + "   Product ON Sale_Product.ProductId = Product.Product_ID where SaleRecord.Sales like '%" + name + "%'";
 
         if (this.ddlShop.SelectedIndex > 0)
         {
             // this.gridview.WhereClause += " &&ToShopId==" + this.ddlShop.SelectedValue.ToString() + "";
-            sql += " and AssignmentPlan.ToShopId=" + this.ddlShop.SelectedValue.ToString();
+            sql += " and SaleRecord.ShopId=" + this.ddlShop.SelectedValue.ToString();
         }
         DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmp");
         this.gridview.DataSource = dt;

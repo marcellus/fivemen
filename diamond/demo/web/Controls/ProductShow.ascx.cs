@@ -21,6 +21,32 @@ public partial class Controls_ProductShow : System.Web.UI.UserControl
 
     }
 
+    public void Clear()
+    {
+        this.txtBarCode.Text = "";
+        this.txtBz.Text = "";
+        this.txtCplb.Text = "";
+        this.txtCz.Text = "";
+        this.txtFcz.Text = "";
+        this.txtGchz.Text = "";
+        this.txtGf.Text = "";
+        this.txtJjz.Text = "";
+        this.txtJs.Text = "";
+        this.txtKh.Text = "";
+        this.txtLsj.Text = "";
+        this.txtPm.Text = "";
+        this.txtSc.Text = "";
+        this.txtSjgf.Text = "";
+        this.txtYbh.Text = "";
+        this.txtGhs.Text = "";
+        this.lbProductId.Text = "";
+    }
+
+    public void Focus()
+    {
+        this.txtBarCode.Focus();
+    }
+
     public string BarCode
     {
         get{

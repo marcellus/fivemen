@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProductAssignmentInShopScanner.aspx.cs" Inherits="Assignment_ProductAssignmentInShopScanner" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Title="门店签收扫描" AutoEventWireup="true" CodeFile="ProductAssignmentInShopScanner.aspx.cs" Inherits="Assignment_ProductAssignmentInShopScanner"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <table border="0px" cellpadding="0" cellspacing="0">

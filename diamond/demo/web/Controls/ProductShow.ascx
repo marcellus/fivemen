@@ -7,7 +7,7 @@
         </td>
         <td colspan="3">
            
-            <asp:TextBox ID="txtBarCode" name="product1_txtBarCode"    Width="220px" runat="server"></asp:TextBox>  
+            <asp:TextBox ID="txtBarCode" name="product1_txtBarCode"    Width="225" runat="server"></asp:TextBox>  
             <span  style="display:none">
                 <asp:Label ID="lbProductId" runat="server" Text="id"></asp:Label>
             <asp:Button  ID="btnSearch" name="product1__btnSearch" OnClick="btnSearch_Click"  runat="server" Text="查找" />
@@ -21,13 +21,13 @@
             供&nbsp; 货&nbsp; 商
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtGhs" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGhs" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 名
         </td>
         <td>
-        <asp:TextBox ID="txtPm" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPm" ReadOnly="true" runat="server"></asp:TextBox>
             
         </td>
     </tr>
@@ -36,13 +36,13 @@
             款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 号
         </td>
         <td class="style1">
-        <asp:TextBox ID="txtKh" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtKh" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             产品类别
         </td>
         <td>
-            <asp:TextBox ID="txtCplb" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCplb" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -50,13 +50,13 @@
             材&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 质
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtCz" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCz" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             工厂货重
         </td>
         <td>
-            <asp:TextBox ID="txtGchz" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGchz" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -64,13 +64,13 @@
             净&nbsp; 金&nbsp; 重
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtJjz" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtJjz" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             复&nbsp; 秤&nbsp; 重
         </td>
         <td>
-            <asp:TextBox ID="txtFcz" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFcz" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -78,13 +78,13 @@
             原&nbsp; 编&nbsp; 号
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtYbh" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtYbh" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 寸
         </td>
         <td>
-            <asp:TextBox ID="txtSc" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSc" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -92,13 +92,13 @@
             零&nbsp; 售&nbsp; 价
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtLsj" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtLsj" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             素金工费
         </td>
         <td>
-            <asp:TextBox ID="txtSjgf" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSjgf" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -106,13 +106,13 @@
             件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数
         </td>
         <td class="style1">
-            <asp:TextBox ID="txtJs" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtJs" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
         <td>
             工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 费
         </td>
         <td>
-            <asp:TextBox ID="txtGf" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtGf" ReadOnly="true" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@
             备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注
         </td>
         <td colspan="3">
-            <asp:TextBox ID="txtBz" Width="230" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtBz" ReadOnly="true" Width="230" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>

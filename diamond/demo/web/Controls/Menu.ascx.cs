@@ -30,20 +30,23 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Storage/ComfirmStorage.aspx\">产品入库确认</a></li>");
         Html.Append("</ul></div></div></li>");
 
-     //   Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+       Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_2\" href=\"#\"><span class=\"imea imeam\"><span></span></span>产品调拨</a>");
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
-        Html.Append("<li><a  name=\"mu_2$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_Send.aspx\">总部分配</a></li>");
-        Html.Append("<li><a  name=\"mu_2$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_Receive.aspx\">门店签收</a></li>");
+        Html.Append("<li><a  name=\"mu_2$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Assignment/ProductAssignmentList.aspx\">调拨单查询</a></li>");
+        Html.Append("<li><a  name=\"mu_2$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Assignment/ProductAssignmentPlan.aspx\">新增调拨单</a></li>");
+        Html.Append("<li><a  name=\"mu_2$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Assignment/ProductAssignmentPlanOutStoreScanner.aspx\">调拨出库扫描</a></li>");
+        Html.Append("<li><a  name=\"mu_2$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Assignment/ProductAssignmentInShopScanner.aspx\">门店签收扫描</a></li>");
         Html.Append("</ul></div></div></li>");
 
         Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_3\" href=\"#\"><span class=\"imea imeam\"><span></span></span>产品销售</a>");
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
-        Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_Sale.aspx\">产品销售</a></li>");
-        Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_Sale_Confirm.aspx\">销售确认</a></li>");
+        Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Sales/SaleRecordList.aspx\">产品销售查询</a></li>");
+        Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Sales/SaleRecordAdd.aspx\">产品销售</a></li>");
+        Html.Append("<li><a  name=\"mu_1$3\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Sales/SaleProductConfirm.aspx\">销售确认</a></li>");
         Html.Append("</ul></div></div></li>");
 
         //Report
