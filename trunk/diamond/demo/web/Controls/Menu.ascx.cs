@@ -63,7 +63,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
             
             if (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user")
             {
-                Html.Append("<li><a  name=\"mu_4$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Shop_CheckView.aspx\">门店盘点报告</a></li>");
+                Html.Append("<li><a  name=\"mu_4$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "report/StoreSalesReport.aspx\">门店销售报告</a></li>");
                 //Html.Append("<li><a  name=\"mu_4$3\" onclick=\"BuildUrl(this)\" href=\"../Export_by_Size.aspx\">Export by size</a></li>");
             }
             if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
