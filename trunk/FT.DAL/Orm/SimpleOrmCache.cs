@@ -291,7 +291,6 @@ namespace FT.DAL.Orm
             selectsAlias.Columns.Add("value");
             selectsAlias.Columns.Add("text");
 
-            //DataTable selectsAlias = new DataTable();
            
             SimpleTableAttribute tableAtt = Attribute.GetCustomAttribute(type, typeof(SimpleTableAttribute)) as SimpleTableAttribute;
             AliasAttribute tableAliasAtt = Attribute.GetCustomAttribute(type, typeof(AliasAttribute)) as AliasAttribute;
@@ -342,7 +341,8 @@ namespace FT.DAL.Orm
                             insertSql.Append(pk + ",");
                             inserttmp.Append("" + seqAtt.SeqName + ".nextval,");
                         }
-                        else if (columnAtt.AllowInsert) {
+                        else if (columnAtt!=null&&columnAtt.AllowInsert)
+                        {
                             insertSql.Append(pk + ",");
                             if (columnAtt.ColumnType == SimpleColumnType.Int)
                             {
