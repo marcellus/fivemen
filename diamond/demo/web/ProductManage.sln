@@ -8,6 +8,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web", "..\web", "{84739199-
 		SccLocalPath = "Svn"
 		SccProvider = "SubversionScc"
 		TargetFramework = "3.5"
+		ProjectReferences = "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}|FT.Commons.dll;{28F66C9B-578D-409B-9314-02E213917C04}|FT.DAL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/ProductManage"
 		Debug.AspNetCompiler.PhysicalPath = "..\Diamond\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ProductManage\"
@@ -26,6 +27,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web", "..\web", "{84739199-
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.DAL", "..\..\..\FT.DAL\FT.DAL.csproj", "{28F66C9B-578D-409B-9314-02E213917C04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Commons", "..\..\..\FT.Commons\FT.Commons.csproj", "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +60,16 @@ Global
 		{28F66C9B-578D-409B-9314-02E213917C04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28F66C9B-578D-409B-9314-02E213917C04}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{28F66C9B-578D-409B-9314-02E213917C04}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|.NET.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
