@@ -154,13 +154,13 @@ public partial class Storage_BulkStorage : System.Web.UI.Page
             StringBuilder strsql = new StringBuilder();
             string stNo = this.SelStorageNo;
             int iCount = dtstorage.Rows.Count;
-            int maxid = product.getMaxID();
-            string barCode;
+            //int maxid = product.getMaxID();
+            //string barCode;
             for (int i = 0; i < iCount; i++)
             {
-                barCode = "360866" + (100000 + maxid + 1 + i).ToString() + "1";
-                strsql.Append(string.Format(@"INSERT INTO Product(Product_Name,Factory_Weight,Gold_NetWeight,ShouCun,Style,LeiBie,Cailiao,Factory_Name,Descriptions,Created_Date,Barcode,StorageNo,ProductStatus)
-     VALUES('{0}',{1},{2},{3},'{4}','{5}','{6}','{7}','{8}',getdate(),{9},'{10}','{11}');",
+                //barCode = "360866" + (100000 + maxid + 1 + i).ToString() + "1";
+                strsql.Append(string.Format(@"INSERT INTO Product(Product_Name,Factory_Weight,Gold_NetWeight,ShouCun,Style,LeiBie,Cailiao,Factory_Name,Descriptions,Created_Date,Barcode,StorageNo,ProductStatus,Price)
+     VALUES('{0}',{1},{2},{3},'{4}','{5}','{6}','{7}','{8}',getdate(),{9},'{10}','{11}',{12});",
          dtstorage.Rows[i]["Product_Name"].ToString(),
          dtstorage.Rows[i]["Factory_Weight"].ToString(),
          dtstorage.Rows[i]["Gold_NetWeight"].ToString(),
@@ -169,7 +169,8 @@ public partial class Storage_BulkStorage : System.Web.UI.Page
          dtstorage.Rows[i]["LeiBie"].ToString(),
          dtstorage.Rows[i]["Cailiao"].ToString(),
          dtstorage.Rows[i]["Factory_Name"].ToString(),
-         dtstorage.Rows[i]["Descriptions"].ToString(), barCode, stNo,'0'));
+         dtstorage.Rows[i]["Descriptions"].ToString(), dtstorage.Rows[i]["Bar_Code"].ToString(), stNo, '0',
+         dtstorage.Rows[i]["SalePrice"].ToString() ));
             }
 
 
@@ -191,6 +192,7 @@ public partial class Storage_BulkStorage : System.Web.UI.Page
         DataTable dt = new DataTable();
         if (sheet != null)
         {
+            dt.Columns.Add("Bar_Code", Type.GetType("System.String"));//条码
             dt.Columns.Add("Product_Name", Type.GetType("System.String"));//产品名称
             dt.Columns.Add("Factory_Weight", Type.GetType("System.Double"));//工厂重量
             dt.Columns.Add("Gold_NetWeight", Type.GetType("System.Double"));//净金重量
@@ -199,6 +201,7 @@ public partial class Storage_BulkStorage : System.Web.UI.Page
             dt.Columns.Add("LeiBie", Type.GetType("System.String"));//类别
             dt.Columns.Add("Cailiao", Type.GetType("System.String"));//材料
             dt.Columns.Add("Factory_Name", Type.GetType("System.String"));//供应商
+            dt.Columns.Add("SalePrice", Type.GetType("System.Double"));//零售价
             dt.Columns.Add("Descriptions", Type.GetType("System.String"));//描述
 
             int rowcount = sheet.PhysicalNumberOfRows;
@@ -214,16 +217,18 @@ public partial class Storage_BulkStorage : System.Web.UI.Page
                     continue;
                 }
                 newRow = dt.NewRow();
-                newRow["Factory_Name"] = temprow.GetCell(0) == null ? "" : temprow.GetCell(0).ToString();
-                newRow["Product_Name"] = temprow.GetCell(1) == null ? "" : temprow.GetCell(1).ToString();
-                newRow["Style"] = temprow.GetCell(2) == null ? "" : temprow.GetCell(2).ToString();
-                newRow["LeiBie"] = temprow.GetCell(3) == null ? "" : temprow.GetCell(3).ToString();
-                newRow["Cailiao"] = temprow.GetCell(4) == null ? "" : temprow.GetCell(4).ToString();
-                newRow["Factory_Weight"] = temprow.GetCell(5) == null ? 0 : temprow.GetCell(5).NumericCellValue;
-                newRow["Gold_NetWeight"] = temprow.GetCell(6) == null ? 0 : temprow.GetCell(6).NumericCellValue;
+                newRow["Bar_Code"] = temprow.GetCell(0) == null ? "" : temprow.GetCell(0).ToString();
+                newRow["Factory_Name"] = temprow.GetCell(1) == null ? "" : temprow.GetCell(1).ToString();
+                newRow["Product_Name"] = temprow.GetCell(2) == null ? "" : temprow.GetCell(2).ToString();
+                newRow["Style"] = temprow.GetCell(3) == null ? "" : temprow.GetCell(3).ToString();
+                newRow["LeiBie"] = temprow.GetCell(4) == null ? "" : temprow.GetCell(4).ToString();
+                newRow["Cailiao"] = temprow.GetCell(5) == null ? "" : temprow.GetCell(5).ToString();
+                newRow["Factory_Weight"] = temprow.GetCell(6) == null ? 0 : temprow.GetCell(6).NumericCellValue;
+                newRow["Gold_NetWeight"] = temprow.GetCell(7) == null ? 0 : temprow.GetCell(7).NumericCellValue;
 
-                newRow["ShouCun"] = temprow.GetCell(7) == null ? 0 : temprow.GetCell(7).NumericCellValue;
-                newRow["Descriptions"] = temprow.GetCell(8) == null ? "" : temprow.GetCell(8).ToString();
+                newRow["ShouCun"] = temprow.GetCell(8) == null ? 0 : temprow.GetCell(8).NumericCellValue;
+                newRow["SalePrice"] = temprow.GetCell(9) == null ? 0 : temprow.GetCell(9).NumericCellValue;
+                newRow["Descriptions"] = temprow.GetCell(10) == null ? "" : temprow.GetCell(10).ToString();
 
 
                 dt.Rows.Add(newRow);
