@@ -62,9 +62,9 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
             access.ExecuteSql(sql);
          }
 
-        //FT.Commons.Tools.WebFormHelper.WriteScript(this, "<script language='javascript'>printSaleDetail();</script>");
+      //FT.Commons.Tools.WebFormHelper.WriteScript(this, "<script language='javascript'>printSaleDetail();</script>");
          // MagicAjax.AjaxCallHelper.WriteSetHtmlOfPageScript("<script language='javascript'>alert('请选择目标门店！');</script>");
-       // ClientScript.RegisterStartupScript(this.GetType(), "tip", "<script>alert('请选择目标门店!');</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "tip", "<script>alert('保存成功!');</script>");
 
     }
 
