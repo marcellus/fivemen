@@ -107,16 +107,17 @@
                     <div style="float: left;">
                         <ace:ButtonEx ID="btn_Submit" runat="server" CssClass="ButtonFlat" Text=" 确 认" Width="100px"
                             RightSpace="2" OnClick="btn_Submit_Click" /></div>
-                    <span style="color: Red; font-size: smaller;">(*表格中红色记录代表未确认入库的产品,双击某行添加复秤数据)</span>
+                    <span style="color: Red; ">(*表格中红色记录代表未确认入库的产品,双击某行添加复秤数据)</span>
+                    <ace:ButtonEx ID="btn_Delete" runat="server" CssClass="ButtonFlat" DialogHeight="200px"
+                        DialogWidth="400px" LeftSpace="0" RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False"
+                        onClientClick="javascript:return DeleteCheck();" Text="删 除" Width="70px" OnClick="btn_Delete_Click" />
                 </td>
             </tr>
         </table>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td>
-                    <ace:ButtonEx ID="btn_Delete" runat="server" CssClass="ButtonFlat" DialogHeight="200px"
-                        DialogWidth="400px" LeftSpace="0" RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False"
-                        onClientClick="javascript:return DeleteCheck();" Text="删 除" Width="70px" OnClick="btn_Delete_Click" />
+                    
                 </td>
             </tr>
         </table>
