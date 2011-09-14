@@ -118,6 +118,15 @@
                             <ace:TextBoxEx ID="txt_StyleID" runat="server" Width="200px" MaxLength="100"></ace:TextBoxEx>
                         </td>
                     </tr>
+                     <tr>
+                        <td>
+                            <ace:LabelEx ID="LabelEx4" runat="server" CssClass="Label">
+                                                零售价：</ace:LabelEx>
+                        </td>
+                        <td style="color: #FF0000" width="225">
+                            <ace:TextBoxEx ID="txt_Price" runat="server" Width="200px" MaxLength="100"></ace:TextBoxEx>
+                        </td>
+                    </tr>
                     <%--<ajax:AjaxPanel ID="panel1" runat="server">--%>
                     <tr>
                         <td class="style1">
