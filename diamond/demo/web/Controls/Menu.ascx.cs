@@ -23,6 +23,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("<div><li  style=\"width:20px;\"></div></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_1\" href=\"../Diamond/Product_List.aspx\">产品管理</a>");
+
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
         Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Storage/StorageListMange.aspx\">入库单管理</a></li>");
         Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Storage/BulkStorage.aspx\">产品批量入库</a></li>");
@@ -30,7 +31,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("<li><a  name=\"mu_1$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Storage/ComfirmStorage.aspx\">产品入库确认</a></li>");
         Html.Append("</ul></div></div></li>");
 
-       Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+       Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_2\" href=\"#\"><span class=\"imea imeam\"><span></span></span>产品调拨</a>");
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
@@ -40,7 +41,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("<li><a  name=\"mu_2$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Assignment/ProductAssignmentInShopScanner.aspx\">门店签收扫描</a></li>");
         Html.Append("</ul></div></div></li>");
 
-        Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+        Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         Html.Append("<li  style=\"width:100px;\"><a name=\"mu_3\" href=\"#\"><span class=\"imea imeam\"><span></span></span>产品销售</a>");
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
@@ -52,8 +53,9 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         //Report
         if (HttpContext.Current.Session["empRole"] != null && (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user"))
         {
-            Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
-
+            Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+            Html.Append("<li  style=\"width:100px;\"><a href=\"" + rooturl + "Product_List.aspx?logout=true\">库存产品查询</a></li>");
+            Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
             Html.Append("<li  style=\"width:100px;\"><a name=\"mu_4\" href=\"#\"><span class=\"imea imeam\"><span></span></span>查询报表</a>");
             Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
             if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
@@ -73,7 +75,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
 
             Html.Append("</ul></div></div></li>");
         }
-        Html.Append("<li style=\"width:100px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+        Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         //Utility   
 
@@ -99,9 +101,9 @@ public partial class Controls_Menu : System.Web.UI.UserControl
 
         //Html.Append("<li style=\"width:100px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
-        Html.Append("<li  style=\"width:60px;\"><a href=\"../web/Login.aspx?logout=true\">登出</a></li>");
+        Html.Append("<li  style=\"width:60px;\"><a href=\"" + rooturl +"Login.aspx?logout=true\">登出</a></li>");
 
-        Html.Append("<li style=\"width:60px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
+        Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         if (HttpContext.Current.Session["empName"] != null)
         {

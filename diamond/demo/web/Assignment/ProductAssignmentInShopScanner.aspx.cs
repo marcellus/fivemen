@@ -31,6 +31,8 @@ public partial class Assignment_ProductAssignmentInShopScanner : System.Web.UI.P
         for (int i = 0; i < len; i++)
         {
             lb = this.gridview.Rows[i].FindControl("lbBarCode") as Label;
+            Console.Write(lb.Text.Trim());
+            Console.Write(barcode.ToString());
             if (lb.Text.Trim() == barcode)
             {
                 this.gridview.Rows[i].ForeColor = System.Drawing.Color.Red;
@@ -47,6 +49,8 @@ public partial class Assignment_ProductAssignmentInShopScanner : System.Web.UI.P
                 sql = "update Product set ProductStatus=" + ProductStateEnum.InShopScanInt + ",State='" + ProductStateEnum.InShopScanString + "' where Product_Id=" + productid;
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
             }
+            show.Clear();
+            show.Focus();
         }
         ViewState[Product_BarCode] = barcode;
     }
