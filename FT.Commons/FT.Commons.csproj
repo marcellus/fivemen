@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\commons-dlls\IrisSkin2.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=1.0.4.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\commons-dlls\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\commons-dlls\log4net.dll</HintPath>
@@ -98,6 +102,7 @@
     <Compile Include="Com\Excels\ExcelHelper.cs" />
     <Compile Include="Com\Excels\ListExcel.cs" />
     <Compile Include="Com\Excels\SimpleExcel.cs" />
+    <Compile Include="Com\Pdf\PdfHelper.cs" />
     <Compile Include="CustomConfirmBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,7 +508,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Com\Chm\" />
-    <Folder Include="Com\Pdf\" />
     <Folder Include="Com\WordSupport\" />
     <Folder Include="Zip\" />
   </ItemGroup>
