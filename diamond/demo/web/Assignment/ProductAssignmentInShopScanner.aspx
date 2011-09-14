@@ -46,12 +46,15 @@
 
 <ItemStyle Width="120px"></ItemStyle>
                                         </asp:BoundField>
-                                          <asp:BoundField HeaderText="条码" DataField="Barcode"
-                                            ReadOnly="true" HeaderStyle-Width="120px" ItemStyle-Width="120px" >
-<HeaderStyle Width="120px"></HeaderStyle>
+                                          <asp:TemplateField HeaderText="条码" HeaderStyle-Width="60px"  ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbBarCode" runat="server" Text='<%#Eval("Barcode") %>'></asp:Label>
+                                            </ItemTemplate>
 
-<ItemStyle Width="120px"></ItemStyle>
-                                        </asp:BoundField>
+<HeaderStyle Width="60px"></HeaderStyle>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                       </asp:TemplateField>
                                         <asp:BoundField HeaderText="出库时间" DataField="OutStoreTime" 
                                             ReadOnly="true"
                                             HeaderStyle-Width="80px" ItemStyle-Width="80px" >
