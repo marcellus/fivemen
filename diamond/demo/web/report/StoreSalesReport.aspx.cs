@@ -69,13 +69,18 @@ public partial class report_StoreSalesReport : System.Web.UI.Page
         //}
         Product product = new Product();
         System.Text.StringBuilder sql = new System.Text.StringBuilder();
-        sql.Append(string.Format(@"select a.ProductId as Product_ID,b.Name as shopName, a.shopid,c.Product_Name,c.Barcode,SalePrice,CouponsNo,CouponsPrice,Discount,
-                    SaleLsh ,Sales ,SaleTime,InVoiceNo,ShopId,CustomerName,CustomerPhone,a.Bz,VisaMoney,UserCardMoney,CashMoney,TrueMoney,b.name as shop
-    from salerecord a , shop b,product c where  a.shopid=b.id and a.ProductId=c.Product_ID and convert(char(10),SaleTime,102)>= '{0}' and convert(char(10),SaleTime,102)<='{1}' ",
+        sql.Append(string.Format(@"SELECT     Product.Product_ID, Shop.Name, SaleRecord.ShopId, Product.Barcode, Product.Product_Name, SaleRecord.CouponsNo, SaleRecord.CouponsPrice, 
+                      SaleRecord.SalePrice, SaleRecord.Discount, SaleRecord.SaleLsh, SaleRecord.Sales, SaleRecord.SaleTime, SaleRecord.InVoiceNo, 
+                      SaleRecord.CustomerName, SaleRecord.CustomerPhone, SaleRecord.VisaMoney, SaleRecord.CashMoney, SaleRecord.TrueMoney, 
+                      SaleRecord.UserCardMoney
+FROM         Sale_Product INNER JOIN
+                      SaleRecord ON Sale_Product.SaleId = SaleRecord.Id INNER JOIN
+                      Shop ON SaleRecord.ShopId = Shop.Id INNER JOIN
+                      Product ON Sale_Product.ProductId = Product.Product_ID and convert(char(10),SaleTime,102)>= '{0}' and convert(char(10),SaleTime,102)<='{1}' ",
            this.StartDate.ToString("yyyy.MM.dd"), this.EndDate.ToString("yyyy.MM.dd") ));
         if (this.ddl_Shop.SelectedValue != "-1")
         {
-            sql.Append("and a.shopid='"+this.ddl_Shop.SelectedValue+"' ");
+            sql.Append("and SaleRecord.shopid='"+this.ddl_Shop.SelectedValue+"' ");
         
         }
         sql.Append(" order by SaleLsh desc");
