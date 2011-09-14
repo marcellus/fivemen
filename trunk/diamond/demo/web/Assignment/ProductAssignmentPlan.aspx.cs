@@ -48,6 +48,8 @@ public partial class Assignment_ProductAssignmentPlan : System.Web.UI.Page
         dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable("select * from Product where Product_Name like '%"+this.txtSearchName.Text.Trim()+"%'", "tmp");
         this.gridviewselector.DataSource = dt;
         this.gridviewselector.DataBind();
+        this.lbPlanName1.Text = this.lbPlanName2.Text = this.txtPlanName.Text;
+        this.lbDestName.Text = this.ddlShop.SelectedItem.Text;
         //cbProductPlanSelector
     }
 

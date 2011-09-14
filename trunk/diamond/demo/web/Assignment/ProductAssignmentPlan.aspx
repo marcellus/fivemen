@@ -21,10 +21,10 @@
                 //alert($("spanPlan"));
                 var name="JXAssignmentPlan-"+date+"-"+checkText;
                 $("#ctl00_ContentPlaceHolder1_txtPlanName").val(name);
-                  $("#spanPlan1").text(name);
-                $("#spanPlan2").text(name);
+                  $("#ctl00_ContentPlaceHolder1_lbPlanName1").text(name);
+                $("#ctl00_ContentPlaceHolder1_lbPlanName2").text(name);
                  
-                $("#planShop").html("&nbsp;&nbsp;"+checkText);
+                $("#ctl00_ContentPlaceHolder1_lbDestName").html("&nbsp;&nbsp;"+checkText);
              }
              //alert();
              //alert(checkText);
@@ -40,8 +40,8 @@
             {
             //alert("changePlanName");
                 var name=$("#ctl00_ContentPlaceHolder1_txtPlanName").val();
-                $("#spanPlan1").text(name);
-                $("#spanPlan2").text(name);
+                $("#ctl00_ContentPlaceHolder1_lbPlanName1").text(name);
+                $("#ctl00_ContentPlaceHolder1_lbPlanName2").text(name);
             }
             
             </script>
@@ -119,7 +119,9 @@ setTimeout("SetupPage()",2000);
     <div style="">
         <table border="0px" cellspacing="3" cellpadding="2" >
         <tr>
-        <td >调  拨  单  号</td><td colspan="3" style="text-align:left">&nbsp;&nbsp;<span name="spanPlan" id="spanPlan1">JSAssignment001</span>
+        <td >调  拨  单  号</td><td colspan="3" style="text-align:left">&nbsp;&nbsp;
+            <asp:Label ID="lbPlanName1" runat="server" Text="JSAssignment001"></asp:Label>
+        
 
         
         </td>
@@ -134,7 +136,7 @@ setTimeout("SetupPage()",2000);
         <tr>
         <td>目  标  门  店</td>
         <td id="planShop">
-        
+           &nbsp;&nbsp; <asp:Label ID="lbDestName" runat="server" Text=""></asp:Label>
         </td>
         <td>     调拨货物总数</td>
         <td id="planNum">
@@ -357,7 +359,7 @@ setTimeout("SetupPage()",2000);
         调拨产品列表</div>
     <div>
      <div>
-      <table border="0" cellpadding="0" cellspacing="0" style="width:100%" text-align:center"><tr style=" text-align:center; "><td style=" text-align:center">  金鑫珠宝有限公司调拨单号<span name="spanPlan" id="spanPlan2">JSAssignment001</span>产品列表</td></tr>
+      <table border="0" cellpadding="0" cellspacing="0" style="width:100%" text-align:center"><tr style=" text-align:center; "><td style=" text-align:center">  金鑫珠宝有限公司调拨单号<asp:Label ID="lbPlanName2" runat="server" Text="JSAssignment001"></asp:Label>产品列表</td></tr>
     
     <tr><td><ft:GridViewEx CssClass="gvStyle" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" runat="server" AutoUpdateAfterCallBack="true"
                                     Width="100%" ID="gridviewplan" 
