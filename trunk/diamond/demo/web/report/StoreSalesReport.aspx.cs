@@ -69,10 +69,10 @@ public partial class report_StoreSalesReport : System.Web.UI.Page
         //}
         Product product = new Product();
         System.Text.StringBuilder sql = new System.Text.StringBuilder();
-        sql.Append(string.Format(@"SELECT     Product.Product_ID, Shop.Name, SaleRecord.ShopId, Product.Barcode, Product.Product_Name, SaleRecord.CouponsNo, SaleRecord.CouponsPrice, 
+        sql.Append(string.Format(@"SELECT     Product.Product_ID, Shop.Name as shopname, SaleRecord.ShopId, Product.Barcode, Product.Product_Name, SaleRecord.CouponsNo, SaleRecord.CouponsPrice, 
                       SaleRecord.SalePrice, SaleRecord.Discount, SaleRecord.SaleLsh, SaleRecord.Sales, SaleRecord.SaleTime, SaleRecord.InVoiceNo, 
                       SaleRecord.CustomerName, SaleRecord.CustomerPhone, SaleRecord.VisaMoney, SaleRecord.CashMoney, SaleRecord.TrueMoney, 
-                      SaleRecord.UserCardMoney
+                      SaleRecord.UserCardMoney,SaleRecord.Bz
 FROM         Sale_Product INNER JOIN
                       SaleRecord ON Sale_Product.SaleId = SaleRecord.Id INNER JOIN
                       Shop ON SaleRecord.ShopId = Shop.Id INNER JOIN

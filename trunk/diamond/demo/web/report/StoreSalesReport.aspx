@@ -81,6 +81,13 @@
                               RightSpace="0" ShowConfirmMsg="False" 
                              ShowWaitingPanel="False" Text="查询" Width="70px" 
                          onclick="ButtonEx1_Click" />
+                         &nbsp;&nbsp;
+                         <ace:ButtonEx ID="btn_Export" runat="server" Text="导出"
+                                Width="70px" CssClass="ButtonFlat" 
+                                DialogHeight="400px" 
+                                DialogWidth="600px" LeftSpace="0" RightSpace="0"
+                                ShowConfirmMsg="False" ShowWaitingPanel="False" 
+                                onclick="btn_Export_Click" />
                  
                  </td>
            
@@ -94,12 +101,7 @@
                 <table width="100%" border="0" cellspacing="0" cellpadding="1">
                     <tr>
                         <td style="white-space: nowrap">
-                            <ace:ButtonEx ID="btn_Export" runat="server" Text="导出"
-                                Width="70px" CssClass="ButtonFlat" 
-                                DialogHeight="400px" 
-                                DialogWidth="600px" LeftSpace="0" RightSpace="0"
-                                ShowConfirmMsg="False" ShowWaitingPanel="False" 
-                                onclick="btn_Export_Click" />
+                            
                             &nbsp;&nbsp;&nbsp;&nbsp;
                           
                         </td>
