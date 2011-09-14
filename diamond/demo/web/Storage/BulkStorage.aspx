@@ -72,9 +72,9 @@
                 <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">选择文件:</ace:LabelEx>
             </td>
             <td style="height: 23px; width: 35%">
-                <asp:FileUpload ID="FileUpload1" runat="server"  />
+                <asp:FileUpload ID="FileUpload1" runat="server" Width="207px"  />
                 <ace:ButtonEx ID="btn_Import" runat="server" CssClass="ButtonFlat" DialogHeight="200px" 
-                    DialogWidth="400px" LeftSpace="0" RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False"
+                    DialogWidth="400px" LeftSpace="0" RightSpace="0"  ShowWaitingPanel="False"
                     Text="导 入" Width="70px" OnClick="btn_Import_Click" />
             </td>
             <td style="height: 23px;">
