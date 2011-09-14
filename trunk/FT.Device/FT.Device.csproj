@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="CashCode\CashCodeImporter.cs" />
     <Compile Include="EncryptKeyboard\Zt598Importer.cs" />
+    <Compile Include="ETTUtilsSupport\ETTUtilsImporter.cs" />
     <Compile Include="HotPrinter\HotPrinterImporter.cs" />
     <Compile Include="IDCardWithScan\A8ScannerReaderImporter.cs" />
     <Compile Include="IDCard\CV100UReader.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="ImageSupport\ImageFromDevice.cs" />
     <Compile Include="ImageSupport\Twain.cs" />
     <Compile Include="InvoicePrinter\InvoicePrinterImporter.cs" />
+    <Compile Include="PortSupport\PortImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisaCardReader\TTCardReaderImporter.cs" />
   </ItemGroup>
