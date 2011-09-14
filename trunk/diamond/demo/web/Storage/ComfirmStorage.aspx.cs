@@ -32,7 +32,7 @@ public partial class Storage_ComfirmStorage : System.Web.UI.Page
         {
             ComfirmStorage(BarCode);
           
-            Response.Write("<script language=javascript>alert('确认成功!');</script>");
+            //Response.Write("<script language=javascript>alert('确认成功!');</script>");
             BindData();
         
         }
