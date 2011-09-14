@@ -58,7 +58,12 @@
 <ItemStyle Width="120px"></ItemStyle>
                                         </asp:BoundField>
                                         
-                                       
+                                       <asp:BoundField HeaderText="销售时间" DataField="CustomerName" 
+                                            ReadOnly="true"  HeaderStyle-Width="120px" ItemStyle-Width="120px" >
+<HeaderStyle Width="120px"></HeaderStyle>
+
+<ItemStyle Width="120px"></ItemStyle>
+                                        </asp:BoundField>
                                         <asp:BoundField HeaderText="品名" DataField="Product_Name" 
                                             ReadOnly="true"  HeaderStyle-Width="120px" ItemStyle-Width="120px" >
 <HeaderStyle Width="120px"></HeaderStyle>
