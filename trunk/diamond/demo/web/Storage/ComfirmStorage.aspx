@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Theme="DefaultTheme"
-    CodeFile="ComfirmStorage.aspx.cs" Inherits="Storage_ComfirmStorage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    Theme="DefaultTheme" CodeFile="ComfirmStorage.aspx.cs" Inherits="Storage_ComfirmStorage" %>
 
 <%@ Register Assembly="ACE.Common.Web.UI" Namespace="ACE.Common.Web.UI" TagPrefix="ace" %>
 <%@ Register TagPrefix="ajax" Namespace="MagicAjax.UI.Controls" Assembly="MagicAjax" %>
@@ -57,7 +57,7 @@
             }
         }
         function checkBacode() {
-        
+
             if (document.getElementById('txt_BarCode').Text != null) {
                 return true;
 
@@ -65,9 +65,9 @@
             else {
                 alert("请先输入条码!");
                 return false;
-            
+
             }
-        
+
         }
     </script>
 
@@ -81,29 +81,19 @@
             </td>
         </tr>
     </table>
-      <table width="100%" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td>
-                <ace:ButtonEx ID="btn_Delete" runat="server" CssClass="ButtonFlat" DialogHeight="200px" 
-                    DialogWidth="400px" LeftSpace="0" RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False" onClientClick="javascript:return DeleteCheck();"
-                    Text="删 除" Width="70px" OnClick="btn_Delete_Click" />
-            </td>
-        </tr>
-    </table>
     <ajax:AjaxPanel ID="ajaxPan1" runat="server">
         <table border="0" cellpadding="0" cellspacing="0" class="NCLabelSmall">
-          <tr>
-                        <td>
-                            <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">
+            <tr>
+                <td>
+                    <ace:LabelEx ID="LabelEx3" runat="server" CssClass="Label">
                                                入库单：</ace:LabelEx>
-                        </td>
-                        <td style="color: #FF0000" width="225">
-                             <ace:DropDownListEx ID="ddl_StoNo" runat="server" Width="200px" DataTextField="StorageNo" 
-                    DataValueField="StorageNo" AutoPostBack="True" 
-                                 onselectedindexchanged="ddl_StoNo_SelectedIndexChanged" >
-                </ace:DropDownListEx>
-                        </td>
-                    </tr>
+                </td>
+                <td style="color: #FF0000" width="225">
+                    <ace:DropDownListEx ID="ddl_StoNo" runat="server" Width="200px" DataTextField="StorageNo"
+                        DataValueField="StorageNo" AutoPostBack="True" OnSelectedIndexChanged="ddl_StoNo_SelectedIndexChanged">
+                    </ace:DropDownListEx>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <ace:LabelEx ID="LabelEx1" runat="server" CssClass="Label">
@@ -114,13 +104,22 @@
                     <ace:LabelEx ID="lbl_Star2" runat="server" CssClass="Label" ForeColor="#CC0000">*</ace:LabelEx>
                 </td>
                 <td>
-                <div style=" float:left;">
-                    <ace:ButtonEx ID="btn_Submit" runat="server" CssClass="ButtonFlat" Text=" 确 认" Width="100px"
-                        RightSpace="2" OnClick="btn_Submit_Click" /></div><span style=" color:Red; font-size:smaller;">(*表格中红色记录代表未确认入库的产品,双击某行添加复秤数据)</span>
+                    <div style="float: left;">
+                        <ace:ButtonEx ID="btn_Submit" runat="server" CssClass="ButtonFlat" Text=" 确 认" Width="100px"
+                            RightSpace="2" OnClick="btn_Submit_Click" /></div>
+                    <span style="color: Red; font-size: smaller;">(*表格中红色记录代表未确认入库的产品,双击某行添加复秤数据)</span>
                 </td>
             </tr>
         </table>
-       
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <ace:ButtonEx ID="btn_Delete" runat="server" CssClass="ButtonFlat" DialogHeight="200px"
+                        DialogWidth="400px" LeftSpace="0" RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False"
+                        onClientClick="javascript:return DeleteCheck();" Text="删 除" Width="70px" OnClick="btn_Delete_Click" />
+                </td>
+            </tr>
+        </table>
         <table width="100%" border="0">
             <tr>
                 <td>
@@ -128,8 +127,7 @@
                         AutoGenerateColumns="False" PageSize="20" OnBuildDataSource="dgProduct_BuildDataSource"
                         ShowFooter="True" Width="100%" AllowExport="False" DownloadFileName="" CssClass="Grid"
                         HighLight="False" HighLightCssClass="DataGridHighLight" SQLString="" PageCountEx="1"
-                        CurrentPageIndexEx="0" MAXRowCount="500" 
-                        OnItemDataBound="dgProduct_ItemDataBound">
+                        CurrentPageIndexEx="0" MAXRowCount="500" OnItemDataBound="dgProduct_ItemDataBound">
                         <Columns>
                             <ace:CheckBoxColumn DataField="Product_ID">
                                 <HeaderStyle Width="8px" />
@@ -150,8 +148,8 @@
                                 <ItemStyle HorizontalAlign="Left" Width="10%" />
                                 <HeaderStyle HorizontalAlign="Center" />
                             </asp:BoundColumn>
-                            <asp:BoundColumn DataField="Gold_NetWeight" HeaderText="净金重" >
-                                <ItemStyle HorizontalAlign="Left" Width="10%"  />
+                            <asp:BoundColumn DataField="Gold_NetWeight" HeaderText="净金重">
+                                <ItemStyle HorizontalAlign="Left" Width="10%" />
                                 <HeaderStyle HorizontalAlign="Center" />
                             </asp:BoundColumn>
                             <asp:BoundColumn DataField="ShouCun" HeaderText="手寸">
@@ -178,7 +176,6 @@
                                 <ItemStyle HorizontalAlign="Left" Width="25%" />
                                 <HeaderStyle HorizontalAlign="Center" />
                             </asp:BoundColumn>
-                            
                             <asp:BoundColumn DataField="ProductStatus" HeaderText="状态" Visible="false"></asp:BoundColumn>
                         </Columns>
                         <ItemStyle CssClass="ItemStyle" />
