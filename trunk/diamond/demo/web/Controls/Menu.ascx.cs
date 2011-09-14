@@ -108,7 +108,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
 
         if (HttpContext.Current.Session["empName"] != null)
         {
-            Html.Append("<li style=\"width:150px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">当前用户:&nbsp;<span class=\"UserTip\">" + HttpContext.Current.Session["empName"].ToString() + "</span></a></li>");
+            Html.Append("<li style=\"width:150px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">当前用户:&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"UserTip\">" + HttpContext.Current.Session["empName"].ToString() + "</span></a></li>");
         }
      
         return Html.ToString();
