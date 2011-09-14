@@ -78,10 +78,10 @@
         function Open_Normal(strUrl, windowName) {
             var vTmd = Math.random();
             //获得窗口的垂直位置
-            var iTop = (window.screen.availHeight - 30 - 600) / 2;
+            var iTop = (window.screen.availHeight - 30 - 200) / 2;
             //获得窗口的水平位置
-            var iLeft = (window.screen.availWidth - 10 - 830) / 2;
-            window.open(strUrl + '&rnd=' + Math.random(), windowName, 'height=600px,width=830px,status=no,toolbar=no,menubar=no,top=' + iTop + ',left=' + iLeft + ',location=no,scrollbars=yes,resizable=no');
+            var iLeft = (window.screen.availWidth - 10 - 520) / 2;
+            window.open(strUrl + '&rnd=' + Math.random(), windowName, 'height=200px,width=520px,status=no,toolbar=no,menubar=no,top=' + iTop + ',left=' + iLeft + ',location=no,scrollbars=yes,resizable=no');
 
             //return window.showModalDialog(strUrl,windowName,'dialogWidth=830px;dialogHeight=600px;center:1;help:0;status:0;resizable:0');
         }

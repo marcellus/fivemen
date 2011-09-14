@@ -43,21 +43,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <br />
+    <table border="0" cellpadding="1" cellspacing="0" style="" width="500px">
     <tr>
     
-  <td align="left" style="height: 23px; width:10%">入库单号:
+  <td align="left" style="height: 23px; width:150px">入库单号:
   </td>
-    <td style="height: 23px; width:15%">
+    <td style="height: 23px;  text-align:left">
      <asp:TextBox ID="txt_SNo" runat="server"></asp:TextBox>
     </td>
-      <td align="left" style="height: 23px; width:10%">
+      <td align="left" style="height: 23px; width:100px">
          生成日期:
   </td>
-    <td style="height: 23px; width:15%">
+    <td style="height: 23px; ">
          <asp:TextBox ID="txt_Date" runat="server" ReadOnly="true" BorderStyle="None"></asp:TextBox>
     </td>
-    <td style="height: 23px; width:46%"
+    <td style="height: 23px;"
     
     ></td>
     </tr>
@@ -68,7 +69,7 @@
     </tr>
     <tr>
     <td colspan="5">
-      <asp:TextBox ID="txt_Description" runat="server" TextMode="MultiLine" Width="99%" Height="80px"></asp:TextBox>
+      <asp:TextBox ID="txt_Description" runat="server" TextMode="MultiLine" Width="430px" Height="80px"></asp:TextBox>
     
     </td>
     
