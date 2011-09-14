@@ -60,7 +60,7 @@ public partial class Storage_SingleStorage : System.Web.UI.Page
         decimal Factory_Weight = 0;
         decimal Gold_NetWeight = 0;
         decimal ShouCun = 0;
-       
+        decimal Price = 0;
        
        
         string picture = string.Empty;
@@ -77,6 +77,10 @@ public partial class Storage_SingleStorage : System.Web.UI.Page
         {
             ShouCun = Convert.ToDecimal(txt_Size.Text);
         }
+        if (txt_Price.Text != string.Empty)
+        {
+            Price = Convert.ToDecimal(txt_Price.Text);
+        }
 
         string styleid = o.DatabaseAccess.ConvertToDBString(txt_StyleID.Text);
      
@@ -91,7 +95,7 @@ public partial class Storage_SingleStorage : System.Web.UI.Page
             picture = newFileName;
 
             sql = string.Format(@"insert into Product (Barcode,Product_Name,Factory_Weight,Gold_NetWeight,ShouCun,Style,Picture,
-LeiBie,Cailiao,Factory_Name,Descriptions,Created_Date,StorageNo,ProductStatus) values ('{0}','{1}',{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}',getdate(),'{11}','0') 
+LeiBie,Cailiao,Factory_Name,Descriptions,Created_Date,StorageNo,ProductStatus,Price) values ('{0}','{1}',{2},{3},{4},'{5}','{6}','{7}','{8}','{9}','{10}',getdate(),'{11}','0',{12}) 
                                 ; update Product set sort_value=@@IDENTITY, Barcode='360866'+cast(100000+@@IDENTITY as varchar(10))+
                                     right(cast(10-cast(right(cast((20+cast(substring(cast(100000+@@IDENTITY as varchar(10)),2,1) as int)+
                                     cast(substring(cast(100000+@@IDENTITY as varchar(10)),4,1) as int)+
@@ -103,7 +107,7 @@ LeiBie,Cailiao,Factory_Name,Descriptions,Created_Date,StorageNo,ProductStatus) v
                                 ; select top 1 barcode from product order by Product_ID desc"
                      , barcode, o.DatabaseAccess.ConvertToDBString(txt_ProductName.Text), Factory_Weight, Gold_NetWeight, ShouCun, txt_StyleID.Text,
                      picture,  this.ddl_LeiBie.SelectedValue, this.ddl_SmallType.SelectedValue, this.ddl_OrderName.SelectedValue,
-                     o.DatabaseAccess.ConvertToDBString(txt_Description.Value),SelStorageNo);
+                     o.DatabaseAccess.ConvertToDBString(txt_Description.Value),SelStorageNo,Price);
 
             string newbarcode = o.DatabaseAccess.ExecuteScalar(sql).ToString();
             Response.Write("<script>alert('产品入库成功！');</script>");
