@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.IO;
 
 
 public partial class Sales_SaleRecordAdd : System.Web.UI.Page
@@ -57,7 +58,7 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
             access.ExecuteSql(sql);
          }
 
-        FT.Commons.Tools.WebFormHelper.WriteScript(this, "<script language='javascript'>printSaleDetail();</script>");
+        //FT.Commons.Tools.WebFormHelper.WriteScript(this, "<script language='javascript'>printSaleDetail();</script>");
          // MagicAjax.AjaxCallHelper.WriteSetHtmlOfPageScript("<script language='javascript'>alert('请选择目标门店！');</script>");
        // ClientScript.RegisterStartupScript(this.GetType(), "tip", "<script>alert('请选择目标门店!');</script>");
 
@@ -96,6 +97,37 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
         
         this.gridview.DataSource = dt;
         this.gridview.DataBind();
+    }
+    protected void btnExportPdf_Click(object sender, EventArgs e)
+    {
+        string file = Server.MapPath("~/FileServer");
+        string filename=System.DateTime.Now.ToString("yyyyMMddHHmmss")+"-SaleRecord.pdf";
+        file += "\\"+filename;
+        FT.Commons.Com.Pdf.PdfHelper helper = new FT.Commons.Com.Pdf.PdfHelper(file);
+        helper.Open();
+        helper.AddTitle("                      金鑫珠宝销售明细单");
+        helper.AddBody("                        ");
+        helper.AddBody("销售单：OM41110908009  销售人员：贾名　打印时间："+System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+        helper.AddBody("实收金额（元）：10000");
+        helper.AddBody("银 行 卡：2000     现金： 4000     储值卡消费金额：4000");
+        helper.AddBody("贵宾卡号：         储值卡余额：    顾客签名：_________   售后电话：0755-12345678");
+        helper.AddBody("商品名称   条码号   数量(件)    金重(克)  当日金价(元)  金额(元)  工费(元)  折扣优惠(元)  实际收款(元)");
+        helper.AddBody("黄金手环   001                                                      340         100           4000    ");
+        helper.AddBody("翡翠手环   002                                                      800         700           6000    ");
+
+        helper.Close();
+
+        FileStream fs = File.Open(file, FileMode.Open);
+        byte[] buffer = new byte[fs.Length];
+        fs.Read(buffer, 0, buffer.Length);
+        fs.Close();
+        Response.ContentType = "application/pdf";
+        Response.AddHeader("content-disposition", "filename=" + filename);
+        Response.AddHeader("content-length", buffer.Length.ToString());
+        Response.BinaryWrite(buffer);
+        Response.Flush();
+        Response.Close();
+//*        */Response.End();
     }
     protected void scanChange_Click(object sender, EventArgs e)
     {
