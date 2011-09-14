@@ -24,7 +24,21 @@ namespace FT.Commons.Tools
     /// </summary>
     public class WebFormHelper : BaseHelper
     {
-       
+
+        public static void WriteScript(Page page,string script)
+        {
+            page.ClientScript.RegisterStartupScript(page.GetType(), "script_tmp", script); 
+        }
+
+        public static void Alert(Page page,string msg)
+        {
+            WriteScript(page,"<script>alert('"+msg+"');</script>"); 
+        }
+
+        public static void Confirm(Page page,string msg)
+        {
+            WriteScript(page, "<script>confirm('" + msg + "');</script>"); 
+        }
 
         private static Hashtable caches = new Hashtable();
 
