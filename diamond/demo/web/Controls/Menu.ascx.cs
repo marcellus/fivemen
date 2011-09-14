@@ -22,7 +22,7 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         string rooturl = ResolveUrl("~");
         Html.Append("<div><li  style=\"width:20px;\"></div></li>");
 
-        Html.Append("<li  style=\"width:100px;\"><a name=\"mu_1\" href=\"../Diamond/Product_List.aspx\">产品管理</a>");
+        Html.Append("<li  style=\"width:100px;\"><a name=\"mu_1\" href=\"../Diamond/Product_List.aspx\">产品入库管理</a>");
 
         Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
         Html.Append("<li><a  name=\"mu_1$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Storage/StorageListMange.aspx\">入库单管理</a></li>");
@@ -51,30 +51,30 @@ public partial class Controls_Menu : System.Web.UI.UserControl
         Html.Append("</ul></div></div></li>");
 
         //Report
-        if (HttpContext.Current.Session["empRole"] != null && (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user"))
-        {
+       // if (HttpContext.Current.Session["empRole"] != null && (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user"))
+        //{
             Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
             Html.Append("<li  style=\"width:100px;\"><a href=\"" + rooturl + "Product_List.aspx?logout=true\">库存产品查询</a></li>");
             Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
             Html.Append("<li  style=\"width:100px;\"><a name=\"mu_4\" href=\"#\"><span class=\"imea imeam\"><span></span></span>查询报表</a>");
             Html.Append("<div class=\"imsc\"><div class=\"imsubc\" style=\"width:100px;top:0px;left:0px;\"><ul style=\"\">");
-            if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
-            {
+            //if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
+            //{
                 Html.Append("<li><a  name=\"mu_4$1\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "Product_List.aspx\">产品查询</a></li>");
-            }
+           // }
             
-            if (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user")
-            {
+            //if (HttpContext.Current.Session["empRole"].ToString() == "Admin" || HttpContext.Current.Session["empRole"].ToString() == "Report user")
+           // {
                 Html.Append("<li><a  name=\"mu_4$2\" onclick=\"BuildUrl(this)\" href=\"" + rooturl + "report/StoreSalesReport.aspx\">门店销售报告</a></li>");
                 //Html.Append("<li><a  name=\"mu_4$3\" onclick=\"BuildUrl(this)\" href=\"../Export_by_Size.aspx\">Export by size</a></li>");
-            }
-            if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
-            {
+            //}
+            //if (HttpContext.Current.Session["empRole"].ToString() == "Admin")
+           // {
                 //Html.Append("<li><a  name=\"mu_4$4\" onclick=\"BuildUrl(this)\" href=\"../Export_Xml.aspx\">Export Xml</a></li>");
-            }
+            //}
 
             Html.Append("</ul></div></div></li>");
-        }
+       // }
         Html.Append("<li style=\"width:10px;\" nowrap=\"nowrap\"><a><span class=\"UserTipTitle\">&nbsp;<span class=\"UserTip\"> </span></a></li>");
 
         //Utility   
