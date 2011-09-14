@@ -259,7 +259,7 @@ function hiddenButton_onclick() {
                                 DialogWidth="600px" LeftSpace="0" RightSpace="0"
                                 ShowConfirmMsg="False" ShowWaitingPanel="False" />
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <ace:ButtonEx ID="btn_Add" runat="server" Text="入库" Width="70px" onClientClick="javascript:return Open_AddWindow();"
+                            <ace:ButtonEx ID="btn_Add" runat="server" Visible="false" Text="入库" Width="70px" onClientClick="javascript:return Open_AddWindow();"
                                 CssClass="ButtonFlat" DialogHeight="400px" DialogWidth="400px" LeftSpace="0"
                                  RightSpace="0" ShowConfirmMsg="False" ShowWaitingPanel="False" />
                             &nbsp;&nbsp;&nbsp;&nbsp;
