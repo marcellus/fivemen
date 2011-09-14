@@ -66,7 +66,12 @@
  <td><asp:TextBox ID="txtBz" Width="160px"  runat="server"></asp:TextBox></td>
 </tr>
 <tr><td colspan="4">
-<asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Width="300px" CssClass="ButtonFlat" Text="保存并打印销售单" />
+<asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Width="300px" CssClass="ButtonFlat" Text="保存本店销售单" />
+&nbsp;&nbsp;
+<input style="" id="Button2" onclick="printSaleDetail();" class="ButtonFlat" type="button" value="打印销售单" />
+&nbsp;&nbsp;
+<asp:Button ID="btnExportPdf" runat="server" OnClick="btnExportPdf_Click" Width="100px" CssClass="ButtonFlat" Text="导出Ｐｄｆ" />
+
     <OBJECT ID="printobj" style="display:none"
 	CLASSID="CLSID:A561A382-7330-4A09-923E-85F74F60B851">
 </OBJECT> 
@@ -101,17 +106,30 @@ var obj=document.getElementById("printobj");
 	height=height+len;
 	cs=cs+"Text,Text3,2.116669,"+height+",宋体,10.5,False,销售时间："+new Date().toLocaleString()+",-2147483640|";
 	height=height+len;
-	cs=cs+"Text,Text4,2.116669,"+height+",宋体,10.5,False,现金："+xj+"  找零："+zl+",-2147483640|";
+	cs=cs+"Text,Text4,2.116669,"+height+",宋体,10.5,False,银 行 卡：2000     现金： 4000    ,-2147483640|";
+	
+	
+	height=height+len;
+	cs=cs+"Text,Text5,2.116669,"+height+",宋体,10.5,False,贵宾卡号：         储值卡余额：    ,-2147483640|";
+	
+	height=height+len;
+	cs=cs+"Text,Text6,2.116669,"+height+",宋体,10.5,False,储值卡消费金额：4000,-2147483640|";
+	
+	
+	height=height+len;
+	cs=cs+"Text,Text7,2.116669,"+height+",宋体,10.5,False,实收金额（元）：10000,-2147483640|";
+	
+	
 	//cs=cs+"Text,Text5,15.34585,31.75003,宋体,10.5,False,找零："+zl+",-2147483640|";
 	height=height+len;
-	cs=cs+"Text,Text5,2.116669,"+height+",宋体,10.5,False,品  名   工厂货重  零售价,-2147483640|";
+	cs=cs+"Text,Text8,2.116669,"+height+",宋体,10.5,False,品  名   工厂货重  零售价,-2147483640|";
 	//alert("beginlist");
 	
 	//height=height+len;
 	var table=$('#ctl00_ContentPlaceHolder1_gridview');
 	//alert(table);
-	var count=6;
-	var l=table.find("tr").length+6;
+	var count=9;
+	var l=table.find("tr").length+9;
 	//alert( $("#ctl00_ContentPlaceHolder1_gridview").find("tr")[1]);
     $("#ctl00_ContentPlaceHolder1_gridview tr").each(function () {
             //alert("findtd");
@@ -122,7 +140,7 @@ var obj=document.getElementById("printobj");
                //alert($(obj[0]).text());
                // alert($(obj[0]).val());
                // alert($(obj[0]).html());
-               var out=$(obj[1]).text()+" "+$(obj[6]).text()+" "+$(obj[8]).text();
+               var out=$(obj[1]).text()+"     "+$(obj[6]).text()+"    "+$(obj[8]).text();
                height=height+len;
                
 	           cs=cs+"Text,Text"+count+",2.116669,"+height+",宋体,10.5,False,"+out+",-2147483640|";
