@@ -54,7 +54,7 @@ public partial class Sales_SaleRecordAdd : System.Web.UI.Page
         for (int i = 0; i < lists.Count; i++)
         {
              Console.Write(id.ToString());
-            Console.Write(lists[i].ToString();
+            Console.Write(lists[i].ToString());
             sql = "insert into Sale_Product(SaleId,ProductId,State) values(" + id.ToString() + "," + lists[i].ToString() + ",'"+ProductStateEnum.BeginSaleString+"')";
             access.ExecuteSql(sql);
 
