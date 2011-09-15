@@ -167,8 +167,9 @@ namespace DS.Plugins.Student
            }
             height += sep + 5;
             //string connadd = this.GetConnAddress();
-            string connadd = Student.RegAddress;
-            if (Student.RegAddress.Length < ConnAddressMaxLen)
+           // string connadd = Student.RegAddress;
+            string connadd = Student.ConnAddress;
+            if (connadd.Length < ConnAddressMaxLen)
             {
                 this.Draw15String(connadd, new Point(width, height));
             }
