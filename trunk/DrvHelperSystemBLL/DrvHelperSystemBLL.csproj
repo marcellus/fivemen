@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C608504-D44F-403E-B30D-2D8196A11435}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrvHelperSystemBLL</RootNamespace>
+    <AssemblyName>DrvHelperSystemBLL</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Commons\BLL\AreaInfoOperator.cs" />
+    <Compile Include="System\Commons\BLL\InterfaceConfigInfoOperator.cs" />
+    <Compile Include="System\Commons\BLL\DictInfoOperator.cs" />
+    <Compile Include="System\Commons\BLL\DictTypeInfoOperator.cs" />
+    <Compile Include="System\Commons\BLL\LogInfoOperator.cs" />
+    <Compile Include="System\Commons\Model\AreaInfo.cs" />
+    <Compile Include="System\Commons\Model\InterfaceConfigInfo.cs" />
+    <Compile Include="System\Commons\Model\DictInfo.cs" />
+    <Compile Include="System\Commons\Model\DictTypeInfo.cs" />
+    <Compile Include="System\Commons\Model\LogInfo.cs" />
+    <Compile Include="System\Model\BaseModel.cs" />
+    <Compile Include="System\Rbac\BLL\DepartmentInfoOperator.cs" />
+    <Compile Include="System\Rbac\BLL\RoleInfoOperator.cs" />
+    <Compile Include="System\Rbac\BLL\UserInfoOperator.cs" />
+    <Compile Include="System\Rbac\Model\DepartmentInfo.cs" />
+    <Compile Include="System\Rbac\Model\MenuInfo.cs" />
+    <Compile Include="System\Rbac\Model\RightInfo.cs" />
+    <Compile Include="System\Rbac\Model\RoleInfo.cs" />
+    <Compile Include="System\Rbac\Model\UserInfo.cs" />
+    <Compile Include="System\School\BLL\CoachCarInfoOperator.cs" />
+    <Compile Include="System\School\BLL\CoachInfoOperator.cs" />
+    <Compile Include="System\School\BLL\SchoolInfoOperator.cs" />
+    <Compile Include="System\School\BLL\SchoolUserInfoOperator.cs" />
+    <Compile Include="System\School\Model\CoachCarInfo.cs" />
+    <Compile Include="System\School\Model\CoachInfo.cs" />
+    <Compile Include="System\School\Model\SchoolInfo.cs" />
+    <Compile Include="System\School\Model\SchoolUserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FT.DAL\FT.DAL.csproj">
+      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Name>FT.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DriverPerson\BLL\" />
+    <Folder Include="DriverPerson\Model\" />
+    <Folder Include="Vehicle\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

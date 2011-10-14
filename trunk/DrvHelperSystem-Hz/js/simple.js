@@ -1,0 +1,108 @@
+﻿//页面验证的规则
+var simple=
+
+{
+    rules:
+	[
+	 {
+	 id:"name",//必填字段
+	 method:Require,//必填字段
+	 //message:"这个field必须填值",
+	 showstyle:"div",
+	 css:"exists"
+	 //callevent:"click"	
+	 },
+	 {
+	 id:"qq",//必填字段
+	 method:NeedNumber,//必填字段	
+	 minvalue:10,
+	 maxvalue:20
+	 },
+	 {
+		 id:"birthday",
+		 method:NeedDate
+	 },
+	 {
+		 id:"mobile",
+		 method:NeedMobile,
+		 boolnull:false//是否允许为空
+	 },
+	 {
+		id:"phone",
+		method:NeedPhone
+	 },
+	 {
+		 id:"year1",
+		 method:NeedPhoneOrTel
+	 },
+	  {
+		id:"english",
+		method:NeedAlpha
+	 },
+	 {
+		id:"chinese",
+		method:NeedChinese,
+		css:"changeerrorcss",
+		maxlength:6
+	 },
+	 {
+		id:"ip",
+		method:NeedIp
+	 },
+	 {
+		id:"email",
+		method:NeedEmail
+	 },
+	 {
+		 id:"alphanum",
+		 method:NeedAlphaNum
+	 },
+	 {
+		 id:"DropDownList1",
+		 method:NeedSelected
+	 },
+	 
+	 {
+		 id:"personPage",
+		 method:NeedUrl,
+		 minlength:10,
+		 maxlength:20
+	 }
+	]	
+}
+/*
+{
+		 id:"ListBox1",
+		 method:NeedSelectMore,
+		 minvalue:2
+	 },
+	 {
+		 id:"CheckBoxList1",
+		 method:CheckRange,
+		 minvalue:2
+	 },
+	 {
+		 id:"RadioButtonList1",
+		 method:NeedRadio
+	 },
+*/
+//alert("准备执行validation的rule绑定");
+	var v=new Validation(simple);
+//alert("初始化成功！");
+//v.validRules=simple;
+//alert(v.validRules.rules[0].id);
+v.AutoBind();
+/*
+defaulterrorcss:默认css样式
+id：需要验证的控件id
+method：调用的方法
+boolnull：是否允许为空，默认不允许
+showstyle：新的css样式
+callevent：事件：blur是默认事件
+message：自定义的message，如果没有就使用规则里面对应方法的message
+css：自定义的css
+minvalue:最小值设置（只针对整数）如果使用到的话而且自定义的消息内容，消息必须包括{0}
+maxvalue：最大值设置（只针对整数）如果使用到的话而且自定义的消息内容，消息必须包括{1}
+minlength：最小长度设置 如果使用到的话而且自定义的消息内容，消息必须包括{2}
+maxlength：最大长度设置 如果使用到的话而且自定义的消息内容，消息必须包括{3}
+*/
