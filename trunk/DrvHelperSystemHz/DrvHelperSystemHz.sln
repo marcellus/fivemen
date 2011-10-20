@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DrvHelperSystem-Hz", "..\DrvHelperSystem-Hz\", "{97714176-E4EE-4A52-ADEA-CC9B93D6CCB7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
+		ProjectReferences = "{0C608504-D44F-403E-B30D-2D8196A11435}|DrvHelperSystemBLL.dll;{B10796F9-A49C-4992-835B-7E08F3E41D8E}|DrvHelperSystem-Hz-BLL.dll;{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}|FT.Web.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/DrvHelperSystem-Hz"
 		Debug.AspNetCompiler.PhysicalPath = "..\DrvHelperSystem-Hz\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DrvHelperSystem-Hz\"
@@ -24,6 +25,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DrvHelperSystem-Hz", "..\Dr
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2679"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Web", "..\..\FT.Web\FT.Web.csproj", "{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Commons", "..\..\FT.Commons\FT.Commons.csproj", "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +70,26 @@ Global
 		{97714176-E4EE-4A52-ADEA-CC9B93D6CCB7}.Release|Any CPU.ActiveCfg = Debug|.NET
 		{97714176-E4EE-4A52-ADEA-CC9B93D6CCB7}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
 		{97714176-E4EE-4A52-ADEA-CC9B93D6CCB7}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Release|.NET.ActiveCfg = Release|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|.NET.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
