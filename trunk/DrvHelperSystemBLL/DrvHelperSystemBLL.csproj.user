@@ -1,0 +1,5 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>E:\工作代码\c#project\fivemen\DrvHelperSystemHz\DrvHelperSystemHz\UseDll\</ReferencePath>
+  </PropertyGroup>
+</Project>

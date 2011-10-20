@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FT.DAL, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -47,7 +51,11 @@
     <Compile Include="System\Commons\Model\DictInfo.cs" />
     <Compile Include="System\Commons\Model\DictTypeInfo.cs" />
     <Compile Include="System\Commons\Model\LogInfo.cs" />
+    <Compile Include="System\Constants.cs" />
+    <Compile Include="System\Model\BaseDepartment.cs" />
     <Compile Include="System\Model\BaseModel.cs" />
+    <Compile Include="System\Model\BasePerson.cs" />
+    <Compile Include="System\Model\BaseSubDepartment.cs" />
     <Compile Include="System\Rbac\BLL\DepartmentInfoOperator.cs" />
     <Compile Include="System\Rbac\BLL\RoleInfoOperator.cs" />
     <Compile Include="System\Rbac\BLL\UserInfoOperator.cs" />
@@ -59,11 +67,9 @@
     <Compile Include="System\School\BLL\CoachCarInfoOperator.cs" />
     <Compile Include="System\School\BLL\CoachInfoOperator.cs" />
     <Compile Include="System\School\BLL\SchoolInfoOperator.cs" />
-    <Compile Include="System\School\BLL\SchoolUserInfoOperator.cs" />
     <Compile Include="System\School\Model\CoachCarInfo.cs" />
     <Compile Include="System\School\Model\CoachInfo.cs" />
     <Compile Include="System\School\Model\SchoolInfo.cs" />
-    <Compile Include="System\School\Model\SchoolUserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TextFile1.txt" />
@@ -73,9 +79,9 @@
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FT.DAL\FT.DAL.csproj">
-      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
-      <Name>FT.DAL</Name>
+    <ProjectReference Include="..\..\FT.Web\FT.Web.csproj">
+      <Project>{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}</Project>
+      <Name>FT.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

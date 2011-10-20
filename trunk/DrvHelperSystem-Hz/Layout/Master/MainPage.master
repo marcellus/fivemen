@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="Layout_Master_MainPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" >
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+     <title>广州互信电子科技有限公司</title>
+    </asp:ContentPlaceHolder>
+    <base target="_self" />
+    <!--
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE6" /> 
+    -->
+    
+    <link href='<%=  this.ResolveUrl("~/css/main.css") %>'rel="Stylesheet" type="text/css" />
+   <!-- <script src="<%=  this.ResolveUrl("~/js/jquery.js") %>" type="text/javascript" />-->
+    <script type="text/javascript" src='<%=  this.ResolveUrl("~/js/commons.js") %>' ></script>
+</head>
+<body style="top:0; margin:0; padding:0; vertical-align:top;">
+<div style="top:0; margin:0; padding:0; vertical-align:top;">
+    <form id="form1" style="top:0; text-align:center; clear:both; vertical-align:top; margin:0; padding:0" runat="server">
+        <div style=" clear:both;top:0; text-align:center; vertical-align:top; margin:0; padding:0; border:1px">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</div>
+</body>
+</html>
