@@ -230,6 +230,32 @@ namespace FT.Commons.Tools
         /// <param name="program">程序名</param>
         /// <param name="key">键名</param>
         /// <param name="value">键值</param>
+        public static void CreateProgramKeyLoc(string program, string key, string value)
+        {
+            RegistryKey rk = Registry.LocalMachine.OpenSubKey("Software", RegistryKeyPermissionCheck.ReadWriteSubTree);
+
+            //rk.DeleteSubKey(program, false);
+
+            //rk.Close();
+            RegistryKey rkSub = rk.OpenSubKey(program, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            if (rkSub == null)
+            {
+                rk.CreateSubKey(program);
+                rkSub = rk.OpenSubKey(program, RegistryKeyPermissionCheck.ReadWriteSubTree);
+            }
+            rkSub.SetValue(key, value);
+            rkSub.Close();
+            rk.Close();
+        }
+
+
+
+        /// <summary>
+        /// 根据程序名进行创立键值
+        /// </summary>
+        /// <param name="program">程序名</param>
+        /// <param name="key">键名</param>
+        /// <param name="value">键值</param>
         public static void CreateProgramKey(string program,string key,string value)
         {
             RegistryKey rk = Registry.CurrentUser.OpenSubKey("Software", RegistryKeyPermissionCheck.ReadWriteSubTree);
