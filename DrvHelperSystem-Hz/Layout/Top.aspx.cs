@@ -17,13 +17,12 @@ public partial class Layout_Top : AuthenticatedPage
     {
         if (!IsPostBack)
         {
-            //this.lbLoginUserName.Text = this.Operator.OperatorName;
         }
     }
     protected void lbtnCancel_Click(object sender, EventArgs e)
     {
         this.ClearOperatorInfo();
-        WebTools.WriteScript("parent.location='../UserManage/Login.aspx';parent.reload();");
+        WebTools.WriteScript("parent.location='" + this.ResolveUrl("~/System/UserManage/Login.aspx") + "';parent.reload();");
        
     }
 }

@@ -24,16 +24,16 @@ public partial class Layout_LeftMenu : AuthenticatedPage
     {
         this.TreeView1.Nodes.Clear();
         string[] ids = this.Operator.Right.Split(';');
-        string condition=" where menuid in(";
+        string condition=" where id in(";
         for (int i = 0; i < ids.Length - 1;i++ )
         {
             if(ids[i].Length>0)
                 condition += ids[i] + ",";
         }
         condition += "-1)";
-        string sql = "select menutext,menuid,menuurl,menuimg,isparent,parentid from table_menus";
+        string sql = "select c_text,id,c_url,c_img,i_is_parent,i_parent_id from table_menu_info";
         sql += condition;
-        sql += " order by ordernum asc";
+        sql += " order by i_order_num asc";
         DataTable dt = FT.DAL.DataAccessFactory.GetDataAccess().SelectDataTable(sql, "tmpdb");
         if (dt != null && dt.Rows.Count > 0)
         {
@@ -43,14 +43,14 @@ public partial class Layout_LeftMenu : AuthenticatedPage
             {
 
                 node = new
-                    TreeNode(row["menutext"].ToString(),
-                    row["menuid"].ToString());
-                node.ImageUrl = row["menuimg"].ToString();
-                node.NavigateUrl = row["menuurl"].ToString();
+                    TreeNode(row["c_text"].ToString(),
+                    row["id"].ToString());
+                node.ImageUrl = this.ResolveUrl(row["c_img"].ToString());
+                node.NavigateUrl = this.ResolveUrl(row["c_url"].ToString());
                 node.PopulateOnDemand = false;
                 node.SelectAction = TreeNodeSelectAction.Expand;
 
-                if (row["isparent"].ToString() == "1")
+                if (row["i_is_parent"].ToString() == "1")
                 {
                     parent = node;
                     this.TreeView1.Nodes.Add(node);
@@ -67,9 +67,9 @@ public partial class Layout_LeftMenu : AuthenticatedPage
     {
 
         DataTable dt = new DataTable();
-        dt.Columns.Add("menuid");
-        dt.Columns.Add("menutext");
-        dt.Columns.Add("menuurl");
+        dt.Columns.Add("id");
+        dt.Columns.Add("c_text");
+        dt.Columns.Add("c_url");
     }
     /*
     protected void TreeView1_TreeNodePopulate(object sender, TreeNodeEventArgs e)

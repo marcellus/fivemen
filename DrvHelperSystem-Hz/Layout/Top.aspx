@@ -16,9 +16,9 @@
 <body style=" vertical-align:top; margin-top:0px; background-image:url('../images/banner1.jpg'); padding-top:0px;background-color:#efefef;background-repeat:repeat">
     <form id="form1" runat="server" style="margin-top:20px; font-size:15pt; position:relative;padding-top:0px;vertical-align:top;">
     
-    <div style=" line-height:20px;height:20px; font-size:11pt;margin-top:0px;position:relative;vertical-align:top; margin-top:0px;width:200px; vertical-align:top; text-align: right;float:right"><a href="../Layout/MainWelcome.aspx"  onclick="" target="main">返回首页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="javascript:window.external.AddFavorite('http://localhost:12345/DrvHelperSystem/index.aspx','驾驶人辅助系统');return false">收藏</a>
+    <div style=" line-height:20px;height:20px; font-size:11pt;margin-top:0px;position:relative;vertical-align:top; margin-top:0px;width:200px; vertical-align:top; text-align: right;float:right"><a href='<%=  this.ResolveUrl("~/Layout/MainWelcome.aspx") %>'  onclick="" target="main">返回首页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="javascript:window.external.AddFavorite('http://<%=Request.Url.Authority %><%=Request.ApplicationPath %>/index.aspx','驾驶人辅助系统');return false">收藏</a>
 <br />
-<a href="../UserManage/ChangePwd.aspx"  onclick="" target="main">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LinkButton
+<a href='<%=  this.ResolveUrl("~/System/UserManage/ChangePwd.aspx") %>' onclick="" target="main">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LinkButton
     ID="lbtnCancel" runat="server" onclick="lbtnCancel_Click">注销</asp:LinkButton></div>
 
   
@@ -26,6 +26,7 @@
    
     使用驾驶人辅助系统！！！！
 
+     
     </form>
 </body>
 </html>

@@ -15,11 +15,11 @@ namespace DrvHelperSystemBLL.System.Commons.Model
         [OracleSeqAttribute(SeqName = "seq_interface_config_info")]
         public int Id;
 
-        public int 编号
-        {
-            get { return Id; }
-            set { Id = value; }
-        }
+
+
+        [SimpleColumn(Column = "c_interface_url")]
+        [Alias("接口地址")]
+        public String InterfaceUrl;
 
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrvHelperSystemBLL.System.Commons.BLL
 {
-    class DictTypeInfoOperator
+    public class DictTypeInfoOperator
     {
     }
 }

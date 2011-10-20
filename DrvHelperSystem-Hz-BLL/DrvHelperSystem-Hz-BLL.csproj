@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -39,17 +40,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FT.Commons\FT.Commons.csproj">
-      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
-      <Name>FT.Commons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FT.DAL\FT.DAL.csproj">
-      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
-      <Name>FT.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FT.WebServiceInterface\FT.WebServiceInterface.csproj">
-      <Project>{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}</Project>
-      <Name>FT.WebServiceInterface</Name>
+    <ProjectReference Include="..\DrvHelperSystemBLL\DrvHelperSystemBLL.csproj">
+      <Project>{0C608504-D44F-403E-B30D-2D8196A11435}</Project>
+      <Name>DrvHelperSystemBLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
