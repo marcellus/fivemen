@@ -1,5 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
+    <ReferencePath>E:\工作代码\c#project\fivemen\commons-dlls\</ReferencePath>
   </PropertyGroup>
 </Project>

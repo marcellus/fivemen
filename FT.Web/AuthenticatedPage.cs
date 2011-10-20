@@ -65,20 +65,20 @@ namespace FT.Web
         }
         protected void RedirectNotRight()
         {
-            Page.Response.Redirect(System.Configuration.ConfigurationManager.AppSettings["NotRightPage"], true);
+            Page.Response.Redirect(Page.ResolveUrl(System.Configuration.ConfigurationManager.AppSettings["NotRightPage"]), true);
 
         }
         protected void RedirectDefault()
         {
             string  url=System.Configuration.ConfigurationManager.AppSettings["NeedLoginPage"];
-            Page.Response.Redirect(url, true);
+            Page.Response.Redirect(Page.ResolveUrl(url), true);
         }
         protected override void OnLoad(EventArgs e)
         {
             if (Session["OperatorInfo"] == null)
             {
                // Page.RegisterClientScriptBlock("redirect", "<script>window.document.location.href='../index.aspx';</script>");
-                Page.Response.Redirect(System.Configuration.ConfigurationManager.AppSettings["NeedLoginPage"], true);
+                Page.Response.Redirect(Page.ResolveUrl(System.Configuration.ConfigurationManager.AppSettings["NeedLoginPage"]), true);
             }
             
             base.OnLoad(e);
