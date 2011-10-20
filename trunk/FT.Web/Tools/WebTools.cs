@@ -27,6 +27,21 @@ namespace FT.Web.Tools
 			// TODO: Add constructor logic here
 			//
 		}
+
+        public static OperatorTick GetLoginUser()
+        {
+
+            if (System.Web.HttpContext.Current.Session["OperatorInfo"] == null)
+            {
+                return new OperatorTick(-1,"mockuser",-1,"","");
+            }
+
+            else
+            {
+                OperatorTick op = OperatorTick.GetFromString(System.Web.HttpContext.Current.Session["OperatorInfo"].ToString());
+                return  op;
+            }
+        }
         public static void WriteTitle(Page pg,string title)
         {
             pg.RegisterStartupScript("title", "<script>document.title='重庆国通工程技术有限公司-" + title + "';</script>");
@@ -75,20 +90,21 @@ namespace FT.Web.Tools
         }
         public static void Open(string url, int width, int height)
         {
-            WriteScript("window.open('" + url + "','','height=" + height + "px, width=" + width + "px, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no','_blank')");
+            WriteScript("window.open('" + url + "','popwin','height=" + height + "px, width=" + width + "px, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no','_blank')");
         }
         public static void ShowModalWindows(string url,int width,int height)
         {
             //WriteScript();
             //'ShowMessage.aspx', '','height=300, width=400, top=250, left=250, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no','_blank'
-            WriteScript("window.showModalDialog('"+url+"','','height="+height+"px, width="+width+"px, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')");
+          //  WriteScript("alert('123');");
+            WriteScript("window.showModalDialog('" + url + "','','height=" + height + "px, width=" + width + "px, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no,dialogTop=0px')");
         }
 
         public static void ShowModalWindows(Page pg,string url, int width, int height)
         {
-            
 
-            pg.ClientScript.RegisterStartupScript(123.GetType(),"pop", "<script language='javascript'>window.showModalDialog('" + url + "','','dialogHeight=" + height + "px;dialogWidth=" + width + "px');</script>");
+            //WriteScript("alert('123');");
+            pg.ClientScript.RegisterStartupScript(123.GetType(), "pop", "<script language='javascript'>window.showModalDialog('" + url + "','','dialogHeight:" + height + "px;dialogWidth:" + width + "px;edge:Raised; center:1;');</script>");
             
         }
 
@@ -126,6 +142,22 @@ namespace FT.Web.Tools
             catch (Exception e)
             {
                 return 0;
+            }
+
+        }
+
+        public static string GetClientIPString()
+        {
+            try
+            {
+               
+                string ip = System.Web.HttpContext.Current.Request.UserHostAddress;
+               
+                return ip;
+            }
+            catch (Exception e)
+            {
+                return "0.0.0.0";
             }
 
         }

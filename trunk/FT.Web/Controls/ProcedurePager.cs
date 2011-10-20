@@ -347,6 +347,29 @@ namespace WebControls
 			}
 		}
 
+        private Control FindControlExtend(string id, ControlCollection controls)
+        {
+            int i;
+            Control found = null;
+            for (i = 0; i < controls.Count; i++)
+            {
+                if (controls[i].ID == id)
+                {
+
+                    found = controls[i];
+                    break;
+                }
+                if (controls[i].Controls.Count > 0)
+                {
+                    found = FindControlExtend(id, controls[i].Controls);
+                    if (found != null)
+                    {
+                        break;
+                    }
+                }
+            } return (found);
+        }
+
 		/// <summary>
 		/// °ó¶¨µÄ¿Ø¼þ
 		/// </summary>
@@ -358,7 +381,15 @@ namespace WebControls
 				
 				//Control sender =this.OwnerPage.FindControl(this.bindControl);
 				this.EnsureChildControls();
-				Control sender=this.Page.FindControl(this.bindControl);
+                Control sender;
+                if (this.Page.Master != null)
+                {
+                    sender = FindControlExtend(this.bindControl, this.Page.Controls);
+                }
+                else
+                {
+                    sender = this.Page.FindControl(this.bindControl);
+                }
 				return sender;
 			}
 			
