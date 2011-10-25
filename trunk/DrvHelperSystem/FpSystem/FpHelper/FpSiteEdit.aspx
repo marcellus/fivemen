@@ -46,6 +46,16 @@
                 </td>
                 
             </tr>
+            
+                       <tr class="table-content">
+                <td style="width:120px" class="table-title">
+                    中间件主机：</td>
+                <td  colspan="3" style="">
+                    
+                    <asp:TextBox ID="txtHost" runat="server" Width="124px"   ></asp:TextBox>
+                </td>
+                
+            </tr>
            
            
             <tr  class="table-content">

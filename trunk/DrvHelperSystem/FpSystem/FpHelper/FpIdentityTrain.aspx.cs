@@ -8,6 +8,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using FT.Commons.Tools;
+using FT.DAL.Orm;
 
 public partial class FpSystem_FpHelper_FpIdentityTrain : System.Web.UI.Page
 {
@@ -15,5 +17,8 @@ public partial class FpSystem_FpHelper_FpIdentityTrain : System.Web.UI.Page
     {
         Session["site_id"] = Request.Params["site_id"];
         Session["bustype"] = "train";
+        int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_Id"].ToString(), -1);
+        FpSite site = SimpleOrmOperator.Query<FpSite>(site_id);
+        Session["host"] = site.HOST;
     }
 }

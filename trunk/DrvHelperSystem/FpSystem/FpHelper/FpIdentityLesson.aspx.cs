@@ -17,5 +17,8 @@ public partial class FpSystem_FpHelper_FpIdentityLesson : System.Web.UI.Page
     {
         Session["site_id"] = Request.Params["site_id"];
         Session["bustype"] = "lesson";
+        int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_Id"].ToString(), -1);
+        FpSite site = SimpleOrmOperator.Query<FpSite>(site_id);
+        Session["host"] = site.HOST;
     }
 }
