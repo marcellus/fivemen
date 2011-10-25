@@ -19,7 +19,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*
+        
         string lStrIDCard = "";
         if (Request.Params[FPSystemBiz.PARAM_RESULT] == null)
           return ;
@@ -34,7 +34,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         //FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         TempStudentInfo tempStudentInfo= DrvQueryHelper.QueryStudent(lStrIDCard);
         FpStudentObject fso = new FpStudentObject();
-        if (tempStudentInfo == null)
+        if (tempStudentInfo == null&&1==2)
         {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "没有该学员的个人信息";
@@ -43,7 +43,7 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         fso.fromTempStudentInfo(tempStudentInfo);
         Session[SESSION_STUDENT] = fso;
         this.fnUILoadStudentRecord(fso,tempStudentInfo);
-         */
+         
     }
 
     private void fnUILoadStudentRecord(FpStudentObject fso,TempStudentInfo tso)
