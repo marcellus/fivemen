@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
-<div style=" width:1250px; height:820px;float:left" class="b">
+<div style=" width:70%; height:820px;float:left" class="b">
   <div style=" height:10%">
      <FpUCL:viewSiteInfo runat="server" />
   </div>
@@ -15,7 +15,7 @@
     </iframe>
   </div>
 </div>
-<div style=" width:600px; height:820px; float:right">
+<div style=" width:29%; height:820px; float:right">
      <div style=" height:500px; width:100%" class="b" >
             <iframe id="frameFpViewCheckinList" name="frameFpViewCheckinList" src="FpViewCheckinList.aspx" scrolling="no" frameborder="0" style="width:100%; height:100%; border-width:0px">
     </iframe>

@@ -30,6 +30,7 @@
                             <asp:BoundColumn DataField="name" HeaderText="场地名"></asp:BoundColumn>
                             <asp:BoundColumn DataField="descp" HeaderText="场地描述"></asp:BoundColumn>
                             <asp:BoundColumn DataField="limit" HeaderText="限制人数"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="host" HeaderText="中间件主机"></asp:BoundColumn>
                             <asp:TemplateColumn HeaderText="详细">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="btnDetail" runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>'

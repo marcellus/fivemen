@@ -20,6 +20,7 @@ public partial class FpSystem_FpHelper_FpSiteEdit : FT.Web.AuthenticatedPage
             this.txtSiteName.Text = site.NAME;
             this.txtSiteLimit.Text = site.LIMIT == null ? "0" : site.LIMIT.ToString();
             this.dllBustype.SelectedValue = site.BUSTYPE;
+            this.txtHost.Text = site.HOST;
         }
     }
 
@@ -31,7 +32,7 @@ public partial class FpSystem_FpHelper_FpSiteEdit : FT.Web.AuthenticatedPage
         site.NAME = txtSiteName.Text;
         site.LIMIT = StringHelper.fnFormatNullOrBlankInt(txtSiteLimit.Text,0);
         site.BUSTYPE = this.dllBustype.SelectedValue;
-
+        site.HOST = this.txtHost.Text;
         if (SimpleOrmOperator.Update(site)) {
             WebTools.Alert("修改成功！");
         }

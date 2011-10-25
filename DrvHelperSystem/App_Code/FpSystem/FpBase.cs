@@ -74,7 +74,14 @@ public class FpBase
     {
         try
         {
-            _TG.HostName = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_HOST"), "127.0.0.1");
+            string host = "";
+            if (HttpContext.Current.Session["host"] != null) {
+                host = HttpContext.Current.Session["host"].ToString();
+
+            }else{
+                host= StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_HOST"), "127.0.0.1");
+        }
+            _TG.HostName = host;
             VERIFY_CLSID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_VERIFY_CLSID"), "F4C54CF0-BBDD-40B4-98BC-96AC9DB8F091");
             ENROLL_CLSID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_ENROLL_CLSID"), "540BE1A4-553C-4676-9932-85F61D4034E0");
             _TG.ProductID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_PRODRCTID"), "DEMO");

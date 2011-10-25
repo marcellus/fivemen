@@ -33,6 +33,10 @@ public class FpSite
     [SimpleColumn(Column="BUSTYPE")]
     private string bustype;
 
+    [SimpleColumn(Column="host")]
+    private string host;
+
+
     public int ID {
         get { return this.id; }
         set { this.id = value; }
@@ -51,5 +55,10 @@ public class FpSite
     public string BUSTYPE {
         get { return this.bustype; }
         set { this.bustype = value; }
+    }
+
+    public string HOST {
+        get { return this.host; }
+        set { this.host = value; }
     }
 }
