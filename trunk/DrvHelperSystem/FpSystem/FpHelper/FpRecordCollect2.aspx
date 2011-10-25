@@ -7,15 +7,34 @@
 <table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
 
  
-                <tr>
-                   <td colspan="2" class="table-content">
-                       身份证号码:<asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" />&nbsp;&nbsp;
-                       学员类型:<asp:DropDownList ID="ddlLocaltype" runat="server"   />&nbsp; &nbsp; 
-                       <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 
-                           onclick="btnSaveStudent_Click"   /> &nbsp;
-                       
+                <tr class="table-content">
+                   <td  >
+                       身份证号码:
+                   </td>
+                   <td >
+                   <asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" />
                    </td>
                 </tr>
+                
+                <tr class="table-content">
+                  <td>姓名</td>
+                  <td><asp:TextBox runat="server"  ID="txtName" ></asp:TextBox></td>
+                </tr>
+                
+                <tr class="table-content">
+                  <td> 学员类型:</td>
+                  <td><asp:DropDownList ID="ddlLocaltype" runat="server"   /></td>
+                </tr>
+                
+                
+                <tr >
+                  <td colspan="2"  style=" text-align:right;">
+                     <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 
+                           onclick="btnSaveStudent_Click"   />
+                  </td>
+                </tr>
+
+                
                 <tr>
                    <td colspan="2" class="table-content">
                                           <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 

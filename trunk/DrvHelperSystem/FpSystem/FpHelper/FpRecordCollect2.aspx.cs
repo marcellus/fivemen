@@ -55,6 +55,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
         fso.IDCARD = lStrIDCard;
         int localtype = StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
         fso.LOCALTYPE = localtype;
+        fso.NAME = txtName.Text;
         fso.STATUE = FpStudentObject.STATUE_NEW;
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
