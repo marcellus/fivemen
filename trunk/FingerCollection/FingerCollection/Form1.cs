@@ -37,6 +37,8 @@ namespace FingerCollection
             _TG.XSDevName = config.XSDevName;
         }
 
+      
+
         private void btnCollection_Click(object sender, EventArgs e)
         {
             String idcard = this.txtIdCard.Text.Trim();
@@ -71,8 +73,8 @@ namespace FingerCollection
             if (intResult == SUCCESSED)
             {
                 MessageBox.Show("采集成功！");
-                FingerDbOperator.Enroll(idcard,name);
-                this.localFingerRecordSearch1.SetConditions(" c_name like '%'");
+                FingerDbOperator.Enroll(idcard,name,this.datePxrq.Value.ToString("yyyy-MM-dd"),this.cbStudentType.SelectedValue.ToString(),this.cbLearnCar.Text);
+                this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
             }
             else
             {
@@ -150,13 +152,30 @@ namespace FingerCollection
             if(FingerDbOperator.DeleteUser(idcard))
             {
                 MessageBoxHelper.Show("删除用户成功！");
-                this.localFingerRecordSearch1.SetConditions(" c_name like '%'");
+                this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.txtIdCard.Focus();
+            FingerDbOperator.BindDict(this.cbLearnCar, "准驾车型");
+            FingerDbOperator.BindDict(this.cbStudentType, "学员类型");
+        }
+
+        
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            FingerDbOperator.Clear();
+            MessageBoxHelper.Show("清空成功！");
+        }
+
+        private void btnUpdateLsh_Click(object sender, EventArgs e)
+        {
+            FingerDbOperator.UpdateLsh(this.txtIdCard.Text.Trim(),this.txtLsh.Text.Trim());
+            this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+           
         }
     }
 }
