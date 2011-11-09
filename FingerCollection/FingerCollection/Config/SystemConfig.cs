@@ -27,5 +27,9 @@ namespace FingerCollection
         public string AuthenPwd="sa";
         public string XSDevName = "XSDev12.dll";
 
+        public string SchoolName = "驾校名称";
+
+        public string SchoolCode = "jxdm";
+
     }
 }

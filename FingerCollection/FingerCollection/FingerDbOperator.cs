@@ -4,23 +4,73 @@ using System.Text;
 using FT.DAL;
 using System.Data;
 using FT.DAL.Orm;
+using FT.Commons.Cache;
+using System.Windows.Forms;
 
 namespace FingerCollection
 {
     public class FingerDbOperator
     {
+
+
+        public static void BindDict(ComboBox cb ,string type)
+        {
+            string sql="SELECT * FROM table_dict WHERE c_grouptype='"+type+"'";
+            IDataAccess access = DataAccessFactory.GetDataAccess();
+            DataTable dt = access.SelectDataTable(sql,"tmp");
+            cb.DisplayMember = "c_text";
+            cb.ValueMember = "c_value";
+            cb.DataSource = dt;
+            
+        }
+        /// <summary>
+        /// 更新流水号
+        /// </summary>
+        /// <param name="idcard">身份证号码</param>
+        /// <param name="lsh">流水号</param>
+        public static void UpdateLsh(string idcard, string lsh)
+        {
+            IDataAccess access = DataAccessFactory.GetDataAccess();
+            string sql = "update table_local_finger_record set c_lsh='" + lsh + "' where c_idcard='"+idcard+"'  ";
+            access.ExecuteSql(sql);
+        }
+        /// <summary>
+        /// 清空所有的要上传的指纹记录
+        /// </summary>
+        public static void Clear()
+        {
+
+            IDataAccess access = DataAccessFactory.GetDataAccess();
+            string sql = "delete from USER_INFO_UPLOAD  ";
+            access.ExecuteSql(sql);
+            sql = "delete from ENROLL_TEMP_UPLOAD";
+            access.ExecuteSql(sql);
+            sql = "delete from  table_local_finger_record";
+            access.ExecuteSql(sql);
+            sql = "delete from  table_upload_finger_record";
+            access.ExecuteSql(sql);
+        }
+
+
         /// <summary>
         /// 新增指纹采集的姓名和身份证明号码记录
         /// </summary>
         /// <param name="idcard"></param>
         /// <param name="name"></param>
-        public static void Enroll(string idcard,string name)
+        public static void Enroll(string idcard,string name,string pxrq,string studenttype,string car)
         {
             LocalFingerRecordObject obj = new LocalFingerRecordObject();
             obj.CreateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             obj.IdCard = idcard;
             obj.Name = name;
             obj.UploadTime = string.Empty;
+            SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
+            obj.Lsh = "";
+            obj.SchoolName = config.SchoolName;
+            obj.SchoolCode = config.SchoolCode;
+            obj.Pxrq = pxrq;
+            obj.StudentType = studenttype;
+            obj.LearnCar = car;
             SimpleOrmOperator.Create(obj);
             BackFingerInfo();
 

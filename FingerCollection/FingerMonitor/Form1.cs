@@ -98,9 +98,14 @@ namespace FingerMonitor
                        dr["USER_ID"] + "','" +
                         dr["MODIFY_TIME"] + "','" +
                        dr["CREATE_TIME"] + "')";
-                    if(accessOracle.ExecuteSql(sql))
+                    if (accessOracle.ExecuteSql(sql))
                     {
-                        accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='"+idcard+"'");
+                        accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
+                    }
+                    else
+                    {
+                        //已经存在该用户信息
+                        accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
                     }
 
                    
@@ -137,9 +142,14 @@ namespace FingerMonitor
                     param.Value=expbyte;
 
 
-                    if(accessOracle.ExecuteSqlByParam(sql, param))
-                   // if (accessOracle.ExecuteSql(sql))
+                    if (accessOracle.ExecuteSqlByParam(sql, param))
+                    // if (accessOracle.ExecuteSql(sql))
                     {
+                        accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
+                    }
+                    else
+                    {
+                        //已经存在该用户指纹信息
                         accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
                     }
 
@@ -161,6 +171,16 @@ namespace FingerMonitor
                     sql = "insert into fp_student(idcard,name)"
                     + " values('" +
                        dr["c_idcard"] + "','" +
+                       //驾校名称
+                        // dr["c_school_name"] + "','" +
+                        //驾校代码
+                         //dr["c_school_code"] + "','" +
+                         //学生类别
+                        //dr["c_student_type"] + "','" +
+                        //培训审核日期
+                        //dr["c_pxrq"] + "','" +
+                        //学习车型
+                         //dr["c_car_type"] + "','" +
                        // dr["c_name"] + "','" +
                        dr["c_name"] + "')";
                     if (accessOracle.ExecuteSql(sql))
