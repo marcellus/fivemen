@@ -69,18 +69,21 @@ namespace FingerMonitor
       
         public void ImportFinger(SystemConfig config)
         {
+            bool isSuccess = true;
+
             string tmp = "找到监控目录，进行指纹导入！";
             this.CreateLog(tmp);
             this.SetHintText(tmp);
 
             IDataAccess accessOracle = new OracleDataHelper(config.TnsName, config.OraUser, config.OraPwd);
             IDataAccess accessAccess = new AccessDataHelper(config.MonitorPath+"//db.mdb","Admin","");
-            string sql="select c_idcard from table_local_finger_record";
+            string sql="select * from table_local_finger_record";
             DataTable dtUser=accessAccess.SelectDataTable(sql,"uploaduser");
             sql = "select * from USER_INFO_UPLOAD";
             DataTable dtUserInfo = accessAccess.SelectDataTable(sql, "USER_INFO_UPLOAD");
             sql = "select * from ENROLL_TEMP_UPLOAD";
             DataTable dtFingerInfo = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
+
             if(dtUser!=null&&dtUser.Rows.Count>0)
             {
                 DataRow dr;
@@ -154,23 +157,34 @@ namespace FingerMonitor
                     }
 
                 }
-                sql = "update table_local_finger_record set c_upload_time='"+System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"'";
 
-                accessAccess.ExecuteSql(sql);
-                sql = "insert into table_upload_finger_record select * from  table_local_finger_record";
-
-                accessAccess.ExecuteSql(sql);
 
 
                 //进行数据插入到fp_student中
-
+                int reNum=0;
+                string schoolName="";
+               
                 for (int i = 0; i < dtUser.Rows.Count; i++)
                 {
-
+                    
+                    
                     dr = dtUser.Rows[i];
-                    sql = "insert into fp_student(idcard,name)"
-                    + " values('" +
-                       dr["c_idcard"] + "','" +
+                    if (dr["c_lsh"] == null || string.IsNullOrEmpty(dr["c_lsh"].ToString())) continue;
+                    schoolName = dr["c_school_name"].ToString();
+                    sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh) "+
+                                       "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}')"
+                                       ,dr["c_idcard"]
+                                       ,dr["c_name"]
+                                       , dr["c_school_code"]
+                                       , dr["c_school_name"]
+                                       , dr["c_student_type"]
+                                       , dr["c_car_type"]
+                                       ,dr["c_lsh"]
+                                       );
+                    
+                   // sql = "insert into fp_student(idcard,name)"
+                   // + " values('" +
+                    //   dr["c_idcard"] + "','" +
                        //驾校名称
                         // dr["c_school_name"] + "','" +
                         //驾校代码
@@ -182,25 +196,58 @@ namespace FingerMonitor
                         //学习车型
                          //dr["c_car_type"] + "','" +
                        // dr["c_name"] + "','" +
-                       dr["c_name"] + "')";
+                   //    dr["c_name"] + "')";
                     if (accessOracle.ExecuteSql(sql))
                     {
-                      
+
+                        sql = string.Format("insert into table_upload_finger_record(c_idcard,c_name,c_school_code,c_school_name,c_student_type,c_car_type,c_lsh) " +
+                          "values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
+                            , dr["c_idcard"]
+                            , dr["c_name"]
+                            , dr["c_school_code"]
+                            , dr["c_school_name"]
+                            , dr["c_student_type"]
+                            , dr["c_car_type"]
+                            , dr["c_lsh"]
+                          );
+
+                        if (!accessAccess.ExecuteSql(sql)) { 
+                           // continue; 
+                        }
+
+
+
+                        sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                        if (!accessAccess.ExecuteSql(sql)) { 
+                          //  continue; 
+                        }
+
+                        sql = string.Format("update table_local_finger_record set c_upload_time='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where c_idcard='{0}'", dr["c_idcard"]);
+
+                        if (!accessAccess.ExecuteSql(sql)) { 
+                           // continue; 
+                        }
+                        //sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+
+
+
+                        reNum++;
                     }
 
 
 
                 }
-                
+                if (reNum > 0)
+                {
+                    MessageBoxHelper.Show(string.Format("{0}  导入 {1} {2}条指纹记录", DateTime.Now.ToString(), schoolName, reNum));
+                    this.SetHintText("处理完毕！");
+                    this.CreateLog("导入指纹完毕！");
+                }
 
-                sql = "delete from table_local_finger_record";
-
-                accessAccess.ExecuteSql(sql);
                
             }
 
-            this.SetHintText("处理完毕！");
-            this.CreateLog("导入指纹完毕！");
+
            
 
         }
