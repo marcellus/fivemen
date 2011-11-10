@@ -8,6 +8,7 @@ using FT.DAL.Orm;
 ///FpCheckinLog 的摘要说明
 /// </summary>
 /// 
+[Serializable]
 [SimpleTable("FP_CHECKIN_LOG")]
 [Alias("考勤记录表")]
 public class FpCheckinLog

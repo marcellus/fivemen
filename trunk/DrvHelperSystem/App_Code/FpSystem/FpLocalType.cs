@@ -34,6 +34,9 @@ public class FpLocalType
     [SimpleColumn(Column = "TRAIN_TIMES", ColumnType = SimpleColumnType.Int)]
     private int trainTimes;
 
+    [SimpleColumn(Column="KM3_VERIFY_IND")]
+    private string km3VerifyInd;
+
 
     public int ID {
         get { return this.id; }
@@ -54,5 +57,12 @@ public class FpLocalType
     {
         get { return this.trainTimes; }
         set { this.trainTimes=value; }
+    }
+
+
+    public string KM3_VERIFY_IND {
+
+        get { return this.km3VerifyInd; }
+        set { this.km3VerifyInd = value; }
     }
 }

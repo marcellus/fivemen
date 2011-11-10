@@ -432,10 +432,12 @@ public class FPSystemBiz
 
     private static Boolean fnStundentUdpate(FpStudentObject fso)
     {
-        string lStrInsert = "update fp_student set name='{1}' where idcard='{0}'";
+        string lStrInsert = "update fp_student set name='{1}',localtype={2},lsh='{3}' where idcard='{0}'";
         lStrInsert = string.Format(lStrInsert,
                   fso.IDCARD.Trim('\''),   //0
-                  fso.NAME      //1
+                  fso.NAME,      //1
+                  fso.LOCALTYPE
+                  ,fso.LSH
              );
         return FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(lStrInsert);
     }

@@ -36,7 +36,7 @@
                     %>
                         <a href="FpIdentityTrain.aspx?site_id=<%# Eval("ID") %>" target="_blank" ><img src="../../images/enter.jpg">进入</a>
                     <%
-                        }else if (bustype == "km1" || bustype == "km2" || bustype == "km3"){
+                        }else if (bustype == "km1" || bustype == "km2" || bustype == "km3"||bustype=="3in9"){
                     %>
                        <a href="FpIdentityExam.aspx?site_id=<%# Eval("ID") %>&bustype=<%=bustype %>" target="_blank" ><img src="../../images/enter.jpg">进入</a>       
                     <% } %>

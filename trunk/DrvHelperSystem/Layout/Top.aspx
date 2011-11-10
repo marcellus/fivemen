@@ -10,6 +10,11 @@
     {
         text-decoration:none;	
     }
+    h2
+    {
+    	font-family: "宋体";
+    	color: blue;
+    }
     </style>
     
 </head>
@@ -21,11 +26,11 @@
 <a href="../UserManage/ChangePwd.aspx"  onclick="" target="main">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<asp:LinkButton
     ID="lbtnCancel" runat="server" onclick="lbtnCancel_Click">注销</asp:LinkButton></div>
 
-  
-    欢迎<%=this.Session["OperatorInfo"] == null ? "" : Operator.OperatorName%>
+  <h2>
+    欢迎  <%=this.Session["OperatorInfo"] == null ? "" : Operator.OperatorName%>
    
-    使用驾驶人辅助系统！！！！
-
+    使用   <a href="../Layout/MainWelcome.aspx"  onclick="" target="main">指纹考勤系统 </a>
+</h2>
     </form>
 </body>
 </html>

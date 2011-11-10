@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
+using FT.Web.Tools;
 
 public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
 {
@@ -23,7 +24,7 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
             return;
         }
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
-        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
+       
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         bool isCheckin = false;
 
@@ -34,15 +35,25 @@ public partial class FpSystem_FpHelper_FpViewExamRecord : System.Web.UI.Page
         }
         if (fso == null)
         {
-            this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
+            this.lbStudentAlertMsg.Text = "学员个人信息不存在";
+            WebTools.PlaySound("../../sound/学员个人信息不存在.wav");
             return;
         }
         else
         {
+            ucStudentInfo.fnUILoadStudentRecord(fso);
             try
             {
                 int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
                 isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                if (isCheckin)
+                {
+                    WebTools.PlaySound("../../sound/考试入场考勤有效.wav");
+                }
+                else
+                {
+                    WebTools.PlaySound("../../sound/考试入场考勤无效.wav");
+                }
                 this.fnUILoadStudentRecord(fso, 0);
             }
             catch (Exception ex) {

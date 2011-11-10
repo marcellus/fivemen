@@ -4,20 +4,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<table class="table-border">
+<table class="table-border" style="  width:100%">
   
-    <asp:Repeater ID="rpLogs" runat="server">
-    
-    <ItemTemplate>   
-       <tr class="table-content">
-      <td style="width:30px">1</td>
-      <td style="width:60px"><%# Eval("CHECKIN_NAME") %></td>
-      <td style="width:160px"><%# Eval("CHECKIN_IDCARD") %></td>
-      <td style="width:160px"><%# Eval("CHECKIN_DATE") %></td>
-      </tr>
-    </ItemTemplate>
-    
-    </asp:Repeater>
+      <%
+          ArrayList checkInLogs=ViewState[typeof(FpCheckinLog).Name] as ArrayList;
+          for (int i = checkInLogs.Count; i > 0;i-- )
+          {
+              FpCheckinLog checkInLog = checkInLogs[i-1] as FpCheckinLog;    
+          %> 
+      <tr class="table-content" style="  padding:3px;">
+      <td ><%=i %></td>
+      <td ><%=checkInLog.CHECKIN_DATE.ToShortTimeString() %></td>
+      <td style=" width:60px"><%=checkInLog.CHECKIN_NAME %></td>
+      <td  style=" width:150px"><%=checkInLog.CHECKIN_IDCARD %></td>
+      
+       </tr>
+  <%} %>
  
   
 </table>

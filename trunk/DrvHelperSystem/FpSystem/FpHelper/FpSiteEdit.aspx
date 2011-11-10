@@ -31,6 +31,7 @@
                       <asp:ListItem Text="科目1考试" Value="km1"></asp:ListItem>
                       <asp:ListItem Text="科目2考试" Value="km2"></asp:ListItem>
                       <asp:ListItem Text="科目3考试" Value="km3"></asp:ListItem>
+                      <asp:ListItem Text="9选3考试" Value="3in9"></asp:ListItem>
                       <asp:ListItem Text="指纹采集" Value="collect"></asp:ListItem>
                     </asp:DropDownList>
                 </td>

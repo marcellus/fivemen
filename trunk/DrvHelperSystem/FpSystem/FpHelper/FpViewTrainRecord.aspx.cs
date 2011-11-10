@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
+using FT.Web.Tools;
 
 public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
 {
@@ -21,21 +22,40 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         {
             return;
         }
-        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
+        
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentTrain(lStrIDCard);
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
         bool isCheckin = false;
         DateTime lDtToday = DateTime.Now;
         if (fso == null)
         {
-            this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
+            this.lbStudentAlertMsg.Text = "学员个人信息不存在";
+            WebTools.PlaySound("../../sound/学员个人信息不存在.wav");
             return;
         }
         else {
+            ucStudentInfo.fnUILoadStudentRecord(fso);
             int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
             try
             {
                 isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                if (isCheckin)
+                {
+                    
+                    if (fso.STATUE == FpStudentObject.STATUE_TRAIN_END)
+                    {
+                        WebTools.PlaySound("../../sound/学员已完成入场训练.wav");
+                    }
+                    else
+                    {
+
+                        WebTools.PlaySound("../../sound/入场训练考勤有效.wav");
+                    }
+                }
+                else
+                {
+                    WebTools.PlaySound("../../sound/入场训练考勤无效.wav");
+                }
                 this.fnUILoadStudentRecord(fso, 0);
             }
             catch (Exception ex) {

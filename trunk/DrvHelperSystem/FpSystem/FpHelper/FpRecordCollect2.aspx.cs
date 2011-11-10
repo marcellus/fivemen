@@ -8,8 +8,9 @@ using FT.DAL.Orm;
 using FT.Web.Tools;
 using FT.WebServiceInterface.DrvQuery;
 using System.Collections;
+using FT.Web;
 
-public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
+public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
 {
     private const string ACTION_NAME = "ACTION_RECORD_COLLECT";
     private const int ACTION_NONE = 0;
@@ -28,7 +29,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
             ddlLocaltype.DataTextField = "NAME";
             ddlLocaltype.DataValueField = "ID";
             ddlLocaltype.DataBind();
+
+            DepartMentOperator.Bind(ddlSchool);
+
+            DictOperator.BindDropDownList("车辆类型", ddlCarType);
         }
+        ///WebTools.PlaySound("../../sound/test1.wav");
         //WebTools.PlayBackGroupSound("孙燕姿-02.追.是时候.mp3", 1);
         //Response.Write("<bgsound loop=1 src='孙燕姿-02.追.是时候.mp3' />");
         //WebTools.WriteScript("alert('hhlin');");
@@ -57,6 +63,10 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
         fso.LOCALTYPE = localtype;
         fso.NAME = txtName.Text;
         fso.STATUE = FpStudentObject.STATUE_NEW;
+        fso.LSH=txtLsh.Text;
+        fso.SCHOOL_CODE = ddlSchool.SelectedValue;
+        fso.SCHOOL_NAME = ddlSchool.SelectedItem.Text;
+        fso.CAR_TYPE = ddlSchool.SelectedValue;
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
@@ -161,4 +171,25 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : System.Web.UI.Page
         }
     }
 
+    protected void btnQueryStuent_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(txtIDCard.Text)) {
+            WebTools.Alert("证件号码不能为空");
+            return;
+        }
+        FpStudentObject student = SimpleOrmOperator.Query<FpStudentObject>(txtIDCard.Text);
+        if (student == null)
+        {
+            WebTools.Alert(string.Format("身份证号码:{0} 未录入", txtIDCard.Text));
+        }
+        else {
+
+            txtLsh.Text = student.LSH;
+            txtName.Text = student.NAME;
+            ddlLocaltype.SelectedValue = student.LOCALTYPE.ToString();
+            ddlSchool.SelectedValue = student.SCHOOL_CODE;
+            ddlCarType.SelectedValue = student.CAR_TYPE;
+        }
+
+    }
 }
