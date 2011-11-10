@@ -60,11 +60,11 @@ namespace FingerCollection
                 MessageBoxHelper.Show("请输入要采集的姓名！");
                 return;
             }
-            if(FingerDbOperator.Exists(idcard))
-            {
-                MessageBoxHelper.Show("已存在身份证号码为"+idcard+"的指纹记录！");
-                return; 
-            }
+          //  if(FingerDbOperator.Exists(idcard))
+          //  {
+         //       MessageBoxHelper.Show("已存在身份证号码为"+idcard+"的指纹记录！");
+          //      return; 
+         //   }
 
             int intResult = SUCCESSED;
             this.SetConfig();
@@ -78,9 +78,12 @@ namespace FingerCollection
             }
             else
             {
-                MessageBox.Show(Convert.ToString(_TG.LastErrCode)
-                + "\n" + _TG.LastErrMsg
-                + "\n" + _TG.LastErrReason);
+                FingerDbOperator.DeleteUser(idcard);
+                FingerDbOperator.Enroll(idcard, name, this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text);
+                _TG.UpdateEnroll(idcard);
+               // MessageBox.Show(Convert.ToString(_TG.LastErrCode)
+              //  + "\n" + _TG.LastErrMsg
+               // + "\n" + _TG.LastErrReason);
             }
         }
 
