@@ -8,8 +8,12 @@
    <table class="table-border">
       <tr class=" table-content">
         <td style=" text-align:right">
-           身份证明号码：
-           <asp:TextBox ID="txtIDCard" runat="server"></asp:TextBox>
+           查询类型:<asp:DropDownList ID="ddlQueryType" runat="server">
+              <asp:ListItem Text="证件号码" Value="idcard"></asp:ListItem>
+              <asp:ListItem Text="受理号" Value="lsh"></asp:ListItem>
+              <asp:ListItem Text="姓名" Value="name"></asp:ListItem>
+           </asp:DropDownList>
+           <asp:TextBox ID="txtQueryValue" runat="server"></asp:TextBox>
            <asp:Button  ID="btnQuery" runat="server"  Text="查询" onclick="btnQuery_Click" />
         </td>
       </tr>
@@ -60,6 +64,12 @@
       <tr class="table-content">
          <td style=" text-align:left">
             科目二考勤时间&nbsp;&nbsp;<asp:Label ID="lbStuKm2Enter" runat="server"></asp:Label>
+         </td>
+      </tr>
+      
+           <tr class="table-content">
+         <td style=" text-align:left">
+            九选三考勤时间&nbsp;&nbsp;<asp:Label ID="lbStr3in9Enter" runat="server"></asp:Label>
          </td>
       </tr>
       

@@ -5,6 +5,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FT.Commons.Tools;
 using FT.DAL.Orm;
+using System.Collections;
+using FT.Web.Tools;
 
 public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
 {
@@ -15,22 +17,38 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
 
     protected void btnQuery_Click(object sender, EventArgs e)
     {
-        string idcard =StringHelper.fnFormatNullOrBlankString(txtIDCard.Text,"");
-        if (idcard == "") {
+
+        string queryText = ddlQueryType.SelectedItem.Text;
+        string queryType = ddlQueryType.SelectedValue;
+        string quserValue=txtQueryValue.Text;
+        string condition=string.Format("where {0}='{1}'",queryType,quserValue);
+
+        if (string.IsNullOrEmpty(quserValue))
+        {
+            WebTools.Alert("查询条件不能为空");
             return;
         }
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>("'"+idcard+"'");
-        if (fso != null) {
+
+        ArrayList fsos = SimpleOrmOperator.QueryConditionList<FpStudentObject>(condition);
+        if (fsos.Count ==1) {
+            FpStudentObject fso = fsos[0] as FpStudentObject;
             fnUILoadStudentRecord(fso, 0);
+            ucStudentInfo.fnUILoadStudentRecord(fso);
         }
-        ucStudentInfo.fnUILoadStudentRecord(idcard);
+        else if (fsos.Count == 0) {
+            WebTools.Alert(string .Format("{0}为\"{1}\" 的学员不存在",queryText,quserValue));
+        }
+        else if (fsos.Count > 1)
+        {
+            WebTools.Alert(string.Format("{0}为\"{1}\" 的学员存在多个，请使用证件号码查询", queryText, quserValue));
+        }
     }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
     {
 
         this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
-        this.lbStuLessonLeave1.Text = "";
+        this.lbStuLessonLeave1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_LEAVE_1.ToString();
         this.lbStuLessonEnter2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_2) ? "" : pFso.LESSON_ENTER_2.ToString();
         this.lbStuLessonLeave2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_2) ? "" : pFso.LESSON_LEAVE_2.ToString();
 
@@ -63,7 +81,7 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
         this.lbStuKm1Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM1_ENTER) ? "" : pFso.KM1_ENTER.ToString();
         this.lbStuKm2Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM2_ENTER) ? "" : pFso.KM2_ENTER.ToString();
         this.lbStuKm3Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM3_ENTER) ? "" : pFso.KM3_ENTER.ToString();
-
+        this.lbStr3in9Enter.Text = DateTimeHelper.fnIsNewDateTime(pFso.KM2_3IN9_ENTER) ? "" : pFso.KM2_3IN9_ENTER.ToString();
 
         this.lbStudentAlertMsg.Text = pFso.REMARK;
         //       if (pResultCode == FPSystemBiz.LESSON_ENTER_1_FAILE)

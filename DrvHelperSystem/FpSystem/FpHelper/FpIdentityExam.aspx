@@ -15,13 +15,16 @@
   </div>
 </div>
 <div style=" width:29%; height:820px; float:right">
-     <div style=" height:500px; width:100%" class="b" >
+
+        <div style=" height:50px; width:100%; overflow:hidden;" class="b" >
+        <iframe src="FpIdentity_TL.aspx?targetframe=frameViewExamRecord&checkinLogFrame=frameFpViewCheckinList" style="width:100%; height:100%; border-width:0px" frameborder="0" scrolling="no"></iframe>
+     </div>
+
+     <div style=" height:520px; width:100%" class="b" >
             <iframe id="frameFpViewCheckinList" name="frameFpViewCheckinList" src="FpViewCheckinList.aspx" scrolling="no" frameborder="0" style="width:100%; height:100%; border-width:0px">
     </iframe>
       </div>
-        <div style=" height:300px; width:100%; overflow:hidden;" class="b" >
-        <iframe src="FpIdentity_TL.aspx?targetframe=frameViewExamRecord&checkinLogFrame=frameFpViewCheckinList" style="width:100%; height:100%; border-width:0px" frameborder="0" scrolling="no"></iframe>
-     </div>
+
 </div>
 
 </asp:Content>

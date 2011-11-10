@@ -24,8 +24,7 @@
             &nbsp;&nbsp;特批类型：<asp:DropDownList ID="DropDownList1" runat="server" 
                     Font-Size="15pt" 
                     >
-                    <asp:ListItem>上课</asp:ListItem>
-                    <asp:ListItem>入场训练</asp:ListItem>
+ 
                 </asp:DropDownList>
 &nbsp;<asp:Button ID="btnAdd" runat="server"  Text="特批" onclick="btnAdd_Click" />
             </td>
@@ -46,8 +45,8 @@
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" OnItemCommand="DataGrid1_ItemCommand1"
                         Width="100%">
                         <Columns>
-                            <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="school" HeaderText="驾校"></asp:BoundColumn>
+                            
+                            
                              <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码"></asp:BoundColumn>
                             
                              <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>

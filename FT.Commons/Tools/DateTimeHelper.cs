@@ -223,7 +223,30 @@ namespace FT.Commons.Tools
             return fnGetTotalMillsecond(pDt) == fnGetTotalMillsecond(new DateTime());
         }
 
+        public static Boolean fnIsBeforeTime(DateTime dt, int hh, int mm)
+        {
+
+            return (dt.Hour < hh) || (dt.Hour == hh && dt.Minute <= mm);
+
+        }
 
 
+        public static Boolean fnIsBetweenTime(DateTime dt, int fromHH, int fromMM, int toHH, int toMM) {
+
+            return (!fnIsBeforeTime(dt, fromHH, fromMM)) && (fnIsBeforeTime(dt, toHH, toMM));
+        }
+
+
+        public static DateTime fnParseDateTime(string p, DateTime dateTime)
+        {
+            if (string.IsNullOrEmpty(p)) {
+                return dateTime;
+            }
+            try {
+                return DateTime.Parse(p);
+            }catch (Exception ex){
+               return dateTime;
+            }
+        }
     }
 }

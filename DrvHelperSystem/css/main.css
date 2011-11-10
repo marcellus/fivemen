@@ -73,23 +73,35 @@ img
 	font-family: "宋体";
 	background-color: #d0e3f8;
 }
+
+
+
 .table-border
 {
 	font-family: "宋体";
 	background-color: #0080c0;
 	text-align: center;
-	width: 100%;
+	width: 95%;
 	table-layout:fixed;
 	word-break:break-all;
 	word-wrap:break-word;
 	height:auto;
 }
+.table-border th
+{
+	overflow:visible;
+
+	text-align:right;
+}
+
 .table-border td
 {
 	overflow:visible;
 	word-break:break-all;
 	word-wrap:break-word;
+	
 }
+
 form
 {
 	text-align:center;
@@ -135,4 +147,44 @@ table.site
 	background-color: #d0e3f8;
 	margin-bottom: 20px;
 	width:100%;
+}
+
+
+
+
+    #tableSite
+    {
+     	 table-layout:auto;
+     	 width:90%;
+     	 margin-left:3%;
+    }
+    
+    .thBustype
+{
+	text-align: right;
+	vertical-align: top;
+	padding-right: 10px;
+	font-size: 25px;
+	color: #0000FF;
+	font-family: 微软雅黑;
+}
+    
+    .tdSites
+    {
+    	 text-align:left;
+    	 vertical-align:top;
+    }
+    
+    .tdSites a
+{
+	border-style: ridge;
+	border-color: #3399FF;
+	background-color: #3399FF;
+	color: White;
+	font-size: 30px;
+	font-weight: bolder;
+	float: left;
+	 text-decoration:none;
+	 margin-right:10px;
+	 padding:3px;
 }

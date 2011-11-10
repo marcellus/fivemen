@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Web;
@@ -31,6 +32,12 @@ public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
     remark 
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
+
+     Dictionary<int,string> dictStatus=FpStudentObject.GetDictStatue();
+         foreach(int key in dictStatus.Keys){
+             DropDownList1.Items.Add(new ListItem(dictStatus[key],key.ToString()));
+         }
+         
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -57,7 +64,7 @@ public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
        // TempStudentInfo info=DrvQueryHelper.QueryStudent(WholeWebConfig.Glbm, this.txtIdCard.Text.Trim());
         FpStudentObject f=new FpStudentObject();
         f.IDCARD=this.txtIdCardInput.Text;
-        FpStudentObject info = SimpleOrmOperator.Query<FpStudentObject>("'"+f.IDCARD+"'");
+        FpStudentObject info = SimpleOrmOperator.Query<FpStudentObject>(f.IDCARD);
        
        // if (info == null || info.name == null || info.name.Length == 0)
         if(info==null)
@@ -66,36 +73,27 @@ public partial class DriverPerson_ZhZw_ZwTp : FT.Web.AuthenticatedPage
              return;
         }
         else
-        {   /*
+        {   
             ZwTpObject tp = new ZwTpObject();
             tp.Approver = this.Operator.OperatorName;
             tp.ApproveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             tp.IdCard = this.txtIdCardInput.Text.Trim();
-            tp.Name = info.name;
-            tp.School = info.jxmc;
-            tp.Type = this.DropDownList1.Text;
+            tp.Name = info.NAME;
+            //tp.School = info.jxmc;
+            tp.Type = this.DropDownList1.SelectedItem.Text;
             ZwTpOperator.Create(tp);
             this.btnSearch_Click(null, null);
-             */
-            if (this.DropDownList1.Text == "上课")
-            {
-               
-                info.STATUE = FpStudentObject.STATUE_LESSON_END;
-            }
-            else if (this.DropDownList1.Text == "入场训练")
-            {
-                
-                info.STATUE = FpStudentObject.STATUE_TRAIN_END;                              
-            }
-            info.IDCARD="'"+info.IDCARD+"'";
+
+            info.STATUE =Convert.ToInt32 (DropDownList1.SelectedValue);
+
             if (ZwTpOperator.Update(info) == true)
             {
-                WebTools.Alert(this, "修改成功！");
+                WebTools.Alert(this, "特批成功！");
                 return;
             }
             else
             {
-                WebTools.Alert(this, "修改失败！");
+                WebTools.Alert(this, "特批失败！");
                 return;
             }
             

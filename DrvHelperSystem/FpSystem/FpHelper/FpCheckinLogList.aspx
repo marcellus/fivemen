@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpCheckinLogList.aspx.cs" Inherits="FpSystem_FpHelper_FpCheckinLogList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script type="text/javascript" src="../../js/setday.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-       <table class="table-border">
+       <table class="table-border" style=" width:95%">
          <tr class="table-content">
            <td style=" text-align:right">
                场地: <asp:DropDownList ID="dllSite" runat="server"></asp:DropDownList>&nbsp;
@@ -25,11 +25,12 @@
        </table>
     </div>
 
-    <div>
+    <div style=" width:95%; margin-top:5px">
        <asp:DataGrid ID="dgLogs" runat="server" AutoGenerateColumns="false" BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" Width="100%" >
          <Columns>
+            
             <asp:BoundColumn DataField="checkin_idcard" HeaderText="证件号码"></asp:BoundColumn>
-            <asp:BoundColumn DataField="checkin_name" HeaderText="姓名"></asp:BoundColumn>
+            <asp:BoundColumn DataField="checkin_name" HeaderText="姓名" ItemStyle-Width="120"></asp:BoundColumn>
             <asp:BoundColumn DataField="site_name" HeaderText="场地名称"></asp:BoundColumn>
             <asp:BoundColumn DataField="checkin_date" HeaderText="验证时间"></asp:BoundColumn> 
             <asp:BoundColumn DataField="remark" HeaderText="备注"></asp:BoundColumn>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpCheckinLogStatis.aspx.cs" Inherits="FpSystem_FpHelper_FpCheckinLogStatis" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script type="text/javascript" src="../../js/setday.js"></script>
+    
 
     <script language="javascript" type="text/javascript">
 
@@ -14,7 +14,7 @@
          <tr class="table-content">
            <td style=" text-align:right">
                开始日期:<input  onclick="setday(this)"  id="qDateStart" runat="server" /> &nbsp;
-               开始日期:<input  onclick="setday(this)"  id="qDateEnd" runat="server" /> &nbsp;
+               结束日期:<input  onclick="setday(this)"  id="qDateEnd" runat="server" /> &nbsp;
                <asp:Button ID="btnQuery" runat="server" Text="查询" onclick="btnQuery_Click" />
            </td>
          </tr>

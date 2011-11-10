@@ -18,13 +18,14 @@ public partial class FpSystem_FpHelper_FpViewCheckinList : System.Web.UI.Page
         string site_id = Session["site_id"].ToString();
         string bustype = Session["bustype"].ToString();
         string lStrToday = DateTime.Now.ToString("yyyy-MM-dd");
-        string condition = string.Format(" where SITE_ID={0} and BUSTYPE='{1}' and to_char(CHECKIN_DATE,'YYYY-MM-DD') = '{2}' order by CHECKIN_DATE DESC "
+        string condition = string.Format(" where SITE_ID={0} and BUSTYPE='{1}' and to_char(CHECKIN_DATE,'YYYY-MM-DD') = '{2}' order by CHECKIN_DATE ASC "
             , site_id
             , bustype
             , lStrToday
         );
         ArrayList listLogs = SimpleOrmOperator.QueryConditionList<FpCheckinLog>(condition);
-        rpLogs.DataSource = listLogs;
-        rpLogs.DataBind();
+        ViewState[typeof(FpCheckinLog).Name] = listLogs;
+        // rpLogs.DataSource = listLogs;
+       // rpLogs.DataBind();
     }
 }

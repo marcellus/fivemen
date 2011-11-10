@@ -6,7 +6,7 @@
  <div style=" text-align:center; overflow:hidden;">
   <asp:Button  runat="server" Text="指纹验证" ID="btnIdentity" 
         onclick="btnIdentity_Click" />
-  <asp:CheckBox runat="server" Text="自动" ID="cboAuto" />
+  <asp:CheckBox runat="server" Text="自动" ID="cboAuto" Checked="true" />
 </div>
 </asp:Content>
 

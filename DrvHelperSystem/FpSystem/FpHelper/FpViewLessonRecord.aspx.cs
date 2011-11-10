@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
+using FT.Web.Tools;
 
 public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
 {
@@ -25,22 +26,40 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         {
             return;
         }
-        ucStudentInfo.fnUILoadStudentRecord(lStrIDCard);
-        //lStrIDCard = Server.UrlDecode(lStrIDCard);
-        //int lIntResultCode= FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
+        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
+
+            //lStrIDCard = Server.UrlDecode(lStrIDCard);
+        //int lIntResultCode= FPSyst//////////emBiz.fnIdendityStudentLesson(lStrIDCard);
         bool isCheckin=false;
         DateTime lDtToday = DateTime.Now;
-        FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
+  
         if (fso == null)
         {
-            this.lbStudentAlertMsg.Text = "没有该学员的个人信息";
+            this.lbStudentAlertMsg.Text = "学员个人信息不存在";
+            WebTools.PlaySound("../../sound/学员个人信息不存在.wav");
             return;
         }
         else {
+            ucStudentInfo.fnUILoadStudentRecord(fso);
             try
             {
                 int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
                 isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                if (isCheckin)
+                {
+                    if (fso.STATUE == FpStudentObject.STATUE_LESSON_END)
+                    {
+                        WebTools.PlaySound("../../sound/学员已完成上课.wav");
+                    }
+                    else
+                    {
+
+                        WebTools.PlaySound("../../sound/上课考勤有效.wav");
+                    }
+                }
+                else {
+                    WebTools.PlaySound("../../sound/上课考勤无效.wav");
+                }
                 this.fnUILoadStudentRecord(fso,0);
             }
             catch (Exception ex) {
@@ -56,7 +75,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
         //this.lbStrName.Text = pFso.NAME;
         //this.lbStuIdCard.Text = pFso.IDCARD;
         this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
-        this.lbStuLessonLeave1.Text = "";
+        this.lbStuLessonLeave1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_1) ? "" : pFso.LESSON_LEAVE_1.ToString();
         this.lbStuLessonEnter2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_2) ? "" : pFso.LESSON_ENTER_2.ToString();
         this.lbStuLessonLeave2.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_LEAVE_2) ? "" : pFso.LESSON_LEAVE_2.ToString();
 

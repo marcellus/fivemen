@@ -31,6 +31,15 @@
                 
             </tr>
             
+                        <tr class="table-content">
+                <td style="width:120px" class="table-title">
+                    科目3考试审核：</td>
+                <td  colspan="3" style="">                   
+                    <asp:CheckBox ID="cbKm3VerifyInd" runat="server" />
+                </td>
+                
+            </tr>
+            
            <tr class="table-content">
                 <td style="width:120px" class="table-title">
                     地区类型描述：</td>

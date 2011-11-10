@@ -28,8 +28,8 @@
                         Width="100%" >
                         <Columns>
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="name" HeaderText="场地名"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="descp" HeaderText="场地描述"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="name" HeaderText="地区类型名"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="descp" HeaderText="地区类型描述"></asp:BoundColumn>
                             <asp:BoundColumn DataField="train_times" HeaderText="入场训练次数"></asp:BoundColumn>
                             <asp:TemplateColumn HeaderText="详细">
                                 <ItemTemplate>
