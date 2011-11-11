@@ -39,7 +39,7 @@
                     
                     <% 
                         }
-                        else if (key == "collect") { 
+                        else if (key == "collect"&&1==2) { 
                     %>
                          <a href="../FpSystem/FpHelper/FpRecordCollect2.aspx"><%=site.NAME %></a>
                     <%

@@ -21,12 +21,14 @@ public class FpSite
         if (DICT_BUSTYPE == null) {
             DICT_BUSTYPE=new Dictionary<string,string>();
             DICT_BUSTYPE.Add("lesson","上课");
-            DICT_BUSTYPE.Add("train","入场训练");
+            
             DICT_BUSTYPE.Add("km1","科目1考试");
             DICT_BUSTYPE.Add("km2","科目2考试");
+            DICT_BUSTYPE.Add("3in9", "9选3考试");
+            DICT_BUSTYPE.Add("train", "入场训练");
             DICT_BUSTYPE.Add("km3","科目3考试");
-            DICT_BUSTYPE.Add("3in9","9选3考试");
-            DICT_BUSTYPE.Add("collect","指纹采集");
+           
+           //DICT_BUSTYPE.Add("collect","指纹采集");
            
         }
         return DICT_BUSTYPE;
