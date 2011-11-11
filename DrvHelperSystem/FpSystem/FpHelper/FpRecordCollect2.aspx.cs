@@ -30,7 +30,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
             ddlLocaltype.DataValueField = "ID";
             ddlLocaltype.DataBind();
 
-            DepartMentOperator.Bind(ddlSchool);
+            DepartMentOperator.Bind2(ddlSchool);
 
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
         }
@@ -66,7 +66,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
         fso.LSH=txtLsh.Text;
         fso.SCHOOL_CODE = ddlSchool.SelectedValue;
         fso.SCHOOL_NAME = ddlSchool.SelectedItem.Text;
-        fso.CAR_TYPE = ddlSchool.SelectedValue;
+        fso.CAR_TYPE = ddlCarType.SelectedValue;
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);

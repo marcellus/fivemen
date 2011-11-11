@@ -18,7 +18,14 @@ public partial class FpSystem_FpHelper_FpCheckinResultStatis : System.Web.UI.Pag
         if (!IsPostBack)
         {
             qDateStart.Value = DateTime.Now.ToString("yyyy-MM-dd");
-            qDateEnd.Value = qDateStart.Value;
+            qDateEnd.Value = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
+
+
+            DepartMentOperator.Bind2(ddlSchoolCode);
+            ddlSchoolCode.Items.Insert(0, new ListItem("全部", "all"));
+
+            DictOperator.BindDropDownList("车辆类型", ddlCarType);
+            ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
         }
     }
 
@@ -26,15 +33,29 @@ public partial class FpSystem_FpHelper_FpCheckinResultStatis : System.Web.UI.Pag
 
     private void QueryStudent(string startDate, string endDate)
     {
-
+        string schoolId = ddlSchoolCode.SelectedValue;
+        string carType = ddlCarType.SelectedValue;
         
 
            string sqlConditionFinishLesson = "where LESSON_LEAVE_2 between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
             //fileName = string.Format(fileNamePattern, startDate, endDate, "已完成上课");
 
-          string sqlConditionFinishTrain = "where TRAIN_LEAVE_8 between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
+          string sqlConditionFinishTrain = "where TRAIN_END_DATE between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
             //fileName = string.Format(fileNamePattern, startDate, endDate, "已完成入场训练");
 
+          if (schoolId != "all")
+          {
+              //DepartMent depart = SimpleOrmOperator.Query<DepartMent>(schoolId);
+              //string schoolCode = depart.DepCode;
+              sqlConditionFinishLesson += string.Format(" and school_code='{0}' ", schoolId);
+              sqlConditionFinishTrain += string.Format(" and school_code='{0}' ", schoolId);
+          }
+
+          if (carType != "all")
+          {
+              sqlConditionFinishLesson += string.Format(" and car_type='{0}' ", carType);
+              sqlConditionFinishTrain += string.Format(" and car_type='{0}' ", carType);
+          }
 
           int countFinishLesson = SimpleOrmOperator.QueryConditionList<FpStudentObject>(string.Format(sqlConditionFinishLesson, startDate, endDate)).Count;
           int countFinishTrain = SimpleOrmOperator.QueryConditionList<FpStudentObject>(string.Format(sqlConditionFinishTrain, startDate, endDate)).Count;

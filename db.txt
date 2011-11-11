@@ -1,0 +1,8 @@
+
+Data Source=xe;user=aspnet;password=stjj117
+QP9Q4bFBp5Vzt1Dz/Q62a3+lcWDTRfCmMoi8++yobk56bfFkZg+A5cYE6EUpne4m
+
+Data Source=oradrvde;user=aspnet;password=zhjj001
+QP9Q4bFBp5VwW2BJBR5UUl0shUEjkW5VkeYZo9TAr1QiWioq7Rfocf25dXtBLGl5edVqbQ2Eiv4=
+
+
