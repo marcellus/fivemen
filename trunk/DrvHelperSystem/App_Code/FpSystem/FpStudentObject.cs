@@ -156,6 +156,9 @@ public class FpStudentObject
     [SimpleColumn(Column = "TRAIN_LEAVE_8", ColumnType = SimpleColumnType.Date)]
     private DateTime train_leave_8;
 
+    [SimpleColumn(Column = "TRAIN_END_DATE", ColumnType = SimpleColumnType.Date)]
+    private DateTime train_end_date;
+
     [SimpleColumn(Column = "KM1_ENTER", ColumnType = SimpleColumnType.Date)]
     private DateTime km1_enter;
     [SimpleColumn(Column = "KM2_ENTER", ColumnType = SimpleColumnType.Date)]
@@ -405,6 +408,11 @@ public class FpStudentObject
         set { this.train_leave_8 = value; }
     }
 
+    public DateTime TRAIN_END_DATE
+    {
+        get { return this.train_end_date; }
+        set { this.train_end_date = value; }
+    }
 
     public DateTime KM1_ENTER
     {
@@ -1035,6 +1043,7 @@ public class FpStudentObject
                 //入场训练学员分类
                 if (trainTimes >= fpLocalType.TRAIN_TIMES) {
                     this.statue = STATUE_TRAIN_END;
+                    this.TRAIN_END_DATE = DateTime.Now;
                     this.remark = string.Format(patternTrainLeave, lStrIdentity,trainTimes);                 
                 }
                 break; 

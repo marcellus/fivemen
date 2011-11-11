@@ -18,13 +18,17 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
     {
         if (!IsPostBack)
         {
-            DepartMentOperator.Bind(ddlSchoolCode);
+            DepartMentOperator.Bind2(ddlSchoolCode);
             ddlSchoolCode.Items.Insert(0, new ListItem("全部", "all"));
-            string condition = "km3_verify != '{0}' and statue={1}";
+
+            DictOperator.BindDropDownList("车辆类型", ddlCarType);
+            ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
+
+            string condition = " fee_statue != '{0}' and statue<{1}";
             this.ProcedurePager1.TableName = "fp_student";
-            this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,fee_verify_date ".Replace("\r\n", "").Replace("\t", "");
+            this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type,fee_verify_date ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
-            this.ProcedurePager1.RowFilter = string.Format(condition, "Y", FpStudentObject.STATUE_COLLECT);
+            this.ProcedurePager1.RowFilter = string.Format(condition, "Y",FpStudentObject.STATUE_LESSON_START);
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -35,6 +39,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         string condition = "";
         string feeStatue = ddlFeeStatue.SelectedValue;
         string schoolCode = ddlSchoolCode.SelectedValue;
+        string carType = ddlCarType.SelectedValue;
         if (string.IsNullOrEmpty(queryValue))
         {
             if (feeStatue == "Y")
@@ -49,6 +54,11 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             if (schoolCode != "all")
             {
                 condition += string.Format(" and school_code='{0}' ", schoolCode);
+            }
+
+            if (carType != "all")
+            {
+                condition += string.Format(" and car_type='{0}' ", carType);
             }
         }
         else {

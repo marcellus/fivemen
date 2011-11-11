@@ -6,6 +6,7 @@
 
           <table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
 
+
             <tr class="table-content">
                <th>开始日期:</th>
                <td><input  onclick="setday(this)"  id="qDateStart" runat="server" /></td>
@@ -13,6 +14,17 @@
              <tr class="table-content">
                <th>结束日期:</th>
                <td><input  onclick="setday(this)"  id="qDateEnd" runat="server" /></td>
+            </tr>
+            <tr class="table-content">
+                <th>驾校：</th>
+                <td><asp:DropDownList ID="ddlSchoolCode" runat="server" >
+               <asp:ListItem Text="全部" Value="all"></asp:ListItem>
+              </asp:DropDownList></td>
+            </tr>
+            <tr class="table-content">
+               <th>车型：</th>
+               <td><asp:DropDownList ID="ddlCarType" runat="server">
+              </asp:DropDownList></td>
             </tr>
             
             

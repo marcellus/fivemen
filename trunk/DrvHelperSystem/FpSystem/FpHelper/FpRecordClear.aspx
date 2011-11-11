@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpKm3Verify.aspx.cs" Inherits="FpSystem_FpHelper_FpKm3Verify" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpRecordClear.aspx.cs" Inherits="FpSystem_FpHelper_FpRecordClear" Title="无标题页" %>
 <%@ Register assembly="FT.Web" namespace="WebControls" tagprefix="WC" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -8,11 +8,7 @@
    
        <tr class="table-content">
           <td style=" padding:10px; text-align:right">
-                       审核状态：
-              <asp:DropDownList ID="ddlFeeStatue" runat="server">
-                 <asp:ListItem Text="未审核" Value="N"></asp:ListItem>
-                 <asp:ListItem Text="已审核" Value="Y"></asp:ListItem>
-              </asp:DropDownList>
+
               &nbsp;  驾校：<asp:DropDownList ID="ddlSchoolCode" runat="server" >
                <asp:ListItem Text="全部" Value="all"></asp:ListItem>
               </asp:DropDownList>
@@ -35,11 +31,9 @@
           <td style="padding:15px;  text-align:right">
              <asp:CheckBox runat="server" Text="全选" id="cbAll"  AutoPostBack="true"
                   oncheckedchanged="cbAll_CheckedChanged" /> &nbsp;
-             <asp:Button runat="server" Text="批量审核" id="btnBatchVerify" 
-                  onclick="btnBatchVerify_Click" />&nbsp;
-                               <asp:Button runat="server" Text="批量取消审核" 
-                  id="btnBatchDisVerify" onclick="btnBatchDisVerify_Click" 
-                   />
+             <asp:Button runat="server" Text="批量清除" id="btnBatchClear" 
+                  onclick="btnBatchClear_Click" />&nbsp;
+  
           </td>
        </tr>
    
@@ -67,16 +61,14 @@
                             <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>
                              <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码"></asp:BoundColumn>
                             <asp:BoundColumn DataField="school_name" HeaderText="驾校"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="car_type" HeaderText="车型"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="car_type" HeaderText="车型"></asp:BoundColumn>
+                             
                              <asp:TemplateColumn HeaderText="操作">
                                 <ItemTemplate>
-                                    <asp:ImageButton ID="btnDelete" runat="server" AlternateText="审核" CommandArgument='<%#Eval("idcard") %>'
-                                        CommandName="Verify" ImageUrl="~/images/modify.gif" 
-                                        ToolTip="审核" />
-                                        
-                                   <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="审核" CommandArgument='<%#Eval("idcard") %>'
-                                        CommandName="DisVerify" ImageUrl="~/images/delete.gif" 
-                                        ToolTip="取消审核" />
+     
+                                   <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="清除" CommandArgument='<%#Eval("idcard") %>'
+                                        CommandName="Clear" ImageUrl="~/images/delete.gif" 
+                                        ToolTip="清除" />
                                 </ItemTemplate>
                             </asp:TemplateColumn>
                             

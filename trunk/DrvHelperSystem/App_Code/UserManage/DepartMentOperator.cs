@@ -62,4 +62,13 @@ public class DepartMentOperator
         ddl.DataValueField = "id";
         ddl.DataBind();
     }
+
+    public static void Bind2(DropDownList ddl)
+    {
+        DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable("select * from table_departments ", "tempdb");
+        ddl.DataSource = dt;
+        ddl.DataTextField = "c_depfullname";
+        ddl.DataValueField = "c_depcode";
+        ddl.DataBind();
+    }
 }

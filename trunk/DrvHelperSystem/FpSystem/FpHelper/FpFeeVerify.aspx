@@ -8,15 +8,16 @@
    
        <tr class="table-content">
           <td style=" padding:10px; text-align:right">
-              驾校：<asp:DropDownList ID="ddlSchoolCode" runat="server" >
-               <asp:ListItem Text="全部" Value="all"></asp:ListItem>
-              </asp:DropDownList>
-              &nbsp;&nbsp; 交费状态：
+                       交费状态：
               <asp:DropDownList ID="ddlFeeStatue" runat="server">
                  <asp:ListItem Text="未交费" Value="N"></asp:ListItem>
                  <asp:ListItem Text="已交费" Value="Y"></asp:ListItem>
               </asp:DropDownList>
-              &nbsp;&nbsp;学员信息:
+              &nbsp;  驾校：<asp:DropDownList ID="ddlSchoolCode" runat="server" >
+              </asp:DropDownList>
+              &nbsp;  车型：<asp:DropDownList ID="ddlCarType" runat="server">
+              </asp:DropDownList>
+              &nbsp;学员信息:
                             <asp:DropDownList ID="ddlQueryType" runat="server">
               <asp:ListItem Text="证件号码" Value="idcard"></asp:ListItem>
               <asp:ListItem Text="受理号" Value="lsh"></asp:ListItem>
@@ -64,6 +65,7 @@
                             <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>
                              <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码"></asp:BoundColumn>
                             <asp:BoundColumn DataField="school_name" HeaderText="驾校"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="car_type" HeaderText="车型"></asp:BoundColumn>
                             <asp:BoundColumn DataField="fee_verify_date" HeaderText="收费审核时间"></asp:BoundColumn>
                              
                              <asp:TemplateColumn HeaderText="操作">
