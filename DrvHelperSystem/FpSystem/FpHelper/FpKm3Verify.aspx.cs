@@ -24,11 +24,23 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             DictOperator.BindDropDownList("车辆类型",ddlCarType);
             ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
 
-            string condition = "km3_verify != '{0}' and statue<{1}";
+            ArrayList localtypes = SimpleOrmOperator.QueryConditionList<FpLocalType>("where km3_verify_ind='Y'");
+            string localtypeArray = "";
+            foreach (FpLocalType localtype in localtypes) {
+                localtypeArray += localtype.ID;
+                localtypeArray += ",";
+            }
+
+            string condition = "km3_verify != '{0}' and statue<{1} and localtype in ({2})";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
-            this.ProcedurePager1.RowFilter = string.Format(condition,"Y",FpStudentObject.STATUE_TRAIN_END);
+            this.ProcedurePager1.RowFilter = string.Format(condition
+                     ,"Y"
+                     ,FpStudentObject.STATUE_TRAIN_END
+                     ,localtypeArray.TrimEnd(',')
+            );
+            WebTools.Alert(condition);
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
