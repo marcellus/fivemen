@@ -24,11 +24,13 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
             ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
 
-            string condition = " fee_statue != '{0}' and statue<{1}";
+            string condition = "  statue<{1} ";
+            condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
+            condition += " and fee_statue != 'Y' ";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type,fee_verify_date ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
-            this.ProcedurePager1.RowFilter = string.Format(condition, "Y",FpStudentObject.STATUE_LESSON_START);
+            this.ProcedurePager1.RowFilter = condition;
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -36,7 +38,8 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         string queryValue = txtQueryValue.Text;
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
-        string condition = "";
+        string condition = "  statue<{1} ";
+        condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
         string feeStatue = ddlFeeStatue.SelectedValue;
         string schoolCode = ddlSchoolCode.SelectedValue;
         string carType = ddlCarType.SelectedValue;
@@ -44,11 +47,11 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         {
             if (feeStatue == "Y")
             {
-                condition = "fee_statue = 'Y'";
+                condition += " and fee_statue = 'Y' ";
             }
             else
             {
-                condition = "fee_statue != 'Y'";
+                condition += " and fee_statue != 'Y' ";
             }
 
             if (schoolCode != "all")
@@ -62,7 +65,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             }
         }
         else {
-            condition = string.Format(" {0}='{1}'", queryType, queryValue);
+            condition = string.Format(" {0}='{1}' ", queryType, queryValue);
         }
         //ArrayList students = SimpleOrmOperator.QueryConditionList<FpStudentObject>(condition);
 

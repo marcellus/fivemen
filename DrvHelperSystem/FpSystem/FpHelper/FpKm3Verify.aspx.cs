@@ -31,15 +31,13 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
                 localtypeArray += ",";
             }
 
-            string condition = "km3_verify != '{0}' and statue<{1} and localtype in ({2})";
+            string condition = " statue<{1} and localtype in ({2}) ";
+            condition=string.Format(condition,FpStudentObject.STATUE_TRAIN_END,localtypeArray.TrimEnd(','));
+            condition+=" and km3_verify !='Y' ";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
-            this.ProcedurePager1.RowFilter = string.Format(condition
-                     ,"Y"
-                     ,FpStudentObject.STATUE_TRAIN_END
-                     ,localtypeArray.TrimEnd(',')
-            );
+            this.ProcedurePager1.RowFilter = condition;
             WebTools.Alert(condition);
         }
     }
@@ -48,9 +46,16 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
         string queryValue = txtQueryValue.Text;
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
-        
 
-        string condition = "";
+        ArrayList localtypes = SimpleOrmOperator.QueryConditionList<FpLocalType>("where km3_verify_ind='Y'");
+        string localtypeArray = "";
+        foreach (FpLocalType localtype in localtypes)
+        {
+            localtypeArray += localtype.ID;
+            localtypeArray += ",";
+        }
+        string condition = " statue<{1} and localtype in ({2}) ";
+        condition = string.Format(condition, FpStudentObject.STATUE_TRAIN_END, localtypeArray.TrimEnd(','));
 
         if (string.IsNullOrEmpty(queryValue))
         {
@@ -60,11 +65,11 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             string carType = ddlCarType.SelectedValue;
             if (feeStatue == "Y")
             {
-                condition = "km3_verify = 'Y'";
+                condition += " and km3_verify = 'Y' ";
             }
             else
             {
-                condition = "km3_verify != 'Y'";
+                condition += " and km3_verify != 'Y' ";
             }
 
             if (schoolId != "all")
