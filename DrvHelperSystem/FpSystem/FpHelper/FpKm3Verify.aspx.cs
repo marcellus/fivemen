@@ -31,7 +31,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
                 localtypeArray += ",";
             }
 
-            string condition = " statue<{1} and localtype in ({2}) ";
+            string condition = " statue<={0} and localtype in ({1}) ";
             condition=string.Format(condition,FpStudentObject.STATUE_TRAIN_END,localtypeArray.TrimEnd(','));
             condition+=" and km3_verify !='Y' ";
             this.ProcedurePager1.TableName = "fp_student";
@@ -54,7 +54,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             localtypeArray += localtype.ID;
             localtypeArray += ",";
         }
-        string condition = " statue<{1} and localtype in ({2}) ";
+        string condition = " statue<={0} and localtype in ({1}) ";
         condition = string.Format(condition, FpStudentObject.STATUE_TRAIN_END, localtypeArray.TrimEnd(','));
 
         if (string.IsNullOrEmpty(queryValue))
@@ -111,11 +111,11 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
            // fso.FEE_VERIFY_DATE = DateTime.Now;
             if (SimpleOrmOperator.Update(fso))
             {
-                WebTools.Alert(this, string.Format("{0}:{1}  交费审核成功！", fso.LSH, fso.NAME));
+                WebTools.Alert(this, string.Format("{0}:{1}  审核成功！", fso.LSH, fso.NAME));
             }
             else
             {
-                WebTools.Alert(this, string.Format("{0}:{1}  交费审核失败！", fso.LSH, fso.NAME));
+                WebTools.Alert(this, string.Format("{0}:{1}  审核失败！", fso.LSH, fso.NAME));
             }
 
             this.ProcedurePager1.Changed = true;
@@ -130,11 +130,11 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             //fso.FEE_VERIFY_DATE = DateTime.Now;
             if (SimpleOrmOperator.Update(fso))
             {
-                WebTools.Alert(this, string.Format("{0}:{1}  交费取消审核成功！", fso.LSH, fso.NAME));
+                WebTools.Alert(this, string.Format("{0}:{1}  取消审核成功！", fso.LSH, fso.NAME));
             }
             else
             {
-                WebTools.Alert(this, string.Format("{0}:{1}  交费取消审核失败！", fso.LSH, fso.NAME));
+                WebTools.Alert(this, string.Format("{0}:{1}  取消审核失败！", fso.LSH, fso.NAME));
             }
 
             this.ProcedurePager1.Changed = true;

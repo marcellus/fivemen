@@ -24,7 +24,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
             ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
 
-            string condition = "  statue<{1} ";
+            string condition = "  statue<{0} ";
             condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
             condition += " and fee_statue != 'Y' ";
             this.ProcedurePager1.TableName = "fp_student";
@@ -38,7 +38,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         string queryValue = txtQueryValue.Text;
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
-        string condition = "  statue<{1} ";
+        string condition = "  statue<{0} ";
         condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
         string feeStatue = ddlFeeStatue.SelectedValue;
         string schoolCode = ddlSchoolCode.SelectedValue;
