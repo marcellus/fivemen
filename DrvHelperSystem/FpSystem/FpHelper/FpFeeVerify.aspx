@@ -31,7 +31,7 @@
        
        <tr class="table-content">
           <td style="padding:15px;  text-align:right">
-             <asp:CheckBox runat="server" Text="全选" id="cbAll"  AutoPostBack="true"
+             <asp:CheckBox runat="server" Text="全选" id="cbAll"  AutoPostBack="true" Checked="true"
                   oncheckedchanged="cbAll_CheckedChanged" /> &nbsp;
              <asp:Button runat="server" Text="批量审核" id="btnBatchVerify" 
                   onclick="btnBatchVerify_Click" />&nbsp;
@@ -57,7 +57,7 @@
                         
                             <asp:TemplateColumn HeaderStyle-Width="30px">
                                <ItemTemplate>
-                                   <asp:CheckBox runat="server" ID="cbIdCard"   ></asp:CheckBox>
+                                   <asp:CheckBox runat="server" ID="cbIdCard"  Checked="true"  ></asp:CheckBox>
                                </ItemTemplate>
                             </asp:TemplateColumn>
                         

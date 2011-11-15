@@ -1077,6 +1077,7 @@ public class FpStudentObject
                 }//case 3in9
             case "km3": {
 
+
                  if (DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                 {
                     this.remark = string.Format("{0} 未完成9选3考试，不能进行科目3考试", lStrIdentity);
@@ -1087,24 +1088,22 @@ public class FpStudentObject
                     this.remark = string.Format("{0} 未完成科目2考试，不能进行科目3考试", lStrIdentity);
                     break;
                 }
-                else if (this.statue < STATUE_TRAIN_END)
-                {
-                    this.remark = string.Format("{0} 未完成入场训练，不能进行科目3考试", lStrIdentity);
-                    break;
-                }                if (fpLocalType.KM3_VERIFY_IND == "Y" && this.KM3_VERIFY != "Y") {
-                    this.remark = string.Format("{0} 学员未通过科目3审核，不能进行科目3考试", lStrIdentity);
-                    break;
-                }
+
+                 else if (this.statue < STATUE_TRAIN_END&&fpLocalType.TRAIN_TIMES>0)
+                 {
+                     this.remark = string.Format("{0} 未完成入场训练，不能进行科目3考试", lStrIdentity);
+                     break;
+                 }
                  else if (fpLocalType.KM3_VERIFY_IND == "Y" && this.KM3_VERIFY != "Y")
                  {
                      this.remark = string.Format("{0} 学员未通过科目3审核，不能进行科目3考试", lStrIdentity);
                      break;
                  }
-                else if (this.statue >= STATUE_KM3_ENTER)
-                {
-                    this.remark = string.Format("{0} 学员在{1}已进行科目3考试，不能重复考试", lStrIdentity, this.KM3_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
-                    break;
-                }
+                 else if (this.statue >= STATUE_KM3_ENTER)
+                 {
+                     this.remark = string.Format("{0} 学员在{1}已进行科目3考试，不能重复考试", lStrIdentity, this.KM3_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
+                     break;
+                 }
 
                 this.km3_enter = lDtIdentity;
                 isCheckin = true;

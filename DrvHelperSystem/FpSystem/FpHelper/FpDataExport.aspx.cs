@@ -53,7 +53,7 @@ public partial class FpSystem_FpHelper_FpDataExport : System.Web.UI.Page
         }
         else if (busType == "1")
         {
-            sqlCondition = "where TRAIN_LEAVE_8 between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
+            sqlCondition = "where TRAIN_END_DATE between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
             //fileName = string.Format(fileNamePattern, startDate, endDate, "已完成入场训练");
         }
         else { return new ArrayList(); }
