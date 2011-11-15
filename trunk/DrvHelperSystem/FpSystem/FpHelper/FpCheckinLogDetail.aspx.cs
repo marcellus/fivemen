@@ -21,7 +21,7 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
         string quserValue=txtQueryValue.Text;
-        string condition=string.Format("where {0}='{1}'",queryType,quserValue);
+        string condition=string.Format("where {0} like '%{1}'",queryType,quserValue);
 
         if (string.IsNullOrEmpty(quserValue))
         {

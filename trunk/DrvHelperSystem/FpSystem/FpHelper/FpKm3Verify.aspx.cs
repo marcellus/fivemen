@@ -38,7 +38,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
             this.ProcedurePager1.RowFilter = condition;
-            WebTools.Alert(condition);
+            //WebTools.Alert(condition);
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             }
         }
         else {
-            condition = string.Format(" {0}='{1}'", queryType, queryValue);
+            condition += string.Format(" and {0} like '%{1}'", queryType, queryValue);
         }
         //ArrayList students = SimpleOrmOperator.QueryConditionList<FpStudentObject>(condition);
 
@@ -93,7 +93,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
         //else
         //this.ProcedurePager1.RowFilter = "";
         this.ProcedurePager1.Changed = true;
-
+        btnBatchVerify.Focus();
     }
 
 
@@ -194,6 +194,9 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
 
         WebTools.Alert(string.Format("审核结果：选中{0}条记录，{1}条成功通过审核", checkNum, reNum));
         this.ProcedurePager1.Changed = true;
+        txtQueryValue.Text = "";
+        txtQueryValue.Focus();
+
     }
     protected void btnBatchDisVerify_Click(object sender, EventArgs e)
     {

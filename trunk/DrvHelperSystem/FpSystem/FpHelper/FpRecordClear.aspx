@@ -29,7 +29,7 @@
        
        <tr class="table-content">
           <td style="padding:15px;  text-align:right">
-             <asp:CheckBox runat="server" Text="全选" id="cbAll"  AutoPostBack="true"
+             <asp:CheckBox runat="server" Text="全选" id="cbAll"  AutoPostBack="true"  Checked="true"
                   oncheckedchanged="cbAll_CheckedChanged" /> &nbsp;
              <asp:Button runat="server" Text="批量清除" id="btnBatchClear" 
                   onclick="btnBatchClear_Click" />&nbsp;
@@ -45,7 +45,7 @@
    
         <tr class="table-content">
                 <td>
-                    &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False"
+                    &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False" 
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border"  OnItemCommand="DataGrid1_ItemCommand1"
                          
                         Width="100%">
@@ -53,7 +53,7 @@
                         
                             <asp:TemplateColumn HeaderStyle-Width="30px">
                                <ItemTemplate>
-                                   <asp:CheckBox runat="server" ID="cbIdCard"   ></asp:CheckBox>
+                                   <asp:CheckBox runat="server" ID="cbIdCard"  Checked="true"  ></asp:CheckBox>
                                </ItemTemplate>
                             </asp:TemplateColumn>
                         

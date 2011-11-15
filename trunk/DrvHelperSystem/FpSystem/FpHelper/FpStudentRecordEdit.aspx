@@ -126,7 +126,12 @@
           </td>
       </tr>
      
-
+ <tr class="table-content">
+         <td style=" text-align:left">
+            入场训练完成时间
+         <input type="text" id="lbStuTrainEndDate" runat="server"  onclick="setday(this);" 
+style="width:500px;border-style:none"/></td>
+      </tr>
  <tr class="table-content">
          <td style=" text-align:left">
             科目一考勤时间

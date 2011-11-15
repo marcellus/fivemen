@@ -48,7 +48,7 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
         string quserValue = txtIDCard.Text;
-        string condition = string.Format("where {0}='{1}'", queryType, quserValue);
+        string condition = string.Format("where {0} like '%{1}'", queryType, quserValue);
 
         if (string.IsNullOrEmpty(quserValue))
         {
@@ -103,7 +103,8 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
         this.lbStuKm2Enter.Value = DateTimeHelper.fnIsNewDateTime(pFso.KM2_ENTER) ? "" : pFso.KM2_ENTER.ToString(datePattern);
         this.lbStuKm3Enter.Value = DateTimeHelper.fnIsNewDateTime(pFso.KM3_ENTER) ? "" : pFso.KM3_ENTER.ToString(datePattern);
         this.lbKM23IN9ENTER.Value = DateTimeHelper.fnIsNewDateTime(pFso.KM2_3IN9_ENTER) ? "" : pFso.KM2_3IN9_ENTER.ToString(datePattern);
-
+        this.lbStuTrainEndDate.Value = DateTimeHelper.fnIsNewDateTime(pFso.TRAIN_END_DATE) ? "" : pFso.TRAIN_END_DATE.ToString(datePattern);
+        
 
         this.ddlStatue.SelectedValue = pFso.STATUE.ToString();
 
@@ -154,6 +155,9 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
             pFso.KM3_ENTER = DateTimeHelper.fnParseDateTime(this.lbStuKm3Enter.Value, default(DateTime));
 
             pFso.KM2_3IN9_ENTER = DateTimeHelper.fnParseDateTime(this.lbKM23IN9ENTER.Value, default(DateTime));
+
+
+            pFso.TRAIN_END_DATE = DateTimeHelper.fnParseDateTime(this.lbStuTrainEndDate.Value, default(DateTime));
 
             pFso.STATUE = Convert.ToInt32(ddlStatue.SelectedValue);
        
