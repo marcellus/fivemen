@@ -9,6 +9,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.Web.Tools;
+using System.Collections.Generic;
+using FT.DAL.Orm;
 
 public partial class DriverPerson_Apply_ApplyInfoCheckList : FT.Web.AuthenticatedPage
 {
@@ -28,8 +30,46 @@ c_check_result,c_photo_syn,c_check_operator
     }
     protected void btnCheck_Click(object sender, EventArgs e)
     {
+        IList<string> ids = new List<string>();
+        int checkNum = 0;
+        int reNum = 0;
+        foreach (DataGridItem item in DataGrid1.Items)
+        {
+
+            CheckBox cb = (CheckBox)item.FindControl("CheckBox1");
+            if (cb.Checked)
+            {
+                ids.Add(item.Cells[3].Text);
+                checkNum++;
+            }
+        }
+
+        if (checkNum == 0)
+        {
+            WebTools.Alert("没有记录被选中");
+            return;
+        }
+
+        foreach (string id in ids)
+        {
+
+            StudentApplyInfo sai = StudentApplyInfoOperator.Get(Convert.ToInt32(id));
+            //fso.FEE_VERIFY_DATE = DateTime.Now;
+            if (StudentApplyInfoOperator.CheckInfoAndPhoto(sai, ""))
+            {
+                reNum++;
+            }
+
+        }
+
+        WebTools.Alert(string.Format("审核结果：选中{0}条记录，{1}条成功通过审核", checkNum, reNum));
+        this.ProcedurePager1.Changed = true;
+        //txtQueryValue.Text = "";
+        //txtQueryValue.Focus();
 
     }
+
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         if(this.cbCheckResult.SelectedIndex!=3)

@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.Web.Tools;
+using FT.DAL.Orm;
 
 public partial class DriverPerson_Preasign_SchoolCarInfoList : FT.Web.AuthenticatedPage
 {
@@ -26,6 +27,15 @@ public partial class DriverPerson_Preasign_SchoolCarInfoList : FT.Web.Authentica
     mobile ,
     depname 
 	".Replace("\r\n", "").Replace("\t", "");
+
+            if (!string.IsNullOrEmpty(Request.Params["school"]))
+            {
+                int depId = this.Operator.DeptId;
+                DepartMent dep = SimpleOrmOperator.Query<DepartMent>(depId);
+                ViewState["dep"] = dep;
+                this.ProcedurePager1.RowFilter = string.Format( " DEPCODE ='{0}'",dep.DepCode);
+            }
+
             this.ProcedurePager1.SortString = " order by depname desc";
         }
     }
@@ -45,10 +55,16 @@ public partial class DriverPerson_Preasign_SchoolCarInfoList : FT.Web.Authentica
     private void Pop(int id)
     {
         string url = "SchoolCarInfoEdit.aspx";
-        if (id > 0)
+        DepartMent dep = ViewState["dep"] as DepartMent;
+        if (id > 0&&dep!=null)
         {
-            url += "?id=" + id;
+            url += string.Format("?id={0}&depId={1}", id, dep.Id);
+
         }
+        else if (dep != null) {
+            url += string.Format("?depId={0}", dep.Id);
+        }
+
         WebTools.ShowModalWindows(this, url, 1000, 350);
     }
     protected void DataGrid1_ItemCommand1(object source, DataGridCommandEventArgs e)

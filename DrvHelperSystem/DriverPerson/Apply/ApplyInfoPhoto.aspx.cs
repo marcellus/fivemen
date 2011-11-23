@@ -20,7 +20,7 @@ public partial class DriverPerson_Apply_ApplyInfoPhoto : System.Web.UI.Page
             string idcard = Request.Params["idcard"].ToString();
             byte[] img = StudentApplyInfoOperator.GetPhoto(idcard);
             
-            HttpContext.Current.Response.ClearContent();
+            //HttpContext.Current.Response.ClearContent();
             HttpContext.Current.Response.ClearContent();
             HttpContext.Current.Response.ContentType = "image/jpeg";
             if (img != null && img.Length > 0)

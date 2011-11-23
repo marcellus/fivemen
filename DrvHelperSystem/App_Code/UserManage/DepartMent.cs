@@ -14,6 +14,7 @@ using FT.DAL.Orm;
 /// </summary>
 [SimpleTable("table_departments")]
 [Alias("部门登记表")]
+[Serializable]
 public class DepartMent
 {
     public DepartMent()

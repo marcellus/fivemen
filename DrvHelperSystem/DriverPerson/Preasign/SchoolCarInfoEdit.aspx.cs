@@ -26,6 +26,13 @@ public partial class DriverPerson_Preasign_SchoolCarInfoEdit : FT.Web.Authentica
                 WebFormHelper.SetDataToForm(this, entity);
             }
 
+            if (!string.IsNullOrEmpty(Request.Params["depId"])) {
+                int depId = this.Operator.DeptId;
+                DepartMent dep = SimpleOrmOperator.Query<DepartMent>(depId);
+                cbDepCodeValue.SelectedValue = dep.DepCode;
+                cbDepCodeValue.Enabled = false;
+            }
+
         }
     }
 
