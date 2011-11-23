@@ -173,7 +173,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
     }
     
     </script>
-    <base target="_self"></base>
+   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -215,7 +215,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     <br />
                     <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" />
                     <br />
-                    <asp:Button ID="btnImgUpdate" runat="server" OnClick="btnImgUpdate_Click" Text="上传照片" />
+                    <asp:Button ID="btnImgUpdate"  runat="server" OnClick="btnImgUpdate_Click" Text="上传照片" />
                 </td>
             </tr>
             <tr class="table-content">

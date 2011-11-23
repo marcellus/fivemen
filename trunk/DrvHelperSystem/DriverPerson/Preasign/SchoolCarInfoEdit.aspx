@@ -26,7 +26,7 @@
                        所属驾校：
                     </td>
                     <td colspan="3">
-                        <asp:DropDownList ID="cbDepCodeValue" runat="server" Height="16px" 
+                        <asp:DropDownList ID="cbDepCodeValue" runat="server" Height="16px"  
                             Width="450px" Font-Size="15pt">
                            
                         </asp:DropDownList>
