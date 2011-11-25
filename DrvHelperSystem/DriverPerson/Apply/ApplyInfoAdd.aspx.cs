@@ -121,7 +121,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
     }
     protected void btnCheck_Click(object sender, EventArgs e)
     {
-        if (Request.Params["id"] != null)
+        if (!string.IsNullOrEmpty( Request.Params["id"]))
         {
             StudentApplyInfo entity = SimpleOrmOperator.Query<StudentApplyInfo>(Convert.ToInt32(Request.Params["id"]));
             if (StudentApplyInfoOperator.CheckInfoAndPhoto(entity, this.Operator.OperatorName))
