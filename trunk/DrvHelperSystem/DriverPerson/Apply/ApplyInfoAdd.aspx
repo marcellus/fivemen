@@ -6,6 +6,7 @@
 <head runat="server">
     <title>初学+增驾申请详细信息</title>
     <meta content="no-cache" http-equiv="pragma">
+    <base target="_self"></base>
     <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <style type="text/css">
         input
@@ -16,22 +17,25 @@
         }
     </style>
     <script type="text/javascript" src="../../js/calendar.js"></script>
-    <script src="../../js/validate-helper.js" type="text/javascript" />
+    <script src="../../js/validate-helper.js" type="text/javascript" ></script>
     <script type="text/javascript">
      var idTmr = "";
     var selectObj;
-    var str="";
+    var str = "";
+    
     function getSelectText(id)
     {
         selectObj=document.getElementById(id);
         return selectObj.options[selectObj.selectedIndex].text;
     }
     
+    
     function getText(id)
     {
         str=getSelectText(id);
         return str.substring(str.indexOf("：")+1);
     }
+    
 
     function printExcel()
     {
@@ -41,13 +45,13 @@
        {
           xls=new ActiveXObject("Excel.Application");
         }
-        catch(e)
-        {
+        catch (e) {
+            alert(e);
         alert("要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX控件”，您的浏览器须允许执行控件。请【帮助】了解浏览器设置方法");
         return;
         }
        xls.visible=true;
-       // alert("xls->"+xls);
+        //alert("xls->"+xls);
        //var objBook=excelapp.Workbooks.Add(); 
       // var xlBook=xls.Workbooks.Add;
        //alert("xlBook->"+xlBook);
@@ -60,13 +64,14 @@
   MissingValue);
   */
        var xlBook=xls.Workbooks.Open
-("http://"+window.location.host+"/"+"DrvHelperSystem"+"/Templates/驾驶证申请表-初学.xlt");
-       // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");
+("http://"+window.location.host+"/Templates/驾驶证申请表-初学.xlt");
+       // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");+"/"+"DrvHelperSystem"
        // alert("xls.Workbooks.count->"+xls.Workbooks.Count)
          //alert("xlBook->"+xlBook);
          //xlBook.Save();
         //var xlsheet=xlBook.Worksheets(1);
-        //alert("xlsheet->"+xlsheet);
+       alert("xlsheet->"+xlsheet);
+      // alert();
         
         
          var xlsheet2=xls.Workbooks(1).Worksheets(1);
@@ -98,8 +103,7 @@
            var oSheet = xls.Workbooks(1).ActiveSheet; 
            //alert(oSheet);
           oSheet.Cells(5,25).Select();//选中Excel中的单元格 
-          var 
-url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPhoto.aspx?idcard="+strtmp2;
+          var url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/ApplyInfoPhoto.aspx?idcard="+strtmp2;
           //document.write(url);
           oSheet.Pictures.Insert(url);//插入图片
           
@@ -133,11 +137,13 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
         xls.Quit();
        xls=null;
        xlsheet2.Printout;
-       idTmr = window.setInterval("Cleanup();",1)
-      
-       
+       idTmr = window.setInterval("Cleanup();", 1);
+
+
+
+   }
     
-    }
+    
     function Cleanup() {
     window.clearInterval(idTmr);
     CollectGarbage();
@@ -145,9 +151,9 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
     
   function SynText()
   {
-     document.getElementById('txtLxzsxxdz').value=document.getElementById
-('txtDjzsxxdz').value;
-  }
+     document.getElementById('txtLxzsxxdz').value=document.getElementById('txtDjzsxxdz').value;
+ }
+  
   function ValidateText()
   {
   
@@ -155,24 +161,24 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
    var phone=CheckPhone(document.getElementById('txtLxdh').value);
    var postcode=CheckPostCode(document.getElementById('txtLxzsyzbm').value);
    return idcard&&phone&&postcode;
-  
-  }
-    </script>
-    <script type="text/javascript">
-    function searchArea()
-    {
-    
-        var retval = window.showModalDialog('AreaSearch.aspx', '','dialogWidth:600px; dialogHeight:300px;');
-          if(retval)
-          {
-            var arr=retval.split("|");
-            document.getElementById("cbDjzsxzqhValue").options.length=0;
-            document.getElementById("cbDjzsxzqhValue").options[0]=new Option(arr[0],arr[1]);
-            document.getElementById('txtLxzsxxdz').value=document.getElementById('txtDjzsxxdz').value=arr[2];
-          }
+
+}
+
+
+function searchArea() {
+
+    var retval = window.showModalDialog('AreaSearch.aspx', '', 'dialogWidth:600px; dialogHeight:300px;');
+    if (retval) {
+        var arr = retval.split("|");
+        document.getElementById("cbDjzsxzqhValue").options.length = 0;
+        document.getElementById("cbDjzsxzqhValue").options[0] = new Option(arr[0], arr[1]);
+        document.getElementById('txtLxzsxxdz').value = document.getElementById('txtDjzsxxdz').value = arr[2];
     }
-    
+}
+  
+  
     </script>
+
    
 </head>
 <body>
@@ -192,7 +198,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     证件名称
                 </td>
                 <td style="width: 600px">
-                    <asp:DropDownList ID="cbSfzmmcValue" runat="server" Width="110px" Height="16px" 
+                    <asp:DropDownList ID="cbSfzmmcValue" runat="server" Width="110px" 
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -206,7 +212,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     国籍
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbGjValue" runat="server" Height="16px" Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbGjValue" runat="server"  Width="110px" Font-Size="12pt">
                     </asp:DropDownList>
                 </td>
                 <td colspan="2" rowspan="6">
@@ -229,7 +235,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     性别
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbXbValue" runat="server" Height="16px" Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbXbValue" runat="server"  Width="110px" Font-Size="12pt">
                         <asp:ListItem Value="1">男</asp:ListItem>
                         <asp:ListItem Value="2">女</asp:ListItem>
                     </asp:DropDownList>
@@ -246,7 +252,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     登记住所
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server" Height="16px" Width="110px"
+                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"  Width="110px"
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -260,7 +266,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     联系住所
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbLxzsxzqhValue" runat="server" Height="16px" Width="110px"
+                    <asp:DropDownList ID="cbLxzsxzqhValue" runat="server"  Width="110px"
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -285,7 +291,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     行政区划
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbXzqhValue" runat="server" Height="16px" Width="110px" 
+                    <asp:DropDownList ID="cbXzqhValue" runat="server"  Width="110px" 
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -295,7 +301,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     申请车型
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbZkcxValue" runat="server" Height="16px" Width="110px" 
+                    <asp:DropDownList ID="cbZkcxValue" runat="server"  Width="110px" 
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -303,7 +309,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     驾驶人来源
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbLyValue" runat="server" Height="16px" Width="110px" 
+                    <asp:DropDownList ID="cbLyValue" runat="server"  Width="110px" 
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
@@ -347,7 +353,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     辨色力
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbBslValue" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbBslValue" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -356,7 +362,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     听力
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbTlValue" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbTlValue" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -367,7 +373,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     上肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbSz" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbSz" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -376,7 +382,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     左下肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbZxz" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbZxz" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -385,7 +391,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     右下肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbYxz" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbYxz" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -394,7 +400,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     躯干颈部
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbQgjb" runat="server" Height="16px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbQgjb" runat="server"  Font-Size="12pt">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -405,7 +411,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                     体检医院
                 </td>
                 <td colspan="2">
-                    <asp:DropDownList ID="cbTjyy" runat="server" Height="16px" Width="220px" Font-Size="12pt"
+                    <asp:DropDownList ID="cbTjyy" runat="server"  Width="220px" Font-Size="12pt"
                         AutoPostBack="True" OnSelectedIndexChanged="cbTjyy_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
@@ -425,7 +431,7 @@ url="http://"+window.location.host+"/"+"DrvHelperSystem/DriverPerson/Apply"+"/Ap
                         Text="保存" />
                     &nbsp;&nbsp;
                     <asp:Button ID="btnCheck" runat="server" Text="审核" OnClick="btnCheck_Click" />&nbsp;&nbsp;
-                    <input id="Button2" style="width: 140px" class="button" onclick="javascript:printExcel();"
+                    <input id="Button2" style="width: 140px" class="button" onclick="printExcel();"
                         type="button" value="打印申请表" />
                     &nbsp;&nbsp;
                     <input id="Button1" class="button" onclick="javascript:window.opener=null;window.close();"

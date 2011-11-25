@@ -74,6 +74,7 @@
     <Compile Include="WebService\DrvExamWritePhotoRequest.cs" />
     <Compile Include="WebService\DrvExamWriteZwRequest.cs" />
     <Compile Include="WebService\DrvHealthWriteRequest.cs" />
+    <Compile Include="WebService\DrvNewInterface.cs" />
     <Compile Include="WebService\DrvOldBaseResponse.cs" />
     <Compile Include="WebService\DrvOldGetImageResponse.cs" />
     <Compile Include="WebService\DrvPreasignRequest.cs" />

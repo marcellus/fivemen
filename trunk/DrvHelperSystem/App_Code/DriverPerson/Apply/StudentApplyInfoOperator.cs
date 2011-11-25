@@ -48,10 +48,17 @@ public class StudentApplyInfoOperator
 
             Image image = Image.FromStream(ms, true);
 
-            result = DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
-            if (result)
+           // result = DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
+            string zp = ImageHelper.ImageToBase64Str(image);
+            string[] res= DrvNewInterface.WritePhoto(info.Sfzmhm,zp);
+            if (res.Length == 1)
             {
                 info.PhotoSyn = 1;
+                SimpleOrmOperator.Update(info);
+            }
+            else {
+                info.PhotoSyn = 2;
+                info.CheckResult = res[2];
                 SimpleOrmOperator.Update(info);
             }
         }
@@ -142,6 +149,8 @@ public class StudentApplyInfoOperator
             info.Checked = 1;
             info.CheckResult = resp.Message;
             SimpleOrmOperator.Update(info);
+            StudentApplyInfoChecked infoChecked = info as StudentApplyInfoChecked;
+            SimpleOrmOperator.Create(infoChecked);
             //DataAccessFactory.GetDataAccess().ExecuteSql("update table_student_apply_info set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
         }
         else

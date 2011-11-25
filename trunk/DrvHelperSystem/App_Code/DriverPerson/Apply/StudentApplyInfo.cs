@@ -272,3 +272,11 @@ public class StudentApplyInfo
 
 
 }
+
+
+
+[SimpleTable("table_student_apply_info_c")]
+[Alias("预录入详细信息")]
+public class StudentApplyInfoChecked :StudentApplyInfo{ 
+
+}
