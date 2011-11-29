@@ -196,7 +196,7 @@ namespace FT.WebServiceInterface.WebService
         {
             StringBuilder sb = new StringBuilder("<?xml version=\"1.0\" encoding=\"GBK\"?>");
             sb.Append("<root>");
-            sb.Append("<TempBean>");
+            sb.Append("<DrvtempMid>");
             this.AppendTag(sb, "lsh", this.Lsh);
             this.AppendTag(sb, "sfzmhm", this.Sfzmhm);
             this.AppendTag(sb, "sfzmmc", this.Sfzmmc);
@@ -251,7 +251,7 @@ namespace FT.WebServiceInterface.WebService
            // this.AppendTag(sb, "tjyymc", System.Web.HttpUtility.UrlEncode(this.Tjyymc,System.Text.Encoding.UTF8));
            
             this.AppendTag(sb, "sn", this.Sn);
-            sb.Append("</TempBean>");
+            sb.Append("</DrvtempMid>");
             sb.Append("</root>");
             return sb.ToString();
         }

@@ -134,8 +134,9 @@ public class StudentApplyInfoOperator
                 }
 
             }
-            resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
+           // resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
             //resp= DriverInterface.yuyueInfo(info);
+            string[] res = DrvNewInterface.WritePresign(ConvertInfoToRequest(info).ToXml());
         }
         catch (Exception exe)
         {
