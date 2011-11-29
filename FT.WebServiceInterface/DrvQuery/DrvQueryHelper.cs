@@ -404,7 +404,7 @@ namespace FT.WebServiceInterface.DrvQuery
         private static DataTable GetDictProvince()
         {
 
-            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from trff_app.drv_code t where dmlb=33 and dmz like '%0000'";
+            string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and dmz like '%0000'";
             //IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
             DataTable dt1 = GetInnerDbAccess().SelectDataTable(sql, "tmp");
             return dt1;

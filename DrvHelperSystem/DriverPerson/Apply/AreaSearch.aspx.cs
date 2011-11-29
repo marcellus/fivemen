@@ -27,7 +27,7 @@ public partial class DriverPerson_Apply_AreaSearch : System.Web.UI.Page
     protected void Button3_Click(object sender, EventArgs e)
     {
         string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and (dmz = '" +this.txtCode.Text.Trim() + "' or dmmc1='"+this.txtName.Text.Trim()+"')";
-        IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+        IDataAccess access = new OracleDataHelper(FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]));
         DataTable dt1 = access.SelectDataTable(sql, "tmp");
         if (dt1 != null && dt1.Rows.Count > 0)
         {
@@ -44,6 +44,7 @@ public partial class DriverPerson_Apply_AreaSearch : System.Web.UI.Page
             }
             else
             {
+
                 this.ddlProvince.SelectedValue = code.Substring(0, 2) + "0000";
                 this.ddlProvince_SelectedIndexChanged(null,null);
                 this.ddlCity.SelectedValue = code.Substring(0, 4) + "00";

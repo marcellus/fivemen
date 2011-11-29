@@ -72,7 +72,25 @@ namespace FT.WebServiceInterface.WebService
             }
         }
 
+        public static string[] WritePresign(string xmlDoc)
+        {
 
+            
+
+            string re = GetNewService().writeObjectOut("02", GetServiceWriteSn(), "02C69", xmlDoc);
+
+            string code = GetTextInXml(re, "//code");
+            string retcode = GetTextInXml(re, "//retcode");
+            if (code == "1" || retcode == "1")
+            {
+                return new string[] { "1" };
+            }
+            else
+            {
+                string message = GetTextInXml(re, "//retdesc");
+                return new string[] { "0", message };
+            }
+        }
 
     }
 }
