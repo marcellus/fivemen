@@ -28,8 +28,8 @@ namespace FT.WebServiceInterface.WebService
             return service;
         }
 
-        private static string GetServiceWriteSn() {
-          return   System.Configuration.ConfigurationManager.AppSettings["DrvNewSeriveSn"];
+        private static string GetPresignServiceSn() {
+            return System.Configuration.ConfigurationManager.AppSettings["DrvPresignSeriveSn"];
         }
 
 
@@ -58,7 +58,7 @@ namespace FT.WebServiceInterface.WebService
                           + "</drvphoto>"
                           + "</root>"
                           ;
-            string re = GetNewService().writeObjectOut("02", GetServiceWriteSn(), "02C77", xmlDoc);
+            string re = GetNewService().writeObjectOut("02", GetPresignServiceSn(), "02C77", xmlDoc);
 
             string code = GetTextInXml(re, "//code");
             string retcode = GetTextInXml(re, "//retcode");
@@ -77,7 +77,7 @@ namespace FT.WebServiceInterface.WebService
 
             
 
-            string re = GetNewService().writeObjectOut("02", GetServiceWriteSn(), "02C69", xmlDoc);
+            string re = GetNewService().writeObjectOut("02", GetPresignServiceSn(), "02C69", xmlDoc);
 
             string code = GetTextInXml(re, "//code");
             string retcode = GetTextInXml(re, "//retcode");
