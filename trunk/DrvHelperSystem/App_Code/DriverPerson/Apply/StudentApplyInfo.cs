@@ -12,7 +12,7 @@ using FT.DAL.Orm;
 /// <summary>
 ///StudentApplyInfo 的摘要说明
 /// </summary>
-[SimpleTable("table_student_apply_info")]
+[SimpleTable("table_student_apply_info_i")]
 [Alias("预录入详细信息")]
 public class StudentApplyInfo
 {
