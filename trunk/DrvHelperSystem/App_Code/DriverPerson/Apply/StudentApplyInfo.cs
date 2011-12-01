@@ -24,7 +24,7 @@ public class StudentApplyInfo
     }
 
     [SimplePK]
-    [OracleSeqAttribute(SeqName = "seq_student_apply_info")]
+    [OracleSeqAttribute(SeqName = "seq_student_apply_info_i")]
     public int Id;
 
     public int 编号
@@ -277,6 +277,10 @@ public class StudentApplyInfo
 
 [SimpleTable("table_student_apply_info_c")]
 [Alias("预录入详细信息")]
-public class StudentApplyInfoChecked :StudentApplyInfo{ 
+public class StudentApplyInfoChecked :StudentApplyInfo{
+
+
+    [SimplePK]
+    public int Id;
 
 }

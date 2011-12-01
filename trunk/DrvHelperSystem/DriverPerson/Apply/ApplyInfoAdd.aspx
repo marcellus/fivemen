@@ -252,8 +252,10 @@ function searchArea() {
                     登记住所
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"  Width="110px"
-                        Font-Size="9pt">
+                
+                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"  Width="110px" AutoPostBack="true" 
+                        Font-Size="9pt" 
+                        >
                     </asp:DropDownList>
                 </td>
                 <td colspan="4">
@@ -427,7 +429,7 @@ function searchArea() {
             </tr>
             <tr class="table-content">
                 <td class="table-content" colspan="8" style="text-align: center">
-                    <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" OnClientClick="javascript:return ValidateText();"
+                    <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" 
                         Text="保存" />
                     &nbsp;&nbsp;
                     <asp:Button ID="btnCheck" runat="server" Text="审核" OnClick="btnCheck_Click" />&nbsp;&nbsp;
