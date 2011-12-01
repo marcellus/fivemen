@@ -69,6 +69,9 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         WebFormHelper.GetDataFromForm(this, entity);
         entity.Csrq = this.txtCsrq.Value.Trim();
         entity.Tjrq = this.txtTjrq.Value.Trim();
+        entity.Djzsxzqh= Request.Params["cbDjzsxzqhValue"];
+        
+        
        // entity.DepName = this.cbDepCodeValue.SelectedItem.Text;
         if (entity.Id < 0)
         {
@@ -144,4 +147,5 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             }
         }
     }
+
 }

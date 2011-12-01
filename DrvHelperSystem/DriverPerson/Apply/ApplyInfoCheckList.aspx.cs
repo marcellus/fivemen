@@ -19,7 +19,7 @@ public partial class DriverPerson_Apply_ApplyInfoCheckList : FT.Web.Authenticate
         if (!IsPostBack)
         {
             this.ProcedurePager1.AllowBinded = true;
-            this.ProcedurePager1.TableName = "table_student_apply_info";
+            this.ProcedurePager1.TableName = "table_student_apply_info_i";
             this.ProcedurePager1.FieldString = @"id,c_lsh,sfzmhm,c_xm,c_jxmc,
 decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
 c_check_result,c_photo_syn,c_check_operator
