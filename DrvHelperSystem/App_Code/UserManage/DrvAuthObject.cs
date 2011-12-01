@@ -31,20 +31,20 @@ public class DrvAuthObject
 
     public string DEPCODE
     {
-        get;
-        set;
+        get { return this.depcode; }
+        set { this.depcode = value; }
     }
 
     public int YY_IND
     {
-        get;
-        set;
+        get { return this.yy_ind; }
+        set { this.yy_ind = value; }
     }
 
     public int YLR_IND
     {
-        get;
-        set;
+        get { return this.ylr_ind; }
+        set { this.ylr_ind = value; }
     }
 
 }

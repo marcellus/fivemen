@@ -114,6 +114,7 @@ public class StudentApplyInfoOperator
         StudentApplyInfo info = SimpleOrmOperator.Query<StudentApplyInfo>(id);
         string glbm = System.Configuration.ConfigurationManager.AppSettings["DrvHelperSystem_glbm"];
         TmriResponse resp = null;
+        string[] res=new string[]{};
         try
         {
             string useold = System.Configuration.ConfigurationManager.AppSettings["Drv_Apply_Use_Old"];
@@ -136,7 +137,9 @@ public class StudentApplyInfoOperator
             }
            // resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
             //resp= DriverInterface.yuyueInfo(info);
-            string[] res = DrvNewInterface.WritePresign(ConvertInfoToRequest(info).ToXml());
+            info.Hmcd = "1";
+            string xml = ConvertInfoToRequest(info).ToXml();
+            res  = DrvNewInterface.WritePresign(xml);
         }
         catch (Exception exe)
         {
@@ -145,7 +148,8 @@ public class StudentApplyInfoOperator
             // SimpleOrmOperator.Update(info);
             return;
         }
-        if (resp.Code == 0 || resp.Code == 1)
+        if(res.Length==1)
+        //if (resp.Code == 0 || resp.Code == 1)
         {
             info.Checked = 1;
             info.CheckResult = resp.Message;
@@ -154,9 +158,9 @@ public class StudentApplyInfoOperator
             SimpleOrmOperator.Create(infoChecked);
             //DataAccessFactory.GetDataAccess().ExecuteSql("update table_student_apply_info set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
         }
-        else
+        else if(res.Length==2)
         {
-            SaveInfoCheckFail(info, optname, resp.Message);
+            SaveInfoCheckFail(info, optname, res[1]);
             //info.Checked = 2;
             //info.CheckResult = resp.Message;
             // SimpleOrmOperator.Update(info);

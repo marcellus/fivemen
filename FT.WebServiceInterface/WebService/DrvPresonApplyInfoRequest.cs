@@ -201,6 +201,7 @@ namespace FT.WebServiceInterface.WebService
             this.AppendTag(sb, "sfzmhm", this.Sfzmhm);
             this.AppendTag(sb, "sfzmmc", this.Sfzmmc);
             this.AppendTag(sb, "hmcd", this.Hmcd);
+            this.AppendTag(sb, "gj", this.Gj);
 
             //this.AppendTag(sb, "xm", System.Web.HttpUtility.UrlEncode(this.Xm,System.Text.Encoding.UTF8));
             this.AppendTag(sb, "xm", this.Xm);
