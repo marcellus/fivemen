@@ -66,8 +66,11 @@ namespace FT.WebServiceInterface.WebService
             {
                 return new string[] { "1" };
             }
-            else { 
-                string message = GetTextInXml(re, "//retdesc");
+            else {
+                string message = GetTextInXml(re, "message");
+                    if(string.IsNullOrEmpty(message)){
+                    message= GetTextInXml(re, "//retdesc");
+                    }
                 return new string[] { "0", message };
             }
         }
@@ -87,7 +90,11 @@ namespace FT.WebServiceInterface.WebService
             }
             else
             {
-                string message = GetTextInXml(re, "//retdesc");
+                                string message = GetTextInXml(re, "message");
+                                if (string.IsNullOrEmpty(message))
+                                {
+                                   message = GetTextInXml(re, "//retdesc");
+                                }
                 return new string[] { "0", message };
             }
         }

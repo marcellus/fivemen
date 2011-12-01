@@ -56,7 +56,7 @@ namespace FT.WebServiceInterface.WebService
             {
                 sb.Append("<" + tag + ">");
 
-                sb.Append(value.ToString());
+                sb.Append(HttpUtility.UrlEncode(value.ToString()));
                 sb.Append("</" + tag + ">");
             }
             else

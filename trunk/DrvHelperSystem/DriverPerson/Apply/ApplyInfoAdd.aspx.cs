@@ -55,6 +55,16 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
     }
     protected void btnSure_Click(object sender, EventArgs e)
     {
+        int depId = this.Operator.DeptId;
+        DepartMent dep = SimpleOrmOperator.Query<DepartMent>(depId);
+
+        DrvAuthObject auth = SimpleOrmOperator.Query<DrvAuthObject>(dep.DepCode);
+
+        if (auth == null || auth.YLR_IND != 1) {
+            WebTools.Alert("未获得授权不能使用预录入功能!");
+            return;
+        }
+
         StudentApplyInfo entity = new StudentApplyInfo();
         WebFormHelper.GetDataFromForm(this, entity);
         entity.Csrq = this.txtCsrq.Value.Trim();
