@@ -155,6 +155,8 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         if (!string.IsNullOrEmpty( Request.Params["id"]))
         {
             StudentApplyInfo entity = SimpleOrmOperator.Query<StudentApplyInfo>(Convert.ToInt32(Request.Params["id"]));
+            entity.CheckDate = DateTime.Now.ToString("yyyy-MM-dd");
+            entity.CheckOperator = this.Operator.OperatorName;
             if (StudentApplyInfoOperator.CheckInfoAndPhoto(entity, this.Operator.OperatorName))
             {
                 WebTools.Alert(this, "审核通过！");
