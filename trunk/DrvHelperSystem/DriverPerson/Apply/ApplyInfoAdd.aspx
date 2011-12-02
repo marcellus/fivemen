@@ -216,7 +216,7 @@ function searchArea() {
                     </asp:DropDownList>
                 </td>
                 <td colspan="2" rowspan="6">
-                    <asp:ImageButton ID="imgPhoto" runat="server" ImageUrl="~/images/no_photo.jpg" OnClick="imgPhoto_Click"
+                    <asp:ImageButton ID="imgPhoto" runat="server"  OnClick="imgPhoto_Click"
                         BorderStyle="Solid" BorderWidth="1px" Height="160px" Width="133px" />
                     <br />
                     <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" />

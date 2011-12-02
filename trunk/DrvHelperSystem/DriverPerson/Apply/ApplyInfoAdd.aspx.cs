@@ -39,15 +39,24 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 WebFormHelper.SetDataToForm(this, entity);
                 this.txtTjrq.Value = entity.Tjrq;
                 this.txtCsrq.Value = entity.Csrq;
-                //this.cbDjzsxzqhValue.Items.Add(entity.Djzsxzqh, entity.Djzsxzqh);
                 this.cbDjzsxzqhValue.Items.Clear();
-                this.cbDjzsxzqhValue.SelectedValue = entity.Djzsxzqh;
-                
+                this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
+                //this.cbDjzsxzqhValue.Items.Clear();
+                //this.cbDjzsxzqhValue.Text = entity.Djzsxzqh;
+                this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard=" + entity.Sfzmhm;
+            }
+            else {
+                this.imgPhoto.ImageUrl = "~/images/no_photo.jpg";
+                this.cbLxzsxzqhValue.SelectedValue = "440500";
+                this.cbXzqhValue.SelectedValue = "440500";
             }
 
             if (Request.Params["allowcheck"] == null)
             {
                 this.btnCheck.Visible = false;
+            }
+            else {
+                this.btnSure.Visible = false;
             }
 
         }
@@ -69,7 +78,11 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         WebFormHelper.GetDataFromForm(this, entity);
         entity.Csrq = this.txtCsrq.Value.Trim();
         entity.Tjrq = this.txtTjrq.Value.Trim();
-        entity.Djzsxzqh= Request.Params["cbDjzsxzqhValue"];
+        if (!string.IsNullOrEmpty(Request.Params["cbDjzsxzqhValue"]))
+        {
+            entity.Djzsxzqh = Request.Params["cbDjzsxzqhValue"];
+        }
+        
         
         
        // entity.DepName = this.cbDepCodeValue.SelectedItem.Text;
@@ -111,9 +124,14 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         int size=this.FileUpload1.PostedFile.ContentLength;
         byte[] buffer=new byte[size];
         this.FileUpload1.PostedFile.InputStream.Read(buffer, 0, size);
-        StudentApplyInfoOperator.UpdatePhoto(sfzmhm, buffer);
-        this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard="+sfzmhm;
-
+         bool isOk= StudentApplyInfoOperator.UpdatePhoto(sfzmhm, buffer);
+         if (isOk)
+         {
+             this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard=" + sfzmhm;
+         }
+         else {
+             WebTools.Alert("图片上传失败");
+         }
         
     }
     protected void cbTjyy_SelectedIndexChanged(object sender, EventArgs e)

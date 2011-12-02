@@ -51,12 +51,12 @@ public class StudentApplyInfoOperator
            // result = DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
             string zp = ImageHelper.ImageToBase64Str(image);
             string[] res= DrvNewInterface.WritePhoto(info.Sfzmhm,zp);
-            if (res.Length == 1)
+            if (res.Length == 2)
             {
                 info.PhotoSyn = 1;
-                SimpleOrmOperator.Update(info);
+                result= SimpleOrmOperator.Update(info);
             }
-            else {
+            else if(res.Length==3) {
                 info.PhotoSyn = 2;
                 info.CheckResult = res[2];
                 SimpleOrmOperator.Update(info);
@@ -76,18 +76,18 @@ public class StudentApplyInfoOperator
     }
 
 
-    public static void UpdatePhoto(string sfzmhm,byte[] buff)
+    public static bool UpdatePhoto(string sfzmhm,byte[] buff)
     {
-        string sql="update table_student_apply_info set blob_photo=:photo where sfzmhm='"+sfzmhm+"'";
+        string sql="update table_student_apply_info_i set blob_photo=:photo where sfzmhm='"+sfzmhm+"'";
         System.Data.Common.DbParameter  param=new OracleParameter("photo",OracleType.Blob,buff.Length);
         param.Value = buff;
-        DataAccessFactory.GetDataAccess().ExecuteSqlByParam(sql,param);
+       return   DataAccessFactory.GetDataAccess().ExecuteSqlByParam(sql,param);
     }
 
     public static byte[] GetPhoto(string sfzmhm)
     {
         byte[] img = new byte[0];
-        string sql = "select blob_photo from table_student_apply_info where sfzmhm='" + sfzmhm + "'";
+        string sql = "select blob_photo from table_student_apply_info_i where sfzmhm='" + sfzmhm + "'";
         DataTable dt = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "photo");
         if (dt != null && dt.Rows.Count >0)
         {
@@ -149,23 +149,32 @@ public class StudentApplyInfoOperator
             // SimpleOrmOperator.Update(info);
             return;
         }
-        if(res.Length==1)
+        if(res.Length==2)
         //if (resp.Code == 0 || resp.Code == 1)
         {
             info.Checked = 1;
-            info.CheckResult = resp.Message;
+            info.CheckResult = res[1];
             SimpleOrmOperator.Update(info);
             StudentApplyInfoChecked infoChecked = new StudentApplyInfoChecked();
             infoChecked.from(info);
-            SimpleOrmOperator.Create(infoChecked);
+            bool isOk = SimpleOrmOperator.Create(infoChecked);
+            if (!isOk)
+            {
+                SimpleOrmOperator.Update(infoChecked);
+            }
+
             //DataAccessFactory.GetDataAccess().ExecuteSql("update table_student_apply_info set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
         }
-        else if(res.Length==2)
+        else if(res.Length==3)
         {
-            SaveInfoCheckFail(info, optname, res[1]);
-            //info.Checked = 2;
-            //info.CheckResult = resp.Message;
-            // SimpleOrmOperator.Update(info);
+            info.Checked = 2;
+            info.CheckResult = res[1];
+            SimpleOrmOperator.Update(info);
+            StudentApplyInfoChecked infoChecked = new StudentApplyInfoChecked();
+            bool isOk = SimpleOrmOperator.Create(infoChecked);
+            if (!isOk) {
+                SimpleOrmOperator.Update(infoChecked);
+            }
 
         }
     }
