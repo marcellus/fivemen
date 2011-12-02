@@ -72,11 +72,23 @@ c_check_result,c_photo_syn,c_check_operator
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        if(this.cbCheckResult.SelectedIndex!=3)
-        this.ProcedurePager1.RowFilter =  "i_checked=" + this.cbCheckResult.SelectedItem.Value+"  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+        string checkStatus = this.cbCheckResult.SelectedItem.Value;
+        if (this.cbCheckResult.SelectedIndex != 3)
+        {
+            if (checkStatus == "1" || checkStatus == "2")
+            {
+                this.ProcedurePager1.TableName = "table_student_apply_info_c";
+            }
+            else {
+                this.ProcedurePager1.TableName = "table_student_apply_info_i";
+            }
+            this.ProcedurePager1.RowFilter = "i_checked=" + checkStatus + "  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+        }
         else
+        {
+
             this.ProcedurePager1.RowFilter = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
-        this.ProcedurePager1.Changed = true;
+        } this.ProcedurePager1.Changed = true;
            
     }
 

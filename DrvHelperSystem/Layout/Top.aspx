@@ -29,7 +29,7 @@
   <h2>
     欢迎  <%=this.Session["OperatorInfo"] == null ? "" : Operator.OperatorName%>
    
-    使用   <a href="../Layout/MainWelcome.aspx"  onclick="" target="main">指纹考勤系统 </a>
+    使用   <a href="../Layout/MainWelcome.aspx"  onclick="" target="main">驾驶人辅助系统 </a>
 </h2>
     </form>
 </body>
