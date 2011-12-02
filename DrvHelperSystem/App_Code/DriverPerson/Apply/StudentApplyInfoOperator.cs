@@ -141,6 +141,7 @@ public class StudentApplyInfoOperator
 
             string xml = ConvertInfoToRequest(info).ToXml();
             res  = DrvNewInterface.WritePresign(xml);
+            
         }
         catch (Exception exe)
         {
