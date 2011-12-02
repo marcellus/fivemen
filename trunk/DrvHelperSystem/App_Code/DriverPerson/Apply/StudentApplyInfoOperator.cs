@@ -138,6 +138,7 @@ public class StudentApplyInfoOperator
            // resp = DriverInterface.WriteDrvBaseTmriRequest(ConvertInfoToRequest(info));
             //resp= DriverInterface.yuyueInfo(info);
             info.Hmcd = "1";
+
             string xml = ConvertInfoToRequest(info).ToXml();
             res  = DrvNewInterface.WritePresign(xml);
         }
@@ -154,7 +155,8 @@ public class StudentApplyInfoOperator
             info.Checked = 1;
             info.CheckResult = resp.Message;
             SimpleOrmOperator.Update(info);
-            StudentApplyInfoChecked infoChecked = info as StudentApplyInfoChecked;
+            StudentApplyInfoChecked infoChecked = new StudentApplyInfoChecked();
+            infoChecked.from(info);
             SimpleOrmOperator.Create(infoChecked);
             //DataAccessFactory.GetDataAccess().ExecuteSql("update table_student_apply_info set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
         }
