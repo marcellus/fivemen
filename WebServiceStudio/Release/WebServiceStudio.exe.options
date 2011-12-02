@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataEditors />
+  <InvokeSettings>
+    <RecentlyUsedUris>
+      <Uri>http://114-svc.elong.com/NorthBoundService/V1.1/NorthBoundAPIService.asmx</Uri>
+      <Uri>http://211.151.230.198/NorthBoundService/V1.1/NorthBoundAPIService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/ValidateEmailWebService.asmx </Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/ForexRmbRateWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/ChinaZipSearchWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/WeatherWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/ValidateCodeWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/RandomFontsWebService.asmx</Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/RandomFontsWebService.asmx </Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/ValidateCodeWebService.asmx </Uri>
+      <Uri>http://webservice.webxml.com.cn/WebServices/WeatherWS.asmx</Uri>
+      <Uri>http://soap.search.msn.com/webservices.asmx?wsdl</Uri>
+      <Uri>http://necla/Corporate/GDCWS_PinService/PinService.svc</Uri>
+      <Uri>http://necla/Corporate/GDCWS_Activation/ActivationService.svc</Uri>
+    </RecentlyUsedUris>
+  </InvokeSettings>
+  <TypeConverters />
+  <UiSettings>
+    <MessageFont>Lucida Sans Unicode, 9.25pt</MessageFont>
+    <ReqRespFont>Lucida Sans Unicode, 9.25pt</ReqRespFont>
+    <WsdlFont>Lucida Sans Unicode, 8.25pt</WsdlFont>
+  </UiSettings>
+  <WsdlSettings CustomCodeDomProvider="" Language="CS" Protocol="SOAP" />
+</Configuration>
