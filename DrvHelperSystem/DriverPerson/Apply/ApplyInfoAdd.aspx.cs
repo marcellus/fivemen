@@ -16,16 +16,35 @@ using FT.Web;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
 
+
 public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
 {
+
+    private string getDefaultCityCode() {
+        return "4405";
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             DrvQueryHelper.BindDropDownListSfzmmc(this.cbSfzmmcValue);
             DrvQueryHelper.BindDropDownListHospital(this.cbTjyy);
+            ListItemCollection tjyys = new ListItemCollection();
+            foreach (ListItem li in this.cbTjyy.Items) {
+                if (li.Value.StartsWith(getDefaultCityCode())) {
+                    tjyys.Add(li);
+                }
+            }
+            this.cbTjyy.Items.Clear();
+            foreach (ListItem li in tjyys) {
+                this.cbTjyy.Items.Add(li);
+            }
 
             DrvQueryHelper.BindDropDownListLocalArea(this.cbXzqhValue);
+
+
+
             DrvQueryHelper.BindDropDownListLy(this.cbLyValue);
             DrvQueryHelper.BindDropDownListZkcx(this.cbZkcxValue);
             DrvQueryHelper.BindDropDownListNational(this.cbGjValue);
@@ -49,6 +68,8 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.imgPhoto.ImageUrl = "~/images/no_photo.jpg";
                 this.cbLxzsxzqhValue.SelectedValue = "440500";
                 this.cbXzqhValue.SelectedValue = "440500";
+                this.txtYsl.Text="5.0";
+                this.txtZsl.Text = "5.0";
             }
 
             if (Request.Params["allowcheck"] == null)
@@ -56,7 +77,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.btnCheck.Visible = false;
             }
             else {
-                this.btnSure.Visible = false;
+                //this.btnSure.Visible = false;
             }
 
         }
@@ -168,4 +189,23 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         }
     }
 
+    protected void txtSfzmhm_TextChanged(object sender, EventArgs e)
+    {
+        string idcard = this.txtSfzmhm.Text.Trim();
+        if (string.IsNullOrEmpty(idcard)||idcard.Length<18) {
+            WebTools.Alert("身份证长度不足18位");
+            //this.txtSfzmhm.Text="";
+            this.txtSfzmhm.Focus();
+            return;
+        }
+        string re = IDCardHelper.Validate(idcard);
+        if (!string.IsNullOrEmpty(re)) {
+            WebTools.Alert(re);
+            this.txtSfzmhm.Focus();
+        }
+        string birthday= IDCardHelper.GetBirthday(idcard).ToString("yyyy-MM-dd");
+        string sex = IDCardHelper.GetSexName(idcard)=="男"?"1":"2";
+        this.txtCsrq.Value = birthday;
+        this.cbXbValue.SelectedValue=sex;
+    }
 }

@@ -206,7 +206,8 @@ function searchArea() {
                     证件号码
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSfzmhm" runat="server" Width="110px"></asp:TextBox>
+                    <asp:TextBox ID="txtSfzmhm" runat="server" Width="110px"  AutoPostBack="true"
+                        ontextchanged="txtSfzmhm_TextChanged"></asp:TextBox>
                 </td>
                 <td class="table-title" style="width: 90px">
                     国籍
