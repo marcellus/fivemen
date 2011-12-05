@@ -19,12 +19,17 @@ public partial class DriverPerson_Apply_ApplyInfoCheckList : FT.Web.Authenticate
         if (!IsPostBack)
         {
             this.ProcedurePager1.AllowBinded = true;
-            this.ProcedurePager1.TableName = "table_student_apply_info_i";
+            this.ProcedurePager1.TableName = "table_student_apply_info_c";
             this.ProcedurePager1.FieldString = @"id,c_lsh,sfzmhm,c_xm,c_jxmc,
 decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
 c_check_result,c_photo_syn,c_check_operator
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
+           
+            DepartMentOperator.Bind(cbJxdm,"驾校");
+            cbJxdm.Items.Add(new ListItem("全部", ""));
+            cbJxdm.SelectedIndex = cbJxdm.Items.Count - 1;
+            
         }
 
     }
@@ -72,23 +77,21 @@ c_check_result,c_photo_syn,c_check_operator
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        string checkStatus = this.cbCheckResult.SelectedItem.Value;
+        string checkStatus = this.cbCheckResult.SelectedValue;
+        string jxdm = this.cbJxdm.SelectedValue;
+        string query = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%' ";
         if (this.cbCheckResult.SelectedIndex != 3)
         {
-            if (checkStatus == "1" || checkStatus == "2")
-            {
-                this.ProcedurePager1.TableName = "table_student_apply_info_c";
-            }
-            else {
-                this.ProcedurePager1.TableName = "table_student_apply_info_i";
-            }
-            this.ProcedurePager1.RowFilter = "i_checked=" + checkStatus + "  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+            query += " and i_checked=" + checkStatus;
+           // this.ProcedurePager1.RowFilter = "i_checked=" + checkStatus + "  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
         }
-        else
+        if( !string.IsNullOrEmpty(this.cbJxdm.SelectedValue))
         {
-
-            this.ProcedurePager1.RowFilter = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
-        } this.ProcedurePager1.Changed = true;
+            query += " and c_jxdm='" + jxdm + "'";
+           // this.ProcedurePager1.RowFilter = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";
+        }
+        this.ProcedurePager1.RowFilter = query;
+        this.ProcedurePager1.Changed = true;
            
     }
 
