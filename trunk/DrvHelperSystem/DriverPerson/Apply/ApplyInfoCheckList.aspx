@@ -53,6 +53,7 @@
             <tr class="table-bottom">
                 <td >
                 &nbsp;&nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
+                &nbsp;驾校：<asp:DropDownList ID="cbJxdm" runat="server"></asp:DropDownList>
                 
 &nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" Font-Size="15pt">
                         <asp:ListItem Value="0">未审核</asp:ListItem>
