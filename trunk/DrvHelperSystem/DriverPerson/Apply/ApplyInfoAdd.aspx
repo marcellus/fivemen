@@ -316,11 +316,11 @@ function searchArea() {
                         Font-Size="9pt">
                     </asp:DropDownList>
                 </td>
-                <td class="table-title" style="">
-                    暂住证号
+                              <td class="table-title" style="">
+                    体检日期
                 </td>
                 <td>
-                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px"></asp:TextBox>
+                    <input onclick="calendar.show(this);" style="width: 110px" id="txtTjrq" runat="server" />
                 </td>
             </tr>
             <tr class="table-content">
@@ -421,12 +421,7 @@ function searchArea() {
                 <td colspan="3">
                     <asp:TextBox ID="txtTjyymc" runat="server" Width="300px"></asp:TextBox>
                 </td>
-                <td class="table-title" style="">
-                    体检日期
-                </td>
-                <td>
-                    <input onclick="calendar.show(this);" style="width: 110px" id="txtTjrq" runat="server" />
-                </td>
+
             </tr>
             <tr class="table-content">
                 <td class="table-content" colspan="8" style="text-align: center">

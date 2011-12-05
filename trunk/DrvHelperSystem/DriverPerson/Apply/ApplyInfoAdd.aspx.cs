@@ -31,6 +31,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             DrvQueryHelper.BindDropDownListSfzmmc(this.cbSfzmmcValue);
             DrvQueryHelper.BindDropDownListHospital(this.cbTjyy);
             ListItemCollection tjyys = new ListItemCollection();
+            lbJxmc.Text = this.Operator.Desp4;
             foreach (ListItem li in this.cbTjyy.Items) {
                 if (li.Value.StartsWith(getDefaultCityCode())) {
                     tjyys.Add(li);
@@ -41,15 +42,29 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.cbTjyy.Items.Add(li);
             }
 
-            DrvQueryHelper.BindDropDownListLocalArea(this.cbXzqhValue);
-
+            DrvQueryHelper.BindDropDownListLocalArea2(this.cbXzqhValue);
+            ListItemCollection xzqhs = new ListItemCollection();
+            foreach (ListItem li in this.cbXzqhValue.Items)
+            {
+                if (li.Value.StartsWith(getDefaultCityCode())&&li.Value!=getDefaultCityCode()+"00")
+                {
+                    xzqhs.Add(li);
+                }
+            }
+            this.cbXzqhValue.Items.Clear();
+            this.cbLxzsxzqhValue.Items.Clear();
+            foreach (ListItem li in xzqhs)
+            {
+                this.cbXzqhValue.Items.Add(new ListItem(li.Text,li.Value));
+                this.cbLxzsxzqhValue.Items.Add(new ListItem(li.Text, li.Value));
+            }
 
 
             DrvQueryHelper.BindDropDownListLy(this.cbLyValue);
             DrvQueryHelper.BindDropDownListZkcx(this.cbZkcxValue);
             DrvQueryHelper.BindDropDownListNational(this.cbGjValue);
             DrvQueryHelper.BindDropDownListLocalArea(this.cbDjzsxzqhValue);
-            DrvQueryHelper.BindDropDownListLocalArea(this.cbLxzsxzqhValue);
+            //DrvQueryHelper.BindDropDownListLocalArea(this.cbLxzsxzqhValue);
             this.cbGjValue.SelectedValue = "156";
 
             if (Request.Params["id"] != null)
