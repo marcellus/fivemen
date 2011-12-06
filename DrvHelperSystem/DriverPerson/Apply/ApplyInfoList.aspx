@@ -31,10 +31,10 @@
                         BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border">
                         <Columns>
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
+                            
                             <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_jxmc" HeaderText="驾校名称"></asp:BoundColumn>
+                            
                             
                             <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_check_result" HeaderText="审核信息"></asp:BoundColumn>

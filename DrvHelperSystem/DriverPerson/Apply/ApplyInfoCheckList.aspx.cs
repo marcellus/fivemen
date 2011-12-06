@@ -25,8 +25,8 @@ decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
 c_check_result,c_photo_syn,c_check_operator
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
-           
-            DepartMentOperator.Bind(cbJxdm,"驾校");
+
+            DepartMentOperator.BindNick(cbJxdm, "驾校");
             cbJxdm.Items.Add(new ListItem("全部", ""));
             cbJxdm.SelectedIndex = cbJxdm.Items.Count - 1;
             
@@ -110,24 +110,25 @@ c_check_result,c_photo_syn,c_check_operator
     protected void DataGrid1_ItemCommand(object source, DataGridCommandEventArgs e)
     {
         //allowcheck
+        int id = Convert.ToInt32(e.CommandArgument);
+        StudentApplyInfoChecked infoCheck = SimpleOrmOperator.Query<StudentApplyInfoChecked>(id);
         if (e.CommandName == "Delete")
         {
-            int id = Convert.ToInt32(e.CommandArgument);
-            StudentApplyInfo record = StudentApplyInfoOperator.Get(id);
-            if (record != null && record.Checked == 1)
+
+            if (infoCheck != null && infoCheck.Checked == 1)
             {
                 WebTools.Alert(this, "已审核过的数据无法删除！");
             }
             else
             {
-                StudentApplyInfoOperator.Delete(id);
+                SimpleOrmOperator.Delete(infoCheck);
                 WebTools.Alert(this, "删除成功！");
                 this.ProcedurePager1.Changed = true;
             }
         }
         else if (e.CommandName == "Detail")
         {
-            int id = Convert.ToInt32(e.CommandArgument);
+            //int id = Convert.ToInt32(e.CommandArgument);
             this.Pop(id);
 
         }

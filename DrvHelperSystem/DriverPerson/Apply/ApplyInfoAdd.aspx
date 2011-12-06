@@ -428,7 +428,9 @@ function searchArea() {
                     <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" 
                         Text="保存" />
                     &nbsp;&nbsp;
-                    <asp:Button ID="btnCheck" runat="server" Text="审核" OnClick="btnCheck_Click" />&nbsp;&nbsp;
+                    <asp:Button ID="btnCheckImage" runat="server" Text="审核图片" 
+                        onclick="btnCheckImage_Click" />&nbsp;&nbsp;
+                    <asp:Button ID="btnCheck" runat="server" Text="审核资料" OnClick="btnCheck_Click" />&nbsp;&nbsp;
                     <input id="Button2" style="width: 140px" class="button" onclick="printExcel();"
                         type="button" value="打印申请表" />
                     &nbsp;&nbsp;
