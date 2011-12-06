@@ -21,7 +21,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
 {
 
     private string getDefaultCityCode() {
-        return "4405";
+        return System.Configuration.ConfigurationManager.AppSettings["DefaultCityCode"];
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -193,13 +193,13 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             StudentApplyInfo entity = SimpleOrmOperator.Query<StudentApplyInfo>(Convert.ToInt32(Request.Params["id"]));
             entity.CheckDate = DateTime.Now.ToString("yyyy-MM-dd");
             entity.CheckOperator = this.Operator.OperatorName;
-            if (StudentApplyInfoOperator.CheckInfoAndPhoto(entity, this.Operator.OperatorName))
+            if (StudentApplyInfoOperator.CheckInfo(entity, this.Operator.OperatorName))
             {
-                WebTools.Alert(this, "审核通过！");
+                WebTools.Alert(this, "资料审核通过！");
             }
             else
             {
-                WebTools.Alert(this, "审核失败！");
+                WebTools.Alert(this, "资料审核失败！");
             }
         }
     }
@@ -222,5 +222,25 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         string sex = IDCardHelper.GetSexName(idcard)=="男"?"1":"2";
         this.txtCsrq.Value = birthday;
         this.cbXbValue.SelectedValue=sex;
+    }
+
+
+
+    protected void btnCheckImage_Click(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(Request.Params["id"]))
+        {
+            StudentApplyInfo entity = SimpleOrmOperator.Query<StudentApplyInfo>(Convert.ToInt32(Request.Params["id"]));
+            entity.CheckDate = DateTime.Now.ToString("yyyy-MM-dd");
+            entity.CheckOperator = this.Operator.OperatorName;
+            if (StudentApplyInfoOperator.CheckPhoto(entity))
+            {
+                WebTools.Alert(this, "图片审核通过！");
+            }
+            else
+            {
+                WebTools.Alert(this, "图片审核失败！");
+            }
+        }
     }
 }

@@ -29,19 +29,20 @@ public class StudentApplyInfoOperator
     }
     public static bool CheckInfoAndPhoto(StudentApplyInfo info, string optname)
     {
-        CheckInfo(info, optname);
-        return CheckPhoto(info);
+        
+        return CheckPhoto(info) && CheckInfo(info, optname);
     }
 
 
-    public static void CheckInfo(StudentApplyInfo info,string optname)
+    public static bool CheckInfo(StudentApplyInfo info,string optname)
     {
-        Check(info.Id,optname);
+        return  Check(info.Id,optname);
     }
 
     public static bool CheckPhoto(StudentApplyInfo info)
     {
         bool result = false;
+        StudentApplyInfoChecked checkInfo = SimpleOrmOperator.Query<StudentApplyInfoChecked>(info.Id);
         try
         {
             MemoryStream ms = new MemoryStream(GetPhoto(info.Sfzmhm));
@@ -51,26 +52,26 @@ public class StudentApplyInfoOperator
            // result = DriverInterface.WritePersonPhoto(info.Sfzmmc, info.Sfzmhm, image);
             string zp = ImageHelper.ImageToBase64Str(image);
             string[] res= DrvNewInterface.WritePhoto(info.Sfzmhm,zp);
+            
             if (res.Length == 2)
             {
-                info.PhotoSyn = 1;
-                result= SimpleOrmOperator.Update(info);
+                checkInfo.PhotoSyn = 1;
+                
             }
             else if(res.Length==3) {
-                info.PhotoSyn = 2;
-                info.CheckResult = res[2];
-                SimpleOrmOperator.Update(info);
+                checkInfo.PhotoSyn = 2;
+                checkInfo.CheckResult = res[2];
+                
             }
+           
         }
         catch (System.Exception e)
         {
             result = false;
             info.PhotoSyn = 2;
-            SimpleOrmOperator.Update(info);
             
-        	
         }
-       
+        SimpleOrmOperator.Update(checkInfo);
     
         return result;
     }
@@ -109,9 +110,11 @@ public class StudentApplyInfoOperator
     }
 
 
-    public static void Check(int id, string optname)
+    public static bool Check(int id, string optname)
     {
+        bool isChecked = false;
         StudentApplyInfo info = SimpleOrmOperator.Query<StudentApplyInfo>(id);
+        StudentApplyInfoChecked infoCheck = SimpleOrmOperator.Query<StudentApplyInfoChecked>(id);
         string glbm = System.Configuration.ConfigurationManager.AppSettings["DrvHelperSystem_glbm"];
         TmriResponse resp = null;
         string[] res=new string[]{};
@@ -148,36 +151,23 @@ public class StudentApplyInfoOperator
             SaveInfoCheckFail(info, optname, exe.Message);
             //info.CheckResult = exe.Message;
             // SimpleOrmOperator.Update(info);
-            return;
+            return false;
         }
         if(res.Length==2)
         //if (resp.Code == 0 || resp.Code == 1)
         {
-            info.Checked = 1;
-            info.CheckResult = res[1];
-            SimpleOrmOperator.Update(info);
-            StudentApplyInfoChecked infoChecked = new StudentApplyInfoChecked();
-            infoChecked.from(info);
-            bool isOk = SimpleOrmOperator.Create(infoChecked);
-            if (!isOk)
-            {
-                SimpleOrmOperator.Update(infoChecked);
-            }
-
+            infoCheck.Checked = 1;
+            infoCheck.CheckResult = res[1];
+            isChecked = true;
             //DataAccessFactory.GetDataAccess().ExecuteSql("update table_student_apply_info set i_tpchecked_num=i_tpchecked_num+1 where i_tpchecked_num<i_tpused_num and id=" + info.PaibanId);
         }
         else if(res.Length==3)
         {
-            info.Checked = 2;
-            info.CheckResult = res[1];
-            SimpleOrmOperator.Update(info);
-            StudentApplyInfoChecked infoChecked = new StudentApplyInfoChecked();
-            bool isOk = SimpleOrmOperator.Create(infoChecked);
-            if (!isOk) {
-                SimpleOrmOperator.Update(infoChecked);
-            }
-
+            infoCheck.Checked = 2;
+            infoCheck.CheckResult = res[1];
         }
+        SimpleOrmOperator.Update(infoCheck);
+        return isChecked;
     }
 
     public static void SaveInfoCheckFail(StudentApplyInfo info, string name, string msg)
