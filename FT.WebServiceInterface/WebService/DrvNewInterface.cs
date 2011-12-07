@@ -62,22 +62,18 @@ namespace FT.WebServiceInterface.WebService
 
             string code = GetTextInXml(re, "//code");
             string retcode = GetTextInXml(re, "//retcode");
+            string message = GetTextInXml(re, "message");
+            if (string.IsNullOrEmpty(message))
+            {
+                message = GetTextInXml(re, "//retdesc");
+            }
+            message = HttpUtility.UrlDecode(message);
             if (code == "1" || retcode == "1")
             {
-                string message = GetTextInXml(re, "message");
-                if (string.IsNullOrEmpty(message))
-                {
-                    message = GetTextInXml(re, "//retdesc");
-                }
-                message = HttpUtility.UrlEncode(message);
+
                 return new string[] { "1",message };
             }
             else {
-                string message = GetTextInXml(re, "message");
-                    if(string.IsNullOrEmpty(message)){
-                    message= GetTextInXml(re, "//retdesc");
-                    }
-                    message = HttpUtility.UrlEncode(message);
                 return new string[] { "0", message,"error" };
             }
         }
@@ -91,24 +87,18 @@ namespace FT.WebServiceInterface.WebService
 
             string code = GetTextInXml(re, "//code");
             string retcode = GetTextInXml(re, "//retcode");
+            string message = GetTextInXml(re, "message");
+            if (string.IsNullOrEmpty(message))
+            {
+                message = GetTextInXml(re, "//retdesc");
+            }
+            message = HttpUtility.UrlDecode(message);
             if (code == "1" || retcode == "1")
             {
-                string message = GetTextInXml(re, "message");
-                if (string.IsNullOrEmpty(message))
-                {
-                    message = GetTextInXml(re, "//retdesc");
-                }
-                message = HttpUtility.UrlEncode(message);
-                return new string[] { "1" };
+                return new string[] { "1",message };
             }
             else
             {
-                string message = GetTextInXml(re, "message");
-                if (string.IsNullOrEmpty(message))
-                {
-                    message = GetTextInXml(re, "//retdesc");
-                }
-                message = HttpUtility.UrlEncode(message);
                 return new string[] { "0", message,"error" };
             }
         }

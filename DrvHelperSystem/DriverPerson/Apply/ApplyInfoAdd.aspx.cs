@@ -51,12 +51,13 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                     xzqhs.Add(li);
                 }
             }
-           // this.cbXzqhValue.Items.Clear();
+            this.cbXzqhValue.Items.Clear();
             this.cbLxzsxzqhValue.Items.Clear();
             foreach (ListItem li in xzqhs)
             {
                 //this.cbXzqhValue.Items.Add(new ListItem(li.Text,li.Value));
                 this.cbLxzsxzqhValue.Items.Add(new ListItem(li.Text, li.Value));
+                this.cbXzqhValue.Items.Add(new ListItem(li.Text, li.Value));
             }
 
 
@@ -117,6 +118,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         WebFormHelper.GetDataFromForm(this, entity);
         entity.Csrq = this.txtCsrq.Value.Trim();
         entity.Tjrq = this.txtTjrq.Value.Trim();
+        
         if (!string.IsNullOrEmpty(Request.Params["cbDjzsxzqhValue"]))
         {
             entity.Djzsxzqh = Request.Params["cbDjzsxzqhValue"];
