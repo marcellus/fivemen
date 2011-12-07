@@ -51,19 +51,19 @@
                 </td>
             </tr>
             <tr class="table-bottom">
-                <td >
-                &nbsp;&nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
+                <td  style="text-align:right">
+              &nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
                 &nbsp;驾校：<asp:DropDownList ID="cbJxdm" runat="server"></asp:DropDownList>
                 
-&nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" Font-Size="15pt">
+&nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" >
                         <asp:ListItem Value="0">未审核</asp:ListItem>
                         <asp:ListItem Value="1">已审核</asp:ListItem>
                         <asp:ListItem Value="2">审核失败</asp:ListItem>
                         <asp:ListItem Value="-1">全部</asp:ListItem>
                     </asp:DropDownList>
-&nbsp;&nbsp;<asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" Text="查询" />
-&nbsp;<asp:Button ID="btnCheck" runat="server" Text="审核" onclick="btnCheck_Click"  />
-                    &nbsp;&nbsp; 
+&nbsp;<asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" Text="查询" />
+<br/><asp:Button ID="btnCheck" runat="server" Text="审核" onclick="btnCheck_Click"  />
+                    &nbsp; 
                     
                 </td>
             </tr>

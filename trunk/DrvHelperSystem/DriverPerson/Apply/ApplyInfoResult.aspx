@@ -35,7 +35,7 @@
                             <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
                              <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"></asp:BoundColumn>
                               <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="c_jxmc" HeaderText="驾校名称"></asp:BoundColumn>
+                              
                             
                             <asp:BoundColumn DataField="c_check_operator" HeaderText="经办人"></asp:BoundColumn>
                              <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>

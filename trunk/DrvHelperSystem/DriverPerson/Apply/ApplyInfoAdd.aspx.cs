@@ -42,20 +42,20 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.cbTjyy.Items.Add(li);
             }
 
-            DrvQueryHelper.BindDropDownListLocalArea2(this.cbXzqhValue);
+            DrvQueryHelper.BindDropDownListLocalArea2(this.cbLxzsxzqhValue);
             ListItemCollection xzqhs = new ListItemCollection();
-            foreach (ListItem li in this.cbXzqhValue.Items)
+            foreach (ListItem li in this.cbLxzsxzqhValue.Items)
             {
                 if (li.Value.StartsWith(getDefaultCityCode())&&li.Value!=getDefaultCityCode()+"00")
                 {
                     xzqhs.Add(li);
                 }
             }
-            this.cbXzqhValue.Items.Clear();
+           // this.cbXzqhValue.Items.Clear();
             this.cbLxzsxzqhValue.Items.Clear();
             foreach (ListItem li in xzqhs)
             {
-                this.cbXzqhValue.Items.Add(new ListItem(li.Text,li.Value));
+                //this.cbXzqhValue.Items.Add(new ListItem(li.Text,li.Value));
                 this.cbLxzsxzqhValue.Items.Add(new ListItem(li.Text, li.Value));
             }
 
@@ -73,8 +73,8 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 WebFormHelper.SetDataToForm(this, entity);
                 this.txtTjrq.Value = entity.Tjrq;
                 this.txtCsrq.Value = entity.Csrq;
-                this.cbDjzsxzqhValue.Items.Clear();
-                this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
+                //this.cbDjzsxzqhValue.Items.Clear();
+                //this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
                 //this.cbDjzsxzqhValue.Items.Clear();
                 //this.cbDjzsxzqhValue.Text = entity.Djzsxzqh;
                 this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard=" + entity.Sfzmhm;
@@ -82,17 +82,20 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             else {
                 this.imgPhoto.ImageUrl = "~/images/no_photo.jpg";
                 this.cbLxzsxzqhValue.SelectedValue = "440500";
-                this.cbXzqhValue.SelectedValue = "440500";
+                //this.cbXzqhValue.SelectedValue = "440500";
+                this.cbDjzsxzqhValue.SelectedValue = "440500";
                 this.txtYsl.Text="5.0";
                 this.txtZsl.Text = "5.0";
+                this.cbZkcxValue.SelectedValue = "C1";
             }
 
             if (Request.Params["allowcheck"] == null)
             {
                 this.btnCheck.Visible = false;
+                this.btnCheckImage.Visible = false;
             }
             else {
-                //this.btnSure.Visible = false;
+                this.btnSure.Visible = false;
             }
 
         }
