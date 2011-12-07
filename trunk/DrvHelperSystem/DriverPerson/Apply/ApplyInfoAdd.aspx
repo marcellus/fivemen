@@ -213,7 +213,8 @@ function searchArea() {
                     国籍
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbGjValue" runat="server"  Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbGjValue" runat="server"  Width="110px" Font-Size="12pt" 
+                        Height="18px">
                     </asp:DropDownList>
                 </td>
                 <td colspan="2" rowspan="6">
@@ -288,12 +289,12 @@ function searchArea() {
                 <td>
                     <asp:TextBox ID="txtLxdh" runat="server" Width="110px"></asp:TextBox>
                 </td>
-                <td class="table-title" style="">
-                    暂住证号
-                </td>
-                <td>
-                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px"></asp:TextBox>
-                </td>
+                <td class="table-title">行政规划</td>
+                <td><asp:DropDownList ID="cbXzqhValue" runat="server"   Width="110px" 
+                        Font-Size="9pt">
+                    </asp:DropDownList></td>
+                                    
+
             </tr>
             <tr class="table-content">
                 <td class="table-title" style="">
@@ -327,9 +328,15 @@ function searchArea() {
                     <asp:Label ID="lbZkzmbh" runat="server"></asp:Label>
                 </td>
                 <td class="table-title" style="">
+                    暂住证号
+                </td>
+                <td>
+                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px"></asp:TextBox>
+                </td>
+                <td class="table-title" style="">
                     驾校名称
                 </td>
-                <td colspan="5">
+                <td colspan="3">
                     <asp:Label ID="lbJxmc" runat="server"></asp:Label>
                 </td>
             </tr>

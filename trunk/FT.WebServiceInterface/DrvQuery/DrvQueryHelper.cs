@@ -260,6 +260,11 @@ namespace FT.WebServiceInterface.DrvQuery
             BindDropDownListByArea(cb, 50);
         }
 
+        public static void BindDropDownListLocalArea2(DropDownList cb)
+        {
+            BindDropDownListByArea(cb, 33);
+        }
+
         public static void BindDropDownListNational(DropDownList cb)
         {
             BindDropDownList(cb,31);

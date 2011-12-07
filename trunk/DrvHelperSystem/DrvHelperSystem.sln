@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Web", "..\FT.Web\FT.Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.WebServiceInterface", "..\FT.WebServiceInterface\FT.WebServiceInterface.csproj", "{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}"
 EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "DrvHelperSystem_deploy1", "C:\Documents and Settings\hxdz\My Documents\Visual Studio 2008\Projects\DrvHelperSystem_deploy1\DrvHelperSystem_deploy1.wdproj", "{1AC8BB70-F367-43B6-A0F3-507289C811D2}"
+EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "DrvHelperSystem_deploy3", "C:\Documents and Settings\hxdz\My Documents\Visual Studio 2008\Projects\DrvHelperSystem_deploy3\DrvHelperSystem_deploy3.wdproj", "{7E6282BA-ADC4-437C-99F4-225AA9F41D38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,22 @@ Global
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1AC8BB70-F367-43B6-A0F3-507289C811D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E6282BA-ADC4-437C-99F4-225AA9F41D38}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
