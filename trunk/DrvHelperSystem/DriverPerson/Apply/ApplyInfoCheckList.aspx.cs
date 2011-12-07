@@ -22,7 +22,8 @@ public partial class DriverPerson_Apply_ApplyInfoCheckList : FT.Web.Authenticate
             this.ProcedurePager1.TableName = "table_student_apply_info_c";
             this.ProcedurePager1.FieldString = @"id,c_lsh,sfzmhm,c_xm,c_jxmc,
 decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
-c_check_result,c_photo_syn,c_check_operator
+c_check_result,c_check_operator,
+decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
 	".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by id desc";
 
@@ -35,7 +36,7 @@ c_check_result,c_photo_syn,c_check_operator
     }
     protected void btnCheck_Click(object sender, EventArgs e)
     {
-        IList<string> ids = new List<string>();
+        IList<int> ids = new List<int>();
         int checkNum = 0;
         int reNum = 0;
         foreach (DataGridItem item in DataGrid1.Items)
@@ -44,8 +45,10 @@ c_check_result,c_photo_syn,c_check_operator
             CheckBox cb = (CheckBox)item.FindControl("CheckBox1");
             if (cb.Checked)
             {
-                ids.Add(item.Cells[3].Text);
+                try{
+                ids.Add(Convert.ToInt32( item.Cells[1].Text));
                 checkNum++;
+                }catch(Exception){}
             }
         }
 
@@ -55,12 +58,12 @@ c_check_result,c_photo_syn,c_check_operator
             return;
         }
 
-        foreach (string id in ids)
+        foreach (int id in ids)
         {
 
-            StudentApplyInfo sai = StudentApplyInfoOperator.Get(Convert.ToInt32(id));
-            //fso.FEE_VERIFY_DATE = DateTime.Now;
-            if (StudentApplyInfoOperator.CheckInfoAndPhoto(sai, ""))
+            StudentApplyInfo sai = SimpleOrmOperator.Query<StudentApplyInfo>(id);
+            if (sai == null) continue;
+            if (StudentApplyInfoOperator.CheckInfoAndPhoto(sai, this.Operator.OperatorName))
             {
                 reNum++;
             }

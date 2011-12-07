@@ -62,7 +62,7 @@
                         <asp:ListItem Value="-1">全部</asp:ListItem>
                     </asp:DropDownList>
 &nbsp;<asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" Text="查询" />
-<br/><asp:Button ID="btnCheck" runat="server" Text="审核" onclick="btnCheck_Click"  />
+<br/><hr /><asp:Button ID="btnCheck" runat="server" Text="批量审核" onclick="btnCheck_Click"  />
                     &nbsp; 
                     
                 </td>
@@ -94,11 +94,14 @@
                             <asp:BoundColumn DataField="c_check_operator" HeaderText="经办人"></asp:BoundColumn>
                              <asp:BoundColumn DataField="i_checked" HeaderText="信息审核"></asp:BoundColumn>
                              <asp:BoundColumn DataField="c_check_result" HeaderText="审核信息"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="c_photo_syn" HeaderText="相片审核"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="i_photo_syn" HeaderText="相片同步"></asp:BoundColumn>
                               <asp:TemplateColumn HeaderText="详细">
                             <ItemTemplate>
                             
                             <asp:ImageButton runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>' ToolTip="详细" ID="btnDetail" CommandName="Detail" ImageUrl="~/images/modify.gif" />
+                                    <asp:ImageButton runat="server" AlternateText="删除" CommandArgument='<%#Eval("id") %>'
+                                        ToolTip="删除" OnClientClick="return confirm('确定删除吗？');" ID="btnDelete" CommandName="Delete"
+                                        ImageUrl="~/images/delete.gif" />                          
                             </ItemTemplate>
                             </asp:TemplateColumn>
                             
