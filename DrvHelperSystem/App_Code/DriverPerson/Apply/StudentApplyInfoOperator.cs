@@ -56,7 +56,7 @@ public class StudentApplyInfoOperator
             if (res.Length == 2)
             {
                 checkInfo.PhotoSyn = 1;
-                
+                result = true;
             }
             else if(res.Length==3) {
                 checkInfo.PhotoSyn = 2;
