@@ -194,7 +194,7 @@ function searchArea() {
                 </td>
             </tr>
             <tr class="table-content">
-                <td class="table-title" style="width: 90px">
+                <td class="table-title" style="width: 80px">
                     证件名称
                 </td>
                 <td style="width: 600px">
@@ -252,29 +252,27 @@ function searchArea() {
                 <td class="table-title" style="">
                     登记住所
                 </td>
-                <td>
+                <td colspan="5">
                 
-                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"  Width="110px" AutoPostBack="true" 
+                    <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"   AutoPostBack="true" 
                         Font-Size="9pt" 
                         >
                     </asp:DropDownList>
-                </td>
-                <td colspan="4">
+               
                     <a href="#" onclick="javascript:searchArea();">查询</a>&nbsp;<asp:TextBox
-                        ID="txtDjzsxxdz" onkeyup="SynText()" runat="server" Width="400px"></asp:TextBox>
+                        ID="txtDjzsxxdz" onkeyup="SynText()" runat="server" Width="350px"></asp:TextBox>
                 </td>
             </tr>
             <tr class="table-content">
                 <td class="table-title" style="">
                     联系住所
                 </td>
-                <td>
-                    <asp:DropDownList ID="cbLxzsxzqhValue" runat="server"  Width="110px"
+                <td colspan="5">
+                    <asp:DropDownList ID="cbLxzsxzqhValue" runat="server"  
                         Font-Size="9pt">
                     </asp:DropDownList>
-                </td>
-                <td colspan="4">
-                    <asp:TextBox ID="txtLxzsxxdz" runat="server" Width="450px"></asp:TextBox>
+              
+                    <asp:TextBox ID="txtLxzsxxdz" runat="server" Width="400px"></asp:TextBox>
                 </td>
             </tr>
             <tr class="table-content">
@@ -291,12 +289,10 @@ function searchArea() {
                     <asp:TextBox ID="txtLxdh" runat="server" Width="110px"></asp:TextBox>
                 </td>
                 <td class="table-title" style="">
-                    行政区划
+                    暂住证号
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbXzqhValue" runat="server"  Width="110px" 
-                        Font-Size="9pt">
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px"></asp:TextBox>
                 </td>
             </tr>
             <tr class="table-content">
