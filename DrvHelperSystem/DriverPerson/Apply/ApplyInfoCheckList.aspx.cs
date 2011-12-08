@@ -63,7 +63,7 @@ decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
 
             StudentApplyInfo sai = SimpleOrmOperator.Query<StudentApplyInfo>(id);
             if (sai == null) continue;
-            if (StudentApplyInfoOperator.CheckInfoAndPhoto(sai, this.Operator.OperatorName))
+            if (StudentApplyInfoOperator.CheckInfo(sai, this.Operator.OperatorName))
             {
                 reNum++;
             }

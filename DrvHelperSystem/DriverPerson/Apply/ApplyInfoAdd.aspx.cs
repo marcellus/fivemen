@@ -123,9 +123,9 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         {
             entity.Djzsxzqh = Request.Params["cbDjzsxzqhValue"];
         }
-        
-        
-        
+
+
+        entity.CheckDate = DateTime.Now.ToString("yyyy-MM-dd");
        // entity.DepName = this.cbDepCodeValue.SelectedItem.Text;
         if (entity.Id < 0)
         {

@@ -19,7 +19,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DrvHelperSystem", ".", "{41
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "1923"
+		VWDPort = "1618"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Commons", "..\FT.Commons\FT.Commons.csproj", "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}"
@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Web", "..\FT.Web\FT.Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.WebServiceInterface", "..\FT.WebServiceInterface\FT.WebServiceInterface.csproj", "{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}"
 EndProject
-Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "DrvHelperSystem_deploy", "C:\Documents and Settings\hxdz\My Documents\Visual Studio 2008\Projects\DrvHelperSystem_deploy\DrvHelperSystem_deploy.wdproj", "{BFF01A06-ECAF-4A67-B54B-A83653B474A2}"
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "DrvHelperSystem_deploy", "C:\Documents and Settings\hxdz\My Documents\Visual Studio 2008\Projects\DrvHelperSystem_deploy\DrvHelperSystem_deploy.wdproj", "{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,14 +80,14 @@ Global
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{BFF01A06-ECAF-4A67-B54B-A83653B474A2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C8615A8E-B6BF-4724-8C91-BBC02C8025FC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
