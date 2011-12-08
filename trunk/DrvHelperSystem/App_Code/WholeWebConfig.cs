@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.DAL;
 using FT.DAL.Oracle;
+using FT.Commons.Security;
 
 /// <summary>
 ///WholeWebConfig 的摘要说明
@@ -49,5 +50,11 @@ public class WholeWebConfig
     public static IDataAccess GetDrvIDataAccess()
     {
         return new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
+    }
+
+    public static IDataAccess GetDrvIDataAccessDecode() {
+        string conn = System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"];
+        conn = FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(conn);
+        return new OracleDataHelper(conn);
     }
 }
