@@ -92,7 +92,7 @@ decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
            query += string.Format(" and {0} like '%{1}%' ",queryType,queryValue);
         }
 
-        if (this.cbCheckResult.SelectedIndex != 3)
+        if (!(string.IsNullOrEmpty(checkStatus)))
         {
             query += " and i_checked=" + checkStatus;
            // this.ProcedurePager1.RowFilter = "i_checked=" + checkStatus + "  and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'" + " and c_jxdm='" + this.Operator.Desp3 + "'";

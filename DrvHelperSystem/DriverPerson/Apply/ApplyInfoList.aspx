@@ -38,13 +38,11 @@
                         <Columns>
                             <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
                             
-                            <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"  ItemStyle-Width="300px"></asp:BoundColumn>
                             <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_zkcx" HeaderText="车型"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="c_check_date" HeaderText="录入时间"></asp:BoundColumn>
                             
-                            
-                            <asp:BoundColumn DataField="i_checked" HeaderText="审核结果"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_check_result" HeaderText="审核信息"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_check_operator" HeaderText="经办人"></asp:BoundColumn>
                             <asp:TemplateColumn HeaderText="详细">
                                 <ItemTemplate>
                                     <asp:ImageButton runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>'
