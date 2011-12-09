@@ -18,7 +18,13 @@
             </tr>
             <tr class="table-bottom">
                 <td colspan="2">
-                    身份证明号码：<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
+                                  学员信息:
+              <asp:DropDownList ID="ddlQueryType" runat="server">
+              <asp:ListItem Text="证件号码" Value="c_sfzmhm"></asp:ListItem>
+    
+              <asp:ListItem Text="姓名" Value="c_xm"></asp:ListItem>
+           </asp:DropDownList>
+           <asp:TextBox ID="txtQueryValue" runat="server"></asp:TextBox>
                     &nbsp;
                     <asp:Button ID="btnSearch" runat="server" Text="查询" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;

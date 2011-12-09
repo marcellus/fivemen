@@ -39,15 +39,14 @@
                             <asp:BoundColumn DataField="jxmc" HeaderText="驾校"></asp:BoundColumn>
                             <asp:BoundColumn DataField="total" HeaderText="总数"></asp:BoundColumn>
                              <asp:BoundColumn DataField="total_checked" HeaderText="已审核"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="total_uncheck" HeaderText="未审核"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="total_checkfail" HeaderText="审核失败"></asp:BoundColumn>
-                            
-                            <asp:BoundColumn DataField="local_total_checked" HeaderText="已审核(本地)"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="local_total_uncheck" HeaderText="未审核(本地)"></asp:BoundColumn>
-                              <asp:BoundColumn DataField="local_total_checkfail" HeaderText="审核失败(本地)"></asp:BoundColumn>
-                              
+                             <asp:BoundColumn DataField="local_total_checked" HeaderText="已审核(本地)"></asp:BoundColumn>
                              <asp:BoundColumn DataField="nolocal_total_checked" HeaderText="已审核(非本地)"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="total_uncheck" HeaderText="未审核"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="local_total_uncheck" HeaderText="未审核(本地)"></asp:BoundColumn>
                               <asp:BoundColumn DataField="nolocal_total_uncheck" HeaderText="未审核(非本地)"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="total_checkfail" HeaderText="审核失败"></asp:BoundColumn>
+                              <asp:BoundColumn DataField="local_total_checkfail" HeaderText="审核失败(本地)"></asp:BoundColumn>
+                          
                               <asp:BoundColumn DataField="nolocal_total_checkfail" HeaderText="审核失败(非本地)"></asp:BoundColumn>
                         </Columns>
                         <HeaderStyle CssClass="table-title" />

@@ -52,7 +52,13 @@
             </tr>
             <tr class="table-bottom">
                 <td  style="text-align:right">
-              &nbsp; 证件号码&nbsp;<asp:TextBox ID="txtIdCard" runat="server"></asp:TextBox>
+              学员信息:
+              <asp:DropDownList ID="ddlQueryType" runat="server">
+              <asp:ListItem Text="证件号码" Value="c_sfzmhm"></asp:ListItem>
+    
+              <asp:ListItem Text="姓名" Value="c_xm"></asp:ListItem>
+           </asp:DropDownList>
+           <asp:TextBox ID="txtQueryValue" runat="server"></asp:TextBox>
                 &nbsp;驾校：<asp:DropDownList ID="cbJxdm" runat="server"></asp:DropDownList>
                 
 &nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" >

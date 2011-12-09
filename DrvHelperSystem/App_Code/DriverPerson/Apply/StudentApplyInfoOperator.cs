@@ -166,7 +166,7 @@ public class StudentApplyInfoOperator
             infoCheck.Checked = 2;
             infoCheck.CheckResult = res[1];
         }
-
+        infoCheck.CheckOperator = optname;
         SimpleOrmOperator.Update(infoCheck);
         return isChecked;
     }

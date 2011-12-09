@@ -25,6 +25,7 @@ decode(i_checked,0,'未审核',1,'已审核',2,'审核不过') as i_checked,
 c_check_result,c_check_operator,
 decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
 	".Replace("\r\n", "").Replace("\t", "");
+            this.ProcedurePager1.RowFilter = " i_checked=0 ";
             this.ProcedurePager1.SortString = " order by id desc";
 
             DepartMentOperator.BindNick(cbJxdm, "驾校");
@@ -82,7 +83,15 @@ decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
     {
         string checkStatus = this.cbCheckResult.SelectedValue;
         string jxdm = this.cbJxdm.SelectedValue;
-        string query = " sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%' ";
+        string queryValue = txtQueryValue.Text;
+        string queryText = ddlQueryType.SelectedItem.Text;
+        string queryType = ddlQueryType.SelectedValue;
+
+        string query = " 1=1 ";
+        if (!string.IsNullOrEmpty(queryValue)) { 
+           query += string.Format(" and {0} like '%{1}%' ",queryType,queryValue);
+        }
+
         if (this.cbCheckResult.SelectedIndex != 3)
         {
             query += " and i_checked=" + checkStatus;
