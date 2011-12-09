@@ -62,10 +62,11 @@
                 &nbsp;驾校：<asp:DropDownList ID="cbJxdm" runat="server"></asp:DropDownList>
                 
 &nbsp;审核结果：<asp:DropDownList ID="cbCheckResult" runat="server" >
+                         
                         <asp:ListItem Value="0">未审核</asp:ListItem>
                         <asp:ListItem Value="1">已审核</asp:ListItem>
                         <asp:ListItem Value="2">审核失败</asp:ListItem>
-                        <asp:ListItem Value="-1">全部</asp:ListItem>
+                        <asp:ListItem Value="">全部</asp:ListItem>
                     </asp:DropDownList>
 &nbsp;<asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" Text="查询" />
 <br/><hr /><asp:Button ID="btnCheck" runat="server" Text="批量审核" onclick="btnCheck_Click"  />
@@ -92,7 +93,7 @@
 
 
                          <asp:BoundColumn DataField="id" HeaderText="编号"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="c_lsh" HeaderText="流水号"></asp:BoundColumn>
+                            
                              <asp:BoundColumn DataField="sfzmhm" HeaderText="身份证明号码"></asp:BoundColumn>
                               <asp:BoundColumn DataField="c_xm" HeaderText="姓名"></asp:BoundColumn>
                               <asp:BoundColumn DataField="c_jxmc" HeaderText="驾校名称"></asp:BoundColumn>
