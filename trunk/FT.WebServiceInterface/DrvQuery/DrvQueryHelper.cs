@@ -240,6 +240,11 @@ namespace FT.WebServiceInterface.DrvQuery
             BindCombox(cb, 19);
         }
 
+        public static void BindDropDownListBustype(DropDownList cb)
+        {
+            BindDropDownList(cb, 8);
+        }
+
         public static void BindDropDownListSfzmmc(DropDownList cb)
         {
             BindDropDownList(cb, 19);

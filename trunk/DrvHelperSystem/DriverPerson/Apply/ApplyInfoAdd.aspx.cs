@@ -28,6 +28,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
     {
         if (!IsPostBack)
         {
+            DrvQueryHelper.BindDropDownListBustype(this.cbBustype);
             DrvQueryHelper.BindDropDownListSfzmmc(this.cbSfzmmcValue);
             DrvQueryHelper.BindDropDownListHospital(this.cbTjyy);
             ListItemCollection tjyys = new ListItemCollection();
@@ -74,11 +75,13 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 WebFormHelper.SetDataToForm(this, entity);
                 this.txtTjrq.Value = entity.Tjrq;
                 this.txtCsrq.Value = entity.Csrq;
-                //this.cbDjzsxzqhValue.Items.Clear();
-                //this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
+                this.cbDjzsxzqhValue.Items.Clear();
+                this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
                 //this.cbDjzsxzqhValue.Items.Clear();
                 //this.cbDjzsxzqhValue.Text = entity.Djzsxzqh;
                 this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard=" + entity.Sfzmhm;
+                this.cbBustype.SelectedValue = entity.PhotoSrc;
+                
             }
             else {
                 this.imgPhoto.ImageUrl = "~/images/no_photo.jpg";
@@ -88,6 +91,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.txtYsl.Text="5.0";
                 this.txtZsl.Text = "5.0";
                 this.cbZkcxValue.SelectedValue = "C1";
+                this.txtLxzsyzbm.Text = "510000";
             }
 
             if (Request.Params["allowcheck"] == null)
@@ -97,6 +101,7 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
             }
             else {
                 this.btnSure.Visible = false;
+                this.cbBustype.Enabled = false;
             }
 
         }
@@ -118,6 +123,8 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
         WebFormHelper.GetDataFromForm(this, entity);
         entity.Csrq = this.txtCsrq.Value.Trim();
         entity.Tjrq = this.txtTjrq.Value.Trim();
+        //借用一下这个字段
+        entity.PhotoSrc = this.cbBustype.SelectedValue;
         
         if (!string.IsNullOrEmpty(Request.Params["cbDjzsxzqhValue"]))
         {

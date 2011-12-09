@@ -31,8 +31,17 @@ c_check_result
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        this.ProcedurePager1.RowFilter = "  c_jxdm='" + this.Operator.Desp3 + "'";
-        this.ProcedurePager1.RowFilter += " and sfzmhm like '%" + this.txtIdCard.Text.Trim() + "%'"+" and c_jxdm='" + this.Operator.Desp3 + "'";
+        string queryValue = txtQueryValue.Text;
+        string queryText = ddlQueryType.SelectedItem.Text;
+        string queryType = ddlQueryType.SelectedValue;
+
+        string query = " 1=1 ";
+        if (!string.IsNullOrEmpty(queryValue))
+        {
+            query += string.Format(" and {0} like '%{1}%' ", queryType, queryValue);
+        }
+        query += "  and c_jxdm='" + this.Operator.Desp3 + "'";
+        this.ProcedurePager1.RowFilter = query;
         this.ProcedurePager1.Changed = true;
     }
     protected void btnAdd_Click1(object sender, EventArgs e)

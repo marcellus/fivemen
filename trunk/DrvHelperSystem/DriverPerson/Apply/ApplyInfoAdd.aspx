@@ -189,6 +189,8 @@ function searchArea() {
                 <td colspan="8">
                     编号<asp:Label ID="lbId" runat="server"></asp:Label>
                     驾驶人详细信息：&nbsp;
+                    <asp:DropDownList ID="cbBustype" runat="server"></asp:DropDownList>
+                  
                     <br />
                     <asp:Label ID="lbCheckResult" runat="server"></asp:Label>
                 </td>

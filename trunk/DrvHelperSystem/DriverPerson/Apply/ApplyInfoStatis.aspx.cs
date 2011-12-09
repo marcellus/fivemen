@@ -34,7 +34,14 @@ public partial class DriverPerson_Apply_ApplyInfoStatis : AuthenticatedPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        BindData(DateTime.Now.ToString("yyyy-MM-dd"), DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
+        if (!IsPostBack)
+        {
+            string startDate = DateTime.Now.ToString("yyyy-MM-dd");
+            string endDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
+            this.txtBeginDate.Value = startDate;
+            this.txtEndDate.Value = endDate;
+            BindData(startDate, endDate);
+        }
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
