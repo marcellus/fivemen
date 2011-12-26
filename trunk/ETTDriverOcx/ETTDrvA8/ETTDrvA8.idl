@@ -1,0 +1,84 @@
+// ETTDrvA8.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTDrvA8.tlb)，该类型库将成为
+// ETTDrvA8.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(5AEAF8AC-7C0F-4B73-96C7-662B5904C9F8), version(1.0),
+  helpfile("ETTDrvA8.hlp"),
+  helpstring("ETTDrvA8 ActiveX 控件模块"),
+  control ]
+library ETTDrvA8Lib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTDrvA8Ctrl 的主调度接口
+
+	[ uuid(FC198BC9-9B80-49AD-BDF7-B5EB38ECBCE4),
+	  helpstring("ETTDrvA8 Control 的调度接口")]
+	dispinterface _DETTDrvA8
+	{
+		properties:
+			[id(1) , helpstring("属性 Message")] BSTR Message;
+			[id(2) , helpstring("属性 IdCardImgFileName")] BSTR IdCardImgFileName;
+			[id(3) , helpstring("属性 IdCardFrontImgFileName")] BSTR IdCardFrontImgFileName;
+			[id(4) , helpstring("属性 IdCardEndImgFileName")] BSTR IdCardEndImgFileName;
+			[id(5) , helpstring("属性 IsReaded")] SHORT IsReaded;
+			[id(6) , helpstring("属性 UserName")] BSTR UserName;
+			[id(7) , helpstring("属性 SexCode")] SHORT SexCode;
+			[id(8) , helpstring("属性 SexName")] BSTR SexName;
+			[id(9) , helpstring("属性 NationCode")] BSTR NationCode;
+			[id(10) , helpstring("属性 NationName")] BSTR NationName;
+			[id(11) , helpstring("属性 Birth")] BSTR Birth;
+			[id(12) , helpstring("属性 Address")] BSTR Address;
+			[id(13) , helpstring("属性 Fzjg")] BSTR Fzjg;
+			[id(14) , helpstring("属性 StartDate")] BSTR StartDate;
+			[id(15) , helpstring("属性 EndDate")] BSTR EndDate;
+			[id(16) , helpstring("属性 YxqxCode")] BSTR YxqxCode;
+			[id(17) , helpstring("属性 YxqxName")] BSTR YxqxName;
+			[id(18) , helpstring("属性 IdCard")] BSTR IdCard;
+			[id(32) , helpstring("属性 CompressJpg")] SHORT CompressJpg;
+	methods:
+		[id(19), helpstring("方法LoadDll")] SHORT LoadDll(void);
+		[id(20), helpstring("方法OpenDeviceEx")] SHORT OpenDeviceEx(SHORT port);
+		[id(21), helpstring("方法CloseDeviceEx")] SHORT CloseDeviceEx(void);
+		[id(22), helpstring("方法EnterCardEx")] SHORT EnterCardEx(void);
+		[id(23), helpstring("方法EjectCardEx")] SHORT EjectCardEx(void);
+		[id(24), helpstring("方法DestroyDll")] SHORT DestroyDll(void);
+		[id(25), helpstring("方法ReadAndScanEx")] SHORT ReadAndScanEx(void);
+		[id(26), helpstring("方法GetDeviceStatusEx")] SHORT GetDeviceStatusEx(void);
+		[id(27), helpstring("方法CalibrationEx")] SHORT CalibrationEx(void);
+		[id(28), helpstring("方法InitNationArray")] SHORT InitNationArray(void);
+		[id(29), helpstring("方法GetCardStatusEx")] SHORT GetCardStatusEx(void);
+		
+		[id(30), helpstring("方法ReadAndScanDpiEx")] SHORT ReadAndScanDpiEx(LONG dpi);
+		[id(31), helpstring("方法ReadRFID")] SHORT ReadRFID(void);
+		[id(33), helpstring("方法BmpToJpeg")] SHORT BmpToJpeg(BSTR src, BSTR dest);
+	};
+
+	//  CETTDrvA8Ctrl 的事件调度接口
+
+	[ uuid(E5780630-B504-44BE-8B73-EA3E73C1D718),
+	  helpstring("ETTDrvA8 Control 的事件接口") ]
+	dispinterface _DETTDrvA8Events
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTDrvA8Ctrl 的类信息
+
+	[ uuid(B64A8AD1-0B76-4D7B-92A6-B88519254091),
+	  helpstring("ETTDrvA8 Control"), control ]
+	coclass ETTDrvA8
+	{
+		[default] dispinterface _DETTDrvA8;
+		[default, source] dispinterface _DETTDrvA8Events;
+	};
+
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.ZT598.1 = s 'ZT598 Class'
+	{
+		CLSID = s '{0F5CB0AC-5AC6-4F58-AA5E-EF149C91A2A0}'
+	}
+	ETTSelf.ZT598 = s 'ZT598 Class'
+	{
+		CLSID = s '{0F5CB0AC-5AC6-4F58-AA5E-EF149C91A2A0}'
+		CurVer = s 'ETTSelf.ZT598.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0F5CB0AC-5AC6-4F58-AA5E-EF149C91A2A0} = s 'ZT598 Class'
+		{
+			ProgID = s 'ETTSelf.ZT598.1'
+			VersionIndependentProgID = s 'ETTSelf.ZT598'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

@@ -1,0 +1,65 @@
+// ETTCash.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTCash.tlb)，该类型库将成为
+// ETTCash.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(62C88F93-09EF-4584-A38C-6EDA8F311DF9), version(1.0),
+  helpfile("ETTCash.hlp"),
+  helpstring("ETTCash ActiveX 控件模块"),
+  control ]
+library ETTCashLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTCashCtrl 的主调度接口
+
+	[ uuid(E7830902-FE6B-4AC0-8E15-E9712F2997F4),
+	  helpstring("ETTCash Control 的调度接口")]
+	dispinterface _DETTCash
+	{
+		properties:
+			[id(1) , helpstring("属性 HasAcceptMoney")] SHORT HasAcceptMoney;
+			[id(2) , helpstring("属性 Message")] BSTR Message;
+	methods:
+		[id(3), helpstring("方法LoadDll")] SHORT LoadDll(void);
+		[id(4), helpstring("方法DestroyDll")] SHORT DestroyDll(void);
+		[id(5), helpstring("方法InitCashCode")] SHORT InitCashCode(SHORT port);
+		[id(6), helpstring("方法InitCashCodeV2")] SHORT InitCashCodeV2(SHORT port);
+		[id(7), helpstring("方法IdentifyExV2")] SHORT IdentifyExV2(SHORT maxmoney);
+		[id(8), helpstring("方法CloseCashCode")] SHORT CloseCashCode(void);
+		[id(9), helpstring("方法OpenDeviceEx")] SHORT OpenDeviceEx(SHORT port);
+		[id(10), helpstring("方法CloseDeviceEx")] SHORT CloseDeviceEx(void);
+		[id(11), helpstring("方法GetDeviceStatusEx")] SHORT GetDeviceStatusEx(void);
+		[id(12), helpstring("方法StopIdentifyEx")] SHORT StopIdentifyEx(void);
+		[id(13), helpstring("方法ResetEx")] SHORT ResetEx(void);
+		[id(14), helpstring("方法StartIdentifyV2Ex2")] SHORT StartIdentifyV2Ex2(BSTR denominations);
+		[id(15), helpstring("方法StartIdentifyV2Ex")] SHORT StartIdentifyV2Ex(BSTR denominations);
+	};
+
+	//  CETTCashCtrl 的事件调度接口
+
+	[ uuid(1A65DFCC-6BD4-4493-8F77-6B6D6F443928),
+	  helpstring("ETTCash Control 的事件接口") ]
+	dispinterface _DETTCashEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTCashCtrl 的类信息
+
+	[ uuid(EC8BC46B-0405-47CA-B523-3C409FCE78E2),
+	  helpstring("ETTCash Control"), control ]
+	coclass ETTCash
+	{
+		[default] dispinterface _DETTCash;
+		[default, source] dispinterface _DETTCashEvents;
+	};
+
+};

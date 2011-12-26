@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.KMYKey.1 = s 'KMYKey Class'
+	{
+		CLSID = s '{2412B760-3A7B-4359-8AA0-837CFE24417D}'
+	}
+	ETTSelf.KMYKey = s 'KMYKey Class'
+	{
+		CLSID = s '{2412B760-3A7B-4359-8AA0-837CFE24417D}'
+		CurVer = s 'ETTSelf.KMYKey.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2412B760-3A7B-4359-8AA0-837CFE24417D} = s 'KMYKey Class'
+		{
+			ProgID = s 'ETTSelf.KMYKey.1'
+			VersionIndependentProgID = s 'ETTSelf.KMYKey'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

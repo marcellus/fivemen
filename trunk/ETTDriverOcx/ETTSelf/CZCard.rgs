@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.CZCard.1 = s 'CZCard Class'
+	{
+		CLSID = s '{15293E77-C285-4781-8B21-24AB44B0389F}'
+	}
+	ETTSelf.CZCard = s 'CZCard Class'
+	{
+		CLSID = s '{15293E77-C285-4781-8B21-24AB44B0389F}'
+		CurVer = s 'ETTSelf.CZCard.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {15293E77-C285-4781-8B21-24AB44B0389F} = s 'CZCard Class'
+		{
+			ProgID = s 'ETTSelf.CZCard.1'
+			VersionIndependentProgID = s 'ETTSelf.CZCard'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

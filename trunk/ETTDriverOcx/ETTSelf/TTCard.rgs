@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.TTCard.1 = s 'TTCard Class'
+	{
+		CLSID = s '{5A0DF466-3275-40DC-81FB-47BD91FEE41B}'
+	}
+	ETTSelf.TTCard = s 'TTCard Class'
+	{
+		CLSID = s '{5A0DF466-3275-40DC-81FB-47BD91FEE41B}'
+		CurVer = s 'ETTSelf.TTCard.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5A0DF466-3275-40DC-81FB-47BD91FEE41B} = s 'TTCard Class'
+		{
+			ProgID = s 'ETTSelf.TTCard.1'
+			VersionIndependentProgID = s 'ETTSelf.TTCard'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

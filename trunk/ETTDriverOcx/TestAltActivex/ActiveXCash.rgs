@@ -1,0 +1,26 @@
+HKCR
+{
+	TestAltActivex.ActiveXCash.1 = s 'ActiveXCash Class'
+	{
+		CLSID = s '{B1AFEE5C-8485-41EE-A908-3ECBA5BD59BA}'
+	}
+	TestAltActivex.ActiveXCash = s 'ActiveXCash Class'
+	{
+		CLSID = s '{B1AFEE5C-8485-41EE-A908-3ECBA5BD59BA}'
+		CurVer = s 'TestAltActivex.ActiveXCash.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B1AFEE5C-8485-41EE-A908-3ECBA5BD59BA} = s 'ActiveXCash Class'
+		{
+			ProgID = s 'TestAltActivex.ActiveXCash.1'
+			VersionIndependentProgID = s 'TestAltActivex.ActiveXCash'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A38DED42-4485-4338-B677-DA08A51BDE54}'
+		}
+	}
+}

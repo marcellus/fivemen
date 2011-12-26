@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.TYCard.1 = s 'TYCard Class'
+	{
+		CLSID = s '{FD483260-AA28-4745-832D-961F9949EB6A}'
+	}
+	ETTSelf.TYCard = s 'TYCard Class'
+	{
+		CLSID = s '{FD483260-AA28-4745-832D-961F9949EB6A}'
+		CurVer = s 'ETTSelf.TYCard.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FD483260-AA28-4745-832D-961F9949EB6A} = s 'TYCard Class'
+		{
+			ProgID = s 'ETTSelf.TYCard.1'
+			VersionIndependentProgID = s 'ETTSelf.TYCard'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

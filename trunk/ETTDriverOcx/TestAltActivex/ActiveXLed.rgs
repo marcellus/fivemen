@@ -1,0 +1,26 @@
+HKCR
+{
+	TestAltActivex.ActiveXLed.1 = s 'ActiveXLed Class'
+	{
+		CLSID = s '{C60846B6-BAC0-47E1-B391-EC5D5AD7BD1A}'
+	}
+	TestAltActivex.ActiveXLed = s 'ActiveXLed Class'
+	{
+		CLSID = s '{C60846B6-BAC0-47E1-B391-EC5D5AD7BD1A}'
+		CurVer = s 'TestAltActivex.ActiveXLed.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C60846B6-BAC0-47E1-B391-EC5D5AD7BD1A} = s 'ActiveXLed Class'
+		{
+			ProgID = s 'TestAltActivex.ActiveXLed.1'
+			VersionIndependentProgID = s 'TestAltActivex.ActiveXLed'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A38DED42-4485-4338-B677-DA08A51BDE54}'
+		}
+	}
+}

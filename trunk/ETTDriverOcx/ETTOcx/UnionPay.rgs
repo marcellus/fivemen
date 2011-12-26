@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTOcx.UnionPay.1 = s 'UnionPay Class'
+	{
+		CLSID = s '{E4A6877E-30EA-4915-BB27-AC8D70FB27CB}'
+	}
+	ETTOcx.UnionPay = s 'UnionPay Class'
+	{
+		CLSID = s '{E4A6877E-30EA-4915-BB27-AC8D70FB27CB}'
+		CurVer = s 'ETTOcx.UnionPay.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E4A6877E-30EA-4915-BB27-AC8D70FB27CB} = s 'UnionPay Class'
+		{
+			ProgID = s 'ETTOcx.UnionPay.1'
+			VersionIndependentProgID = s 'ETTOcx.UnionPay'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{636647B2-2881-4DB4-B4D3-902A3F7DF119}'
+		}
+	}
+}
