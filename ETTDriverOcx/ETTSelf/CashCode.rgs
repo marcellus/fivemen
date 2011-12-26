@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.CashCode.1 = s 'CashCode Class'
+	{
+		CLSID = s '{9C61D5FB-30B5-4152-A052-C3EF4A9E457E}'
+	}
+	ETTSelf.CashCode = s 'CashCode Class'
+	{
+		CLSID = s '{9C61D5FB-30B5-4152-A052-C3EF4A9E457E}'
+		CurVer = s 'ETTSelf.CashCode.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9C61D5FB-30B5-4152-A052-C3EF4A9E457E} = s 'CashCode Class'
+		{
+			ProgID = s 'ETTSelf.CashCode.1'
+			VersionIndependentProgID = s 'ETTSelf.CashCode'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

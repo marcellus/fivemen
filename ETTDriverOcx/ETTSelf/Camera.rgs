@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.Camera.1 = s 'Camera Class'
+	{
+		CLSID = s '{948E6CD7-A640-4454-92D2-7418C4B3C3BB}'
+	}
+	ETTSelf.Camera = s 'Camera Class'
+	{
+		CLSID = s '{948E6CD7-A640-4454-92D2-7418C4B3C3BB}'
+		CurVer = s 'ETTSelf.Camera.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {948E6CD7-A640-4454-92D2-7418C4B3C3BB} = s 'Camera Class'
+		{
+			ProgID = s 'ETTSelf.Camera.1'
+			VersionIndependentProgID = s 'ETTSelf.Camera'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

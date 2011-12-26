@@ -1,0 +1,51 @@
+// TestCombineActive.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(TestCombineActive.tlb)，该类型库将成为
+// TestCombineActive.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(0A351C60-BA5F-4CD4-9C80-601081EE587C), version(1.0),
+  helpfile("TestCombineActive.hlp"),
+  helpstring("TestCombineActive ActiveX 控件模块"),
+  control ]
+library TestCombineActiveLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CTestCombineActiveCtrl 的主调度接口
+
+	[ uuid(C761E55F-DED9-41BD-B446-22365F851E1A),
+	  helpstring("TestCombineActive Control 的调度接口")]
+	dispinterface _DTestCombineActive
+	{
+		properties:
+		methods:
+			[id(1), helpstring("方法HelloWordA")] SHORT HelloWordA(void);
+	};
+
+	//  CTestCombineActiveCtrl 的事件调度接口
+
+	[ uuid(1C0CB663-D6DC-4AED-B3E4-F08BE43B7B45),
+	  helpstring("TestCombineActive Control 的事件接口") ]
+	dispinterface _DTestCombineActiveEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CTestCombineActiveCtrl 的类信息
+
+	[ uuid(8128503E-4D53-4B22-ABB3-88A28C8991A1),
+	  helpstring("TestCombineActive Control"), control ]
+	coclass TestCombineActive
+	{
+		[default] dispinterface _DTestCombineActive;
+		[default, source] dispinterface _DTestCombineActiveEvents;
+	};
+
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.DrvLed.1 = s 'DrvLed Class'
+	{
+		CLSID = s '{3547B641-F97D-4F66-BA96-3A8B8640D7DD}'
+	}
+	ETTSelf.DrvLed = s 'DrvLed Class'
+	{
+		CLSID = s '{3547B641-F97D-4F66-BA96-3A8B8640D7DD}'
+		CurVer = s 'ETTSelf.DrvLed.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3547B641-F97D-4F66-BA96-3A8B8640D7DD} = s 'DrvLed Class'
+		{
+			ProgID = s 'ETTSelf.DrvLed.1'
+			VersionIndependentProgID = s 'ETTSelf.DrvLed'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

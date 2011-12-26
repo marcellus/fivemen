@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTOcx.VoiceObj.1 = s 'VoiceObj Class'
+	{
+		CLSID = s '{D5B19295-2DDF-406C-88EB-D644AD73BDCB}'
+	}
+	ETTOcx.VoiceObj = s 'VoiceObj Class'
+	{
+		CLSID = s '{D5B19295-2DDF-406C-88EB-D644AD73BDCB}'
+		CurVer = s 'ETTOcx.VoiceObj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D5B19295-2DDF-406C-88EB-D644AD73BDCB} = s 'VoiceObj Class'
+		{
+			ProgID = s 'ETTOcx.VoiceObj.1'
+			VersionIndependentProgID = s 'ETTOcx.VoiceObj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{636647B2-2881-4DB4-B4D3-902A3F7DF119}'
+		}
+	}
+}

@@ -1,0 +1,70 @@
+// ETTUP.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ETTUP.tlb)，该类型库将成为
+// ETTUP.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(1692E992-B5A7-405A-AC6D-A782AACE042A), version(1.0),
+  helpfile("ETTUP.hlp"),
+  helpstring("ETTUP ActiveX 控件模块"),
+  control ]
+library ETTUPLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CETTUPCtrl 的主调度接口
+
+	[ uuid(E4350F3B-8F66-4871-8A33-81515276A01D),
+	  helpstring("ETTUP Control 的调度接口")]
+	dispinterface _DETTUP
+	{
+		properties:
+			[id(1) , helpstring("属性 Message")] BSTR Message;
+			[id(2) , helpstring("属性 SerialNo")] BSTR SerialNo;
+			[id(3) , helpstring("属性 DeviceNo")] BSTR DeviceNo;
+			[id(4) , helpstring("属性 BusinessNo")] BSTR BusinessNo;
+			[id(5) , helpstring("属性 Balance")] LONG Balance;
+			[id(6) , helpstring("属性 AllowBalance")] LONG AllowBalance;
+			[id(7) , helpstring("属性 RetCode")] SHORT RetCode;
+			[id(8) , helpstring("属性 ServerIp")] BSTR ServerIp;
+			[id(9) , helpstring("属性 ServerPort")] SHORT ServerPort;
+			[id(10) , helpstring("属性 OldSerialNo")] BSTR OldSerialNo;
+	methods:
+		[id(11), helpstring("方法UnUnionPayPack")] BSTR UnUnionPayPack(BSTR data);
+		[id(12), helpstring("方法UPSendData")] BSTR UPSendData(BSTR data);
+		[id(13), helpstring("方法Make0800")] BSTR Make0800(void);
+		[id(14), helpstring("方法Make0200")] BSTR Make0200(LONG money, BSTR track2, BSTR track3, BSTR pwd);
+		[id(15), helpstring("方法Make0400")] BSTR Make0400(LONG money, BSTR track2, BSTR track3, BSTR pwd);
+		[id(16), helpstring("方法QueryBalance")] void QueryBalance(BSTR track2, BSTR track3, BSTR pwd);
+		[id(17), helpstring("方法Pay")] void Pay(LONG money, BSTR track2, BSTR track3, BSTR pwd);
+		[id(18), helpstring("方法SignIn")] void SignIn(void);
+		[id(19), helpstring("方法PayBack")] void PayBack(LONG money, BSTR track2, BSTR track3, BSTR pwd);
+		[id(20), helpstring("方法Log")] void Log(BSTR str);
+	};
+
+	//  CETTUPCtrl 的事件调度接口
+
+	[ uuid(FDC4BAFF-5206-428D-8C0D-D89201D2EF7F),
+	  helpstring("ETTUP Control 的事件接口") ]
+	dispinterface _DETTUPEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CETTUPCtrl 的类信息
+
+	[ uuid(DC25E28D-C0C6-4F6C-B9E5-3212146C5EBD),
+	  helpstring("ETTUP Control"), control ]
+	coclass ETTUP
+	{
+		[default] dispinterface _DETTUP;
+		[default, source] dispinterface _DETTUPEvents;
+	};
+
+};

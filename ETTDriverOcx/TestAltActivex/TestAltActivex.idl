@@ -1,0 +1,80 @@
+// TestAltActivex.idl : TestAltActivex 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(TestAltActivex.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(CE8A8E2F-2AF9-426E-8889-A3544B3A76CC),
+	dual,
+	nonextensible,
+	helpstring("IActiveXCash 接口"),
+	pointer_default(unique)
+]
+interface IActiveXCash : IDispatch{
+	[id(1), helpstring("方法HelloA")] HRESULT HelloA([in] LONG port);
+	[id(2), helpstring("方法Hello")] HRESULT Hello(void);
+};
+[
+	object,
+	uuid(9E1F7326-FDCD-43A8-80E8-893B3815EBB3),
+	dual,
+	nonextensible,
+	helpstring("IActiveXLed 接口"),
+	pointer_default(unique)
+]
+interface IActiveXLed : IDispatch{
+	[id(1), helpstring("方法HelloB")] HRESULT HelloB(SHORT port);
+	[id(2), helpstring("方法Hello")] HRESULT Hello(void);
+};
+[
+	uuid(A38DED42-4485-4338-B677-DA08A51BDE54),
+	version(1.0),
+	helpstring("TestAltActivex 1.0 类型库")
+]
+library TestAltActivexLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(AA1BA7F4-ECB8-49E2-9D0F-14CB5390AD84),
+		helpstring("_IActiveXCashEvents 接口")
+	]
+	dispinterface _IActiveXCashEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("方法HelloWorldA")] SHORT HelloWorldA(void);
+	};
+	[
+		uuid(B1AFEE5C-8485-41EE-A908-3ECBA5BD59BA),
+		helpstring("ActiveXCash Class")
+	]
+	coclass ActiveXCash
+	{
+		[default] interface IActiveXCash;
+		[default, source] dispinterface _IActiveXCashEvents;
+	};
+	[
+		uuid(75EC52EC-448C-4AFD-ACB7-DAD6A890B2D3),
+		helpstring("_IActiveXLedEvents 接口")
+	]
+	dispinterface _IActiveXLedEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("方法HelloWorldB")] SHORT HelloWorldB(void);
+	};
+	[
+		uuid(C60846B6-BAC0-47E1-B391-EC5D5AD7BD1A),
+		helpstring("ActiveXLed Class")
+	]
+	coclass ActiveXLed
+	{
+		[default] interface IActiveXLed;
+		[default, source] dispinterface _IActiveXLedEvents;
+	};
+};

@@ -1,0 +1,75 @@
+// ETTOcx.idl : ETTOcx 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ETTOcx.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(FE7A7E9E-D0F6-4EBD-ADC8-28CE426FBC0F),
+	dual,
+	nonextensible,
+	helpstring("IVoiceObj 接口"),
+	pointer_default(unique)
+]
+interface IVoiceObj : IDispatch{
+	[id(1), helpstring("方法PlayVoice")] HRESULT PlayVoice(BSTR filename);
+};
+[
+	object,
+	uuid(BC9A1E58-3DD2-4A08-8B70-7EEE5E77D7F0),
+	dual,
+	nonextensible,
+	helpstring("IUnionPay 接口"),
+	pointer_default(unique)
+]
+interface IUnionPay : IDispatch{
+};
+[
+	uuid(636647B2-2881-4DB4-B4D3-902A3F7DF119),
+	version(1.0),
+	helpstring("ETTOcx 1.0 类型库")
+]
+library ETTOcxLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(8AFFD310-5388-40DD-A5A2-1CC496B136ED),
+		helpstring("_IVoiceObjEvents 接口")
+	]
+	dispinterface _IVoiceObjEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(D5B19295-2DDF-406C-88EB-D644AD73BDCB),
+		helpstring("VoiceObj Class")
+	]
+	coclass VoiceObj
+	{
+		[default] interface IVoiceObj;
+		[default, source] dispinterface _IVoiceObjEvents;
+	};
+	[
+		uuid(D4C0F2D9-9D95-4A26-84BD-340E6BE64FB2),
+		helpstring("_IUnionPayEvents 接口")
+	]
+	dispinterface _IUnionPayEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(E4A6877E-30EA-4915-BB27-AC8D70FB27CB),
+		helpstring("UnionPay Class")
+	]
+	coclass UnionPay
+	{
+		[default] interface IUnionPay;
+		[default, source] dispinterface _IUnionPayEvents;
+	};
+};

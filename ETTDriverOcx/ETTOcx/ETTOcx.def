@@ -1,0 +1,10 @@
+; ETTOcx.def : 定义模块参数。
+
+LIBRARY      "ETTOcx.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

@@ -1,0 +1,26 @@
+HKCR
+{
+	ETTSelf.A8.1 = s 'A8 Class'
+	{
+		CLSID = s '{D0491A67-A97A-4325-9271-83D7711BC507}'
+	}
+	ETTSelf.A8 = s 'A8 Class'
+	{
+		CLSID = s '{D0491A67-A97A-4325-9271-83D7711BC507}'
+		CurVer = s 'ETTSelf.A8.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D0491A67-A97A-4325-9271-83D7711BC507} = s 'A8 Class'
+		{
+			ProgID = s 'ETTSelf.A8.1'
+			VersionIndependentProgID = s 'ETTSelf.A8'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{49B4815A-A9C1-4D3C-BF8A-236898C9FBC9}'
+		}
+	}
+}

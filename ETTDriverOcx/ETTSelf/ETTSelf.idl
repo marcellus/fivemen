@@ -1,0 +1,420 @@
+// ETTSelf.idl : ETTSelf 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ETTSelf.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(4379E52C-77B1-4DF3-B88D-B4D1E891F11B),
+	dual,
+	nonextensible,
+	helpstring("IA8 接口"),
+	pointer_default(unique)
+]
+interface IA8 : IDispatch{
+	[propget, id(1), helpstring("属性 Message")] HRESULT Message([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("属性 Message")] HRESULT Message([in] BSTR newVal);
+	[propget, id(2), helpstring("属性 IdCardImgFileName")] HRESULT IdCardImgFileName([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("属性 IdCardImgFileName")] HRESULT IdCardImgFileName([in] BSTR newVal);
+	[propget, id(3), helpstring("属性 IdCardFrontImgFileName")] HRESULT IdCardFrontImgFileName([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("属性 IdCardFrontImgFileName")] HRESULT IdCardFrontImgFileName([in] BSTR newVal);
+	[propget, id(4), helpstring("属性 IdCardEndImgFileName")] HRESULT IdCardEndImgFileName([out, retval] BSTR* pVal);
+	[propput, id(4), helpstring("属性 IdCardEndImgFileName")] HRESULT IdCardEndImgFileName([in] BSTR newVal);
+	[propget, id(5), helpstring("属性 IsReaded")] HRESULT IsReaded([out, retval] SHORT* pVal);
+	[propput, id(5), helpstring("属性 IsReaded")] HRESULT IsReaded([in] SHORT newVal);
+	[propget, id(6), helpstring("属性 UserName")] HRESULT UserName([out, retval] BSTR* pVal);
+	[propput, id(6), helpstring("属性 UserName")] HRESULT UserName([in] BSTR newVal);
+	[propget, id(7), helpstring("属性 SexCode")] HRESULT SexCode([out, retval] SHORT* pVal);
+	[propput, id(7), helpstring("属性 SexCode")] HRESULT SexCode([in] SHORT newVal);
+	[propget, id(8), helpstring("属性 SexName")] HRESULT SexName([out, retval] BSTR* pVal);
+	[propput, id(8), helpstring("属性 SexName")] HRESULT SexName([in] BSTR newVal);
+	[propget, id(9), helpstring("属性 NationCode")] HRESULT NationCode([out, retval] BSTR* pVal);
+	[propput, id(9), helpstring("属性 NationCode")] HRESULT NationCode([in] BSTR newVal);
+	[propget, id(10), helpstring("属性 NationName")] HRESULT NationName([out, retval] BSTR* pVal);
+	[propput, id(10), helpstring("属性 NationName")] HRESULT NationName([in] BSTR newVal);
+	[propget, id(11), helpstring("属性 Birth")] HRESULT Birth([out, retval] BSTR* pVal);
+	[propput, id(11), helpstring("属性 Birth")] HRESULT Birth([in] BSTR newVal);
+	[propget, id(12), helpstring("属性 Address")] HRESULT Address([out, retval] BSTR* pVal);
+	[propput, id(12), helpstring("属性 Address")] HRESULT Address([in] BSTR newVal);
+	[propget, id(13), helpstring("属性 Fzjg")] HRESULT Fzjg([out, retval] BSTR* pVal);
+	[propput, id(13), helpstring("属性 Fzjg")] HRESULT Fzjg([in] BSTR newVal);
+	[propget, id(14), helpstring("属性 StartDate")] HRESULT StartDate([out, retval] BSTR* pVal);
+	[propput, id(14), helpstring("属性 StartDate")] HRESULT StartDate([in] BSTR newVal);
+	[propget, id(15), helpstring("属性 EndDate")] HRESULT EndDate([out, retval] BSTR* pVal);
+	[propput, id(15), helpstring("属性 EndDate")] HRESULT EndDate([in] BSTR newVal);
+	[propget, id(16), helpstring("属性 YxqxCode")] HRESULT YxqxCode([out, retval] BSTR* pVal);
+	[propput, id(16), helpstring("属性 YxqxCode")] HRESULT YxqxCode([in] BSTR newVal);
+	[propget, id(17), helpstring("属性 YxqxName")] HRESULT YxqxName([out, retval] BSTR* pVal);
+	[propput, id(17), helpstring("属性 YxqxName")] HRESULT YxqxName([in] BSTR newVal);
+	[propget, id(18), helpstring("属性 IdCard")] HRESULT IdCard([out, retval] BSTR* pVal);
+	[propput, id(18), helpstring("属性 IdCard")] HRESULT IdCard([in] BSTR newVal);
+	[id(19), helpstring("方法LoadDll")] HRESULT LoadDll(void);
+	[id(20), helpstring("方法OpenDeviceEx")] HRESULT OpenDeviceEx(SHORT port);
+	[id(21), helpstring("方法CloseDeviceEx")] HRESULT CloseDeviceEx(void);
+	[id(22), helpstring("方法EnterCardEx")] HRESULT EnterCardEx(void);
+	[id(23), helpstring("方法EjectCardEx")] HRESULT EjectCardEx(void);
+	[id(24), helpstring("方法DestroyDll")] HRESULT DestroyDll(void);
+	[id(25), helpstring("方法ReadAndScanEx")] HRESULT ReadAndScanEx(void);
+	[id(26), helpstring("方法GetDeviceStatusEx")] HRESULT GetDeviceStatusEx(void);
+	[id(27), helpstring("方法CalibrationEx")] HRESULT CalibrationEx(void);
+	[id(28), helpstring("方法InitNationArray")] HRESULT InitNationArray(void);
+	[id(29), helpstring("方法GetCardStatusEx")] HRESULT GetCardStatusEx(void);
+	[id(30), helpstring("方法ReadAndScanDpiEx")] HRESULT ReadAndScanDpiEx(LONG dpi);
+	[id(31), helpstring("方法ReadRFID")] HRESULT ReadRFID(void);
+};
+[
+	object,
+	uuid(6ED256C8-E709-40DB-AB49-5365D12FC27D),
+	dual,
+	nonextensible,
+	helpstring("ICashCode 接口"),
+	pointer_default(unique)
+]
+interface ICashCode : IDispatch{
+	[propget, id(1), helpstring("属性 HasAcceptMoney")] HRESULT HasAcceptMoney([out, retval] SHORT* pVal);
+	[propput, id(1), helpstring("属性 HasAcceptMoney")] HRESULT HasAcceptMoney([in] SHORT newVal);
+	[propget, id(2), helpstring("属性 Message")] HRESULT Message([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("属性 Message")] HRESULT Message([in] BSTR newVal);
+	[id(3), helpstring("方法LoadDll")] HRESULT LoadDll(void);
+	[id(4), helpstring("方法DestroyDll")] HRESULT DestroyDll(void);
+	[id(5), helpstring("方法InitCashCode")] HRESULT InitCashCode(SHORT port);
+	[id(6), helpstring("方法InitCashCodeV2")] HRESULT InitCashCodeV2(SHORT port);
+	[id(7), helpstring("方法IdentifyExV2")] HRESULT IdentifyExV2(SHORT maxmoney);
+	[id(8), helpstring("方法CloseCashCode")] HRESULT CloseCashCode(void);
+	[id(9), helpstring("方法OpenDeviceEx")] HRESULT OpenDeviceEx(SHORT port);
+	[id(10), helpstring("方法CloseDeviceEx")] HRESULT CloseDeviceEx(void);
+	[id(11), helpstring("方法GetDeviceStatusEx")] HRESULT GetDeviceStatusEx(void);
+	[id(12), helpstring("方法StopIdentifyEx")] HRESULT StopIdentifyEx(void);
+	[id(13), helpstring("方法ResetEx")] HRESULT ResetEx(void);
+	[id(14), helpstring("方法StartIdentifyV2Ex")] HRESULT StartIdentifyV2Ex(void);
+};
+[
+	object,
+	uuid(0B8EB349-DC10-4A51-AE10-D8650792ADBC),
+	dual,
+	nonextensible,
+	helpstring("IZT598 接口"),
+	pointer_default(unique)
+]
+interface IZT598 : IDispatch{
+};
+[
+	object,
+	uuid(FD032099-04DA-4EB0-8F09-CA66AE6A1FD5),
+	dual,
+	nonextensible,
+	helpstring("IKMYKey 接口"),
+	pointer_default(unique)
+]
+interface IKMYKey : IDispatch{
+};
+[
+	object,
+	uuid(69404284-C3C8-463C-BFBC-56F5C2E9FCCF),
+	dual,
+	nonextensible,
+	helpstring("ICZCard 接口"),
+	pointer_default(unique)
+]
+interface ICZCard : IDispatch{
+};
+[
+	object,
+	uuid(BDB39CC1-3E9C-46C7-B371-AF0FF107B449),
+	dual,
+	nonextensible,
+	helpstring("ITTCard 接口"),
+	pointer_default(unique)
+]
+interface ITTCard : IDispatch{
+	[propget, id(1), helpstring("属性 Message")] HRESULT Message([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("属性 Message")] HRESULT Message([in] BSTR newVal);
+	[propget, id(2), helpstring("属性 Track1")] HRESULT Track1([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("属性 Track1")] HRESULT Track1([in] BSTR newVal);
+	[propget, id(3), helpstring("属性 Track3")] HRESULT Track3([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("属性 Track3")] HRESULT Track3([in] BSTR newVal);
+	[propget, id(4), helpstring("属性 Track2")] HRESULT Track2([out, retval] BSTR* pVal);
+	[propput, id(4), helpstring("属性 Track2")] HRESULT Track2([in] BSTR newVal);
+	[id(5), helpstring("方法LoadDll")] HRESULT LoadDll(void);
+	[id(6), helpstring("方法DestroyDll")] HRESULT DestroyDll(void);
+	[id(7), helpstring("方法DisableEntryEx")] HRESULT DisableEntryEx(void);
+	[id(8), helpstring("方法CaptureCardEx")] HRESULT CaptureCardEx(void);
+	[id(9), helpstring("方法OpenDeviceEx")] HRESULT OpenDeviceEx(SHORT port);
+	[id(10), helpstring("方法CloseDeviceEx")] HRESULT CloseDeviceEx(void);
+	[id(11), helpstring("方法EjectCardEx")] HRESULT EjectCardEx(void);
+	[id(12), helpstring("方法EnableEntryEx")] HRESULT EnableEntryEx(void);
+	[id(13), helpstring("方法GetDeviceStatusEx")] HRESULT GetDeviceStatusEx(void);
+	[id(14), helpstring("方法ReadTracksEx")] HRESULT ReadTracksEx(void);
+};
+[
+	object,
+	uuid(F79FACB1-2326-465A-9569-9BA4DC86CA73),
+	dual,
+	nonextensible,
+	helpstring("ITYCard 接口"),
+	pointer_default(unique)
+]
+interface ITYCard : IDispatch{
+};
+[
+	object,
+	uuid(D97E5A0D-B4E8-4F59-BB76-EA057E295123),
+	dual,
+	nonextensible,
+	helpstring("IIdCard 接口"),
+	pointer_default(unique)
+]
+interface IIdCard : IDispatch{
+};
+[
+	object,
+	uuid(83CBEE6F-0D34-40D1-BA3F-EE31907F8F73),
+	dual,
+	nonextensible,
+	helpstring("ICamera 接口"),
+	pointer_default(unique)
+]
+interface ICamera : IDispatch{
+};
+[
+	object,
+	uuid(9492D0E2-2D17-438C-8110-1EF62D224BBD),
+	dual,
+	nonextensible,
+	helpstring("IDrvLed 接口"),
+	pointer_default(unique)
+]
+interface IDrvLed : IDispatch{
+	[id(1), helpstring("方法TurnOnA8")] HRESULT TurnOnA8(void);
+	[id(2), helpstring("方法TurnOffA8")] HRESULT TurnOffA8(void);
+	[id(3), helpstring("方法TurnOnCard")] HRESULT TurnOnCard(void);
+	[id(4), helpstring("方法TurnOffCard")] HRESULT TurnOffCard(void);
+	[id(5), helpstring("方法TurnOnHotPrinter")] HRESULT TurnOnHotPrinter(void);
+	[id(6), helpstring("方法TurnOffHotPrinter")] HRESULT TurnOffHotPrinter(void);
+	[id(7), helpstring("方法TurnOnPort")] HRESULT TurnOnPort(SHORT port, SHORT index);
+	[id(8), helpstring("方法TurnOffAll")] HRESULT TurnOffAll(void);
+	[id(9), helpstring("方法TurnOnLed")] HRESULT TurnOnLed(SHORT index);
+	[id(10), helpstring("方法BeepHint")] HRESULT BeepHint(void);
+	[id(11), helpstring("方法Beep")] HRESULT Beep(SHORT freq, SHORT duration);
+};
+[
+	object,
+	uuid(CA7DDDD5-E61A-461F-B11E-2E410C3D19BB),
+	dual,
+	nonextensible,
+	helpstring("IPrinterEx 接口"),
+	pointer_default(unique)
+]
+interface IPrinterEx : IDispatch{
+};
+[
+	uuid(49B4815A-A9C1-4D3C-BF8A-236898C9FBC9),
+	version(1.0),
+	helpstring("ETTSelf 1.0 类型库")
+]
+library ETTSelfLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(C09BEDDC-306B-4683-B177-A24F25B8E69C),
+		helpstring("_IA8Events 接口")
+	]
+	dispinterface _IA8Events
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(D0491A67-A97A-4325-9271-83D7711BC507),
+		helpstring("A8 Class")
+	]
+	coclass A8
+	{
+		[default] interface IA8;
+		[default, source] dispinterface _IA8Events;
+	};
+	[
+		uuid(EFCF073B-A03B-4220-B4B6-8B228B6A320D),
+		helpstring("_ICashCodeEvents 接口")
+	]
+	dispinterface _ICashCodeEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(9C61D5FB-30B5-4152-A052-C3EF4A9E457E),
+		helpstring("CashCode Class")
+	]
+	coclass CashCode
+	{
+		[default] interface ICashCode;
+		[default, source] dispinterface _ICashCodeEvents;
+	};
+	[
+		uuid(A59245DA-F8BA-4BBE-986A-25FC287982C0),
+		helpstring("_IZT598Events 接口")
+	]
+	dispinterface _IZT598Events
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(0F5CB0AC-5AC6-4F58-AA5E-EF149C91A2A0),
+		helpstring("ZT598 Class")
+	]
+	coclass ZT598
+	{
+		[default] interface IZT598;
+		[default, source] dispinterface _IZT598Events;
+	};
+	[
+		uuid(96D93528-741B-4964-98CC-EDFB6B43CC96),
+		helpstring("_IKMYKeyEvents 接口")
+	]
+	dispinterface _IKMYKeyEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(2412B760-3A7B-4359-8AA0-837CFE24417D),
+		helpstring("KMYKey Class")
+	]
+	coclass KMYKey
+	{
+		[default] interface IKMYKey;
+		[default, source] dispinterface _IKMYKeyEvents;
+	};
+	[
+		uuid(E4DE661F-9C92-497F-B57E-F47A324571E5),
+		helpstring("_ICZCardEvents 接口")
+	]
+	dispinterface _ICZCardEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(15293E77-C285-4781-8B21-24AB44B0389F),
+		helpstring("CZCard Class")
+	]
+	coclass CZCard
+	{
+		[default] interface ICZCard;
+		[default, source] dispinterface _ICZCardEvents;
+	};
+	[
+		uuid(0B2883FB-4924-46A3-8D50-770EF7E52E85),
+		helpstring("_ITTCardEvents 接口")
+	]
+	dispinterface _ITTCardEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(5A0DF466-3275-40DC-81FB-47BD91FEE41B),
+		helpstring("TTCard Class")
+	]
+	coclass TTCard
+	{
+		[default] interface ITTCard;
+		[default, source] dispinterface _ITTCardEvents;
+	};
+	[
+		uuid(ED6A8D46-2ABE-486B-983E-C3AAC9DB0C17),
+		helpstring("_ITYCardEvents 接口")
+	]
+	dispinterface _ITYCardEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(FD483260-AA28-4745-832D-961F9949EB6A),
+		helpstring("TYCard Class")
+	]
+	coclass TYCard
+	{
+		[default] interface ITYCard;
+		[default, source] dispinterface _ITYCardEvents;
+	};
+	[
+		uuid(6FCB0FC2-EA52-4A97-A7E1-E5A1195C8CEC),
+		helpstring("_IIdCardEvents 接口")
+	]
+	dispinterface _IIdCardEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(23AECF79-6B11-4963-A129-71BD8061C4DF),
+		helpstring("IdCard Class")
+	]
+	coclass IdCard
+	{
+		[default] interface IIdCard;
+		[default, source] dispinterface _IIdCardEvents;
+	};
+	[
+		uuid(41BFAAEF-1AD9-43A9-AC45-667B4D43FADB),
+		helpstring("_ICameraEvents 接口")
+	]
+	dispinterface _ICameraEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(948E6CD7-A640-4454-92D2-7418C4B3C3BB),
+		helpstring("Camera Class")
+	]
+	coclass Camera
+	{
+		[default] interface ICamera;
+		[default, source] dispinterface _ICameraEvents;
+	};
+	[
+		uuid(4530BA8C-07AC-4A6E-92AF-3B1CC6A7E2C9),
+		helpstring("_IDrvLedEvents 接口")
+	]
+	dispinterface _IDrvLedEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(3547B641-F97D-4F66-BA96-3A8B8640D7DD),
+		helpstring("DrvLed Class")
+	]
+	coclass DrvLed
+	{
+		[default] interface IDrvLed;
+		[default, source] dispinterface _IDrvLedEvents;
+	};
+	[
+		uuid(58BA5349-FAD4-4786-8AC9-9027043228DC),
+		helpstring("_IPrinterExEvents 接口")
+	]
+	dispinterface _IPrinterExEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(D67CB9C8-A91F-4FB1-9056-2F71B5DB5DC0),
+		helpstring("PrinterEx Class")
+	]
+	coclass PrinterEx
+	{
+		[default] interface IPrinterEx;
+		[default, source] dispinterface _IPrinterExEvents;
+	};
+};
