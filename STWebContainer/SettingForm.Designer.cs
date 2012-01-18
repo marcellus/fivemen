@@ -36,6 +36,12 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnChangePwd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbIsTimer = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbShowToolBar = new System.Windows.Forms.CheckBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +65,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("宋体", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(191, 250);
+            this.btnSave.Location = new System.Drawing.Point(194, 337);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(163, 75);
             this.btnSave.TabIndex = 2;
@@ -70,7 +76,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("宋体", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClose.Location = new System.Drawing.Point(401, 250);
+            this.btnClose.Location = new System.Drawing.Point(412, 337);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(163, 75);
             this.btnClose.TabIndex = 2;
@@ -122,11 +128,66 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.cbIsTimer);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(18, 205);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(746, 108);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "是否定时关机";
+            // 
+            // cbIsTimer
+            // 
+            this.cbIsTimer.AutoSize = true;
+            this.cbIsTimer.Location = new System.Drawing.Point(22, 55);
+            this.cbIsTimer.Name = "cbIsTimer";
+            this.cbIsTimer.Size = new System.Drawing.Size(157, 35);
+            this.cbIsTimer.TabIndex = 0;
+            this.cbIsTimer.Text = "定时关机";
+            this.cbIsTimer.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(203, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 31);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "定时时间：";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "HH:mm";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(378, 45);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(152, 42);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // cbShowToolBar
+            // 
+            this.cbShowToolBar.AutoSize = true;
+            this.cbShowToolBar.Font = new System.Drawing.Font("宋体", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbShowToolBar.Location = new System.Drawing.Point(212, 108);
+            this.cbShowToolBar.Name = "cbShowToolBar";
+            this.cbShowToolBar.Size = new System.Drawing.Size(250, 35);
+            this.cbShowToolBar.TabIndex = 0;
+            this.cbShowToolBar.Text = "显示维护工具栏";
+            this.cbShowToolBar.UseVisualStyleBackColor = true;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 363);
+            this.ClientSize = new System.Drawing.Size(776, 439);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.cbShowToolBar);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnChangePwd);
@@ -141,6 +202,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "自助终端维护界面";
             this.Load += new System.EventHandler(this.SettingForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +219,10 @@
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnChangePwd;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbIsTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox cbShowToolBar;
     }
 }

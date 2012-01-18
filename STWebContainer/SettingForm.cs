@@ -60,6 +60,10 @@ namespace STWebContainer
             STWebContainerSetting set = StaticCacheManager.GetConfig<STWebContainerSetting>();
             set.Url=this.txtUrl.Text;
             StaticCacheManager.SaveConfig(set);
+            set.Hour = this.dateTimePicker1.Value.Hour;
+            set.Minute = this.dateTimePicker1.Value.Minute;
+            set.IsTimer = this.cbIsTimer.Checked;
+            set.IsShowToolBar=this.cbShowToolBar.Checked ;
             MessageBox.Show("保存成功！");
             this.Close();
         }
@@ -68,6 +72,11 @@ namespace STWebContainer
         {
             STWebContainerSetting set = StaticCacheManager.GetConfig<STWebContainerSetting>();
             this.txtUrl.Text = set.Url;
+            DateTime now=System.DateTime.Now;
+            DateTime dt = new DateTime(now.Year, now.Month, now.Day, set.Hour, set.Minute, 0);
+            this.dateTimePicker1.Value=dt;
+            this.cbIsTimer.Checked = set.IsTimer;
+            this.cbShowToolBar.Checked = set.IsShowToolBar;
         }
 
         private void btnChangePwd_Click(object sender, EventArgs e)

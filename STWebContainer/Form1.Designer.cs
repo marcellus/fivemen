@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -36,6 +37,7 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnMaintainment = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -60,6 +62,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel2MinSize = 0;
             this.splitContainer1.Size = new System.Drawing.Size(583, 448);
             this.splitContainer1.SplitterDistance = 387;
             this.splitContainer1.TabIndex = 0;
@@ -150,6 +153,11 @@
             this.btnMaintainment.UseVisualStyleBackColor = true;
             this.btnMaintainment.Click += new System.EventHandler(this.btnMaintainment_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -181,6 +189,7 @@
         private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnMaintainment;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
