@@ -9,6 +9,12 @@
     <base target="_self"></base>
     <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
     <style type="text/css">
+        body
+        {
+        	  vertical-align:top;
+        }
+       
+       
         input
         {
             width: 80px;
@@ -16,6 +22,25 @@
             height: 20px;
         }
     </style>
+    <script> 
+var   i   =   0 
+function   tb() 
+{ 
+if(event.keyCode   ==   13){ 
+if(i+1==document.getElementById("form1").elements.length) 
+{ 
+i=0 
+document.getElementById("form1").elements[i].focus() 
+} 
+else 
+alert("hah");
+document.getElementById("form1").elements[++i].focus() 
+} 
+
+}
+
+</script> 
+
     <script type="text/javascript" src="../../js/calendar.js"></script>
     <script src="../../js/validate-helper.js" type="text/javascript" ></script>
     <script type="text/javascript">
@@ -63,7 +88,8 @@
   MissingValue,MissingValue,MissingValue,
   MissingValue);
   */
-       var xlBook=xls.Workbooks.Open
+       var xlBook=xls.Workbooks.Open
+
 ("http://"+window.location.host+"/Templates/驾驶证申请表-初学.xlt");
        // var xlBook=xls.Workbooks.Open("c:\驾驶证申请表-初学.xlt");+"/"+"DrvHelperSystem"
        // alert("xls.Workbooks.count->"+xls.Workbooks.Count)
@@ -162,7 +188,8 @@
    var postcode=CheckPostCode(document.getElementById('txtLxzsyzbm').value);
    return idcard&&phone&&postcode;
 
-}
+
+}
 
 
 function searchArea() {
@@ -181,15 +208,15 @@ function searchArea() {
 
    
 </head>
-<body>
-    <form id="form1" runat="server">
+<body  onkeydown="if(event.keyCode==13) event.keyCode=9">
+    <form id="form1" runat="server"  style=" padding-top:0px; margin-top:0px">
     <div>
         <table border="0" cellpadding="4" cellspacing="1" class="table-border">
             <tr class="poptable-title">
                 <td colspan="8">
                     编号<asp:Label ID="lbId" runat="server"></asp:Label>
                     驾驶人详细信息：&nbsp;
-                    <asp:DropDownList ID="cbBustype" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="cbBustype" runat="server" TabIndex="1"></asp:DropDownList>
                   
                     <br />
                     <asp:Label ID="lbCheckResult" runat="server"></asp:Label>
@@ -201,7 +228,7 @@ function searchArea() {
                 </td>
                 <td style="width: 600px">
                     <asp:DropDownList ID="cbSfzmmcValue" runat="server" Width="110px" 
-                        Font-Size="9pt">
+                        Font-Size="9pt" TabIndex="2">
                     </asp:DropDownList>
                 </td>
                 <td class="table-title" style="width: 90px">
@@ -209,23 +236,23 @@ function searchArea() {
                 </td>
                 <td>
                     <asp:TextBox ID="txtSfzmhm" runat="server" Width="110px"  AutoPostBack="true"
-                        ontextchanged="txtSfzmhm_TextChanged"></asp:TextBox>
+                        ontextchanged="txtSfzmhm_TextChanged" TabIndex="3"></asp:TextBox>
                 </td>
                 <td class="table-title" style="width: 90px">
                     国籍
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbGjValue" runat="server"  Width="110px" Font-Size="12pt" 
-                        Height="18px">
+                    <asp:DropDownList ID="cbGjValue" runat="server"  Width="110px" Font-Size="12pt" TabIndex="4"
+                        >
                     </asp:DropDownList>
                 </td>
                 <td colspan="2" rowspan="6">
                     <asp:ImageButton ID="imgPhoto" runat="server"  OnClick="imgPhoto_Click"
-                        BorderStyle="Solid" BorderWidth="1px" Height="160px" Width="133px" />
+                        BorderStyle="Solid" BorderWidth="1px" Height="160px" Width="133px" TabIndex="116"/>
                     <br />
-                    <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" />
+                    <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" TabIndex="117" />
                     <br />
-                    <asp:Button ID="btnImgUpdate"  runat="server" OnClick="btnImgUpdate_Click" Text="上传照片" />
+                    <asp:Button ID="btnImgUpdate"  runat="server" OnClick="btnImgUpdate_Click" Text="上传照片" TabIndex="118"/>
                 </td>
             </tr>
             <tr class="table-content">
@@ -233,13 +260,13 @@ function searchArea() {
                     姓名
                 </td>
                 <td>
-                    <asp:TextBox ID="txtXm" runat="server" Width="110px"></asp:TextBox>
+                    <asp:TextBox ID="txtXm" runat="server" Width="110px" TabIndex="5"></asp:TextBox>
                 </td>
                 <td class="table-title">
                     性别
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbXbValue" runat="server"  Width="110px" Font-Size="12pt">
+                    <asp:DropDownList ID="cbXbValue" runat="server"  Width="110px" Font-Size="12pt" TabIndex="6">
                         <asp:ListItem Value="1">男</asp:ListItem>
                         <asp:ListItem Value="2">女</asp:ListItem>
                     </asp:DropDownList>
@@ -248,7 +275,7 @@ function searchArea() {
                     出生年月
                 </td>
                 <td>
-                    <input onclick="calendar.show(this);" style="width: 110px" id="txtCsrq" runat="server" />
+                    <input onclick="calendar.show(this);" style="width: 110px" id="txtCsrq" runat="server" TabIndex="7"/>
                 </td>
             </tr>
             <tr class="table-content">
@@ -256,14 +283,23 @@ function searchArea() {
                     登记住所
                 </td>
                 <td colspan="5">
-                
+                                    <asp:DropDownList ID="cbDjzsxzqhP" runat="server"  Font-Size="9pt" 
+                                        AutoPostBack="true" onselectedindexchanged="cbDjzsxzqhP_SelectedIndexChanged" TabIndex="8"
+                         ></asp:DropDownList>
+                   <asp:DropDownList ID="cbDjzsxzqhC" runat="server"  Font-Size="9pt" 
+                        AutoPostBack="true" onselectedindexchanged="cbDjzsxzqhC_SelectedIndexChanged" TabIndex="9"
+                         ></asp:DropDownList>
                     <asp:DropDownList ID="cbDjzsxzqhValue" runat="server"   AutoPostBack="true" 
-                        Font-Size="9pt" 
+                        Font-Size="9pt" TabIndex="10"
                         >
                     </asp:DropDownList>
-               
-                    <a href="#" onclick="javascript:searchArea();">查询</a>&nbsp;<asp:TextBox
-                        ID="txtDjzsxxdz" onkeyup="SynText()" runat="server" Width="350px"></asp:TextBox>
+                    <br />
+               <!--
+                    <a href="#" onclick="javascript:searchArea();">查询</a>&nbsp;
+                     -->
+                    <asp:TextBox
+                        ID="txtDjzsxxdz" onkeyup="SynText()" runat="server" Width="500px" TabIndex="11"></asp:TextBox>
+                       
                 </td>
             </tr>
             <tr class="table-content">
@@ -271,11 +307,16 @@ function searchArea() {
                     联系住所
                 </td>
                 <td colspan="5">
+                    <asp:DropDownList ID="cbLxzsxzqhP" runat="server"  Font-Size="9pt" AutoPostBack="true"
+                        onselectedindexchanged="cbLxzsxzqhP_SelectedIndexChanged" TabIndex="12" ></asp:DropDownList>
+                   <asp:DropDownList ID="cbLxzsxzqhC" runat="server"  Font-Size="9pt" 
+                        AutoPostBack="true" onselectedindexchanged="cbLxzsxzqhC_SelectedIndexChanged" TabIndex="13"
+                         ></asp:DropDownList>
                     <asp:DropDownList ID="cbLxzsxzqhValue" runat="server"  
-                        Font-Size="9pt">
+                        Font-Size="9pt" TabIndex="14">
                     </asp:DropDownList>
-              
-                    <asp:TextBox ID="txtLxzsxxdz" runat="server" Width="400px"></asp:TextBox>
+                     <br />
+                    <asp:TextBox ID="txtLxzsxxdz" runat="server" Width="500px" TabIndex="15"></asp:TextBox>
                 </td>
             </tr>
             <tr class="table-content">
@@ -283,17 +324,17 @@ function searchArea() {
                     邮政编码
                 </td>
                 <td>
-                    <asp:TextBox ID="txtLxzsyzbm" runat="server" Width="110px"></asp:TextBox>
+                    <asp:TextBox ID="txtLxzsyzbm" runat="server" Width="110px" TabIndex="16"></asp:TextBox>
                 </td>
                 <td class="table-title" style="">
                     联系电话
                 </td>
                 <td>
-                    <asp:TextBox ID="txtLxdh" runat="server" Width="110px"></asp:TextBox>
+                    <asp:TextBox ID="txtLxdh" runat="server" Width="110px" TabIndex="17"></asp:TextBox>
                 </td>
                 <td class="table-title">行政规划</td>
                 <td><asp:DropDownList ID="cbXzqhValue" runat="server"   Width="110px" 
-                        Font-Size="9pt">
+                        Font-Size="9pt" TabIndex="18">
                     </asp:DropDownList></td>
                                     
 
@@ -304,7 +345,7 @@ function searchArea() {
                 </td>
                 <td>
                     <asp:DropDownList ID="cbZkcxValue" runat="server"  Width="110px" 
-                        Font-Size="9pt">
+                        Font-Size="9pt" TabIndex="19">
                     </asp:DropDownList>
                 </td>
                 <td class="table-title" style="">
@@ -312,14 +353,14 @@ function searchArea() {
                 </td>
                 <td>
                     <asp:DropDownList ID="cbLyValue" runat="server"  Width="110px" 
-                        Font-Size="9pt">
+                        Font-Size="9pt" TabIndex="20">
                     </asp:DropDownList>
                 </td>
                               <td class="table-title" style="">
                     体检日期
                 </td>
                 <td>
-                    <input onclick="calendar.show(this);" style="width: 110px" id="txtTjrq" runat="server" />
+                    <input onclick="calendar.show(this);" style="width: 110px" id="txtTjrq" runat="server" TabIndex="21"/>
                 </td>
             </tr>
             <tr class="table-content">
@@ -327,13 +368,13 @@ function searchArea() {
                     准考证编号
                 </td>
                 <td>
-                    <asp:Label ID="lbZkzmbh" runat="server"></asp:Label>
+                    <asp:Label ID="lbZkzmbh" runat="server" ></asp:Label>
                 </td>
                 <td class="table-title" style="">
                     暂住证号
                 </td>
                 <td>
-                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px"></asp:TextBox>
+                    <asp:TextBox ID="txtZzzm" runat="server" Width="110px" TabIndex="22"></asp:TextBox>
                 </td>
                 <td class="table-title" style="">
                     驾校名称
@@ -347,21 +388,21 @@ function searchArea() {
                     身高
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSg" runat="server" Width="60px"></asp:TextBox>
+                    <asp:TextBox ID="txtSg" runat="server" Width="60px" TabIndex="23"></asp:TextBox>
                     CM
                 </td>
                 <td class="table-title" style="">
                     视力
                 </td>
                 <td>
-                    左<asp:TextBox ID="txtZsl" runat="server" Width="30px"></asp:TextBox>右<asp:TextBox
-                        ID="txtYsl" runat="server" Width="30px"></asp:TextBox>
+                    左<asp:TextBox ID="txtZsl" runat="server" Width="30px" TabIndex="24"></asp:TextBox>右<asp:TextBox
+                        ID="txtYsl" runat="server" Width="30px" TabIndex="25"></asp:TextBox>
                 </td>
                 <td class="table-title" style="">
                     辨色力
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbBslValue" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbBslValue" runat="server"  Font-Size="12pt" TabIndex="26">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -370,7 +411,7 @@ function searchArea() {
                     听力
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbTlValue" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbTlValue" runat="server"  Font-Size="12pt" TabIndex="27">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -381,7 +422,7 @@ function searchArea() {
                     上肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbSz" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbSz" runat="server"  Font-Size="12pt" TabIndex="28">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -390,7 +431,7 @@ function searchArea() {
                     左下肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbZxz" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbZxz" runat="server"  Font-Size="12pt" TabIndex="29">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -399,7 +440,7 @@ function searchArea() {
                     右下肢
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbYxz" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbYxz" runat="server"  Font-Size="12pt" TabIndex="30">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -408,7 +449,7 @@ function searchArea() {
                     躯干颈部
                 </td>
                 <td>
-                    <asp:DropDownList ID="cbQgjb" runat="server"  Font-Size="12pt">
+                    <asp:DropDownList ID="cbQgjb" runat="server"  Font-Size="12pt" TabIndex="31">
                         <asp:ListItem Value="1">1：合格</asp:ListItem>
                         <asp:ListItem Value="0">0：不合格</asp:ListItem>
                     </asp:DropDownList>
@@ -420,31 +461,31 @@ function searchArea() {
                 </td>
                 <td colspan="2">
                     <asp:DropDownList ID="cbTjyy" runat="server"  Width="220px" Font-Size="12pt"
-                        AutoPostBack="True" OnSelectedIndexChanged="cbTjyy_SelectedIndexChanged">
+                        AutoPostBack="True" OnSelectedIndexChanged="cbTjyy_SelectedIndexChanged" TabIndex="32">
                     </asp:DropDownList>
                 </td>
                 <td colspan="3">
-                    <asp:TextBox ID="txtTjyymc" runat="server" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="txtTjyymc" runat="server" Width="300px" TabIndex="33"></asp:TextBox>
                 </td>
 
             </tr>
             <tr class="table-content">
                 <td class="table-content" colspan="8" style="text-align: center">
                     <asp:Button ID="btnSure" runat="server" OnClick="btnSure_Click" 
-                        Text="保存" />
+                        Text="保存" TabIndex="34"/>
                     &nbsp;&nbsp;
                     <asp:Button ID="btnCheckImage" runat="server" Text="审核图片" 
-                        onclick="btnCheckImage_Click" />&nbsp;&nbsp;
-                    <asp:Button ID="btnCheck" runat="server" Text="审核资料" OnClick="btnCheck_Click" />&nbsp;&nbsp;
+                        onclick="btnCheckImage_Click" TabIndex="35"/>&nbsp;&nbsp;
+                    <asp:Button ID="btnCheck" runat="server" Text="审核资料" OnClick="btnCheck_Click" TabIndex="36"/>&nbsp;&nbsp;
                     <input id="Button2" style="width: 140px" class="button" onclick="printExcel();"
-                        type="button" value="打印申请表" />
+                        type="button" value="打印申请表" TabIndex="37"/>
                     &nbsp;&nbsp;
                     <input id="Button1" class="button" onclick="javascript:window.opener=null;window.close();"
-                        type="button" value="关闭" />
+                        type="button" value="关闭" TabIndex="38"/>
                 </td>
             </tr>
         </table>
     </div>
     </form>
 </body>
-</htwml> 
+</html> 
