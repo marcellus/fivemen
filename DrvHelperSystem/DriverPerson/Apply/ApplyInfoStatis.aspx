@@ -25,6 +25,9 @@
                     &nbsp;&nbsp;&nbsp;
                     
                     <input onclick="setday(this)" id="txtEndDate" runat="server" />
+                    &nbsp;
+                    类型：
+                    <asp:DropDownList ID="cbBustype" runat="server"  ></asp:DropDownList>
                     <asp:Button ID="btnSearch" runat="server"  Text="查询" 
                         onclick="btnSearch_Click" />
                    
