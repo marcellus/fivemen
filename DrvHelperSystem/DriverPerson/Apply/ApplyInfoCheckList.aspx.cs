@@ -141,7 +141,16 @@ decode(i_photo_syn,0,'未同步',1,'已同步',2,'同步失败') as i_photo_syn
         else if (e.CommandName == "Detail")
         {
             //int id = Convert.ToInt32(e.CommandArgument);
-            this.Pop(id);
+            //this.Pop(id);
+            StudentApplyInfo sai = SimpleOrmOperator.Query<StudentApplyInfo>(id);
+            if (sai == null) return ;
+            if (StudentApplyInfoOperator.CheckInfo(sai, this.Operator.OperatorName))
+            {
+                WebTools.Alert(string.Format("{0}:{1} 审核成功", sai.Xm, sai.Sfzmhm));
+            }
+            else {
+                WebTools.Alert(string.Format("{0}:{1} 审核失败", sai.Xm, sai.Sfzmhm));
+            }
 
         }
     }

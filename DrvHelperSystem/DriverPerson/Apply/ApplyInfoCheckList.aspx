@@ -105,7 +105,7 @@
                               <asp:TemplateColumn HeaderText="详细">
                             <ItemTemplate>
                             
-                            <asp:ImageButton runat="server" AlternateText="详细" CommandArgument='<%#Eval("id") %>' ToolTip="详细" ID="btnDetail" CommandName="Detail" ImageUrl="~/images/modify.gif" />
+                            <asp:ImageButton runat="server" AlternateText="审核" CommandArgument='<%#Eval("id") %>' ToolTip="审核" ID="btnDetail" CommandName="Detail" ImageUrl="~/images/enter.jpg" />
                                     <asp:ImageButton runat="server" AlternateText="删除" CommandArgument='<%#Eval("id") %>'
                                         ToolTip="删除" OnClientClick="return confirm('确定删除吗？');" ID="btnDelete" CommandName="Delete"
                                         ImageUrl="~/images/delete.gif" />                          
