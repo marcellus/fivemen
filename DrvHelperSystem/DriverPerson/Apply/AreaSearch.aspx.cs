@@ -11,64 +11,37 @@ using System.Web.UI.WebControls.WebParts;
 using FT.WebServiceInterface.DrvQuery;
 using FT.DAL;
 using FT.DAL.Oracle;
+using FT.Web;
 
 public partial class DriverPerson_Apply_AreaSearch : System.Web.UI.Page
 {
+
+
+    string sqlPattern = "select "
++ " (select dmsm1 from trff_app.frm_code where dmz=concat(substr(t.dmz,0,2),'0000') and dmlb='0033' ) as sf "
++ ",(select dmsm1 from trff_app.frm_code where dmz=concat(substr(t.dmz,0,4),'00') and dmlb='0033' ) as cs "
++ ", dmz,dmsm1 "
++ " from trff_app.frm_code t where dmlb='0033' and (dmz like '%{0}%' or dmsm1 like '%{0}%')";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            DrvQueryHelper.BindDDLProvince(this.ddlProvince);
-            this.ddlProvince_SelectedIndexChanged(null, null);
-            this.ddlCity_SelectedIndexChanged(null, null);
-
-        }
+        
     }
-    protected void Button3_Click(object sender, EventArgs e)
+    
+    
+    protected void btnSearch_Click(object sender, EventArgs e)
     {
-        string sql = "select distinct dmz,dmz||'：'||dmmc1 as dmmc1 from drv_admin.drv_code t where dmlb=33 and (dmz = '" +this.txtCode.Text.Trim() + "' or dmmc1='"+this.txtName.Text.Trim()+"')";
-        IDataAccess access = new OracleDataHelper(FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]));
-        DataTable dt1 = access.SelectDataTable(sql, "tmp");
-        if (dt1 != null && dt1.Rows.Count > 0)
+        if (string.IsNullOrEmpty(txtCode.Text))
         {
-            string code=dt1.Rows[0][0].ToString();
-            if (code.EndsWith("0000"))
-            {
-                this.ddlProvince.SelectedValue = code;
-            }
-            else if (code.EndsWith("00"))
-            {
-                this.ddlProvince.SelectedValue = code.Substring(0, 2) + "0000";
-                this.ddlProvince_SelectedIndexChanged(null,null);
-                this.ddlCity.SelectedValue = code;
-            }
-            else
-            {
+            return;
+        }
+        string sql = string.Format(sqlPattern, txtCode.Text);
 
-                this.ddlProvince.SelectedValue = code.Substring(0, 2) + "0000";
-                this.ddlProvince_SelectedIndexChanged(null,null);
-                this.ddlCity.SelectedValue = code.Substring(0, 4) + "00";
-                this.ddlCity_SelectedIndexChanged(null,null);
-                
-                this.ddlArea.SelectedValue = code;
-            }
-        }
-    }
-    protected void ddlProvince_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = this.ddlProvince.SelectedValue;
-        if (code.Length > 0)
+        DataTable dt = WholeWebConfig.GetDrvIDataAccessDecode().SelectDataTable(sql, "tmp");
+        if (dt != null)
         {
-            DrvQueryHelper.BindDDLCity(this.ddlCity, code);
+            this.DataGrid1.DataSource = dt;
+            this.DataGrid1.DataBind();
         }
-    }
-    protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = this.ddlCity.SelectedValue;
-        if (code.Length > 0)
-        {
-            DrvQueryHelper.BindDDLArea(this.ddlArea, code);
-        }
-
     }
 }

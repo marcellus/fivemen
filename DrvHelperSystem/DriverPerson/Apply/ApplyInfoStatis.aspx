@@ -6,6 +6,7 @@
 <head runat="server">
     <title>无标题页</title>
     <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
+   
      <script type="text/javascript" src="../../js/setday.js"></script>
 </head>
 <body>
