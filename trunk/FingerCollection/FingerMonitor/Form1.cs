@@ -223,7 +223,11 @@ namespace FingerMonitor
                                 // continue; 
                             }
 
-
+                            sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                            if (!accessAccess.ExecuteSql(sql)) {
+                                // continue;
+                            }
+                           
 
                             sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
                             if (!accessAccess.ExecuteSql(sql))
@@ -231,7 +235,7 @@ namespace FingerMonitor
                                 //  continue; 
                             }
 
-                            sql = string.Format("update table_local_finger_record set c_upload_time='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where c_idcard='{0}'", dr["c_idcard"]);
+                            sql = string.Format("update table_upload_finger_record set c_upload_time='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where c_idcard='{0}'", dr["c_idcard"]);
 
                             if (!accessAccess.ExecuteSql(sql))
                             {
@@ -242,6 +246,13 @@ namespace FingerMonitor
 
 
                             reNum++;
+                        }
+                        else {
+                            sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                            if (!accessAccess.ExecuteSql(sql))
+                            {
+                                //  continue; 
+                            }
                         }
 
 
