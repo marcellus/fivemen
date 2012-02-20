@@ -17,7 +17,7 @@ using FT.DAL.Orm;
 using FT.Commons.Tools;
 
 
-public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
+public partial class DriverPerson_Apply_ApplyInfoAdd2 : AuthenticatedPage
 {
 
     private string getDefaultCityCode() {
@@ -60,15 +60,13 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.cbLxzsxzqhValue.Items.Add(new ListItem(li.Text, li.Value));
                 this.cbXzqhValue.Items.Add(new ListItem(li.Text, li.Value));
             }
-            this.cbXzqhValue.Items.Add(new ListItem("其它（外地）", "440907"));
+
 
             DrvQueryHelper.BindDropDownListLy(this.cbLyValue);
             DrvQueryHelper.BindDropDownListZkcx(this.cbZkcxValue);
             DrvQueryHelper.BindDropDownListNational(this.cbGjValue);
             DrvQueryHelper.BindDropDownListLocalArea(this.cbDjzsxzqhValue);
             //DrvQueryHelper.BindDropDownListLocalArea(this.cbLxzsxzqhValue);
-            DrvQueryHelper.BindDDLProvince(this.cbLxzsxzqhP);
-            DrvQueryHelper.BindDDLProvince(this.cbDjzsxzqhP);
             this.cbGjValue.SelectedValue = "156";
 
             if (Request.Params["id"] != null)
@@ -78,43 +76,18 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 this.txtTjrq.Value = entity.Tjrq;
                 this.txtCsrq.Value = entity.Csrq;
                 this.cbDjzsxzqhValue.Items.Clear();
-                //this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
+                this.cbDjzsxzqhValue.Items.Add(new ListItem(entity.Djzsxzqh, entity.Djzsxzqh));
                 //this.cbDjzsxzqhValue.Items.Clear();
                 //this.cbDjzsxzqhValue.Text = entity.Djzsxzqh;
                 this.imgPhoto.ImageUrl = "ApplyInfoPhoto.aspx?idcard=" + entity.Sfzmhm;
                 this.cbBustype.SelectedValue = entity.PhotoSrc;
-                if (!string.IsNullOrEmpty(entity.Lxzsxzqh)) {
-                    this.cbLxzsxzqhP.SelectedValue = string.Format("{0}0000",entity.Lxzsxzqh.Substring(0,2));
-                    DrvQueryHelper.BindDDLCity(cbLxzsxzqhC, this.cbLxzsxzqhP.SelectedValue);
-                    this.cbLxzsxzqhC.SelectedValue = string.Format("{0}00", entity.Lxzsxzqh.Substring(0,4));
-                    DrvQueryHelper.BindDDLArea(cbLxzsxzqhValue, this.cbLxzsxzqhC.SelectedValue);
-                    this.cbLxzsxzqhValue.SelectedValue = entity.Lxzsxzqh;
-                }
-                if (!string.IsNullOrEmpty(entity.Djzsxzqh))
-                {
-                    this.cbDjzsxzqhP.SelectedValue = string.Format("{0}0000", entity.Djzsxzqh.Substring(0, 2));
-                    DrvQueryHelper.BindDDLCity(cbDjzsxzqhC, this.cbDjzsxzqhP.SelectedValue);
-                    this.cbDjzsxzqhC.SelectedValue = string.Format("{0}00", entity.Djzsxzqh.Substring(0, 4));
-                    DrvQueryHelper.BindDDLArea(cbDjzsxzqhValue, this.cbDjzsxzqhC.SelectedValue);
-                    this.cbDjzsxzqhValue.SelectedValue = entity.Djzsxzqh;
-                }
+                
             }
             else {
                 this.imgPhoto.ImageUrl = "~/images/no_photo.jpg";
-                //this.cbLxzsxzqhValue.SelectedValue = "440500";
+                this.cbLxzsxzqhValue.SelectedValue = "440500";
                 //this.cbXzqhValue.SelectedValue = "440500";
-                //this.cbDjzsxzqhValue.SelectedValue = "440500";
-
-                this.cbLxzsxzqhP.SelectedValue = string.Format("{0}0000",this.getDefaultCityCode().Substring(0, 2));
-                DrvQueryHelper.BindDDLCity(cbLxzsxzqhC, this.cbLxzsxzqhP.SelectedValue);
-                this.cbLxzsxzqhC.SelectedValue = string.Format("{0}00", this.getDefaultCityCode());
-                DrvQueryHelper.BindDDLArea(cbLxzsxzqhValue, this.cbLxzsxzqhC.SelectedValue);
-
-                this.cbDjzsxzqhP.SelectedValue = string.Format("{0}0000", this.getDefaultCityCode().Substring(0, 2));
-                DrvQueryHelper.BindDDLCity(cbDjzsxzqhC, this.cbDjzsxzqhP.SelectedValue);
-                this.cbDjzsxzqhC.SelectedValue = string.Format("{0}00", this.getDefaultCityCode().Substring(0, 4));
-                DrvQueryHelper.BindDDLArea(cbDjzsxzqhValue, this.cbDjzsxzqhC.SelectedValue);
-
+                this.cbDjzsxzqhValue.SelectedValue = "440500";
                 this.txtYsl.Text="5.0";
                 this.txtZsl.Text = "5.0";
                 this.cbZkcxValue.SelectedValue = "C1";
@@ -281,35 +254,5 @@ public partial class DriverPerson_Apply_ApplyInfoAdd : AuthenticatedPage
                 WebTools.Alert(this, "图片审核失败！");
             }
         }
-    }
-    protected void cbLxzsxzqhP_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = cbLxzsxzqhP.SelectedValue;
-
-        cbLxzsxzqhC.Items.Clear();
-        cbLxzsxzqhValue.Items.Clear();
-        DrvQueryHelper.BindDDLCity(cbLxzsxzqhC, code);
-        DrvQueryHelper.BindDDLArea(cbLxzsxzqhValue, cbLxzsxzqhC.SelectedValue);
-    }
-    protected void cbLxzsxzqhC_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = cbLxzsxzqhC.SelectedValue;
-        cbLxzsxzqhValue.Items.Clear();
-        DrvQueryHelper.BindDDLArea(cbLxzsxzqhValue, code);
-    }
-    protected void cbDjzsxzqhP_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = cbDjzsxzqhP.SelectedValue;
-
-        cbDjzsxzqhC.Items.Clear();
-        cbDjzsxzqhValue.Items.Clear();
-        DrvQueryHelper.BindDDLCity(cbDjzsxzqhC, code);
-        DrvQueryHelper.BindDDLArea(cbDjzsxzqhValue, cbDjzsxzqhC.SelectedValue);
-    }
-    protected void cbDjzsxzqhC_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string code = cbDjzsxzqhC.SelectedValue;
-        cbDjzsxzqhValue.Items.Clear();
-        DrvQueryHelper.BindDDLArea(cbDjzsxzqhValue, code);
     }
 }

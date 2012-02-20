@@ -3,7 +3,7 @@
 	
 	background-color: #eef3f9;
 	font-size: 12pt;
-	height:100%;
+	
 	overflow:scroll
 }
 a
@@ -109,19 +109,19 @@ form
 {
 	text-align:center;
 	vertical-align:middle;
-	height:100%;
+	
 }
 form div:first-child
 {
 	text-align:center;
 	vertical-align:middle;
-	height:100%;
+	
 }
 div table
 {
 	text-align: center;
 	vertical-align: middle;
-	height: 100%;
+	
 	margin-right: 0px;
 	
 }

@@ -6,7 +6,37 @@
 <head runat="server">
     <title>地区查询窗口</title>
     <meta content="no-cache" http-equiv="pragma">
+       <link href="../../css/main.css" rel="Stylesheet" type="text/css" />
+       <script type="text/javascript" src="../../js/jquery-easyui-1.2.3/jquery-1.4.4.min.js" ></script>
+    <style>
+    
+      tr.q
+      {
+        cursor:pointer;
+      }
+      
+      tr.q:hover
+      {
+      	background-color:Yellow;
+      }
+    
+    </style>
     <script type="text/javascript">
+    
+    
+    $(document).ready(function(){
+     
+       $("tr.q").click(function(){
+         var sf=$(this).find("td:eq(0)").text();
+         var cs=$(this).find("td:eq(1)").text();
+         var dmz=$(this).find("td:eq(2)").text();
+         var dmmc1=$(this).find("td:eq(3)").text();
+        window.returnValue = sf+"|"+cs+"|"+dmz+"|"+dmmc1;   
+        window.opener=null;
+        window.close();   
+       });
+     
+    });
     function CloseSelfWin()
     {
       //alert("123");
@@ -30,45 +60,40 @@
      <base target="_self"></base>
 </head>
 <body>
-    <form id="form1" runat="server" style="text-align:center; margin-top:15px">
+    <form id="form1" runat="server" style="text-align:center; margin-top:0px">
     <div style="">
-    <table style="text-align:left;" width="600px">
+    <table style="text-align:left; padding:0px; vertical-align:top"  >
     <tr>
     <td>
-    代码<asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
-    &nbsp;名称<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-        <asp:Button ID="Button3" runat="server" Text="查询" onclick="Button3_Click" />
+    输入查询区划名或代码:<asp:TextBox ID="txtCode" runat="server" Width="240px"  
+            ></asp:TextBox>
+    <asp:Button  Text="查询" ID="btnSearch" runat="server" onclick="btnSearch_Click" />
+    </td>
+    </tr>
     
-    </td>
-    </tr>
     <tr>
-    <td>省份<asp:DropDownList ID="ddlProvince" runat="server" AutoPostBack="True" 
-            onselectedindexchanged="ddlProvince_SelectedIndexChanged">
-        </asp:DropDownList>
-    </td>
-    </tr>
-    <tr>
-    <td>
-       市级<asp:DropDownList ID="ddlCity" runat="server" AutoPostBack="True" 
-            onselectedindexchanged="ddlCity_SelectedIndexChanged">
-        </asp:DropDownList>
-    </td>
-    </tr>
-    <tr>
-    <td>
-    
-        地区<asp:DropDownList ID="ddlArea" runat="server">
-        </asp:DropDownList>
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:center">
-        <input id="Button1"  onclick="CloseSelfWin()" type="button" value="确定" />
-        &nbsp;<input id="Button2" type="button" value="取消" />
-    </td>
+      <td>
+        <asp:DataGrid ID="DataGrid1" runat="server" AutoGenerateColumns="False" 
+                        BorderWidth="0px" CellPadding="1" CellSpacing="1" CssClass="table-border" 
+                        Width="100%">
+                        <Columns>
+                            <asp:BoundColumn DataField="sf" HeaderText="省份"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="cs" HeaderText="城市"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="dmz" HeaderText="代码值"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="dmsm1" HeaderText="区名"></asp:BoundColumn>
+                        </Columns>
+                        <HeaderStyle CssClass="table-title" />
+                        <ItemStyle CssClass="table-content q" />
+                        <EditItemStyle CssClass="table-content" />
+                    </asp:DataGrid>
+      </td>
     </tr>
     
     </table>
+    
+    
+    
+    
     </div>
     </form>
 </body>
