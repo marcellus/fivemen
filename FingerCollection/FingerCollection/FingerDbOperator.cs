@@ -98,6 +98,23 @@ namespace FingerCollection
         }
 
         /// <summary>
+        /// 清空所有亚略特指纹信息
+        /// </summary>
+        public static void ClearFingerAratek()
+        {
+            IDataAccess access = DataAccessFactory.GetDataAccess();
+            string sql = string.Empty;
+            //string sql = "insert into USER_INFO_UPLOAD select * from  USER_INFO where USER_ID<>'sa'";
+            //access.ExecuteSql(sql);
+            sql = "delete from  USER_INFO where USER_ID<>'sa'";
+            access.ExecuteSql(sql);
+            //sql = "insert into ENROLL_TEMP_UPLOAD select * from  ENROLL_TEMP where USER_ID<>'sa'";
+            //access.ExecuteSql(sql);
+            sql = "delete from  ENROLL_TEMP where USER_ID<>'sa'";
+            access.ExecuteSql(sql);
+        }
+
+        /// <summary>
         /// 备份指纹记录到准备上传的表中
         /// </summary>
         public static void BackFingerInfo()
