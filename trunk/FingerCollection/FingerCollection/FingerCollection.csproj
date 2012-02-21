@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57EB2F5D-5E96-49A3-9E98-BF51F75C16CB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -12,6 +12,7 @@
     <AssemblyName>FingerCollection</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>eye.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,10 +43,6 @@
     <Reference Include="DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <HintPath>..\..\commons-dlls\DevExpress.Utils.v7.3.dll</HintPath>
     </Reference>
-    <Reference Include="FT.Device, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\commons-dlls\FT.Device.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\commons-dlls\log4net.dll</HintPath>
@@ -74,7 +71,6 @@
     </Compile>
     <Compile Include="LocalFingerRecordObject.cs" />
     <Compile Include="LocalFingerRecordSearch.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LocalFingerRecordSearch.Designer.cs">
       <DependentUpon>LocalFingerRecordSearch.cs</DependentUpon>

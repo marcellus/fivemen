@@ -10,15 +10,29 @@ namespace FingerCollection
 {
     public partial class LocalFingerRecordSearch : FT.Windows.Forms.DataSearchControl
     {
-        public LocalFingerRecordSearch()
+        private TextBox tx;
+        public LocalFingerRecordSearch(TextBox tx)
         {
             InitializeComponent();
+            this.tx = tx;
             this.AddSearch();
             this.EntityType = typeof(LocalFingerRecordObject);
             this.btnDelete.Visible = false;
             this.btnExport.Visible = false;
             this.btnAdd.Visible = false;
             this.btnUpdate.Visible = false;
+            this.dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
+        }
+        void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+               // this.dataGridView1_SelectionChanged
+              //  int i = this.dataGridView1.SelectedRows[0].Index;
+               // LocalFingerRecordObject student = this.pager.Lists[i] as LocalFingerRecordObject;
+                string txt = this.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                this.tx.Text = txt;
+            }
         }
         protected override void InitPager()
         {
@@ -34,7 +48,11 @@ namespace FingerCollection
             txt.KeyDown += new KeyEventHandler(txt_KeyDown);
             txt.ToolTipText = "输入姓名按回车查询";
             this.toolStrip1.Items.Add(txt);
+             
         }
+
+
+
         void txt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
