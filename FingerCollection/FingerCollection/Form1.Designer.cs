@@ -51,9 +51,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.localFingerRecordSearch2 = new FingerCollection.LocalFingerRecordSearch();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uploadFingerRecordSearch2 = new FingerCollection.UploadFingerRecordSearch();
+            this.btnCompact = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -75,6 +75,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.cbStudentType);
             this.splitContainer1.Panel1.Controls.Add(this.datePxrq);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdateLsh);
+            this.splitContainer1.Panel1.Controls.Add(this.btnCompact);
             this.splitContainer1.Panel1.Controls.Add(this.btnClear);
             this.splitContainer1.Panel1.Controls.Add(this.btnDeleteNow);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
@@ -139,7 +140,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClear.Location = new System.Drawing.Point(481, 162);
+            this.btnClear.Location = new System.Drawing.Point(488, 160);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(108, 50);
             this.btnClear.TabIndex = 3;
@@ -161,7 +162,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(615, 162);
+            this.btnDelete.Location = new System.Drawing.Point(574, 82);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(57, 53);
             this.btnDelete.TabIndex = 2;
@@ -306,6 +307,7 @@
             // 
             // tabPage1
             // 
+            localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard);
             this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
@@ -347,6 +349,17 @@
             this.uploadFingerRecordSearch2.Name = "uploadFingerRecordSearch2";
             this.uploadFingerRecordSearch2.Size = new System.Drawing.Size(1218, 303);
             this.uploadFingerRecordSearch2.TabIndex = 0;
+            // 
+            // btnCompact
+            // 
+            this.btnCompact.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCompact.Location = new System.Drawing.Point(612, 160);
+            this.btnCompact.Name = "btnCompact";
+            this.btnCompact.Size = new System.Drawing.Size(108, 50);
+            this.btnCompact.TabIndex = 3;
+            this.btnCompact.Text = "压缩指纹库";
+            this.btnCompact.UseVisualStyleBackColor = true;
+            this.btnCompact.Click += new System.EventHandler(this.btnCompact_Click);
             // 
             // Form1
             // 
@@ -398,6 +411,7 @@
         private System.Windows.Forms.Label label6;
         private LocalFingerRecordSearch localFingerRecordSearch2;
         private UploadFingerRecordSearch uploadFingerRecordSearch2;
+        private System.Windows.Forms.Button btnCompact;
     }
 }
 

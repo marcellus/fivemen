@@ -48,11 +48,14 @@ namespace FingerCollection
                 return;
             }
             string result = string.Empty;
-            result=IDCardHelper.Validate(idcard) ;
-            if (result!= string.Empty)
+            if (idcard.Length >= 15)
             {
-                MessageBoxHelper.Show(result);
-                return;
+                result = IDCardHelper.Validate(idcard);
+                if (result != string.Empty)
+                {
+                    MessageBoxHelper.Show(result);
+                    return;
+                }
             }
              String name = this.txtName.Text.Trim();
             if (name.Length == 0)
@@ -81,6 +84,7 @@ namespace FingerCollection
                 FingerDbOperator.DeleteUser(idcard);
                 FingerDbOperator.Enroll(idcard, name, this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text);
                 _TG.UpdateEnroll(idcard);
+                MessageBox.Show("更新采集成功！");
                // MessageBox.Show(Convert.ToString(_TG.LastErrCode)
               //  + "\n" + _TG.LastErrMsg
                // + "\n" + _TG.LastErrReason);
@@ -164,14 +168,18 @@ namespace FingerCollection
             this.txtIdCard.Focus();
             FingerDbOperator.BindDict(this.cbLearnCar, "准驾车型");
             FingerDbOperator.BindDict(this.cbStudentType, "学员类型");
+            this.cbLearnCar.SelectedValue = "C1";
         }
 
         
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            FingerDbOperator.Clear();
-            MessageBoxHelper.Show("清空成功！");
+            if (MessageBoxHelper.Confirm("清空指纹库将删除所有指纹吗？"))
+            {
+                FingerDbOperator.Clear();
+                MessageBoxHelper.Show("清空成功！");
+            }
         }
 
         private void btnUpdateLsh_Click(object sender, EventArgs e)
@@ -180,5 +188,51 @@ namespace FingerCollection
             this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
            
         }
+
+        private void btnCompact_Click(object sender, EventArgs e)
+        {
+           // string path=Application.StartupPath+"\\db\\db.mdb";
+           //CompactAccessDB(" Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+path+";User Id=admin;Password=;",path);
+            //System.IO.File.Delete(mdwfilename);
+           if( MessageBoxHelper.Confirm("压缩指纹库将删除所有指纹吗？"))
+           {
+            string pathOrg = Application.StartupPath + "\\db.mdb";
+            string pathDst = Application.StartupPath + "\\db\\db.mdb";
+            System.IO.File.Copy(pathOrg,pathDst,true);
+            MessageBoxHelper.Show("压缩完毕！");
+           }
+
+        }
+            /// <summary> 
+            /// MBD compact method (c) 2004 Alexander Youmashev  
+            /// !!IMPORTANT!!  
+            /// !make sure there's no open connections  
+            ///to your db before calling this method!  
+            /// !!IMPORTANT!! 
+            /// /// </summary> 
+            /// <param name="connectionString">connection string to your db</param> 
+            /// <param name="mdwfilename">FULL name  
+            /// of an MDB file you want to compress.</param> 
+            /// 
+            public static void CompactAccessDB(string connectionString, string mdwfilename)  
+            {  object[] oParams;  
+                //create an inctance of a Jet Replication Object  
+                object objJRO =  Activator.CreateInstance(Type.GetTypeFromProgID("JRO.JetEngine"));   
+                //filling Parameters array  
+                //cnahge "Jet OLEDB:Engine Type=5" to an appropriate value  
+                // or leave it as is if you db is JET4X format (access 2000,2002)  
+                //(yes, jetengine5 is for JET4X, no misprint here)  
+                oParams = new object[] {  connectionString,  "Provider=Microsoft.Jet.OLEDB.4.0;Data" +  " Source=C:\\tempdb.mdb;Jet OLEDB:Engine Type=5"};  
+                //invoke a CompactDatabase method of a JRO object  
+                //pass Parameters array 
+                objJRO.GetType().InvokeMember("CompactDatabase",  System.Reflection.BindingFlags.InvokeMethod,  null,  objJRO,  oParams);   
+                //database is compacted now  
+                //to a new file C:\\tempdb.mdw  
+                //let's copy it over an old one and delete it   
+                System.IO.File.Delete(mdwfilename);  
+                System.IO.File.Move("C:\\tempdb.mdb", mdwfilename);   //clean up (just in case)  
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(objJRO);  objJRO=null;  
+            } 
+        
     }
 }
