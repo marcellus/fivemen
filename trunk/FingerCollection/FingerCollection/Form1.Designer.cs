@@ -34,6 +34,7 @@
             this.cbStudentType = new System.Windows.Forms.ComboBox();
             this.datePxrq = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateLsh = new System.Windows.Forms.Button();
+            this.btnCompact = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDeleteNow = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uploadFingerRecordSearch2 = new FingerCollection.UploadFingerRecordSearch();
-            this.btnCompact = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -137,6 +137,17 @@
             this.btnUpdateLsh.UseVisualStyleBackColor = true;
             this.btnUpdateLsh.Click += new System.EventHandler(this.btnUpdateLsh_Click);
             // 
+            // btnCompact
+            // 
+            this.btnCompact.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCompact.Location = new System.Drawing.Point(612, 160);
+            this.btnCompact.Name = "btnCompact";
+            this.btnCompact.Size = new System.Drawing.Size(108, 50);
+            this.btnCompact.TabIndex = 3;
+            this.btnCompact.Text = "压缩指纹库";
+            this.btnCompact.UseVisualStyleBackColor = true;
+            this.btnCompact.Click += new System.EventHandler(this.btnCompact_Click);
+            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -146,6 +157,7 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "清空指纹库";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Visible = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDeleteNow
@@ -307,34 +319,35 @@
             // 
             // tabPage1
             // 
-            localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard);
+            this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard);
             this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1224, 309);
+            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "待上传指纹名单";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // localFingerRecordSearch2
             // 
+           // this.localFingerRecordSearch2.
             this.localFingerRecordSearch2.AllowCustomeSearch = true;
             this.localFingerRecordSearch2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.localFingerRecordSearch2.EntityType = typeof(FingerCollection.LocalFingerRecordObject);
             this.localFingerRecordSearch2.Location = new System.Drawing.Point(3, 3);
             this.localFingerRecordSearch2.Margin = new System.Windows.Forms.Padding(4);
             this.localFingerRecordSearch2.Name = "localFingerRecordSearch2";
-            this.localFingerRecordSearch2.Size = new System.Drawing.Size(1218, 303);
+            this.localFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.localFingerRecordSearch2.TabIndex = 0;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.uploadFingerRecordSearch2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1224, 309);
+            this.tabPage2.Size = new System.Drawing.Size(1224, 310);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "已上传指纹名单";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -347,19 +360,8 @@
             this.uploadFingerRecordSearch2.Location = new System.Drawing.Point(3, 3);
             this.uploadFingerRecordSearch2.Margin = new System.Windows.Forms.Padding(4);
             this.uploadFingerRecordSearch2.Name = "uploadFingerRecordSearch2";
-            this.uploadFingerRecordSearch2.Size = new System.Drawing.Size(1218, 303);
+            this.uploadFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.uploadFingerRecordSearch2.TabIndex = 0;
-            // 
-            // btnCompact
-            // 
-            this.btnCompact.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCompact.Location = new System.Drawing.Point(612, 160);
-            this.btnCompact.Name = "btnCompact";
-            this.btnCompact.Size = new System.Drawing.Size(108, 50);
-            this.btnCompact.TabIndex = 3;
-            this.btnCompact.Text = "压缩指纹库";
-            this.btnCompact.UseVisualStyleBackColor = true;
-            this.btnCompact.Click += new System.EventHandler(this.btnCompact_Click);
             // 
             // Form1
             // 
@@ -393,7 +395,7 @@
         private System.Windows.Forms.TextBox txtIdCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCollection;
-        private LocalFingerRecordSearch localFingerRecordSearch1;
+        
         private UploadFingerRecordSearch uploadFingerRecordSearch1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnVerify;

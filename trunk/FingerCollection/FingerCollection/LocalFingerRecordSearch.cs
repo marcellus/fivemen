@@ -11,9 +11,27 @@ namespace FingerCollection
     public partial class LocalFingerRecordSearch : FT.Windows.Forms.DataSearchControl
     {
         private TextBox tx;
+
+        public string GetMyCondition()
+        {
+            return this.pager.Condition;
+        }
+
+        public void SetMyConditon(string condition)
+        {
+            //this.btn.PerformClick();
+            this.SetConditions(condition);
+            this.SetConditions(condition+" ");
+            
+             //this.pager.Search();
+            
+          //  this.
+        }
+
         public LocalFingerRecordSearch(TextBox tx)
         {
             InitializeComponent();
+            this.isSelfBinding = false;
             this.tx = tx;
             this.AddSearch();
             this.EntityType = typeof(LocalFingerRecordObject);

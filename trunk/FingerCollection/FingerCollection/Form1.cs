@@ -71,23 +71,69 @@ namespace FingerCollection
 
             int intResult = SUCCESSED;
             this.SetConfig();
+            if (FingerDbOperator.Exists(idcard))
+            {
+                FingerDbOperator.DeleteUser(idcard);
+            }
             
             intResult = _TG.NewEnroll(idcard);
             if (intResult == SUCCESSED)
             {
-                MessageBox.Show("采集成功！");
+                MessageBoxHelper.Show("采集成功！");
                 FingerDbOperator.Enroll(idcard,name,this.datePxrq.Value.ToString("yyyy-MM-dd"),this.cbStudentType.SelectedValue.ToString(),this.cbLearnCar.Text);
-                this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+               // this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+               // this.localFingerRecordSearch2.se
+                this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
+                
+               // this.lo
+            }
+            else if (intResult == 404)
+            {
+
+            }
+            else if (intResult == 31)
+            {
+                FingerDbOperator.DeleteUser(idcard);
+                _TG.DeleteUser(idcard);
+                intResult = _TG.NewEnroll(idcard);
+                if (intResult == SUCCESSED)
+                {
+                    MessageBoxHelper.Show("更新采集成功！");
+                    FingerDbOperator.Enroll(idcard, name, this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text);
+                    //this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+                    //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
+                    this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+
+                    // this.localFingerRecordSearch2.Refresh();
+
+                }
+            }
+            else if (intResult == 40)
+            {
+                FingerDbOperator.ClearFingerAratek();
+                intResult = _TG.NewEnroll(idcard);
+                if (intResult == SUCCESSED)
+                {
+                    MessageBoxHelper.Show("采集成功！");
+                    FingerDbOperator.Enroll(idcard, name, this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text);
+                    //  this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+                    //  this.localFingerRecordSearch2.Refresh();
+                    //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
+                    this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+
+                }
+                // MessageBoxHelper.Show("已经超出授权数量，无法采集！");
             }
             else
             {
-                FingerDbOperator.DeleteUser(idcard);
-                FingerDbOperator.Enroll(idcard, name, this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text);
-                _TG.UpdateEnroll(idcard);
-                MessageBox.Show("更新采集成功！");
-               // MessageBox.Show(Convert.ToString(_TG.LastErrCode)
-              //  + "\n" + _TG.LastErrMsg
-               // + "\n" + _TG.LastErrReason);
+                MessageBoxHelper.Show("指纹采集监控平台返回代码：" + intResult);
+
+                //_TG.UpdateEnroll(idcard);
+                // MessageBox.Show("更新采集成功！");
+                // MessageBox.Show(Convert.ToString(_TG.LastErrCode)
+                //  + "\n" + _TG.LastErrMsg
+                // + "\n" + _TG.LastErrReason);
             }
         }
 
@@ -110,11 +156,11 @@ namespace FingerCollection
             this.SetConfig();
             if (_TG.DeleteUser(idcard) == SUCCESSED)
             {
-                MessageBox.Show("删除成功！");
+                MessageBoxHelper.Show("删除成功！");
             }
             else
             {
-                MessageBox.Show(Convert.ToString(_TG.LastErrCode)
+                MessageBoxHelper.Show(Convert.ToString(_TG.LastErrCode)
                 + "\n" + _TG.LastErrMsg
                 + "\n" + _TG.LastErrReason);
             }
@@ -159,7 +205,7 @@ namespace FingerCollection
             if(FingerDbOperator.DeleteUser(idcard))
             {
                 MessageBoxHelper.Show("删除用户成功！");
-                this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+                this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
             }
         }
 
@@ -185,7 +231,7 @@ namespace FingerCollection
         private void btnUpdateLsh_Click(object sender, EventArgs e)
         {
             FingerDbOperator.UpdateLsh(this.txtIdCard.Text.Trim(),this.txtLsh.Text.Trim());
-            this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
+            this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
            
         }
 
