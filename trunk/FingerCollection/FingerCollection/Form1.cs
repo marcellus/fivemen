@@ -8,6 +8,10 @@ using System.Windows.Forms;
 using FT.Commons.Cache;
 using FT.Commons.Tools;
 using FingerCollection.Config;
+using System.IO;
+using System.Diagnostics;
+
+//this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard,this.txtName,this.txtLsh,this.cbStudentType,this.cbLearnCar);
 
 namespace FingerCollection
 {
@@ -25,6 +29,11 @@ namespace FingerCollection
         }
         private const int SUCCESSED = 0;
         private TrustLinkGeneralController _TG = new TrustLinkGeneralController();
+
+        private void ClearInput()
+        {
+            this.txtIdCard.Text = this.txtName.Text = string.Empty;
+        }
 
         private void SetConfig()
         {
@@ -84,6 +93,7 @@ namespace FingerCollection
                // this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
                // this.localFingerRecordSearch2.se
                 this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                this.ClearInput();
                 //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
                 
                // this.lo
@@ -104,6 +114,7 @@ namespace FingerCollection
                     //this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
                     //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
                     this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                    this.ClearInput();
 
                     // this.localFingerRecordSearch2.Refresh();
 
@@ -121,9 +132,14 @@ namespace FingerCollection
                     //  this.localFingerRecordSearch2.Refresh();
                     //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
                     this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                    this.ClearInput();
 
                 }
                 // MessageBoxHelper.Show("已经超出授权数量，无法采集！");
+            }
+            else if (intResult == 94||intResult==10)
+            {
+                MessageBoxHelper.Show("指纹采集数据库被使用中，请重启操作系统！");
             }
             else
             {
@@ -215,6 +231,7 @@ namespace FingerCollection
             FingerDbOperator.BindDict(this.cbLearnCar, "准驾车型");
             FingerDbOperator.BindDict(this.cbStudentType, "学员类型");
             this.cbLearnCar.SelectedValue = "C1";
+            //this.tabControl1.TabPages[1].
         }
 
         
@@ -278,6 +295,41 @@ namespace FingerCollection
                 System.IO.File.Delete(mdwfilename);  
                 System.IO.File.Move("C:\\tempdb.mdb", mdwfilename);   //clean up (just in case)  
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(objJRO);  objJRO=null;  
+            }
+
+            private void btnUpdateInfo_Click(object sender, EventArgs e)
+            {
+                if (this.txtIdCard.Text.Trim().Length == 0)
+                {
+                    MessageBoxHelper.Show("身份证明号码为空，无法更新！");
+                }
+                else if (FingerDbOperator.UpdateInfo(this.txtIdCard.Text.Trim(), this.txtLsh.Text.Trim(), this.txtName.Text.Trim(), this.datePxrq.Value.ToString("yyyy-MM-dd"), this.cbStudentType.SelectedValue.ToString(), this.cbLearnCar.Text))
+                {
+                    MessageBoxHelper.Show("更新身份证明号码为" + this.txtIdCard.Text.Trim() + "的学员资料成功！");
+                    this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                }
+            }
+
+            private void btnPrepareUpload_Click(object sender, EventArgs e)
+            {
+                SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
+                FileInfo file = new FileInfo(Application.StartupPath + "/db/db.mdb");
+                string filename=config.UploadFilePre+System.DateTime.Now.ToString("yyyyMMddHHmmss")+"db.mdb";
+                string target = FT.Commons.Tools.FileDialogHelper.Save("准备上传的指纹文件", "Access(*.mdb)|*.mdb|All File(*.*)|*.*", filename);
+                if (!string.IsNullOrEmpty(target))
+                {
+                    file.CopyTo(target, true);
+                }
+                //Process.Start(Application.StartupPath+"/db");
+                
+
+            }
+
+            private void btnOpenUrl_Click(object sender, EventArgs e)
+            {
+                SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
+                Process.Start("explorer.exe "+config.FTPUrl);
+                //Process.Start("iexplore.exe " + config.FTPUrl);
             } 
         
     }

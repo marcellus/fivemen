@@ -33,7 +33,10 @@
             this.cbLearnCar = new System.Windows.Forms.ComboBox();
             this.cbStudentType = new System.Windows.Forms.ComboBox();
             this.datePxrq = new System.Windows.Forms.DateTimePicker();
+            this.btnUpdateInfo = new System.Windows.Forms.Button();
             this.btnUpdateLsh = new System.Windows.Forms.Button();
+            this.btnOpenUrl = new System.Windows.Forms.Button();
+            this.btnPrepareUpload = new System.Windows.Forms.Button();
             this.btnCompact = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDeleteNow = new System.Windows.Forms.Button();
@@ -74,7 +77,10 @@
             this.splitContainer1.Panel1.Controls.Add(this.cbLearnCar);
             this.splitContainer1.Panel1.Controls.Add(this.cbStudentType);
             this.splitContainer1.Panel1.Controls.Add(this.datePxrq);
+            this.splitContainer1.Panel1.Controls.Add(this.btnUpdateInfo);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdateLsh);
+            this.splitContainer1.Panel1.Controls.Add(this.btnOpenUrl);
+            this.splitContainer1.Panel1.Controls.Add(this.btnPrepareUpload);
             this.splitContainer1.Panel1.Controls.Add(this.btnCompact);
             this.splitContainer1.Panel1.Controls.Add(this.btnClear);
             this.splitContainer1.Panel1.Controls.Add(this.btnDeleteNow);
@@ -126,6 +132,17 @@
             this.datePxrq.Size = new System.Drawing.Size(145, 27);
             this.datePxrq.TabIndex = 4;
             // 
+            // btnUpdateInfo
+            // 
+            this.btnUpdateInfo.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnUpdateInfo.Location = new System.Drawing.Point(574, 74);
+            this.btnUpdateInfo.Name = "btnUpdateInfo";
+            this.btnUpdateInfo.Size = new System.Drawing.Size(108, 50);
+            this.btnUpdateInfo.TabIndex = 3;
+            this.btnUpdateInfo.Text = "更新资料";
+            this.btnUpdateInfo.UseVisualStyleBackColor = true;
+            this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
+            // 
             // btnUpdateLsh
             // 
             this.btnUpdateLsh.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -137,21 +154,44 @@
             this.btnUpdateLsh.UseVisualStyleBackColor = true;
             this.btnUpdateLsh.Click += new System.EventHandler(this.btnUpdateLsh_Click);
             // 
+            // btnOpenUrl
+            // 
+            this.btnOpenUrl.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOpenUrl.Location = new System.Drawing.Point(815, 160);
+            this.btnOpenUrl.Name = "btnOpenUrl";
+            this.btnOpenUrl.Size = new System.Drawing.Size(108, 50);
+            this.btnOpenUrl.TabIndex = 3;
+            this.btnOpenUrl.Text = "打开考场FTP";
+            this.btnOpenUrl.UseVisualStyleBackColor = true;
+            this.btnOpenUrl.Visible = false;
+            this.btnOpenUrl.Click += new System.EventHandler(this.btnOpenUrl_Click);
+            // 
+            // btnPrepareUpload
+            // 
+            this.btnPrepareUpload.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPrepareUpload.Location = new System.Drawing.Point(666, 161);
+            this.btnPrepareUpload.Name = "btnPrepareUpload";
+            this.btnPrepareUpload.Size = new System.Drawing.Size(108, 50);
+            this.btnPrepareUpload.TabIndex = 3;
+            this.btnPrepareUpload.Text = "准备上传文件";
+            this.btnPrepareUpload.UseVisualStyleBackColor = true;
+            this.btnPrepareUpload.Click += new System.EventHandler(this.btnPrepareUpload_Click);
+            // 
             // btnCompact
             // 
             this.btnCompact.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCompact.Location = new System.Drawing.Point(612, 160);
+            this.btnCompact.Location = new System.Drawing.Point(487, 163);
             this.btnCompact.Name = "btnCompact";
             this.btnCompact.Size = new System.Drawing.Size(108, 50);
             this.btnCompact.TabIndex = 3;
-            this.btnCompact.Text = "压缩指纹库";
+            this.btnCompact.Text = "清空指纹库";
             this.btnCompact.UseVisualStyleBackColor = true;
             this.btnCompact.Click += new System.EventHandler(this.btnCompact_Click);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClear.Location = new System.Drawing.Point(488, 160);
+            this.btnClear.Location = new System.Drawing.Point(726, 77);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(108, 50);
             this.btnClear.TabIndex = 3;
@@ -174,7 +214,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(574, 82);
+            this.btnDelete.Location = new System.Drawing.Point(726, 18);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(57, 53);
             this.btnDelete.TabIndex = 2;
@@ -319,7 +359,7 @@
             // 
             // tabPage1
             // 
-            this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard);
+            this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard, this.txtName, this.txtLsh, this.cbStudentType, this.cbLearnCar);
             this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
@@ -331,7 +371,6 @@
             // 
             // localFingerRecordSearch2
             // 
-           // this.localFingerRecordSearch2.
             this.localFingerRecordSearch2.AllowCustomeSearch = true;
             this.localFingerRecordSearch2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.localFingerRecordSearch2.EntityType = typeof(FingerCollection.LocalFingerRecordObject);
@@ -414,6 +453,9 @@
         private LocalFingerRecordSearch localFingerRecordSearch2;
         private UploadFingerRecordSearch uploadFingerRecordSearch2;
         private System.Windows.Forms.Button btnCompact;
+        private System.Windows.Forms.Button btnUpdateInfo;
+        private System.Windows.Forms.Button btnOpenUrl;
+        private System.Windows.Forms.Button btnPrepareUpload;
     }
 }
 
