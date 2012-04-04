@@ -45,6 +45,14 @@
             this.txtSchoolName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSchoolCode = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtFTPUrl = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtFTPName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtUploadFilePre = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtFTPPwd = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -87,7 +95,7 @@
             // 
             this.txtProductID.Location = new System.Drawing.Point(111, 46);
             this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(314, 21);
+            this.txtProductID.Size = new System.Drawing.Size(72, 21);
             this.txtProductID.TabIndex = 2;
             // 
             // label3
@@ -103,7 +111,7 @@
             // 
             this.txtPort.Location = new System.Drawing.Point(111, 83);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(314, 21);
+            this.txtPort.Size = new System.Drawing.Size(72, 21);
             this.txtPort.TabIndex = 2;
             // 
             // label4
@@ -119,7 +127,7 @@
             // 
             this.txtAuthenID.Location = new System.Drawing.Point(111, 120);
             this.txtAuthenID.Name = "txtAuthenID";
-            this.txtAuthenID.Size = new System.Drawing.Size(314, 21);
+            this.txtAuthenID.Size = new System.Drawing.Size(72, 21);
             this.txtAuthenID.TabIndex = 2;
             // 
             // label5
@@ -135,7 +143,7 @@
             // 
             this.txtAuthenPwd.Location = new System.Drawing.Point(111, 157);
             this.txtAuthenPwd.Name = "txtAuthenPwd";
-            this.txtAuthenPwd.Size = new System.Drawing.Size(314, 21);
+            this.txtAuthenPwd.Size = new System.Drawing.Size(72, 21);
             this.txtAuthenPwd.TabIndex = 2;
             // 
             // label6
@@ -186,6 +194,71 @@
             this.txtSchoolCode.Size = new System.Drawing.Size(314, 21);
             this.txtSchoolCode.TabIndex = 2;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(189, 49);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "FTP的Url：";
+            // 
+            // txtFTPUrl
+            // 
+            this.txtFTPUrl.Location = new System.Drawing.Point(248, 46);
+            this.txtFTPUrl.Name = "txtFTPUrl";
+            this.txtFTPUrl.Size = new System.Drawing.Size(177, 21);
+            this.txtFTPUrl.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(189, 89);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 12);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "FTP用户名：";
+            // 
+            // txtFTPName
+            // 
+            this.txtFTPName.Location = new System.Drawing.Point(260, 86);
+            this.txtFTPName.Name = "txtFTPName";
+            this.txtFTPName.Size = new System.Drawing.Size(165, 21);
+            this.txtFTPName.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(189, 160);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 12);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "上传文件前缀：";
+            // 
+            // txtUploadFilePre
+            // 
+            this.txtUploadFilePre.Location = new System.Drawing.Point(273, 157);
+            this.txtUploadFilePre.Name = "txtUploadFilePre";
+            this.txtUploadFilePre.Size = new System.Drawing.Size(152, 21);
+            this.txtUploadFilePre.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(189, 129);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 12);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "FTP密码：";
+            // 
+            // txtFTPPwd
+            // 
+            this.txtFTPPwd.Location = new System.Drawing.Point(260, 126);
+            this.txtFTPPwd.Name = "txtFTPPwd";
+            this.txtFTPPwd.PasswordChar = '*';
+            this.txtFTPPwd.Size = new System.Drawing.Size(165, 21);
+            this.txtFTPPwd.TabIndex = 2;
+            // 
             // SystemConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -196,15 +269,23 @@
             this.Controls.Add(this.txtXSDevName);
             this.Controls.Add(this.txtAuthenPwd);
             this.Controls.Add(this.txtAuthenID);
+            this.Controls.Add(this.txtFTPPwd);
+            this.Controls.Add(this.txtUploadFilePre);
+            this.Controls.Add(this.txtFTPName);
             this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtFTPUrl);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.txtHostName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
@@ -234,5 +315,13 @@
         private System.Windows.Forms.TextBox txtSchoolName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSchoolCode;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtFTPUrl;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtFTPName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtUploadFilePre;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtFTPPwd;
     }
 }

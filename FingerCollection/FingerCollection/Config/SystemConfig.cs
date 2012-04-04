@@ -19,6 +19,14 @@ namespace FingerCollection
 
         public string HostName="127.0.0.1";
 
+        public string UploadFilePre = "";
+
+        public string FTPUrl="ftp://jsrks.vicp.net";
+
+        public string FTPName = "gx";
+
+        public string FTPPwd = "123";
+
         public string ProductID="DEMO";
 
         public int Port=26057;

@@ -275,6 +275,9 @@ namespace FingerMonitor
                         }
 
                     }
+                    FT.Commons.Tools.FileHelper.CheckDirExistsAndCreate(config.MonitorPath + "\\bakpath");
+                    file.MoveTo(config.MonitorPath + "\\bakpath\\" + file.Name);
+               
                 }
                     
             }

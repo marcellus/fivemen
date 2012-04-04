@@ -11,6 +11,10 @@ namespace FingerCollection
     public partial class LocalFingerRecordSearch : FT.Windows.Forms.DataSearchControl
     {
         private TextBox tx;
+        private TextBox tbName;
+        private TextBox tbLsh;
+        private ComboBox cbLocaltype;
+        private ComboBox cbCartype;
 
         public string GetMyCondition()
         {
@@ -28,18 +32,67 @@ namespace FingerCollection
           //  this.
         }
 
-        public LocalFingerRecordSearch(TextBox tx)
+        public LocalFingerRecordSearch(TextBox tx,TextBox tbName,TextBox tbLsh,ComboBox cbLocaltype,ComboBox cbCartype)
         {
             InitializeComponent();
             this.isSelfBinding = false;
             this.tx = tx;
+            this.tbName = tbName;
+            this.tbLsh = tbLsh;
+            this.cbLocaltype = cbLocaltype;
+            this.cbCartype = cbCartype;
             this.AddSearch();
             this.EntityType = typeof(LocalFingerRecordObject);
             this.btnDelete.Visible = false;
             this.btnExport.Visible = false;
             this.btnAdd.Visible = false;
             this.btnUpdate.Visible = false;
-            this.dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
+           // this.dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
+            this.dataGridView1.DataBindingComplete += new DataGridViewBindingCompleteEventHandler(dataGridView1_DataBindingComplete);
+            this.dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
+        }
+
+        void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //throw new NotImplementedException();
+            try
+            {
+                this.dataGridView1.ClearSelection();
+                this.dataGridView1.Rows[e.RowIndex].Selected = true;
+                if (this.dataGridView1.SelectedRows.Count > 0)
+                {
+                    // this.dataGridView1_SelectionChanged
+                    //  int i = this.dataGridView1.SelectedRows[0].Index;
+                    // LocalFingerRecordObject student = this.pager.Lists[i] as LocalFingerRecordObject;
+                    tbName.Text = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    tx.Text = this.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    tbLsh.Text = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    cbCartype.SelectedValue = this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString().Trim();
+                    cbLocaltype.SelectedValue = this.dataGridView1.SelectedRows[0].Cells[4].Value.ToString().Trim();
+
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            for (int j = 0; j < this.dataGridView1.Rows.Count; j++)
+            {
+                object obj= this.dataGridView1.Rows[j].Cells[2].Value==null?string.Empty: this.dataGridView1.Rows[j].Cells[2].Value;
+                string txt =obj.ToString();
+                if (string.IsNullOrEmpty(txt))
+                {
+                    this.dataGridView1.Rows[j].Cells[2].Style.BackColor = Color.Red;
+                }
+                else
+                {
+                    this.dataGridView1.Rows[j].Cells[2].Style.BackColor = Control.DefaultBackColor;
+                }
+            }
+            
+
+            //throw new NotImplementedException();
         }
         void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -48,8 +101,12 @@ namespace FingerCollection
                // this.dataGridView1_SelectionChanged
               //  int i = this.dataGridView1.SelectedRows[0].Index;
                // LocalFingerRecordObject student = this.pager.Lists[i] as LocalFingerRecordObject;
-                string txt = this.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                this.tx.Text = txt;
+                tbName.Text = this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                tx.Text = this.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                tbLsh.Text = this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                cbCartype.SelectedValue = this.dataGridView1.SelectedRows[0].Cells[3].Value.ToString().Trim();
+                cbLocaltype.SelectedValue = this.dataGridView1.SelectedRows[0].Cells[4].Value.ToString().Trim();
+                
             }
         }
         protected override void InitPager()

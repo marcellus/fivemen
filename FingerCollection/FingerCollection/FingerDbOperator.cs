@@ -11,6 +11,24 @@ namespace FingerCollection
 {
     public class FingerDbOperator
     {
+        
+        
+       /// <summary>
+        /// 更新学员资料
+       /// </summary>
+       /// <param name="idcard"></param>
+       /// <param name="lsh"></param>
+       /// <param name="name"></param>
+       /// <param name="pxshrq"></param>
+       /// <param name="studenttype"></param>
+       /// <param name="learncar"></param>
+       /// <returns></returns>
+        public static bool UpdateInfo(string idcard,string lsh,string name,string pxshrq,string studenttype,string learncar)
+        {
+            IDataAccess access = DataAccessFactory.GetDataAccess();
+            string sql = "update table_local_finger_record set c_lsh='" + lsh + "',c_pxrq='" + pxshrq + "',c_name='" + name + "',c_student_type='" + studenttype + "',c_car_type='" + learncar + "' where c_idcard='" + idcard + "'  ";
+            return access.ExecuteSql(sql);
+        }
 
 
         public static void BindDict(ComboBox cb ,string type)
@@ -18,6 +36,7 @@ namespace FingerCollection
             string sql="SELECT * FROM table_dict WHERE c_grouptype='"+type+"'";
             IDataAccess access = DataAccessFactory.GetDataAccess();
             DataTable dt = access.SelectDataTable(sql,"tmp");
+            cb.DropDownStyle = ComboBoxStyle.DropDownList;
             cb.DisplayMember = "c_text";
             cb.ValueMember = "c_value";
             cb.DataSource = dt;
