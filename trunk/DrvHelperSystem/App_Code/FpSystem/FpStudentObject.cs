@@ -518,11 +518,17 @@ public class FpStudentObject
         {
             case "lesson":
                 {
+                   
+
                     if (this.statue < STATUE_COLLECT) {
                         this.remark = string.Format("{0}  学员未进行指纹采集", lStrIdentity);
                         break;
                     }
-                    else if (this.feeStatue != "Y") {
+                    else if (fpLocalType.LESSON_IND != "Y") {
+                        this.remark = string.Format("学员类型：{0}，无需进行上课",fpLocalType.NAME);
+                    }
+                    else if (this.feeStatue != "Y")
+                    {
 
                         this.remark = string.Format("{0}  学员交费审核未通过，不能进行上课", lStrIdentity);
                         break;
@@ -610,7 +616,11 @@ public class FpStudentObject
                     break;
                 }//case "lesson"
             case "km1": {
-                if (this.statue < STATUE_LESSON_END)
+                if (fpLocalType.KM1_IND != "Y") {
+                    this.remark = string.Format("学员类型：{0}，无需进行科目1考试", fpLocalType.NAME);
+                        break;
+                }
+                else if (fpLocalType.LESSON_IND=="Y" &&this.statue < STATUE_LESSON_END)
                 {
                     this.remark = string.Format("{0} 未完成上课，不能进行科目1考试", lStrIdentity);
                     break;
@@ -628,7 +638,12 @@ public class FpStudentObject
                 break; 
             } //case km1
             case "km2": {
-                if (this.statue < STATUE_KM1_ENTER)
+                if (fpLocalType.KM2_IND != "Y")
+                {
+                    this.remark = string.Format("学员类型：{0}，无需进行科目2桩考", fpLocalType.NAME);
+                    break;
+                }
+                else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
                     this.remark = string.Format("{0} 未进行科目1考试，不能进行科目2考试", lStrIdentity);
                     break;
@@ -649,7 +664,12 @@ public class FpStudentObject
                 break; 
             } //case km2
             case "train": {
-                if (this.statue < STATUE_KM1_ENTER)
+                if (fpLocalType.TRAIN_TIMES == 0)
+                {
+                    this.remark = string.Format("学员类型：{0}，无需进行入场训练", fpLocalType.NAME);
+                    break;
+                }
+                else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
                     this.remark = string.Format("{0} 未进行科目1考试，不能进行入场训练", lStrIdentity);
                     break;
@@ -1050,13 +1070,13 @@ public class FpStudentObject
             }//case "train"
             case "3in9":
                 {
-                  //  if (this.statue < STATUE_TRAIN_END)
-                  //  {
-                 //       this.remark = string.Format("{0} 未完成入场训练，不能进行9选3考试", lStrIdentity);
-                   //     break;
-                  //  }
-                   // else 
-                    if (this.statue<STATUE_KM1_ENTER) {
+                    if (fpLocalType.KM2_3IN9_IND != "Y")
+                    {
+                        this.remark = string.Format("学员类型：{0}，无需进行9选3考试", fpLocalType.NAME);
+                        break;
+                    }
+                    else if (fpLocalType.KM1_IND == "Y" && this.statue < STATUE_KM1_ENTER)
+                    {
                         this.remark = string.Format("{0} 未完成科目1考试，不能进行9选3考试", lStrIdentity);
                         break;
                     }
@@ -1076,14 +1096,17 @@ public class FpStudentObject
                     break;
                 }//case 3in9
             case "km3": {
-
-
-                 if (DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
+                if (fpLocalType.KM2_3IN9_IND != "Y")
+                {
+                    this.remark = string.Format("学员类型：{0}，无需进行科目3考试", fpLocalType.NAME);
+                    break;
+                }
+                else if (fpLocalType.KM2_3IN9_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                 {
                     this.remark = string.Format("{0} 未完成9选3考试，不能进行科目3考试", lStrIdentity);
                     break;
                 }
-                else if (DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
+                else if (fpLocalType.KM2_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
                 {
                     this.remark = string.Format("{0} 未完成科目2考试，不能进行科目3考试", lStrIdentity);
                     break;

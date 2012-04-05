@@ -21,6 +21,12 @@ public partial class FpSystem_FpHelper_FpLocalTypeEdit : FT.Web.AuthenticatedPag
             this.txtLocalTypeDescp.Text = localtype.DESCP;
             this.txtTrainTimes.Text = localtype.TRAIN_TIMES == null ? "0" : localtype.TRAIN_TIMES.ToString();
             this.cbKm3VerifyInd.Checked = (localtype.KM3_VERIFY_IND == "Y");
+            this.cbKm1Ind.Checked=localtype.KM1_IND=="Y";
+            this.cbKm2_3in9Ind.Checked = localtype.KM2_3IN9_IND == "Y";
+            this.cbKm2Ind.Checked = localtype.KM2_IND == "Y";
+            this.cbKm3Ind.Checked = localtype.KM3_IND == "Y";
+            this.cbLessonInd.Checked = localtype.LESSON_IND == "Y";
+            
         }
     }
 
@@ -33,6 +39,11 @@ public partial class FpSystem_FpHelper_FpLocalTypeEdit : FT.Web.AuthenticatedPag
         localtype.DESCP = txtLocalTypeDescp.Text;
         localtype.TRAIN_TIMES = StringHelper.fnFormatNullOrBlankInt(txtTrainTimes.Text, 8);
         localtype.KM3_VERIFY_IND = cbKm3VerifyInd.Checked ? "Y" : "N";
+        localtype.KM1_IND = cbKm1Ind.Checked ? "Y" : "N";
+        localtype.KM2_3IN9_IND = cbKm2_3in9Ind.Checked ? "Y" : "N";
+        localtype.KM2_IND = cbKm2Ind.Checked ? "Y" : "N";
+        localtype.KM3_IND = cbKm3Ind.Checked ? "Y" : "N";
+        localtype.LESSON_IND = cbLessonInd.Checked ? "Y" : "N";
         if (SimpleOrmOperator.Update(localtype))
         {
             WebTools.Alert("修改成功！");

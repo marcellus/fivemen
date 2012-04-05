@@ -37,6 +37,21 @@ public class FpLocalType
     [SimpleColumn(Column="KM3_VERIFY_IND")]
     private string km3VerifyInd;
 
+    [SimpleColumn(Column = "LESSON_IND")]
+    private string lessonInd;
+
+    [SimpleColumn(Column = "KM1_IND")]
+    private string km1Ind;
+
+    [SimpleColumn(Column = "KM2_IND")]
+    private string km2Ind;
+
+    [SimpleColumn(Column = "KM2_9IN3_IND")]
+    private string km2_3in9Ind;
+
+
+    [SimpleColumn(Column = "KM3_IND")]
+    private string km3Ind;
 
     public int ID {
         get { return this.id; }
@@ -65,4 +80,36 @@ public class FpLocalType
         get { return this.km3VerifyInd; }
         set { this.km3VerifyInd = value; }
     }
+
+    public string LESSON_IND {
+        get { return this.lessonInd; }
+        set { this.lessonInd = value; }
+    }
+
+    public string KM1_IND
+    {
+        get { return this.km1Ind; }
+        set { this.km1Ind = value; }
+    }
+
+    public string KM2_IND
+    {
+        get { return this.km2Ind; }
+        set { this.km2Ind = value; }
+    }
+
+    public string KM2_3IN9_IND
+    {
+        get { return this.km2_3in9Ind; }
+        set { this.km2_3in9Ind = value; }
+    }
+
+    public string KM3_IND
+    {
+        get { return this.km3Ind; }
+        set { this.km3Ind = value; }
+    }
+
+ 
+
 }

@@ -40,6 +40,19 @@
                 
             </tr>
             
+                 <tr class="table-content">
+                <td style="width:120px" class="table-title">
+                    审核业务：</td>
+                <td  colspan="3" style="">                   
+                    <asp:CheckBox ID="cbLessonInd" runat="server" />上课<br />
+                    <asp:CheckBox ID="cbKm1Ind" runat="server" />科目1<br />
+                    <asp:CheckBox ID="cbKm2Ind" runat="server" />科目2<br />
+                    <asp:CheckBox ID="cbKm2_3in9Ind" runat="server" />科目2 9选3<br />
+                    <asp:CheckBox ID="cbKm3Ind" runat="server" />科目3<br />
+                </td>
+                
+            </tr>
+            
            <tr class="table-content">
                 <td style="width:120px" class="table-title">
                     地区类型描述：</td>
