@@ -89,12 +89,13 @@ namespace FingerMonitor
             for (int k = 0; k < dirsub.Length; k++)
             {
                 dirTmp = dirsub[k];
+                if (dirTmp.FullName.Contains("bakpath")) continue;
                 files = dirTmp.GetFiles();
                 for (int m = 0; m < files.Length; m++)
                 {
                     reNum = 0;
                     file = files[m];
-                    if (!file.FullName.EndsWith(".mdb") || file.FullName.Contains("bakpath")) continue;
+                    if (!file.FullName.EndsWith(".mdb")) continue;
 
                     accessAccess = new AccessDataHelper(file.FullName, "Admin", "");
                     string sql = "select * from table_local_finger_record";
