@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpViewStudentInfo.aspx.cs" Inherits="FpSystem_FpHelper_FpViewStudentInfo" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpVerify.master" AutoEventWireup="true" CodeFile="FpViewStudentInfo.aspx.cs" Inherits="FpSystem_FpHelper_FpViewStudentInfo" Title="无标题页" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

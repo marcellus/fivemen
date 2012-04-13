@@ -12,7 +12,7 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.txtQueryValue.Focus();
     }
 
     protected void btnQuery_Click(object sender, EventArgs e)
@@ -42,6 +42,7 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
         {
             WebTools.Alert(string.Format("{0}为\"{1}\" 的学员存在多个，请使用证件号码查询", queryText, quserValue));
         }
+       
     }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)

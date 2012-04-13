@@ -19,8 +19,9 @@
               </asp:DropDownList>
               &nbsp;学员信息:
                             <asp:DropDownList ID="ddlQueryType" runat="server">
+                            <asp:ListItem Text="受理号" Value="lsh"></asp:ListItem>
               <asp:ListItem Text="证件号码" Value="idcard"></asp:ListItem>
-              <asp:ListItem Text="受理号" Value="lsh"></asp:ListItem>
+              
               <asp:ListItem Text="姓名" Value="name"></asp:ListItem>
            </asp:DropDownList>
            <asp:TextBox ID="txtQueryValue" runat="server"></asp:TextBox>

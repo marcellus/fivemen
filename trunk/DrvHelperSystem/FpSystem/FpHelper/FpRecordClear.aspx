@@ -8,7 +8,7 @@
    
        <tr class="table-content">
           <td style=" padding:10px; text-align:right">
-
+              已完成考勤 <asp:CheckBox runat="server" ID="cbFinish" Checked="true" />
               &nbsp;  驾校：<asp:DropDownList ID="ddlSchoolCode" runat="server" >
                <asp:ListItem Text="全部" Value="all"></asp:ListItem>
               </asp:DropDownList>

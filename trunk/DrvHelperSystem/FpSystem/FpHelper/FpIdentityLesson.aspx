@@ -5,7 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-
+<div id="msg" >
+    
+</div>
 <div style=" width:70%; height:820px;float:left; vertical-align:bottom" class="b">
   <div style=" height:10%">
      <FpUCL:viewSiteInfo runat="server" />

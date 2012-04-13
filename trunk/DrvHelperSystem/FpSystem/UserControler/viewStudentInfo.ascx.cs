@@ -20,20 +20,17 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        string lStrIDCard = "";
-        if (Request.Params[FPSystemBiz.PARAM_RESULT] == null)
-        {
-            ///this.lbAlertMsg.Text = "没有该学员的指纹信息";
-            return;
-        }
-        lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
+
+        string lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT];
         if (string.IsNullOrEmpty(lStrIDCard))
         {
+            ///this.lbAlertMsg.Text = "没有该学员的指纹信息";
             this.lbAlertMsg.Text = "学员指纹信息不存在";
             WebTools.PlaySound("../../sound/学员指纹信息不存在.wav");
-                return;
+            return;
         }
+        //lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
+      
         //int lIntResultCode = FPSystemBiz.fnIdendityStudentLesson(lStrIDCard);
         //lStrIDCard = "'" + lStrIDCard + "'";
         FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(lStrIDCard);
