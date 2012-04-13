@@ -71,6 +71,7 @@ public class FpStudentObject
         status.Add(STATUE_KM1_ENTER, "完成科目一考试");
         status.Add(STATUE_KM2_ENTER, "完成科目二考试");
         status.Add(STATUE_KM3_ENTER, "完成科目三考试");
+        status.Add(STATUE_FINISH, "完成所有考勤");
        // status.Add(STATUE_3IN9_ENTER, "完成九选三考试");
 
         return status;
@@ -85,7 +86,7 @@ public class FpStudentObject
     }
 
     [SimplePK]
-    [SimpleColumn(Column= "IDCARD",AllowInsert=true)]
+    [SimpleColumn(Column= "IDCARD",AllowInsert=true,ColumnType=SimpleColumnType.String)]
     private string idcard;
     [SimpleColumn(Column="LSH")]
     private string lsh;
@@ -604,8 +605,10 @@ public class FpStudentObject
                         {
                             // lStrParm0 = lStrPrfLESSON_LEAVE + "_2";
                             this.LESSON_LEAVE_2 = lDtIdentity;
-                            this.statue = STATUE_LESSON_END;
+                            //this.statue = STATUE_LESSON_END;
+                            this.statue = fpLocalType.nextStatus(STATUE_LESSON_END);
                             this.remark = string.Format("{0} 完成上课学时要求", lStrIdentity);
+                      
                             isCheckin = true;
                         }
                         else
@@ -632,7 +635,8 @@ public class FpStudentObject
                 }
   
                     this.km1_enter = lDtIdentity;
-                    this.statue = STATUE_KM1_ENTER;
+                    //this.statue = STATUE_KM1_ENTER;
+                    this.statue = fpLocalType.nextStatus(STATUE_KM1_ENTER);
                     this.remark = string.Format("{0} 科目1考试验证成功", lStrIdentity);
                     isCheckin = true;
                 break; 
@@ -656,7 +660,8 @@ public class FpStudentObject
 
                     this.km2_enter = lDtIdentity;
                     if (this.statue < STATUE_TRAIN_END) {
-                        this.statue = STATUE_KM2_ENTER;
+                        //this.statue = STATUE_KM2_ENTER;
+                        this.statue = fpLocalType.nextStatus(STATUE_KM2_ENTER);
                     }
                     
                     this.remark = string.Format("{0} 科目2考试验证成功", lStrIdentity);
@@ -664,7 +669,7 @@ public class FpStudentObject
                 break; 
             } //case km2
             case "train": {
-                if (fpLocalType.TRAIN_TIMES == 0)
+                if (fpLocalType.TRAIN_TIMES <1)
                 {
                     this.remark = string.Format("学员类型：{0}，无需进行入场训练", fpLocalType.NAME);
                     break;
@@ -1062,7 +1067,8 @@ public class FpStudentObject
 
                 //入场训练学员分类
                 if (trainTimes >= fpLocalType.TRAIN_TIMES) {
-                    this.statue = STATUE_TRAIN_END;
+                    //this.statue = STATUE_TRAIN_END;
+                    this.statue = fpLocalType.nextStatus(STATUE_TRAIN_END);
                     this.TRAIN_END_DATE = DateTime.Now;
                     this.remark = string.Format(patternTrainLeave, lStrIdentity,trainTimes);                 
                 }
@@ -1090,13 +1096,14 @@ public class FpStudentObject
                     isCheckin = true;
                     if (this.statue < STATUE_TRAIN_END)
                     {
-                        this.statue = STATUE_3IN9_ENTER;
+                        //this.statue = STATUE_3IN9_ENTER;
+                        this.statue = fpLocalType.nextStatus(STATUE_3IN9_ENTER);
                     }
                     this.remark = string.Format("{0} 9选3考试验证成功", lStrIdentity);
                     break;
                 }//case 3in9
             case "km3": {
-                if (fpLocalType.KM2_3IN9_IND != "Y")
+                if (fpLocalType.KM3_IND != "Y")
                 {
                     this.remark = string.Format("学员类型：{0}，无需进行科目3考试", fpLocalType.NAME);
                     break;
@@ -1130,7 +1137,8 @@ public class FpStudentObject
 
                 this.km3_enter = lDtIdentity;
                 isCheckin = true;
-                this.statue = STATUE_KM3_ENTER;
+                //this.statue = STATUE_KM3_ENTER;
+                this.statue = fpLocalType.nextStatus(STATUE_KM3_ENTER);
                 this.remark = string.Format("{0} 科目3考试验证成功", lStrIdentity);
                 break; 
             }//case km3

@@ -31,6 +31,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
             ddlLocaltype.DataBind();
 
             DepartMentOperator.Bind2(ddlSchool);
+            ddlSchool.SelectedValue = "440400";
 
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
         }
@@ -67,6 +68,8 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
         fso.SCHOOL_CODE = ddlSchool.SelectedValue;
         fso.SCHOOL_NAME = ddlSchool.SelectedItem.Text;
         fso.CAR_TYPE = ddlCarType.SelectedValue;
+        fso.CREATE_TIME = DateTime.Now;
+        fso.LASTMODIFY_TIME = DateTime.Now;
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
@@ -81,8 +84,13 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
         if (this.txtIDCard.Text.Length == 0)
             return;
         string lStrIDCard = this.txtIDCard.Text.Trim();
-        if (_FP.FpNewUser(lStrIDCard) == 31)
+        int re=_FP.FpNewUser(lStrIDCard);
+        if (re !=FpBase.SUCCESSED)
+        {
+           
             _FP.FpUpdateUser(lStrIDCard);
+        }
+        
         Session[ACTION_NAME] = ACTION_NEW_ENROLL_STUDENT;
     }
 

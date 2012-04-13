@@ -14,8 +14,12 @@ using System.Collections.Generic;
 
 public partial class FpSystem_FpHelper_FpRecordClear : FT.Web.AuthenticatedPage
 {
+
+    private FpBase _FP;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        this._FP = new FpBase(this, null,false);
         if (!IsPostBack)
         {
             DepartMentOperator.Bind2(ddlSchoolCode);
@@ -24,11 +28,16 @@ public partial class FpSystem_FpHelper_FpRecordClear : FT.Web.AuthenticatedPage
             DictOperator.BindDropDownList("车辆类型",ddlCarType);
             ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
 
-            string condition = " statue>={0}";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by idcard desc";
-            this.ProcedurePager1.RowFilter = string.Format(condition,FpStudentObject.STATUE_KM3_ENTER);
+            if (cbFinish.Checked)
+            {
+                string condition = " statue>={0}";
+                this.ProcedurePager1.RowFilter = string.Format(condition, FpStudentObject.STATUE_KM3_ENTER);
+            }
+            
+            
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -36,10 +45,11 @@ public partial class FpSystem_FpHelper_FpRecordClear : FT.Web.AuthenticatedPage
         string queryValue = txtQueryValue.Text;
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
-        
-
-        string condition = "";
-
+         string condition=" 1=1 ";
+         if (cbFinish.Checked)
+         {
+             condition += string.Format(" and statue>={0} ", FpStudentObject.STATUE_KM3_ENTER);
+         }
         if (string.IsNullOrEmpty(queryValue))
         {
 
@@ -92,8 +102,17 @@ public partial class FpSystem_FpHelper_FpRecordClear : FT.Web.AuthenticatedPage
             FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
             fso.KM3_VERIFY = "Y";
            // fso.FEE_VERIFY_DATE = DateTime.Now;
-            if (SimpleOrmOperator.Delete(fso))
+            //string idcard = fso.IDCARD.Trim('\'');
+            fso.IDCARD="'"+idcard+"'";
+            if (SimpleOrmOperator.Delete(fso) )
             {
+                //fso.IDCARD = fso.IDCARD.Trim('\'');
+                _FP.FpDeleteUser(idcard);
+                if (fso.STATUE >= FpStudentObject.STATUE_KM3_ENTER) {
+                    fso.IDCARD = idcard;
+                    FpStudentCleared cleared = new FpStudentCleared(fso);
+                    SimpleOrmOperator.Create(cleared);
+                }
                 WebTools.Alert(this, string.Format("{0}:{1}  学员记录删除成功！", fso.LSH, fso.NAME));
             }
             else
@@ -150,8 +169,18 @@ public partial class FpSystem_FpHelper_FpRecordClear : FT.Web.AuthenticatedPage
             FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
             //fso.KM3_VERIFY = "Y";
             //fso.FEE_VERIFY_DATE = DateTime.Now;
-            if (SimpleOrmOperator.Delete(fso))
+           // string idcard = fso.IDCARD.Trim('\'');
+            fso.IDCARD = "'" + idcard + "'";
+            if (SimpleOrmOperator.Delete(fso)   )
             {
+               // fso.IDCARD = fso.IDCARD.Trim('\'');
+                _FP.FpDeleteUser(idcard);
+                if (fso.STATUE >= FpStudentObject.STATUE_KM3_ENTER)
+                {
+                    fso.IDCARD = idcard;
+                    FpStudentCleared cleared = new FpStudentCleared(fso);
+                    SimpleOrmOperator.Create(cleared);
+                }
                 reNum++;
             }
 

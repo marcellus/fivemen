@@ -46,7 +46,7 @@ public class FpLocalType
     [SimpleColumn(Column = "KM2_IND")]
     private string km2Ind;
 
-    [SimpleColumn(Column = "KM2_9IN3_IND")]
+    [SimpleColumn(Column = "KM2_3IN9_IND")]
     private string km2_3in9Ind;
 
 
@@ -110,6 +110,77 @@ public class FpLocalType
         set { this.km3Ind = value; }
     }
 
- 
 
+    public int nextStatus(int status)
+    {
+        int nextStatus = status;
+
+        if (FpStudentObject.LESSON_FINISH == status)
+        {
+            if (this.km1Ind == "Y" || this.km2_3in9Ind == "Y" || this.km2Ind == "Y" || this.km3Ind == "Y" || this.trainTimes > 0)
+            {
+
+            }
+            else
+            {
+                nextStatus = FpStudentObject.STATUE_FINISH;
+            }
+
+        }
+        else if (FpStudentObject.STATUE_KM1_ENTER == status)
+        {
+            if (this.km2_3in9Ind == "Y" || this.km2Ind == "Y" || this.km3Ind == "Y" || this.trainTimes > 0)
+            {
+
+            }
+            else
+            {
+                nextStatus = FpStudentObject.STATUE_FINISH;
+            }
+
+        }
+        else if (FpStudentObject.STATUE_KM2_ENTER == status)
+        {
+            if (this.km2_3in9Ind == "Y" || this.km3Ind == "Y" || this.trainTimes > 0)
+            {
+     
+            }
+            else
+            {
+                nextStatus = FpStudentObject.STATUE_FINISH;
+            }
+
+        }
+        else if (FpStudentObject.STATUE_3IN9_ENTER == status)
+        {
+            if (this.km2Ind == "Y" || this.km3Ind == "Y" || this.trainTimes > 0)
+            {
+
+            }
+            else
+            {
+                nextStatus = FpStudentObject.STATUE_FINISH;
+            }
+
+        }
+        else if (FpStudentObject.STATUE_TRAIN_END == status)
+        {
+            if (this.km2_3in9Ind == "Y" || this.km2Ind == "Y" || this.km3Ind == "Y")
+            {
+
+            }
+            else
+            {
+                nextStatus = FpStudentObject.STATUE_FINISH;
+            }
+
+        }
+        else if (FpStudentObject.STATUE_KM3_ENTER == status)
+        {
+
+        }
+
+            return nextStatus;
+        }
+    
 }

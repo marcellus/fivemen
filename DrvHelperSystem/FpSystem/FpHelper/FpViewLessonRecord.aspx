@@ -1,6 +1,10 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpHelper.master" AutoEventWireup="true" CodeFile="FpViewLessonRecord.aspx.cs" Inherits="FpSystem_FpHelper_FpViewStudentRecord" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/FpSystem/FpHelper/FpVerify.master" AutoEventWireup="true" CodeFile="FpViewLessonRecord.aspx.cs" Inherits="FpSystem_FpHelper_FpViewStudentRecord" Title="无标题页" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+
+<asp:Content ID="contextMsg"   ContentPlaceHolderID="ContentPlaceHolderMsg"  runat="server">
+     <asp:Label ID="lbStudentAlertMsg" runat="server" CssClass="msgAlert"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <FpUCL:viewStudentInfo id="ucStudentInfo"  runat="server"></FpUCL:viewStudentInfo>
@@ -23,9 +27,7 @@
                   <td class="table-content"><asp:Label ID="lbStuLessonLeave2" runat="server"></asp:Label></td>
                 </tr>
                 
-                <tr>
-                  <td class="table-content" colspan="3" style="color:Red; font-size:1.5em"><asp:Label ID="lbStudentAlertMsg" runat="server"></asp:Label></td>
-                </tr>
+               
              </table>
 
 </asp:Content>

@@ -39,6 +39,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             this.ProcedurePager1.SortString = " order by idcard desc";
             this.ProcedurePager1.RowFilter = condition;
             //WebTools.Alert(condition);
+            this.txtQueryValue.Focus();
         }
     }
     protected void btnSearch_Click(object sender, EventArgs e)

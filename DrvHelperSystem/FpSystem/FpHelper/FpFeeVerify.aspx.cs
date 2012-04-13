@@ -32,6 +32,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             this.ProcedurePager1.SortString = " order by idcard desc";
             this.ProcedurePager1.RowFilter = condition;
         }
+        this.txtQueryValue.Focus();
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {

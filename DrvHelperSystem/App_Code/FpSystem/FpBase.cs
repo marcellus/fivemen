@@ -163,6 +163,17 @@ public class FpBase
         return result;
     }
 
+    public int FpDeleteUser(string aUserID)
+    {
+        _TG.OcxClassID = ENROLL_CLSID;
+        int result = _TG.DeleteUser(aUserID);
+        if (result != SUCCESSED && this.blDefaultAlert)
+        {
+            ErrMsgDlg();
+        }
+        return result;
+    }
+
     public int FpIdentityUser()
     {
         _TG.OcxClassID = VERIFY_CLSID;

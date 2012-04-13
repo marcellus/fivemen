@@ -48,7 +48,7 @@ public partial class FpSystem_FpHelper_FpIndentityLesson_TL : System.Web.UI.Page
         if (re.ResultCode == 215)
             return;
         string[] lArrIdCards = FpBase.getUserIds(re);
-        string idcard = lArrIdCards.Length > 0 ? lArrIdCards[0].ToString() : "";
+        string idcard = lArrIdCards.Length > 0 ? lArrIdCards[0].ToString().Split('_')[0] : "";
        // idcard = Server.UrlEncode(idcard);
         string lStrSearch = string.Format("?{0}={1}",FPSystemBiz.PARAM_RESULT, idcard);
        // Session[FPSystemBiz.PARAM_RESULT] = idcard;
