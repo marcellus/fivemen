@@ -71,9 +71,9 @@ namespace FingerMonitor
         {
             bool isSuccess = true;
 
-            string tmp = "找到监控目录，进行指纹导入！";
-            this.CreateLog(tmp);
-            this.SetHintText(tmp);
+            //string tmp = "找到监控目录，进行指纹导入！";
+            //this.CreateLog(tmp);
+            //this.SetHintText(tmp);
 
             IDataAccess accessOracle = new OracleDataHelper(config.TnsName, config.OraUser, config.OraPwd);
             DirectoryInfo dir = new DirectoryInfo(config.MonitorPath);
@@ -85,213 +85,341 @@ namespace FingerMonitor
             //进行数据插入到fp_student中
             int reNum = 0;
             string schoolName = "";
+            string lsh = "";
             for (int k = 0; k < dirsub.Length; k++)
             {
                 dirTmp = dirsub[k];
                 files = dirTmp.GetFiles();
                 for (int m = 0; m < files.Length; m++)
                 {
+                    reNum = 0;
                     file = files[m];
-                    if (file.FullName.EndsWith(".mdb"))
+                    if (!file.FullName.EndsWith(".mdb") || file.FullName.Contains("bakpath")) continue;
+
+                    accessAccess = new AccessDataHelper(file.FullName, "Admin", "");
+                    string sql = "select * from table_local_finger_record";
+                    DataTable dtUser = accessAccess.SelectDataTable(sql, "uploaduser");
+                    //sql = "select * from USER_INFO_UPLOAD";
+                    //DataTable dtUserInfo = accessAccess.SelectDataTable(sql, "USER_INFO_UPLOAD");
+                    //sql = "select * from ENROLL_TEMP_UPLOAD";
+                    // DataTable dtFingerInfo = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
+
+                    if (dtUser == null) continue;
+
+                    //DataRow dr;
+                    string idcard;
+                    string schoolCode;
+                    string carType;
+                    int localType;
+                    foreach (DataRow row in dtUser.Rows)
                     {
-                        accessAccess = new AccessDataHelper(file.FullName, "Admin", "");
-                        string sql = "select * from table_local_finger_record";
-                        DataTable dtUser = accessAccess.SelectDataTable(sql, "uploaduser");
-                        sql = "select * from USER_INFO_UPLOAD";
-                        DataTable dtUserInfo = accessAccess.SelectDataTable(sql, "USER_INFO_UPLOAD");
-                        sql = "select * from ENROLL_TEMP_UPLOAD";
-                        DataTable dtFingerInfo = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
-
-                        if (dtUser != null && dtUser.Rows.Count > 0)
+                        if (row["c_idcard"] == null || row["c_school_code"] == null || row["c_car_type"] == null || row["c_student_type"] == null)
                         {
-                            DataRow dr;
-                            string idcard;
+                            string log = string.Format("学员:{0}资料不全,不能导入", row["c_idcard"]);
+                            this.CreateLog(log);
+                            continue;
+                        }
+                        idcard = row["c_idcard"].ToString();
+                        schoolCode = row["c_school_code"].ToString();
+                        carType = row["c_car_type"].ToString();
+                        localType = Convert.ToInt16(row["c_student_type"].ToString());
+                        schoolName = row["c_school_name"].ToString();
+                        if (row["c_lsh"] == null || string.IsNullOrEmpty(row["c_lsh"].ToString())) continue;
+                        sql = string.Format("select * from fp_student_cleared where idcard='{0}' and school_code='{1}' and car_type='{2}' and localtype={3}", 
+                            idcard
+                            ,schoolCode
+                            ,carType
+                            ,localType
+                        );
+                        DataTable dtCleared = accessOracle.SelectDataTable(sql, "FP_STUDENT_CLEARED");
+                        if (dtCleared != null && dtCleared.Rows.Count > 0) {
+                            string log = string.Format("学员:{0}曾在 {1} 报考 {2} 车型,并已经完成课程 ,不能导入"
+                             ,idcard   
+                             ,schoolName
+                             ,carType
+                            );
+                            this.CreateLog(log);
+                            continue;
+                        }
+                        sql = string.Format("select * from USER_INFO_UPLOAD where USER_ID='{0}'", idcard);
+                        DataTable dtUserInfoOne = accessAccess.SelectDataTable(sql, "USER_INFO_UPLOAD");
+                        sql = string.Format("select * from ENROLL_TEMP_UPLOAD where USER_ID='{0}'", idcard);
+                        DataTable dtFingerInfoOne = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
+                        if (dtUserInfoOne == null || dtUserInfoOne.Rows.Count == 0 || dtFingerInfoOne == null || dtFingerInfoOne.Rows.Count == 0)
+                        {
+                            string log = string.Format("{1} 学员:{0}缺少指纹数据 ,不能导入"
+                             , idcard
+                             , schoolName
+                             , carType
+                            );
+                            this.CreateLog(log);
+                            continue;
+                        }
+                        DataRow rowFingerInfo = dtFingerInfoOne.Rows[0];
+                        DataRow rowUserInfo = dtUserInfoOne.Rows[0];
+                        schoolName = row["c_school_name"].ToString();
+                        sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh,create_time,creater) " +
+                                           "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}',to_date('{7}','yyyy-MM-dd'),'{8}')"
+                                           , row["c_idcard"] //0
+                                           , row["c_name"]  //1
+                                           , row["c_school_code"]  //2
+                                           , row["c_school_name"]  //3
+                                           , row["c_student_type"]  //4
+                                           , row["c_car_type"]  //5
+                                           , row["c_lsh"]  //6
+                                           , row["c_pxrq"]  //7
+                                           , "remote"    //8
+                        );
+                        if (!accessOracle.ExecuteSql(sql)) {
+                            string log = string.Format("{1} 学员:{0}身份信息已存在 ,不能重复导入"
+                             , idcard
+                             , schoolName
+                             , carType
+                            );
+                            this.CreateLog(log);
+                            continue; 
+                        }
+                        string sql1 = string.Format("insert into USER_INFO(USER_ID,MODIFY_TIME,CREATE_TIME) values ('{0}','{1}','{2}')",
+                            rowUserInfo["USER_ID"]
+                            , rowUserInfo["MODIFY_TIME"]
+                            , rowUserInfo["CREATE_TIME"]
+                        );
+                        string sql2 = string.Format("insert into enroll_temp(USER_ID,AUTHEN_INFO,VERSION,SERVICE_TYPE,SERVICE_CODE,REVOKE_TIME"
+                        + ",TEMP_TYPE,TEMP_SIZE,TEMPLATE,CREATE_TIME,MODIFY_TIME)"
+                        + " values('{0}','{1}',{2},{3},'{4}','{5}',{6},{7},{8},'{9}','{10}')",
+                           rowFingerInfo["USER_ID"]   //0
+                           , rowFingerInfo["AUTHEN_INFO"]  //1 
+                           , rowFingerInfo["VERSION"]   //2
+                           , rowFingerInfo["SERVICE_TYPE"]  //3
+                           , rowFingerInfo["SERVICE_CODE"]  //4
+                           , rowFingerInfo["REVOKE_TIME"]  //5
+                           , rowFingerInfo["TEMP_TYPE"]   //6
+                           , rowFingerInfo["TEMP_SIZE"]  //7
+                           , ":TEMPLATE"  //8
+                           , rowFingerInfo["CREATE_TIME"]  //9
+                           , rowFingerInfo["MODIFY_TIME"] //10
+                        );
+                        byte[] expbyte = (byte[])rowFingerInfo["TEMPLATE"];
+                        DbParameter param = new OracleParameter("TEMPLATE", System.Data.OracleClient.OracleType.Blob, expbyte.Length);
+                        param.Value = expbyte;
 
-                            for (int i = 0; i < dtUserInfo.Rows.Count; i++)
+                        if (accessOracle.ExecuteSql(sql1) && accessOracle.ExecuteSqlByParam(sql2, param))
+                        {
+                            string log = string.Format("成功导入 {1} 学员:{0} 车型:{2}"
+                           , idcard
+                           , schoolName
+                           , carType
+                            );
+                            this.CreateLog(log);
+                            lsh +=  row["c_lsh"].ToString()+",";
+                            reNum++;
+                        }
+                       
+                        
+                      }
+
+                    /*
+                    if (dtUser != null &&dtFingerInfo!=null&& dtUser.Rows.Count > 0)
+                    {
+                        DataRow dr;
+                        string idcard;
+
+                        for (int i = 0; i < dtUserInfo.Rows.Count; i++)
+                        {
+
+                            dr = dtUserInfo.Rows[i];
+                            idcard = dr["USER_ID"].ToString();
+                            this.CreateLog("正在处理用户信息" + idcard);
+                            this.SetHintText("正在处理用户信息" + idcard);
+                            sql = "insert into USER_INFO(USER_ID,MODIFY_TIME,CREATE_TIME)"
+                            + " values('" +
+                               dr["USER_ID"] + "','" +
+                                dr["MODIFY_TIME"] + "','" +
+                               dr["CREATE_TIME"] + "')";
+                            if (accessOracle.ExecuteSql(sql))
                             {
-
-                                dr = dtUserInfo.Rows[i];
-                                idcard = dr["USER_ID"].ToString();
-                                this.CreateLog("正在处理用户信息" + idcard);
-                                this.SetHintText("正在处理用户信息" + idcard);
-                                sql = "insert into USER_INFO(USER_ID,MODIFY_TIME,CREATE_TIME)"
-                                + " values('" +
-                                   dr["USER_ID"] + "','" +
-                                    dr["MODIFY_TIME"] + "','" +
-                                   dr["CREATE_TIME"] + "')";
-                                if (accessOracle.ExecuteSql(sql))
-                                {
-                                    accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
-                                }
-                                else
-                                {
-                                    //已经存在该用户信息
-                                    accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
-                                }
-
-
-
+                                accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
                             }
-                            for (int i = 0; i < dtFingerInfo.Rows.Count; i++)
+                            else
                             {
-
-                                dr = dtFingerInfo.Rows[i];
-                                idcard = dr["USER_ID"].ToString();
-                                this.SetHintText("正在处理指纹信息" + idcard);
-                                sql = "insert into enroll_temp(USER_ID,AUTHEN_INFO,VERSION,SERVICE_TYPE,SERVICE_CODE,REVOKE_TIME"
-                                + ",TEMP_TYPE,TEMP_SIZE,TEMPLATE,CREATE_TIME,MODIFY_TIME)"
-                                + " values('" +
-                                 dr["USER_ID"]
-                                + "','" +
-                                 dr["AUTHEN_INFO"] + "'," +
-                                  dr["VERSION"] + "," +
-                                   dr["SERVICE_TYPE"] + "," +
-                                    dr["SERVICE_CODE"] + ",'" +
-                                     dr["REVOKE_TIME"] + "'," +
-                                      dr["TEMP_TYPE"] + "," +
-                                       dr["TEMP_SIZE"] + ",:TEMPLATE,'" +
-                                         dr["CREATE_TIME"] + "','" +
-                                          dr["MODIFY_TIME"] + "')";
-                                byte[] expbyte = (byte[])dr["TEMPLATE"];
-                                DbParameter param = new OracleParameter("TEMPLATE", System.Data.OracleClient.OracleType.Blob, expbyte.Length);
-                                //DbParameter param = new OleDbParameter();
-                                //param.ParameterName="TEMPLATE";
-
-                                //param.DbType=System.Data.OleDb.OleDbType.Binary;
-                                // param.DbType = System.Data.OracleClient.OracleType.Blob;
-                                // param.Size=expbyte.Length;
-                                param.Value = expbyte;
-
-
-                                if (accessOracle.ExecuteSqlByParam(sql, param))
-                                // if (accessOracle.ExecuteSql(sql))
-                                {
-                                    accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
-                                }
-                                else
-                                {
-                                    //已经存在该用户指纹信息
-                                    accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
-                                }
-
+                                //已经存在该用户信息
+                                accessAccess.ExecuteSql("delete from USER_INFO_UPLOAD where USER_ID='" + idcard + "'");
                             }
 
-
-
-                            
-
-                            for (int i = 0; i < dtUser.Rows.Count; i++)
-                            {
-
-
-                                dr = dtUser.Rows[i];
-                                if (dr["c_lsh"] == null || string.IsNullOrEmpty(dr["c_lsh"].ToString())) continue;
-                                schoolName = dr["c_school_name"].ToString();
-                                sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh) " +
-                                                   "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}')"
-                                                   , dr["c_idcard"]
-                                                   , dr["c_name"]
-                                                   , dr["c_school_code"]
-                                                   , dr["c_school_name"]
-                                                   , dr["c_student_type"]
-                                                   , dr["c_car_type"]
-                                                   , dr["c_lsh"]
-                                                   );
-
-                                // sql = "insert into fp_student(idcard,name)"
-                                // + " values('" +
-                                //   dr["c_idcard"] + "','" +
-                                //驾校名称
-                                // dr["c_school_name"] + "','" +
-                                //驾校代码
-                                //dr["c_school_code"] + "','" +
-                                //学生类别
-                                //dr["c_student_type"] + "','" +
-                                //培训审核日期
-                                //dr["c_pxrq"] + "','" +
-                                //学习车型
-                                //dr["c_car_type"] + "','" +
-                                // dr["c_name"] + "','" +
-                                //    dr["c_name"] + "')";
-                                if (accessOracle.ExecuteSql(sql))
-                                {
-
-                                    sql = string.Format("insert into table_upload_finger_record(c_idcard,c_name,c_school_code,c_school_name,c_student_type,c_car_type,c_lsh) " +
-                                      "values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
-                                        , dr["c_idcard"]
-                                        , dr["c_name"]
-                                        , dr["c_school_code"]
-                                        , dr["c_school_name"]
-                                        , dr["c_student_type"]
-                                        , dr["c_car_type"]
-                                        , dr["c_lsh"]
-                                      );
-
-                                    if (!accessAccess.ExecuteSql(sql))
-                                    {
-                                        // continue; 
-                                    }
-
-                                    sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
-                                    if (!accessAccess.ExecuteSql(sql))
-                                    {
-                                        // continue;
-                                    }
-
-
-                                    sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
-                                    if (!accessAccess.ExecuteSql(sql))
-                                    {
-                                        //  continue; 
-                                    }
-
-                                    sql = string.Format("update table_upload_finger_record set c_upload_time='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where c_idcard='{0}'", dr["c_idcard"]);
-
-                                    if (!accessAccess.ExecuteSql(sql))
-                                    {
-                                        // continue; 
-                                    }
-                                    //sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
-
-
-
-                                    reNum++;
-                                }
-                                else
-                                {
-                                    sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
-                                    if (!accessAccess.ExecuteSql(sql))
-                                    {
-                                        //  continue; 
-                                    }
-                                }
-
-
-
-                            }
-                            
 
 
                         }
+                        for (int i = 0; i < dtFingerInfo.Rows.Count; i++)
+                        {
 
+                            dr = dtFingerInfo.Rows[i];
+                            idcard = dr["USER_ID"].ToString();
+                            this.SetHintText("正在处理指纹信息" + idcard);
+                            sql = "insert into enroll_temp(USER_ID,AUTHEN_INFO,VERSION,SERVICE_TYPE,SERVICE_CODE,REVOKE_TIME"
+                            + ",TEMP_TYPE,TEMP_SIZE,TEMPLATE,CREATE_TIME,MODIFY_TIME)"
+                            + " values('" +
+                             dr["USER_ID"]
+                            + "','" +
+                             dr["AUTHEN_INFO"] + "'," +
+                              dr["VERSION"] + "," +
+                               dr["SERVICE_TYPE"] + "," +
+                                dr["SERVICE_CODE"] + ",'" +
+                                 dr["REVOKE_TIME"] + "'," +
+                                  dr["TEMP_TYPE"] + "," +
+                                   dr["TEMP_SIZE"] + ",:TEMPLATE,'" +
+                                     dr["CREATE_TIME"] + "','" +
+                                      dr["MODIFY_TIME"] + "')";
+                            byte[] expbyte = (byte[])dr["TEMPLATE"];
+                            DbParameter param = new OracleParameter("TEMPLATE", System.Data.OracleClient.OracleType.Blob, expbyte.Length);
+                            //DbParameter param = new OleDbParameter();
+                            //param.ParameterName="TEMPLATE";
+
+                            //param.DbType=System.Data.OleDb.OleDbType.Binary;
+                            // param.DbType = System.Data.OracleClient.OracleType.Blob;
+                            // param.Size=expbyte.Length;
+                            param.Value = expbyte;
+
+
+                            if (accessOracle.ExecuteSqlByParam(sql, param))
+                            // if (accessOracle.ExecuteSql(sql))
+                            {
+                                accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
+                            }
+                            else
+                            {
+                                //已经存在该用户指纹信息
+                                accessAccess.ExecuteSql("delete from ENROLL_TEMP_UPLOAD where USER_ID='" + idcard + "'");
+                            }
+
+                        }
+
+
+
+                            
+
+                        for (int i = 0; i < dtUser.Rows.Count; i++)
+                        {
+
+
+                            dr = dtUser.Rows[i];
+                            if (dr["c_lsh"] == null || string.IsNullOrEmpty(dr["c_lsh"].ToString())) continue;
+                            schoolName = dr["c_school_name"].ToString();
+                            sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh) " +
+                                               "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}')"
+                                               , dr["c_idcard"]
+                                               , dr["c_name"]
+                                               , dr["c_school_code"]
+                                               , dr["c_school_name"]
+                                               , dr["c_student_type"]
+                                               , dr["c_car_type"]
+                                               , dr["c_lsh"]
+                                               );
+
+                            // sql = "insert into fp_student(idcard,name)"
+                            // + " values('" +
+                            //   dr["c_idcard"] + "','" +
+                            //驾校名称
+                            // dr["c_school_name"] + "','" +
+                            //驾校代码
+                            //dr["c_school_code"] + "','" +
+                            //学生类别
+                            //dr["c_student_type"] + "','" +
+                            //培训审核日期
+                            //dr["c_pxrq"] + "','" +
+                            //学习车型
+                            //dr["c_car_type"] + "','" +
+                            // dr["c_name"] + "','" +
+                            //    dr["c_name"] + "')";
+                            if (accessOracle.ExecuteSql(sql))
+                            {
+
+                                sql = string.Format("insert into table_upload_finger_record(c_idcard,c_name,c_school_code,c_school_name,c_student_type,c_car_type,c_lsh) " +
+                                  "values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
+                                    , dr["c_idcard"]
+                                    , dr["c_name"]
+                                    , dr["c_school_code"]
+                                    , dr["c_school_name"]
+                                    , dr["c_student_type"]
+                                    , dr["c_car_type"]
+                                    , dr["c_lsh"]
+                                  );
+
+                                if (!accessAccess.ExecuteSql(sql))
+                                {
+                                    // continue; 
+                                }
+
+                                sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                                if (!accessAccess.ExecuteSql(sql))
+                                {
+                                    // continue;
+                                }
+
+
+                                sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                                if (!accessAccess.ExecuteSql(sql))
+                                {
+                                    //  continue; 
+                                }
+
+                                sql = string.Format("update table_upload_finger_record set c_upload_time='" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where c_idcard='{0}'", dr["c_idcard"]);
+
+                                if (!accessAccess.ExecuteSql(sql))
+                                {
+                                    // continue; 
+                                }
+                                //sql = string.Format("insert into table_upload_finger_record select * from  table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+
+
+
+                                reNum++;
+                            }
+                            else
+                            {
+                                sql = string.Format("delete from table_local_finger_record where c_idcard='{0}'", dr["c_idcard"]);
+                                if (!accessAccess.ExecuteSql(sql))
+                                {
+                                    //  continue; 
+                                }
+                            }
+
+
+
+                        }
+                            
+
+                       
                     }
-                    FT.Commons.Tools.FileHelper.CheckDirExistsAndCreate(config.MonitorPath + "\\bakpath");
-                    file.MoveTo(config.MonitorPath + "\\bakpath\\" + file.Name);
-               
+
                 }
+                     */
                     
-            }
+                    try
+                    {
+                        if (File.Exists(config.MonitorPath + "\\bakpath\\" + file.Name))
+                        {
+                            File.Delete(config.MonitorPath + "\\bakpath\\" + file.Name);
+                        }
+                        file.MoveTo(config.MonitorPath + "\\bakpath\\" + file.Name);
+                        file.Delete();
+                    }
+                    catch (IOException ioe)
+                    {
+                        file.Delete();
+                    }
 
-            if (reNum > 0)
-            {
-                MessageBoxHelper.Show(string.Format("{0}  导入 {1} {2}条指纹记录", DateTime.Now.ToString(), schoolName, reNum));
-                this.SetHintText("处理完毕！");
-                this.CreateLog("导入指纹完毕！");
-            }
-            
-            
 
+                    if (reNum > 0)
+                    {
+                        string msg = string.Format("导入 {0} {1}条指纹记录,受理号包括:{2}",  schoolName, reNum,lsh.Trim(','));
+                        MessageBoxHelper.Show(DateTime.Now.ToString()+" "+msg);
+                        this.SetHintText("处理完毕！");
+                        this.CreateLog(msg);
+                    }
 
+                }
+                
+             }
            
 
         }
