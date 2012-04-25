@@ -127,6 +127,7 @@ public partial class FpSystem_FpHelper_FpDataExport : System.Web.UI.Page
                 //context += string.Format(rblFormat.SelectedItem.Value, student.LSH, student.NAME);
                 // context += "\r";
                 Response.Write(string.Format(rblFormat.SelectedItem.Value, student.LSH, student.NAME) + "\r\n");
+                
             }
 
             //Response.Flush();

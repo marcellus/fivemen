@@ -14,6 +14,7 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.ucStudentInfo.hasSound = false;
         if (!IsPostBack) {
 
             foreach (int key in FpStudentObject.GetDictStatue().Keys) {
