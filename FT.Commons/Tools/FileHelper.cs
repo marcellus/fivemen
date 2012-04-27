@@ -355,6 +355,7 @@ namespace FT.Commons.Tools
                 }
                 fastZip.ExtractZip(zipfile, path,null);
                 return true;
+                
             }
             catch (Exception ex)
             {

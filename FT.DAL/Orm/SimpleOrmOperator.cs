@@ -49,7 +49,10 @@ namespace FT.DAL.Orm
         /// </summary>
         private static IDataAccess CreateConn()
         {
-            return  DAL.DataAccessFactory.GetDataAccess();
+            if (dataAccess == null) {
+                return DAL.DataAccessFactory.GetDataAccess();
+            }
+            return dataAccess;
 
         }
 
