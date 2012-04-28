@@ -33,7 +33,10 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tssInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpStart
@@ -52,9 +55,9 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(226, 105);
+            this.btnExport.Location = new System.Drawing.Point(231, 105);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(135, 29);
+            this.btnExport.Size = new System.Drawing.Size(130, 29);
             this.btnExport.TabIndex = 2;
             this.btnExport.Text = "导出报表Excel";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -81,18 +84,36 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "~";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssInfo});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 146);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(370, 22);
+            this.statusStrip1.TabIndex = 4;
+            // 
+            // tssInfo
+            // 
+            this.tssInfo.Name = "tssInfo";
+            this.tssInfo.Size = new System.Drawing.Size(0, 17);
+            // 
             // StudentRecordStatisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 146);
+            this.ClientSize = new System.Drawing.Size(370, 168);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExport);
             this.Name = "StudentRecordStatisForm";
             this.Text = "学员记录报表";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +124,7 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tssInfo;
     }
 }

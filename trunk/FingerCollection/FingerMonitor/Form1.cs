@@ -27,6 +27,7 @@ namespace FingerMonitor
 {
     public partial class Form1 : Form
     {
+
         protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
         //protected static ILog log = log4net.LogManager.GetLogger("tools");
 
@@ -55,6 +56,8 @@ namespace FingerMonitor
         public Form1()
         {
             InitializeComponent();
+            SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
+
         }
 
         protected override void OnActivated(EventArgs e)
@@ -76,6 +79,7 @@ namespace FingerMonitor
             //this.SetHintText(tmp);
 
             IDataAccess accessOracle = new OracleDataHelper(config.TnsName, config.OraUser, config.OraPwd);
+            
             DirectoryInfo dir = new DirectoryInfo(config.MonitorPath);
             DirectoryInfo[] dirsub = dir.GetDirectories();
             DirectoryInfo dirTmp = null;
@@ -85,7 +89,7 @@ namespace FingerMonitor
             //进行数据插入到fp_student中
             int reNum = 0;
             string schoolName = "";
-            string lsh = "";
+            string lshs = "";
             for (int k = 0; k < dirsub.Length; k++)
             {
                 dirTmp = dirsub[k];
@@ -96,7 +100,7 @@ namespace FingerMonitor
                     reNum = 0;
                     file = files[m];
                     if (!file.FullName.EndsWith(".mdb")) continue;
-
+                    SetHintText(string.Format("{0} 处理中...",file.Name));
                     accessAccess = new AccessDataHelper(file.FullName, "Admin", "");
                     string sql = "select * from table_local_finger_record";
                     DataTable dtUser = accessAccess.SelectDataTable(sql, "uploaduser");
@@ -111,21 +115,26 @@ namespace FingerMonitor
                     string idcard;
                     string schoolCode;
                     string carType;
+                    string studentName;
                     int localType;
                     foreach (DataRow row in dtUser.Rows)
                     {
-                        if (row["c_idcard"] == null || row["c_school_code"] == null || row["c_car_type"] == null || row["c_student_type"] == null)
+                        if (StringHelper.isNullOrBlank(row["c_idcard"])||StringHelper.isNullOrBlank (row["c_school_code"])|| 
+                            StringHelper.isNullOrBlank( row["c_car_type"])||StringHelper.isNullOrBlank( row["c_student_type"])||
+                            StringHelper.isNullOrBlank(row["c_name"])
+                            )
                         {
                             string log = string.Format("学员:{0}资料不全,不能导入", row["c_idcard"]);
                             this.CreateLog(log);
                             continue;
                         }
-                        idcard = row["c_idcard"].ToString();
-                        schoolCode = row["c_school_code"].ToString();
-                        carType = row["c_car_type"].ToString();
+                        idcard = row["c_idcard"].ToString().Trim();
+                        schoolCode = row["c_school_code"].ToString().Trim();
+                        carType = row["c_car_type"].ToString().Trim();
                         localType = Convert.ToInt16(row["c_student_type"].ToString());
                         schoolName = row["c_school_name"].ToString();
-                        if (row["c_lsh"] == null || string.IsNullOrEmpty(row["c_lsh"].ToString())) continue;
+                        studentName=row["c_name"].ToString();
+                        //if (row["c_lsh"] == null || string.IsNullOrEmpty(row["c_lsh"].ToString())) continue;
                         sql = string.Format("select * from fp_student_cleared where idcard='{0}' and school_code='{1}' and car_type='{2}' and localtype={3}", 
                             idcard
                             ,schoolCode
@@ -159,26 +168,68 @@ namespace FingerMonitor
                         DataRow rowFingerInfo = dtFingerInfoOne.Rows[0];
                         DataRow rowUserInfo = dtUserInfoOne.Rows[0];
                         schoolName = row["c_school_name"].ToString();
-                        sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh,create_time,creater) " +
-                                           "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}',to_date('{7}','yyyy-MM-dd'),'{8}')"
-                                           , row["c_idcard"] //0
-                                           , row["c_name"]  //1
-                                           , row["c_school_code"]  //2
-                                           , row["c_school_name"]  //3
-                                           , row["c_student_type"]  //4
-                                           , row["c_car_type"]  //5
-                                           , row["c_lsh"]  //6
-                                           , row["c_pxrq"]  //7
-                                           , "remote"    //8
-                        );
-                        if (!accessOracle.ExecuteSql(sql)) {
-                            string log = string.Format("{1} 学员:{0}身份信息已存在 ,不能重复导入"
-                             , idcard
-                             , schoolName
-                             , carType
+                        FpStudentObject thisStudent = FpStudentObject.loadbyIdCard(accessOracle,idcard);
+                        if (thisStudent == null)
+                        {
+                            sql = string.Format("insert into fp_student(idcard,name,school_code,school_name,localtype,car_type,lsh,create_time,creater) " +
+                                               "values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}',to_date('{7}','yyyy-MM-dd'),'{8}')"
+                                               , row["c_idcard"] //0
+                                               , row["c_name"]  //1
+                                               , row["c_school_code"]  //2
+                                               , row["c_school_name"]  //3
+                                               , row["c_student_type"]  //4
+                                               , row["c_car_type"]  //5
+                                               , row["c_lsh"]  //6
+                                               , row["c_pxrq"]  //7
+                                               , "remote"    //8
                             );
-                            this.CreateLog(log);
-                            continue; 
+                            if (!accessOracle.ExecuteSql(sql))
+                            {
+                                string log = string.Format("{1} 学员:{0}身份信息写入失败 ,请检查数据有效性"
+                                 , idcard
+                                 , schoolName
+                                 , carType
+                                );
+                                this.CreateLog(log);
+                                continue;
+                            }
+                        }
+                        else {
+                            String updateSet = string.Empty;
+                            String msg = string.Empty;
+                            String msgPattern=" {0} 由{1}更新为{2} ,";
+                            string lsh = StringHelper.isNullOrBlank(row["c_lsh"]) ? string.Empty : row["c_lsh"].ToString();
+                            if (lsh!=string.Empty && thisStudent.LSH != lsh) {
+                               
+                                msg += string.Format(msgPattern, "受理号",thisStudent.LSH,lsh);
+                                updateSet += string.Format(" {0} = '{1}' ", "lsh", lsh);
+                                //thisStudent.LSH = lsh;
+                            }
+                            if (thisStudent.NAME != studentName) {
+                                msg += string.Format(msgPattern, "姓名", thisStudent.NAME, studentName);
+                                updateSet += string.Format(" {0} = '{1}' ", "name", studentName);
+                                //thisStudent.NAME = studentName;
+                            }
+                            if(thisStudent.CAR_TYPE!=carType){
+                                msg += string.Format(msgPattern, "车型", thisStudent.CAR_TYPE, carType);
+                                updateSet += string.Format(" {0} = '{1}' ", "car_type",carType );
+                               //thisStudent.CAR_TYPE=carType;
+                            }
+                            if (thisStudent.LOCALTYPE != localType) {
+                                msg += string.Format(msgPattern, "类型", thisStudent.LOCALTYPE, localType);
+                                updateSet += string.Format(" {0} = {1} ", "localtype", localType);
+                                //thisStudent.LOCALTYPE = localType;
+                            }
+                            if (updateSet != string.Empty) {
+                                sql = string.Format("update fp_student set {0} where idcard='{1}' ", updateSet, idcard);
+                                if (accessOracle.ExecuteSql(sql))
+                                {
+                                    string log = string.Format("{0} 学员 {1} 资料更新:{2}", schoolName, idcard, msg);
+                                    CreateLog(log);
+                                }
+                                
+                            }
+                            continue;
                         }
                         string sql1 = string.Format("insert into USER_INFO(USER_ID,MODIFY_TIME,CREATE_TIME) values ('{0}','{1}','{2}')",
                             rowUserInfo["USER_ID"]
@@ -212,7 +263,7 @@ namespace FingerMonitor
                            , carType
                             );
                             this.CreateLog(log);
-                            lsh +=  row["c_lsh"].ToString()+",";
+                            lshs +=  row["c_lsh"].ToString()+",";
                             reNum++;
                         }
                        
@@ -412,8 +463,8 @@ namespace FingerMonitor
 
                     if (reNum > 0)
                     {
-                        string msg = string.Format("导入 {0} {1}条指纹记录,受理号包括:{2}",  schoolName, reNum,lsh.Trim(','));
-                        MessageBoxHelper.Show(DateTime.Now.ToString()+" "+msg);
+                        string msg = string.Format("导入 {0} {1}条指纹记录,受理号包括:{2}",  schoolName, reNum,lshs.Trim(','));
+                        //MessageBoxHelper.Show(DateTime.Now.ToString()+" "+msg);
                         this.SetHintText("处理完毕！");
                         this.CreateLog(msg);
                     }
@@ -504,11 +555,13 @@ namespace FingerMonitor
 
         private void 查看日志ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            SimpleOrmOperator.InitDataAccess(null);
             NoUserHelper.ShowLogs();
         }
 
         private void 清空日志ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+      
             NoUserHelper.ClearLogs();
         }
 
@@ -549,6 +602,12 @@ namespace FingerMonitor
         private void 指纹比对ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tsmiStudentReport_Click(object sender, EventArgs e)
+        {
+            Form form = new StudentRecordStatisForm();
+            form.Show();
         }
     }
 }

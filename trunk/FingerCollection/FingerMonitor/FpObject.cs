@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using FT.DAL.Orm;
+using System.Collections;
+using System.Data;
+using FT.DAL;
 
 namespace FingerMonitor
 {
@@ -10,6 +13,38 @@ namespace FingerMonitor
     [Serializable]
     public class FpStudentObject
     {
+
+        public static Dictionary<string, List<FpStudentObject>> QueryGroupbySchool(IDataAccess dataAccess,string busType, string startDate, string endDate)
+        {
+            SimpleOrmOperator.InitDataAccess(dataAccess);
+            string sqlCondition = "";
+
+            sqlCondition = "where create_time between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD') order by create_time desc";
+
+            ArrayList students = SimpleOrmOperator.QueryConditionList<FpStudentObject>(string.Format(sqlCondition, startDate, endDate));
+            Dictionary<string, List<FpStudentObject>> dictStudents = new Dictionary<string, List<FpStudentObject>>();
+            foreach (FpStudentObject student in students)
+            {
+                if (string.IsNullOrEmpty(student.SCHOOL_CODE)) continue;
+                if (!dictStudents.ContainsKey(student.SCHOOL_CODE))
+                {
+                    dictStudents.Add(student.SCHOOL_CODE, new List<FpStudentObject>());
+                }
+                dictStudents[student.SCHOOL_CODE].Add(student);
+            }
+            SimpleOrmOperator.InitDataAccess(null);
+            return dictStudents;
+
+        }
+
+        public static FpStudentObject loadbyIdCard(IDataAccess dataAccess, String idCard) {
+            SimpleOrmOperator.InitDataAccess(dataAccess);
+            FpStudentObject student = SimpleOrmOperator.Query<FpStudentObject>(idCard);
+            SimpleOrmOperator.InitDataAccess(null);
+            return student;
+        }
+
+   
 
         [SimplePK]
         [SimpleColumn(Column = "IDCARD", AllowInsert = true, ColumnType = SimpleColumnType.String)]
@@ -429,6 +464,25 @@ namespace FingerMonitor
     [Serializable]
     public class DepartMent
     {
+
+
+        public  static Dictionary<string, DepartMent> queryDict(IDataAccess dataAccess)
+        {
+            SimpleOrmOperator.InitDataAccess(dataAccess);
+            ArrayList deps = SimpleOrmOperator.QueryListAll(typeof(DepartMent));
+            Dictionary<string, DepartMent> dictDeps = new Dictionary<string, DepartMent>();
+            foreach (DepartMent dep in deps)
+            {
+                if (string.IsNullOrEmpty(dep.DepCode)) continue;
+                if (!dictDeps.ContainsKey(dep.DepCode))
+                {
+                    dictDeps.Add(dep.DepCode, dep);
+                }
+            }
+            SimpleOrmOperator.InitDataAccess(null);
+            return dictDeps;
+        }
+
         public DepartMent()
         {
             //
@@ -532,5 +586,7 @@ namespace FingerMonitor
             set { ParentCode = value; }
         }
     }
+
+
 
 }
