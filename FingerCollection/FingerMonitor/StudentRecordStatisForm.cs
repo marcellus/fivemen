@@ -15,58 +15,45 @@ using FT.DAL;
 using FT.DAL.Oracle;
 using FingerMonitor.Config;
 using FT.Commons.Cache;
+using System.Threading;
 
 namespace FingerMonitor
 {
     public partial class StudentRecordStatisForm : Form
     {
-        private IDataAccess dataAccess = null;
+        private IDataAccess oraclDataAccess = null;
+        private string target = string.Empty;
 
         public StudentRecordStatisForm()
         {
             InitializeComponent();
             SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
-            dataAccess = new OracleDataHelper(config.TnsName, config.OraUser, config.OraPwd);
-            SimpleOrmOperator.InitDataAccess(dataAccess);
+            oraclDataAccess = new OracleDataHelper(config.TnsName, config.OraUser, config.OraPwd);
+            
             dtpEnd.Value = DateTime.Now.AddDays(1);
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            
             string excelName = string.Format("指纹记录[{0}][{1}].xls", dtpStart.Value.ToShortDateString(), dtpEnd.Value.ToShortDateString());
  
-            string target = FT.Commons.Tools.FileDialogHelper.Save("请选择导出Excel的路径", "Excel(*.xls)|*.xls", excelName);
+            target = FT.Commons.Tools.FileDialogHelper.Save("请选择导出Excel的路径", "Excel(*.xls)|*.xls", excelName);
             if (!string.IsNullOrEmpty(target))
             {
-                exportExcel(target);
+                Thread t = new Thread(new ThreadStart(exportExcel));
+                t.Start();
+                //exportExcel(target);
             }
             
         }
 
-        private Dictionary<string, List<FpStudentObject>> QueryStudentGroupbySchool(string busType, string startDate, string endDate)
-        {
-            
-            string sqlCondition = "";
+      
 
-            sqlCondition = "where create_time between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD') order by create_time desc";
-
-            ArrayList students = SimpleOrmOperator.QueryConditionList<FpStudentObject>(string.Format(sqlCondition, startDate, endDate));
-            Dictionary<string, List<FpStudentObject>> dictStudents = new Dictionary<string, List<FpStudentObject>>();
-            foreach (FpStudentObject student in students)
-            {
-                if (string.IsNullOrEmpty(student.SCHOOL_CODE)) continue;
-                if (!dictStudents.ContainsKey(student.SCHOOL_CODE))
-                {
-                    dictStudents.Add(student.SCHOOL_CODE, new List<FpStudentObject>());
-                }
-                dictStudents[student.SCHOOL_CODE].Add(student);
-            }
-            return dictStudents;
-
-        }
-
-        private void exportExcel(String target) {
-
+        private void exportExcel() {
+            this.btnExport.Enabled = false;
+            string btnText = this.btnExport.Text;
+            this.btnExport.Text = "报表生成中....";
             Excel.Application xlApp = new Excel.ApplicationClass();
             if (xlApp == null)
             {
@@ -75,9 +62,9 @@ namespace FingerMonitor
                 return;
             }
             // 创建Excel工作薄
+            Dictionary<string, DepartMent> cacheDeps = DepartMent.queryDict(oraclDataAccess);
 
-
-            Dictionary<string, List<FpStudentObject>> schoolStudents = QueryStudentGroupbySchool(null, dtpStart.Value.ToShortDateString(), dtpEnd.Value.ToShortDateString());
+            Dictionary<string, List<FpStudentObject>> schoolStudents = FpStudentObject.QueryGroupbySchool(oraclDataAccess,null, dtpStart.Value.ToShortDateString(), dtpEnd.Value.ToShortDateString());
             String[] sheetTitles = { "缺受理号", "未收费", "已收费" };
             String[] sheetColumns = { "受理号", "姓名", "身份证号码", "准驾车型", "导入时间" };
 
@@ -94,14 +81,20 @@ namespace FingerMonitor
            
             int sheetIndex = 0;
             //xlBook.Sheets.Add(Missing.Value, Missing.Value, schoolStudents.Keys.Count - 1, Missing.Value);
+            
             foreach (string schoolCode in schoolStudents.Keys)
             {
 
                 sheetIndex++;
                 List<FpStudentObject> students = schoolStudents[schoolCode];
-                string schoolName = null;
-                ArrayList deps = SimpleOrmOperator.QueryConditionList<DepartMent>(string.Format("where c_depcode='{0}'", schoolCode));
-                schoolName = (deps[0] as DepartMent).DepNickName;
+                string schoolName = schoolCode;
+                try
+                {
+                    schoolName = cacheDeps[schoolCode].DepNickName;
+                }
+                catch (Exception ex) { }
+                tssInfo.Text = string.Format("({2}/{3}).{0}:{1}...", schoolName, students.Count, sheetIndex, schoolStudents.Keys.Count);
+                
                 int rowIndex = 1;
                 foreach (FpStudentObject student in students)
                 {
@@ -155,6 +148,10 @@ namespace FingerMonitor
                     //rang.Select();
                     rang.ColumnWidth = 30;
                     rang.Value2 = result;
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.ColumnWidth = 30;
+                    rang.Value2 = student.SCHOOL_NAME;
                     rowIndex++;
                 }
 
@@ -178,6 +175,10 @@ namespace FingerMonitor
             xlApp.Quit();
             System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp.Workbooks);
             System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+            this.btnExport.Text = btnText;
+            this.btnExport.Enabled = true;
+            this.target = string.Empty;
+            this.tssInfo.Text = string.Empty;
         }
     }
 }
