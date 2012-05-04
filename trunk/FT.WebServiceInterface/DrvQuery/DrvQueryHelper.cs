@@ -27,6 +27,11 @@ namespace FT.WebServiceInterface.DrvQuery
             //
         }
 
+        public static string TestSql2()
+        {
+            return "";
+        }
+
         public static void TestSql(string connConfig,int id1,int id2,int id3)
         {
            // string queryStr = "select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from trff_app.drv_flow a left join trff_app.drv_examcard b on a.sfzmhm=b.sfzmhm where a.ywlx in ('A','B') and a.sfzmhm='440583199005011018'";
@@ -41,7 +46,7 @@ namespace FT.WebServiceInterface.DrvQuery
             * */
 
             string sql = "select distinct decode(xb,1,'男',2,'女') sex,lxdh phone,lxdh mobile,lxzsxxdz address,to_char(csrq,'yyyy-MM-dd') csrq  from fzkyy.st_person a where a.sfzmhm='{1}'";
-            string queryStr = string.Format(sql, new string[] { "4405", "440583199005011018" });
+            string queryStr = string.Format(sql, new string[] { "4405", "440582198610064248" });
              
 
             // IDataAccess access = new OracleDataHelper(System.Configuration.ConfigurationManager.AppSettings["DefaultConnString2"]);
@@ -89,10 +94,10 @@ namespace FT.WebServiceInterface.DrvQuery
         }
         public static void TestSql()
         {
-            TestSql("DefaultConnString3", 1004, 1005, 1006);
+            TestSql("DefaultConnString3", 1013, 1014, 1015);
             // TestSql("DefaultConnString4", 998, 999, 1000);
-            TestSql("DefaultConnString4", 1007, 1008, 1009);
-            string queryStr = "select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",'' \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from fzkyy.st_drv_flow a left join fzkyy.st_drv_examcard b on a.sfzmhm=b.sfzmhm where a.ywlx in ('A','B') and a.sfzmhm='440583199005011018'";
+            TestSql("DefaultConnString4", 1016, 1017, 1018);
+            string queryStr = "select distinct '' \"jxmc\",b.jxmc \"jxdm\", 'A' \"idCardType\", a.sfzmhm \"idCard\",a.xm \"name\",b.zkcx \"zkcx\",a.lsh \"lsh\",to_char(b.yxqs,'yyyy-MM-dd') \"yxqs\",to_char(b.yxqz,'yyyy-MM-dd') \"yxqz\",b.jly \"jly\" from fzkyy.st_drv_flow a left join fzkyy.st_drv_examcard b on a.sfzmhm=b.sfzmhm where a.ywlx in ('A','B') and a.sfzmhm='440582198610064248'";
            // string queryStr = "select 1 from dual";
 /*
             String sql = "(select kskm \"kskm\",zt \"zt\",to_char(ykrq,'yyyy-MM-dd') \"yyrq\" from (select kskm,nvl(zt,0) zt,nvl(ykrq,sysdate) ykrq from trff_app.drv_preasign a where kskm=1 and glbm like '{0}%' and sfzmhm='{1}' order by ykrq desc) where rownum=1)";
@@ -108,26 +113,26 @@ namespace FT.WebServiceInterface.DrvQuery
            // log.Debug("DefaultConnString is:" + tmp);
             string connStr = FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(tmp);
 
-            string sql2 = "update table_yuyue_info set c_check_result='" + FT.DAL.DALSecurityTool.TransferInsertField(connStr) + "' where id=993 ";
+            string sql2 = "update table_yuyue_info set c_check_result='" + FT.DAL.DALSecurityTool.TransferInsertField(connStr) + "' where id=1010 ";
             FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql2);
             DbConnection conn=new OracleConnection(connStr);
             DataTable dt = new DataTable("tmp");
             try
             {
-                /*
+                
                 try
                 {
                     conn.Open();
                     conn.Close();
-                    string sql3 = "update table_yuyue_info set c_check_result='测试数据库打开链接成功！' where id=994";
+                    string sql3 = "update table_yuyue_info set c_check_result='测试数据库打开链接成功！' where id=1020";
                     FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql3);
                 }
                 catch (System.Exception e)
                 {
-                    string sql8 = "update table_yuyue_info set c_check_result='" + e.ToString() + "' where id=994 ";
+                    string sql8 = "update table_yuyue_info set c_check_result='" + e.ToString() + "' where id=1020 ";
                     FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql8);
                 }
-             */
+             
                 
                 DbDataAdapter oradp = new OracleDataAdapter();
                 DbCommand command = conn.CreateCommand();
@@ -135,13 +140,13 @@ namespace FT.WebServiceInterface.DrvQuery
                 //command.CommandText = sql.Replace("\r\n","");
                 oradp.SelectCommand = command;
                 oradp.Fill(dt);
-                string sql5 = "update table_yuyue_info set c_check_result='查询完毕" + FT.DAL.DALSecurityTool.TransferInsertField(queryStr) + "记录数：" + dt.Rows.Count.ToString() + "' where id=992 ";
+                string sql5 = "update table_yuyue_info set c_check_result='查询完毕" + FT.DAL.DALSecurityTool.TransferInsertField(queryStr) + "记录数：" + dt.Rows.Count.ToString() + "' where id=1012 ";
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql5);
                 //log.Error(e);
             }
             catch (Exception e)
             {
-                string sql = "update table_yuyue_info set c_check_result='查询语句异常："+e.ToString()+"' where id=992 ";
+                string sql = "update table_yuyue_info set c_check_result='查询语句异常："+e.ToString()+"' where id=1011 ";
                 FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql(sql);
                 //log.Error(e);
                // return null;
