@@ -142,6 +142,18 @@ public class FPConfig
     [SimpleColumn(Column = "FP_LESSON_ENTER_2_HH", ColumnType = SimpleColumnType.Int)]
     private int fp_lesson_enter_2_hh;
 
+    [SimpleColumn(Column = "FP_LESSON_ENTER_3_MM", ColumnType = SimpleColumnType.Int)]
+    private int fp_lesson_enter_3_mm;
+
+    [SimpleColumn(Column = "FP_LESSON_ENTER_3_HH", ColumnType = SimpleColumnType.Int)]
+    private int fp_lesson_enter_3_hh;
+
+    [SimpleColumn(Column = "FP_LESSON_ENTER_4_MM", ColumnType = SimpleColumnType.Int)]
+    private int fp_lesson_enter_4_mm;
+
+    [SimpleColumn(Column = "FP_LESSON_ENTER_4_HH", ColumnType = SimpleColumnType.Int)]
+    private int fp_lesson_enter_4_hh;
+
     public FPConfig()
     {
         //
@@ -307,6 +319,30 @@ public class FPConfig
     {
         get { return this.fp_lesson_enter_2_hh; }
         set { this.fp_lesson_enter_2_hh = value; }
+    }
+
+    public int FP_LESSON_ENTER_3_MM
+    {
+        get { return this.fp_lesson_enter_3_mm; }
+        set { this.fp_lesson_enter_3_mm = value; }
+    }
+
+    public int FP_LESSON_ENTER_3_HH
+    {
+        get { return this.fp_lesson_enter_3_hh; }
+        set { this.fp_lesson_enter_3_hh = value; }
+    }
+
+    public int FP_LESSON_ENTER_4_MM
+    {
+        get { return this.fp_lesson_enter_3_mm; }
+        set { this.fp_lesson_enter_3_mm = value; }
+    }
+
+    public int FP_LESSON_ENTER_4_HH
+    {
+        get { return this.fp_lesson_enter_4_hh; }
+        set { this.fp_lesson_enter_4_hh = value; }
     }
 
 

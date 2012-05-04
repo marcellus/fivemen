@@ -34,6 +34,8 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
 
                 ddlLessonEnter1HH.Items.Add(new ListItem(hh.ToString(), hh.ToString()));
                 ddlLessonEnter2HH.Items.Add(new ListItem(hh.ToString(), hh.ToString()));
+                ddlLessonEnter3HH.Items.Add(new ListItem(hh.ToString(), hh.ToString()));
+                ddlLessonEnter4HH.Items.Add(new ListItem(hh.ToString(), hh.ToString()));
             }
 
             for (int mm = 0; mm < 60; mm++) {
@@ -49,6 +51,8 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
                 ddlTrain3LeaveMM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
                 ddlLessonEnter1MM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
                 ddlLessonEnter2MM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
+                ddlLessonEnter3MM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
+                ddlLessonEnter4MM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
             }
 
             FPConfig config = FPConfig.GetCurrConfig();
@@ -59,6 +63,10 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
             ddlLessonEnter1MM.SelectedIndex = config.FP_LESSON_ENTER_1_MM;
             ddlLessonEnter2HH.SelectedIndex = config.FP_LESSON_ENTER_2_HH;
             ddlLessonEnter2MM.SelectedIndex = config.FP_LESSON_ENTER_2_MM;
+            ddlLessonEnter3HH.SelectedIndex = config.FP_LESSON_ENTER_3_HH;
+            ddlLessonEnter3MM.SelectedIndex = config.FP_LESSON_ENTER_3_MM;
+            ddlLessonEnter4HH.SelectedIndex = config.FP_LESSON_ENTER_4_HH;
+            ddlLessonEnter4MM.SelectedIndex = config.FP_LESSON_ENTER_4_MM;
 
 
 
@@ -99,6 +107,10 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
         config.FP_LESSON_ENTER_1_MM = ddlLessonEnter1MM.SelectedIndex;
         config.FP_LESSON_ENTER_2_HH = ddlLessonEnter2HH.SelectedIndex;
         config.FP_LESSON_ENTER_2_MM = ddlLessonEnter2MM.SelectedIndex;
+        config.FP_LESSON_ENTER_3_HH = ddlLessonEnter3HH.SelectedIndex;
+        config.FP_LESSON_ENTER_3_MM = ddlLessonEnter3MM.SelectedIndex;
+        config.FP_LESSON_ENTER_4_HH = ddlLessonEnter4HH.SelectedIndex;
+        config.FP_LESSON_ENTER_4_MM = ddlLessonEnter4MM.SelectedIndex;
         config.FP_TRAIN_1_ENTER_FROM_HH = ddlTrain1EnterFromHH.SelectedIndex;
         config.FP_TRAIN_1_ENTER_FROM_MM = ddlTrain1EnterFromMM.SelectedIndex;
         config.FP_TRAIN_1_ENTER_TO_HH = ddlTrain1EnterToHH.SelectedIndex;
