@@ -13,6 +13,31 @@ namespace FT.WebServiceInterface.WebService
     /// </summary>
     public class DriverInterface
     {
+
+/*
+         
+接口类型：写入类接口
+接口标识：02C69
+功能说明：供各地外挂系统将初学、增驾、补换证等业务的预录入信息写入驾驶证系统的预录入表（drv_temp_mid表）
+传入参数：流水号,身份证明号码,身份证明名称,号码长度,姓名,性别,出生日期,国籍,登记住所行政区划,登记住所详细地址,联系住所行政区划,联系住所详细地址,联系住所邮政编码,来源,行政区划,联系电话,暂住证明号码,准考证明编号,档案编号,准考车型,驾校名称,身高,左视力,右视力,辨色力,听力,上肢,左下肢,右下肢,躯干颈部,体检日期,体检医院名称,手机号码,电子邮箱。
+WriteXmlDoc文档说明：节点标签DrvtempMid，写入数据字段如下表：
+
+         
+*/
+
+/*
+
+接口类型：写入类接口
+接口标识：02C77
+功能说明：供各地照相系统调用，写入或更新驾驶人的照片信息。更新驾驶人照片表中相关字段（drv_photo表）。
+传入参数：身份证明号码、照片。
+WriteXmlDoc文档说明：节点标签drvphoto，写入数据字段如下表：
+序号	参数项	名称	类型	长度	是否可空	备注
+1	sfzmhm	身份证明号码	varchar2	18	不可空	
+2	zp	照片	blob		不可空	Base64字符串格式
+返回结果XML文档：retcode（标记，1成功；非1失败）、retdesc（描述信息）
+
+*/
         protected static ILog log = log4net.LogManager.GetLogger("DriverInterface");
         public DriverInterface()
         {
