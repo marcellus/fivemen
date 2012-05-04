@@ -15,7 +15,7 @@
             
             
                          <tr class="table-content">
-               <th>上午上课最迟有效时间:</th>
+               <th>早场第一节上课最迟有效时间:</th>
                <td>
                 <asp:DropDownList ID="ddlLessonEnter1HH" runat="server"></asp:DropDownList>:
                 <asp:DropDownList ID="ddlLessonEnter1MM" runat="server"></asp:DropDownList>
@@ -24,10 +24,28 @@
             </tr>
             
                          <tr class="table-content">
-               <th>下午上课最迟有效时间:</th>
+               <th>早场第二节上课最迟有效时间:</th>
                <td>
                 <asp:DropDownList ID="ddlLessonEnter2HH" runat="server"></asp:DropDownList>:
                 <asp:DropDownList ID="ddlLessonEnter2MM" runat="server"></asp:DropDownList>
+                
+               </td>
+            </tr>
+            
+             <tr class="table-content">
+               <th>晚场第一节上课最迟有效时间:</th>
+               <td>
+                <asp:DropDownList ID="ddlLessonEnter3HH" runat="server"></asp:DropDownList>:
+                <asp:DropDownList ID="ddlLessonEnter3MM" runat="server"></asp:DropDownList>
+                
+               </td>
+            </tr>
+            
+             <tr class="table-content">
+               <th>晚场第二节上课最迟有效时间:</th>
+               <td>
+                <asp:DropDownList ID="ddlLessonEnter4HH" runat="server"></asp:DropDownList>:
+                <asp:DropDownList ID="ddlLessonEnter4MM" runat="server"></asp:DropDownList>
                 
                </td>
             </tr>

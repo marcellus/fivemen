@@ -540,14 +540,27 @@ public class FpStudentObject
                         break;
                     }
 
+                    DateTime dtLesson2Leavel = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM,0).AddMinutes(config.FP_LESSON_INTERVAL);
+                   
                     if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_1))
                     {
-                        if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM))
+                        if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_3_HH, config.FP_LESSON_ENTER_3_MM))
                         {
-                            this.remark = string.Format("{0} 上午上课超过限制时间 {1}:{2},考勤无效",
-                                lStrIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM);
+                            this.remark = string.Format("{0} 晚场第一节上课超过限制时间 {1}:{2},考勤无效",
+                                lStrIdentity, config.FP_LESSON_ENTER_3_HH, config.FP_LESSON_ENTER_3_MM);
+                            break;
+                        }else if(!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM)
+                            && fnIsVaildTime(lDtIdentity,dtLesson2Leavel)){
+                             this.remark = string.Format("{0} 早场第一节上课超过限制时间 {1}:{2},考勤无效",
+                            lStrIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM);
                             break;
                         }
+                        //else if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM))
+                        //{
+                        //    this.remark = string.Format("{0} 上午上课超过限制时间 {1}:{2},考勤无效",
+                        //        lStrIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM);
+                        //    break;
+                        //}
 
                             this.LESSON_ENTER_1 = lDtIdentity;
                             this.statue = STATUE_LESSON_START;
@@ -573,28 +586,36 @@ public class FpStudentObject
                         if (fnIsVaildTime(this.LESSON_ENTER_1, lDtIdentity, gIntLessonInterval))
                         {
                             this.LESSON_LEAVE_1 = lDtIdentity;
-                            this.remark = string.Format("{0} 上午上课离场成功，请今天中午再来入场确认", lStrIdentity);
+                            this.remark = string.Format("{0} 第一节上课离场成功，请今天再来第二节上课入场确认", lStrIdentity);
                             isCheckin = true;
                         }
                         else
                         {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
-                            this.remark = string.Format("{0} 上午上课时间未达到{1}分钟,提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
+                            this.remark = string.Format("{0} 第一节上课时间未达到{1}分钟,提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
                         }
                     }
                     else if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_2))
                     {
                         //if (fnIsVaildTime(this.LESSON_LEAVE_1, lDtIdentity, gIntLessonInterval))
-                        if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM))
-                                                {
+                        if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_4_HH, config.FP_LESSON_ENTER_4_MM))
+                        {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
                             //this.remark = string.Format("{0} 上午上课时间未达到{1}分钟，不能进行下午上课", lStrIdentity,gIntLessonInterval);
-                            this.remark = string.Format("{0} 下午上课超过限制时间 {1}:{2},考勤无效",
+                            this.remark = string.Format("{0} 晚场第二节上课超过限制时间 {1}:{2},考勤无效",
+                            lStrIdentity, config.FP_LESSON_ENTER_4_HH, config.FP_LESSON_ENTER_4_MM);
+                            break;
+                        } 
+                        else if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM))
+                        {
+                            // lIntReturn = LESSON_ENTER_2_FAILE;
+                            //this.remark = string.Format("{0} 上午上课时间未达到{1}分钟，不能进行下午上课", lStrIdentity,gIntLessonInterval);
+                            this.remark = string.Format("{0} 早场第二节上课超过限制时间 {1}:{2},考勤无效",
                             lStrIdentity,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM);
                             break;
                         }              
                             this.LESSON_ENTER_2 = lDtIdentity;
-                            this.remark = string.Format("{0} 开始进行下午上课", lStrIdentity);
+                            this.remark = string.Format("{0} 开始进行第二节上课", lStrIdentity);
                             isCheckin = true;
                      
 
@@ -613,7 +634,7 @@ public class FpStudentObject
                         }
                         else
                         {
-                            this.remark = string.Format("{0} 下午上课时间未达到{1}分钟，提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
+                            this.remark = string.Format("{0} 第二节上课时间未达到{1}分钟，提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
                         }
                     }
                     break;
