@@ -3,8 +3,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+   
+   <script type="text/javascript">
+   
+     $(document).ready(function(){
+      
+       var page= parseInt($("#tdPager").find("input:eq(0)").val());
+       var size=30;
+       var i=(page-1)*30;
+      // alert(i);
+       $("#tableFeeData").find("tr:gt(1)").each(function(){
+         // alert(i);
+          $(this).find("td:eq(0)").css("text-align","right").prepend((++i)+"&nbsp;");
+       });
+     });
+   
+   </script>
   
-   <table class="table-border">
+   <table class="table-border" >
    
        <tr class="table-content">
           <td style=" padding:10px; text-align:right">
@@ -45,7 +61,7 @@
    </table>
    
 
-   <table class="table-border">
+   <table class="table-border" id="tableFeeData">
           
    
         <tr class="table-content">
@@ -56,17 +72,17 @@
                         Width="100%">
                         <Columns>
                         
-                            <asp:TemplateColumn HeaderStyle-Width="30px">
+                            <asp:TemplateColumn HeaderStyle-Width="70px">
                                <ItemTemplate>
                                    <asp:CheckBox runat="server" ID="cbIdCard"  Checked="true"  ></asp:CheckBox>
                                </ItemTemplate>
                             </asp:TemplateColumn>
-                        
+                   
                             <asp:BoundColumn DataField="lsh" HeaderText="流水号"></asp:BoundColumn>
-                            <asp:BoundColumn DataField="name" HeaderText="姓名"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码"></asp:BoundColumn>
+                            <asp:BoundColumn DataField="name" HeaderText="姓名" HeaderStyle-Width="90"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="idcard" HeaderText="身份证明号码" HeaderStyle-Width="220"></asp:BoundColumn>
                             <asp:BoundColumn DataField="school_name" HeaderText="驾校"></asp:BoundColumn>
-                             <asp:BoundColumn DataField="car_type" HeaderText="车型"></asp:BoundColumn>
+                             <asp:BoundColumn DataField="car_type" HeaderText="车型" HeaderStyle-Width="70"></asp:BoundColumn>
                             <asp:BoundColumn DataField="fee_verify_date" HeaderText="收费审核时间"></asp:BoundColumn>
                              
                              <asp:TemplateColumn HeaderText="操作">
@@ -94,7 +110,7 @@
                 </td>
             </tr>
                <tr class="table-bottom">
-                <td>
+                <td id="tdPager">
                  
                     <WC:ProcedurePager ID="ProcedurePager1" runat="server" AllowBinded="True"  PageSize="30"
                         BindControlString="DataGrid1">

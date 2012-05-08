@@ -24,12 +24,12 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
             ddlCarType.Items.Insert(0, new ListItem("全部", "all"));
 
-            string condition = "  statue<{0} ";
+            string condition = "  statue<{0} and lsh is not null ";
             condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
             condition += " and fee_statue != 'Y' ";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type,fee_verify_date ".Replace("\r\n", "").Replace("\t", "");
-            this.ProcedurePager1.SortString = " order by idcard desc";
+            this.ProcedurePager1.SortString = " order by lsh asc";
             this.ProcedurePager1.RowFilter = condition;
         }
         this.txtQueryValue.Focus();
@@ -39,7 +39,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         string queryValue = txtQueryValue.Text;
         string queryText = ddlQueryType.SelectedItem.Text;
         string queryType = ddlQueryType.SelectedValue;
-        string condition = "  statue<{0} ";
+        string condition = "  statue<{0} and lsh is not null ";
         condition = string.Format(condition, FpStudentObject.STATUE_LESSON_START);
         string feeStatue = ddlFeeStatue.SelectedValue;
         string schoolCode = ddlSchoolCode.SelectedValue;

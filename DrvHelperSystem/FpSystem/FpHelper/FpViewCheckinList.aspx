@@ -13,11 +13,11 @@
               FpCheckinLog checkInLog = checkInLogs[i-1] as FpCheckinLog;    
           %> 
       <tr class="table-content" style="  padding:3px;">
-      <td ><%=i %></td>
-      <td ><%=checkInLog.CHECKIN_DATE.ToShortTimeString() %></td>
+      <!--<td ><%=i %></td> -->
+      
       <td style=" width:60px"><%=checkInLog.CHECKIN_NAME %></td>
       <td  style=" width:150px"><%=checkInLog.CHECKIN_IDCARD %></td>
-      
+      <td ><%=checkInLog.CHECKIN_DATE.ToShortTimeString() %></td>
        </tr>
   <%} %>
  
