@@ -16,7 +16,7 @@ using FT.Web.Tools;
 public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.UserControl
 {
     public static string SESSION_STUDENT="student";
-
+    public bool hasSound = true;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,7 +26,10 @@ public partial class FpSystem_UserControler_viewStudentInfo : System.Web.UI.User
         {
             ///this.lbAlertMsg.Text = "没有该学员的指纹信息";
             this.lbAlertMsg.Text = "学员指纹信息不存在";
-            WebTools.PlaySound("../../sound/学员指纹信息不存在.wav");
+            if (hasSound)
+            {
+                WebTools.PlaySound("../../sound/学员指纹信息不存在.wav");
+            }
             return;
         }
         //lStrIDCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();

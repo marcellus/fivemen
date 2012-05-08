@@ -36,7 +36,7 @@ public partial class FpSystem_FpHelper_FpKm3Verify : FT.Web.AuthenticatedPage
             condition+=" and km3_verify !='Y' ";
             this.ProcedurePager1.TableName = "fp_student";
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type ".Replace("\r\n", "").Replace("\t", "");
-            this.ProcedurePager1.SortString = " order by idcard desc";
+            this.ProcedurePager1.SortString = " order by lsh asc";
             this.ProcedurePager1.RowFilter = condition;
             //WebTools.Alert(condition);
             this.txtQueryValue.Focus();

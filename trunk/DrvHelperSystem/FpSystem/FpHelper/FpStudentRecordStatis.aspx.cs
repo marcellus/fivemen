@@ -13,6 +13,7 @@ using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 public partial class FpSystem_FpHelper_FpStudentRecordStatis : System.Web.UI.Page
 {
@@ -58,91 +59,22 @@ public partial class FpSystem_FpHelper_FpStudentRecordStatis : System.Web.UI.Pag
 
     protected void btnQuery_Click(object sender, EventArgs e)
     {
-        
+        BindData(qDateStart.Value, qDateEnd.Value);
     }
    
-    protected void btnExportDetailExcel_Click(object sender, EventArgs e)
-    {
-        exportExcel();
-        /*
-        string fileNamePattern = "[{0}]至[{1}]@{2}.txt";
-        string fileName = "";
-        string qStrBustype = StringHelper.fnFormatNullOrBlankString(ddlExportType.SelectedValue, "");
-        string qStrDateStart = StringHelper.fnFormatNullOrBlankString(qDateStart.Value, "");
-        string qStrDateEnd = StringHelper.fnFormatNullOrBlankString(qDateEnd.Value, "");
-
-        if (qStrDateStart == "" || qStrDateEnd == "")
-        {
-            WebTools.Alert("请输入时间范围!");
-        }
-        else if (qStrBustype == "")
-        {
-            WebTools.Alert("请选择导出类型");
-
-        }
-
-        string sqlCondition = "";
-  
-            // sqlCondition = "where TRAIN_LEAVE_8 between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
-            fileName = string.Format(fileNamePattern, qStrDateStart, qStrDateEnd, GetDictType()[qStrBustype]);
-            //}
-            //else { return; }
-
-            ArrayList students = this.QueryStudent(qStrBustype, qStrDateStart, qStrDateEnd);
-            string context = " ";
-
-
-
-            Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = "application/octet-stream";
-
-            //Response.Charset = "utf-8";//可有可无？
-
-            //下面两个语句是一个含义，不知网上的人为什么要加一个this，非常的不解！
-            //this.EnableViewState = false;
-            EnableViewState = false;
-
-            //Response.ContentType = "application/ms-excel"; //可有可无？
-            //Response.ContentEncoding = System.Text.Encoding.UTF8;//可有可无？
-
-            //直接写下面的语句，客户端看到的文件名是乱码
-            //Response.AppendHeader("Content-Disposition","attachment;filename=" + saveFileName); 
-            //必须写成这种
-
-            byte[] fileBuffer = System.Text.Encoding.Default.GetBytes(context);
-
-
-            Response.AppendHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode(fileName, Encoding.UTF8));
-            //Response.AppendHeader("Content-Disposition", "attachment;filename=" +fileName);
-
-            //Response.WriteFile(saveFileName);
-            foreach (FpStudentObject student in students)
-            {
-                //context += string.Format(rblFormat.SelectedItem.Value, student.LSH, student.NAME);
-                // context += "\r";
-               // Response.Write(string.Format(rblFormat.SelectedItem.Value, student.LSH, student.NAME) + "\r\n");
-                //Response.OutputStream;
-            }
-
-            //Response.Flush();
-
-            Response.End();//End和Close的顺序是什么，测试时，两个位置排列交换后对执行没有任何影响
-            Response.Close();
-
-        */
-    }
+   
 
     private Dictionary<string, List<FpStudentObject>> QueryStudentGroupbySchool(string busType, string startDate, string endDate)
     {
 
         string sqlCondition = "";
 
-        sqlCondition = "where create_time between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD')";
+        sqlCondition = "where create_time between to_date('{0}','YYYY-MM-DD') and to_date('{1}','YYYY-MM-DD') order by create_time desc";
 
         ArrayList students = SimpleOrmOperator.QueryConditionList<FpStudentObject>(string.Format(sqlCondition, startDate, endDate));
         Dictionary<string, List<FpStudentObject>> dictStudents = new Dictionary<string, List<FpStudentObject>>();
         foreach (FpStudentObject student in students) {
+            if (string.IsNullOrEmpty(student.SCHOOL_CODE)) continue;
             if (!dictStudents.ContainsKey(student.SCHOOL_CODE)) {
                 dictStudents.Add(student.SCHOOL_CODE, new List<FpStudentObject>());
             }
@@ -165,14 +97,20 @@ public partial class FpSystem_FpHelper_FpStudentRecordStatis : System.Web.UI.Pag
         Dictionary<string, List<FpStudentObject>> schoolStudents = QueryStudentGroupbySchool(null,qDateStart.Value,qDateEnd.Value);
         String[] sheetTitles={"缺受理号","未收费","已收费"};
         String[] sheetColumns={"受理号","姓名","身份证号码","准驾车型","导入时间"};
-        int[] rowIndexs = { 0, 0, 0 };
+        
         String dir = MapPath(string.Format("~/temp/{0}/", Session.SessionID));
-        Directory.CreateDirectory(dir);
+        if (Directory.Exists(dir))
+        {
+            Directory.Delete(dir,true);
+        }
+       
+            Directory.CreateDirectory(dir);
+        
         String pathPattern = dir+"{0}.xls";
        
         foreach (string schoolCode in schoolStudents.Keys) {
-            Excel.Workbook xlBook = xlApp.Workbooks.Add(true);
-     
+            Excel.Workbook xlBook = xlApp.Workbooks.Add(Missing.Value);
+            int[] rowIndexs = { 0, 0, 0 };
             List<FpStudentObject> students = schoolStudents[schoolCode];
             string schoolName=null;
 
@@ -192,32 +130,206 @@ public partial class FpSystem_FpHelper_FpStudentRecordStatis : System.Web.UI.Pag
 
                 if (sheetIndex >= 0) {
                     
-                    Excel.Worksheet xlSheet = (Excel.Worksheet)xlBook.Worksheets[sheetIndex-1];
+                    Excel.Worksheet xlSheet = (Excel.Worksheet)xlBook.Worksheets[sheetIndex];
                     xlSheet.Name = string.Format("{0}({1})", sheetTitles[sheetIndex],rowIndexs[sheetIndex]+1);
                     int colIndex = 1;
                     int rowIndex = rowIndexs[sheetIndex]+1;
                     Excel.Range rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
-                    rang.Value2 = student.LSH;
+                    rang.Select();
+                    rang.ColumnWidth = 200;
+                    rang.Formula = student.LSH;
                     rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
-                    rang.Value2 = student.NAME;
+                    rang.Select();
+                    rang.ColumnWidth = 120;
+                    rang.Formula = student.NAME;
                     rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
-                    rang.Value2 = student.IDCARD;
+                    rang.Select();
+                    rang.ColumnWidth = 250;
+                    rang.Formula = student.IDCARD;
                     rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
-                    rang.Value2 = student.CAR_TYPE;
+                    rang.Formula = student.CAR_TYPE;
                     rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    rang.Select();
+                    rang.ColumnWidth = 120;
                     rang.Value2 = student.CREATE_TIME.ToLongDateString();
                     rowIndexs[sheetIndex]++;
+                    
                 }
                 schoolName=student.SCHOOL_NAME;
             }
             if(string.IsNullOrEmpty(schoolName))continue;
+            try
+            {
+                xlBook.Save();
+                xlBook.Saved = true;
+                String path = string.Format(pathPattern, schoolName);
+                if (File.Exists(path)) {
+                    File.Delete(path);
+                }
+                xlBook.SaveCopyAs(path);
+                
+            }
+            finally
+            {
+                xlBook.Close(true, Missing.Value, Missing.Value);
+                //System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook.Worksheets);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook);  
+            }
+        }
+        xlApp.Workbooks.Close();
+        xlApp.Quit();
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp.Workbooks); 
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);  
+        String zipFileName=string.Format("指纹记录[{0}][{1}].zip",qDateStart.Value,qDateEnd.Value);
+        if (File.Exists(zipFileName)) {
+            File.Delete(zipFileName);
+        }
+        string zipPath = dir + zipFileName;
+        FileHelper.ZipDir(dir,zipPath);
+        Response.AppendHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode(zipFileName, Encoding.UTF8));
+        Response.WriteFile(zipPath);
+        Response.End();
+        Response.Close();
+      
+        
+ 
+        
+    }
+
+
+    private void exportExcel2()
+    {
+        Excel.Application xlApp = new Excel.ApplicationClass();
+        
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp.Workbooks);
+        if (xlApp == null)
+        {
+            WebTools.Alert("Excel无法启动");
+            return;
+        }
+        // 创建Excel工作薄
+
+
+        Dictionary<string, List<FpStudentObject>> schoolStudents = QueryStudentGroupbySchool(null, qDateStart.Value, qDateEnd.Value);
+        String[] sheetTitles = { "缺受理号", "未收费", "已收费" };
+        String[] sheetColumns = { "受理号", "姓名", "身份证号码", "准驾车型", "导入时间" };
+
+        String dir = MapPath(string.Format("~/temp/{0}/",Session.SessionID));
+        Directory.CreateDirectory(dir);
+        String excelName=string.Format("指纹记录[{0}][{1}].xls",this.qDateStart.Value,this.qDateEnd.Value);
+        String excelPath = dir +excelName ;
+        if (File.Exists(excelPath)) {
+            File.Delete(excelPath);
+        }
+        xlApp.SheetsInNewWorkbook = schoolStudents.Keys.Count ;
+        xlApp.Workbooks.Add(Missing.Value);
+        Excel.Workbook xlBook = xlApp.ActiveWorkbook;
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook.Worksheets);
+        
+        int sheetIndex = 0;
+      //  try
+       // {
+          
+            //xlBook.Worksheets.Add(Missing.Value, Missing.Value, schoolStudents.Keys.Count - 1, Missing.Value);
+        //}
+       // catch (Exception ex) {
+       //     WebTools.Alert(ex.Message);
+       //     return;
+      //  }
+        foreach (string schoolCode in schoolStudents.Keys)
+        {
+            WebTools.Alert(schoolCode);
+            sheetIndex++;
+            List<FpStudentObject> students = schoolStudents[schoolCode];
+            string schoolName =schoolCode;
+            ArrayList deps= SimpleOrmOperator.QueryConditionList<DepartMent>(string.Format("where c_depcode='{0}'", schoolCode));
+            if (deps.Count > 0) {
+                schoolName = (deps[0] as DepartMent).DepNickName;
+            }
+            
+            int rowIndex = 1;
+            foreach (FpStudentObject student in students)
+            {
+                  
+                
+                int color = 0;
+                string result = "";
+                if (string.IsNullOrEmpty(student.LSH))
+                {
+                    color = 3;
+                    result = "缺流水号";
+                }
+                else if (student.FEE_STATUE != "Y")
+                {
+                    color = 6;
+                    result = "收费审核未通过";
+                }
+                else {
+                    result = "考勤进行中";
+                }
+                
+
+                    Excel.Worksheet xlSheet = (Excel.Worksheet)xlBook.Worksheets[sheetIndex];
+                    xlSheet.Name = string.Format("{0}({1})", schoolName, schoolStudents[schoolCode].Count);
+                    int colIndex = 1;
+                    
+                    Excel.Range rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.NumberFormatLocal = "@";
+                    rang.ColumnWidth = 20;
+                    rang.Interior.ColorIndex = color;
+                    rang.Formula = student.LSH;
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.NumberFormatLocal = "@";    
+                    rang.ColumnWidth = 15;
+                    rang.Formula = student.NAME;
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.NumberFormatLocal = "@";    
+                rang.ColumnWidth = 25;
+                    rang.Formula = student.IDCARD;
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    rang.Formula = student.CAR_TYPE;
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.ColumnWidth = 15;
+                    rang.Value2 = student.CREATE_TIME.ToLongDateString();
+                    rang = (Excel.Range)xlSheet.Cells[rowIndex, colIndex++];
+                    //rang.Select();
+                    rang.ColumnWidth = 30;
+                    rang.Value2 = result;
+                    rowIndex++;
+            }
+
+
+        }
+        try{
             xlBook.Save();
             xlBook.Saved = true;
-            String path=string.Format(pathPattern,schoolName);
-            xlBook.SaveCopyAs(path);
+            
+            xlBook.SaveCopyAs(excelPath);
+            WebTools.Alert("保存成功");
         }
+        finally
+        {
+            xlBook.Close(true, Missing.Value, Missing.Value);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook.Worksheets);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBook);
+        }
+        xlApp.Workbooks.Close();
         xlApp.Quit();
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp.Workbooks);
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
         
+        Response.AppendHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode(excelName, Encoding.UTF8));
+        Response.WriteFile(excelPath);
+        Response.End();
+        Response.Close();
+
+
+
+
     }
 
 }
