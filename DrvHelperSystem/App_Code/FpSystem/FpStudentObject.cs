@@ -507,7 +507,7 @@ public class FpStudentObject
     {
         //int gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
         //int gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
-        FPConfig config = FPConfig.GetCurrConfig();
+        FPConfig config = FPSystemBiz.GetCurrConfig();
         int gIntLessonInterval = config.FP_LESSON_INTERVAL;
         int gIntTrainInterval = config.FP_TRAIN_INTERVAL;
 

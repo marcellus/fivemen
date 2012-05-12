@@ -352,6 +352,16 @@ public class FPSystemBiz
 
     public static Dictionary<int, FpLocalType> DictFpLocalTypes = new Dictionary<int, FpLocalType>();
     public static Dictionary<int, FpSite> DictFpSites = new Dictionary<int, FpSite>();
+    public static FPConfig CacheFpConfig = null;
+
+    public static FPConfig GetCurrConfig() {
+        if (CacheFpConfig == null)
+        {
+            CacheFpConfig= SimpleOrmOperator.QueryListAll(typeof(FPConfig))[0] as FPConfig;
+        }
+        return CacheFpConfig; 
+    
+    }
 
     public static Boolean fnStudentCheckIn(ref FpStudentObject fso, FpSite fpSite, DateTime lDtCheckin)
     {
