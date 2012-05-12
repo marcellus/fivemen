@@ -18,10 +18,20 @@ public partial class FpSystem_FpHelper_FpIdentityTrain : AuthenticatedPage
     {
         try
         {
-            Session["site_id"] = Request.Params["site_id"];
+            //Session["site_id"] = Request.Params["site_id"];
             Session["bustype"] = "train";
-            int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_Id"].ToString(), -1);
-            FpSite site = SimpleOrmOperator.Query<FpSite>(site_id);
+            int site_id = StringHelper.fnFormatNullOrBlankInt(Request.Params["site_id"], -1);
+            FpSite site = null;
+            if (FPSystemBiz.DictFpSites.ContainsKey(site_id))
+            {
+                site = FPSystemBiz.DictFpSites[site_id];
+            }
+            else
+            {
+                 site = SimpleOrmOperator.Query<FpSite>(site_id);
+                FPSystemBiz.DictFpSites.Add(site_id,site);
+            }
+            Session[typeof(FpSite).Name] = site;
             this.Title = site.NAME;
             Session["host"] = site.HOST;
         }

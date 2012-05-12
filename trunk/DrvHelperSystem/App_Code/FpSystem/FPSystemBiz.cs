@@ -8,10 +8,12 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections;
+
 using FT.DAL;
 using FT.Commons.Tools;
 using FT.Commons.Cache;
 using FT.DAL.Orm;
+using System.Collections.Generic;
 
 /// <summary>
 ///FPSystemBiz 的摘要说明
@@ -348,16 +350,19 @@ public class FPSystemBiz
         return lIntReturn;
     }
 
+    public static Dictionary<int, FpLocalType> DictFpLocalTypes = new Dictionary<int, FpLocalType>();
+    public static Dictionary<int, FpSite> DictFpSites = new Dictionary<int, FpSite>();
 
-    public static Boolean fnStudentCheckIn(ref FpStudentObject fso, int site_id, DateTime lDtCheckin)  {
+    public static Boolean fnStudentCheckIn(ref FpStudentObject fso, FpSite fpSite, DateTime lDtCheckin)
+    {
         bool isCheckin = false;
-        FpSite fpSite = SimpleOrmOperator.Query<FpSite>(site_id);
+        //FpSite fpSite = SimpleOrmOperator.Query<FpSite>(site_id);
         string bustype = fpSite.BUSTYPE;
         int localType = fso.LOCALTYPE;
         if (fpSite.LIMIT > 0)
         {
             string condition = string.Format(" where SITE_ID={0} and BUSTYPE='{1}' and to_char(CHECKIN_DATE,'YYYY-MM-DD') = '{2}' order by CHECKIN_DATE DESC "
-                , site_id
+                , fpSite.ID
                 , bustype
                 , lDtCheckin
             );
@@ -368,8 +373,16 @@ public class FPSystemBiz
                 throw new Exception(fullMsg);
             }
         }
-
-        FpLocalType fpLocalType=SimpleOrmOperator.Query<FpLocalType>(localType);
+        FpLocalType fpLocalType=null;
+        if (DictFpLocalTypes.ContainsKey(localType))
+        {
+            fpLocalType = DictFpLocalTypes[localType];
+        }
+        else {
+            fpLocalType = SimpleOrmOperator.Query<FpLocalType>(localType);
+            DictFpLocalTypes.Add(localType, fpLocalType);
+        }
+        
 
         isCheckin = fso.checkin(fpSite,fpLocalType,lDtCheckin);
 
@@ -381,7 +394,7 @@ public class FPSystemBiz
         if (isCheckin) {
             FpCheckinLog log = new FpCheckinLog();
             log.BUSTYPE = bustype;
-            log.SITE_ID = site_id;
+            log.SITE_ID = fpSite.ID;
             log.CHECKIN_NAME = fso.NAME;
             log.CHECKIN_IDCARD = fso.IDCARD;
             log.CHECKIN_DATE = lDtCheckin;

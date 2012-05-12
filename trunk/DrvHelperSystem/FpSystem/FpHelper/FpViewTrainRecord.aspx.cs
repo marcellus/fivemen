@@ -35,10 +35,11 @@ public partial class FpSystem_FpHelper_FpViewTrainRecord : System.Web.UI.Page
         }
         else {
             ucStudentInfo.fnUILoadStudentRecord(fso);
-            int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
+           // int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
+            FpSite fpSite = Session[typeof(FpSite).Name] as FpSite;
             try
             {
-                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, fpSite, lDtToday);
                 if (isCheckin)
                 {
                     
