@@ -43,8 +43,9 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
             ucStudentInfo.fnUILoadStudentRecord(fso);
             try
             {
-                int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
-                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, site_id, lDtToday);
+                //int site_id = StringHelper.fnFormatNullOrBlankInt(Session["site_id"].ToString());
+                FpSite fpSite = Session[typeof(FpSite).Name] as FpSite;
+                isCheckin = FPSystemBiz.fnStudentCheckIn(ref fso, fpSite, lDtToday);
                 if (isCheckin)
                 {
                     if (fso.STATUE == FpStudentObject.STATUE_LESSON_END)

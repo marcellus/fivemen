@@ -43,5 +43,6 @@ public partial class FpSystem_FpHelper_FpSiteEdit : FT.Web.AuthenticatedPage
         else {
             WebTools.Alert("保存失败！");
         }
+        FPSystemBiz.DictFpSites.Clear();
     }
 }

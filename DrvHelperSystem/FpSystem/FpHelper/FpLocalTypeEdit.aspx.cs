@@ -51,10 +51,12 @@ public partial class FpSystem_FpHelper_FpLocalTypeEdit : FT.Web.AuthenticatedPag
         else if (SimpleOrmOperator.Create(localtype))
         {
             WebTools.Alert("添加成功！");
+           
         }
         else
         {
             WebTools.Alert("保存失败！");
         }
+        FPSystemBiz.DictFpLocalTypes.Clear();
     }
 }
