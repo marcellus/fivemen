@@ -55,7 +55,7 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
                 ddlLessonEnter4MM.Items.Add(new ListItem(mm.ToString(), mm.ToString()));
             }
 
-            FPConfig config = FPConfig.GetCurrConfig();
+            FPConfig config = FPSystemBiz.GetCurrConfig();
             tbFp_lesson_interval.Text = config.FP_LESSON_INTERVAL.ToString();
             tbFp_train_interval.Text = config.FP_TRAIN_INTERVAL.ToString();
 
@@ -100,7 +100,7 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        FPConfig config = FPConfig.GetCurrConfig();
+        FPConfig config = FPSystemBiz.GetCurrConfig();
         config.FP_LESSON_INTERVAL = StringHelper.fnFormatNullOrBlankInt(tbFp_lesson_interval.Text, 1);
         config.FP_TRAIN_INTERVAL = StringHelper.fnFormatNullOrBlankInt(tbFp_train_interval.Text, 1);
         config.FP_LESSON_ENTER_1_HH = ddlLessonEnter1HH.SelectedIndex;
@@ -141,6 +141,7 @@ public partial class FpSystem_FpHelper_FPConfigEdit : System.Web.UI.Page
         else {
             WebTools.Alert("配置修改失败");
         }
+        FPSystemBiz.CacheFpConfig = null;
         
     }
 }

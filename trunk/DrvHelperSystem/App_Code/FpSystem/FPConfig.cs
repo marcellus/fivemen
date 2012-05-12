@@ -346,10 +346,5 @@ public class FPConfig
     }
 
 
-    public static FPConfig GetCurrConfig() {
-
-        return SimpleOrmOperator.QueryListAll(typeof(FPConfig))[0] as FPConfig;
-    
-    }
 
 }
