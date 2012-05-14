@@ -501,20 +501,35 @@ public class FpStudentObject
         this.idcard = info.idCard;
     }
 
+    public bool checkin(FpSite fpSite, FpLocalType fpLocalType, DateTime lDtIdentity) { 
+        int code=0;
+      return checkin( fpSite,  fpLocalType,  lDtIdentity,out code);
+    }
 
-
-    public bool checkin(FpSite fpSite,FpLocalType fpLocalType, DateTime lDtIdentity)
+    public bool checkin(FpSite fpSite,FpLocalType fpLocalType, DateTime lDtIdentity,out int errorCode)
     {
+        errorCode = 0;
         //int gIntLessonInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_LESSON_INTERVAL"), 45);
         //int gIntTrainInterval = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_TRAIN_INTERVAL"), 45);
+        if (string.IsNullOrEmpty(this.lsh)) {
+            this.remark=string.Format("{2}学员 {0}({1}) 受理号未录入",this.name,this.idcard,schoolName);
+            errorCode = -1;
+            return false;
+        }
+        else if (this.feeStatue != "Y") {
+            this.remark = string.Format("{2}学员 {0}({1}) 收费审核未通过", this.name,this.idcard,this.schoolName);
+            errorCode = -2;
+            return false;
+        }
+
         FPConfig config = FPSystemBiz.GetCurrConfig();
         int gIntLessonInterval = config.FP_LESSON_INTERVAL;
         int gIntTrainInterval = config.FP_TRAIN_INTERVAL;
-
         bool isCheckin = false;
        // DateTime lDtIdentity=DateTime.Now;
         DateTime lDtNull=new DateTime(0);
         string lStrIdentity= lDtIdentity.ToString("yyyy-MM-dd HH:mm:ss");
+        string msgPrefix = string.Format("{0} {1}学员 {2} ",lStrIdentity,this.schoolName,this.name);
         switch (fpSite.BUSTYPE)
         {
             case "lesson":
@@ -522,21 +537,21 @@ public class FpStudentObject
                    
 
                     if (this.statue < STATUE_COLLECT) {
-                        this.remark = string.Format("{0}  学员未进行指纹采集", lStrIdentity);
+                        this.remark = string.Format(msgPrefix+" 未进行指纹采集", lStrIdentity,this.name,this.schoolName);
                         break;
                     }
-                    else if (fpLocalType.LESSON_IND != "Y") {
-                        this.remark = string.Format("学员类型：{0}，无需进行上课",fpLocalType.NAME);
-                    }
-                    else if (this.feeStatue != "Y")
-                    {
+                    //else if (fpLocalType.LESSON_IND != "Y") {
+                    //    this.remark = string.Format("学员  类型：{0}，无需进行上课",fpLocalType.NAME,this.name);
+                    //}
+                    //else if (this.feeStatue != "Y")
+                  //  {
 
-                        this.remark = string.Format("{0}  学员交费审核未通过，不能进行上课", lStrIdentity);
-                        break;
-                    }
+                     //   this.remark = string.Format("{0}  学员交费审核未通过，不能进行上课", lStrIdentity);
+                   //     break;
+                   // }
                     else if (this.statue >= STATUE_LESSON_END)
                     {
-                        this.remark = string.Format("{0}  学员已完成上课学时", lStrIdentity);
+                        this.remark = string.Format(msgPrefix + " 已完成上课学时", lStrIdentity, this.name, this.schoolName);
                         break;
                     }
 
@@ -547,14 +562,14 @@ public class FpStudentObject
                         if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM)
                             && fnIsVaildTime(lDtIdentity, dtLesson2Leavel))
                         {
-                            this.remark = string.Format("{0} 早场第一节上课超过限制时间 {1}:{2},考勤无效",
-                           lStrIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM);
+                            this.remark = string.Format(msgPrefix + " 早场第一节上课超过限制时间 {1}:{2},考勤无效",
+                           lStrIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM,this.name,this.schoolName);
                             break;
                         }
                         else if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_3_HH, config.FP_LESSON_ENTER_3_MM))
                         {
-                            this.remark = string.Format("{0} 晚场第一节上课超过限制时间 {1}:{2},考勤无效",
-                                lStrIdentity, config.FP_LESSON_ENTER_3_HH, config.FP_LESSON_ENTER_3_MM);
+                            this.remark = string.Format(msgPrefix + " 晚场第一节上课超过限制时间 {1}:{2},考勤无效",
+                                lStrIdentity, config.FP_LESSON_ENTER_3_HH, config.FP_LESSON_ENTER_3_MM,this.name,this.schoolName);
                             break;
                         }
                         //else if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_1_HH, config.FP_LESSON_ENTER_1_MM))
@@ -566,7 +581,7 @@ public class FpStudentObject
 
                             this.LESSON_ENTER_1 = lDtIdentity;
                             this.statue = STATUE_LESSON_START;
-                            this.remark = string.Format("{0}  开始进行第一节上课", lStrIdentity);
+                            this.remark = string.Format(msgPrefix + " 开始进行第一节上课", lStrIdentity, this.name, this.schoolName);
                             isCheckin = true;
                       
                     }
@@ -579,7 +594,7 @@ public class FpStudentObject
                         this.LESSON_ENTER_2 = lDtNull;
                         this.LESSON_LEAVE_2 = lDtNull;
                         this.LESSON_LEAVE_1 = lDtNull;
-                        this.remark = string.Format("{0} 本次上课与上次不在同一天进行，旧上课记录已被清空，请再次确认上课", lStrIdentity);
+                        this.remark = string.Format(msgPrefix + " 本次上课与上次不在同一天进行，旧上课记录已被清空，请再次确认上课", lStrIdentity, this.name, this.schoolName);
                         
                         this.statue = STATUE_COLLECT;
                     }
@@ -588,13 +603,13 @@ public class FpStudentObject
                         if (fnIsVaildTime(this.LESSON_ENTER_1, lDtIdentity, gIntLessonInterval))
                         {
                             this.LESSON_LEAVE_1 = lDtIdentity;
-                            this.remark = string.Format("{0} 第一节上课离场成功，请今天再来第二节上课入场确认", lStrIdentity);
+                            this.remark = string.Format(msgPrefix + " 第一节上课离场成功，请今天再来第二节上课入场确认", lStrIdentity, this.name);
                             isCheckin = true;
                         }
                         else
                         {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
-                            this.remark = string.Format("{0} 第一节上课时间未达到{1}分钟,提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
+                            this.remark = string.Format(msgPrefix + " 第一节上课时间未达到{1}分钟,提早离场将被视为无效", lStrIdentity, gIntLessonInterval, this.name);
                         }
                     }
                     else if (DateTimeHelper.fnIsNewDateTime(this.LESSON_ENTER_2))
@@ -606,21 +621,21 @@ public class FpStudentObject
                         {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
                             //this.remark = string.Format("{0} 上午上课时间未达到{1}分钟，不能进行下午上课", lStrIdentity,gIntLessonInterval);
-                            this.remark = string.Format("{0} 早场第二节上课超过限制时间 {1}:{2},考勤无效",
-                            lStrIdentity,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM);
+                            this.remark = string.Format(msgPrefix + " 早场第二节上课超过限制时间 {1}:{2},考勤无效",
+                            lStrIdentity,config.FP_LESSON_ENTER_2_HH,config.FP_LESSON_ENTER_2_MM,this.name);
                             break;
                         }     
                         else if (!DateTimeHelper.fnIsBeforeTime(lDtIdentity, config.FP_LESSON_ENTER_4_HH, config.FP_LESSON_ENTER_4_MM))
                         {
                             // lIntReturn = LESSON_ENTER_2_FAILE;
                             //this.remark = string.Format("{0} 上午上课时间未达到{1}分钟，不能进行下午上课", lStrIdentity,gIntLessonInterval);
-                            this.remark = string.Format("{0} 晚场第二节上课超过限制时间 {1}:{2},考勤无效",
-                            lStrIdentity, config.FP_LESSON_ENTER_4_HH, config.FP_LESSON_ENTER_4_MM);
+                            this.remark = string.Format(msgPrefix + " 晚场第二节上课超过限制时间 {1}:{2},考勤无效",
+                            lStrIdentity, config.FP_LESSON_ENTER_4_HH, config.FP_LESSON_ENTER_4_MM,this.name);
                             break;
                         } 
                                  
                             this.LESSON_ENTER_2 = lDtIdentity;
-                            this.remark = string.Format("{0} 开始进行第二节上课", lStrIdentity);
+                            this.remark = string.Format(msgPrefix + " 开始进行第二节上课", lStrIdentity, this.name);
                             isCheckin = true;
                      
 
@@ -633,54 +648,54 @@ public class FpStudentObject
                             this.LESSON_LEAVE_2 = lDtIdentity;
                             //this.statue = STATUE_LESSON_END;
                             this.statue = fpLocalType.nextStatus(STATUE_LESSON_END);
-                            this.remark = string.Format("{0} 完成上课学时要求", lStrIdentity);
+                            this.remark = string.Format(msgPrefix + " 完成上课学时要求", lStrIdentity, this.name);
                       
                             isCheckin = true;
                         }
                         else
                         {
-                            this.remark = string.Format("{0} 第二节上课时间未达到{1}分钟，提早离场将被视为无效", lStrIdentity, gIntLessonInterval);
+                            this.remark = string.Format(msgPrefix + " 第二节上课时间未达到{1}分钟，提早离场将被视为无效", lStrIdentity, gIntLessonInterval, this.name);
                         }
                     }
                     break;
                 }//case "lesson"
             case "km1": {
                 if (fpLocalType.KM1_IND != "Y") {
-                    this.remark = string.Format("学员类型：{0}，无需进行科目1考试", fpLocalType.NAME);
+                    this.remark = string.Format(msgPrefix + " 类型：{0}，无需进行科目1考试", fpLocalType.NAME, this.name);
                         break;
                 }
                 else if (fpLocalType.LESSON_IND=="Y" &&this.statue < STATUE_LESSON_END)
                 {
-                    this.remark = string.Format("{0} 未完成上课，不能进行科目1考试", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 未完成上课，不能进行科目1考试", lStrIdentity, this.name);
                     break;
                 }
                 else if (!DateTimeHelper.fnIsNewDateTime(this.KM1_ENTER))
                 {
-                    this.remark = string.Format("{0} 学员在{1}已进行科目1考试，不能重复考试", lStrIdentity, this.KM1_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
+                    this.remark = string.Format(msgPrefix + " 在{1}已进行科目1考试，不能重复考试", lStrIdentity, this.KM1_ENTER.ToString("yyyy-MM-dd HH:mm:ss"), this.name);
                     break;
                 }
   
                     this.km1_enter = lDtIdentity;
                     //this.statue = STATUE_KM1_ENTER;
                     this.statue = fpLocalType.nextStatus(STATUE_KM1_ENTER);
-                    this.remark = string.Format("{0} 科目1考试验证成功", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 科目1考试验证成功", lStrIdentity, this.name);
                     isCheckin = true;
                 break; 
             } //case km1
             case "km2": {
                 if (fpLocalType.KM2_IND != "Y")
                 {
-                    this.remark = string.Format("学员类型：{0}，无需进行科目2桩考", fpLocalType.NAME);
+                    this.remark = string.Format(msgPrefix + " 类型：{0}，无需进行科目2桩考", fpLocalType.NAME, this.name);
                     break;
                 }
                 else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
-                    this.remark = string.Format("{0} 未进行科目1考试，不能进行科目2考试", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行科目2考试", lStrIdentity, this.name);
                     break;
                 }
                 else if (!DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
                 {
-                    this.remark = string.Format("{0} 学员在{1}已进行科目2考试，不能重复考试", lStrIdentity, this.KM2_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
+                    this.remark = string.Format(msgPrefix + " 在{1}已进行科目2考试，不能重复考试", lStrIdentity, this.KM2_ENTER.ToString("yyyy-MM-dd HH:mm:ss"), this.name);
                     break;
                 }
 
@@ -689,36 +704,36 @@ public class FpStudentObject
                         //this.statue = STATUE_KM2_ENTER;
                         this.statue = fpLocalType.nextStatus(STATUE_KM2_ENTER);
                     }
-                    
-                    this.remark = string.Format("{0} 科目2考试验证成功", lStrIdentity);
+
+                    this.remark = string.Format(msgPrefix + " 科目2考试验证成功", lStrIdentity, this.name);
                     isCheckin = true;
                 break; 
             } //case km2
             case "train": {
                 if (fpLocalType.TRAIN_TIMES <1)
                 {
-                    this.remark = string.Format("学员类型：{0}，无需进行入场训练", fpLocalType.NAME);
+                    this.remark = string.Format(msgPrefix + " 类型：{0}，无需进行入场训练", fpLocalType.NAME, this.name);
                     break;
                 }
                 else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
-                    this.remark = string.Format("{0} 未进行科目1考试，不能进行入场训练", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行入场训练", lStrIdentity, this.name);
                     break;
                 }
                 else if (this.statue >=  STATUE_TRAIN_END)
                 {
-                    this.remark = string.Format("{0} 已完成入场训练", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 已完成入场训练", lStrIdentity, this.name);
                     break;
                 }
                 int trainTimes = 0;
                 string re = string.Empty;
-                string patternTrainEnter="{0}  开始进行第{1}次入场训练";
-                string patternTrainEnterNotToday = "{0} 第{1}次的训练未完成,第{1}次的记录将被清空，请再次验证";
-                string patternTrainLeave = "{0} 已完成今天的入场训练";
-                string patternTrainLeaveFaile = "{0} 今天的入场训练时间未达到{1}分钟，离场将被作为训练无效处理";
-                string patternTrainEnterIsToday = "{0}  今天的入场训练已完成，同一天不能入场两次";
-                string patternTrainFinish = "{0}  已进行{1}次入场训练，入场训练完成";
-                string patternTrainLeveeFaile2 = "{0} 未达到离场最早限制时间 {1}:{2}，现在离场将被视为考勤无效";
+                string patternTrainEnter = msgPrefix + " 开始进行第{1}次入场训练";
+                string patternTrainEnterNotToday = msgPrefix + " 第{1}次的训练未完成,第{1}次的记录将被清空，请再次验证";
+                string patternTrainLeave = msgPrefix + " 已完成今天的入场训练";
+                string patternTrainLeaveFaile = msgPrefix + " 今天的入场训练时间未达到{1}分钟，离场将被作为训练无效处理";
+                string patternTrainEnterIsToday = msgPrefix + "  今天的入场训练已完成，同一天不能入场两次";
+                string patternTrainFinish = msgPrefix + " 已进行{1}次入场训练，入场训练完成";
+                string patternTrainLeveeFaile2 = msgPrefix + " 未达到离场最早限制时间 {1}:{2}，现在离场将被视为考勤无效";
                 //1
                 if (DateTimeHelper.fnIsNewDateTime(this.TRAIN_ENTER_1) || DateTimeHelper.fnIsNewDateTime(this.TRAIN_LEAVE_1))
                 {
@@ -1104,17 +1119,17 @@ public class FpStudentObject
                 {
                     if (fpLocalType.KM2_3IN9_IND != "Y")
                     {
-                        this.remark = string.Format("学员类型：{0}，无需进行9选3考试", fpLocalType.NAME);
+                        this.remark = string.Format(msgPrefix + " 类型：{0}，无需进行9选3考试", fpLocalType.NAME, this.name);
                         break;
                     }
                     else if (fpLocalType.KM1_IND == "Y" && this.statue < STATUE_KM1_ENTER)
                     {
-                        this.remark = string.Format("{0} 未完成科目1考试，不能进行9选3考试", lStrIdentity);
+                        this.remark = string.Format(msgPrefix + " 未完成科目1考试，不能进行9选3考试", lStrIdentity, this.name);
                         break;
                     }
                     else if (!DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                     {
-                        this.remark = string.Format("{0} 学员在{1}已进行9选3考试，不能重复考试", lStrIdentity,this.KM2_3IN9_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
+                        this.remark = string.Format(msgPrefix + " 在{1}已进行9选3考试，不能重复考试", lStrIdentity, this.KM2_3IN9_ENTER.ToString("yyyy-MM-dd HH:mm:ss"), this.name);
                         break;
                     }
 
@@ -1125,39 +1140,39 @@ public class FpStudentObject
                         //this.statue = STATUE_3IN9_ENTER;
                         this.statue = fpLocalType.nextStatus(STATUE_3IN9_ENTER);
                     }
-                    this.remark = string.Format("{0} 9选3考试验证成功", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 9选3考试验证成功", lStrIdentity, this.name);
                     break;
                 }//case 3in9
             case "km3": {
                 if (fpLocalType.KM3_IND != "Y")
                 {
-                    this.remark = string.Format("学员类型：{0}，无需进行科目3考试", fpLocalType.NAME);
+                    this.remark = string.Format(msgPrefix + " 类型：{0}，无需进行科目3考试", fpLocalType.NAME, this.name);
                     break;
                 }
                 else if (fpLocalType.KM2_3IN9_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                 {
-                    this.remark = string.Format("{0} 未完成9选3考试，不能进行科目3考试", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 未完成9选3考试，不能进行科目3考试", lStrIdentity, this.name);
                     break;
                 }
                 else if (fpLocalType.KM2_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
                 {
-                    this.remark = string.Format("{0} 未完成科目2考试，不能进行科目3考试", lStrIdentity);
+                    this.remark = string.Format(msgPrefix + " 未完成科目2考试，不能进行科目3考试", lStrIdentity, this.name);
                     break;
                 }
 
                  else if (this.statue < STATUE_TRAIN_END&&fpLocalType.TRAIN_TIMES>0)
                  {
-                     this.remark = string.Format("{0} 未完成入场训练，不能进行科目3考试", lStrIdentity);
+                     this.remark = string.Format(msgPrefix + " 未完成入场训练，不能进行科目3考试", lStrIdentity, this.name);
                      break;
                  }
                  else if (fpLocalType.KM3_VERIFY_IND == "Y" && this.KM3_VERIFY != "Y")
                  {
-                     this.remark = string.Format("{0} 学员未通过科目3审核，不能进行科目3考试", lStrIdentity);
+                     this.remark = string.Format(msgPrefix + " 未通过科目3审核，不能进行科目3考试", lStrIdentity, this.name);
                      break;
                  }
                  else if (this.statue >= STATUE_KM3_ENTER)
                  {
-                     this.remark = string.Format("{0} 学员在{1}已进行科目3考试，不能重复考试", lStrIdentity, this.KM3_ENTER.ToString("yyyy-MM-dd HH:mm:ss"));
+                     this.remark = string.Format(msgPrefix + " 在{1}已进行科目3考试，不能重复考试", lStrIdentity, this.KM3_ENTER.ToString("yyyy-MM-dd HH:mm:ss"), this.name);
                      break;
                  }
 
@@ -1165,7 +1180,7 @@ public class FpStudentObject
                 isCheckin = true;
                 //this.statue = STATUE_KM3_ENTER;
                 this.statue = fpLocalType.nextStatus(STATUE_KM3_ENTER);
-                this.remark = string.Format("{0} 科目3考试验证成功", lStrIdentity);
+                this.remark = string.Format(msgPrefix + " 科目3考试验证成功", lStrIdentity);
                 break; 
             }//case km3
             default : break;
