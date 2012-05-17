@@ -164,7 +164,6 @@
     <Compile Include="TrustLinkGeneralController.cs" />
     <Compile Include="UploadFingerRecordObject.cs" />
     <Compile Include="UploadFingerRecordSearch.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UploadFingerRecordSearch.Designer.cs">
       <DependentUpon>UploadFingerRecordSearch.cs</DependentUpon>
