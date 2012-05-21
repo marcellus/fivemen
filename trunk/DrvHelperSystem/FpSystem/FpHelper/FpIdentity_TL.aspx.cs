@@ -25,7 +25,7 @@ public partial class FpSystem_FpHelper_FpIndentityLesson_TL : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         
-            _FP = new FpBase(this, new EventHandler(FpVerifyHandler), true);
+            _FP = new FpBase(this, new EventHandler(FpVerifyHandler), false);
             gStrTargetFrame = StringHelper.fnFormatNullOrBlankString( Request.Params["targetFrame"],"");
             gStrCheckinLogFrame = StringHelper.fnFormatNullOrBlankString(Request.Params["checkinLogFrame"],"");
         
