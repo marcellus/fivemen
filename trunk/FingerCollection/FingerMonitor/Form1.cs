@@ -154,8 +154,8 @@ namespace FingerMonitor
                         sql = string.Format("select * from USER_INFO_UPLOAD where USER_ID='{0}'", idcard);
                         DataTable dtUserInfoOne = accessAccess.SelectDataTable(sql, "USER_INFO_UPLOAD");
                         sql = string.Format("select * from ENROLL_TEMP_UPLOAD where USER_ID='{0}'", idcard);
-                        DataTable dtFingerInfoOne = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
-                        if (dtUserInfoOne == null || dtUserInfoOne.Rows.Count == 0 || dtFingerInfoOne == null || dtFingerInfoOne.Rows.Count == 0)
+                        DataTable dtFingerInfos = accessAccess.SelectDataTable(sql, "ENROLL_TEMP_UPLOAD");
+                        if (dtUserInfoOne == null || dtUserInfoOne.Rows.Count == 0 || dtFingerInfos == null || dtFingerInfos.Rows.Count == 0)
                         {
                             string log = string.Format("{1} 学员:{0}缺少指纹数据 ,不能导入"
                              , idcard
@@ -165,7 +165,7 @@ namespace FingerMonitor
                             this.CreateLog(log);
                             continue;
                         }
-                        DataRow rowFingerInfo = dtFingerInfoOne.Rows[0];
+                        //DataRow rowFingerInfo = dtFingerInfoOne.Rows[0];
                         DataRow rowUserInfo = dtUserInfoOne.Rows[0];
                         schoolName = row["c_school_name"].ToString();
                         FpStudentObject thisStudent = FpStudentObject.loadbyIdCard(accessOracle,idcard);
@@ -236,31 +236,35 @@ namespace FingerMonitor
                             , rowUserInfo["MODIFY_TIME"]
                             , rowUserInfo["CREATE_TIME"]
                         );
-                        string sql2 = string.Format("insert into enroll_temp(USER_ID,AUTHEN_INFO,VERSION,SERVICE_TYPE,SERVICE_CODE,REVOKE_TIME"
-                        + ",TEMP_TYPE,TEMP_SIZE,TEMPLATE,CREATE_TIME,MODIFY_TIME)"
-                        + " values('{0}','{1}',{2},{3},'{4}','{5}',{6},{7},{8},'{9}','{10}')",
-                           rowFingerInfo["USER_ID"]   //0
-                           , rowFingerInfo["AUTHEN_INFO"]  //1 
-                           , rowFingerInfo["VERSION"]   //2
-                           , rowFingerInfo["SERVICE_TYPE"]  //3
-                           , rowFingerInfo["SERVICE_CODE"]  //4
-                           , rowFingerInfo["REVOKE_TIME"]  //5
-                           , rowFingerInfo["TEMP_TYPE"]   //6
-                           , rowFingerInfo["TEMP_SIZE"]  //7
-                           , ":TEMPLATE"  //8
-                           , rowFingerInfo["CREATE_TIME"]  //9
-                           , rowFingerInfo["MODIFY_TIME"] //10
-                        );
-                        byte[] expbyte = (byte[])rowFingerInfo["TEMPLATE"];
-                        DbParameter param = new OracleParameter("TEMPLATE", System.Data.OracleClient.OracleType.Blob, expbyte.Length);
-                        param.Value = expbyte;
-
-                        if (accessOracle.ExecuteSql(sql1) && accessOracle.ExecuteSqlByParam(sql2, param))
+                        int count = 0;
+                        foreach( DataRow rowFingerInfo in dtFingerInfos.Rows){        
+                            string sql2 = string.Format("insert into enroll_temp(USER_ID,AUTHEN_INFO,VERSION,SERVICE_TYPE,SERVICE_CODE,REVOKE_TIME"
+                            + ",TEMP_TYPE,TEMP_SIZE,TEMPLATE,CREATE_TIME,MODIFY_TIME)"
+                            + " values('{0}','{1}',{2},{3},'{4}','{5}',{6},{7},{8},'{9}','{10}')",
+                               rowFingerInfo["USER_ID"]   //0
+                               , rowFingerInfo["AUTHEN_INFO"]  //1 
+                               , rowFingerInfo["VERSION"]   //2
+                               , rowFingerInfo["SERVICE_TYPE"]  //3
+                               , rowFingerInfo["SERVICE_CODE"]  //4
+                               , rowFingerInfo["REVOKE_TIME"]  //5
+                               , rowFingerInfo["TEMP_TYPE"]   //6
+                               , rowFingerInfo["TEMP_SIZE"]  //7
+                               , ":TEMPLATE"  //8
+                               , rowFingerInfo["CREATE_TIME"]  //9
+                               , rowFingerInfo["MODIFY_TIME"] //10
+                            );
+                            byte[] expbyte = (byte[])rowFingerInfo["TEMPLATE"];
+                            DbParameter param = new OracleParameter("TEMPLATE", System.Data.OracleClient.OracleType.Blob, expbyte.Length);
+                            param.Value = expbyte;
+                            count+=accessOracle.ExecuteSqlByParam(sql2, param)?1:0;
+                         }
+                        if (accessOracle.ExecuteSql(sql1)&&count>0)
                         {
-                            string log = string.Format("成功导入 {1} 学员:{0} 车型:{2}"
+                            string log = string.Format("成功导入 {1} 学员:{0} 车型:{2} {3}条手指信息"
                            , idcard
                            , schoolName
                            , carType
+                           ,count
                             );
                             this.CreateLog(log);
                             lshs +=  row["c_lsh"].ToString()+",";

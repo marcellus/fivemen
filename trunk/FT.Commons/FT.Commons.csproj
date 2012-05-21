@@ -525,11 +525,6 @@
     <None Include="Tools\app.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Com\Chm\" />
-    <Folder Include="Com\WordSupport\" />
-    <Folder Include="Zip\" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -545,6 +540,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Com\WordSupport\" />
+    <Folder Include="WebCatcher\Chm\" />
+    <Folder Include="Zip\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -45,6 +45,9 @@ namespace FT.Commons.Tools
    
         }
 
+        public static bool isNullOrBlank(object obj) {
+            return obj == null || string.IsNullOrEmpty(obj.ToString());
+        }
  
 
     }
