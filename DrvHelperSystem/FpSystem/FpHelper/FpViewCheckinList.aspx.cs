@@ -15,11 +15,11 @@ public partial class FpSystem_FpHelper_FpViewCheckinList : System.Web.UI.Page
             return;
         }
 
-        string site_id = Session["site_id"].ToString();
+        FpSite site = Session[typeof(FpSite).Name] as FpSite;
         string bustype = Session["bustype"].ToString();
         string lStrToday = DateTime.Now.ToString("yyyy-MM-dd");
         string condition = string.Format(" where SITE_ID={0} and BUSTYPE='{1}' and to_char(CHECKIN_DATE,'YYYY-MM-DD') = '{2}' order by CHECKIN_DATE ASC "
-            , site_id
+            , site.ID
             , bustype
             , lStrToday
         );
