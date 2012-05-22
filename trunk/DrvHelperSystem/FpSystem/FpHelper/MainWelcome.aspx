@@ -35,25 +35,25 @@
                         if (key == "lesson")
                         { 
                     %>
-                         <a href="../FpSystem/FpHelper/FpIdentityLesson.aspx?site_id=<%=site.ID %>" target="_top" ><%=site.NAME %></a>
+                         <a href="../FpHelper/FpIdentityLesson.aspx?site_id=<%=site.ID %>" target="_top" ><%=site.NAME %></a>
                     
                     <% 
                         }
                         else if (key == "collect"&&1==2) { 
                     %>
-                         <a href="../FpSystem/FpHelper/FpRecordCollect2.aspx"><%=site.NAME %></a>
+                         <a href="../FpHelper/FpRecordCollect2.aspx"><%=site.NAME %></a>
                     <%
                         }
                         else if (key == "train")
                         {
                     %>
-                        <a href="../FpSystem/FpHelper/FpIdentityTrain.aspx?site_id=<%=site.ID %>" target="_top" ><%=site.NAME%></a>
+                        <a href="../FpHelper/FpIdentityTrain.aspx?site_id=<%=site.ID %>" target="_top" ><%=site.NAME%></a>
                     <%
                         }
                         else if (key == "km1" || key == "km2" || key == "km3" || key == "3in9")
                         {
                     %>
-                       <a href="../FpSystem/FpHelper/FpIdentityExam.aspx?site_id=<%=site.ID %>&bustype=<%=key %>" target="_top" ><%=site.NAME%></a>       
+                       <a href="../FpHelper/FpIdentityExam.aspx?site_id=<%=site.ID %>&bustype=<%=key %>" target="_top" ><%=site.NAME%></a>       
                     <% } %> 
                   <%} %>
                </td>
