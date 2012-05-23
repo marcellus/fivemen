@@ -134,7 +134,7 @@ namespace FingerCollection
         }
 
         /// <summary>
-        /// 备份指纹记录到准备上传的表中
+        /// 备份指纹记录到准备上传的表中,并不进行指纹临时数据删除
         /// </summary>
         public static void BackFingerInfo()
         {
@@ -146,11 +146,11 @@ namespace FingerCollection
                 string sql = "insert into USER_INFO_UPLOAD select * from  USER_INFO where USER_ID<>'sa'";
                 access.ExecuteSql(sql);
                 sql = "delete from  USER_INFO where USER_ID<>'sa'";
-                access.ExecuteSql(sql);
+                //access.ExecuteSql(sql);
                 sql = "insert into ENROLL_TEMP_UPLOAD select * from  ENROLL_TEMP where USER_ID<>'sa'";
                 access.ExecuteSql(sql);
                 sql = "delete from  ENROLL_TEMP where USER_ID<>'sa'";
-                access.ExecuteSql(sql);
+               // access.ExecuteSql(sql);
 
             }
             

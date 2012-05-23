@@ -33,7 +33,7 @@ namespace FingerCollection
 
         public string AuthenID="sa";
         public string AuthenPwd="sa";
-        public string XSDevName = "XSDev12.dll";
+        public string XSDevName = "XSDev103.dll";
 
         public string SchoolName = "驾校名称";
 
