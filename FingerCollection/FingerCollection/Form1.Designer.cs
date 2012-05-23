@@ -112,7 +112,7 @@
             this.cbLearnCar.Location = new System.Drawing.Point(421, 93);
             this.cbLearnCar.Name = "cbLearnCar";
             this.cbLearnCar.Size = new System.Drawing.Size(144, 25);
-            this.cbLearnCar.TabIndex = 5;
+            this.cbLearnCar.TabIndex = 6;
             // 
             // cbStudentType
             // 
@@ -138,7 +138,7 @@
             this.btnUpdateInfo.Location = new System.Drawing.Point(574, 74);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
             this.btnUpdateInfo.Size = new System.Drawing.Size(108, 50);
-            this.btnUpdateInfo.TabIndex = 3;
+            this.btnUpdateInfo.TabIndex = 13;
             this.btnUpdateInfo.Text = "更新资料";
             this.btnUpdateInfo.UseVisualStyleBackColor = true;
             this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
@@ -149,7 +149,7 @@
             this.btnUpdateLsh.Location = new System.Drawing.Point(574, 18);
             this.btnUpdateLsh.Name = "btnUpdateLsh";
             this.btnUpdateLsh.Size = new System.Drawing.Size(108, 50);
-            this.btnUpdateLsh.TabIndex = 3;
+            this.btnUpdateLsh.TabIndex = 11;
             this.btnUpdateLsh.Text = "补录流水号";
             this.btnUpdateLsh.UseVisualStyleBackColor = true;
             this.btnUpdateLsh.Click += new System.EventHandler(this.btnUpdateLsh_Click);
@@ -172,7 +172,7 @@
             this.btnPrepareUpload.Location = new System.Drawing.Point(666, 161);
             this.btnPrepareUpload.Name = "btnPrepareUpload";
             this.btnPrepareUpload.Size = new System.Drawing.Size(108, 50);
-            this.btnPrepareUpload.TabIndex = 3;
+            this.btnPrepareUpload.TabIndex = 31;
             this.btnPrepareUpload.Text = "准备上传文件";
             this.btnPrepareUpload.UseVisualStyleBackColor = true;
             this.btnPrepareUpload.Click += new System.EventHandler(this.btnPrepareUpload_Click);
@@ -183,7 +183,7 @@
             this.btnCompact.Location = new System.Drawing.Point(487, 163);
             this.btnCompact.Name = "btnCompact";
             this.btnCompact.Size = new System.Drawing.Size(108, 50);
-            this.btnCompact.TabIndex = 3;
+            this.btnCompact.TabIndex = 13;
             this.btnCompact.Text = "清空指纹库";
             this.btnCompact.UseVisualStyleBackColor = true;
             this.btnCompact.Click += new System.EventHandler(this.btnCompact_Click);
@@ -194,7 +194,7 @@
             this.btnClear.Location = new System.Drawing.Point(726, 77);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(108, 50);
-            this.btnClear.TabIndex = 3;
+            this.btnClear.TabIndex = 14;
             this.btnClear.Text = "清空指纹库";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Visible = false;
@@ -206,7 +206,7 @@
             this.btnDeleteNow.Location = new System.Drawing.Point(345, 160);
             this.btnDeleteNow.Name = "btnDeleteNow";
             this.btnDeleteNow.Size = new System.Drawing.Size(110, 53);
-            this.btnDeleteNow.TabIndex = 2;
+            this.btnDeleteNow.TabIndex = 9;
             this.btnDeleteNow.Text = "删除本地";
             this.btnDeleteNow.UseVisualStyleBackColor = true;
             this.btnDeleteNow.Click += new System.EventHandler(this.btnDeleteNow_Click);
@@ -217,7 +217,7 @@
             this.btnDelete.Location = new System.Drawing.Point(726, 18);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(57, 53);
-            this.btnDelete.TabIndex = 2;
+            this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "删除";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Visible = false;
@@ -229,7 +229,7 @@
             this.btnVerify.Location = new System.Drawing.Point(265, 160);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(57, 53);
-            this.btnVerify.TabIndex = 2;
+            this.btnVerify.TabIndex = 8;
             this.btnVerify.Text = "验证";
             this.btnVerify.UseVisualStyleBackColor = true;
             this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
@@ -240,7 +240,7 @@
             this.btnConfig.Location = new System.Drawing.Point(12, 162);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(131, 49);
-            this.btnConfig.TabIndex = 2;
+            this.btnConfig.TabIndex = 21;
             this.btnConfig.Text = "系统配置";
             this.btnConfig.UseVisualStyleBackColor = true;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
@@ -251,7 +251,7 @@
             this.btnCollection.Location = new System.Drawing.Point(183, 160);
             this.btnCollection.Name = "btnCollection";
             this.btnCollection.Size = new System.Drawing.Size(57, 53);
-            this.btnCollection.TabIndex = 2;
+            this.btnCollection.TabIndex = 7;
             this.btnCollection.Text = "采集";
             this.btnCollection.UseVisualStyleBackColor = true;
             this.btnCollection.Click += new System.EventHandler(this.btnCollection_Click);
@@ -262,7 +262,7 @@
             this.txtLsh.Location = new System.Drawing.Point(400, 22);
             this.txtLsh.Name = "txtLsh";
             this.txtLsh.Size = new System.Drawing.Size(165, 27);
-            this.txtLsh.TabIndex = 1;
+            this.txtLsh.TabIndex = 2;
             // 
             // txtName
             // 
@@ -270,7 +270,7 @@
             this.txtName.Location = new System.Drawing.Point(124, 56);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(204, 27);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 3;
             // 
             // txtIdCard
             // 
@@ -356,21 +356,11 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1232, 340);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard, this.txtName, this.txtLsh, this.cbStudentType, this.cbLearnCar);
-            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "待上传指纹名单";
-            this.tabPage1.UseVisualStyleBackColor = true;
+
             // 
             // localFingerRecordSearch2
             // 
+            this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard, this.txtName, this.txtLsh, this.cbStudentType, this.cbLearnCar);
             this.localFingerRecordSearch2.AllowCustomeSearch = true;
             this.localFingerRecordSearch2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.localFingerRecordSearch2.EntityType = typeof(FingerCollection.LocalFingerRecordObject);
@@ -379,6 +369,19 @@
             this.localFingerRecordSearch2.Name = "localFingerRecordSearch2";
             this.localFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.localFingerRecordSearch2.TabIndex = 0;
+
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "待上传指纹名单";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            
             // 
             // tabPage2
             // 

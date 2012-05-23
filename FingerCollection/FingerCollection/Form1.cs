@@ -32,7 +32,8 @@ namespace FingerCollection
 
         private void ClearInput()
         {
-            this.txtIdCard.Text = this.txtName.Text = string.Empty;
+            this.txtName.Text = string.Empty;
+            //this.txtIdCard.Text = this.txtName.Text = string.Empty;
         }
 
         private void SetConfig()
@@ -80,10 +81,10 @@ namespace FingerCollection
 
             int intResult = SUCCESSED;
             this.SetConfig();
-            if (FingerDbOperator.Exists(idcard))
-            {
-                FingerDbOperator.DeleteUser(idcard);
-            }
+            //if (FingerDbOperator.Exists(idcard))
+            //{
+                //FingerDbOperator.DeleteUser(idcard);
+            //}
             
             intResult = _TG.NewEnroll(idcard);
             if (intResult == SUCCESSED)
@@ -93,6 +94,7 @@ namespace FingerCollection
                // this.localFingerRecordSearch2.SetConditions(" c_name like '%'");
                // this.localFingerRecordSearch2.se
                 this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                //this.txtIdCard.Text = string.Empty;
                 this.ClearInput();
                 //this.localFingerRecordSearch2.SetMyConditon(string.Empty);
                 
@@ -100,10 +102,14 @@ namespace FingerCollection
             }
             else if (intResult == 404)
             {
+                MessageBoxHelper.Show("使用者要求取消或者离开");
 
             }
             else if (intResult == 31)
             {
+                MessageBoxHelper.Show("身份证号码"+idcard+"已经采集了指纹，请先删除该身份证的指纹后进行采集！");
+                return;
+                /*
                 FingerDbOperator.DeleteUser(idcard);
                 _TG.DeleteUser(idcard);
                 intResult = _TG.NewEnroll(idcard);
@@ -119,10 +125,12 @@ namespace FingerCollection
                     // this.localFingerRecordSearch2.Refresh();
 
                 }
+                */
             }
             else if (intResult == 40)
             {
                 FingerDbOperator.ClearFingerAratek();
+                System.Threading.Thread.Sleep(1000);
                 intResult = _TG.NewEnroll(idcard);
                 if (intResult == SUCCESSED)
                 {
@@ -139,7 +147,7 @@ namespace FingerCollection
             }
             else if (intResult == 94||intResult==10)
             {
-                MessageBoxHelper.Show("指纹采集数据库被使用中，请重启操作系统！");
+                MessageBoxHelper.Show("指纹采集数据库被使用中，请多点击几次或重启操作系统！"+intResult.ToString());
             }
             else
             {
@@ -198,11 +206,11 @@ namespace FingerCollection
 
             if (_TG.FPUserVerify(idcard) == SUCCESSED)
             {
-                MessageBox.Show("找到身份证号码为：\n" + idcard);
+                MessageBox.Show("验证身份证号码为：\n" + idcard+"指纹清晰！");
             }
             else
             {
-                MessageBox.Show(Convert.ToString(_TG.LastErrCode)
+                MessageBox.Show("验证失败！由于"+Convert.ToString(_TG.LastErrCode)
                 + "\n" + _TG.LastErrMsg
                 + "\n" + _TG.LastErrReason);
             }
@@ -216,12 +224,15 @@ namespace FingerCollection
                 MessageBoxHelper.Show("请输入要删除的身份证号码！");
                 return;
             }
-            
 
-            if(FingerDbOperator.DeleteUser(idcard))
+            if (MessageBoxHelper.Confirm("确定要删除身份证明号码为"+idcard+"人员的指纹数据吗？"))
             {
-                MessageBoxHelper.Show("删除用户成功！");
-                this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                if (FingerDbOperator.DeleteUser(idcard))
+                {
+                    FingerDbOperator.ClearFingerAratek();
+                    MessageBoxHelper.Show("删除用户成功！");
+                    this.localFingerRecordSearch2.SetMyConditon(" c_name like '%'");
+                }
             }
         }
 
@@ -261,6 +272,8 @@ namespace FingerCollection
            {
             string pathOrg = Application.StartupPath + "\\db.mdb";
             string pathDst = Application.StartupPath + "\\db\\db.mdb";
+            string pathbakDst = Application.StartupPath + "\\db\\db"+System.DateTime.Now.ToString("yyyyMMddHHmmss")+"-bak.mdb";
+            System.IO.File.Copy(pathDst, pathbakDst, true);
             System.IO.File.Copy(pathOrg,pathDst,true);
             MessageBoxHelper.Show("压缩完毕！");
            }
