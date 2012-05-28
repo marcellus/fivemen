@@ -7,12 +7,15 @@ using FT.Commons.Tools;
 using FT.DAL.Orm;
 using System.Collections;
 using FT.Web.Tools;
+using System.Data;
+using FT.DAL;
 
 public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         this.txtQueryValue.Focus();
+        this.ucStudentInfo.hasSound = false;
     }
 
     protected void btnQuery_Click(object sender, EventArgs e)
@@ -28,12 +31,13 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
             WebTools.Alert("查询条件不能为空");
             return;
         }
-
+        
         ArrayList fsos = SimpleOrmOperator.QueryConditionList<FpStudentObject>(condition);
         if (fsos.Count ==1) {
             FpStudentObject fso = fsos[0] as FpStudentObject;
             fnUILoadStudentRecord(fso, 0);
             ucStudentInfo.fnUILoadStudentRecord(fso);
+           
         }
         else if (fsos.Count == 0) {
             WebTools.Alert(string .Format("{0}为\"{1}\" 的学员不存在",queryText,quserValue));
@@ -42,11 +46,24 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
         {
             WebTools.Alert(string.Format("{0}为\"{1}\" 的学员存在多个，请使用证件号码查询", queryText, quserValue));
         }
+        this.txtQueryValue.Text = string.Empty;
+        this.txtQueryValue.Focus();
        
     }
 
     private void fnUILoadStudentRecord(FpStudentObject pFso, int pResultCode)
     {
+        String sql=string.Format("select user_id,authen_info from enroll_temp where user_id='{0}'",pFso.IDCARD);
+        DataTable fingerInfo = DataAccessFactory.GetDataAccess().SelectDataTable(sql, "enroll_temp");
+        if (fingerInfo == null || fingerInfo.Rows.Count < 1)
+        {
+            lbFingerInfo.Text = "指纹数据不存在";
+        }
+        else
+        {
+            DataRow row = fingerInfo.Rows[0];
+            this.lbFingerInfo.Text = FpBase.getFingerCnName(row["authen_info"].ToString());
+        }
 
         this.lbStuLessonEnter1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_ENTER_1.ToString();
         this.lbStuLessonLeave1.Text = DateTimeHelper.fnIsNewDateTime(pFso.LESSON_ENTER_1) ? "" : pFso.LESSON_LEAVE_1.ToString();
@@ -98,5 +115,9 @@ public partial class FpSystem_FpHelper_FpCheckinLogDetail : System.Web.UI.Page
         //          this.lbStudentAlertMsg.Text = "下午离场确认失败";
         //      }
 
+    }
+    protected void txtQueryValue_TextChanged(object sender, EventArgs e)
+    {
+        btnQuery.Focus();
     }
 }

@@ -63,6 +63,7 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
             FpStudentObject fso = fsos[0] as FpStudentObject;
             fnUILoadStudentRecord(fso, 0);
             ucStudentInfo.fnUILoadStudentRecord(fso);
+            txtIDCard.Text = string.Empty;
         }
         else if (fsos.Count == 0)
         {
@@ -72,6 +73,7 @@ public partial class FpSystem_FpHelper_FpStudentRecordEdit : System.Web.UI.Page
         {
             WebTools.Alert(string.Format("{0}为\"{1}\" 的学员存在多个，请使用证件号码查询", queryText, quserValue));
         }
+        
 
     }
 

@@ -51,6 +51,11 @@
                   <td><asp:DropDownList ID="ddlCarType" runat="server"   /></td>
                 </tr>
                 
+                <tr class="table-content">
+                  <th> 是否补录：</th>
+                  <td><asp:CheckBox  ID="cbBlInd" runat="server"/></td>
+                </tr>
+                
                 <tr >
                   <td colspan="2"  style=" text-align:right;">
                      <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 

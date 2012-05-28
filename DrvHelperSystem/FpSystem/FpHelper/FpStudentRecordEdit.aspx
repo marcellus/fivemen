@@ -139,36 +139,31 @@
  <tr class="table-content">
          <td style=" text-align:left">
             入场训练完成时间
-         <input type="text" id="lbStuTrainEndDate" runat="server"  onclick="setday(this);" 
-
+         <input type="text" id="lbStuTrainEndDate" runat="server"  onclick="setday(this);" 
 style="width:250px; "/></td>
       </tr>
  <tr class="table-content">
          <td style=" text-align:left">
             科目一考勤时间
-         <input type="text" id="lbStuKm1Enter" runat="server"  onclick="setday(this);" 
-
+         <input type="text" id="lbStuKm1Enter" runat="server"  onclick="setday(this);" 
 style="width:250px; "/></td>
       </tr>
 <tr class="table-content">
       <td style=" text-align:left">
             科目二考勤时间 
-      <input type="text" id="lbStuKm2Enter" runat="server"  onclick="setday(this);" 
-
+      <input type="text" id="lbStuKm2Enter" runat="server"  onclick="setday(this);" 
 style="width:250px; "/></td>
       </tr>
        <tr class="table-content">
        <td style=" text-align:left">
             九选三考勤时间
-        <input type="text" id="lbKM23IN9ENTER" runat="server"  onclick="setday(this);" 
-
+        <input type="text" id="lbKM23IN9ENTER" runat="server"  onclick="setday(this);" 
 style="width:250px; "/></td>
          </tr>
           <tr class="table-content">
          <td style=" text-align:left">
             科目三考勤时间
-        <input type="text" id="lbStuKm3Enter" runat="server"  onclick="setday(this);" 
-
+        <input type="text" id="lbStuKm3Enter" runat="server"  onclick="setday(this);" 
 style="width:250px; "/></td>
       </tr>
 

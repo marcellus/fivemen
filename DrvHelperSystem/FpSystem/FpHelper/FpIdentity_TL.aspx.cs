@@ -10,32 +10,41 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using FT.Web.Tools;
 using FT.Commons.Tools;
+using System.Threading;
+using log4net;
 
 public partial class FpSystem_FpHelper_FpIndentityLesson_TL : System.Web.UI.Page
 {
 
     
 
-    private FpBase _FP;
+    private   FpBase _FP;
     private static Boolean gBlIdentityStrat;
     private string gStrTargetFrame="";
     private string gStrCheckinLogFrame = "";
-   
+    protected ILog log = log4net.LogManager.GetLogger("DrvHelperSystem");
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-            _FP = new FpBase(this, new EventHandler(FpVerifyHandler), false);
-            gStrTargetFrame = StringHelper.fnFormatNullOrBlankString( Request.Params["targetFrame"],"");
-            gStrCheckinLogFrame = StringHelper.fnFormatNullOrBlankString(Request.Params["checkinLogFrame"],"");
+        if (!IsPostBack||_FP==null)
+        {
+            _FP = new FpBase(this, new EventHandler(FpVerifyHandler), true);
+        }
+        gStrTargetFrame = StringHelper.fnFormatNullOrBlankString( Request.Params["targetFrame"],"");
+         gStrCheckinLogFrame = StringHelper.fnFormatNullOrBlankString(Request.Params["checkinLogFrame"],"");
         
       
     }
 
     protected void btnIdentity_Click(object sender, EventArgs e)
     {
-
-        _FP.FpIdentityUser();
+        
+        int result = _FP.FpIdentityUser();
+       // while (result != FpBase.SUCCESSED && retryCount++ < 5)
+       // {
+       //     Thread.Sleep(2000);
+        //    result = _FP.FpIdentityUser();
+       // }
     }
 
     private void FpVerifyHandler(object sender, EventArgs e)
@@ -46,19 +55,39 @@ public partial class FpSystem_FpHelper_FpIndentityLesson_TL : System.Web.UI.Page
 
         ResultCodeArgs re = (ResultCodeArgs)e;
         if (re.ResultCode == 215)
+        {
             return;
+        }
+        log.Error("re.ResultMessage:"+re.ResultMessage);
         string[] lArrIdCards = FpBase.getUserIds(re);
         string idcard = lArrIdCards.Length > 0 ? lArrIdCards[0].ToString().Split('_')[0] : "";
        // idcard = Server.UrlEncode(idcard);
         string lStrSearch = string.Format("?{0}={1}",FPSystemBiz.PARAM_RESULT, idcard);
        // Session[FPSystemBiz.PARAM_RESULT] = idcard;
+
          SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.search='{1}';", gStrTargetFrame, lStrSearch);
          SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.reload();",gStrCheckinLogFrame);
         ClientScriptManager newCSM = Page.ClientScript;
         //newCSM.RegisterStartupScript(this.GetType(), this.GetHashCode().ToString(), SCP_SCRIPT_START + SCP_ALERT + SCP_SCRIPT_END);
-        WebTools.WriteScript(SCP_ALERT); 
+        WebTools.WriteScript(SCP_ALERT);
 
         if (cboAuto.Checked)
-            _FP.FpIdentityUser();
+        {
+            //Thread.Sleep(200);
+            int retryCount = 0;
+            int result = _FP.FpIdentityUser();
+            if (result != FpBase.SUCCESSED) {
+                Thread.Sleep(1500);
+                //_FP = new FpBase(this, new EventHandler(FpVerifyHandler), true );
+                result = _FP.FpIdentityUser();
+                //btnIdentity_Click(null, null);
+            }
+            // while (result != FpBase.SUCCESSED && retryCount++ <5)
+            //{
+            //     Thread.Sleep(2000);
+            //     result = _FP.FpIdentityUser();
+            // }
+
+        }
     }
 }
