@@ -85,6 +85,10 @@ public class FpStudentObject
 
     }
 
+    public bool isBl() {
+        return this.blInd == "Y";
+    }
+
     [SimplePK]
     [SimpleColumn(Column= "IDCARD",AllowInsert=true,ColumnType=SimpleColumnType.String)]
     private string idcard;
@@ -192,7 +196,16 @@ public class FpStudentObject
 
     [SimpleColumn(Column = "CAR_TYPE")]
     private string carType;
-    
+
+    [SimpleColumn(Column="BL_IND")]
+    private string blInd;
+
+
+    public string BL_IND {
+        get { return this.blInd; }
+        set { this.blInd = value; }
+    }
+
     public string IDCARD
     {
         get { return this.idcard; }
@@ -516,8 +529,12 @@ public class FpStudentObject
             errorCode = -1;
             return false;
         }
-        else if (this.feeStatue != "Y") {
-            this.remark = string.Format("{2}学员 {0}({1}) 收费审核未通过", this.name,this.idcard,this.schoolName);
+        else if (this.isBl()) { 
+            this.feeStatue="Y";
+        }
+        else if (this.feeStatue != "Y")
+        {
+            this.remark = string.Format("{2}学员 {0}({1}) 收费审核未通过", this.name, this.idcard, this.schoolName);
             errorCode = -2;
             return false;
         }
@@ -528,7 +545,7 @@ public class FpStudentObject
         bool isCheckin = false;
        // DateTime lDtIdentity=DateTime.Now;
         DateTime lDtNull=new DateTime(0);
-        string lStrIdentity= lDtIdentity.ToString("yyyy-MM-dd HH:mm:ss");
+        string lStrIdentity= lDtIdentity.ToShortTimeString();
         string msgPrefix = string.Format("{0} {1}学员 {2} ",lStrIdentity,this.schoolName,this.name);
         switch (fpSite.BUSTYPE)
         {
@@ -666,8 +683,11 @@ public class FpStudentObject
                 }
                 else if (fpLocalType.LESSON_IND=="Y" &&this.statue < STATUE_LESSON_END)
                 {
-                    this.remark = string.Format(msgPrefix + " 未完成上课，不能进行科目1考试", lStrIdentity, this.name);
-                    break;
+                    if (!this.isBl())
+                    {
+                        this.remark = string.Format(msgPrefix + " 未完成上课，不能进行科目1考试", lStrIdentity, this.name);
+                        break;
+                    }
                 }
                 else if (!DateTimeHelper.fnIsNewDateTime(this.KM1_ENTER))
                 {
@@ -690,8 +710,11 @@ public class FpStudentObject
                 }
                 else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
-                    this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行科目2考试", lStrIdentity, this.name);
-                    break;
+                    if (!this.isBl())
+                    {
+                        this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行科目2考试", lStrIdentity, this.name);
+                        break;
+                    }
                 }
                 else if (!DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
                 {
@@ -717,8 +740,11 @@ public class FpStudentObject
                 }
                 else if (fpLocalType.KM1_IND=="Y"&& this.statue < STATUE_KM1_ENTER)
                 {
-                    this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行入场训练", lStrIdentity, this.name);
-                    break;
+                    if (!this.isBl())
+                    {
+                        this.remark = string.Format(msgPrefix + " 未进行科目1考试，不能进行入场训练", lStrIdentity, this.name);
+                        break;
+                    }
                 }
                 else if (this.statue >=  STATUE_TRAIN_END)
                 {
@@ -1124,8 +1150,11 @@ public class FpStudentObject
                     }
                     else if (fpLocalType.KM1_IND == "Y" && this.statue < STATUE_KM1_ENTER)
                     {
-                        this.remark = string.Format(msgPrefix + " 未完成科目1考试，不能进行9选3考试", lStrIdentity, this.name);
-                        break;
+                        if (!this.isBl())
+                        {
+                            this.remark = string.Format(msgPrefix + " 未完成科目1考试，不能进行9选3考试", lStrIdentity, this.name);
+                            break;
+                        }
                     }
                     else if (!DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                     {
@@ -1151,19 +1180,28 @@ public class FpStudentObject
                 }
                 else if (fpLocalType.KM2_3IN9_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_3IN9_ENTER))
                 {
-                    this.remark = string.Format(msgPrefix + " 未完成9选3考试，不能进行科目3考试", lStrIdentity, this.name);
-                    break;
+                    if (!this.isBl())
+                    {
+                        this.remark = string.Format(msgPrefix + " 未完成9选3考试，不能进行科目3考试", lStrIdentity, this.name);
+                        break;
+                    }
                 }
                 else if (fpLocalType.KM2_IND == "Y" && DateTimeHelper.fnIsNewDateTime(this.KM2_ENTER))
                 {
-                    this.remark = string.Format(msgPrefix + " 未完成科目2考试，不能进行科目3考试", lStrIdentity, this.name);
-                    break;
+                    if (!this.isBl())
+                    {
+                        this.remark = string.Format(msgPrefix + " 未完成科目2考试，不能进行科目3考试", lStrIdentity, this.name);
+                        break;
+                    }
                 }
 
                  else if (this.statue < STATUE_TRAIN_END&&fpLocalType.TRAIN_TIMES>0)
                  {
-                     this.remark = string.Format(msgPrefix + " 未完成入场训练，不能进行科目3考试", lStrIdentity, this.name);
-                     break;
+                     if (!this.isBl())
+                     {
+                         this.remark = string.Format(msgPrefix + " 未完成入场训练，不能进行科目3考试", lStrIdentity, this.name);
+                         break;
+                     }
                  }
                  else if (fpLocalType.KM3_VERIFY_IND == "Y" && this.KM3_VERIFY != "Y")
                  {

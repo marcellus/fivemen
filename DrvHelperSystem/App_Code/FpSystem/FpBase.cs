@@ -11,13 +11,14 @@ using System.Web.UI.WebControls.WebParts;
 using System.Globalization;
 using FT.Commons.Cache;
 using FT.Commons.Tools;
+using System.Threading;
 
 /// <summary>
 ///FpBase 的摘要说明
 /// </summary>
 public class FpBase
 {
-
+    private static DateTime lastIdentity = DateTime.Now;
     public static int SUCCESSED = 0;
     private const string TRUSTLINK_INI_FILENAME = "TrustLink.ini";
     private const string TRUSTLINK_INI_PARAMETERS = "Parameters";
@@ -43,6 +44,30 @@ public class FpBase
     private TrustLinkGeneralController _TG;
     private CultureInfo AP_culture = CultureInfo.CurrentCulture;
 
+
+    public static String getFingerCnName(String authen_info) {
+        if(string.IsNullOrEmpty(authen_info)){
+          return "参数不能为空";
+        }
+        string info="";
+        if(authen_info.ToUpper().StartsWith("R")){
+           info+="右手";
+        }else if(authen_info.ToUpper().StartsWith("L")){
+           info+="左手";
+        }else{
+           return "错误格式:"+authen_info;
+        }
+        int fingerNum=Convert.ToInt32(authen_info.Substring(1));
+        switch(fingerNum){
+            case 1:{info+="拇指";break;}
+            case 2:{info+="食指";break;}
+            case 3:{info+="中指";break;}
+            case 4:{info+="无名指";break;}
+            case 5:{info+="尾指";break;}
+            default:{info+="未知手指代码:"+fingerNum;break;}
+        }
+        return info;
+    }
 
     public FpBase(Page cs,EventHandler eh)
     {
@@ -176,10 +201,18 @@ public class FpBase
 
     public int FpIdentityUser()
     {
+        if (DateTime.Now.Subtract(lastIdentity).TotalMilliseconds < 200) {
+            Thread.Sleep(200);
+        }
+        lastIdentity = DateTime.Now;
         _TG.OcxClassID = VERIFY_CLSID;
         int result = _TG.FPUserIdentify();
-        
-        if (result != SUCCESSED && this.blDefaultAlert)
+        //int retryTimes=0;
+        //while (result != SUCCESSED && retryTimes++ < 5) {
+        //    Thread.Sleep(500);
+        //    result = _TG.FPUserIdentify();
+        //}
+        if (result != SUCCESSED &&this.blDefaultAlert)
         {
             ErrMsgDlg();
         }
