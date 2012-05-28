@@ -11,7 +11,8 @@ public partial class FpSystem_FpHelper_FpViewCheckinList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["site_id"] == null && Session["bustype"] == null) {
+        if (Session["bustype"] == null || Session[typeof(FpSite).Name] ==null)
+        {
             return;
         }
 

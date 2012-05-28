@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
+<script type="text/javascript">
+    // document.body.onkeydown=function(){ if(event.keyCode==13){event.keyCode=9;} };
+</script>
 <div>
    <table class="table-border">
       <tr class=" table-content">
@@ -14,7 +17,8 @@
              
               <asp:ListItem Text="姓名" Value="name"></asp:ListItem>
            </asp:DropDownList>
-           <asp:TextBox ID="txtQueryValue" runat="server"></asp:TextBox>
+           <asp:TextBox ID="txtQueryValue" runat="server" AutoPostBack="true" 
+                ontextchanged="txtQueryValue_TextChanged"></asp:TextBox>
            <asp:Button  ID="btnQuery" runat="server"  Text="查询" onclick="btnQuery_Click" />
         </td>
       </tr>
@@ -24,6 +28,9 @@
 <div>
   
    <table class="table-border">
+      <tr class="table-title">
+          <td style=" text-align:left; font-size:1.2em">采集手指:<asp:Label ID="lbFingerInfo" runat="server"></asp:Label></td>
+      </tr>
       <tr class="table-content">
          <td><FpUCL:viewStudentInfo ID="ucStudentInfo" runat="server" /></td>
       </tr>

@@ -57,6 +57,10 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
                 return;
             }
         }
+        else if ( txtLsh.Text.Trim().Length < 13) {
+            WebTools.Alert("受理号不能少于13位");
+            return;
+        }
    
         FpStudentObject fso = new FpStudentObject();
         fso.IDCARD = lStrIDCard;
@@ -70,6 +74,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
         fso.CAR_TYPE = ddlCarType.SelectedValue;
         fso.CREATE_TIME = DateTime.Now;
         fso.LASTMODIFY_TIME = DateTime.Now;
+        fso.BL_IND = cbBlInd.Checked ? "Y" : "N";
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
@@ -197,6 +202,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
             ddlLocaltype.SelectedValue = student.LOCALTYPE.ToString();
             ddlSchool.SelectedValue = student.SCHOOL_CODE;
             ddlCarType.SelectedValue = student.CAR_TYPE;
+            cbBlInd.Checked = student.BL_IND == "Y";
         }
 
     }

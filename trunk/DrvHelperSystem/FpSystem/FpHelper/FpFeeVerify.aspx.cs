@@ -31,6 +31,8 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             this.ProcedurePager1.FieldString = @" lsh,idcard ,name ,school_name,car_type,fee_verify_date ".Replace("\r\n", "").Replace("\t", "");
             this.ProcedurePager1.SortString = " order by lsh asc";
             this.ProcedurePager1.RowFilter = condition;
+            this.btnBatchVerify.Attributes.Add("onclick", "return confirm('确认进行批量审核?');");
+            this.btnBatchDisVerify.Attributes.Add("onclick", "return confirm('确认进行批量取消审核?');");
         }
         this.txtQueryValue.Focus();
     }
@@ -74,7 +76,9 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         //else
         //this.ProcedurePager1.RowFilter = "";
         this.ProcedurePager1.Changed = true;
+        this.txtQueryValue.Text = string.Empty;
         btnBatchVerify.Focus();
+      
     }
 
 
@@ -105,7 +109,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             //ZwTpOperator.Delete(id);
             FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
             fso.FEE_STATUE = "N";
-            fso.FEE_VERIFY_DATE = DateTime.Now;
+            fso.FEE_VERIFY_DATE = default(DateTime);
             if (SimpleOrmOperator.Update(fso))
             {
                 WebTools.Alert(this, string.Format("{0}:{1}  交费取消审核成功！", fso.LSH, fso.NAME));
@@ -154,6 +158,8 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
             return;
         }
 
+       // WebTools.Confirm(string.Format("是否审核选中的{0}条记录？",checkNum));
+
         foreach (string idcard in idcards) { 
           
             FpStudentObject fso = SimpleOrmOperator.Query<FpStudentObject>(idcard);
@@ -170,6 +176,7 @@ public partial class FpSystem_FpHelper_FpFeeVerify  : FT.Web.AuthenticatedPage
         this.ProcedurePager1.Changed = true;
         txtQueryValue.Text = "";
         txtQueryValue.Focus();
+       
     }
     protected void btnBatchDisVerify_Click(object sender, EventArgs e)
     {
