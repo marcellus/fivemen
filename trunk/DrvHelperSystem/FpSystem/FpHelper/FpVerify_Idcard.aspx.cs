@@ -48,8 +48,8 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
         if (re.ResultCode == 215)
             return;
         //string[] lArrIdCards = FpBase.getUserIds(re);
-        string idcard = Request.Params["idcard"];
-        
+        //string idcard = Request.Params["idcard"];
+        string idcard = txtIdcard.Text.Trim();
         if (re.ResultCode == FpBase.SUCCESSED)
         {
             //WebTools.Alert("身份识别成功:" + idcard);
@@ -76,4 +76,15 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
         //    _FP.FpIdentityUser();
     }
 
+    protected void btnVerify_Click(object sender, EventArgs e)
+    {
+        string idcard = txtIdcard.Text.Trim();
+      
+        int re= _FP.FpVerifyUser(idcard);
+        if (re == 215) {
+        }
+        else if (re != FpBase.SUCCESSED) {
+            WebTools.Alert(string.Format("学员 {0} 指纹数据不存在 ",idcard));
+        }
+    }
 }

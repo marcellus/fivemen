@@ -9,6 +9,9 @@
   	 text-align:right;
   	}
 </style>
+
+  
+   
 <table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
 
 
@@ -67,7 +70,8 @@
                 <tr>
                    <td colspan="2" class="table-content">
                                           <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
-                           onclick="btnNewEnrolStudent_Click" Visible="false"  /> 
+                            Visible="false" onclick="btnNewEnrolStudent_Click"  /> 
+                           
                        <asp:Button runat="server" ID="btnVerifyStudent" Text="检查指纹" 
                              Visible="false"  />
                    </td>
