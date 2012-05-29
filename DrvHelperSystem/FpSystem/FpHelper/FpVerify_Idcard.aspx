@@ -5,17 +5,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   <asp:Label Text="请刷二代身份证" runat="server" ID="lbInfo"></asp:Label><br />
 
-        
+        <!--
      <object id="ETTSelfIDCardActiveX1" 	classid="CLSID:447C4906-6678-461B-9E20-100BDE913828">
 		<param name="_Version" value="65536" />
 		<param name="_ExtentX" value="2646" />
 		<param name="_ExtentY" value="1323" />
 		<param name="_StockProps" value="0" />
 	</object>
-	
-	
+   -->	
+	<asp:TextBox ID="txtIdcard" runat="server" Width="300"></asp:TextBox>
+	<br /> <asp:Button ID="btnVerify" runat="server" onclick="btnVerify_Click"  Text="验证"/>
 
 <script type="text/javascript">
+
+/*
     var isReading = false;
     var reader = document.getElementById("ETTSelfIDCardActiveX1");
     var idcard; 
@@ -38,11 +41,11 @@
 
     document.body.onload = function() {
         
-        window.setInterval("readCard()", 2000);
+    //    window.setInterval("readCard()", 2000);
         //document.all.txtIdCard.value = reader.IDCard;
         //var int = self.setInterval("readCard()", 1000);
     }
-	
+	*/
 	
 </script>
 	  

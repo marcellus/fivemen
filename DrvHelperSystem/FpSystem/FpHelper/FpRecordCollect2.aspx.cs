@@ -9,15 +9,24 @@ using FT.Web.Tools;
 using FT.WebServiceInterface.DrvQuery;
 using System.Collections;
 using FT.Web;
+using wsFinger;
+using wsUser;
 
 public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
 {
+
+
+    public enum Key { 
+      agentInfo,userId,fingers
+    }
+
     private const string ACTION_NAME = "ACTION_RECORD_COLLECT";
     private const int ACTION_NONE = 0;
     private const int ACTION_NEW_ENROLL_STUDENT = 1;
     private const int ACTION_VERIFY_STUDENT = 2;
     private const int ACTION_IDENTITY_STUDENT = 3;
-
+    private wsFinger.wsFingerImplService wsFingerM = new wsFinger.wsFingerImplService();
+    private wsUser.wsUserImplService wsUserM = new wsUser.wsUserImplService();
     private FpBase _FP;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -34,6 +43,12 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
             ddlSchool.SelectedValue = "440400";
 
             DictOperator.BindDropDownList("车辆类型", ddlCarType);
+
+            string strTmp=Request.Params["strTmp"];
+            if (!string.IsNullOrEmpty(strTmp)) {
+                int result = wsFingerM.wsFPEnroll(strTmp);
+                this.fnUINewEnrollStudentSucess(result == FpBase.SUCCESSED);
+            }
         }
         ///WebTools.PlaySound("../../sound/test1.wav");
         //WebTools.PlayBackGroupSound("孙燕姿-02.追.是时候.mp3", 1);
@@ -87,15 +102,21 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
     protected void btnNewEnrolStudent_Click(object sender, EventArgs e)
     {
         if (this.txtIDCard.Text.Length == 0)
-            return;
+           return;
         string lStrIDCard = this.txtIDCard.Text.Trim();
-        int re=_FP.FpNewUser(lStrIDCard);
-        if (re !=FpBase.SUCCESSED)
-        {
+
+        Response.Redirect("~/FpSystem/FpV52/reg_finger.aspx?strreg=" + lStrIDCard);
+       // string script = string.Format(" document.forms[0].UCtrl.SetAgentInfo('{0}');", ViewState[Key.agentInfo.ToString()].ToString());
+        //script += string.Format("strTmp = document.forms[0].UCtrl.EnrollByPwdExport('{0}', '{1}', '', 0, 0, 'sa', 'sa');", ViewState[Key.userId.ToString()].ToString(), ViewState[Key.fingers.ToString()].ToString());
+        //script += "strTmp = UrlEncode(strTmp);";
+        //script += " window.location.search = '?strTmp=' + strTmp;";
+        //WebTools.WriteScript("try{" +script+"}catch(ex){alert(ex);}");
+       // int re=_FP.FpNewUser(lStrIDCard);
+        //if (re !=FpBase.SUCCESSED)
+       // {
            
-            _FP.FpUpdateUser(lStrIDCard);
-        }
-        
+       //     _FP.FpUpdateUser(lStrIDCard);
+       // }
         Session[ACTION_NAME] = ACTION_NEW_ENROLL_STUDENT;
     }
 
@@ -158,12 +179,30 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "学员信息保存成功，可进行指纹采集";
             this.btnNewEnrolStudent.Visible = true;
+            /*
+            ViewState[Key.userId.ToString()] = this.txtIDCard.Text.Trim();
+            ViewState[Key.agentInfo.ToString()] = wsFingerM.wsGetAgentInfo();//获取系统信息
+            this.username.Value = ViewState[Key.userId.ToString()].ToString();
+            int wsIsUserExisted_re = wsUserM.wsIsUserExisted(ViewState[Key.userId.ToString()].ToString());
+            if (wsIsUserExisted_re == 1)
+            {
+                int wsAddUserByPwd_re = wsUserM.wsAddUserByPwd(ViewState[Key.userId.ToString()].ToString(), "sa", "sa");
+                ViewState[Key.fingers.ToString()] = "";
+                if (wsAddUserByPwd_re != 0)
+                {
+                    WebTools.Alert("添加失败！");
+                }
+            }
+            else
+            {
+                ViewState[Key.fingers.ToString()] = wsFingerM.wsGetEnrolledFingersInResult(ViewState[Key.userId.ToString()].ToString(), "31");//获取该用户注册的指头 设备类型31
+            }
+             * */
         }
         else
         {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "学员信息保存失败";
-            this.btnNewEnrolStudent.Visible = true;
             this.btnNewEnrolStudent.Visible = false;
         }
     }
@@ -206,4 +245,5 @@ public partial class FpSystem_FpHelper_FpRecordCollect2 : AuthenticatedPage
         }
 
     }
+   
 }
