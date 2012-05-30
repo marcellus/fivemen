@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
  
-    <asp:TextBox runat="server" ID="txtIdcard" Width="300"></asp:TextBox> 
-    <asp:Button runat="server" ID="btnVerify" Text="指纹验证" 
+    <asp:TextBox runat="server" ID="txtIdcard" Width="300" TabIndex="1" ></asp:TextBox> 
+    <asp:Button runat="server" ID="btnVerify" Text="指纹验证"   TabIndex="2"
         onclick="btnVerify_Click" />
 
 </asp:Content>

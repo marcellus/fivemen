@@ -19,7 +19,7 @@
 </div>
 <div style=" width:29%; height:820px; float:right">
      <div style=" height:100px; width:100%; overflow:hidden;" class="b" >
-        <iframe src="FpVerify52_Idcard.aspx?targetframe=frameViewLessonRecord&checkinLogFrame=frameFpViewCheckinList" style="width:100%; height:100%; border-width:0px" frameborder="0" scrolling="no"></iframe>
+        <iframe src="FpIdentity_TL.aspx?targetframe=frameViewLessonRecord&checkinLogFrame=frameFpViewCheckinList" style="width:100%; height:100%; border-width:0px" frameborder="0" scrolling="no"></iframe>
      </div>
      <div style=" height:520px; width:100%" class="b" >
             <iframe id="frameFpViewCheckinList" name="frameFpViewCheckinList" src="FpViewCheckinList.aspx" scrolling="yes" frameborder="1"  style="width:100%; height:515px;">

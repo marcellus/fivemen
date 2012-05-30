@@ -483,6 +483,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         _LastErrCode = _ResultCode;
         _LastErrMsg = getErrMsg(aProcID);
         _LastErrReason = GetErrRsn(aProcID);
+        TempLog.Info("亚略特自带错误处理-》_LastErrCode->" + _LastErrCode.ToString() + "\r\n_LastErrMsg->" + _LastErrMsg + "\r\n_LastErrReason->"+_LastErrReason);
         if (aIsRaise)
         {
             throw new TrustLinkGeneralException();
@@ -496,6 +497,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         if (_dllPlugin.library == IntPtr.Zero)
         {
+            TempLog.Info("XSDevHandle不存在，请检查是否安装Xmiddle!");
             _ResultCode = ERR_UNKNOWN;
             ProcErr(ProcID.CheckXSDevHandle, true); //Operation Exception and throw
         }
@@ -506,13 +508,38 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     /// </summary>
     private void BK_Connectservers()
     {
+        TempLog.Info("开始调用Xmiddle的InitAgent");
         InitAgent(_ProductID, 0, _HostName, _Port, false);
-        _ResultCode = ConnectServer();
+        TempLog.Info("结束调用Xmiddle的InitAgent并调用Xmiddle的ConnectServer！");
+       // _ResultCode = ConnectServer();
+
+        /**/
+         
+          int i=3;
+        while(i>0)
+        {
+            _ResultCode = ConnectServer();
+            if (_ResultCode == SUCCESSED)
+            {
+                break;
+            }
+            else
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+            i--;
+        }
+         
+        TempLog.Info("结束调用Xmiddle的ConnectServer，ResultCode->"+_ResultCode.ToString());
         if (_ResultCode != SUCCESSED)
         {
+
+            
             ProcErr(ProcID.ConnectServers, true); //Operation Exception and throw
         }
+        TempLog.Info("开始调用Xmiddle的SetFPDeviceType");
         SetFPDeviceType(Convert.ToInt32(this.DeviceType)); //设定设备的类型
+        TempLog.Info("结束调用Xmiddle的SetFPDeviceType");
     }
 
     /// <summary>
@@ -682,8 +709,9 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         //Get Agent Info
         StringBuilder af_AgentInfo = new StringBuilder(60);
+        TempLog.Info("开始调用Xmiddle的GetAgentInfo");
         _ResultCode = GetAgentInfo(af_AgentInfo);
-
+        TempLog.Info("结束调用Xmiddle的GetAgentInfo,并准备输入html,ResultCode->"+_ResultCode.ToString());
         //Write Verify OCX 
         Page.Response.ContentType = "text/html";
         Page.Response.Write("<html>");
@@ -712,6 +740,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         string SCP_SCRIPT_END = "</script>\n";
         newCSM.RegisterStartupScript(this.GetType(), this.GetHashCode().ToString(),
             SCP_SCRIPT_START + SCP_SET_AGENT_INFO + SCP_AUTHEN + SCP_SET_POST_BACK + SCP_SCRIPT_END);
+        TempLog.Info("结束Html的输出!");
     }
 
     private string BK_FPGetUser()
@@ -1017,13 +1046,18 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         try
         {
+            TempLog.Info("开始检测XSdevHandle是否存在！");
             BK_CheckXSDevHandle(); //Check Device Handle
+            TempLog.Info("结束检测XSdevHandle是否存在并开始连接服务器！");
             BK_Connectservers(); //Connect TrustLink Server
+            TempLog.Info("结束连接服务器并开始指纹验证！");
             BK_FPIdentify(); //Vindicate fingerprint
+            TempLog.Info("结束指纹验证！_ResultCode为-》" + _ResultCode);
             return _ResultCode;
         }
-        catch (TrustLinkGeneralException)
+        catch (TrustLinkGeneralException e)
         {
+            TempLog.Info("一对多指纹验证出现异常，_LastErrCode为-》" + _LastErrCode+"异常信息:" +e.ToString());
             return _LastErrCode;
         }
     }
