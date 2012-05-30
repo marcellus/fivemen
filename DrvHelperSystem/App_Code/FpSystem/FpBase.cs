@@ -101,8 +101,8 @@ public class FpBase
         {
             string host = "";
             if (HttpContext.Current.Session["host"] != null) {
-                host = HttpContext.Current.Session["host"].ToString();
-
+              host = HttpContext.Current.Session["host"].ToString();
+              
             }else{
                 host= StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_HOST"), "127.0.0.1");
         }

@@ -4,59 +4,76 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <style>
-  .alertMsg
+  th
   {
-    color:Red;
-    font-size:1.2em;
-  }
+  	 text-align:right;
+  	}
 </style>
-<table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
-     <tr>
-        <td class="table-title" style="width:20%">学员身份证查询</td>
-        <td class="table-content" style="width:50%">
-        <asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" />
-        <asp:Button  runat="server" ID="btnQueryStudent" Text="身份证查询" onclick="btnQueryStudent_Click" />
-        <asp:Label runat="server" ID="lbQueryAlertMsg" CssClass="alertMsg"></asp:Label>
-         <asp:HiddenField runat="server" ID="hidIDCard" />
-        </td>
+
   
-     </tr>
-     
-     <!--
-     <tr>
    
-        <td class="table-title">学员指纹查询</td>
-        <td class="table-content">
-          <asp:Button runat="server" ID="btnIdentity" Text="指纹查询" 
-           onclick="btnIdentity_Click" />
-           <asp:Label runat="server" ID="lbIdentityAlertMsg" CssClass="alertMsg"></asp:Label>
-        </td>
-     </tr>
-     -->
-     <tr class="table-content">
-        <td  colspan="2">
-        <FpUCL:viewStudentInfo  runat="server" ID="ucStudentInfo" ></FpUCL:viewStudentInfo>
-                </td>
-                </tr>
-                <tr>
-                   <td colspan="2" class="table-content">
-                      <asp:Button ID="btnClearStudent" runat="server" Text="清空" 
-                           onclick="btnClearStudent_Click" />   &nbsp;
-                       <asp:DropDownList ID="ddlLocaltype" runat="server" Visible="false"  />&nbsp; 
-                       <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 
-                           onclick="btnSaveStudent_Click"  Visible="false" /> &nbsp;
-                        
+<table style="width:70%" border="0" cellpadding="4" cellspacing="1" class="table-border">
 
 
+                 <tr class="table-content">
+                   <th >身份证号码：</th>
+                   <td >
+                   <asp:TextBox runat="server" ID="txtIDCard"  MaxLength="20" /> &nbsp;
+                   <asp:Button ID="btnQueryStuent" runat="server" Text="查询学员" 
+                           onclick="btnQueryStuent_Click" />
                    </td>
+                   
                 </tr>
+
+                 <tr class="table-content">
+                   <th>流水号：</th>
+                   <td><asp:TextBox runat="server"  ID="txtLsh"></asp:TextBox></td>
+                 </tr>
+
+
+                
+                <tr class="table-content">
+                  <th>姓名：</th>
+                  <td><asp:TextBox runat="server"  ID="txtName" ></asp:TextBox></td>
+                </tr>
+                
+                <tr class="table-content">
+                  <th> 学员类型：</th>
+                  <td><asp:DropDownList ID="ddlLocaltype" runat="server"   /></td>
+                </tr>
+                
+                
+                <tr class="table-content">
+                  <th> 驾校：</th>
+                  <td><asp:DropDownList ID="ddlSchool" runat="server"   /></td>
+                </tr>
+                
+                
+                <tr class="table-content">
+                  <th> 准驾车型：</th>
+                  <td><asp:DropDownList ID="ddlCarType" runat="server"   /></td>
+                </tr>
+                
+                <tr class="table-content">
+                  <th> 是否补录：</th>
+                  <td><asp:CheckBox  ID="cbBlInd" runat="server"/></td>
+                </tr>
+                
+                <tr >
+                  <td colspan="2"  style=" text-align:right;">
+                     <asp:Button ID="btnSaveStudent" runat="server" Text="保存学员信息" 
+                           onclick="btnSaveStudent_Click"   />
+                  </td>
+                </tr>
+
+                
                 <tr>
                    <td colspan="2" class="table-content">
                                           <asp:Button ID="btnNewEnrolStudent" runat="server"  Text="指纹采集" 
-                           onclick="btnNewEnrolStudent_Click" Visible="false"  /> 
-                        
+                            Visible="false" onclick="btnNewEnrolStudent_Click"  /> 
+                           
                        <asp:Button runat="server" ID="btnVerifyStudent" Text="检查指纹" 
-                            onclick="btnVerifyStudent_Click" Visible="false"  />
+                             Visible="false"  />
                    </td>
                 </tr>
                 <tr>

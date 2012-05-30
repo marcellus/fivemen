@@ -12,107 +12,117 @@ using FT.DAL;
 using FT.DAL.Orm;
 using FT.Commons.Tools;
 using FT.WebServiceInterface.DrvQuery;
+using FT.Web.Tools;
 
 public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
 {
 
-    private const string ACTION_NAME="ACTION_RECORD_COLLECT";
+    public enum Key
+    {
+        agentInfo, userId, fingers
+    }
+
+    private const string ACTION_NAME = "ACTION_RECORD_COLLECT";
     private const int ACTION_NONE = 0;
     private const int ACTION_NEW_ENROLL_STUDENT = 1;
     private const int ACTION_VERIFY_STUDENT = 2;
     private const int ACTION_IDENTITY_STUDENT = 3;
     private FpBase _FP;
 
-    public const string VS_TEMP_STUDENT = "tempStudent";
-   
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        this._FP = new FpBase(this,new EventHandler(TrustLink_OperDlgPostEvent));
-        if(Request.Params[FPSystemBiz.PARAM_RESULT]!=null)
+        this._FP = new FpBase(this, new EventHandler(TrustLink_OperDlgPostEvent));
+        if (!IsPostBack)
         {
-            //this.txtIDCard.Text=Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
-            if(Request.Params[FPSystemBiz.PARAM_RESULT]!=null){
-                string qIdCard = Request.Params[FPSystemBiz.PARAM_RESULT].ToString();
-                this.hidIDCard.Value = qIdCard;
-                //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'"+qIdCard+"'");
-                TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
-                this.fnUIQuerySucess(tempStudentInfo != null);
-                ///ucStudentInfo.fnUILoadStudentRecord(qIdCard);
-                ViewState[VS_TEMP_STUDENT] = tempStudentInfo;
-            }
+            ArrayList listLoacaltype = SimpleOrmOperator.QueryConditionList<FpLocalType>("");
+            ddlLocaltype.DataSource = listLoacaltype;
+            ddlLocaltype.DataTextField = "NAME";
+            ddlLocaltype.DataValueField = "ID";
+            ddlLocaltype.DataBind();
 
-    
+            DepartMentOperator.Bind2(ddlSchool);
+            ddlSchool.SelectedValue = "440400";
+
+            DictOperator.BindDropDownList("车辆类型", ddlCarType);
+
+         
         }
-    }
-    protected void btnQueryStudent_Click(object sender, EventArgs e)
-    {
-        if (this.txtIDCard.Text.Length == 0)
-            return;
-        string qIdCard = this.txtIDCard.Text;
-        //FpStudentObject lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>("'" + qIdCard + "'");
-
-        TempStudentInfo tempStudentInfo = DrvQueryHelper.QueryStudent(qIdCard);
-        if (tempStudentInfo == null)
-        {
-            this.fnUIQuerySucess(false);
-            return;
-        }
-        else
-        {
-            this.fnUIQuerySucess(true);
-            Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, this.txtIDCard.Text));
-        }
-        
+        ///WebTools.PlaySound("../../sound/test1.wav");
+        //WebTools.PlayBackGroupSound("孙燕姿-02.追.是时候.mp3", 1);
+        //Response.Write("<bgsound loop=1 src='孙燕姿-02.追.是时候.mp3' />");
+        //WebTools.WriteScript("alert('hhlin');");
+        //WebTools.PlaySound("孙燕姿-02.追.是时候.mp3");
+        // BeepHelper.Beep(800,8000);
 
     }
-    protected void btnVerifyStudent_Click(object sender, EventArgs e)
-    {
-        if (this.txtIDCard.Text.Length == 0)
-            return;
-        _FP.FpVerifyUser(this.txtIDCard.Text);
-        Session[ACTION_NAME] = ACTION_VERIFY_STUDENT;
-    }
-
-
-
-    protected void btnNewEnrolStudent_Click(object sender, EventArgs e)
-    {
-        if (this.hidIDCard.Value.Length == 0)
-            return;
-        string lStrIDCard = this.hidIDCard.Value.Trim();
-        if (_FP.FpNewUser(lStrIDCard) == 31)
-            _FP.FpUpdateUser(lStrIDCard);
-        Session[ACTION_NAME] = ACTION_NEW_ENROLL_STUDENT;
-    }
-
-    protected void btnIdentity_Click(object sender, EventArgs e)
-    {
-        _FP.FpIdentityUser();
-        Session[ACTION_NAME] = ACTION_IDENTITY_STUDENT;
-    }
-
-
-
     protected void btnSaveStudent_Click(object sender, EventArgs e)
     {
-        if (this.hidIDCard.Value.Length == 0)
+
+        string lStrIDCard = StringHelper.fnFormatNullOrBlankString(this.txtIDCard.Text, "");
+        if (lStrIDCard == "")
+        {
+            WebTools.Alert("身份证号码不能为空");
             return;
-        string lStrIDCard = this.hidIDCard.Value.Trim();
-        TempStudentInfo tso = ViewState[VS_TEMP_STUDENT] as TempStudentInfo;
+        }
+        else if ((lStrIDCard.Length == 15 || lStrIDCard.Length == 18))
+        {
+            string re = IDCardHelper.Validate(lStrIDCard);
+            if (re != string.Empty)
+            {
+                WebTools.Alert(re);
+                return;
+            }
+        }
+        else if (txtLsh.Text.Trim().Length < 13)
+        {
+            WebTools.Alert("受理号不能少于13位");
+            return;
+        }
+
         FpStudentObject fso = new FpStudentObject();
-        fso.fromTempStudentInfo(tso);
-        int localtype =StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
+        fso.IDCARD = lStrIDCard;
+        int localtype = StringHelper.fnFormatNullOrBlankInt(ddlLocaltype.SelectedValue);
         fso.LOCALTYPE = localtype;
+        fso.NAME = txtName.Text;
         fso.STATUE = FpStudentObject.STATUE_NEW;
+        fso.LSH = txtLsh.Text;
+        fso.SCHOOL_CODE = ddlSchool.SelectedValue;
+        fso.SCHOOL_NAME = ddlSchool.SelectedItem.Text;
+        fso.CAR_TYPE = ddlCarType.SelectedValue;
+        fso.CREATE_TIME = DateTime.Now;
+        fso.LASTMODIFY_TIME = DateTime.Now;
+        fso.BL_IND = cbBlInd.Checked ? "Y" : "N";
         if (FPSystemBiz.fnAddOrUpdateStudentRecord(fso))
         {
             fnUISaveStudentInfoSucess(true);
         }
-        else {
+        else
+        {
             fnUISaveStudentInfoSucess(false);
         }
     }
+    protected void btnNewEnrolStudent_Click(object sender, EventArgs e)
+    {
+        if (this.txtIDCard.Text.Length == 0)
+            return;
+        string lStrIDCard = this.txtIDCard.Text.Trim();
+
+       // Response.Redirect("~/FpSystem/FpV52/reg_finger.aspx?strreg=" + lStrIDCard);
+        // string script = string.Format(" document.forms[0].UCtrl.SetAgentInfo('{0}');", ViewState[Key.agentInfo.ToString()].ToString());
+        //script += string.Format("strTmp = document.forms[0].UCtrl.EnrollByPwdExport('{0}', '{1}', '', 0, 0, 'sa', 'sa');", ViewState[Key.userId.ToString()].ToString(), ViewState[Key.fingers.ToString()].ToString());
+        //script += "strTmp = UrlEncode(strTmp);";
+        //script += " window.location.search = '?strTmp=' + strTmp;";
+        //WebTools.WriteScript("try{" +script+"}catch(ex){alert(ex);}");
+         int re=_FP.FpNewUser(lStrIDCard);
+        if (re !=FpBase.SUCCESSED)
+         {
+
+             _FP.FpUpdateUser(lStrIDCard);
+         }
+        Session[ACTION_NAME] = ACTION_NEW_ENROLL_STUDENT;
+    }
+
+
 
 
 
@@ -127,12 +137,14 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         ResultCodeArgs re = (ResultCodeArgs)e;
         string[] lArrUserIds = FpBase.getUserIds(re);
         FpStudentObject lObjStudent = null;
-        int lIntAction =ACTION_NONE;
+        int lIntAction = ACTION_NONE;
         if (Session[ACTION_NAME] == null)
             return;
-        try {
+        try
+        {
             lIntAction = int.Parse(Session[ACTION_NAME].ToString());
-        }catch(Exception ex)
+        }
+        catch (Exception ex)
         {
             lIntAction = ACTION_NONE;
         }
@@ -140,7 +152,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         {
             case ACTION_NONE: break;
             case ACTION_NEW_ENROLL_STUDENT:
-                string qIDCard = this.hidIDCard.Value;
+                string qIDCard = this.txtIDCard.Text;
                 lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(qIDCard);
                 if (lObjStudent == null)
                 {
@@ -149,74 +161,18 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
                 }
                 else
                 {
-                    this.fnUINewEnrollStudentSucess(true);
+                    lObjStudent.STATUE = FpStudentObject.STATUE_COLLECT;
+                    //FPSystemBiz.fnAddOrUpdateStudentRecord(lObjStudent);
+                    this.fnUINewEnrollStudentSucess(SimpleOrmOperator.Update(lObjStudent));
                 }
-                break;
-            case ACTION_VERIFY_STUDENT:
-                if (re.ResultCode == FpBase.SUCCESSED)
-                {
-                    this.fnUIVerifyStudentInfoSucess(true);
-                }
-                else
-                {
-                    this.fnUIVerifyStudentInfoSucess(false);
-                }
-
-                break;
-            case ACTION_IDENTITY_STUDENT:
-                if (lArrUserIds.Length < 1)
-                {
-                    //this.lbIdentityAlertMsg.Text = "没有该学员的指纹信息";
-                    return;
-                } lObjStudent = FT.DAL.Orm.SimpleOrmOperator.Query<FpStudentObject>(lArrUserIds[0].ToString());
-                if (lObjStudent == null)
-                {
-                    this.lbIdentityAlertMsg.Text = "没有该学员的信息";
-                    return;
-                }
-                Response.Redirect(string.Format("{0}?{1}={2}", Request.Url.AbsolutePath, FPSystemBiz.PARAM_RESULT, lArrUserIds[0].ToString()));
-   
-                this.btnSaveStudent.Visible = true;
-                this.lbIdentityAlertMsg.Text = "";
                 break;
 
         }
     }
 
 
-    
-    private void fnUIQuerySucess( Boolean bl)
-    {
-        if (bl)
-        {
-            this.lbQueryAlertMsg.Text = "";
-            this.btnSaveStudent.Visible = true;
-            this.ddlLocaltype.Visible = true;
-            ArrayList listLoacaltype;
-            if (ViewState["listLocalType"] == null)
-            {
-                listLoacaltype = SimpleOrmOperator.QueryConditionList<FpLocalType>("");
-                ViewState["listLocalType"] = listLoacaltype;
-                ddlLocaltype.DataSource = listLoacaltype;
-                ddlLocaltype.DataTextField = "NAME";
-                ddlLocaltype.DataValueField = "ID";
-                ddlLocaltype.DataBind();
-            }
-           // else {
-           //     listLoacaltype = ViewState["listLocalType"] as ArrayList;
-         //   }
-          //  int ddlIndex = ddlLocaltype.SelectedIndex;
 
-           // ddlLocaltype.SelectedIndex = ddlIndex;
-            
-        }
-        else
-        {
- 
-            this.lbQueryAlertMsg.Text = "没有该学员的信息";
-            this.btnSaveStudent.Visible = false;
-        }
-    }
+
 
     private void fnUISaveStudentInfoSucess(Boolean bl)
     {
@@ -225,12 +181,30 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "学员信息保存成功，可进行指纹采集";
             this.btnNewEnrolStudent.Visible = true;
+            /*
+            ViewState[Key.userId.ToString()] = this.txtIDCard.Text.Trim();
+            ViewState[Key.agentInfo.ToString()] = wsFingerM.wsGetAgentInfo();//获取系统信息
+            this.username.Value = ViewState[Key.userId.ToString()].ToString();
+            int wsIsUserExisted_re = wsUserM.wsIsUserExisted(ViewState[Key.userId.ToString()].ToString());
+            if (wsIsUserExisted_re == 1)
+            {
+                int wsAddUserByPwd_re = wsUserM.wsAddUserByPwd(ViewState[Key.userId.ToString()].ToString(), "sa", "sa");
+                ViewState[Key.fingers.ToString()] = "";
+                if (wsAddUserByPwd_re != 0)
+                {
+                    WebTools.Alert("添加失败！");
+                }
+            }
+            else
+            {
+                ViewState[Key.fingers.ToString()] = wsFingerM.wsGetEnrolledFingersInResult(ViewState[Key.userId.ToString()].ToString(), "31");//获取该用户注册的指头 设备类型31
+            }
+             * */
         }
         else
         {
             this.lbAlertMsg.Visible = true;
             this.lbAlertMsg.Text = "学员信息保存失败";
-            this.btnNewEnrolStudent.Visible = true;
             this.btnNewEnrolStudent.Visible = false;
         }
     }
@@ -251,33 +225,28 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
         }
     }
 
-
-    private void fnUIVerifyStudentInfoSucess(Boolean bl)
+    protected void btnQueryStuent_Click(object sender, EventArgs e)
     {
-        if (bl)
+        if (string.IsNullOrEmpty(txtIDCard.Text))
         {
-            this.lbAlertMsg.Visible = true;
-            this.lbAlertMsg.Text = "学员指纹匹配正确";
-            this.btnVerifyStudent.Visible = false;
+            WebTools.Alert("证件号码不能为空");
+            return;
+        }
+        FpStudentObject student = SimpleOrmOperator.Query<FpStudentObject>(txtIDCard.Text);
+        if (student == null)
+        {
+            WebTools.Alert(string.Format("身份证号码:{0} 未录入", txtIDCard.Text));
         }
         else
         {
-            this.lbAlertMsg.Visible = true;
-            this.lbAlertMsg.Text = "学员指纹匹配错误";
+
+            txtLsh.Text = student.LSH;
+            txtName.Text = student.NAME;
+            ddlLocaltype.SelectedValue = student.LOCALTYPE.ToString();
+            ddlSchool.SelectedValue = student.SCHOOL_CODE;
+            ddlCarType.SelectedValue = student.CAR_TYPE;
+            cbBlInd.Checked = student.BL_IND == "Y";
         }
-    }
 
-
-    /**
-    private void fnUISetStudentInfo(FpStudentObject fso)
-    {
-        this.lbXm.Text = fso.NAME;
-        this.lbIdCard.Text = fso.IDCARD;
-    }
-    **/
-
-    protected void btnClearStudent_Click(object sender, EventArgs e)
-    {
-        Response.Redirect(Request.Url.AbsolutePath);
     }
 }

@@ -33,7 +33,7 @@
       <appender-ref ref="toolAppender"/>
     </logger>-->
     <logger name="FT.Commons.Tools">
-        <level value="ALL"/>
+        <level value="DEBUG"/>
         <appender-ref ref="toolAppender"/>
     </logger>
 

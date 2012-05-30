@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DrvHelperSystem", ".", "{41FB5A1C-F8DE-4666-B11D-8CC61FB1DC72}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
-		ProjectReferences = "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}|FT.Commons.dll;{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}|FT.Web.dll;{28F66C9B-578D-409B-9314-02E213917C04}|FT.DAL.dll;{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}|FT.WebServiceInterface.dll;"
+		ProjectReferences = "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}|FT.Commons.dll;{28F66C9B-578D-409B-9314-02E213917C04}|FT.DAL.dll;{724B721F-93F8-4D8A-AB77-0A8B95A27DC8}|FT.Web.dll;{69E3B3C5-5CD5-4DBA-9981-9B36572CF21E}|FT.WebServiceInterface.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/DrvHelperSystem"
 		Debug.AspNetCompiler.PhysicalPath = "..\DrvHelperSystem\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\DrvHelperSystem\"
@@ -19,7 +19,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DrvHelperSystem", ".", "{41
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2367"
+		VWDPort = "12345"
+		VWDDynamicPort = "false"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Commons", "..\FT.Commons\FT.Commons.csproj", "{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}"

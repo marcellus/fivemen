@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <asp:Label Text="请刷二代身份证" runat="server" ID="lbInfo"></asp:Label><br />
+  <asp:Label Text="请输入身份证明号码" runat="server" ID="lbInfo"></asp:Label><br />
 
         <!--
      <object id="ETTSelfIDCardActiveX1" 	classid="CLSID:447C4906-6678-461B-9E20-100BDE913828">
