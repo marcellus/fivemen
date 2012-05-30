@@ -133,7 +133,7 @@ namespace FT.DAL
                 }
                 catch (Exception e)
                 {
-                    log.Error(e);
+                    log.Info("查询打开数据库异常信息->" + e);
                     throw e;
                     return false;
                 }
@@ -158,7 +158,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info("查询打开数据库->" + connString + "异常信息->" + e);
                 throw e;
                 return false;
             }
@@ -177,7 +177,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info(e);
                 return (false);
             }
             return (true);
@@ -200,7 +200,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-               log.Error(e);
+                log.Info("查询sql执行出错->" + sql + "异常信息->" + e);
                 return null;
             }
             return dr;
@@ -225,7 +225,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info("查询sql执行出错->" + sql + "异常信息->" + e);
                 return null;
             }
             return dr;
@@ -270,7 +270,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info("查询sql执行出错->" + sql + "异常信息->" + e);
                 return null;
             }
             return dt;
@@ -401,7 +401,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info("执行sql语句失败"+cmdText+"->" + e);
                 return null;
             }
             return ds;
@@ -436,7 +436,7 @@ namespace FT.DAL
             }
             catch (Exception e)
             {
-                log.Error(e);
+                log.Info("执行sql语句失败"+sql+"->"+e);
                 this.Close();
                 return false;
             }
@@ -506,7 +506,7 @@ namespace FT.DAL
             catch (Exception e)
             {
                 this.Close();
-                log.Error(e);
+                log.Info("执行sql语句失败"+sql+"->" + e);
                 return null;
             }
            
