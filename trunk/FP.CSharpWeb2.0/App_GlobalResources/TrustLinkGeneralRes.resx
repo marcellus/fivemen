@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="IDS_ADD_ENROLL_FINGERS_AGAIN" xml:space="preserve">
+    <value>1. Please try again to register fingerprint.</value>
+  </data>
+  <data name="IDS_ADD_USER_AGAIN" xml:space="preserve">
+    <value>2.Try again to register user and fingerprint.</value>
+  </data>
+  <data name="IDS_ADD_USER_FAILED" xml:space="preserve">
+    <value>Register user failure.</value>
+  </data>
+  <data name="IDS_CHECK_DLL_EXISTED" xml:space="preserve">
+    <value>2. Please check OS system directory the TrustLink XSDevelopment dlls is exist or not. </value>
+  </data>
+  <data name="IDS_CHECK_PORT_NUMBER" xml:space="preserve">
+    <value>4.Check TrustLink XServer Port</value>
+  </data>
+  <data name="IDS_CHECK_PRODUCT_ID" xml:space="preserve">
+    <value>3.Check TrustLink ProductID</value>
+  </data>
+  <data name="IDS_CHECK_USER_EXIST" xml:space="preserve">
+    <value>1.Please check the user is exist or not.</value>
+  </data>
+  <data name="IDS_CHECK_USER_ID" xml:space="preserve">
+    <value>1.Check the user is exist or not.</value>
+  </data>
+  <data name="IDS_CONTACT_VENDOR" xml:space="preserve">
+    <value>1.Please contact vendor.</value>
+  </data>
+  <data name="IDS_DELETE_EXISTED_USER_ID" xml:space="preserve">
+    <value>1.Delete the exist user.</value>
+  </data>
+  <data name="IDS_DELETE_USER_FAILED" xml:space="preserve">
+    <value>Delete user failure.</value>
+  </data>
+  <data name="IDS_ENROLL_FINGERS_FAILED" xml:space="preserve">
+    <value>Enroll fingerprint failure.</value>
+  </data>
+  <data name="IDS_FPAUTHEN_ERROR" xml:space="preserve">
+    <value>Authen Error</value>
+  </data>
+  <data name="IDS_FPIDENT_ERROR" xml:space="preserve">
+    <value>Identify Error</value>
+  </data>
+  <data name="IDS_GET_ENROLL_FINGER_ERROR" xml:space="preserve">
+    <value>Get Enrolled Finger error.</value>
+  </data>
+  <data name="IDS_IS_USER_FINGER_EXIST" xml:space="preserve">
+    <value>2.Check the user already registered fingerprint.</value>
+  </data>
+  <data name="IDS_LOAD_DLL_FAILED" xml:space="preserve">
+    <value>Load TrustLink XSDevelopment dlls failure.</value>
+  </data>
+  <data name="IDS_MISSING_DLL" xml:space="preserve">
+    <value>1. Lose TrustLink XSDevelopment dlls.</value>
+  </data>
+  <data name="IDS_SUCCESS" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="IDS_SUGGEST_ITEM" xml:space="preserve">
+    <value>Proposal : </value>
+  </data>
+  <data name="IDS_UNKNOW_ERROR" xml:space="preserve">
+    <value>Unknow error</value>
+  </data>
+  <data name="IDS_USE_VALID_ENROLL_FINGERS_AGAIN" xml:space="preserve">
+    <value>1.Please verify user fingerprint again.</value>
+  </data>
+  <data name="IDS_XSERVER_CONNECT_FAILED" xml:space="preserve">
+    <value>TrustLink XServer Connect failure.</value>
+  </data>
+  <data name="IDS_XSERVER_RESTART" xml:space="preserve">
+    <value>2. restart XServer.</value>
+  </data>
+  <data name="IDS_XSERVER_SHUT_DOWN" xml:space="preserve">
+    <value>1.Check TrustLink XServer is start or stop.</value>
+  </data>
+</root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="CSharpWeb">
+</Property><Property Name="解决方案文件" Value="D:\指纹仪升级测试\TrustLink 4.0 开发体验版软件包\TrustLink 4.0\TrustLink 4.0 Server\TrustLink 4.0 Server\CodeSample\CSharpWeb2.0\CSharpWeb.sln">
+</Property><Property Name="用户选项文件" Value="D:\指纹仪升级测试\TrustLink 4.0 开发体验版软件包\TrustLink 4.0\TrustLink 4.0 Server\TrustLink 4.0 Server\CodeSample\CSharpWeb2.0\CSharpWeb.suo">
+</Property><Property Name="Date" Value="2012年6月4日星期一">
+</Property><Property Name="Time" Value="20:35">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="CSharpWeb.sln" Description="文件已成功备份为 D:\指纹仪升级测试\TrustLink 4.0 开发体验版软件包\TrustLink 4.0\TrustLink 4.0 Server\TrustLink 4.0 Server\CodeSample\CSharpWeb2.0\Backup\CSharpWeb.sln">
+</Event><Event ErrorLevel="0" Project="" Source="CSharpWeb.suo" Description="文件已成功备份为 D:\指纹仪升级测试\TrustLink 4.0 开发体验版软件包\TrustLink 4.0\TrustLink 4.0 Server\TrustLink 4.0 Server\CodeSample\CSharpWeb2.0\Backup\CSharpWeb.suo">
+</Event><Event ErrorLevel="1" Project="CSharpWeb2" Source="http://localhost/CSharpWeb2.0" Description="警告: 正将项目文件备份到与原始解决方案相对路径不同的相对路径中。文件夹层次结构上的差异可能会导致在打开或生成备份的解决方案和项目时出现问题。">
+</Event><Event ErrorLevel="2" Project="http://localhost/CSharpWeb2.0" Source="http://localhost/CSharpWeb2.0" Description="错误: 未能备份网站 http://localhost/CSharpWeb2.0">
+</Event><Event ErrorLevel="0" Project="" Source="CSharpWeb.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="CSharpWeb.sln" Description="Converted">
+</Event></UpgradeLog>
