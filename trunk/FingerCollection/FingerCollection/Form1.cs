@@ -10,6 +10,7 @@ using FT.Commons.Tools;
 using FingerCollection.Config;
 using System.IO;
 using System.Diagnostics;
+using FT.Commons.Print;
 
 //this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard,this.txtName,this.txtLsh,this.cbStudentType,this.cbLearnCar);
 
@@ -343,6 +344,21 @@ namespace FingerCollection
                 SystemConfig config = StaticCacheManager.GetConfig<SystemConfig>();
                 Process.Start("explorer.exe "+config.FTPUrl);
                 //Process.Start("iexplore.exe " + config.FTPUrl);
+            }
+
+            private void btnPrintCode39_Click(object sender, EventArgs e)
+            {
+                string idcard=this.txtIdCard.Text.Trim();
+                if (idcard.Length == 0)
+                {
+                    MessageBoxHelper.Show("请输入港澳通行证号码再按打印！");
+                }
+                else
+                {
+                    HKMacoPrinter printer = new HKMacoPrinter(idcard);
+                    CommonPrinter commonPrinter = new CommonPrinter(printer);
+                    commonPrinter.Print();
+                }
             } 
         
     }

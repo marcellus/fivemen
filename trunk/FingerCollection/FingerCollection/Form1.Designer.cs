@@ -57,6 +57,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uploadFingerRecordSearch2 = new FingerCollection.UploadFingerRecordSearch();
+            this.btnPrintCode39 = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnPrintCode39);
             this.splitContainer1.Panel1.Controls.Add(this.cbLearnCar);
             this.splitContainer1.Panel1.Controls.Add(this.cbStudentType);
             this.splitContainer1.Panel1.Controls.Add(this.datePxrq);
@@ -356,7 +358,17 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1232, 340);
             this.tabControl1.TabIndex = 0;
-
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "待上传指纹名单";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // localFingerRecordSearch2
             // 
@@ -369,19 +381,6 @@
             this.localFingerRecordSearch2.Name = "localFingerRecordSearch2";
             this.localFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.localFingerRecordSearch2.TabIndex = 0;
-
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "待上传指纹名单";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            
             // 
             // tabPage2
             // 
@@ -404,6 +403,17 @@
             this.uploadFingerRecordSearch2.Name = "uploadFingerRecordSearch2";
             this.uploadFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.uploadFingerRecordSearch2.TabIndex = 0;
+            // 
+            // btnPrintCode39
+            // 
+            this.btnPrintCode39.Font = new System.Drawing.Font("宋体", 13F);
+            this.btnPrintCode39.Location = new System.Drawing.Point(841, 18);
+            this.btnPrintCode39.Name = "btnPrintCode39";
+            this.btnPrintCode39.Size = new System.Drawing.Size(156, 50);
+            this.btnPrintCode39.TabIndex = 32;
+            this.btnPrintCode39.Text = "打印港澳人员的一维条码";
+            this.btnPrintCode39.UseVisualStyleBackColor = true;
+            this.btnPrintCode39.Click += new System.EventHandler(this.btnPrintCode39_Click);
             // 
             // Form1
             // 
@@ -459,6 +469,7 @@
         private System.Windows.Forms.Button btnUpdateInfo;
         private System.Windows.Forms.Button btnOpenUrl;
         private System.Windows.Forms.Button btnPrepareUpload;
+        private System.Windows.Forms.Button btnPrintCode39;
     }
 }
 
