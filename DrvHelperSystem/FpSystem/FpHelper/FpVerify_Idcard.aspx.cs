@@ -17,10 +17,11 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        _FP = new FpBase(this, new EventHandler(FpVerifyHandler), false);
 
+        _FP = new FpBase(this, new EventHandler(FpVerifyHandler), false);
         if (!IsPostBack)
         {
+           
             if (!string.IsNullOrEmpty(Request.Params[KEY_TRAGET_FRAME]))
             {
                 Session[KEY_TRAGET_FRAME] = Request.Params[KEY_TRAGET_FRAME];
@@ -32,6 +33,8 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
             string idcard = Request.Params["idcard"];
             if (!string.IsNullOrEmpty(idcard))
             {
+                
+                
                 _FP.FpVerifyUser(idcard);
             }
         }
@@ -83,7 +86,9 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
     protected void btnVerify_Click(object sender, EventArgs e)
     {
         string idcard = txtIdcard.Text.Trim();
+        DateTime begin = DateTime.Now;
         FpStudentObject student = SimpleOrmOperator.Query<FpStudentObject>(idcard);
+
         string gStrTargetFrame = Session[KEY_TRAGET_FRAME] as string;
         string SCP_ALERT = "", lStrSearch = "";
         string gStrCheckinLogFrame = Session[KEY_CHECKINLOG_FRAME] as string;
@@ -94,6 +99,9 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
             WebTools.WriteScript(SCP_ALERT);
             return;
         }
+        //WebTools.Alert(string.Format("当前用户:{0}", _FP.getCurrAuthenID()));
+        DateTime end = DateTime.Now;
+        TempLog.Info(string.Format("SimpleOrmOperator.Query<FpStudentObject>({0}) : {1}",idcard,end.Subtract(begin).TotalMilliseconds.ToString()));
         int re= _FP.FpVerifyUser(idcard);
         if (re == 215) {
         }

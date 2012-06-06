@@ -32,6 +32,7 @@ public partial class FpSystem_FpHelper_FpRecordCollect : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this._FP = new FpBase(this, new EventHandler(TrustLink_OperDlgPostEvent));
+        _FP.isSa = true;
         if (!IsPostBack)
         {
             ArrayList listLoacaltype = SimpleOrmOperator.QueryConditionList<FpLocalType>("");
