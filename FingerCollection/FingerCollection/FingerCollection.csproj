@@ -99,6 +99,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HKMacoPrinter.cs" />
     <Compile Include="LocalFingerRecordObject.cs" />
     <Compile Include="LocalFingerRecordSearch.cs">
       <SubType>UserControl</SubType>
