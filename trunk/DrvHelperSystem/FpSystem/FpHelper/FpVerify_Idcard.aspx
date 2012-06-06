@@ -14,7 +14,7 @@
 	</object>
    -->	
 	<asp:TextBox ID="txtIdcard" runat="server" Width="300"></asp:TextBox>
-	<br /> <asp:Button ID="btnVerify" runat="server" onclick="btnVerify_Click"  Text="验证"/>
+<asp:Button ID="btnVerify" runat="server" onclick="btnVerify_Click"  Text="验证"/>
 
 <script type="text/javascript">
 
@@ -48,6 +48,6 @@
 	*/
 	
 </script>
-	  
+	 
 </asp:Content>
 
