@@ -101,6 +101,10 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     private const string DEVICE_TYPE = "31";
     private const string XDEV_DLL_NAME = "XNMiddle.dll";
 
+    private static object synObj = new object(), synObjPacket = new object(),sysObjUser=new object();
+
+    private static bool isFirstCheck = true, isFirstGetAgentInfo=true,isFirstConnect = true;
+    private static string agentInfo = string.Empty;
     #region DLL_Import
 
     [DllImport("XNMiddle.dll")]
@@ -333,8 +337,16 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
             ProcID intAction = (ProcID)(Convert.ToInt32(strArgs[0].ToString()));
 
             string strTemplateData = strArgs[1].ToString();
-            iResultCode = ExecutePacket(strTemplateData);
-
+           // int i = TempLog.Info("start ExecutePacket");
+            begin = DateTime.Now;
+            lock (synObjPacket)
+            {
+                iResultCode = ExecutePacket(strTemplateData);
+                end = DateTime.Now;
+                Log("ExecutePacket");
+                //TempLog.Info("end ExecutePacket:"+(DateTime.Now.Millisecond-i));
+            }
+            
             if (iResultCode == SUCCESSED)
             {
                 //if the process type is fingerprint Identify, then Get the Identify user message
@@ -483,7 +495,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         _LastErrCode = _ResultCode;
         _LastErrMsg = getErrMsg(aProcID);
         _LastErrReason = GetErrRsn(aProcID);
-        TempLog.Info("亚略特自带错误处理-》_LastErrCode->" + _LastErrCode.ToString() + "\r\n_LastErrMsg->" + _LastErrMsg + "\r\n_LastErrReason->"+_LastErrReason);
+        //TempLog.Info("亚略特自带错误处理-》_LastErrCode->" + _LastErrCode.ToString() + "\r\n_LastErrMsg->" + _LastErrMsg + "\r\n_LastErrReason->"+_LastErrReason);
         if (aIsRaise)
         {
             throw new TrustLinkGeneralException();
@@ -497,7 +509,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         if (_dllPlugin.library == IntPtr.Zero)
         {
-            TempLog.Info("XSDevHandle不存在，请检查是否安装Xmiddle!");
+            //TempLog.Info("XSDevHandle不存在，请检查是否安装Xmiddle!");
             _ResultCode = ERR_UNKNOWN;
             ProcErr(ProcID.CheckXSDevHandle, true); //Operation Exception and throw
         }
@@ -508,38 +520,32 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     /// </summary>
     private void BK_Connectservers()
     {
-        TempLog.Info("开始调用Xmiddle的InitAgent");
-        InitAgent(_ProductID, 0, _HostName, _Port, false);
-        TempLog.Info("结束调用Xmiddle的InitAgent并调用Xmiddle的ConnectServer！");
-       // _ResultCode = ConnectServer();
-
-        /**/
-         
-          int i=3;
-        while(i>0)
+        if (isFirstConnect)
         {
-            _ResultCode = ConnectServer();
-            if (_ResultCode == SUCCESSED)
-            {
-                break;
-            }
-            else
-            {
-                System.Threading.Thread.Sleep(50);
-            }
-            i--;
-        }
-         
-        TempLog.Info("结束调用Xmiddle的ConnectServer，ResultCode->"+_ResultCode.ToString());
-        if (_ResultCode != SUCCESSED)
-        {
-
             
-            ProcErr(ProcID.ConnectServers, true); //Operation Exception and throw
+            lock (synObj)
+            {
+                begin = DateTime.Now;
+                InitAgent(_ProductID, 0, _HostName, _Port, false);
+                end = DateTime.Now;
+                Log("InitAgent");
+                
+                begin = DateTime.Now;
+                _ResultCode = ConnectServer();
+                end = DateTime.Now;
+                Log("InitAgent");
+
+               
+
+                if (_ResultCode != SUCCESSED)
+                {
+                    ProcErr(ProcID.ConnectServers, true); //Operation Exception and throw
+                }
+                SetFPDeviceType(Convert.ToInt32(this.DeviceType)); //设定设备的类型
+               
+            }
         }
-        TempLog.Info("开始调用Xmiddle的SetFPDeviceType");
-        SetFPDeviceType(Convert.ToInt32(this.DeviceType)); //设定设备的类型
-        TempLog.Info("结束调用Xmiddle的SetFPDeviceType");
+       
     }
 
     /// <summary>
@@ -570,13 +576,13 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         Page.Response.Write("<html>");
         Page.Response.Write("<BODY bgcolor=#FFFFFF >");
         Page.Response.Write("<FORM  id=EnrollForm method=post name=EnrollFormEnroll >");
-        Page.Response.Write("	<OBJECT ID=EnrollX  ");
+        Page.Response.Write("  <div style=' display:none'>	<OBJECT ID=EnrollX  ");
         Page.Response.Write("		classid=clsid:" + this.OcxClassID);
         Page.Response.Write("		codebase=" + this.OcxName);
         Page.Response.Write("		hspace=0  ");
         Page.Response.Write("		vspace=0 >");
         Page.Response.Write("		<PARAM name=IconVisible VALUE=0>");
-        Page.Response.Write("	</OBJECT>");
+        Page.Response.Write("	</OBJECT> </div>");
         Page.Response.Write("</FORM>");
         Page.Response.Write("</BODY>");
         Page.Response.Write("</html>");
@@ -613,13 +619,13 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         Page.Response.Write("<html>");
         Page.Response.Write("<BODY bgcolor=#FFFFFF >");
         Page.Response.Write("<FORM  id=EnrollForm method=post name=EnrollFormEnroll >");
-        Page.Response.Write("	<OBJECT ID=EnrollX  ");
+        Page.Response.Write("	<div style=' display:none'><OBJECT ID=EnrollX  ");
         Page.Response.Write("		classid=clsid:" + this.OcxClassID);
         Page.Response.Write("		codebase=" + this.OcxName);
         Page.Response.Write("		hspace=0  ");
         Page.Response.Write("		vspace=0 >");
         Page.Response.Write("		<PARAM name=IconVisible VALUE=0>");
-        Page.Response.Write("	</OBJECT>");
+        Page.Response.Write("	</OBJECT></div>");
         Page.Response.Write("</FORM>");
         Page.Response.Write("</BODY>");
         Page.Response.Write("</html>");
@@ -639,6 +645,15 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
             SCP_SCRIPT_START + SCP_SET_AGENT_INFO + SCP_ENROLL_BY_PWD + SCP_SET_POST_BACK + SCP_SCRIPT_END);
     }
 
+    private DateTime begin;
+    private DateTime end;
+
+    private void Log(string str)
+    {
+        TimeSpan ts = end.Subtract(begin);
+        TempLog.Info(str + " cost times->" + ts.TotalMilliseconds.ToString());
+    }
+
     /// <summary>
     /// Get user Enrolled Fingers
     /// </summary>
@@ -648,7 +663,15 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         int iEnrolledFingerLen = ENROLLED_FINGER_LEN;
         StringBuilder sbEnrolledFinger = new StringBuilder(iEnrolledFingerLen);
-        _ResultCode = GetEnrolledFingers(aUserID, sbEnrolledFinger);
+        begin = System.DateTime.Now;
+        
+        lock (synObj)
+        {
+            _ResultCode = GetEnrolledFingers(aUserID, sbEnrolledFinger);
+            end = System.DateTime.Now;
+            this.Log("BK_GetEnrolledFingers");
+            //TempLog.Info("end GetEnrolledFingers:" + (DateTime.Now.Millisecond - i));
+        }
         if (_ResultCode != SUCCESSED)
         {
             ProcErr(ProcID.GetEnrolledFingers, true);
@@ -669,20 +692,35 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         //Get Agent Info
         StringBuilder af_AgentInfo = new StringBuilder(60);
-        _ResultCode = GetAgentInfo(af_AgentInfo);
+        if (isFirstGetAgentInfo)
+        {
+            begin = DateTime.Now;
+            lock (synObj)
+            {
+
+                _ResultCode = GetAgentInfo(af_AgentInfo);
+                agentInfo = af_AgentInfo.ToString();
+                end = DateTime.Now;
+                Log("GetAgentInfo");
+            }
+        }
+        else
+        {
+            af_AgentInfo.Append(agentInfo);
+        }
 
         //Write Verify OCX 
         Page.Response.ContentType = "text/html";
         Page.Response.Write("<html>");
         Page.Response.Write("<BODY bgcolor=#FFFFFF >");
         Page.Response.Write("<FORM  id=VerifyForm method=post name=EnrollFormEnroll >");
-        Page.Response.Write("	<OBJECT ID=VerifyX  ");
+        Page.Response.Write("	<div style=' display:none'><OBJECT ID=VerifyX  ");
         Page.Response.Write("		classid=clsid:" + this.OcxClassID);
         Page.Response.Write("		codebase=" + this.OcxName);
         Page.Response.Write("		hspace=0  ");
         Page.Response.Write("		vspace=0 >");
         Page.Response.Write("		<PARAM name=IconVisible VALUE=0>");
-        Page.Response.Write("	</OBJECT>");
+        Page.Response.Write("	</OBJECT></div>");
         Page.Response.Write("</FORM>");
         Page.Response.Write("</BODY>");
         Page.Response.Write("</html>");
@@ -709,21 +747,34 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         //Get Agent Info
         StringBuilder af_AgentInfo = new StringBuilder(60);
-        TempLog.Info("开始调用Xmiddle的GetAgentInfo");
-        _ResultCode = GetAgentInfo(af_AgentInfo);
-        TempLog.Info("结束调用Xmiddle的GetAgentInfo,并准备输入html,ResultCode->"+_ResultCode.ToString());
+        if (isFirstGetAgentInfo)
+        {
+            begin = DateTime.Now;
+            lock (synObj)
+            {
+               
+                _ResultCode = GetAgentInfo(af_AgentInfo);
+                agentInfo = af_AgentInfo.ToString();
+                end = DateTime.Now;
+                Log("GetAgentInfo");
+            }
+        }
+        else
+        {
+            af_AgentInfo.Append(agentInfo);
+        }
         //Write Verify OCX 
         Page.Response.ContentType = "text/html";
         Page.Response.Write("<html>");
         Page.Response.Write("<BODY bgcolor=#FFFFFF >");
         Page.Response.Write("<FORM  id=VerifyForm method=post name=EnrollFormEnroll >");
-        Page.Response.Write("	<OBJECT ID=VerifyX  ");
+        Page.Response.Write("	<div style='display:none'><OBJECT ID=VerifyX  ");
         Page.Response.Write("		classid=clsid:" + this.OcxClassID);
         Page.Response.Write("		codebase=" + this.OcxName);
         Page.Response.Write("		hspace=0  ");
         Page.Response.Write("		vspace=0 >");
         Page.Response.Write("		<PARAM name=IconVisible VALUE=0>");
-        Page.Response.Write("	</OBJECT>");
+        Page.Response.Write("	</OBJECT></div>");
         Page.Response.Write("</FORM>");
         Page.Response.Write("</BODY>");
         Page.Response.Write("</html>");
@@ -740,13 +791,21 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         string SCP_SCRIPT_END = "</script>\n";
         newCSM.RegisterStartupScript(this.GetType(), this.GetHashCode().ToString(),
             SCP_SCRIPT_START + SCP_SET_AGENT_INFO + SCP_AUTHEN + SCP_SET_POST_BACK + SCP_SCRIPT_END);
-        TempLog.Info("结束Html的输出!");
+        //TempLog.Info("结束Html的输出!");
     }
 
     private string BK_FPGetUser()
     {
         StringBuilder sbUser = new StringBuilder(40);
-        FPGetUser(sbUser);
+        begin = DateTime.Now;
+        lock (sysObjUser)
+        {
+
+            FPGetUser(sbUser);
+            end = DateTime.Now;
+            Log("FPGetUser");
+            //TempLog.Info("end FPGetUser:" + (DateTime.Now.Millisecond - i));
+        }
         return sbUser.ToString();
     }
 
@@ -1046,13 +1105,13 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         try
         {
-            TempLog.Info("开始检测XSdevHandle是否存在！");
+            //TempLog.Info("开始检测XSdevHandle是否存在！");
             BK_CheckXSDevHandle(); //Check Device Handle
-            TempLog.Info("结束检测XSdevHandle是否存在并开始连接服务器！");
+            //TempLog.Info("结束检测XSdevHandle是否存在并开始连接服务器！");
             BK_Connectservers(); //Connect TrustLink Server
-            TempLog.Info("结束连接服务器并开始指纹验证！");
+            //TempLog.Info("结束连接服务器并开始指纹验证！");
             BK_FPIdentify(); //Vindicate fingerprint
-            TempLog.Info("结束指纹验证！_ResultCode为-》" + _ResultCode);
+           // TempLog.Info("结束指纹验证！_ResultCode为-》" + _ResultCode);
             return _ResultCode;
         }
         catch (TrustLinkGeneralException e)

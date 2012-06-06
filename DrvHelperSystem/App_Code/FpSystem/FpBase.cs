@@ -43,7 +43,7 @@ public class FpBase
     private Boolean blDefaultAlert;     //是否使用内部错误提示
     private TrustLinkGeneralController _TG;
     private CultureInfo AP_culture = CultureInfo.CurrentCulture;
-
+    public bool isSa = false;
 
     public static String getFingerCnName(String authen_info) {
         if(string.IsNullOrEmpty(authen_info)){
@@ -89,11 +89,17 @@ public class FpBase
     }
 
 
+    public string getCurrAuthenID() {
+        return _TG.AuthenID;
+    }
 
     public CultureInfo getAP_culture()
     {
         return this.AP_culture;
     }
+
+    private static string[] authens = { "fp0","fp1","fp2","fp3"};
+    private static int authenIndex = 0;
 
     private void GetXParam()
     {
@@ -111,11 +117,21 @@ public class FpBase
             ENROLL_CLSID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_ENROLL_CLSID"), "540BE1A4-553C-4676-9932-85F61D4034E0");
             _TG.ProductID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_PRODRCTID"), "DEMO");
             _TG.Port = StringHelper.fnFormatNullOrBlankInt(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_PORT"), 26057);
-            _TG.AuthenID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENID"), "sa");
-            _TG.AuthenPwd = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENPWD"), "sa");
+
             _TG.DeviceType = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("PF_DEVICETYPE"), "31");
             _TG.OcxClassID = VERIFY_CLSID;
             _TG.OcxName = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_OCXNAME"), "XECtrl103.ocx");
+            //if (isSa) {
+                _TG.AuthenID = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENID"), "sa");
+                _TG.AuthenPwd = StringHelper.fnFormatNullOrBlankString(SystemWholeXmlConfigManager.GetConfig("FP_MIDDLEWARE_AUTHENPWD"), "sa");
+           // }
+            //else
+           // {
+            //    authenIndex = ++authenIndex % authens.Length;
+           //     string authen = authens[authenIndex];
+           //     _TG.AuthenID = authen;
+            //    _TG.AuthenPwd = authen;
+           // }
         }
         catch (NullReferenceException nre)
         {
@@ -201,10 +217,10 @@ public class FpBase
 
     public int FpIdentityUser()
     {
-        if (DateTime.Now.Subtract(lastIdentity).TotalMilliseconds < 200) {
-            Thread.Sleep(200);
-        }
-        lastIdentity = DateTime.Now;
+        //if (DateTime.Now.Subtract(lastIdentity).TotalMilliseconds < 200) {
+       //     Thread.Sleep(200);
+       // }
+       // lastIdentity = DateTime.Now;
         _TG.OcxClassID = VERIFY_CLSID;
         int result = _TG.FPUserIdentify();
         //int retryTimes=0;
