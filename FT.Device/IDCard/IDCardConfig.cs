@@ -10,5 +10,7 @@ namespace FT.Device.IDCard
         public bool UseIDCard = true;
 
         public int MiniSecond = 500;
+
+        public bool AddReturn = false;
     }
 }
