@@ -37,11 +37,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkUseIDCard = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.checkAddReturn = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkAddReturn);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
@@ -124,6 +126,16 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // checkAddReturn
+            // 
+            this.checkAddReturn.AutoSize = true;
+            this.checkAddReturn.Location = new System.Drawing.Point(177, 32);
+            this.checkAddReturn.Name = "checkAddReturn";
+            this.checkAddReturn.Size = new System.Drawing.Size(71, 19);
+            this.checkAddReturn.TabIndex = 5;
+            this.checkAddReturn.Text = "加回车";
+            this.checkAddReturn.UseVisualStyleBackColor = true;
+            // 
             // IDCardConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkAddReturn;
     }
 }

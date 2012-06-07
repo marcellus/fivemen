@@ -14,9 +14,46 @@ namespace FT.Device.IDCard
         private IDCardReader reader;
         private Timer timer;
         private De_ReadICCardComplete completeDelegate;
+
+        private bool isOpen;
+
+        public bool IsOpen
+        {
+            get { return isOpen; }
+        }
+
+        private IDCardConfig config;
+
+        public IDCardReaderHelper()
+        {
+            config = StaticCacheManager.GetConfig<IDCardConfig>();
+            reader = new IDCardReader();
+            timer = new Timer();
+            timer.Interval = config.MiniSecond;
+            timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        public void StopWatching()
+        {
+            if (isOpen)
+            {
+                timer.Stop();
+                isOpen = false;
+            }
+        }
+
+        public void StartWatching()
+        {
+            if (!isOpen)
+            {
+                timer.Start();
+                isOpen = true;
+            }
+        }
+
         public IDCardReaderHelper(De_ReadICCardComplete completeDelegate)
         {
-            IDCardConfig config=StaticCacheManager.GetConfig<IDCardConfig>();
+            config=StaticCacheManager.GetConfig<IDCardConfig>();
             reader = new IDCardReader();
             timer = new Timer();
             timer.Interval = config.MiniSecond;
@@ -45,10 +82,20 @@ namespace FT.Device.IDCard
             {
                 
             }
-            if (result == 0 && completeDelegate!=null)
+            if (result == 0 && completeDelegate != null)
             {
                 completeDelegate(reader.UserIdCard.Clone());
                 //System.Threading.Thread.Sleep(80);
+            }
+            else if(result == 0 && completeDelegate == null)
+            {
+                log.Debug("读到身份证号码，准备发送身份证号码。。。");
+                
+                SendKeys.SendWait(reader.UserIdCard.IDC);
+                if (config.AddReturn)
+                {
+                    SendKeys.SendWait("{ENTER}");
+                }
             }
             
             if (result == -1)
