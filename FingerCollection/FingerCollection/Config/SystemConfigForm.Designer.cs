@@ -53,11 +53,16 @@
             this.txtUploadFilePre = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFTPPwd = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtLeftPoint = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTopPoint = new System.Windows.Forms.TextBox();
+            this.checkIsPrintSchool = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(212, 295);
+            this.btnSave.Location = new System.Drawing.Point(191, 344);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
@@ -259,11 +264,56 @@
             this.txtFTPPwd.Size = new System.Drawing.Size(165, 21);
             this.txtFTPPwd.TabIndex = 2;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(40, 304);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 12);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "打印左边距：";
+            // 
+            // txtLeftPoint
+            // 
+            this.txtLeftPoint.Location = new System.Drawing.Point(111, 301);
+            this.txtLeftPoint.Name = "txtLeftPoint";
+            this.txtLeftPoint.Size = new System.Drawing.Size(61, 21);
+            this.txtLeftPoint.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(189, 304);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "上边距：";
+            // 
+            // txtTopPoint
+            // 
+            this.txtTopPoint.Location = new System.Drawing.Point(260, 301);
+            this.txtTopPoint.Name = "txtTopPoint";
+            this.txtTopPoint.Size = new System.Drawing.Size(61, 21);
+            this.txtTopPoint.TabIndex = 2;
+            // 
+            // checkIsPrintSchool
+            // 
+            this.checkIsPrintSchool.AutoSize = true;
+            this.checkIsPrintSchool.Location = new System.Drawing.Point(344, 305);
+            this.checkIsPrintSchool.Name = "checkIsPrintSchool";
+            this.checkIsPrintSchool.Size = new System.Drawing.Size(108, 16);
+            this.checkIsPrintSchool.TabIndex = 3;
+            this.checkIsPrintSchool.Text = "是否打印学校名";
+            this.checkIsPrintSchool.UseVisualStyleBackColor = true;
+            // 
             // SystemConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 325);
+            this.ClientSize = new System.Drawing.Size(488, 379);
+            this.Controls.Add(this.checkIsPrintSchool);
+            this.Controls.Add(this.txtTopPoint);
+            this.Controls.Add(this.txtLeftPoint);
             this.Controls.Add(this.txtSchoolCode);
             this.Controls.Add(this.txtSchoolName);
             this.Controls.Add(this.txtXSDevName);
@@ -275,6 +325,8 @@
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.txtFTPUrl);
             this.Controls.Add(this.txtProductID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtHostName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -323,5 +375,10 @@
         private System.Windows.Forms.TextBox txtUploadFilePre;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtFTPPwd;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtLeftPoint;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtTopPoint;
+        private System.Windows.Forms.CheckBox checkIsPrintSchool;
     }
 }

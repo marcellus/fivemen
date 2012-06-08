@@ -17,6 +17,10 @@ namespace FingerCollection
             _TG.XSDevName = XSDllName[this.cboProductType.SelectedIndex];
          */
 
+        public int LeftPoint = 100;
+        public int TopPoint = 100;
+        public bool IsPrintSchool = false;
+
         public string HostName="127.0.0.1";
 
         public string UploadFilePre = "";

@@ -349,13 +349,18 @@ namespace FingerCollection
             private void btnPrintCode39_Click(object sender, EventArgs e)
             {
                 string idcard=this.txtIdCard.Text.Trim();
+                string name = this.txtName.Text.Trim();
                 if (idcard.Length == 0)
                 {
                     MessageBoxHelper.Show("请输入港澳通行证号码再按打印！");
                 }
+                else  if (name.Length == 0)
+                {
+                    MessageBoxHelper.Show("请输入姓名再按打印！");
+                }
                 else
                 {
-                    HKMacoPrinter printer = new HKMacoPrinter(idcard);
+                    HKMacoPrinter printer = new HKMacoPrinter(idcard,name);
                     CommonPrinter commonPrinter = new CommonPrinter(printer);
                     commonPrinter.Print();
                 }

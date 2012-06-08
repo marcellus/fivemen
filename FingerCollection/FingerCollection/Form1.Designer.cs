@@ -359,17 +359,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1232, 340);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "待上传指纹名单";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // localFingerRecordSearch2
             // 
             this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard, this.txtName, this.txtLsh, this.cbStudentType, this.cbLearnCar);
@@ -381,6 +370,18 @@
             this.localFingerRecordSearch2.Name = "localFingerRecordSearch2";
             this.localFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.localFingerRecordSearch2.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.localFingerRecordSearch2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1224, 310);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "待上传指纹名单";
+            this.tabPage1.UseVisualStyleBackColor = true;
+           
             // 
             // tabPage2
             // 
