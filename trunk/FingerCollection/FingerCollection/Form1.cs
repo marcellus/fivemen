@@ -362,6 +362,7 @@ namespace FingerCollection
                 {
                     HKMacoPrinter printer = new HKMacoPrinter(idcard,name);
                     CommonPrinter commonPrinter = new CommonPrinter(printer);
+                    //commonPrinter.Preview();
                     commonPrinter.Print();
                 }
             } 
