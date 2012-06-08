@@ -520,31 +520,33 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     /// </summary>
     private void BK_Connectservers()
     {
-        if (isFirstConnect)
-        {
-            
+
+       // if (isFirstCheck)
+      //  {
             lock (synObj)
             {
                 begin = DateTime.Now;
-                InitAgent(_ProductID, 0, _HostName, _Port, false);
+                InitAgent(_ProductID, 0, _HostName, _Port, false );
                 end = DateTime.Now;
                 Log("InitAgent");
-                
+
                 begin = DateTime.Now;
                 _ResultCode = ConnectServer();
                 end = DateTime.Now;
                 Log("InitAgent");
 
-               
+
 
                 if (_ResultCode != SUCCESSED)
                 {
                     ProcErr(ProcID.ConnectServers, true); //Operation Exception and throw
                 }
                 SetFPDeviceType(Convert.ToInt32(this.DeviceType)); //设定设备的类型
-               
+
             }
-        }
+        //    isFirstCheck = false;
+        //}
+        
        
     }
 
@@ -692,22 +694,18 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     {
         //Get Agent Info
         StringBuilder af_AgentInfo = new StringBuilder(60);
-        if (isFirstGetAgentInfo)
-        {
+  
             begin = DateTime.Now;
             lock (synObj)
             {
 
                 _ResultCode = GetAgentInfo(af_AgentInfo);
-                agentInfo = af_AgentInfo.ToString();
+                //agentInfo = af_AgentInfo.ToString();
                 end = DateTime.Now;
                 Log("GetAgentInfo");
             }
-        }
-        else
-        {
-            af_AgentInfo.Append(agentInfo);
-        }
+        
+      
 
         //Write Verify OCX 
         Page.Response.ContentType = "text/html";
