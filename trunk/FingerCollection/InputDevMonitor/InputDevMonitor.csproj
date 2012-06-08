@@ -12,6 +12,7 @@
     <AssemblyName>输入设备监控</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>application_xp_terminal.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,23 +34,27 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\c#Common类\commons-dlls\DevExpress.BonusSkins.v7.3.dll</HintPath>
+      <HintPath>..\..\Common项目\commons-dlls\DevExpress.BonusSkins.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\c#Common类\commons-dlls\DevExpress.Data.v7.3.dll</HintPath>
+      <HintPath>..\..\Common项目\commons-dlls\DevExpress.Data.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Common项目\commons-dlls\DevExpress.OfficeSkins.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\c#Common类\commons-dlls\DevExpress.Utils.v7.3.dll</HintPath>
+      <HintPath>..\..\Common项目\commons-dlls\DevExpress.Utils.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\c#Common类\commons-dlls\DevExpress.XtraEditors.v7.3.dll</HintPath>
+      <HintPath>..\..\Common项目\commons-dlls\DevExpress.XtraEditors.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\c#Common类\commons-dlls\log4net.dll</HintPath>
+      <HintPath>..\..\Common项目\commons-dlls\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,15 +70,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDeviceMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDeviceMonitor.Designer.cs">
+      <DependentUpon>InputDeviceMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonitorConfig.cs">
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputDeviceMonitor.resx">
+      <DependentUpon>InputDeviceMonitor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig.resx">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -89,20 +110,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SystemConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemConfig.Designer.cs">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\c#Common类\FT.Commons\FT.Commons.csproj">
+    <ProjectReference Include="..\..\Common项目\FT.Commons\FT.Commons.csproj">
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\c#Common类\FT.DAL\FT.DAL.csproj">
+    <ProjectReference Include="..\..\Common项目\FT.DAL\FT.DAL.csproj">
       <Project>{24D0A7DC-A65E-4D89-AFEF-EEECAEA6DB0E}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\c#Common类\FT.Device\FT.Device.csproj">
+    <ProjectReference Include="..\..\Common项目\FT.Device\FT.Device.csproj">
       <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
       <Name>FT.Device</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="application_xp_terminal.ico" />
+    <Content Include="eye.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

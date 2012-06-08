@@ -43,7 +43,13 @@ namespace InputDevMonitor
                 barReader.StopWatching();
                 this.btnBarReader.Text = "启动";
             }
+            this.ShowBarReaderState();
 
+           
+        }
+
+        private void ShowBarReaderState()
+        {
             if (barReader.IsOpen)
             {
                 this.lbBarReaderHint.Text = "状态：已启动";
@@ -70,6 +76,11 @@ namespace InputDevMonitor
                 this.btnStartIdCardReader.Text = "启动";
             }
 
+            this.ShowIdCardReaderState();
+        }
+
+        private void ShowIdCardReaderState()
+        {
             if (idcardReader.IsOpen)
             {
                 this.lbIdCardReaderHint.Text = "状态：已启动";
@@ -78,6 +89,31 @@ namespace InputDevMonitor
             {
                 this.lbIdCardReaderHint.Text = "状态：未启动";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form = new SystemConfig();
+            form.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MonitorConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<MonitorConfig>();
+            if (config.IsStartIdCardReader)
+            {
+                idcardReader.StartWatching();
+                this.btnStartIdCardReader.Text = "停止";
+                this.ShowIdCardReaderState();
+            }
+            if (config.IsStartBarReader)
+            {
+                barReader.StartWatching();
+                this.btnStartBarReader.Text = "停止";
+                this.ShowBarReaderState();
+            }
+           
+           
         }
     }
 }
