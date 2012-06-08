@@ -129,14 +129,17 @@ namespace FT.Commons.Bar
                 try
                 {
                     this.serialPort1.Open();
+                    this.state = true;
                     return true;
                 }
                 catch (Exception ex)
                 {
                     log.Error("打开端口"+this.serialPort1.PortName+"异常："+ex.ToString());
+                    this.state = false;
                     return false;
                 }
             }
+            this.state = false;
             return false;
         }
 
@@ -148,6 +151,7 @@ namespace FT.Commons.Bar
                 try
                 {
                     this.serialPort1.Close();
+                    this.state = false;
                     return true;
                 }
                 catch (Exception ex)
@@ -158,9 +162,11 @@ namespace FT.Commons.Bar
             }
             return false;
         }
+
+        private bool state = false;
         public bool IsOpen
         {
-            get { return this.serialPort1.IsOpen; }
+            get { return this.state; }
            
         }
     }
