@@ -34,11 +34,12 @@
             this.btnStartBarReader = new System.Windows.Forms.Button();
             this.lbBarReaderHint = new System.Windows.Forms.Label();
             this.lbIdCardReaderHint = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBarReader
             // 
-            this.btnBarReader.Location = new System.Drawing.Point(29, 29);
+            this.btnBarReader.Location = new System.Drawing.Point(25, 156);
             this.btnBarReader.Name = "btnBarReader";
             this.btnBarReader.Size = new System.Drawing.Size(238, 36);
             this.btnBarReader.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // btnIdCardReader
             // 
-            this.btnIdCardReader.Location = new System.Drawing.Point(29, 71);
+            this.btnIdCardReader.Location = new System.Drawing.Point(25, 198);
             this.btnIdCardReader.Name = "btnIdCardReader";
             this.btnIdCardReader.Size = new System.Drawing.Size(238, 37);
             this.btnIdCardReader.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // btnStartIdCardReader
             // 
-            this.btnStartIdCardReader.Location = new System.Drawing.Point(379, 71);
+            this.btnStartIdCardReader.Location = new System.Drawing.Point(375, 198);
             this.btnStartIdCardReader.Name = "btnStartIdCardReader";
             this.btnStartIdCardReader.Size = new System.Drawing.Size(75, 37);
             this.btnStartIdCardReader.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             // btnStartBarReader
             // 
-            this.btnStartBarReader.Location = new System.Drawing.Point(379, 29);
+            this.btnStartBarReader.Location = new System.Drawing.Point(375, 156);
             this.btnStartBarReader.Name = "btnStartBarReader";
             this.btnStartBarReader.Size = new System.Drawing.Size(75, 37);
             this.btnStartBarReader.TabIndex = 2;
@@ -81,7 +82,7 @@
             this.lbBarReaderHint.AutoSize = true;
             this.lbBarReaderHint.Font = new System.Drawing.Font("宋体", 12F);
             this.lbBarReaderHint.ForeColor = System.Drawing.Color.YellowGreen;
-            this.lbBarReaderHint.Location = new System.Drawing.Point(273, 37);
+            this.lbBarReaderHint.Location = new System.Drawing.Point(269, 164);
             this.lbBarReaderHint.Name = "lbBarReaderHint";
             this.lbBarReaderHint.Size = new System.Drawing.Size(104, 16);
             this.lbBarReaderHint.TabIndex = 3;
@@ -92,25 +93,38 @@
             this.lbIdCardReaderHint.AutoSize = true;
             this.lbIdCardReaderHint.Font = new System.Drawing.Font("宋体", 12F);
             this.lbIdCardReaderHint.ForeColor = System.Drawing.Color.YellowGreen;
-            this.lbIdCardReaderHint.Location = new System.Drawing.Point(273, 79);
+            this.lbIdCardReaderHint.Location = new System.Drawing.Point(269, 206);
             this.lbIdCardReaderHint.Name = "lbIdCardReaderHint";
             this.lbIdCardReaderHint.Size = new System.Drawing.Size(104, 16);
             this.lbIdCardReaderHint.TabIndex = 3;
             this.lbIdCardReaderHint.Text = "状态：未启动";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(25, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 47);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "输入设备监控配置";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 266);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbIdCardReaderHint);
             this.Controls.Add(this.lbBarReaderHint);
             this.Controls.Add(this.btnStartBarReader);
             this.Controls.Add(this.btnStartIdCardReader);
             this.Controls.Add(this.btnIdCardReader);
             this.Controls.Add(this.btnBarReader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "输入设备监控";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +138,7 @@
         private System.Windows.Forms.Button btnStartBarReader;
         private System.Windows.Forms.Label lbBarReaderHint;
         private System.Windows.Forms.Label lbIdCardReaderHint;
+        private System.Windows.Forms.Button button1;
     }
 }
 
