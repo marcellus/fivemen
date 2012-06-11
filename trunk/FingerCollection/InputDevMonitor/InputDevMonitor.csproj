@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{153BE746-A22F-478E-A186-704D138D60E6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -34,27 +34,27 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\DevExpress.BonusSkins.v7.3.dll</HintPath>
+      <HintPath>..\..\commons-dlls\DevExpress.BonusSkins.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\DevExpress.Data.v7.3.dll</HintPath>
+      <HintPath>..\..\commons-dlls\DevExpress.Data.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.OfficeSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\DevExpress.OfficeSkins.v7.3.dll</HintPath>
+      <HintPath>..\..\commons-dlls\DevExpress.OfficeSkins.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\DevExpress.Utils.v7.3.dll</HintPath>
+      <HintPath>..\..\commons-dlls\DevExpress.Utils.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\DevExpress.XtraEditors.v7.3.dll</HintPath>
+      <HintPath>..\..\commons-dlls\DevExpress.XtraEditors.v7.3.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common项目\commons-dlls\log4net.dll</HintPath>
+      <HintPath>..\..\commons-dlls\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,6 +101,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,15 +119,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common项目\FT.Commons\FT.Commons.csproj">
+    <ProjectReference Include="..\..\FT.Commons\FT.Commons.csproj">
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common项目\FT.DAL\FT.DAL.csproj">
-      <Project>{24D0A7DC-A65E-4D89-AFEF-EEECAEA6DB0E}</Project>
-      <Name>FT.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common项目\FT.Device\FT.Device.csproj">
+    <ProjectReference Include="..\..\FT.Device\FT.Device.csproj">
       <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
       <Name>FT.Device</Name>
     </ProjectReference>

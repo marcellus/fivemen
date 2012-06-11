@@ -15,6 +15,19 @@ namespace InputDevMonitor
         public Form1()
         {
             InitializeComponent();
+            MonitorConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<MonitorConfig>();
+            if (config.IsStartIdCardReader)
+            {
+                idcardReader.StartWatching();
+                this.btnStartIdCardReader.Text = "停止";
+                this.ShowIdCardReaderState();
+            }
+            if (config.IsStartBarReader)
+            {
+                barReader.StartWatching();
+                this.btnStartBarReader.Text = "停止";
+                this.ShowBarReaderState();
+            }
         }
 
         private void btnIdCardReader_Click(object sender, EventArgs e)
@@ -99,19 +112,7 @@ namespace InputDevMonitor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MonitorConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<MonitorConfig>();
-            if (config.IsStartIdCardReader)
-            {
-                idcardReader.StartWatching();
-                this.btnStartIdCardReader.Text = "停止";
-                this.ShowIdCardReaderState();
-            }
-            if (config.IsStartBarReader)
-            {
-                barReader.StartWatching();
-                this.btnStartBarReader.Text = "停止";
-                this.ShowBarReaderState();
-            }
+
            
            
         }
