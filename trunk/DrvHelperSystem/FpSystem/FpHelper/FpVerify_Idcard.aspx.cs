@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using FT.Commons.Tools;
 using FT.Web.Tools;
 using FT.DAL.Orm;
+using System.Threading;
 
 public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
 {
@@ -47,7 +48,7 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
             if ( FunName == "doVerify")
             {
                 this.doVerify(this.txtIdcard.Value.Trim());
-                this.txtIdcard.Value = string.Empty;
+            
             }
            
         }
@@ -69,7 +70,7 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
         //string[] lArrIdCards = FpBase.getUserIds(re);
         //string idcard = Request.Params["idcard"];
         string idcard = txtIdcard.Value.Trim();
-        txtIdcard.Value = string.Empty;
+        
         // idcard = Server.UrlEncode(idcard);
         string SCP_ALERT="", lStrSearch = "";
         // Session[FPSystemBiz.PARAM_RESULT] = idcard;
@@ -84,11 +85,25 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
             lStrSearch = string.Format("?{0}={1}", FPSystemBiz.PARAM_RESULT, idcard);
             SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.search='{1}';", gStrTargetFrame, lStrSearch);
             SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.reload();", gStrCheckinLogFrame);
+            ViewState["verifyFail"] = null;
+            txtIdcard.Value = string.Empty;
         }
         else {
             //WebTools.Alert("身份识别失败:" + idcard);
             lStrSearch = string.Format("?{0}={1}", FPSystemBiz.PARAM_RESULT, "");
             SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.search='{1}';", gStrTargetFrame, lStrSearch);
+           
+            if (ViewState["verifyFail"] == null)
+            {
+                Thread.Sleep(500);
+                doVerify(idcard);
+                ViewState["verifyFail"] = true;
+            }
+            else {
+                ViewState["verifyFail"] = null;
+                txtIdcard.Value = string.Empty;
+            }
+            
         }
 
         
@@ -117,6 +132,7 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
             SCP_ALERT += string.Format("window.parent.document.frames('{0}').location.search='{1}';", gStrTargetFrame, lStrSearch);
             WebTools.WriteScript(SCP_ALERT);
             btnVerify.Enabled = true;
+            txtIdcard.Value = string.Empty;
             return;
         }
         //WebTools.Alert(string.Format("当前用户:{0}", _FP.getCurrAuthenID()));

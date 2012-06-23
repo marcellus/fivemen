@@ -35,7 +35,7 @@ public partial class FpSystem_FpHelper_FpViewStudentRecord : System.Web.UI.Page
   
         if (fso == null)
         {
-            this.lbStudentAlertMsg.Text = "学员个人信息不存在";
+            this.lbStudentAlertMsg.Text = "学员个人信息不存在,可能是驾校未及时上传";
             WebTools.PlaySound("../../sound/学员个人信息不存在.wav");
             return;
         }

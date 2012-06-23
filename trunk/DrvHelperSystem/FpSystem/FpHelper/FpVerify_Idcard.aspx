@@ -5,20 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <script type="text/javascript">
   
-    document.
+    
 </script>
-  <asp:Label Text="身份证明号码" runat="server" ID="lbInfo"></asp:Label>
+     <span style="  font-weight:bolder; font-size:1.2em;  color:Red">请先输入身份证明号码,再点击验证！</span> <br/>
 
         
-     <object id="ETTSelfIDCardActiveX1" 	classid="CLSID:447C4906-6678-461B-9E20-100BDE913828">
-		<param name="_Version" value="65536" />
-		<param name="_ExtentX" value="2646" />
-		<param name="_ExtentY" value="1323" />
-		<param name="_StockProps" value="0" />
-	</object>
+  
   
 	
-        <input name="FunName" type="hidden"  />
+        <input name="FunName" type="hidden" />
         <input id="txtIdcard" runat="server" style=" width:200px"   />
         
 <asp:Button ID="btnVerify" runat="server" onclick="btnVerify_Click"  Text="验证"/>

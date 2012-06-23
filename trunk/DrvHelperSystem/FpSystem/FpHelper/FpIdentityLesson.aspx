@@ -18,7 +18,7 @@
   </div>
 </div>
 <div style=" width:29%; height:820px; float:right">
-     <div style=" height:100px; width:100%; overflow:hidden;" class="b" >
+     <div style=" height:80px; width:100%; overflow:hidden;" class="b" >
         <iframe src="FpVerify_Idcard.aspx?targetframe=frameViewLessonRecord&checkinLogFrame=frameFpViewCheckinList" style="width:100%; height:100%; border-width:0px" frameborder="0" scrolling="no"></iframe>
      </div>
      <div style=" height:520px; width:100%" class="b" >
