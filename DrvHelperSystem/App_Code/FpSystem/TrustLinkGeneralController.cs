@@ -342,7 +342,8 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
             lock (synObjPacket)
             {
                 iResultCode = ExecutePacket(strTemplateData);
-                end = DateTime.Now;
+                //end = DateTime.Now;
+                Thread.Sleep(50);
                 Log("ExecutePacket");
                 //TempLog.Info("end ExecutePacket:"+(DateTime.Now.Millisecond-i));
             }
@@ -515,14 +516,19 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         }
     }
 
+
+    private static DateTime lastConnectDate=default(DateTime);
+
     /// <summary>
     /// Connect TrustLink XServer
     /// </summary>
     private void BK_Connectservers()
     {
 
+
        // if (isFirstCheck)
-      //  {
+       //  {
+             lastConnectDate = DateTime.Now;
             lock (synObj)
             {
                 begin = DateTime.Now;
@@ -530,9 +536,16 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
                 end = DateTime.Now;
                 Log("InitAgent");
 
-                begin = DateTime.Now;
-                _ResultCode = ConnectServer();
-                end = DateTime.Now;
+                //begin = DateTime.Now;
+                int i = 0;
+               
+               _ResultCode = ConnectServer();
+                while( _ResultCode!=FpBase.SUCCESSED&&i++<2){
+                    Thread.Sleep(800);
+                    _ResultCode=ConnectServer();  
+                }
+                
+                //end = DateTime.Now;
                 Log("InitAgent");
 
 
@@ -544,8 +557,8 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
                 SetFPDeviceType(Convert.ToInt32(this.DeviceType)); //设定设备的类型
 
             }
-        //    isFirstCheck = false;
-        //}
+         //   isFirstCheck = false;
+       // }
         
        
     }
@@ -653,7 +666,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
     private void Log(string str)
     {
         TimeSpan ts = end.Subtract(begin);
-        TempLog.Info(str + " cost times->" + ts.TotalMilliseconds.ToString());
+       // TempLog.Info(str + " cost times->" + ts.TotalMilliseconds.ToString());
     }
 
     /// <summary>
@@ -1114,7 +1127,7 @@ public class TrustLinkGeneralController : System.Web.UI.Control, System.Web.UI.I
         }
         catch (TrustLinkGeneralException e)
         {
-            TempLog.Info("一对多指纹验证出现异常，_LastErrCode为-》" + _LastErrCode+"异常信息:" +e.ToString());
+           // TempLog.Info("一对多指纹验证出现异常，_LastErrCode为-》" + _LastErrCode+"异常信息:" +e.ToString());
             return _LastErrCode;
         }
     }
