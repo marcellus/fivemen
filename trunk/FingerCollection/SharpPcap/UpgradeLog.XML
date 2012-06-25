@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SharpPcap">
+</Property><Property Name="解决方案文件" Value="D:\c#源码\FingerCollection\SharpPcap\SharpPcap.sln">
+</Property><Property Name="Date" Value="2012年6月14日星期四">
+</Property><Property Name="Time" Value="22:33">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SharpPcap.sln" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap.sln">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\SharpPcap.csproj" Description="项目文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\SharpPcap.csproj">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\AssemblyInfo.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\IPAddress.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\IPAddress.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\IPHelper.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\IPHelper.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\NetworkDevice.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\NetworkDevice.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\NetworkDeviceList.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\NetworkDeviceList.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ARPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ARPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ARPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ARPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\EthernetFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\EthernetFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\EthernetPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\EthernetPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\EthernetPacketTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\EthernetPacketTest.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\EthernetProtocol.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\EthernetProtocol.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\EthernetProtocols.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\EthernetProtocols.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ICMPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ICMPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ICMPMessage.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ICMPMessage.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ICMPMessages.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ICMPMessages.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\ICMPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\ICMPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IGMPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IGMPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IGMPMessage.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IGMPMessage.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IGMPMessages.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IGMPMessages.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IGMPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IGMPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPAddress.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPAddress.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPPacketTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPPacketTest.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPPort.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPPort.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPPorts.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPPorts.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPProtocol.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPProtocol.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPProtocols.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPProtocols.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\IPVersions.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\IPVersions.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\LinkLayer.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\LinkLayer.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\LinkLayers.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\LinkLayers.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\MACAddress.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\MACAddress.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Packet.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Packet.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\PacketEncoding.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\PacketEncoding.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\PacketEncodingTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\PacketEncodingTest.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\PacketFactory.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\PacketFactory.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\RawPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\RawPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\SupportClass.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\SupportClass.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\TCPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\TCPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\TCPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\TCPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\TCPPacketTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\TCPPacketTest.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\TestCase.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\TestCase.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\TypesOfService.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\TypesOfService.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\UDPFields.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\UDPFields.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\UDPPacket.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\UDPPacket.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\AnsiEscapeSequences.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\AnsiEscapeSequences.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\ArrayHelper.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\ArrayHelper.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\AsciiHelper.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\AsciiHelper.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\FileUtility.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\FileUtility.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\HexHelper.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\HexHelper.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\PropertyHelper.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\PropertyHelper.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\SupportClass.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\SupportClass.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\TcpdumpWriter.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\TcpdumpWriter.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\Timeval.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\Timeval.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapDevice.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapDevice.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapDeviceList.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapDeviceList.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapException.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapException.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapHeader.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapHeader.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapMode.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapMode.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapOfflineDevice.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapOfflineDevice.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapSendQueue.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapSendQueue.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\PcapStatistics.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\PcapStatistics.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Protocols\ARP.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Protocols\ARP.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\SharpPcap.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\SharpPcap.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\Convert.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\Convert.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\Int64Range.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\Int64Range.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\IPAddressList.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\IPAddressList.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\IPAddressRange.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\IPAddressRange.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\IPSubnet.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\IPSubnet.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\IPUtil.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\IPUtil.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\NumberRange.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\NumberRange.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\Random.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\Random.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\StringList.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\StringList.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Util\SupportClass.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Util\SupportClass.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Version.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Version.cs">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\App.ico" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\App.ico">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\docs\SharpPcap.html" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\docs\SharpPcap.html">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\docs\SharpPcap\SharpPcap.png" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\docs\SharpPcap\SharpPcap.png">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\package.html" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\package.html">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\Packets\Util\package.html" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\SharpPcap\Packets\Util\package.html">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\SharpPcap.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SharpPcap" Source="SharpPcap\SharpPcap.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\Test.csproj" Description="项目文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\Test.csproj">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\ArpTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\ArpTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\AssemblyInfo.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\Class1.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\Class1.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\Int64RangeTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\Int64RangeTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\IPAddressRangeTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\IPAddressRangeTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\IPHelperTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\IPHelperTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\IPSubnetTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\IPSubnetTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\IpUtilTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\IpUtilTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\PacketsTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\PacketsTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\SendTcpSynExample.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\SendTcpSynExample.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\TCPPacketTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\TCPPacketTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\UdpTest.cs" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\UdpTest.cs">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\App.ico" Description="文件已成功备份为 D:\c#源码\FingerCollection\SharpPcap\Backup\Test\App.ico">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\Test.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Test" Source="Test\Test.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SharpPcap.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="SharpPcap.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SharpPcap" Source="SharpPcap\SharpPcap.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Test" Source="Test\Test.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

@@ -1,0 +1,14 @@
+/SharpPcap.sln/1.1.1.1/Tue Jul  3 10:21:02 2007//TSharpPcap_1_6_2
+/Tamir.IPLib.SharpPcap.dll/1.1.1.1/Tue Jul  3 10:21:02 2007//TSharpPcap_1_6_2
+D/Example1.IfList////
+D/Example10.SendQueue////
+D/Example11.Statistics////
+D/Example12.PacketManipulation////
+D/Example2.IfListAdv////
+D/Example3.BasicCap////
+D/Example4.BasicCapNoCallback////
+D/Example5.PcapFilter////
+D/Example6.DumpTCP////
+D/Example7.DumpToFile////
+D/Example8.ReadFile////
+D/Example9.SendPacket////
