@@ -120,6 +120,58 @@ namespace FT.Commons.Tools
 		}
 
         /// <summary>
+        /// 获取多个网卡的Mac地址数组
+        /// </summary>
+        /// <returns>多个网卡的IP的数组</returns>
+        public static string[] GetMacArray()
+        {
+            string[] result;
+           
+                try
+                {
+                    #region 3
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT MACAddress FROM Win32_NetworkAdapter WHERE ((MACAddress Is Not NULL)AND (Manufacturer <> 'Microsoft'))");
+                    ManagementObjectCollection moCollection = searcher.Get();
+                    int count=moCollection.Count;
+                    result = new string[count];
+                    ManagementObject mObject=null;
+                    System.Management.ManagementObjectCollection.ManagementObjectEnumerator enumerator = moCollection.GetEnumerator();
+                    int i = 0;
+
+                    while(i<count)
+                    
+                    {
+                        mObject = enumerator.Current as ManagementObject;
+                        if (mObject["MacAddress"] == null)
+                        {
+                            Info("mObject[MacAddress] is null!");
+                        }
+                        else
+                        {
+                            result[i] = mObject["MACAddress"].ToString() + "";
+                            // break;
+                        }
+                        enumerator.MoveNext();
+                        i++;
+                    }
+                   
+                    #endregion
+
+                }
+
+
+
+
+                catch (Exception ex)
+                {
+                    Info(ex);
+                    result = new string[]{"cantgetmac"};
+                }
+
+                return result;
+        }
+
+        /// <summary>
         /// 获取网卡的编号
         /// </summary>
         /// <returns>网卡的编号</returns>

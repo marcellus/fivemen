@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -91,6 +91,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -265,6 +266,25 @@
     </Compile>
     <Compile Include="Tools\BaseSkinForm.Designer.cs">
       <DependentUpon>BaseSkinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsService\BaseWindowService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsService\BaseWindowService.Designer.cs">
+      <DependentUpon>BaseWindowService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsService\MonitorLogType.cs" />
+    <Compile Include="WindowsService\ExDiskPluginMonitorService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsService\NetworkMonitorService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsService\ProcessMonitorService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowsService\SystemServiceMonitorService.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
