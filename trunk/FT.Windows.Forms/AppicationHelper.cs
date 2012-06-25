@@ -260,15 +260,25 @@ namespace FT.Windows.Forms
             {
                 ISecurity md5 = new MD5Security();
                 ISecurity sec = FT.Commons.Security.SecurityFactory.GetSecurity();
-                string hardwarecode=FT.Commons.Tools.HardwareManager.GetMachineCode();
-                if (config.KeyCode == md5.Encrypt(sec.Encrypt(hardwarecode + config.Company + hardwarecode)))
+                string[] macs=FT.Commons.Tools.HardwareManager.GetMacArray();
+           
+                string hardwarecode = string.Empty;
+                for(int i=0;i<macs.Length;i++)
                 {
-                    productState = ProgramState.Registed;
+                    hardwarecode=md5.Encrypt(macs[i]);
+                    if (config.KeyCode == md5.Encrypt(sec.Encrypt(hardwarecode + config.Company + hardwarecode)))
+                    {
+                        productState = ProgramState.Registed;
+                        break;
+                    }
+                    else if(i==macs.Length-1)
+                    {
+                        productState = ProgramState.None;
+                    }
                 }
-                else
-                {
-                    productState = ProgramState.None;
-                }
+                
+               
+                
                 
             }
             else if (config.RightCode.Length != 0)
