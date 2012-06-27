@@ -66,7 +66,11 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
 
         ResultCodeArgs re = (ResultCodeArgs)e;
         if (re.ResultCode == 215)
+        {
+            ViewState["verifyFail"] = null;
+            txtIdcard.Value = string.Empty;
             return;
+        }
         //string[] lArrIdCards = FpBase.getUserIds(re);
         //string idcard = Request.Params["idcard"];
         string idcard = txtIdcard.Value.Trim();
@@ -78,8 +82,8 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
         string gStrTargetFrame = Session[KEY_TRAGET_FRAME] as string;
 
         string gStrCheckinLogFrame = Session[KEY_CHECKINLOG_FRAME] as string;
-        
-        if (re.ResultCode == FpBase.SUCCESSED)
+
+         if (re.ResultCode == FpBase.SUCCESSED)
         {
             //WebTools.Alert("身份识别成功:" + idcard);
             lStrSearch = string.Format("?{0}={1}", FPSystemBiz.PARAM_RESULT, idcard);
@@ -141,10 +145,7 @@ public partial class FpSystem_FpHelper_FpVerify_Idcard : System.Web.UI.Page
         int re = _FP.FpVerifyUser(idcard);
 
         btnVerify.Enabled = true;
-        if (re == 215)
-        {
-        }
-        else if (re != FpBase.SUCCESSED)
+        if (re != FpBase.SUCCESSED)
         {
             //WebTools.Alert(string.Format("学员 {0} 指纹数据不存在 ",idcard));
             lStrSearch = string.Format("?{0}={1}", FPSystemBiz.PARAM_RESULT, "");
