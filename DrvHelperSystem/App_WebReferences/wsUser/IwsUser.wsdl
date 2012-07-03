@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns1="http://inter.user.aratek.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IwsUser" targetNamespace="http://inter.user.aratek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="http://impl.user.aratek.com/" xmlns="http://inter.user.aratek.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://inter.user.aratek.com/">
+      <xsd:element name="wsAddUserByPwd" type="ns1:wsAddUserByPwd" />
+      <xsd:complexType name="wsAddUserByPwd">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg2" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsAddUserByPwdResponse" type="ns1:wsAddUserByPwdResponse" />
+      <xsd:complexType name="wsAddUserByPwdResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsDelUserByPwd" type="ns1:wsDelUserByPwd" />
+      <xsd:complexType name="wsDelUserByPwd">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg2" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsDelUserByPwdResponse" type="ns1:wsDelUserByPwdResponse" />
+      <xsd:complexType name="wsDelUserByPwdResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsIsUserExisted" type="ns1:wsIsUserExisted" />
+      <xsd:complexType name="wsIsUserExisted">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsIsUserExistedResponse" type="ns1:wsIsUserExistedResponse" />
+      <xsd:complexType name="wsIsUserExistedResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="wsAddUserByPwd">
+    <wsdl:part name="parameters" element="ns1:wsAddUserByPwd" />
+  </wsdl:message>
+  <wsdl:message name="wsDelUserByPwd">
+    <wsdl:part name="parameters" element="ns1:wsDelUserByPwd" />
+  </wsdl:message>
+  <wsdl:message name="wsAddUserByPwdResponse">
+    <wsdl:part name="parameters" element="ns1:wsAddUserByPwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsDelUserByPwdResponse">
+    <wsdl:part name="parameters" element="ns1:wsDelUserByPwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsIsUserExistedResponse">
+    <wsdl:part name="parameters" element="ns1:wsIsUserExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsIsUserExisted">
+    <wsdl:part name="parameters" element="ns1:wsIsUserExisted" />
+  </wsdl:message>
+  <wsdl:portType name="IwsUser">
+    <wsdl:operation name="wsAddUserByPwd">
+      <wsdl:input name="wsAddUserByPwd" message="ns1:wsAddUserByPwd" />
+      <wsdl:output name="wsAddUserByPwdResponse" message="ns1:wsAddUserByPwdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsDelUserByPwd">
+      <wsdl:input name="wsDelUserByPwd" message="ns1:wsDelUserByPwd" />
+      <wsdl:output name="wsDelUserByPwdResponse" message="ns1:wsDelUserByPwdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsIsUserExisted">
+      <wsdl:input name="wsIsUserExisted" message="ns1:wsIsUserExisted" />
+      <wsdl:output name="wsIsUserExistedResponse" message="ns1:wsIsUserExistedResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
