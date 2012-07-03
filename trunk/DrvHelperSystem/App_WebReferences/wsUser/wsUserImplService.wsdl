@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://impl.user.aratek.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://inter.user.aratek.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://cxf.apache.org/bindings/xformat" name="wsUserImplService" targetNamespace="http://impl.user.aratek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://inter.user.aratek.com/" location="http://192.168.1.10:8091/TrustLinkWebService/services/wsUser?wsdl=IwsUser.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="wsUserImplServiceSoapBinding" type="ns1:IwsUser">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsAddUserByPwd">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="wsAddUserByPwd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="wsAddUserByPwdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wsDelUserByPwd">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="wsDelUserByPwd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="wsDelUserByPwdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wsIsUserExisted">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="wsIsUserExisted">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="wsIsUserExistedResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsUserImplService">
+    <wsdl:port name="wsUserImplPort" binding="tns:wsUserImplServiceSoapBinding">
+      <soap:address location="http://192.168.1.10:8091/TrustLinkWebService/services/wsUser" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

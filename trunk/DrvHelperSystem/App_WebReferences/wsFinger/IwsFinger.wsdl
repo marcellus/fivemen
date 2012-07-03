@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns1="http://inter.finger.aratek.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IwsFinger" targetNamespace="http://inter.finger.aratek.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="http://impl.finger.aratek.com/" xmlns="http://inter.finger.aratek.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://inter.finger.aratek.com/">
+      <xsd:element name="wsGetAgentInfo" type="ns1:wsGetAgentInfo" />
+      <xsd:complexType name="wsGetAgentInfo">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:element name="wsGetAgentInfoResponse" type="ns1:wsGetAgentInfoResponse" />
+      <xsd:complexType name="wsGetAgentInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetUserRepeat" type="ns1:wsGetUserRepeat" />
+      <xsd:complexType name="wsGetUserRepeat">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg1" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetUserRepeatResponse" type="ns1:wsGetUserRepeatResponse" />
+      <xsd:complexType name="wsGetUserRepeatResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetUserInResult" type="ns1:wsGetUserInResult" />
+      <xsd:complexType name="wsGetUserInResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetUserInResultResponse" type="ns1:wsGetUserInResultResponse" />
+      <xsd:complexType name="wsGetUserInResultResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetEnrolledFingersInResult" type="ns1:wsGetEnrolledFingersInResult" />
+      <xsd:complexType name="wsGetEnrolledFingersInResult">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="userID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="arg1" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsGetEnrolledFingersInResultResponse" type="ns1:wsGetEnrolledFingersInResultResponse" />
+      <xsd:complexType name="wsGetEnrolledFingersInResultResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsFPEnroll" type="ns1:wsFPEnroll" />
+      <xsd:complexType name="wsFPEnroll">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsFPEnrollResponse" type="ns1:wsFPEnrollResponse" />
+      <xsd:complexType name="wsFPEnrollResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsFPCompare" type="ns1:wsFPCompare" />
+      <xsd:complexType name="wsFPCompare">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arg0" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="wsFPCompareResponse" type="ns1:wsFPCompareResponse" />
+      <xsd:complexType name="wsFPCompareResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="wsGetEnrolledFingersInResult">
+    <wsdl:part name="parameters" element="ns1:wsGetEnrolledFingersInResult" />
+  </wsdl:message>
+  <wsdl:message name="wsGetUserRepeatResponse">
+    <wsdl:part name="parameters" element="ns1:wsGetUserRepeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsGetUserRepeat">
+    <wsdl:part name="parameters" element="ns1:wsGetUserRepeat" />
+  </wsdl:message>
+  <wsdl:message name="wsGetEnrolledFingersInResultResponse">
+    <wsdl:part name="parameters" element="ns1:wsGetEnrolledFingersInResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsFPEnroll">
+    <wsdl:part name="parameters" element="ns1:wsFPEnroll" />
+  </wsdl:message>
+  <wsdl:message name="wsFPCompareResponse">
+    <wsdl:part name="parameters" element="ns1:wsFPCompareResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsGetAgentInfoResponse">
+    <wsdl:part name="parameters" element="ns1:wsGetAgentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsGetUserInResultResponse">
+    <wsdl:part name="parameters" element="ns1:wsGetUserInResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsGetUserInResult">
+    <wsdl:part name="parameters" element="ns1:wsGetUserInResult" />
+  </wsdl:message>
+  <wsdl:message name="wsFPCompare">
+    <wsdl:part name="parameters" element="ns1:wsFPCompare" />
+  </wsdl:message>
+  <wsdl:message name="wsFPEnrollResponse">
+    <wsdl:part name="parameters" element="ns1:wsFPEnrollResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsGetAgentInfo">
+    <wsdl:part name="parameters" element="ns1:wsGetAgentInfo" />
+  </wsdl:message>
+  <wsdl:portType name="IwsFinger">
+    <wsdl:operation name="wsGetAgentInfo">
+      <wsdl:input name="wsGetAgentInfo" message="ns1:wsGetAgentInfo" />
+      <wsdl:output name="wsGetAgentInfoResponse" message="ns1:wsGetAgentInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsGetUserRepeat">
+      <wsdl:input name="wsGetUserRepeat" message="ns1:wsGetUserRepeat" />
+      <wsdl:output name="wsGetUserRepeatResponse" message="ns1:wsGetUserRepeatResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsGetUserInResult">
+      <wsdl:input name="wsGetUserInResult" message="ns1:wsGetUserInResult" />
+      <wsdl:output name="wsGetUserInResultResponse" message="ns1:wsGetUserInResultResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsGetEnrolledFingersInResult">
+      <wsdl:input name="wsGetEnrolledFingersInResult" message="ns1:wsGetEnrolledFingersInResult" />
+      <wsdl:output name="wsGetEnrolledFingersInResultResponse" message="ns1:wsGetEnrolledFingersInResultResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsFPEnroll">
+      <wsdl:input name="wsFPEnroll" message="ns1:wsFPEnroll" />
+      <wsdl:output name="wsFPEnrollResponse" message="ns1:wsFPEnrollResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="wsFPCompare">
+      <wsdl:input name="wsFPCompare" message="ns1:wsFPCompare" />
+      <wsdl:output name="wsFPCompareResponse" message="ns1:wsFPCompareResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
