@@ -12,6 +12,8 @@ using ICSharpCode.SharpZipLib.Checksums;
 using ICSharpCode.SharpZipLib.Zip.Compression;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using Microsoft.Win32;
+using System.Security.Cryptography;
+using System.Reflection;
 
 namespace FT.Commons.Tools
 {
@@ -242,10 +244,62 @@ namespace FT.Commons.Tools
                     streamWriter.Close();
             }
         }
+        #region 计算文件MD5散列值
+        public static string GetFileMd5(string fileName)
+        {
+            if (!System.IO.File.Exists(fileName))
+                return null;
+            FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            byte[] hashBytes = HashData(fs, "md5");
+            fs.Close();
+            return ByteArrayToHexString(hashBytes);
+
+        }
+
+        /// <summary>
+        /// 计算哈希值
+        /// </summary>
+        /// <param name="stream">要计算哈希值的 Stream</param>
+        /// <param name="algName">算法:sha1,md5</param>
+        /// <returns>哈希值字节数组</returns>
+        public static byte[] HashData(Stream stream, string algName)
+        {
+            HashAlgorithm algorithm;
+            if (algName == null)
+            {
+                throw new ArgumentNullException("algName 不能为 null");
+            }
+            if (string.Compare(algName, "sha1", true) == 0)
+            {
+                algorithm = SHA1.Create();
+            }
+            else
+            {
+                if (string.Compare(algName, "md5", true) != 0)
+                {
+                    throw new Exception("algName 只能使用 sha1 或 md5");
+                }
+                algorithm = MD5.Create();
+            }
+            return algorithm.ComputeHash(stream);
+        }
+
+
+        public static string ByteArrayToHexString(byte[] buf)
+        {
+            int iLen = 0;
+            // 通过反射获取 MachineKeySection 中的 ByteArrayToHexString 方法，该方法用于将字节数组转换为16进制表示的字符串。
+            Type type = typeof(System.Web.Configuration.MachineKeySection);
+            MethodInfo byteArrayToHexString = type.GetMethod("ByteArrayToHexString", BindingFlags.Static | BindingFlags.NonPublic);
+            // 字节数组转换为16进制表示的字符串
+            return (string)byteArrayToHexString.Invoke(null, new object[] { buf, iLen });
+        }
+        #endregion
+
 
         #region 压缩解压
 
-       
+
         public static bool ZipDir(string path, string zipfile)
         {
            return ZipDir(path, zipfile, string.Empty);

@@ -40,6 +40,14 @@ namespace FT.Commons.Win32
         out IntPtr result
         );
 
+        public static int SND_ASYNC = 0x0001; // play asynchronously 
+        public static int SND_FILENAME = 0x00020000; // name is file name
+
+     
+
+        [DllImport("winmm")]
+        public static extern bool PlaySound(string szSound, int hMod, int fdwSound);
+
         [Flags]
         public enum SendMessageTimeoutFlags : uint
         {

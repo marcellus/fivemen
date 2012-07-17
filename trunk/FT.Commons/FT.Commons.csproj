@@ -229,6 +229,7 @@
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\WebFormHelper.cs" />
+    <Compile Include="Tools\WinFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
     <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
     <Compile Include="WebCatcher\CatcherConfig.cs" />
@@ -283,6 +284,15 @@
     <Compile Include="WindowsService\ProcessMonitorService.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WindowsService\SystemInfo\ComputerInfo.cs" />
+    <Compile Include="WindowsService\SystemInfo\ComputerInitHelper.cs" />
+    <Compile Include="WindowsService\SystemInfo\ComputerMonitorHelper.cs" />
+    <Compile Include="WindowsService\SystemInfo\HardwareInfo.cs" />
+    <Compile Include="WindowsService\SystemInfo\InitFileMd5Delegate.cs" />
+    <Compile Include="WindowsService\SystemInfo\MonitorFileInfo.cs" />
+    <Compile Include="WindowsService\SystemInfo\MonitorModuleInfo.cs" />
+    <Compile Include="WindowsService\SystemInfo\MonitorProcessInfo.cs" />
+    <Compile Include="WindowsService\SystemInfo\MonitorServiceInfo.cs" />
     <Compile Include="WindowsService\SystemServiceMonitorService.cs">
       <SubType>Component</SubType>
     </Compile>
