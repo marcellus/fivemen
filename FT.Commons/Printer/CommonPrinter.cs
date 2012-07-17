@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
+using System.Drawing.Printing;
 
 namespace FT.Commons.Print
 {
@@ -117,6 +118,14 @@ namespace FT.Commons.Print
         {
             pageSetupDialog1.ShowDialog();
            
+        }
+
+        public void SetPaperSize(int width, int height)
+        {
+
+           // this.printDocument1.DefaultPageSettings.PaperSize.Kind = PaperKind.Custom;
+            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("custom paper", width, height);
+            //this.printDocument1.DefaultPageSettings.PaperSize.Height = height;
         }
 
         public void SetPageSize(int left, int top, int right, int bottom)
