@@ -91,7 +91,7 @@ namespace FT.Device.IDCard
             {
                 log.Debug("读到身份证号码，准备发送身份证号码。。。");
                 
-                SendKeys.SendWait(reader.UserIdCard.IDC);
+                SendKeys.SendWait(reader.UserIdCard.IDC.ToUpper());
                 if (config.AddReturn)
                 {
                     SendKeys.SendWait("{ENTER}");
