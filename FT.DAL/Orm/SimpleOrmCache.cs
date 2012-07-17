@@ -459,7 +459,13 @@ namespace FT.DAL.Orm
             //Loop(updates);
             //Console.WriteLine("查询语句结果为："+second["select.sql"].ToString());
             //Loop(selects);
-            caches.Add(type.FullName,second);
+            try
+            {
+                caches.Add(type.FullName, second);
+            }
+            catch(Exception ex)
+            {
+            }
             
         }
 
