@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Bar;
 using FT.Device.IDCard;
+using FT.Commons.Cache;
+using FT.Commons.Win32;
 
 namespace InputDevMonitor
 {
@@ -15,19 +17,7 @@ namespace InputDevMonitor
         public Form1()
         {
             InitializeComponent();
-            MonitorConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<MonitorConfig>();
-            if (config.IsStartIdCardReader)
-            {
-                idcardReader.StartWatching();
-                this.btnStartIdCardReader.Text = "停止";
-                this.ShowIdCardReaderState();
-            }
-            if (config.IsStartBarReader)
-            {
-                barReader.StartWatching();
-                this.btnStartBarReader.Text = "停止";
-                this.ShowBarReaderState();
-            }
+           
         }
 
         private void btnIdCardReader_Click(object sender, EventArgs e)
@@ -73,7 +63,19 @@ namespace InputDevMonitor
             }
         }
 
-        private IDCardReaderHelper idcardReader = new IDCardReaderHelper();
+        private IDCardReaderHelper idcardReader = new IDCardReaderHelper(new De_ReadICCardComplete(ReadIdCard));
+
+        private static void ReadIdCard(IDCard idcard)
+        {
+            string path = Application.StartupPath+"//success.wav";
+            SystemDefine.PlaySound(path, 0, SystemDefine.SND_ASYNC | SystemDefine.SND_FILENAME);//播放音乐
+            SendKeys.SendWait(idcard.IDC.ToUpper());
+            IDCardConfig config = StaticCacheManager.GetConfig<IDCardConfig>();
+            if (config.AddReturn)
+            {
+                SendKeys.SendWait("{ENTER}");
+            }
+        }
 
         private void btnStartIdCardReader_Click(object sender, EventArgs e)
         {
@@ -113,7 +115,19 @@ namespace InputDevMonitor
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           
+            MonitorConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<MonitorConfig>();
+            if (config.IsStartIdCardReader)
+            {
+                idcardReader.StartWatching();
+                this.btnStartIdCardReader.Text = "停止";
+                this.ShowIdCardReaderState();
+            }
+            if (config.IsStartBarReader)
+            {
+                barReader.StartWatching();
+                this.btnStartBarReader.Text = "停止";
+                this.ShowBarReaderState();
+            }
            
         }
     }
