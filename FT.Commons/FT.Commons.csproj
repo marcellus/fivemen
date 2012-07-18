@@ -88,6 +88,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
@@ -217,6 +218,7 @@
     <Compile Include="Tools\FTPHelper.cs" />
     <Compile Include="Tools\HardwareManager.cs" />
     <Compile Include="Tools\IDCardHelper.cs" />
+    <Compile Include="Tools\IISHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
     <Compile Include="Tools\MathHelper.cs" />
     <Compile Include="Tools\MessageBoxHelper.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\WebFormHelper.cs" />
+    <Compile Include="Tools\WindowServicesHelper.cs" />
     <Compile Include="Tools\WinFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
     <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
