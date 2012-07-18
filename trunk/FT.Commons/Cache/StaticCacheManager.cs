@@ -16,6 +16,8 @@ namespace FT.Commons.Cache
 
         private static Hashtable caches = new Hashtable();
 
+        private static readonly object synObj = new object();
+
         public static Hashtable Caches
         {
             get { return StaticCacheManager.caches; }
@@ -40,13 +42,16 @@ namespace FT.Commons.Cache
         /// <param name="value">具体的值</param>
         public static void Add(object key, object value)
         {
-            if (caches.Contains(key))
+            lock (synObj)
             {
-                caches[key] = value;
-            }
-            else
-            {
-                caches.Add(key, value);
+                if (caches.Contains(key))
+                {
+                    caches[key] = value;
+                }
+                else
+                {
+                    caches.Add(key, value);
+                }
             }
         }
 

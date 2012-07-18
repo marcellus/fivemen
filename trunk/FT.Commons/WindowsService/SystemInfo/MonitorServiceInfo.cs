@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ServiceProcess;
+using FT.Commons.Tools;
 
 namespace FT.Commons.WindowsService.SystemInfo
 {
@@ -14,29 +15,7 @@ namespace FT.Commons.WindowsService.SystemInfo
         public string StartType;
         public string State;
 
-        private static string TransServiceState(int state)
-        {
-            string result = string.Empty;
-            switch (state)
-            {
-                case 1:
-                    result = "已停止";
-                    break;
-                case 4:
-                    result = "正在运行";
-                    break;
-                case 7:
-                    result = "已暂停";
-                    break;
-                default:
-                    result = "中间状态";
-                    break;
-
-
-            }
-            return result;
-            //services[i].Status
-        }
+       
 
         public MonitorServiceInfo(string system,string systemVersion,ServiceController control)
         {
@@ -45,7 +24,7 @@ namespace FT.Commons.WindowsService.SystemInfo
             this.ServiceName = control.DisplayName;
             this.ServicePath = control.ServiceName;
             this.StartType = control.ServiceType.ToString();
-            this.State = TransServiceState((int)control.Status);
+            this.State = WindowServicesHelper.TransServiceState(control);
         }
 
         public override string ToString()
