@@ -31,6 +31,7 @@ namespace FT.DAL.Orm
     public class SimpleOrmCache
     {
         private static Hashtable caches = new Hashtable();
+        private static readonly object synCache = new object();
 
         public static DataTable GetConditionDT(Type type)
         {
@@ -272,78 +273,120 @@ namespace FT.DAL.Orm
         /// <param name="type"></param>
         public static void InitType(Type type)
         {
-            if (type==null||caches.Contains(type.FullName))
+            lock (synCache)
             {
-                return;
-            }
-            //SimplePKAttribute pkAtt = Attribute.GetCustomAttribute(type, typeof(SimplePKAttribute),true) as SimplePKAttribute;
-           // if (pkAtt == null)
-           // {
-             //   throw new ArgumentException("必须设置实体对象的SimplePKAttribute！");
-            //    return;
-           // }
-            string pk = string.Empty;
-            Hashtable second = new Hashtable();
-            Hashtable updates = new Hashtable();
-            Hashtable inserts = new Hashtable();
-            Hashtable selects = new Hashtable();
-            DataTable selectsAlias = new DataTable();//字段别名
-            selectsAlias.Columns.Add("value");
-            selectsAlias.Columns.Add("text");
+                if (type == null || caches.Contains(type.FullName))
+                {
+                    return;
+                }
+                //SimplePKAttribute pkAtt = Attribute.GetCustomAttribute(type, typeof(SimplePKAttribute),true) as SimplePKAttribute;
+                // if (pkAtt == null)
+                // {
+                //   throw new ArgumentException("必须设置实体对象的SimplePKAttribute！");
+                //    return;
+                // }
+                string pk = string.Empty;
+                Hashtable second = new Hashtable();
+                Hashtable updates = new Hashtable();
+                Hashtable inserts = new Hashtable();
+                Hashtable selects = new Hashtable();
+                DataTable selectsAlias = new DataTable();//字段别名
+                selectsAlias.Columns.Add("value");
+                selectsAlias.Columns.Add("text");
 
-           
-            SimpleTableAttribute tableAtt = Attribute.GetCustomAttribute(type, typeof(SimpleTableAttribute)) as SimpleTableAttribute;
-            AliasAttribute tableAliasAtt = Attribute.GetCustomAttribute(type, typeof(AliasAttribute)) as AliasAttribute;
-            string tablename=tableAtt == null ? type.Name.ToLower() : tableAtt.Table;
-            string tableAliasName = tableAliasAtt == null ? tablename : tableAliasAtt.Name;
-            second.Add("tablename",tablename);
-            second.Add("tablealiasname", tableAliasName);
-            StringBuilder updateSql = new StringBuilder("update "+tablename+" set ");
-            StringBuilder insertSql = new StringBuilder("insert into "+tablename+" (");
-            StringBuilder selectSql = new StringBuilder("");
-            SimpleColumnAttribute columnAtt;
-           
-            FieldInfo[] fields=type.GetFields(BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Public|BindingFlags.FlattenHierarchy);
-            //FieldInfo[] fields2 = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
-            FieldInfo tmp = null;
-            bool findPk = false;
-            string columnname = string.Empty;
-            string tmpstr = string.Empty;
-            SimpleColumnType columntype = SimpleColumnType.String;
-            StringBuilder inserttmp = new StringBuilder();
-            StringBuilder exporttmp = new StringBuilder();
-            AliasAttribute aliasAtt=null;
-            OracleSeqAttribute seqAtt = null;
-            for (int i = 0; i < fields.Length;i++ )
-            {
-                
-                tmp = fields[i];
-                columnname = tmp.Name.ToLower();
-                columnAtt = Attribute.GetCustomAttribute(tmp, typeof(SimpleColumnAttribute)) as SimpleColumnAttribute;
-                if (!findPk)
+
+                SimpleTableAttribute tableAtt = Attribute.GetCustomAttribute(type, typeof(SimpleTableAttribute)) as SimpleTableAttribute;
+                AliasAttribute tableAliasAtt = Attribute.GetCustomAttribute(type, typeof(AliasAttribute)) as AliasAttribute;
+                string tablename = tableAtt == null ? type.Name.ToLower() : tableAtt.Table;
+                string tableAliasName = tableAliasAtt == null ? tablename : tableAliasAtt.Name;
+                second.Add("tablename", tablename);
+                second.Add("tablealiasname", tableAliasName);
+                StringBuilder updateSql = new StringBuilder("update " + tablename + " set ");
+                StringBuilder insertSql = new StringBuilder("insert into " + tablename + " (");
+                StringBuilder selectSql = new StringBuilder("");
+                SimpleColumnAttribute columnAtt;
+
+                FieldInfo[] fields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                //FieldInfo[] fields2 = type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                FieldInfo tmp = null;
+                bool findPk = false;
+                string columnname = string.Empty;
+                string tmpstr = string.Empty;
+                SimpleColumnType columntype = SimpleColumnType.String;
+                StringBuilder inserttmp = new StringBuilder();
+                StringBuilder exporttmp = new StringBuilder();
+                AliasAttribute aliasAtt = null;
+                OracleSeqAttribute seqAtt = null;
+                for (int i = 0; i < fields.Length; i++)
                 {
 
-                    //主键不允许设置别名
-                    if (Attribute.IsDefined(tmp, typeof(SimplePKAttribute)))
+                    tmp = fields[i];
+                    columnname = tmp.Name.ToLower();
+                    columnAtt = Attribute.GetCustomAttribute(tmp, typeof(SimpleColumnAttribute)) as SimpleColumnAttribute;
+                    if (!findPk)
                     {
-                        pk = columnname;
-                        findPk = true;
-                        second.Add("pkcolumn",pk);
-                        aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
-                        
-                        if (aliasAtt != null)
+
+                        //主键不允许设置别名
+                        if (Attribute.IsDefined(tmp, typeof(SimplePKAttribute)))
                         {
-                            exporttmp.Append(pk + " as " + aliasAtt.Name + ",");
+                            pk = columnname;
+                            findPk = true;
+                            second.Add("pkcolumn", pk);
+                            aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+
+                            if (aliasAtt != null)
+                            {
+                                exporttmp.Append(pk + " as " + aliasAtt.Name + ",");
+                            }
+                            seqAtt = Attribute.GetCustomAttribute(tmp, typeof(OracleSeqAttribute)) as OracleSeqAttribute;
+                            if (seqAtt != null)
+                            {
+                                insertSql.Append(pk + ",");
+                                inserttmp.Append("" + seqAtt.SeqName + ".nextval,");
+                            }
+                            else if (columnAtt != null && columnAtt.AllowInsert)
+                            {
+                                insertSql.Append(pk + ",");
+                                if (columnAtt.ColumnType == SimpleColumnType.Int)
+                                {
+                                    inserttmp.Append("#" + columnname + "#,");
+                                }
+                                else if (columnAtt.ColumnType == SimpleColumnType.Date)
+                                {
+                                    inserttmp.Append("to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
+                                }
+                                else
+                                {
+                                    inserttmp.Append("'#" + columnname + "#',");
+                                }
+                                inserts.Add(columnname, columnname);
+                            }
+                            continue;
                         }
-                        seqAtt = Attribute.GetCustomAttribute(tmp, typeof(OracleSeqAttribute)) as OracleSeqAttribute;
-                        if(seqAtt!=null)
+                    }
+                    if (columnAtt != null)
+                    {
+                        tmpstr = columnAtt.Column == null || columnAtt.Column.Length == 0 ? columnname : columnAtt.Column.ToLower();
+                        if (columnAtt.AllowUpdate)
                         {
-                            insertSql.Append(pk + ",");
-                            inserttmp.Append("" + seqAtt.SeqName + ".nextval,");
+                            if (columnAtt.ColumnType == SimpleColumnType.Int)
+                            {
+                                updateSql.Append(tmpstr + "=#" + columnname + "#,");
+                            }
+                            else if (columnAtt.ColumnType == SimpleColumnType.Date)
+                            {
+                                updateSql.Append(tmpstr + "=to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
+                            }
+                            else
+                            {
+                                updateSql.Append(tmpstr + "='#" + columnname + "#',");
+                            }
+
+                            updates.Add(columnname, columnname);
                         }
-                        else if (columnAtt!=null&&columnAtt.AllowInsert)
+                        if (columnAtt.AllowInsert)
                         {
-                            insertSql.Append(pk + ",");
+                            insertSql.Append(tmpstr + ",");
                             if (columnAtt.ColumnType == SimpleColumnType.Int)
                             {
                                 inserttmp.Append("#" + columnname + "#,");
@@ -356,115 +399,76 @@ namespace FT.DAL.Orm
                             {
                                 inserttmp.Append("'#" + columnname + "#',");
                             }
+
                             inserts.Add(columnname, columnname);
                         }
-                        continue;
-                    }
-                }      
-                if (columnAtt != null)
-                {
-                    tmpstr = columnAtt.Column == null || columnAtt.Column.Length == 0 ? columnname : columnAtt.Column.ToLower();
-                    if (columnAtt.AllowUpdate)
-                    {
-                        if(columnAtt.ColumnType==SimpleColumnType.Int)
+                        if (columnAtt.AllowSelect)
                         {
-                            updateSql.Append(tmpstr + "=#" + columnname + "#,");
-                        }
-                        else if (columnAtt.ColumnType == SimpleColumnType.Date)
-                        {
-                            updateSql.Append(tmpstr + "=to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
-                        }
-                        else
-                        {
-                            updateSql.Append(tmpstr + "='#" + columnname + "#',");
-                        }
-                        
-                        updates.Add(columnname, columnname);
-                    }
-                    if (columnAtt.AllowInsert)
-                    {
-                        insertSql.Append(tmpstr + ",");
-                        if (columnAtt.ColumnType == SimpleColumnType.Int)
-                        {
-                            inserttmp.Append("#" + columnname + "#,");
-                        }
-                        else if(columnAtt.ColumnType == SimpleColumnType.Date)
-                        {
-                            inserttmp.Append("to_date('#" + columnname + "#','yyyy-MM-dd hh24:mi:ss'),");
-                        }
-                        else
-                        {
-                            inserttmp.Append("'#" + columnname + "#',");
-                        }
-                      
-                        inserts.Add(columnname, columnname);
-                    }
-                    if (columnAtt.AllowSelect)
-                    {
-                        selectSql.Append(tmpstr + ",");
-                        selects.Add(tmpstr, columnname);
+                            selectSql.Append(tmpstr + ",");
+                            selects.Add(tmpstr, columnname);
 
+                            aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
+                            if (aliasAtt != null)
+                            {
+                                selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
+                                exporttmp.Append(tmpstr + " as " + aliasAtt.Name + ",");
+                            }
+                            else
+                            {
+
+                                //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        tmpstr = columnname;
+                        updateSql.Append(tmpstr + "='#" + tmpstr + "#',");
+                        updates.Add(tmpstr, tmpstr);
+                        insertSql.Append(tmpstr + ",");
+                        inserttmp.Append("'#" + tmpstr + "#',");
+                        inserts.Add(tmpstr, tmpstr);
+                        selects.Add(columnname, columnname);
+                        selectSql.Append(tmpstr + ",");
                         aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
                         if (aliasAtt != null)
                         {
                             selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
-                            exporttmp.Append(tmpstr + " as " + aliasAtt.Name+",");
+                            exporttmp.Append(tmpstr + " as " + aliasAtt.Name + ",");
                         }
                         else
                         {
-                            
                             //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                         }
-                    }
-                }
-                else
-                {
-                    tmpstr = columnname;
-                    updateSql.Append(tmpstr + "='#" + tmpstr + "#',");
-                    updates.Add(tmpstr, tmpstr);
-                    insertSql.Append(tmpstr + ",");
-                    inserttmp.Append("'#" + tmpstr + "#',");
-                    inserts.Add(tmpstr, tmpstr);
-                    selects.Add(columnname, columnname);
-                    selectSql.Append(tmpstr + ",");
-                    aliasAtt = Attribute.GetCustomAttribute(tmp, typeof(AliasAttribute)) as AliasAttribute;
-                    if (aliasAtt != null)
-                    {
-                        selectsAlias.Rows.Add(new string[] { tmpstr, aliasAtt.Name });
-                        exporttmp.Append(tmpstr + " as " + aliasAtt.Name+",");
-                    }
-                    else
-                    {
                         //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
                     }
-                    //selectsAlias.Rows.Add(new string[] { tmpstr, tmpstr });
+
+
                 }
-                
-                
-            }
-            selects.Add(pk, pk);
-            second.Add("update.sql",updateSql.ToString().TrimEnd(',') + " where " + pk + "=");
-            second.Add("update.field",updates);
-            second.Add("insert.sql",insertSql.ToString().TrimEnd(',')+") values("+inserttmp.ToString().TrimEnd(',')+")");
-            second.Add("insert.field", inserts);
-            second.Add("select.sql","select "+selectSql.ToString()+pk+" from "+tablename);
-            second.Add("select.field", selects);
-            second.Add("export.sql", exporttmp.ToString().TrimEnd(','));
-            second.Add("select.conditions", selectsAlias);
-            //Console.WriteLine("插入语句结果为：" + second["insert.sql"].ToString());
-            //Console.WriteLine("插入语句字段个数为：" + inserts.Count);
-            //Loop(inserts);
-            //Console.WriteLine("更新语句结果为：" + second["update.sql"].ToString());
-            //Console.WriteLine("更新语句字段个数为：" + updates.Count);
-            //Loop(updates);
-            //Console.WriteLine("查询语句结果为："+second["select.sql"].ToString());
-            //Loop(selects);
-            try
-            {
-                caches.Add(type.FullName, second);
-            }
-            catch(Exception ex)
-            {
+                selects.Add(pk, pk);
+                second.Add("update.sql", updateSql.ToString().TrimEnd(',') + " where " + pk + "=");
+                second.Add("update.field", updates);
+                second.Add("insert.sql", insertSql.ToString().TrimEnd(',') + ") values(" + inserttmp.ToString().TrimEnd(',') + ")");
+                second.Add("insert.field", inserts);
+                second.Add("select.sql", "select " + selectSql.ToString() + pk + " from " + tablename);
+                second.Add("select.field", selects);
+                second.Add("export.sql", exporttmp.ToString().TrimEnd(','));
+                second.Add("select.conditions", selectsAlias);
+                //Console.WriteLine("插入语句结果为：" + second["insert.sql"].ToString());
+                //Console.WriteLine("插入语句字段个数为：" + inserts.Count);
+                //Loop(inserts);
+                //Console.WriteLine("更新语句结果为：" + second["update.sql"].ToString());
+                //Console.WriteLine("更新语句字段个数为：" + updates.Count);
+                //Loop(updates);
+                //Console.WriteLine("查询语句结果为："+second["select.sql"].ToString());
+                //Loop(selects);
+                try
+                {
+                    caches.Add(type.FullName, second);
+                }
+                catch (Exception ex)
+                {
+                }
             }
             
         }
