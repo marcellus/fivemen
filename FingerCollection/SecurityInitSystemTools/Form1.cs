@@ -190,6 +190,26 @@ namespace SecurityInitSystemTools
             this.txtSystemInitLog.Text += "\r\n\r\n处理完毕！";
         }
 
+        private void btnToolsStartServie_Click(object sender, EventArgs e)
+        {
+            WindowServicesHelper.Start(this.txtToolsServiceName.Text.Trim());
+        }
+
+        private void btnToolsStopService_Click(object sender, EventArgs e)
+        {
+            WindowServicesHelper.Stop(this.txtToolsServiceName.Text.Trim());
+        }
+
+        private void btnToolsPauseService_Click(object sender, EventArgs e)
+        {
+            WindowServicesHelper.Pause(this.txtToolsServiceName.Text.Trim());
+        }
+
+        private void btnToolsRefreshServiceStatus_Click(object sender, EventArgs e)
+        {
+            this.lbToolsServiceStatus.Text=WindowServicesHelper.GetServiceState(this.txtToolsServiceName.Text.Trim());
+        }
+
        
     }
 }

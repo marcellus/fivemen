@@ -83,6 +83,14 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txtKtBHOInitLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtToolsServiceName = new System.Windows.Forms.TextBox();
+            this.btnToolsStartServie = new System.Windows.Forms.Button();
+            this.btnToolsStopService = new System.Windows.Forms.Button();
+            this.lbToolsServiceStatus = new System.Windows.Forms.Label();
+            this.btnToolsPauseService = new System.Windows.Forms.Button();
+            this.btnToolsRefreshServiceStatus = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -94,6 +102,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -103,6 +112,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage12);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -695,6 +705,88 @@
             this.button1.Text = "开始初始化";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // tabPage12
+            // 
+            this.tabPage12.Controls.Add(this.btnToolsRefreshServiceStatus);
+            this.tabPage12.Controls.Add(this.lbToolsServiceStatus);
+            this.tabPage12.Controls.Add(this.btnToolsPauseService);
+            this.tabPage12.Controls.Add(this.btnToolsStopService);
+            this.tabPage12.Controls.Add(this.btnToolsStartServie);
+            this.tabPage12.Controls.Add(this.txtToolsServiceName);
+            this.tabPage12.Controls.Add(this.label14);
+            this.tabPage12.Location = new System.Drawing.Point(4, 21);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(630, 416);
+            this.tabPage12.TabIndex = 5;
+            this.tabPage12.Text = "简单测试工具";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "服务名";
+            // 
+            // txtToolsServiceName
+            // 
+            this.txtToolsServiceName.Location = new System.Drawing.Point(78, 22);
+            this.txtToolsServiceName.Name = "txtToolsServiceName";
+            this.txtToolsServiceName.Size = new System.Drawing.Size(411, 21);
+            this.txtToolsServiceName.TabIndex = 1;
+            // 
+            // btnToolsStartServie
+            // 
+            this.btnToolsStartServie.Location = new System.Drawing.Point(22, 63);
+            this.btnToolsStartServie.Name = "btnToolsStartServie";
+            this.btnToolsStartServie.Size = new System.Drawing.Size(75, 23);
+            this.btnToolsStartServie.TabIndex = 2;
+            this.btnToolsStartServie.Text = "启动服务";
+            this.btnToolsStartServie.UseVisualStyleBackColor = true;
+            this.btnToolsStartServie.Click += new System.EventHandler(this.btnToolsStartServie_Click);
+            // 
+            // btnToolsStopService
+            // 
+            this.btnToolsStopService.Location = new System.Drawing.Point(116, 63);
+            this.btnToolsStopService.Name = "btnToolsStopService";
+            this.btnToolsStopService.Size = new System.Drawing.Size(75, 23);
+            this.btnToolsStopService.TabIndex = 2;
+            this.btnToolsStopService.Text = "停止服务";
+            this.btnToolsStopService.UseVisualStyleBackColor = true;
+            this.btnToolsStopService.Click += new System.EventHandler(this.btnToolsStopService_Click);
+            // 
+            // lbToolsServiceStatus
+            // 
+            this.lbToolsServiceStatus.AutoSize = true;
+            this.lbToolsServiceStatus.Location = new System.Drawing.Point(518, 31);
+            this.lbToolsServiceStatus.Name = "lbToolsServiceStatus";
+            this.lbToolsServiceStatus.Size = new System.Drawing.Size(47, 12);
+            this.lbToolsServiceStatus.TabIndex = 3;
+            this.lbToolsServiceStatus.Text = "label15";
+            // 
+            // btnToolsPauseService
+            // 
+            this.btnToolsPauseService.Location = new System.Drawing.Point(212, 63);
+            this.btnToolsPauseService.Name = "btnToolsPauseService";
+            this.btnToolsPauseService.Size = new System.Drawing.Size(75, 23);
+            this.btnToolsPauseService.TabIndex = 2;
+            this.btnToolsPauseService.Text = "暂停服务";
+            this.btnToolsPauseService.UseVisualStyleBackColor = true;
+            this.btnToolsPauseService.Click += new System.EventHandler(this.btnToolsPauseService_Click);
+            // 
+            // btnToolsRefreshServiceStatus
+            // 
+            this.btnToolsRefreshServiceStatus.Location = new System.Drawing.Point(322, 63);
+            this.btnToolsRefreshServiceStatus.Name = "btnToolsRefreshServiceStatus";
+            this.btnToolsRefreshServiceStatus.Size = new System.Drawing.Size(112, 23);
+            this.btnToolsRefreshServiceStatus.TabIndex = 4;
+            this.btnToolsRefreshServiceStatus.Text = "刷新服务状态";
+            this.btnToolsRefreshServiceStatus.UseVisualStyleBackColor = true;
+            this.btnToolsRefreshServiceStatus.Click += new System.EventHandler(this.btnToolsRefreshServiceStatus_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -720,6 +812,8 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -781,6 +875,14 @@
         private System.Windows.Forms.RichTextBox txtKtIEInitLog;
         private System.Windows.Forms.RichTextBox txtWzhInitLog;
         private System.Windows.Forms.Button btnInitSystemInfo;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtToolsServiceName;
+        private System.Windows.Forms.Button btnToolsStartServie;
+        private System.Windows.Forms.Button btnToolsStopService;
+        private System.Windows.Forms.Label lbToolsServiceStatus;
+        private System.Windows.Forms.Button btnToolsPauseService;
+        private System.Windows.Forms.Button btnToolsRefreshServiceStatus;
     }
 }
 
