@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiPiaoImageResource</RootNamespace>
+    <AssemblyName>HiPiaoImageResource</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackgroundResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ButtonResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalResourceTool.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BackgroundResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BackgroundResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>public</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ButtonResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-Advices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-AutoCloseComputerSeting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-ChangePwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-CloseComputer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-HelpDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-Question-Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-QuitApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-ServerIpConfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintain-Ticket-Reprinter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return-MainPanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Comp-Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main-HiPiaoTaste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main-QuickBuyTicket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main-TicketPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main-UserAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main-UserRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReturnHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuickBuyTicket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuickRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MessageBox-QuitAccountConfirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MessageBox-UIdOrPwdError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register-Success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register-ReturnHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register-QueryAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Register-QuitAccount.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

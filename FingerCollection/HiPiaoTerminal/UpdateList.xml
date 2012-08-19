@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoUpdater>
+  <description>Application autoUpdate</description>
+  <Updater>
+    <Url>http://www.ouerehome.net/HiPiao/</Url>
+    <LastUpdateTime>2012-07-31</LastUpdateTime>
+  </Updater>
+  <Application applicationId="HiPiaoTerminal">
+    <EntryPoint>HiPiaoTerminal.exe</EntryPoint>
+    <Location>.</Location>
+    <Version>1.0.0.0</Version>
+  </Application>
+  <Files>
+    <File Ver="7.3.5.0" Name="DevExpress.BonusSkins.v7.3.dll" />
+    <File Ver="7.3.5.0" Name="DevExpress.Data.v7.3.dll"/>
+    <File Ver="7.3.5.0" Name="DevExpress.OfficeSkins.v7.3.dll"/>
+    <File Ver="7.3.5.0" Name="DevExpress.Utils.v7.3.dll" />
+    <File Ver="3.0.0.6" Name="FT.Commons.dll"/>
+    <File Ver="1.0.0.2" Name="FT.DAL.dll"/>
+    <File Ver="1.0.0.2" Name="FT.Device.dll" />
+    <File Ver="1.0.0.0" Name="FT.Windows.Controls.dll"/>
+
+
+    <File Ver="1.0.0.0" Name="HiPiaoImageResource.dll"/>
+
+    <File Ver="1.0.0.0" Name="HiPiaoInterface.dll"/>
+
+    <File Ver="0.85.5.452" Name="ICSharpCode.SharpZipLib.dll"/>
+
+
+    <File Ver="1.0.4.0" Name="itextsharp.dll"/>
+    
+    <File Ver="1.0.0.0" Name="HiPiaoTerminal.exe"/>
+
+    <File Ver="1.0.0.0" Name="HiPiaoInterface.dll"/>
+
+    <File Ver="3.0.0.0" Name="FT.Windows.Forms.dll"/>
+
+    <File Ver="3.0.0.0" Name="en/FT.Windows.Forms.resources.dll"/>
+    <File Ver="3.0.0.0" Name="zh-CN/FT.Windows.Forms.resources.dll"/>
+
+    <File Ver="1.0.0.0" Name="MovieShows/1.jpg"/>
+    <File Ver="1.0.0.0" Name="MovieShows/2.jpg"/>
+    <File Ver="1.0.0.0" Name="MovieShows/3.jpg"/>
+    <File Ver="1.0.0.0" Name="MovieShows/4.jpg"/>
+  </Files>
+</AutoUpdater>

@@ -1,0 +1,9 @@
+﻿<!--
+    <File Ver="11.0.8161.0" Name="Microsoft.Office.Interop.Excel.dll"/>
+
+    <File Ver="11.0.5530.0" Name="Microsoft.Vbe.Interop.dll"/>
+
+    <File Ver="11.0.5530.0" Name="office.dll"/>
+
+    <File Ver="14.0.8064.206" Name="WindowsLive.Writer.Interop.Mshtml.dll"/>
+ -->

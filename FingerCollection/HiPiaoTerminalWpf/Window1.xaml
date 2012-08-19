@@ -1,0 +1,9 @@
+﻿<Window x:Class="HiPiaoTerminalWpf.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="960" Width="1280" WindowStyle="None" FontFamily="方正兰亭黑简体" FontSize="28" SizeToContent="Manual" Loaded="Window_Loaded">
+    <Grid>
+        <Button Height="94" HorizontalAlignment="Left" Margin="51,76,0,0" Name="button1" VerticalAlignment="Top" Width="112" Click="button1_Click_1">Button</Button>
+        <Button Height="103" HorizontalAlignment="Left" Margin="343,84,0,0" Name="button2" VerticalAlignment="Top" Width="149" Click="button2_Click">Button</Button>
+    </Grid>
+</Window>

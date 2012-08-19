@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using HiPiaoTerminal.TestForm;
 
 namespace HiPiaoTerminal
 {
@@ -15,6 +16,10 @@ namespace HiPiaoTerminal
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+           // Application.Run(new MaskForm());
+           // Application.Run(new KeyBoardTestForm());
+          //  Application.Run(new AdShowTestForm());
+            
         }
     }
 }

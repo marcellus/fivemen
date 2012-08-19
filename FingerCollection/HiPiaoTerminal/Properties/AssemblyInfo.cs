@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("HiPiaoTerminal")]
+[assembly: AssemblyTitle("哈票自助终端软件")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CHINA")]
-[assembly: AssemblyProduct("HiPiaoTerminal")]
-[assembly: AssemblyCopyright("Copyright © CHINA 2012")]
+[assembly: AssemblyCompany("深圳威文科技")]
+[assembly: AssemblyProduct("哈票自助终端软件")]
+[assembly: AssemblyCopyright("Copyright © 深圳威文科技 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

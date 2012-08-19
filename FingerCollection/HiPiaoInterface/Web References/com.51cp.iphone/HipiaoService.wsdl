@@ -1,0 +1,2006 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://service.server.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://service.server.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://cxf.apache.org/bindings/xformat" name="HipiaoService" targetNamespace="http://service.server.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.server.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ActivityInfo" type="tns:activityInfo" />
+      <xs:element name="CinemaInfo" type="tns:cinemaInfo" />
+      <xs:element name="CinemaSchelude" nillable="true" type="xs:anyType" />
+      <xs:element name="CityCinema" type="tns:cityCinema" />
+      <xs:element name="HelpInfo" type="tns:helpInfo" />
+      <xs:element name="HotMovieinfo" type="tns:hotMovieinfo" />
+      <xs:element name="HpVersion" type="tns:hpVersion" />
+      <xs:element name="Interests" type="tns:memberInterest" />
+      <xs:element name="MovieInfo" type="tns:movieInfo" />
+      <xs:element name="NearCinema" type="tns:nearCinema" />
+      <xs:element name="Pixnumber" type="tns:filmPixnumber" />
+      <xs:element name="cinema" nillable="true" type="xs:anyType" />
+      <xs:element name="date" nillable="true" type="xs:anyType" />
+      <xs:element name="map" type="tns:googleMap" />
+      <xs:element name="province" type="tns:provinceInfo" />
+      <xs:element name="sitemap" type="tns:siteMapFactory" />
+      <xs:element name="video" type="tns:videoFactory" />
+      <xs:complexType name="topicWillOneInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemaname" type="xs:string" />
+          <xs:element minOccurs="0" name="cinematype" type="xs:string" />
+          <xs:element minOccurs="0" name="filmztid" type="xs:string" />
+          <xs:element minOccurs="0" name="gutdescrpty" type="xs:string" />
+          <xs:element minOccurs="0" name="picurl" type="xs:string" />
+          <xs:element minOccurs="0" name="ypcpdmc" type="xs:string" />
+          <xs:element minOccurs="0" name="ypxigysj" type="xs:string" />
+          <xs:element minOccurs="0" name="ypxiypdy" type="xs:string" />
+          <xs:element minOccurs="0" name="ypxiypzy" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hpRecordList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="orderlist" nillable="true" type="tns:hpCradOrder" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hpCradOrder">
+        <xs:sequence />
+        <xs:attribute name="crossmoney" type="xs:string" />
+        <xs:attribute name="isweb" type="xs:string" />
+        <xs:attribute name="memberId" type="xs:string" />
+        <xs:attribute name="ordernum" type="xs:string" />
+        <xs:attribute name="roof" type="xs:string" />
+        <xs:attribute name="time" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="synchronousFactory">
+        <xs:sequence />
+        <xs:attribute name="result" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="consumption">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="consumption" nillable="true" type="tns:consumptionFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consumptionFactory">
+        <xs:sequence />
+        <xs:attribute name="cinemaname" type="xs:string" />
+        <xs:attribute name="costtime" type="xs:string" />
+        <xs:attribute name="crossmoney" type="xs:string" />
+        <xs:attribute name="memberId" type="xs:string" />
+        <xs:attribute name="orderformid" type="xs:string" />
+        <xs:attribute name="ticketcount" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="videoFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="video" nillable="true" type="tns:videoPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="videoPojo">
+        <xs:sequence />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="picurl" type="xs:string" />
+        <xs:attribute name="savetype" type="xs:string" />
+        <xs:attribute name="timelength" type="xs:string" />
+        <xs:attribute name="videoid" type="xs:string" />
+        <xs:attribute name="videourl" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="movieInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="movieInfo" nillable="true" type="tns:filmPixFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="filmPixFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="intro" type="xs:string" />
+          <xs:element minOccurs="0" name="img" type="tns:filmPic" />
+          <xs:element minOccurs="0" name="picture" type="xs:string" />
+          <xs:element minOccurs="0" name="selling" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="chname" type="xs:string" />
+        <xs:attribute name="country" type="xs:string" />
+        <xs:attribute name="director" type="xs:string" />
+        <xs:attribute name="enname" type="xs:string" />
+        <xs:attribute name="fshowtime" type="xs:string" />
+        <xs:attribute name="pixid" type="xs:string" />
+        <xs:attribute name="language" type="xs:string" />
+        <xs:attribute name="leadrole" type="xs:string" />
+        <xs:attribute name="pixlength" type="xs:string" />
+        <xs:attribute name="pixnumber" type="xs:string" />
+        <xs:attribute name="pixtype" type="xs:string" />
+        <xs:attribute name="saveType" type="xs:string" />
+        <xs:attribute name="ypxirecid" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="filmPic">
+        <xs:sequence />
+        <xs:attribute name="fixname" type="xs:string" />
+        <xs:attribute name="url1" type="xs:string" />
+        <xs:attribute name="url2" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="googleMap">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="map" type="tns:map" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="map">
+        <xs:sequence />
+        <xs:attribute name="latitude" type="xs:string" />
+        <xs:attribute name="longitude" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="updateUserResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cityCinema">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cinema" type="tns:cinema" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cinema">
+        <xs:sequence />
+        <xs:attribute name="address" type="xs:string" />
+        <xs:attribute name="cinemanumber" type="xs:string" />
+        <xs:attribute name="logo" type="xs:string" />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="tel" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpMemberWaste">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addmoney" type="xs:string" />
+          <xs:element minOccurs="0" name="addtime" type="xs:string" />
+          <xs:element minOccurs="0" name="isweb" type="xs:string" />
+          <xs:element minOccurs="0" name="memberId" type="xs:string" />
+          <xs:element minOccurs="0" name="ornumber" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cinemaInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinema" type="tns:cinema" />
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="memberMoreList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="blance" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="memberInterest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Interests" nillable="true" type="tns:interestsContent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="interestsContent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content" type="tns:interestsContentList" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="interestsContentList">
+        <xs:sequence />
+        <xs:attribute name="content" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="schelude">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cinema" nillable="true" type="tns:cinemaPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cinemaPojo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="hall" nillable="true" type="tns:hallPojo" />
+        </xs:sequence>
+        <xs:attribute name="address" type="xs:string" />
+        <xs:attribute name="cinemanumber" type="xs:string" />
+        <xs:attribute name="cname" type="xs:string" />
+        <xs:attribute name="tel" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hallPojo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="plan" nillable="true" type="tns:planPojo" />
+        </xs:sequence>
+        <xs:attribute name="hallId" type="xs:string" />
+        <xs:attribute name="hname" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="planPojo">
+        <xs:sequence />
+        <xs:attribute name="color" type="xs:string" />
+        <xs:attribute name="planId" type="xs:string" />
+        <xs:attribute name="playtime" type="xs:string" />
+        <xs:attribute name="price" type="xs:string" />
+        <xs:attribute name="sprice" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="nearCinema">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cinema" type="tns:nearCinemaPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="nearCinemaPojo">
+        <xs:sequence />
+        <xs:attribute name="cinemanumber" type="xs:string" />
+        <xs:attribute name="cname" type="xs:string" />
+        <xs:attribute name="latitude" type="xs:string" />
+        <xs:attribute name="longitude" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpVersion">
+        <xs:sequence />
+        <xs:attribute name="packurl" type="xs:string" />
+        <xs:attribute name="result" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpOrderFormDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="buyplace" type="xs:string" />
+          <xs:element minOccurs="0" name="buytime" type="xs:string" />
+          <xs:element minOccurs="0" name="cinemahall" type="xs:string" />
+          <xs:element minOccurs="0" name="cinemaname" type="xs:string" />
+          <xs:element minOccurs="0" name="cinemaseat" type="xs:string" />
+          <xs:element minOccurs="0" name="format" type="xs:string" />
+          <xs:element minOccurs="0" name="hipiaonumber" type="xs:string" />
+          <xs:element minOccurs="0" name="issend" type="xs:string" />
+          <xs:element minOccurs="0" name="language" type="xs:string" />
+          <xs:element minOccurs="0" name="memberId" type="xs:string" />
+          <xs:element minOccurs="0" name="onemoney" type="xs:string" />
+          <xs:element minOccurs="0" name="paytype" type="xs:string" />
+          <xs:element minOccurs="0" name="phonenum" type="xs:string" />
+          <xs:element minOccurs="0" name="pixname" type="xs:string" />
+          <xs:element minOccurs="0" name="playtime" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+          <xs:element minOccurs="0" name="summoney" type="xs:string" />
+          <xs:element minOccurs="0" name="ticketnum" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="siteMapFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="movieinfo" type="tns:sitemapMovieinfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="siteinfo" nillable="true" type="tns:siteMapPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sitemapMovieinfo">
+        <xs:sequence />
+        <xs:attribute name="date" type="xs:string" />
+        <xs:attribute name="hallpic" type="xs:string" />
+        <xs:attribute name="mname" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="siteMapPojo">
+        <xs:sequence />
+        <xs:attribute name="colnum" type="xs:string" />
+        <xs:attribute name="linenum" type="xs:string" />
+        <xs:attribute name="lockstate" type="xs:string" />
+        <xs:attribute name="seatid" type="xs:string" />
+        <xs:attribute name="xpoint" type="xs:string" />
+        <xs:attribute name="ypoint" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="deductionInfoFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="dif" nillable="true" type="tns:deductionInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deductionInfo">
+        <xs:sequence />
+        <xs:attribute name="amount" type="xs:string" />
+        <xs:attribute name="cardId" type="xs:string" />
+        <xs:attribute name="period" type="xs:string" />
+        <xs:attribute name="status" type="xs:string" />
+        <xs:attribute name="useDate" type="xs:string" />
+        <xs:attribute name="useRule" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="filmPixnumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="couponInfoFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="couponInfo" nillable="true" type="tns:couponInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="couponInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="useRule" type="tns:useRule" />
+        </xs:sequence>
+        <xs:attribute name="cardId" type="xs:string" />
+        <xs:attribute name="period" type="xs:string" />
+        <xs:attribute name="status" type="xs:string" />
+        <xs:attribute name="useDate" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="useRule">
+        <xs:sequence />
+        <xs:attribute name="everyDayTime" type="xs:string" />
+        <xs:attribute name="fileRule" type="xs:string" />
+        <xs:attribute name="is3D" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" />
+        <xs:attribute name="useCinema" type="xs:string" />
+        <xs:attribute name="weekEnd" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="advertisement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="advertisement" nillable="true" type="tns:advertisementList" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="advertisementList">
+        <xs:sequence />
+        <xs:attribute name="picurl" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="scheludeDir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="date" type="tns:planDatePojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="planDatePojo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="plandir" nillable="true" type="tns:planDirPojo" />
+        </xs:sequence>
+        <xs:attribute name="value" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="planDirPojo">
+        <xs:sequence />
+        <xs:attribute name="language" type="xs:string" />
+        <xs:attribute name="savetype" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="memberIntegralList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="scorelist" nillable="true" type="tns:hpCore" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hpCore">
+        <xs:sequence />
+        <xs:attribute name="num" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="userDeductionInfoFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="useCouponInfo" nillable="true" type="tns:useCouponInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="useCouponInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cardId" type="xs:string" />
+          <xs:element minOccurs="0" name="money" type="xs:string" />
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topicPhotoUrlList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="photolist" nillable="true" type="tns:topicPhotoUrlFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topicPhotoUrlFactory">
+        <xs:sequence />
+        <xs:attribute name="picurl" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="scheludeVii">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cinema" nillable="true" type="tns:cinemaViiPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cinemaViiPojo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="hall" nillable="true" type="tns:hallPojo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="savetype" nillable="true" type="tns:saveTypePojo" />
+        </xs:sequence>
+        <xs:attribute name="address" type="xs:string" />
+        <xs:attribute name="cinemanumber" type="xs:string" />
+        <xs:attribute name="cname" type="xs:string" />
+        <xs:attribute name="tel" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="saveTypePojo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="plan" nillable="true" type="tns:planViiPojo" />
+        </xs:sequence>
+        <xs:attribute name="language" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="planViiPojo">
+        <xs:sequence />
+        <xs:attribute name="color" type="xs:string" />
+        <xs:attribute name="hallId" type="xs:string" />
+        <xs:attribute name="hname" type="xs:string" />
+        <xs:attribute name="planId" type="xs:string" />
+        <xs:attribute name="playtime" type="xs:string" />
+        <xs:attribute name="price" type="xs:string" />
+        <xs:attribute name="sprice" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="userLoginResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="blance" type="xs:string" />
+          <xs:element minOccurs="0" name="hipiaocard" type="xs:string" />
+          <xs:element minOccurs="0" name="memberId" type="xs:string" />
+          <xs:element minOccurs="0" name="nickname" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+          <xs:element minOccurs="0" name="score" type="xs:string" />
+          <xs:element minOccurs="0" name="sessionkey" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cinemaViiSchelude">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="movieInfo" nillable="true" type="tns:movieFactoryVii" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="movieFactoryVii">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="savetype" nillable="true" type="tns:saveTypePojo" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="pixnumber" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="scheludeCinemaDir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="date" type="tns:planDatePojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="willPlayList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="topiclist" nillable="true" type="tns:topicWillPlayFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="topicWillPlayFactory">
+        <xs:sequence />
+        <xs:attribute name="cinemaname" type="xs:string" />
+        <xs:attribute name="cinematype" type="xs:string" />
+        <xs:attribute name="filmztid" type="xs:string" />
+        <xs:attribute name="gutdescrpty" type="xs:string" />
+        <xs:attribute name="picurl" type="xs:string" />
+        <xs:attribute name="ypcpdmc" type="xs:string" />
+        <xs:attribute name="ypxigysj" type="xs:string" />
+        <xs:attribute name="ypxiypdy" type="xs:string" />
+        <xs:attribute name="ypxiypzy" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="cinemaSchelude">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="movieInfo" nillable="true" type="tns:movieFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="movieFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="hall" nillable="true" type="tns:hallPojo" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="pixnumber" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="helpInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HelpInfo" nillable="true" type="tns:helpInfoContent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="helpInfoContent">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="content" nillable="true" type="tns:hpInfoContentList" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpInfoContentList">
+        <xs:sequence />
+        <xs:attribute name="content" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="suggestionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="provinceInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Province" nillable="true" type="tns:provinceCity" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="provinceCity">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="city" nillable="true" type="tns:hpCinemaCity" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpCinemaCity">
+        <xs:sequence />
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="id" type="xs:string" />
+        <xs:attribute name="mcityId" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="topicPhotoCount">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filmztid" type="xs:string" />
+          <xs:element minOccurs="0" name="photocount" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addCouponesult">
+        <xs:sequence />
+        <xs:attribute name="result" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="activityInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivityInfo" nillable="true" type="tns:activityInfoFactory" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="activityInfoFactory">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="content" nillable="true" type="tns:activityInfoFactoryList" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="activityInfoFactoryList">
+        <xs:sequence />
+        <xs:attribute name="info" type="xs:string" />
+        <xs:attribute name="pic" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hotMovieinfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="movieInfo" nillable="true" type="tns:hotFilmPixPojo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hotFilmPixPojo">
+        <xs:sequence />
+        <xs:attribute name="chname" type="xs:string" />
+        <xs:attribute name="country" type="xs:string" />
+        <xs:attribute name="director" type="xs:string" />
+        <xs:attribute name="enname" type="xs:string" />
+        <xs:attribute name="fshowtime" type="xs:string" />
+        <xs:attribute name="intro" type="xs:string" />
+        <xs:attribute name="pixid" type="xs:string" />
+        <xs:attribute name="leadrole" type="xs:string" />
+        <xs:attribute name="nowcity" type="xs:string" />
+        <xs:attribute name="picurl" type="xs:string" />
+        <xs:attribute name="pixlength" type="xs:string" />
+        <xs:attribute name="pixnumber" type="xs:string" />
+        <xs:attribute name="pixtype" type="xs:string" />
+        <xs:attribute name="sPicurl" type="xs:string" />
+        <xs:attribute name="savetype" type="xs:string" />
+        <xs:attribute name="ypxirecid" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hpAboutUs">
+        <xs:sequence />
+        <xs:attribute name="content" type="xs:string" />
+      </xs:complexType>
+      <xs:element name="getTopicDatailRequest" type="tns:getTopicDatailRequest" />
+      <xs:complexType name="getTopicDatailRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filmztid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPerformInfo" type="tns:getPerformInfo" />
+      <xs:complexType name="getPerformInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+          <xs:element minOccurs="0" name="userId" type="xs:string" />
+          <xs:element minOccurs="0" name="planId" type="xs:string" />
+          <xs:element minOccurs="0" name="filmName" type="xs:string" />
+          <xs:element minOccurs="0" name="showtime" type="xs:string" />
+          <xs:element minOccurs="0" name="orderId" type="xs:string" />
+          <xs:element minOccurs="0" name="cityname" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getRecordListRequest" type="tns:getRecordListRequest" />
+      <xs:complexType name="getRecordListRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getSynchronousInfo" type="tns:getSynchronousInfo" />
+      <xs:complexType name="getSynchronousInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getConsumptionRequest" type="tns:getConsumptionRequest" />
+      <xs:complexType name="getConsumptionRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getVideoList" type="tns:getVideoList" />
+      <xs:complexType name="getVideoList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="markid" type="xs:string" />
+          <xs:element minOccurs="0" name="dbtype" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMovieDetails" type="tns:getMovieDetails" />
+      <xs:complexType name="getMovieDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getGoogleMap" type="tns:getGoogleMap" />
+      <xs:complexType name="getGoogleMap">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateUserInfo" type="tns:updateUserInfo" />
+      <xs:complexType name="updateUserInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="oldpass" type="xs:string" />
+          <xs:element minOccurs="0" name="newpass" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCityCinema" type="tns:getCityCinema" />
+      <xs:complexType name="getCityCinema">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getRecordDatialRequest" type="tns:getRecordDatialRequest" />
+      <xs:complexType name="getRecordDatialRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="ordernum" type="xs:string" />
+          <xs:element minOccurs="0" name="isweb" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCinemainfo" type="tns:getCinemainfo" />
+      <xs:complexType name="getCinemainfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getUserMoney" type="tns:getUserMoney" />
+      <xs:complexType name="getUserMoney">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMemberInterests" type="tns:getMemberInterests" />
+      <xs:complexType name="getMemberInterests">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlan" type="tns:getPlan" />
+      <xs:complexType name="getPlan">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:string" />
+          <xs:element minOccurs="0" name="savetype" type="xs:string" />
+          <xs:element minOccurs="0" name="language" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getNearCinema" type="tns:getNearCinema" />
+      <xs:complexType name="getNearCinema">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="latitude" type="xs:string" />
+          <xs:element minOccurs="0" name="longitude" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getHpVersion" type="tns:getHpVersion" />
+      <xs:complexType name="getHpVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="clientv" type="xs:string" />
+          <xs:element minOccurs="0" name="osv" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getConsumptionDatialRequest" type="tns:getConsumptionDatialRequest" />
+      <xs:complexType name="getConsumptionDatialRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="orderformid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateUserPhone" type="tns:updateUserPhone" />
+      <xs:complexType name="updateUserPhone">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="newphone" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getSiteMap" type="tns:getSiteMap" />
+      <xs:complexType name="getSiteMap">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="planid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getDeductionInfo" type="tns:getDeductionInfo" />
+      <xs:complexType name="getDeductionInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getLastPixnumber" type="tns:getLastPixnumber" />
+      <xs:complexType name="getLastPixnumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCouponInfo" type="tns:getCouponInfo" />
+      <xs:complexType name="getCouponInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getAdvertisement" type="tns:getAdvertisement" />
+      <xs:complexType name="getAdvertisement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlanDir" type="tns:getPlanDir" />
+      <xs:complexType name="getPlanDir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getUserIntegral" type="tns:getUserIntegral" />
+      <xs:complexType name="getUserIntegral">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getUseCouponInfo" type="tns:getUseCouponInfo" />
+      <xs:complexType name="getUseCouponInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+          <xs:element minOccurs="0" name="pixtype" type="xs:string" />
+          <xs:element minOccurs="0" name="planid" type="xs:string" />
+          <xs:element minOccurs="0" name="plandate" type="xs:string" />
+          <xs:element minOccurs="0" name="plantime" type="xs:string" />
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTopicPhotoListRequest" type="tns:getTopicPhotoListRequest" />
+      <xs:complexType name="getTopicPhotoListRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="zttype" type="xs:string" />
+          <xs:element minOccurs="0" name="filmztid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlanVii" type="tns:getPlanVii" />
+      <xs:complexType name="getPlanVii">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="pixnumber" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:string" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlanViiResponse" type="tns:getPlanViiResponse" />
+      <xs:complexType name="getPlanViiResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:scheludeVii" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getUserLoginResult" type="tns:getUserLoginResult" />
+      <xs:complexType name="getUserLoginResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlancinemaVii" type="tns:getPlancinemaVii" />
+      <xs:complexType name="getPlancinemaVii">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:string" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getPlancinemaViiResponse" type="tns:getPlancinemaViiResponse" />
+      <xs:complexType name="getPlancinemaViiResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cinemaViiSchelude" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCinemaPlanDir" type="tns:getCinemaPlanDir" />
+      <xs:complexType name="getCinemaPlanDir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTopicWillRequest" type="tns:getTopicWillRequest" />
+      <xs:complexType name="getTopicWillRequest">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="getPlancinema" type="tns:getPlancinema" />
+      <xs:complexType name="getPlancinema">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cinemanumber" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:string" />
+          <xs:element minOccurs="0" name="savetype" type="xs:string" />
+          <xs:element minOccurs="0" name="language" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getHelpInfo" type="tns:getHelpInfo" />
+      <xs:complexType name="getHelpInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="returnSuggestion" type="tns:returnSuggestion" />
+      <xs:complexType name="returnSuggestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCityOfprovince" type="tns:getCityOfprovince" />
+      <xs:complexType name="getCityOfprovince">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nowprovince" type="xs:string" />
+          <xs:element minOccurs="0" name="nowcity" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getUserIsLine" type="tns:getUserIsLine" />
+      <xs:complexType name="getUserIsLine">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getLocalDataTime" type="tns:getLocalDataTime" />
+      <xs:complexType name="getLocalDataTime">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="getTopicPhotoRequest" type="tns:getTopicPhotoRequest" />
+      <xs:complexType name="getTopicPhotoRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="zttype" type="xs:string" />
+          <xs:element minOccurs="0" name="filmztid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="addCouponInfo" type="tns:addCouponInfo" />
+      <xs:complexType name="addCouponInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberid" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="cardPwd" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getRegisterRequest" type="tns:getRegisterRequest" />
+      <xs:complexType name="getRegisterRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="telphone" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getNewActivity" type="tns:getNewActivity" />
+      <xs:complexType name="getNewActivity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getHotMovieinfo" type="tns:getHotMovieinfo" />
+      <xs:complexType name="getHotMovieinfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getAboutUs" type="tns:getAboutUs" />
+      <xs:complexType name="getAboutUs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:string" />
+          <xs:element minOccurs="0" name="clintform" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xsd:schema xmlns="http://service.server.com" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.server.com">
+      <xsd:import namespace="http://service.server.com/" />
+      <xsd:element name="TopicDatailResponse" type="ns1:TopicDatailResponse" />
+      <xsd:complexType name="TopicDatailResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:topicWillOneInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PerformInfoResponse" type="ns1:PerformInfoResponse" />
+      <xsd:complexType name="PerformInfoResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecordShowResponse" type="ns1:RecordShowResponse" />
+      <xsd:complexType name="RecordShowResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hpRecordList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SynchronousResponse" type="ns1:SynchronousResponse" />
+      <xsd:complexType name="SynchronousResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:synchronousFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConsumptionResponse" type="ns1:ConsumptionResponse" />
+      <xsd:complexType name="ConsumptionResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:consumption" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="VideoListResponse" type="ns1:VideoListResponse" />
+      <xsd:complexType name="VideoListResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:videoFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MovieDetailsResponse" type="ns1:MovieDetailsResponse" />
+      <xsd:complexType name="MovieDetailsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:movieInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GoogleMapResponse" type="ns1:GoogleMapResponse" />
+      <xsd:complexType name="GoogleMapResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:googleMap" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UpdatePassResponse" type="ns1:UpdatePassResponse" />
+      <xsd:complexType name="UpdatePassResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:updateUserResult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CityCinemaResponse" type="ns1:CityCinemaResponse" />
+      <xsd:complexType name="CityCinemaResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:cityCinema" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecordDatialResponse" type="ns1:RecordDatialResponse" />
+      <xsd:complexType name="RecordDatialResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hpMemberWaste" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CinemainfoResponse" type="ns1:CinemainfoResponse" />
+      <xsd:complexType name="CinemainfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:cinemaInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UserMoneyResponse" type="ns1:UserMoneyResponse" />
+      <xsd:complexType name="UserMoneyResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:memberMoreList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MemberInterestsResponse" type="ns1:MemberInterestsResponse" />
+      <xsd:complexType name="MemberInterestsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:memberInterest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PlanResponse" type="ns1:PlanResponse" />
+      <xsd:complexType name="PlanResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:schelude" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NearCinemaResponse" type="ns1:NearCinemaResponse" />
+      <xsd:complexType name="NearCinemaResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:nearCinema" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HpVersionResponse" type="ns1:HpVersionResponse" />
+      <xsd:complexType name="HpVersionResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hpVersion" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConsumptionDatialResponse" type="ns1:ConsumptionDatialResponse" />
+      <xsd:complexType name="ConsumptionDatialResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hpOrderFormDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UpdatePhoneResponse" type="ns1:UpdatePhoneResponse" />
+      <xsd:complexType name="UpdatePhoneResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:updateUserResult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SiteMapResponse" type="ns1:SiteMapResponse" />
+      <xsd:complexType name="SiteMapResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:siteMapFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="DeductionInfoInfoResponse" type="ns1:DeductionInfoInfoResponse" />
+      <xsd:complexType name="DeductionInfoInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:deductionInfoFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LastPixnumberResponse" type="ns1:LastPixnumberResponse" />
+      <xsd:complexType name="LastPixnumberResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:filmPixnumber" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CouponInfoResponse" type="ns1:CouponInfoResponse" />
+      <xsd:complexType name="CouponInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:couponInfoFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NewActivityResponse" type="ns1:NewActivityResponse" />
+      <xsd:complexType name="NewActivityResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:advertisement" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PlanDirResponse" type="ns1:PlanDirResponse" />
+      <xsd:complexType name="PlanDirResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:scheludeDir" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UserIntegralResponse" type="ns1:UserIntegralResponse" />
+      <xsd:complexType name="UserIntegralResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:memberIntegralList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="useCouponInfoResponse" type="ns1:useCouponInfoResponse" />
+      <xsd:complexType name="useCouponInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:userDeductionInfoFactory" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TopicphotoResponse" type="ns1:TopicphotoResponse" />
+      <xsd:complexType name="TopicphotoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:topicPhotoUrlList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UserLoginResultResponse" type="ns1:UserLoginResultResponse" />
+      <xsd:complexType name="UserLoginResultResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:userLoginResult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CinemaPlanDirResponse" type="ns1:CinemaPlanDirResponse" />
+      <xsd:complexType name="CinemaPlanDirResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:scheludeCinemaDir" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TopicListResponse" type="ns1:TopicListResponse" />
+      <xsd:complexType name="TopicListResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:willPlayList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PlancinemaResponse" type="ns1:PlancinemaResponse" />
+      <xsd:complexType name="PlancinemaResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:cinemaSchelude" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HelpInfoResponse" type="ns1:HelpInfoResponse" />
+      <xsd:complexType name="HelpInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:helpInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ReturnSuggestionResponse" type="ns1:ReturnSuggestionResponse" />
+      <xsd:complexType name="ReturnSuggestionResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:suggestionInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CityOfprovinceResponse" type="ns1:CityOfprovinceResponse" />
+      <xsd:complexType name="CityOfprovinceResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:provinceInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UserIsLineResponse" type="ns1:UserIsLineResponse" />
+      <xsd:complexType name="UserIsLineResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LocalDataTimeResponse" type="ns1:LocalDataTimeResponse" />
+      <xsd:complexType name="LocalDataTimeResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TopicCountResponse" type="ns1:TopicCountResponse" />
+      <xsd:complexType name="TopicCountResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:topicPhotoCount" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="addCouponInfoResponse" type="ns1:addCouponInfoResponse" />
+      <xsd:complexType name="addCouponInfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:addCouponesult" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HotMovieinfoResponse" type="ns1:HotMovieinfoResponse" />
+      <xsd:complexType name="HotMovieinfoResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hotMovieinfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AboutUsResponse" type="ns1:AboutUsResponse" />
+      <xsd:complexType name="AboutUsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="return" type="tns:hpAboutUs" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPlanVii">
+    <wsdl:part name="parameters" element="tns:getPlanVii" />
+  </wsdl:message>
+  <wsdl:message name="getLocalDataTimeResponse">
+    <wsdl:part name="parameters" element="ns1:LocalDataTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlan">
+    <wsdl:part name="parameters" element="tns:getPlan" />
+  </wsdl:message>
+  <wsdl:message name="getHotMovieinfo">
+    <wsdl:part name="parameters" element="tns:getHotMovieinfo" />
+  </wsdl:message>
+  <wsdl:message name="updateUserPhoneResponse">
+    <wsdl:part name="parameters" element="ns1:UpdatePhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="getConsumptionRequest">
+    <wsdl:part name="parameters" element="tns:getConsumptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAboutUs">
+    <wsdl:part name="parameters" element="tns:getAboutUs" />
+  </wsdl:message>
+  <wsdl:message name="getPlancinema">
+    <wsdl:part name="parameters" element="tns:getPlancinema" />
+  </wsdl:message>
+  <wsdl:message name="getNearCinema">
+    <wsdl:part name="parameters" element="tns:getNearCinema" />
+  </wsdl:message>
+  <wsdl:message name="getPlanViiResponse">
+    <wsdl:part name="parameters" element="tns:getPlanViiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSiteMap">
+    <wsdl:part name="parameters" element="tns:getSiteMap" />
+  </wsdl:message>
+  <wsdl:message name="getCityOfprovinceResponse">
+    <wsdl:part name="parameters" element="ns1:CityOfprovinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecordDatialRequest">
+    <wsdl:part name="parameters" element="tns:getRecordDatialRequest" />
+  </wsdl:message>
+  <wsdl:message name="returnSuggestion">
+    <wsdl:part name="parameters" element="tns:returnSuggestion" />
+  </wsdl:message>
+  <wsdl:message name="getAdvertisement">
+    <wsdl:part name="parameters" element="tns:getAdvertisement" />
+  </wsdl:message>
+  <wsdl:message name="getAboutUsResponse">
+    <wsdl:part name="parameters" element="ns1:AboutUsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRegisterRequest">
+    <wsdl:part name="parameters" element="tns:getRegisterRequest" />
+  </wsdl:message>
+  <wsdl:message name="getHotMovieinfoResponse">
+    <wsdl:part name="parameters" element="ns1:HotMovieinfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserInfo">
+    <wsdl:part name="parameters" element="tns:updateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="getConsumptionDatialRequestResponse">
+    <wsdl:part name="parameters" element="ns1:ConsumptionDatialResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlanDir">
+    <wsdl:part name="parameters" element="tns:getPlanDir" />
+  </wsdl:message>
+  <wsdl:message name="getUserIsLineResponse">
+    <wsdl:part name="parameters" element="ns1:UserIsLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserLoginResult">
+    <wsdl:part name="parameters" element="tns:getUserLoginResult" />
+  </wsdl:message>
+  <wsdl:message name="getGoogleMap">
+    <wsdl:part name="parameters" element="tns:getGoogleMap" />
+  </wsdl:message>
+  <wsdl:message name="getDeductionInfoResponse">
+    <wsdl:part name="parameters" element="ns1:DeductionInfoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCinemainfoResponse">
+    <wsdl:part name="parameters" element="ns1:CinemainfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLastPixnumberResponse">
+    <wsdl:part name="parameters" element="ns1:LastPixnumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHelpInfo">
+    <wsdl:part name="parameters" element="tns:getHelpInfo" />
+  </wsdl:message>
+  <wsdl:message name="getNearCinemaResponse">
+    <wsdl:part name="parameters" element="ns1:NearCinemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAdvertisementResponse">
+    <wsdl:part name="parameters" element="ns1:NewActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMovieDetailsResponse">
+    <wsdl:part name="parameters" element="ns1:MovieDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNewActivityResponse">
+    <wsdl:part name="parameters" element="ns1:NewActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCinemainfo">
+    <wsdl:part name="parameters" element="tns:getCinemainfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserMoney">
+    <wsdl:part name="parameters" element="tns:getUserMoney" />
+  </wsdl:message>
+  <wsdl:message name="getDeductionInfo">
+    <wsdl:part name="parameters" element="tns:getDeductionInfo" />
+  </wsdl:message>
+  <wsdl:message name="getPerformInfo">
+    <wsdl:part name="parameters" element="tns:getPerformInfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserIntegralResponse">
+    <wsdl:part name="parameters" element="ns1:UserIntegralResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCouponInfo">
+    <wsdl:part name="parameters" element="tns:getCouponInfo" />
+  </wsdl:message>
+  <wsdl:message name="getPlancinemaResponse">
+    <wsdl:part name="parameters" element="ns1:PlancinemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicDatailRequestResponse">
+    <wsdl:part name="parameters" element="ns1:TopicDatailResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVideoListResponse">
+    <wsdl:part name="parameters" element="ns1:VideoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlanResponse">
+    <wsdl:part name="parameters" element="ns1:PlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicPhotoListRequestResponse">
+    <wsdl:part name="parameters" element="ns1:TopicphotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecordDatialRequestResponse">
+    <wsdl:part name="parameters" element="ns1:RecordDatialResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUseCouponInfo">
+    <wsdl:part name="parameters" element="tns:getUseCouponInfo" />
+  </wsdl:message>
+  <wsdl:message name="getConsumptionRequestResponse">
+    <wsdl:part name="parameters" element="ns1:ConsumptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCityOfprovince">
+    <wsdl:part name="parameters" element="tns:getCityOfprovince" />
+  </wsdl:message>
+  <wsdl:message name="getUserIsLine">
+    <wsdl:part name="parameters" element="tns:getUserIsLine" />
+  </wsdl:message>
+  <wsdl:message name="getGoogleMapResponse">
+    <wsdl:part name="parameters" element="ns1:GoogleMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicPhotoRequestResponse">
+    <wsdl:part name="parameters" element="ns1:TopicCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecordListRequest">
+    <wsdl:part name="parameters" element="tns:getRecordListRequest" />
+  </wsdl:message>
+  <wsdl:message name="getHpVersion">
+    <wsdl:part name="parameters" element="tns:getHpVersion" />
+  </wsdl:message>
+  <wsdl:message name="getLocalDataTime">
+    <wsdl:part name="parameters" element="tns:getLocalDataTime" />
+  </wsdl:message>
+  <wsdl:message name="getCityCinema">
+    <wsdl:part name="parameters" element="tns:getCityCinema" />
+  </wsdl:message>
+  <wsdl:message name="getNewActivity">
+    <wsdl:part name="parameters" element="tns:getNewActivity" />
+  </wsdl:message>
+  <wsdl:message name="getTopicWillRequestResponse">
+    <wsdl:part name="parameters" element="ns1:TopicListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMemberInterests">
+    <wsdl:part name="parameters" element="tns:getMemberInterests" />
+  </wsdl:message>
+  <wsdl:message name="getRegisterRequestResponse">
+    <wsdl:part name="parameters" element="ns1:UserLoginResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicWillRequest">
+    <wsdl:part name="parameters" element="tns:getTopicWillRequest" />
+  </wsdl:message>
+  <wsdl:message name="returnSuggestionResponse">
+    <wsdl:part name="parameters" element="ns1:ReturnSuggestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlancinemaViiResponse">
+    <wsdl:part name="parameters" element="tns:getPlancinemaViiResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCouponInfo">
+    <wsdl:part name="parameters" element="tns:addCouponInfo" />
+  </wsdl:message>
+  <wsdl:message name="getCinemaPlanDirResponse">
+    <wsdl:part name="parameters" element="ns1:CinemaPlanDirResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCinemaPlanDir">
+    <wsdl:part name="parameters" element="tns:getCinemaPlanDir" />
+  </wsdl:message>
+  <wsdl:message name="getHelpInfoResponse">
+    <wsdl:part name="parameters" element="ns1:HelpInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserInfoResponse">
+    <wsdl:part name="parameters" element="ns1:UpdatePassResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHpVersionResponse">
+    <wsdl:part name="parameters" element="ns1:HpVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLastPixnumber">
+    <wsdl:part name="parameters" element="tns:getLastPixnumber" />
+  </wsdl:message>
+  <wsdl:message name="addCouponInfoResponse">
+    <wsdl:part name="parameters" element="ns1:addCouponInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicPhotoListRequest">
+    <wsdl:part name="parameters" element="tns:getTopicPhotoListRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPlancinemaVii">
+    <wsdl:part name="parameters" element="tns:getPlancinemaVii" />
+  </wsdl:message>
+  <wsdl:message name="getSynchronousInfo">
+    <wsdl:part name="parameters" element="tns:getSynchronousInfo" />
+  </wsdl:message>
+  <wsdl:message name="getMovieDetails">
+    <wsdl:part name="parameters" element="tns:getMovieDetails" />
+  </wsdl:message>
+  <wsdl:message name="getUserMoneyResponse">
+    <wsdl:part name="parameters" element="ns1:UserMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUseCouponInfoResponse">
+    <wsdl:part name="parameters" element="ns1:useCouponInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPerformInfoResponse">
+    <wsdl:part name="parameters" element="ns1:PerformInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRecordListRequestResponse">
+    <wsdl:part name="parameters" element="ns1:RecordShowResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVideoList">
+    <wsdl:part name="parameters" element="tns:getVideoList" />
+  </wsdl:message>
+  <wsdl:message name="getSiteMapResponse">
+    <wsdl:part name="parameters" element="ns1:SiteMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlanDirResponse">
+    <wsdl:part name="parameters" element="ns1:PlanDirResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicDatailRequest">
+    <wsdl:part name="parameters" element="tns:getTopicDatailRequest" />
+  </wsdl:message>
+  <wsdl:message name="getSynchronousInfoResponse">
+    <wsdl:part name="parameters" element="ns1:SynchronousResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopicPhotoRequest">
+    <wsdl:part name="parameters" element="tns:getTopicPhotoRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateUserPhone">
+    <wsdl:part name="parameters" element="tns:updateUserPhone" />
+  </wsdl:message>
+  <wsdl:message name="getCityCinemaResponse">
+    <wsdl:part name="parameters" element="ns1:CityCinemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMemberInterestsResponse">
+    <wsdl:part name="parameters" element="ns1:MemberInterestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCouponInfoResponse">
+    <wsdl:part name="parameters" element="ns1:CouponInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserIntegral">
+    <wsdl:part name="parameters" element="tns:getUserIntegral" />
+  </wsdl:message>
+  <wsdl:message name="getUserLoginResultResponse">
+    <wsdl:part name="parameters" element="ns1:UserLoginResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="getConsumptionDatialRequest">
+    <wsdl:part name="parameters" element="tns:getConsumptionDatialRequest" />
+  </wsdl:message>
+  <wsdl:portType name="HipiaoSrvc">
+    <wsdl:operation name="getTopicDatailRequest">
+      <wsdl:input name="getTopicDatailRequest" message="tns:getTopicDatailRequest" />
+      <wsdl:output name="getTopicDatailRequestResponse" message="tns:getTopicDatailRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPerformInfo">
+      <wsdl:input name="getPerformInfo" message="tns:getPerformInfo" />
+      <wsdl:output name="getPerformInfoResponse" message="tns:getPerformInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecordListRequest">
+      <wsdl:input name="getRecordListRequest" message="tns:getRecordListRequest" />
+      <wsdl:output name="getRecordListRequestResponse" message="tns:getRecordListRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSynchronousInfo">
+      <wsdl:input name="getSynchronousInfo" message="tns:getSynchronousInfo" />
+      <wsdl:output name="getSynchronousInfoResponse" message="tns:getSynchronousInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getConsumptionRequest">
+      <wsdl:input name="getConsumptionRequest" message="tns:getConsumptionRequest" />
+      <wsdl:output name="getConsumptionRequestResponse" message="tns:getConsumptionRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVideoList">
+      <wsdl:input name="getVideoList" message="tns:getVideoList" />
+      <wsdl:output name="getVideoListResponse" message="tns:getVideoListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMovieDetails">
+      <wsdl:input name="getMovieDetails" message="tns:getMovieDetails" />
+      <wsdl:output name="getMovieDetailsResponse" message="tns:getMovieDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getGoogleMap">
+      <wsdl:input name="getGoogleMap" message="tns:getGoogleMap" />
+      <wsdl:output name="getGoogleMapResponse" message="tns:getGoogleMapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserInfo">
+      <wsdl:input name="updateUserInfo" message="tns:updateUserInfo" />
+      <wsdl:output name="updateUserInfoResponse" message="tns:updateUserInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCityCinema">
+      <wsdl:input name="getCityCinema" message="tns:getCityCinema" />
+      <wsdl:output name="getCityCinemaResponse" message="tns:getCityCinemaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecordDatialRequest">
+      <wsdl:input name="getRecordDatialRequest" message="tns:getRecordDatialRequest" />
+      <wsdl:output name="getRecordDatialRequestResponse" message="tns:getRecordDatialRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCinemainfo">
+      <wsdl:input name="getCinemainfo" message="tns:getCinemainfo" />
+      <wsdl:output name="getCinemainfoResponse" message="tns:getCinemainfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserMoney">
+      <wsdl:input name="getUserMoney" message="tns:getUserMoney" />
+      <wsdl:output name="getUserMoneyResponse" message="tns:getUserMoneyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInterests">
+      <wsdl:input name="getMemberInterests" message="tns:getMemberInterests" />
+      <wsdl:output name="getMemberInterestsResponse" message="tns:getMemberInterestsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlan">
+      <wsdl:input name="getPlan" message="tns:getPlan" />
+      <wsdl:output name="getPlanResponse" message="tns:getPlanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getNearCinema">
+      <wsdl:input name="getNearCinema" message="tns:getNearCinema" />
+      <wsdl:output name="getNearCinemaResponse" message="tns:getNearCinemaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getHpVersion">
+      <wsdl:input name="getHpVersion" message="tns:getHpVersion" />
+      <wsdl:output name="getHpVersionResponse" message="tns:getHpVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getConsumptionDatialRequest">
+      <wsdl:input name="getConsumptionDatialRequest" message="tns:getConsumptionDatialRequest" />
+      <wsdl:output name="getConsumptionDatialRequestResponse" message="tns:getConsumptionDatialRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPhone">
+      <wsdl:input name="updateUserPhone" message="tns:updateUserPhone" />
+      <wsdl:output name="updateUserPhoneResponse" message="tns:updateUserPhoneResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSiteMap">
+      <wsdl:input name="getSiteMap" message="tns:getSiteMap" />
+      <wsdl:output name="getSiteMapResponse" message="tns:getSiteMapResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeductionInfo">
+      <wsdl:input name="getDeductionInfo" message="tns:getDeductionInfo" />
+      <wsdl:output name="getDeductionInfoResponse" message="tns:getDeductionInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getLastPixnumber">
+      <wsdl:input name="getLastPixnumber" message="tns:getLastPixnumber" />
+      <wsdl:output name="getLastPixnumberResponse" message="tns:getLastPixnumberResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCouponInfo">
+      <wsdl:input name="getCouponInfo" message="tns:getCouponInfo" />
+      <wsdl:output name="getCouponInfoResponse" message="tns:getCouponInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdvertisement">
+      <wsdl:input name="getAdvertisement" message="tns:getAdvertisement" />
+      <wsdl:output name="getAdvertisementResponse" message="tns:getAdvertisementResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlanDir">
+      <wsdl:input name="getPlanDir" message="tns:getPlanDir" />
+      <wsdl:output name="getPlanDirResponse" message="tns:getPlanDirResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserIntegral">
+      <wsdl:input name="getUserIntegral" message="tns:getUserIntegral" />
+      <wsdl:output name="getUserIntegralResponse" message="tns:getUserIntegralResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUseCouponInfo">
+      <wsdl:input name="getUseCouponInfo" message="tns:getUseCouponInfo" />
+      <wsdl:output name="getUseCouponInfoResponse" message="tns:getUseCouponInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopicPhotoListRequest">
+      <wsdl:input name="getTopicPhotoListRequest" message="tns:getTopicPhotoListRequest" />
+      <wsdl:output name="getTopicPhotoListRequestResponse" message="tns:getTopicPhotoListRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlanVii">
+      <wsdl:input name="getPlanVii" message="tns:getPlanVii" />
+      <wsdl:output name="getPlanViiResponse" message="tns:getPlanViiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserLoginResult">
+      <wsdl:input name="getUserLoginResult" message="tns:getUserLoginResult" />
+      <wsdl:output name="getUserLoginResultResponse" message="tns:getUserLoginResultResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlancinemaVii">
+      <wsdl:input name="getPlancinemaVii" message="tns:getPlancinemaVii" />
+      <wsdl:output name="getPlancinemaViiResponse" message="tns:getPlancinemaViiResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCinemaPlanDir">
+      <wsdl:input name="getCinemaPlanDir" message="tns:getCinemaPlanDir" />
+      <wsdl:output name="getCinemaPlanDirResponse" message="tns:getCinemaPlanDirResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopicWillRequest">
+      <wsdl:input name="getTopicWillRequest" message="tns:getTopicWillRequest" />
+      <wsdl:output name="getTopicWillRequestResponse" message="tns:getTopicWillRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlancinema">
+      <wsdl:input name="getPlancinema" message="tns:getPlancinema" />
+      <wsdl:output name="getPlancinemaResponse" message="tns:getPlancinemaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getHelpInfo">
+      <wsdl:input name="getHelpInfo" message="tns:getHelpInfo" />
+      <wsdl:output name="getHelpInfoResponse" message="tns:getHelpInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="returnSuggestion">
+      <wsdl:input name="returnSuggestion" message="tns:returnSuggestion" />
+      <wsdl:output name="returnSuggestionResponse" message="tns:returnSuggestionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCityOfprovince">
+      <wsdl:input name="getCityOfprovince" message="tns:getCityOfprovince" />
+      <wsdl:output name="getCityOfprovinceResponse" message="tns:getCityOfprovinceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserIsLine">
+      <wsdl:input name="getUserIsLine" message="tns:getUserIsLine" />
+      <wsdl:output name="getUserIsLineResponse" message="tns:getUserIsLineResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocalDataTime">
+      <wsdl:input name="getLocalDataTime" message="tns:getLocalDataTime" />
+      <wsdl:output name="getLocalDataTimeResponse" message="tns:getLocalDataTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopicPhotoRequest">
+      <wsdl:input name="getTopicPhotoRequest" message="tns:getTopicPhotoRequest" />
+      <wsdl:output name="getTopicPhotoRequestResponse" message="tns:getTopicPhotoRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addCouponInfo">
+      <wsdl:input name="addCouponInfo" message="tns:addCouponInfo" />
+      <wsdl:output name="addCouponInfoResponse" message="tns:addCouponInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRegisterRequest">
+      <wsdl:input name="getRegisterRequest" message="tns:getRegisterRequest" />
+      <wsdl:output name="getRegisterRequestResponse" message="tns:getRegisterRequestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getNewActivity">
+      <wsdl:input name="getNewActivity" message="tns:getNewActivity" />
+      <wsdl:output name="getNewActivityResponse" message="tns:getNewActivityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getHotMovieinfo">
+      <wsdl:input name="getHotMovieinfo" message="tns:getHotMovieinfo" />
+      <wsdl:output name="getHotMovieinfoResponse" message="tns:getHotMovieinfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAboutUs">
+      <wsdl:input name="getAboutUs" message="tns:getAboutUs" />
+      <wsdl:output name="getAboutUsResponse" message="tns:getAboutUsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HipiaoServiceSoapBinding" type="tns:HipiaoSrvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPerformInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPerformInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPerformInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopicDatailRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getTopicDatailRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTopicDatailRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecordListRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getRecordListRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRecordListRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConsumptionRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getConsumptionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getConsumptionRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSynchronousInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getSynchronousInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSynchronousInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVideoList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getVideoList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getVideoListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovieDetails">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMovieDetails">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMovieDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoogleMap">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getGoogleMap">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getGoogleMapResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityCinema">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCityCinema">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCityCinemaResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateUserInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateUserInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecordDatialRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getRecordDatialRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRecordDatialRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCinemainfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCinemainfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCinemainfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMemberInterests">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMemberInterests">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMemberInterestsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserMoney">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUserMoney">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserMoneyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlan">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPlan">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPlanResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNearCinema">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getNearCinema">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNearCinemaResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHpVersion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getHpVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHpVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConsumptionDatialRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getConsumptionDatialRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getConsumptionDatialRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserPhone">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateUserPhone">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateUserPhoneResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeductionInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getDeductionInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDeductionInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSiteMap">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getSiteMap">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSiteMapResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastPixnumber">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLastPixnumber">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLastPixnumberResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCouponInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCouponInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCouponInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdvertisement">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAdvertisement">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAdvertisementResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlanDir">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPlanDir">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPlanDirResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserIntegral">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUserIntegral">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserIntegralResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopicPhotoListRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getTopicPhotoListRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTopicPhotoListRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUseCouponInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUseCouponInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUseCouponInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlanVii">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPlanVii">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPlanViiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserLoginResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUserLoginResult">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserLoginResultResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlancinemaVii">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPlancinemaVii">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPlancinemaViiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCinemaPlanDir">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCinemaPlanDir">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCinemaPlanDirResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHelpInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getHelpInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHelpInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlancinema">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPlancinema">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPlancinemaResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopicWillRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getTopicWillRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTopicWillRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCityOfprovince">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCityOfprovince">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCityOfprovinceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnSuggestion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="returnSuggestion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="returnSuggestionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserIsLine">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getUserIsLine">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUserIsLineResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocalDataTime">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLocalDataTime">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLocalDataTimeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCouponInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addCouponInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addCouponInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopicPhotoRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getTopicPhotoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTopicPhotoRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRegisterRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getRegisterRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRegisterRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotMovieinfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getHotMovieinfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHotMovieinfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNewActivity">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getNewActivity">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNewActivityResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAboutUs">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAboutUs">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAboutUsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HipiaoService">
+    <wsdl:port name="HipiaoPort" binding="tns:HipiaoServiceSoapBinding">
+      <soap:address location="http://iphone.51cp.com:8080/ws/hpcinema" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
