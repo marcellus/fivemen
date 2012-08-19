@@ -156,6 +156,12 @@
       <DependentUpon>CustomLogSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemAllConfig.cs" />
+    <Compile Include="Terminal\CommonControl\MaintenancePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Terminal\CommonControl\MaintenancePanel.Designer.cs">
+      <DependentUpon>MaintenancePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\LockSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>CustomLogSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Terminal\CommonControl\MaintenancePanel.resx">
+      <DependentUpon>MaintenancePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\LockSystemForm.resx">
       <DependentUpon>LockSystemForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -488,6 +498,9 @@
     <None Include="Resources\Arrow-Right_16_16.png" />
     <None Include="Resources\Arrow-Left_16_16.png" />
     <None Include="Resources\Arrow-Down_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Terminal\CommonForm\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
