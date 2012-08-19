@@ -84,6 +84,7 @@ namespace FT.Device.IDCard
             }
             if (result == 0 && completeDelegate != null)
             {
+                reader.UserIdCard.IDC = reader.UserIdCard.IDC.ToUpper();
                 completeDelegate(reader.UserIdCard.Clone());
                 //System.Threading.Thread.Sleep(80);
             }
