@@ -4,16 +4,16 @@
 //     运行库版本:2.0.50727.1891
 //
 //     对此文件的更改可能会导致不正确的行为，并且如果
-//     重新生成代码，这些更改将丢失。
+//     重新生成代码，这些更改将会丢失。
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HiPiaoTerminal.Properties
-{
-
-
+namespace HiPiaoTerminal.Properties {
+    using System;
+    
+    
     /// <summary>
-    ///   一个强类型的资源类，用于查找本地化的字符串等。
+    ///   强类型资源类，用于查找本地化字符串等。
     /// </summary>
     // 此类是由 StronglyTypedResourceBuilder
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
@@ -22,49 +22,1126 @@ namespace HiPiaoTerminal.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "2.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
-        ///   返回此类使用的、缓存的 ResourceManager 实例。
+        ///   返回此类使用的缓存 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HiPiaoTerminal.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
-        ///   为所有资源查找重写当前线程的 CurrentUICulture 属性，
-        ///   方法是使用此强类型资源类。
+        ///   为使用此强类型资源类的所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1 {
+            get {
+                object obj = ResourceManager.GetObject("_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_btn_Active {
+            get {
+                object obj = ResourceManager.GetObject("Account_btn_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_btn_Not_Active {
+            get {
+                object obj = ResourceManager.GetObject("Account_btn_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Cancel {
+            get {
+                object obj = ResourceManager.GetObject("Account_Cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_DateHeaderBack {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_DateHeaderBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_DateHeaderHint {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_DateHeaderHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_DetailBack {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_DetailBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_DetailHeaderHint {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_DetailHeaderHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_TotalBack {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_TotalBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FeeDetail_TotalHint {
+            get {
+                object obj = ResourceManager.GetObject("Account_FeeDetail_TotalHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FlashMemeberCard {
+            get {
+                object obj = ResourceManager.GetObject("Account_FlashMemeberCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_FooterBack {
+            get {
+                object obj = ResourceManager.GetObject("Account_FooterBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_GoBuyTicket {
+            get {
+                object obj = ResourceManager.GetObject("Account_GoBuyTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_HomePage {
+            get {
+                object obj = ResourceManager.GetObject("Account_HomePage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Modify {
+            get {
+                object obj = ResourceManager.GetObject("Account_Modify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_NextPage_Active {
+            get {
+                object obj = ResourceManager.GetObject("Account_NextPage_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_NextPage_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("Account_NextPage_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Page_Active {
+            get {
+                object obj = ResourceManager.GetObject("Account_Page_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Page_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("Account_Page_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Please_Use_Keyboard {
+            get {
+                object obj = ResourceManager.GetObject("Account_Please_Use_Keyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_PrePage_Active {
+            get {
+                object obj = ResourceManager.GetObject("Account_PrePage_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_PrePage_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("Account_PrePage_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_QuitAccount {
+            get {
+                object obj = ResourceManager.GetObject("Account_QuitAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Read_Card_Error {
+            get {
+                object obj = ResourceManager.GetObject("Account_Read_Card_Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_ReFlash_Card {
+            get {
+                object obj = ResourceManager.GetObject("Account_ReFlash_Card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_SiteHint {
+            get {
+                object obj = ResourceManager.GetObject("Account_SiteHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_Tab_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("Account_Tab_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_TabActive {
+            get {
+                object obj = ResourceManager.GetObject("Account_TabActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_UidOrPwd_Error {
+            get {
+                object obj = ResourceManager.GetObject("Account_UidOrPwd_Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Account_UserLogin_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Account_UserLogin_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Accout_UserLogin_Home {
+            get {
+                object obj = ResourceManager.GetObject("Accout_UserLogin_Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Back {
+            get {
+                object obj = ResourceManager.GetObject("Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Back_HintWithLine {
+            get {
+                object obj = ResourceManager.GetObject("Back_HintWithLine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnCancel {
+            get {
+                object obj = ResourceManager.GetObject("btnCancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BtnConfirm {
+            get {
+                object obj = ResourceManager.GetObject("BtnConfirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnSure {
+            get {
+                object obj = ResourceManager.GetObject("btnSure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Btn_Active {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Btn_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Btn_Not_Active {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Btn_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Check_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Check_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_CheckInfo_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_CheckInfo_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_GetTicket {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_GetTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_ReturnHome {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_ReturnHome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_RoomPlan {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_RoomPlan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Seat_Select_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Seat_Select_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Select_Day_Today {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Select_Day_Today", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Select_Day_Two {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Select_Day_Two", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Select_SiteHint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Select_SiteHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_SelectedSeat_Panel {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_SelectedSeat_Panel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Sell_Flag {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Sell_Flag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Sell_Flag_White {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Sell_Flag_White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Finish {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Home {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Login {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Pay {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Pay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Select_Movie {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Select_Movie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_Select_Position {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_Select_Position", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Site_SelectMovie {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Site_SelectMovie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Ticket_Pay {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Ticket_Pay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_Ticket_TotalNum {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_Ticket_TotalNum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Cancel_Save {
+            get {
+                object obj = ResourceManager.GetObject("Cancel_Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Comp_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Comp_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Down {
+            get {
+                object obj = ResourceManager.GetObject("Down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Error {
+            get {
+                object obj = ResourceManager.GetObject("Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Go {
+            get {
+                object obj = ResourceManager.GetObject("Go", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Gray_Center {
+            get {
+                object obj = ResourceManager.GetObject("Gray_Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Gray_Left {
+            get {
+                object obj = ResourceManager.GetObject("Gray_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Gray_Right {
+            get {
+                object obj = ResourceManager.GetObject("Gray_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Green_Center {
+            get {
+                object obj = ResourceManager.GetObject("Green_Center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Green_Left {
+            get {
+                object obj = ResourceManager.GetObject("Green_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Green_Right {
+            get {
+                object obj = ResourceManager.GetObject("Green_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keep_Save {
+            get {
+                object obj = ResourceManager.GetObject("Keep_Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Login_Pwd_Back {
+            get {
+                object obj = ResourceManager.GetObject("Login_Pwd_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_HiPiaoTaste {
+            get {
+                object obj = ResourceManager.GetObject("Main_HiPiaoTaste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_QuickBuyTicket {
+            get {
+                object obj = ResourceManager.GetObject("Main_QuickBuyTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_Quit {
+            get {
+                object obj = ResourceManager.GetObject("Main_Quit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_TicketPrint {
+            get {
+                object obj = ResourceManager.GetObject("Main_TicketPrint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_UserAccount {
+            get {
+                object obj = ResourceManager.GetObject("Main_UserAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Main_UserRegister {
+            get {
+                object obj = ResourceManager.GetObject("Main_UserRegister", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_Advices {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_Advices", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_AutoCloseComputerSeting {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_AutoCloseComputerSeting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_ChangePwd {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_ChangePwd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_CloseComputer {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_CloseComputer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_HelpDocument {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_HelpDocument", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_Question_Report {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_Question_Report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_QuitApplication {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_QuitApplication", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_ServerIpConfig {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_ServerIpConfig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Maintain_Ticket_Reprinter {
+            get {
+                object obj = ResourceManager.GetObject("Maintain_Ticket_Reprinter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_CloseFunction_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_CloseFunction_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_CloseTime_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_CloseTime_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_DoubleDot {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_DoubleDot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_FunctionBack {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_FunctionBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_OpenFunction_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_OpenFunction_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_OpenTime_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_OpenTime_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoClose_Test {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoClose_Test", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_AutoCloseComputer {
+            get {
+                object obj = ResourceManager.GetObject("Manager_AutoCloseComputer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Home_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Home_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Login {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Login_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Login_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Login_Pwd {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Login_Pwd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_ModifyPwd {
+            get {
+                object obj = ResourceManager.GetObject("Manager_ModifyPwd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_ModifyPwd_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_ModifyPwd_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_ModifyPwd_NewPwd_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_ModifyPwd_NewPwd_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_ModifyPwd_OldPwd_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_ModifyPwd_OldPwd_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_ModifyPwd_RepeatPwd_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_ModifyPwd_RepeatPwd_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Return_Maintain {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Return_Maintain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_InterfaceBack {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_InterfaceBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_InterfaceUrlHint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_InterfaceUrlHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_IpBack {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_IpBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_MouseHideHint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_MouseHideHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_MouseShowHint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_MouseShowHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_ServerIpDot {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_ServerIpDot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_ServerIpHint {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_ServerIpHint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_SystemSetting_ShowMouse {
+            get {
+                object obj = ResourceManager.GetObject("Manager_SystemSetting_ShowMouse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Manager_Test {
+            get {
+                object obj = ResourceManager.GetObject("Manager_Test", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBox_QuitAccountConfirm {
+            get {
+                object obj = ResourceManager.GetObject("MessageBox_QuitAccountConfirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBox_UIdOrPwdError {
+            get {
+                object obj = ResourceManager.GetObject("MessageBox_UIdOrPwdError", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Modify {
+            get {
+                object obj = ResourceManager.GetObject("Modify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap NumKey_Active {
+            get {
+                object obj = ResourceManager.GetObject("NumKey_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap NumKey_Not_Active {
+            get {
+                object obj = ResourceManager.GetObject("NumKey_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Home {
+            get {
+                object obj = ResourceManager.GetObject("Print_Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Input_Error {
+            get {
+                object obj = ResourceManager.GetObject("Print_Input_Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Return {
+            get {
+                object obj = ResourceManager.GetObject("Print_Return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Site_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Print_Site_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Wait_Print {
+            get {
+                object obj = ResourceManager.GetObject("Print_Wait_Print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Wait_Success {
+            get {
+                object obj = ResourceManager.GetObject("Print_Wait_Success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Wait_Valid {
+            get {
+                object obj = ResourceManager.GetObject("Print_Wait_Valid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap QuickBuyTicket {
+            get {
+                object obj = ResourceManager.GetObject("QuickBuyTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap QuickRegister {
+            get {
+                object obj = ResourceManager.GetObject("QuickRegister", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Refresh {
+            get {
+                object obj = ResourceManager.GetObject("Refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_Agree_NotOk {
+            get {
+                object obj = ResourceManager.GetObject("Register_Agree_NotOk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_Agree_Ok {
+            get {
+                object obj = ResourceManager.GetObject("Register_Agree_Ok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_Protocol_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Register_Protocol_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_QueryAccount {
+            get {
+                object obj = ResourceManager.GetObject("Register_QueryAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_QuickRegister_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Register_QuickRegister_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_QuitAccount {
+            get {
+                object obj = ResourceManager.GetObject("Register_QuitAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_ReturnBack {
+            get {
+                object obj = ResourceManager.GetObject("Register_ReturnBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_ReturnHome {
+            get {
+                object obj = ResourceManager.GetObject("Register_ReturnHome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_ReturnHome1 {
+            get {
+                object obj = ResourceManager.GetObject("Register_ReturnHome1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_Success {
+            get {
+                object obj = ResourceManager.GetObject("Register_Success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_SuccessPanel {
+            get {
+                object obj = ResourceManager.GetObject("Register_SuccessPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Return_MainPanel {
+            get {
+                object obj = ResourceManager.GetObject("Return_MainPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ReturnFirstPanel {
+            get {
+                object obj = ResourceManager.GetObject("ReturnFirstPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ReturnHome {
+            get {
+                object obj = ResourceManager.GetObject("ReturnHome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Right {
+            get {
+                object obj = ResourceManager.GetObject("Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Rigister_Mobile_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Rigister_Mobile_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Rigister_Password_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Rigister_Password_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Rigister_PasswordRepeat_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Rigister_PasswordRepeat_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Rigister_UserName_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Rigister_UserName_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap SameBackgroud {
+            get {
+                object obj = ResourceManager.GetObject("SameBackgroud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TimeBack {
+            get {
+                object obj = ResourceManager.GetObject("TimeBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UnOperationTimes_Back {
+            get {
+                object obj = ResourceManager.GetObject("UnOperationTimes_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Up {
+            get {
+                object obj = ResourceManager.GetObject("Up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

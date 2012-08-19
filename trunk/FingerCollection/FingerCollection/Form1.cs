@@ -11,6 +11,7 @@ using FingerCollection.Config;
 using System.IO;
 using System.Diagnostics;
 using FT.Commons.Print;
+using FT.DAL;
 
 //this.localFingerRecordSearch2 = new LocalFingerRecordSearch(this.txtIdCard,this.txtName,this.txtLsh,this.cbStudentType,this.cbLearnCar);
 
@@ -33,8 +34,8 @@ namespace FingerCollection
 
         private void ClearInput()
         {
-            this.txtName.Text = string.Empty;
-            //this.txtIdCard.Text = this.txtName.Text = string.Empty;
+            //this.txtName.Text = string.Empty;
+            this.txtIdCard.Text = this.txtName.Text = string.Empty;
         }
 
         private void SetConfig()
@@ -243,6 +244,7 @@ namespace FingerCollection
             FingerDbOperator.BindDict(this.cbLearnCar, "准驾车型");
             FingerDbOperator.BindDict(this.cbStudentType, "学员类型");
             this.cbLearnCar.SelectedValue = "C1";
+            this.tabControl1.TabPages.RemoveAt(1);
             //this.tabControl1.TabPages[1].
         }
 
@@ -364,6 +366,54 @@ namespace FingerCollection
                     CommonPrinter commonPrinter = new CommonPrinter(printer);
                     //commonPrinter.Preview();
                     commonPrinter.Print();
+                }
+            }
+
+            private int counter=0;
+
+            private void btnClearNoLsh_Click(object sender, EventArgs e)
+            {
+                IDataAccess access = DataAccessFactory.GetDataAccess();
+                DataTable dt = access.SelectDataTable("select c_idcard,c_name from table_local_finger_record where c_lsh=''","temp");
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBoxHelper.Show("没有需要清理的指纹库记录！");
+                    return;
+                }
+                if (MessageBoxHelper.Confirm("确定清理已上传的指纹信息吗？\r\n清理前会自动备份现有指纹库到bak路径下\r\n清理操作中不要做任何操作\r\n清理完毕请重启计算机！"))
+                {
+                    this.lbClearCounter.Text = "开始清理已录入流水号的指纹记录："+dt.Rows.Count.ToString()+"条";
+                    string pathOrg = Application.StartupPath + "\\db.mdb";
+                    string pathTemp = Application.StartupPath + "\\db-temp.mdb";
+
+                    string pathDst = Application.StartupPath + "\\db\\db.mdb";
+                    FileHelper.CheckDirExistsAndCreate(Application.StartupPath + "\\bak");
+                    string pathbakDst = Application.StartupPath + "\\bak\\清理已上传指纹库前备份" + System.DateTime.Now.ToString("yyyyMMddHHmmss") + "-bak.mdb";
+
+                    System.IO.File.Copy(pathDst, pathbakDst, true);
+                    System.IO.File.Copy(pathOrg, pathTemp, true);
+
+                    string sql1 = @"INSERT INTO OPENROWSET('Microsoft.Jet.OLEDB.4.0',
+'{0}'; 'admin'; '', table_local_finger_record) SELECT * FROM table_local_finger_record where c_lsh =''
+";
+                    string sql2 = @"INSERT INTO OPENROWSET('Microsoft.Jet.OLEDB.4.0',
+'{0}'; 'admin'; '', USER_INFO_UPLOAD) SELECT * FROM USER_INFO_UPLOAD where USER_ID not in(select distinct c_idcard from table_local_finger_record where c_lsh='')
+";
+
+                    string sql3 = @"INSERT INTO OPENROWSET('Microsoft.Jet.OLEDB.4.0',
+'{0}'; 'admin'; '', ENROLL_TEMP_UPLOAD) SELECT * FROM ENROLL_TEMP_UPLOAD where USER_ID not in(select distinct c_idcard from table_local_finger_record where c_lsh='')
+";
+                    string[] sqls={string.Format(sql1.Replace("\r\n",""), pathTemp),string.Format(sql2.Replace("\r\n",""), pathTemp),string.Format(sql3.Replace("\r\n",""), pathTemp)};
+                    access.ExecuteTransaction(sqls);
+                  //  access.ExecuteSql(string.Format(sql1.Replace("\r\n",""), pathTemp));
+                 //   access.ExecuteSql(string.Format(sql2.Replace("\r\n", ""), pathTemp));
+                  //  access.ExecuteSql(string.Format(sql3.Replace("\r\n", ""), pathTemp));
+                    this.lbClearCounter.Text += "清理完毕";
+                    string hint = "";
+                    System.IO.File.Copy(pathTemp, pathDst, true);
+                    MessageBoxHelper.Show("已清理指纹库完毕，请重启计算机再使用指纹采集！");
+
+                    
                 }
             } 
         

@@ -25,7 +25,7 @@ namespace AutoUpdate
 		private System.Windows.Forms.ColumnHeader chProgress;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.ListView lvUpdateList;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lbFileListHint;
 		private System.Windows.Forms.Button btnNext;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Label lbState;
@@ -52,7 +52,7 @@ namespace AutoUpdate
 			// Windows 窗体设计器支持所必需的
 			//
 			InitializeComponent();
-
+            CheckForIllegalCrossThreadCalls = false;
 			//
 			// TODO: 在 InitializeComponent 调用后添加任何构造函数代码
 			//
@@ -83,7 +83,7 @@ namespace AutoUpdate
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpdate));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbFileListHint = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvUpdateList = new System.Windows.Forms.ListView();
             this.chFileName = new System.Windows.Forms.ColumnHeader();
@@ -101,8 +101,8 @@ namespace AutoUpdate
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,7 +119,7 @@ namespace AutoUpdate
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbFileListHint);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.lvUpdateList);
             this.panel1.Controls.Add(this.pbDownFile);
@@ -130,13 +130,14 @@ namespace AutoUpdate
             this.panel1.Size = new System.Drawing.Size(280, 240);
             this.panel1.TabIndex = 2;
             // 
-            // label1
+            // lbFileListHint
             // 
-            this.label1.Location = new System.Drawing.Point(16, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "以下为更新文件列表";
+            this.lbFileListHint.AutoSize = true;
+            this.lbFileListHint.Location = new System.Drawing.Point(16, 16);
+            this.lbFileListHint.Name = "lbFileListHint";
+            this.lbFileListHint.Size = new System.Drawing.Size(113, 12);
+            this.lbFileListHint.TabIndex = 9;
+            this.lbFileListHint.Text = "以下为更新文件列表";
             // 
             // groupBox2
             // 
@@ -206,6 +207,7 @@ namespace AutoUpdate
             this.btnNext.Size = new System.Drawing.Size(80, 24);
             this.btnNext.TabIndex = 3;
             this.btnNext.Text = "下一步(&N)>";
+            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnCancel
@@ -215,6 +217,7 @@ namespace AutoUpdate
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消(&C)";
+            this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnFinish
@@ -224,6 +227,7 @@ namespace AutoUpdate
             this.btnFinish.Size = new System.Drawing.Size(80, 24);
             this.btnFinish.TabIndex = 3;
             this.btnFinish.Text = "完成(&F)";
+            this.btnFinish.Visible = false;
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // groupBox4
@@ -283,6 +287,13 @@ namespace AutoUpdate
             this.panel2.Size = new System.Drawing.Size(112, 24);
             this.panel2.TabIndex = 5;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 23);
+            this.linkLabel1.TabIndex = 14;
+            // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -291,13 +302,6 @@ namespace AutoUpdate
             this.label5.Size = new System.Drawing.Size(136, 24);
             this.label5.TabIndex = 9;
             this.label5.Text = "感谢使用在线升级";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(100, 23);
-            this.linkLabel1.TabIndex = 14;
             // 
             // FrmUpdate
             // 
@@ -320,6 +324,7 @@ namespace AutoUpdate
             this.Load += new System.EventHandler(this.FrmUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -348,38 +353,47 @@ namespace AutoUpdate
 			
 			panel2.Visible = false;
 			btnFinish.Visible = false;
-
+            
 			string localXmlFile = Application.StartupPath + "\\UpdateList.xml";
 			string serverXmlFile = string.Empty;
 
-			
+            
 			try
 			{
 				//从本地读取更新配置文件信息
-				updaterXmlFiles = new XmlFiles(localXmlFile );
+                TempLog.Debug("准备加载启动路径下的UpdateList.xml更新文件！");
+                updaterXmlFiles = new XmlFiles(localXmlFile);
+                mainAppExe = updaterXmlFiles.GetNodeValue("//EntryPoint");
+                TempLog.Debug("加载启动路径下的UpdateList.xml更新文件并读取更新完需执行的exe文件名完毕！");
+				
+                
 			}
-			catch
+			catch(Exception ex)
 			{
-				MessageBox.Show("配置文件出错!","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
-				this.Close();
+                TempLog.Info("加载UpdateList.xml出现异常："+ex);
+				//MessageBox.Show("配置文件出错!","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                this.StartMainApplication();
 				return;
 			}
 			//获取服务器地址
 			updateUrl = updaterXmlFiles.GetNodeValue("//Url");
 
 			AppUpdater appUpdater = new AppUpdater();
-			appUpdater.UpdaterUrl = updateUrl + "/UpdateList.xml";
+			appUpdater.UpdaterUrl = updateUrl + "UpdateList.xml";
 
 			//与服务器连接,下载更新配置文件
 			try
 			{
+                TempLog.Debug("准备下载更新配置文件列表UpdateList.xml");
 				tempUpdatePath = Environment.GetEnvironmentVariable("Temp") + "\\"+ "_"+ updaterXmlFiles.FindNode("//Application").Attributes["applicationId"].Value+"_"+"y"+"_"+"x"+"_"+"m"+"_"+"\\";
 				appUpdater.DownAutoUpdateFile(tempUpdatePath);
+                TempLog.Debug("完成下载更新配置文件列表UpdateList.xml");
 			}
-			catch
+			catch(Exception ex)
 			{
-				MessageBox.Show("与服务器连接失败,操作超时!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-				this.Close();
+                TempLog.Info("下载更新配置文件列表UpdateList.xml出现异常：" + ex);
+				//MessageBox.Show("与服务器连接失败,操作超时!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.StartMainApplication();
 				return;
 
 			}
@@ -402,6 +416,8 @@ namespace AutoUpdate
 					lvUpdateList.Items.Add(new ListViewItem(fileArray));
 				}
 			}
+            this.lbFileListHint.Text = string.Format("共{0}个文件待更新,准备更新中{1}",lvUpdateList.Items.Count.ToString(),string.Empty);
+            btnNext_Click(null, null);
 //			else
 //				btnNext.Enabled = false;
         }
@@ -425,10 +441,13 @@ namespace AutoUpdate
 			}
 			else
 			{
-				MessageBox.Show("没有可用的更新!","自动更新",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				//MessageBox.Show("没有可用的更新!","自动更新",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.StartMainApplication();
 				return;
 			}
 		}
+
+       
 
 		private void DownUpdateFile()
 		{
@@ -444,66 +463,108 @@ namespace AutoUpdate
 					isRun = true;
 				}
 			}
-			WebClient wcClient = new WebClient();
+            bool isFinish = false;
+			WebClient wcClient = AppUpdater.CreateClient();
+            WebResponse webRes=null;
+            WebRequest webReq=null;
 			for(int i = 0;i < this.lvUpdateList.Items.Count;i++)
 			{
+                
 				string UpdateFile = lvUpdateList.Items[i].Text.Trim();
-				string updateFileUrl = updateUrl + lvUpdateList.Items[i].Text.Trim();
+                //string UpdateFile = WindowFormDelegate.GetListViewText(lvUpdateList, i);
+                string updateFileUrl = updateUrl + UpdateFile;
 				long fileLength = 0;
+                WindowFormDelegate.SetMainThreadHint(lbFileListHint,string.Format("共{0}个文件待更新,准备更新第{1}个文件中", lvUpdateList.Items.Count.ToString(), (i + 1).ToString()));
+                try
+                {
+                    TempLog.Debug(string.Format("下载更新文件{0},创建WebRequest", updateFileUrl));
+                    webReq = AppUpdater.Create(updateFileUrl);
+                    TempLog.Debug("完成创建WebRequest");
+                    TempLog.Debug("下载更新文件，准备获取WebResponse");
+                    webRes = webReq.GetResponse();
+                    TempLog.Debug("下载更新文件，完成获取WebResponse");
+                    fileLength = webRes.ContentLength;
+                    WindowFormDelegate.SetMainThreadHint(this.lbState, "正在下载更新文件,请稍后...");
+                    //lbState.Text = "正在下载更新文件,请稍后...";
+                    pbDownFile.Value = 0;
+                    pbDownFile.Maximum = (int)fileLength;
 
-				WebRequest webReq = WebRequest.Create(updateFileUrl);
-				WebResponse webRes = webReq.GetResponse();
-				fileLength = webRes.ContentLength;
-				
-				lbState.Text = "正在下载更新文件,请稍后...";
-				pbDownFile.Value = 0;
-				pbDownFile.Maximum = (int)fileLength;
+                    TempLog.Debug("下载更新文件，获取GetResponseStream");
+                    Stream srm = webRes.GetResponseStream();
+                    TempLog.Debug("下载更新文件，完成获取GetResponseStream");
+                    StreamReader srmReader = new StreamReader(srm);
+                    byte[] bufferbyte = new byte[fileLength];
+                    int allByte = (int)bufferbyte.Length;
+                    int startByte = 0;
+                    while (fileLength > 0)
+                    {
+                        Application.DoEvents();
+                        int downByte = srm.Read(bufferbyte, startByte, allByte);
+                        if (downByte == 0) { break; };
+                        startByte += downByte;
+                        allByte -= downByte;
+                        pbDownFile.Value += downByte;
 
-				try
-				{	
-					Stream srm = webRes.GetResponseStream();
-					StreamReader srmReader = new StreamReader(srm);
-					byte[] bufferbyte = new byte[fileLength];
-					int allByte = (int)bufferbyte.Length;
-					int startByte = 0;
-					while(fileLength > 0)
-					{
-						Application.DoEvents();
-						int downByte = srm.Read(bufferbyte,startByte,allByte);
-						if (downByte == 0) {break;};
-						startByte += downByte;
-						allByte -= downByte;
-						pbDownFile.Value += downByte;
+                        float part = (float)startByte / 1024;
+                        float total = (float)bufferbyte.Length / 1024;
+                        int percent = Convert.ToInt32((part / total) * 100);
 
-						float part = (float)startByte / 1024;
-						float total = (float)bufferbyte.Length / 1024;
-						int percent =Convert.ToInt32((part/total)*100);
+                        this.lvUpdateList.Items[i].SubItems[2].Text = percent.ToString() + "%";
 
-						this.lvUpdateList.Items[i].SubItems[2].Text = percent.ToString() + "%";
+                    }
 
-					}
-					
-					string tempPath = tempUpdatePath + UpdateFile;
-					CreateDirtory(tempPath);
-					FileStream fs = new FileStream(tempPath,FileMode.OpenOrCreate,FileAccess.Write);
-					fs.Write(bufferbyte,0,bufferbyte.Length);
-					srm.Close();
-					srmReader.Close();
-					fs.Close();
-				}
-				catch(WebException ex)
-				{
-					MessageBox.Show("更新文件下载失败！"+ex.Message.ToString(),"错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
-				}
+                    string tempPath = tempUpdatePath + UpdateFile;
+                    CreateDirtory(tempPath);
+                    FileStream fs = new FileStream(tempPath, FileMode.OpenOrCreate, FileAccess.Write);
+                    fs.Write(bufferbyte, 0, bufferbyte.Length);
+                    srm.Close();
+                    srmReader.Close();
+                    fs.Close();
+                }
+                catch (WebException ex)
+                {
+                    //MessageBox.Show("更新文件下载失败！" + ex.Message.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    isFinish = false;
+                    break;
+                }
+                finally
+                {
+                    if (webRes != null)
+                    {
+                        webRes.Close();
+                        webReq.Abort();
+                    }
+                }
+                if (i == this.lvUpdateList.Items.Count - 1)
+                {
+                    isFinish = true;
+                   //this.btnFinish_Click(null, null);
+                }
 			}
 			InvalidateControl();
+            if (isFinish)
+            {
+                this.CopyFileThread();
+            }
+                //btnFinish_Click(null, null);
+            else
+            {
+                this.StartMainApplication();
+            }
 		}
+
+        private void StartMainApplication()
+        {
+            this.Close();
+            Process.Start(mainAppExe);
+        }
 
 		//创建目录
 		private void CreateDirtory(string path)
 		{
 			if(!File.Exists(path))
 			{
+                path = path.Replace("/","\\");
 				string [] dirArray = path.Split('\\'); 
 				string temp = string.Empty;
 				for(int i = 0;i<dirArray.Length - 1;i++)
@@ -515,6 +576,8 @@ namespace AutoUpdate
 			}
 		}
 
+        private static int FileCopyCounter = 0;
+
 		//复制文件;
 		public void CopyFile(string sourcePath,string objPath)
 		{
@@ -522,36 +585,82 @@ namespace AutoUpdate
 			{
 				Directory.CreateDirectory(objPath);
 			}
-			string[] files = Directory.GetFiles(sourcePath);
-			for(int i=0;i<files.Length;i++)
-			{
-				string[] childfile = files[i].Split('\\');
-				File.Copy(files[i],objPath + @"\" + childfile[childfile.Length-1],true);
-			}
-			string[] dirs = Directory.GetDirectories(sourcePath);
-			for(int i=0;i<dirs.Length;i++)
-			{
-				string[] childdir = dirs[i].Split('\\');
-				CopyFile(dirs[i],objPath + @"\" + childdir[childdir.Length-1]);
-			}
-		} 
+            string[] files = Directory.GetFiles(sourcePath);
+            for (int i = 0; i < files.Length; i++)
+            {
+                string[] childfile = files[i].Split('\\');
+                FileCopyCounter++;
+                WindowFormDelegate.SetMainThreadHint(this.lbFileListHint, string.Format("正在复制第{0}个文件{1}", FileCopyCounter.ToString(), childfile[childfile.Length - 1]));
+                File.Copy(files[i], objPath + @"\" + childfile[childfile.Length - 1], true);
+                
+            }
+            string[] dirs = Directory.GetDirectories(sourcePath);
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                string[] childdir = dirs[i].Split('\\');
+                CopyFile(dirs[i], objPath + @"\" + childdir[childdir.Length - 1]);
+            }
+			
+			
+		}
+
+        private void CopyFileThread()
+        {
+            Thread thread = new Thread(new ThreadStart(CopyAllTempFiles));
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void CopyAllTempFiles()
+        {
+            try
+            {
+
+                FileCopyCounter = 0;
+                CopyFile(tempUpdatePath, Directory.GetCurrentDirectory());
+                System.IO.Directory.Delete(tempUpdatePath, true);
+                //this.Close();
+                //this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                this.Close();
+                this.Dispose();
+                if (true!= this.isRun) Process.Start(mainAppExe);
+
+            }
+        }
 
 		//点击完成复制更新文件到应用程序目录
 		private void btnFinish_Click(object sender, System.EventArgs e)
 		{
+
+
+            try
+            {
+                
+                FileCopyCounter = 0;
+                CopyFile(tempUpdatePath, Directory.GetCurrentDirectory());
+                System.IO.Directory.Delete(tempUpdatePath, true);
+                //this.Close();
+                //this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                this.Close();
+                this.Dispose();
+                if (true == this.isRun) Process.Start(mainAppExe);
+                
+            }
 			
-			this.Close();
-			this.Dispose();
-			try
-			{
-				CopyFile(tempUpdatePath,Directory.GetCurrentDirectory());
-				System.IO.Directory.Delete(tempUpdatePath,true);
-			}
-			catch(Exception ex)
-			{
-				MessageBox.Show(ex.Message.ToString());
-			}
-			if(true == this.isRun) Process.Start(mainAppExe);
 		}
 		
 		//重新绘制窗体部分控件属性

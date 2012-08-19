@@ -13,7 +13,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]		
+[assembly: AssemblyCulture("")]
+
+//[assembly: log4net.Config.DOMConfigurator(ConfigFile = "log.xml", Watch = true)]	
 
 //
 // 程序集的版本信息由下列 4 个值组成:

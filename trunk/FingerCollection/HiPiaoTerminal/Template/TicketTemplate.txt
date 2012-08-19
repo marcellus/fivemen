@@ -1,0 +1,18 @@
+﻿cmd:29|40|70|4|0|1|0|32|0
+cmd:29|40|70|4|0|2|0|32|0
+cmd:10|10
+field:  #Cinema#   票号：#TicketId#        #RoomName#
+cmd:10|10
+field:  影厅：#RoomName#   座位：#Seat#         #Seat#
+cmd:10|10
+field:    影片：#MovieName#
+cmd:10|10
+field:    日期：#PlayDate#  时间：#PlayTime#    #PlayDate# 
+cmd:10|10
+field:                                     #PlayTime#
+cmd:10|10
+field:    手续费：￥0.00    票价：￥#Price#.00  #TicketId#
+cmd:10|10
+field:   出票时间：#PrintTime# 
+cmd:10|10
+cmd:29|86|66|1

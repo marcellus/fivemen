@@ -38,6 +38,8 @@
             this.btnBegin = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.colorChangeTextPanel1 = new FT.Windows.Controls.PanelEx.ColorChangeTextPanel();
+            this.colorChangeTextBox1 = new FT.Windows.Controls.TextBoxEx.ColorChangeTextBox();
             this.SuspendLayout();
             // 
             // txtTimerInterval
@@ -94,7 +96,7 @@
             // 
             // btnBegin
             // 
-            this.btnBegin.Location = new System.Drawing.Point(52, 128);
+            this.btnBegin.Location = new System.Drawing.Point(52, 164);
             this.btnBegin.Name = "btnBegin";
             this.btnBegin.Size = new System.Drawing.Size(75, 23);
             this.btnBegin.TabIndex = 5;
@@ -105,7 +107,7 @@
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(176, 128);
+            this.btnStop.Location = new System.Drawing.Point(176, 181);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 5;
@@ -117,11 +119,27 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // colorChangeTextPanel1
+            // 
+            this.colorChangeTextPanel1.Location = new System.Drawing.Point(12, 88);
+            this.colorChangeTextPanel1.Name = "colorChangeTextPanel1";
+            this.colorChangeTextPanel1.Size = new System.Drawing.Size(257, 54);
+            this.colorChangeTextPanel1.TabIndex = 7;
+            // 
+            // colorChangeTextBox1
+            // 
+            this.colorChangeTextBox1.Location = new System.Drawing.Point(176, 24);
+            this.colorChangeTextBox1.Name = "colorChangeTextBox1";
+            this.colorChangeTextBox1.Size = new System.Drawing.Size(100, 21);
+            this.colorChangeTextBox1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 199);
+            this.Controls.Add(this.colorChangeTextPanel1);
+            this.Controls.Add(this.colorChangeTextBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnBegin);
             this.Controls.Add(this.txtSleepTime);
@@ -148,6 +166,8 @@
         private System.Windows.Forms.Button btnBegin;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Timer timer1;
+        private FT.Windows.Controls.TextBoxEx.ColorChangeTextBox colorChangeTextBox1;
+        private FT.Windows.Controls.PanelEx.ColorChangeTextPanel colorChangeTextPanel1;
     }
 }
 

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnPrintCode39 = new System.Windows.Forms.Button();
             this.cbLearnCar = new System.Windows.Forms.ComboBox();
             this.cbStudentType = new System.Windows.Forms.ComboBox();
             this.datePxrq = new System.Windows.Forms.DateTimePicker();
@@ -57,7 +58,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uploadFingerRecordSearch2 = new FingerCollection.UploadFingerRecordSearch();
-            this.btnPrintCode39 = new System.Windows.Forms.Button();
+            this.btnClearNoLsh = new System.Windows.Forms.Button();
+            this.lbClearCounter = new System.Windows.Forms.Label();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.lbClearCounter);
+            this.splitContainer1.Panel1.Controls.Add(this.btnClearNoLsh);
             this.splitContainer1.Panel1.Controls.Add(this.btnPrintCode39);
             this.splitContainer1.Panel1.Controls.Add(this.cbLearnCar);
             this.splitContainer1.Panel1.Controls.Add(this.cbStudentType);
@@ -106,6 +110,17 @@
             this.splitContainer1.Size = new System.Drawing.Size(1232, 576);
             this.splitContainer1.SplitterDistance = 232;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnPrintCode39
+            // 
+            this.btnPrintCode39.Font = new System.Drawing.Font("宋体", 13F);
+            this.btnPrintCode39.Location = new System.Drawing.Point(841, 18);
+            this.btnPrintCode39.Name = "btnPrintCode39";
+            this.btnPrintCode39.Size = new System.Drawing.Size(156, 50);
+            this.btnPrintCode39.TabIndex = 32;
+            this.btnPrintCode39.Text = "打印港澳人员的一维条码";
+            this.btnPrintCode39.UseVisualStyleBackColor = true;
+            this.btnPrintCode39.Click += new System.EventHandler(this.btnPrintCode39_Click);
             // 
             // cbLearnCar
             // 
@@ -405,16 +420,26 @@
             this.uploadFingerRecordSearch2.Size = new System.Drawing.Size(1218, 304);
             this.uploadFingerRecordSearch2.TabIndex = 0;
             // 
-            // btnPrintCode39
+            // btnClearNoLsh
             // 
-            this.btnPrintCode39.Font = new System.Drawing.Font("宋体", 13F);
-            this.btnPrintCode39.Location = new System.Drawing.Point(841, 18);
-            this.btnPrintCode39.Name = "btnPrintCode39";
-            this.btnPrintCode39.Size = new System.Drawing.Size(156, 50);
-            this.btnPrintCode39.TabIndex = 32;
-            this.btnPrintCode39.Text = "打印港澳人员的一维条码";
-            this.btnPrintCode39.UseVisualStyleBackColor = true;
-            this.btnPrintCode39.Click += new System.EventHandler(this.btnPrintCode39_Click);
+            this.btnClearNoLsh.Font = new System.Drawing.Font("宋体", 13F);
+            this.btnClearNoLsh.Location = new System.Drawing.Point(884, 81);
+            this.btnClearNoLsh.Name = "btnClearNoLsh";
+            this.btnClearNoLsh.Size = new System.Drawing.Size(113, 47);
+            this.btnClearNoLsh.TabIndex = 33;
+            this.btnClearNoLsh.Text = "清理已上传指纹库数据";
+            this.btnClearNoLsh.UseVisualStyleBackColor = true;
+            this.btnClearNoLsh.Click += new System.EventHandler(this.btnClearNoLsh_Click);
+            // 
+            // lbClearCounter
+            // 
+            this.lbClearCounter.AutoSize = true;
+            this.lbClearCounter.Font = new System.Drawing.Font("宋体", 13F);
+            this.lbClearCounter.ForeColor = System.Drawing.Color.Red;
+            this.lbClearCounter.Location = new System.Drawing.Point(892, 139);
+            this.lbClearCounter.Name = "lbClearCounter";
+            this.lbClearCounter.Size = new System.Drawing.Size(0, 18);
+            this.lbClearCounter.TabIndex = 34;
             // 
             // Form1
             // 
@@ -471,6 +496,8 @@
         private System.Windows.Forms.Button btnOpenUrl;
         private System.Windows.Forms.Button btnPrepareUpload;
         private System.Windows.Forms.Button btnPrintCode39;
+        private System.Windows.Forms.Button btnClearNoLsh;
+        private System.Windows.Forms.Label lbClearCounter;
     }
 }
 

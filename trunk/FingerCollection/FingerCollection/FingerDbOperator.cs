@@ -12,6 +12,7 @@ namespace FingerCollection
     public class FingerDbOperator
     {
         
+       
         
        /// <summary>
         /// 更新学员资料

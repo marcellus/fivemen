@@ -31,30 +31,492 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.OfficeSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Commons\commons-dlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\ConfirmQuitAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\ConfirmQuitAccountForm.Designer.cs">
+      <DependentUpon>ConfirmQuitAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\FeeDetailPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\FeeDetailPanel.Designer.cs">
+      <DependentUpon>FeeDetailPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ModifyPwdPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\ModifyPwdPanel.Designer.cs">
+      <DependentUpon>ModifyPwdPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\MyAccountPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\MyAccountPanel.Designer.cs">
+      <DependentUpon>MyAccountPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UIdOrPwdErrorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\UIdOrPwdErrorPanel.Designer.cs">
+      <DependentUpon>UIdOrPwdErrorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserInfoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\UserInfoPanel.Designer.cs">
+      <DependentUpon>UserInfoPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\ConfirmPayPwdPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\ConfirmPayPwdPanel.Designer.cs">
+      <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\MoviePlanSelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\MoviePlanSelectorPanel.Designer.cs">
+      <DependentUpon>MoviePlanSelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\MovieSeatSelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\MovieSeatSelectorPanel.Designer.cs">
+      <DependentUpon>MovieSeatSelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\MovieSelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\MovieSelectorPanel.Designer.cs">
+      <DependentUpon>MovieSelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\RoomPlanShowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\RoomPlanShowPanel.Designer.cs">
+      <DependentUpon>RoomPlanShowPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\ShowWelcomePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\ShowWelcomePanel.Designer.cs">
+      <DependentUpon>ShowWelcomePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\UserPayCheckPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\UserPayCheckPanel.Designer.cs">
+      <DependentUpon>UserPayCheckPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\BaseOneLineMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\BaseOneLineMessageForm.Designer.cs">
+      <DependentUpon>BaseOneLineMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\MessagePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonForm\MessagePanel.Designer.cs">
+      <DependentUpon>MessagePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\NotifyUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\NotifyUserForm.Designer.cs">
+      <DependentUpon>NotifyUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\UnLockPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonForm\UnLockPanel.Designer.cs">
+      <DependentUpon>UnLockPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigModel\SystemConfig.cs" />
+    <Compile Include="CopyRights.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CopyRights.Designer.cs">
+      <DependentUpon>CopyRights.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalHardwareTools.cs" />
+    <Compile Include="GlobalTools.cs" />
+    <Compile Include="MainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainPanel.Designer.cs">
+      <DependentUpon>MainPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaintainPanel.Designer.cs">
+      <DependentUpon>MaintainPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\AutoCloseComputerSettingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\AutoCloseComputerSettingPanel.Designer.cs">
+      <DependentUpon>AutoCloseComputerSettingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerAutoClosePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerAutoClosePanel.Designer.cs">
+      <DependentUpon>ManagerAutoClosePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerMoreSettingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerMoreSettingPanel.Designer.cs">
+      <DependentUpon>ManagerMoreSettingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerSystemConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerSystemConfigPanel.Designer.cs">
+      <DependentUpon>ManagerSystemConfigPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerFunctionsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerFunctionsPanel.Designer.cs">
+      <DependentUpon>ManagerFunctionsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerLoginWithPwdPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerLoginWithPwdPanel.Designer.cs">
+      <DependentUpon>ManagerLoginWithPwdPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\ManagerModifyPwdPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintain\ManagerModifyPwdPanel.Designer.cs">
+      <DependentUpon>ManagerModifyPwdPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessagePanelBackImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagePanelBackImage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterTicket\InputErrorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrinterTicket\InputErrorPanel.Designer.cs">
+      <DependentUpon>InputErrorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterTicket\SuccessPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrinterTicket\SuccessPrintPanel.Designer.cs">
+      <DependentUpon>SuccessPrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterTicket\WaitPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrinterTicket\WaitPrintPanel.Designer.cs">
+      <DependentUpon>WaitPrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterTicket\WaitValidPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrinterTicket\WaitValidPanel.Designer.cs">
+      <DependentUpon>WaitValidPanel.cs</DependentUpon>
+    </Compile>
+    <Content Include="Template\TicketTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="TestForm\AdShowTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\AdShowTestForm.Designer.cs">
+      <DependentUpon>AdShowTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm\KeyBoardTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\KeyBoardTestForm.Designer.cs">
+      <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm\RoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\RoundForm.Designer.cs">
+      <DependentUpon>RoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\LabelButtonWithActive.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\LabelButtonWithActive.Designer.cs">
+      <DependentUpon>LabelButtonWithActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\MaintainFirstPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\MaintainFirstPanel.Designer.cs">
+      <DependentUpon>MaintainFirstPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\MaintainParentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\MaintainParentPanel.Designer.cs">
+      <DependentUpon>MaintainParentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\NumberInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\NumberInputControl.Designer.cs">
+      <DependentUpon>NumberInputControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\NumButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\NumButton.Designer.cs">
+      <DependentUpon>NumButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\OperationTimeParentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\OperationTimeParentPanel.Designer.cs">
+      <DependentUpon>OperationTimeParentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\SameBackgroudParentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\SameBackgroudParentPanel.Designer.cs">
+      <DependentUpon>SameBackgroudParentPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Account\ConfirmQuitAccountForm.resx">
+      <DependentUpon>ConfirmQuitAccountForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FeeDetailPanel.resx">
+      <DependentUpon>FeeDetailPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\ModifyPwdPanel.resx">
+      <DependentUpon>ModifyPwdPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\MyAccountPanel.resx">
+      <DependentUpon>MyAccountPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\UIdOrPwdErrorPanel.resx">
+      <DependentUpon>UIdOrPwdErrorPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\UserInfoPanel.resx">
+      <DependentUpon>UserInfoPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\ConfirmPayPwdPanel.resx">
+      <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\MoviePlanSelectorPanel.resx">
+      <DependentUpon>MoviePlanSelectorPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\MovieSeatSelectorPanel.resx">
+      <DependentUpon>MovieSeatSelectorPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\MovieSelectorPanel.resx">
+      <DependentUpon>MovieSelectorPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\RoomPlanShowPanel.resx">
+      <DependentUpon>RoomPlanShowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\ShowWelcomePanel.resx">
+      <DependentUpon>ShowWelcomePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\UserPayCheckPanel.resx">
+      <DependentUpon>UserPayCheckPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\BaseOneLineMessageForm.resx">
+      <DependentUpon>BaseOneLineMessageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\MessagePanel.resx">
+      <DependentUpon>MessagePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\NotifyUserForm.resx">
+      <DependentUpon>NotifyUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\UnLockPanel.resx">
+      <DependentUpon>UnLockPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopyRights.resx">
+      <DependentUpon>CopyRights.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPanel.resx">
+      <DependentUpon>MainPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainPanel.resx">
+      <DependentUpon>MaintainPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\AutoCloseComputerSettingPanel.resx">
+      <DependentUpon>AutoCloseComputerSettingPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerAutoClosePanel.resx">
+      <DependentUpon>ManagerAutoClosePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerModifyPwdPanel.resx">
+      <DependentUpon>ManagerModifyPwdPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerMoreSettingPanel.resx">
+      <DependentUpon>ManagerMoreSettingPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerSystemConfigPanel.resx">
+      <DependentUpon>ManagerSystemConfigPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerFunctionsPanel.resx">
+      <DependentUpon>ManagerFunctionsPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain\ManagerLoginWithPwdPanel.resx">
+      <DependentUpon>ManagerLoginWithPwdPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessagePanelBackImage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagePanelBackImage.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterTicket\InputErrorPanel.resx">
+      <DependentUpon>InputErrorPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterTicket\SuccessPrintPanel.resx">
+      <DependentUpon>SuccessPrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterTicket\WaitPrintPanel.resx">
+      <DependentUpon>WaitPrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterTicket\WaitValidPanel.resx">
+      <DependentUpon>WaitValidPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\AdShowTestForm.resx">
+      <DependentUpon>AdShowTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\KeyBoardTestForm.resx">
+      <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\RoundForm.resx">
+      <DependentUpon>RoundForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\MaintainFirstPanel.resx">
+      <DependentUpon>MaintainFirstPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\MaintainParentPanel.resx">
+      <DependentUpon>MaintainParentPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\NumberInputControl.resx">
+      <DependentUpon>NumberInputControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\OperationTimeParentPanel.resx">
+      <DependentUpon>OperationTimeParentPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\SameBackgroudParentPanel.resx">
+      <DependentUpon>SameBackgroudParentPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -62,9 +524,70 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuickBuyTicketPanel.resx">
+      <DependentUpon>QuickBuyTicketPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickRegisterPanel.resx">
+      <DependentUpon>QuickRegisterPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\MaskForm.resx">
+      <DependentUpon>MaskForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketPrintPanel.resx">
+      <DependentUpon>TicketPrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\SecondNotifyUserPanel.resx">
+      <DependentUpon>SecondNotifyUserPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\ServicePhoneControl.resx">
+      <DependentUpon>ServicePhoneControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\UserInputPanel.resx">
+      <DependentUpon>UserInputPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\WebSiteHintControl.resx">
+      <DependentUpon>WebSiteHintControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\FirstNotifyUserPanel.resx">
+      <DependentUpon>FirstNotifyUserPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLoginPanel.resx">
+      <DependentUpon>UserLoginPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister\UserNeedKnowInfoPanel.resx">
+      <DependentUpon>UserNeedKnowInfoPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister\UserRegisterSuccessPanel.resx">
+      <DependentUpon>UserRegisterSuccessPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister\UserRegisterSuccessPanel2.resx">
+      <DependentUpon>UserRegisterSuccessPanel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTastePanel.resx">
+      <DependentUpon>UserTastePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -74,6 +597,96 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QuickBuyTicketPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuickBuyTicketPanel.Designer.cs">
+      <DependentUpon>QuickBuyTicketPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuickRegisterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuickRegisterPanel.Designer.cs">
+      <DependentUpon>QuickRegisterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm\MaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\MaskForm.Designer.cs">
+      <DependentUpon>MaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TicketPrintPanel.Designer.cs">
+      <DependentUpon>TicketPrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\SecondNotifyUserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\SecondNotifyUserPanel.Designer.cs">
+      <DependentUpon>SecondNotifyUserPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\ServicePhoneControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\ServicePhoneControl.Designer.cs">
+      <DependentUpon>ServicePhoneControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\UserInputPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\UserInputPanel.Designer.cs">
+      <DependentUpon>UserInputPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\WebSiteHintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\WebSiteHintControl.Designer.cs">
+      <DependentUpon>WebSiteHintControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\FirstNotifyUserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\FirstNotifyUserPanel.Designer.cs">
+      <DependentUpon>FirstNotifyUserPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLoginPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserLoginPanel.Designer.cs">
+      <DependentUpon>UserLoginPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRegister\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister\UserNeedKnowInfoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRegister\UserNeedKnowInfoPanel.Designer.cs">
+      <DependentUpon>UserNeedKnowInfoPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister\UserRegisterSuccessPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRegister\UserRegisterSuccessPanel.Designer.cs">
+      <DependentUpon>UserRegisterSuccessPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister\UserRegisterSuccessPanel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRegister\UserRegisterSuccessPanel2.Designer.cs">
+      <DependentUpon>UserRegisterSuccessPanel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserTastePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserTastePanel.Designer.cs">
+      <DependentUpon>UserTastePanel.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +702,225 @@
       <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
       <Name>FT.Device</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Commons\FT.Windows.Controls\FT.Windows.Controls.csproj">
+      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
+      <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.Forms\FT.Windows.Forms.csproj">
       <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
       <Name>FT.Windows.Forms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HiPiaoInterface\HiPiaoInterface.csproj">
+      <Project>{73224C21-D0F5-4A32-A904-D4F192682659}</Project>
+      <Name>HiPiaoInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelpDoc\UserNeedKnow-WebSiteProtocol.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpDoc\UserNeedKnow-PrivatePolicy.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpDoc\UserNeedKnow-MemberProtocol.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+    <None Include="Resources\Back.png" />
+    <None Include="Resources\btnCancel.png" />
+    <None Include="Resources\btnSure.png" />
+    <None Include="Resources\Comp-Logo.png" />
+    <None Include="Resources\Go.png" />
+    <None Include="Resources\Main-HiPiaoTaste.png" />
+    <None Include="Resources\Main-QuickBuyTicket.png" />
+    <None Include="Resources\Main-TicketPrint.png" />
+    <None Include="Resources\Main-UserAccount.png" />
+    <None Include="Resources\Main-UserRegister.png" />
+    <None Include="Resources\Maintain-Advices.png" />
+    <None Include="Resources\Maintain-AutoCloseComputerSeting.png" />
+    <None Include="Resources\Maintain-ChangePwd.png" />
+    <None Include="Resources\Maintain-CloseComputer.png" />
+    <None Include="Resources\Maintain-HelpDocument.png" />
+    <None Include="Resources\Maintain-Question-Report.png" />
+    <None Include="Resources\Maintain-QuitApplication.png" />
+    <None Include="Resources\Maintain-ServerIpConfig.png" />
+    <None Include="Resources\Maintain-Ticket-Reprinter.png" />
+    <None Include="Resources\MessageBox-QuitAccountConfirm.png" />
+    <None Include="Resources\MessageBox-UIdOrPwdError.png" />
+    <None Include="Resources\Modify.png" />
+    <None Include="Resources\QuickBuyTicket.png" />
+    <None Include="Resources\QuickRegister.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Register-QueryAccount.png" />
+    <None Include="Resources\Register-QuitAccount.png" />
+    <None Include="Resources\Register-ReturnHome.png" />
+    <None Include="Resources\Register-Success.png" />
+    <None Include="Resources\Return-MainPanel.png" />
+    <None Include="Resources\ReturnHome.png" />
+    <Content Include="HelpDoc\AutoCloseComputerSettingPanel.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Manager_Home_Hint.png" />
+    <None Include="Resources\Manager_ModifyPwd.png" />
+    <None Include="Resources\Manager_SystemSetting.png" />
+    <None Include="Resources\ReturnFirstPanel.png" />
+    <None Include="Resources\SameBackgroud.png" />
+    <None Include="Resources\Manager_AutoCloseComputer.png" />
+    <None Include="Resources\Login_Pwd_Back.png" />
+    <None Include="Resources\Manager_Login.png" />
+    <None Include="Resources\Manager_Login_Hint.png" />
+    <None Include="Resources\Manager_Login_Pwd.png" />
+    <None Include="Resources\Manager_Test.png" />
+    <None Include="Resources\Manager_Return_Maintain.png" />
+    <None Include="Resources\Manager_SystemSetting_Hint.png" />
+    <None Include="Resources\Manager_SystemSetting_InterfaceUrlHint.png" />
+    <None Include="Resources\Manager_SystemSetting_MouseHideHint.png" />
+    <None Include="Resources\Manager_SystemSetting_MouseShowHint.png" />
+    <None Include="Resources\Manager_SystemSetting_ServerIpDot.png" />
+    <None Include="Resources\Manager_SystemSetting_ServerIpHint.png" />
+    <None Include="Resources\Manager_SystemSetting_ShowMouse.png" />
+    <None Include="Resources\Back-HintWithLine.png" />
+    <None Include="Resources\Manager_SystemSetting_InterfaceBack.png" />
+    <None Include="Resources\Manager_SystemSetting_IpBack.png" />
+    <None Include="Resources\Keep_Save.png" />
+    <None Include="Resources\Cancel_Save.png" />
+    <None Include="Resources\Manager_ModifyPwd_RepeatPwd_Hint.png" />
+    <None Include="Resources\Manager_ModifyPwd_Hint.png" />
+    <None Include="Resources\Manager_ModifyPwd_NewPwd_Hint.png" />
+    <None Include="Resources\Manager_ModifyPwd_OldPwd_Hint.png" />
+    <None Include="Resources\Down.png" />
+    <None Include="Resources\Up.png" />
+    <None Include="Resources\Manager_AutoClose_Hint.png" />
+    <None Include="Resources\Manager_AutoClose_CloseFunction_Hint.png" />
+    <None Include="Resources\Manager_AutoClose_CloseTime_Hint.png" />
+    <None Include="Resources\Manager_AutoClose_DoubleDot.png" />
+    <None Include="Resources\Manager_AutoClose_OpenFunction_Hint.png" />
+    <None Include="Resources\Manager_AutoClose_OpenTime_Hint.png" />
+    <None Include="Resources\TimeBack.png" />
+    <None Include="Resources\Manager_AutoClose_Test.png" />
+    <None Include="Resources\TestRegister.png" />
+    <Content Include="HelpDoc\UserNeedKnow-Remark.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Register-Success.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\BtnConfirm.png" />
+    <None Include="Resources\Register_Agree_NotOk.png" />
+    <None Include="Resources\Register_Agree_Ok.png" />
+    <None Include="Resources\Register_QuickRegister_Hint.png" />
+    <None Include="Resources\Register_ReturnBack.png" />
+    <None Include="Resources\Register_ReturnHome.png" />
+    <None Include="Resources\Rigister_Mobile_Hint.png" />
+    <None Include="Resources\Rigister_Password_Hint.png" />
+    <None Include="Resources\Rigister_PasswordRepeat_Hint.png" />
+    <None Include="Resources\Rigister_Protocol_Hint.png" />
+    <None Include="Resources\Rigister_UserName_Hint.png" />
+    <None Include="Resources\Error.png" />
+    <None Include="Resources\Right.png" />
+    <None Include="Resources\Register_SuccessPanel.png" />
+    <None Include="Resources\Account_Cancel.png" />
+    <None Include="Resources\Account_FeeDetail_DateHeaderBack.png" />
+    <None Include="Resources\Account_FeeDetail_DateHeaderHint.png" />
+    <None Include="Resources\Account_FeeDetail_DetailBack.png" />
+    <None Include="Resources\Account_FeeDetail_DetailHeaderHint.png" />
+    <None Include="Resources\Account_FeeDetail_TotalBack.png" />
+    <None Include="Resources\Account_FeeDetail_TotalHint.png" />
+    <None Include="Resources\Account_FlashMemeberCard.png" />
+    <None Include="Resources\Account_GoBuyTicket.png" />
+    <None Include="Resources\Account_Modify.png" />
+    <None Include="Resources\Account_NextPage_Active.png" />
+    <None Include="Resources\Account_NextPage_NotActive.png" />
+    <None Include="Resources\Account_Page_Active.png" />
+    <None Include="Resources\Account_Page_NotActive.png" />
+    <None Include="Resources\Account_Please_Use_Keyboard.png" />
+    <None Include="Resources\Account_PrePage_Active.png" />
+    <None Include="Resources\Account_PrePage_NotActive.png" />
+    <None Include="Resources\Account_QuitAccount.png" />
+    <None Include="Resources\Account_Read_Card_Error.png" />
+    <None Include="Resources\Account_ReFlash_Card.png" />
+    <None Include="Resources\Account_UidOrPwd_Error.png" />
+    <None Include="Resources\UnOperationTimes_Back.png" />
+    <None Include="Resources\Account_Tab_NotActive.png" />
+    <None Include="Resources\Account_TabActive.png" />
+    <None Include="Resources\Account-FooterBack.png" />
+    <None Include="Resources\Account_HomePage.png" />
+    <None Include="Resources\Account_SiteHint.png" />
+    <None Include="Resources\Manager_AutoClose_FunctionBack.png" />
+    <None Include="Resources\BuyTicket-ReturnHome.png" />
+    <None Include="Resources\BuyTicket-CheckInfo_Hint.png" />
+    <None Include="Resources\BuyTicket-Check_Hint.png" />
+    <None Include="Resources\BuyTicket-Btn_Not_Active.png" />
+    <None Include="Resources\BuyTicket-Btn_Active.png" />
+    <None Include="Resources\Green_Right.png" />
+    <None Include="Resources\Gray_Center.png" />
+    <None Include="Resources\Gray_Left.png" />
+    <None Include="Resources\Gray_Right.png" />
+    <None Include="Resources\Green_Center.png" />
+    <None Include="Resources\Green_Left.png" />
+    <None Include="Resources\Account_UserLogin_Hint.png" />
+    <None Include="Resources\Accout_UserLogin_Home.png" />
+    <None Include="Resources\Account_btn_Not_Active.png" />
+    <None Include="Resources\Account_btn_Active.png" />
+    <None Include="Resources\NumKey-Not-Active.png" />
+    <None Include="Resources\NumKey-Active.png" />
+    <None Include="Resources\Print_Wait_Valid.png" />
+    <None Include="Resources\Print_Wait_Print.png" />
+    <None Include="Resources\Print_Wait_Success.png" />
+    <None Include="Resources\Print_Input_Error.png" />
+    <None Include="Resources\Print_Return.png" />
+    <None Include="Resources\Print_Site_Hint.png" />
+    <None Include="Resources\Print_Home.png" />
+    <None Include="Resources\Main_Quit.png" />
+    <None Include="Resources\BuyTicket_GetTicket.png" />
+    <None Include="Resources\BuyTicket_Sell_Flag.png" />
+    <None Include="Resources\BuyTicket_Site_Finish.png" />
+    <None Include="Resources\BuyTicket_Site_Login.png" />
+    <None Include="Resources\BuyTicket_Site_Pay.png" />
+    <None Include="Resources\BuyTicket_Site_Select_Movie.png" />
+    <None Include="Resources\BuyTicket_Site_Select_Position.png" />
+    <None Include="Resources\BuyTicket_Select_Day_Today.png" />
+    <None Include="Resources\BuyTicket_Select_Day_Two.png" />
+    <None Include="Resources\BuyTicket_Site_SelectMovie.png" />
+    <None Include="Resources\BuyTicket_Site_Home.png" />
+    <None Include="Resources\BuyTicket_RoomPlan.png" />
+    <None Include="Resources\BuyTicket_Ticket_TotalNum.png" />
+    <None Include="Resources\BuyTicket_Select_SiteHint.png" />
+    <None Include="Resources\BuyTicket_Ticket_Pay.png" />
+    <None Include="Resources\BuyTicket_Sell_Flag_White.png" />
+    <None Include="Resources\BuyTicket_SelectedSeat_Panel.png" />
+    <None Include="Resources\BuyTicket_Seat_Select_Hint.png" />
+    <Content Include="Template\GlobalHotPrinterSettings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TextFile1.txt" />
+    <Content Include="UpdateList.xml" />
+    <Content Include="使用说明.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonCode\" />
+    <Folder Include="MovieShows\" />
+    <Folder Include="Wpf\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

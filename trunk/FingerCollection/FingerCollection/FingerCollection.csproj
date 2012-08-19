@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FingerCollection</RootNamespace>
-    <AssemblyName>离线指纹采集</AssemblyName>
+    <AssemblyName>FingerCollection</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>eye.ico</ApplicationIcon>
