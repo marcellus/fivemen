@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -38,6 +38,7 @@
       <HintPath>..\commons-dlls\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -48,6 +49,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonEx\ActiveTabButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonEx\ActiveTabButton.Designer.cs">
+      <DependentUpon>ActiveTabButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonEx\ActiveWithArrowButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonEx\ActiveWithArrowButton.Designer.cs">
+      <DependentUpon>ActiveWithArrowButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonEx\CheckButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ButtonEx\MyButtonObject.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -62,6 +78,12 @@
     </Compile>
     <Compile Include="Editor.designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEx\AdShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEx\AdShowForm.Designer.cs">
+      <DependentUpon>AdShowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GridEx\SimpleGridView.cs">
       <SubType>Component</SubType>
@@ -80,11 +102,38 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pager\SimplePagerEx.cs" />
+    <Compile Include="PanelEx\AdShowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\AdShowPanel.Designer.cs">
+      <DependentUpon>AdShowPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelEx\ColorChangeTextPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\ColorChangeTextPanel.Designer.cs">
+      <DependentUpon>ColorChangeTextPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelEx\DataSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PanelEx\DataSearch.Designer.cs">
       <DependentUpon>DataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelEx\ProcessPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\ProcessPanel.Designer.cs">
+      <DependentUpon>ProcessPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelEx\RoundPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelEx\VitualKeyBoardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\VitualKeyBoardPanel.Designer.cs">
+      <DependentUpon>VitualKeyBoardPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -120,8 +169,17 @@
     <Compile Include="TabControlEx\SimpleTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TextBoxEx\ColorChangeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TextBoxEx\DateTextBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxEx\HintTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxEx\HintTextBox.Designer.cs">
+      <DependentUpon>HintTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="TextBoxEx\OldCarInput.cs">
       <SubType>Component</SubType>
@@ -129,7 +187,7 @@
     <Compile Include="TextBoxEx\OldCarInput.Designer.cs">
       <DependentUpon>OldCarInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxEx\TextBoxEx.cs">
+    <Compile Include="TextBoxEx\SimpleTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />
+    <None Include="Resources\Account_Tab_NotActive.png" />
+    <None Include="Resources\Account_TabActive.png" />
+    <None Include="Resources\btn_Back_Active.png" />
+    <None Include="Resources\btn_Back_None_Active.png" />
+    <None Include="Resources\Check_On.png" />
+    <None Include="Resources\Check_Off.png" />
     <None Include="app.config" />
     <None Include="Resources\uol.bmp" />
     <None Include="Resources\underscore.bmp" />
@@ -180,17 +244,45 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ButtonEx\ActiveTabButton.resx">
+      <DependentUpon>ActiveTabButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonEx\ActiveWithArrowButton.resx">
+      <DependentUpon>ActiveWithArrowButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEx\AdShowForm.resx">
+      <DependentUpon>AdShowForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LinkDialog.resx">
       <DependentUpon>LinkDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\AdShowPanel.resx">
+      <DependentUpon>AdShowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\ColorChangeTextPanel.resx">
+      <DependentUpon>ColorChangeTextPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PanelEx\DataSearch.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\ProcessPanel.resx">
+      <DependentUpon>ProcessPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\VitualKeyBoardPanel.resx">
+      <DependentUpon>VitualKeyBoardPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -211,9 +303,6 @@
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormEx\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
