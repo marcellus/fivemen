@@ -77,6 +77,43 @@
     <Compile Include="CombineWord.designer.cs">
       <DependentUpon>CombineWord.cs</DependentUpon>
     </Compile>
+    <Compile Include="DevTools\Epson532SerialPrinterTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\Epson532SerialPrinterTest.Designer.cs">
+      <DependentUpon>Epson532SerialPrinterTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\EpsonParallelPrinterTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\EpsonParallelPrinterTest.Designer.cs">
+      <DependentUpon>EpsonParallelPrinterTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\ParallelPrinterConfig.cs" />
+    <Compile Include="DevTools\ShowColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\ShowColorForm.Designer.cs">
+      <DependentUpon>ShowColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\TemplatePrinterTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\TemplatePrinterTestForm.Designer.cs">
+      <DependentUpon>TemplatePrinterTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\WindowPrinterTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\WindowPrinterTest.Designer.cs">
+      <DependentUpon>WindowPrinterTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\WindowsPrinterTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevTools\WindowsPrinterTestForm.Designer.cs">
+      <DependentUpon>WindowsPrinterTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExternalToolPlugin.cs" />
     <Compile Include="SmallTools\PostCodeSearchForm.cs">
       <SubType>Form</SubType>
@@ -205,6 +242,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CombineWord.resx">
       <DependentUpon>CombineWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTools\Epson532SerialPrinterTest.resx">
+      <DependentUpon>Epson532SerialPrinterTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTools\EpsonParallelPrinterTest.resx">
+      <DependentUpon>EpsonParallelPrinterTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTools\TemplatePrinterTestForm.resx">
+      <DependentUpon>TemplatePrinterTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevTools\WindowPrinterTest.resx">
+      <DependentUpon>WindowPrinterTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SmallTools\IdCardSearchForm.resx">
