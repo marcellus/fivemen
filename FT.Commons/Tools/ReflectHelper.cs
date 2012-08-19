@@ -16,6 +16,54 @@ namespace FT.Commons.Tools
         {
         }
 
+        public static string GetObjectProperty(object obj, string property)
+        {
+            Type type = obj.GetType();
+            object value = null;
+            value = type.GetProperty(property, BindingFlags.IgnoreCase 
+                 | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj,null);
+            return TransObjectField(value);
+            
+
+        }
+
+
+        /// <summary>
+        /// 把实体对象的属性转换成要保存的字符串
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string TransObjectField(object value)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+            if (value is DateTime)
+            {
+                return ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            /*if (value is Enum)
+            {
+                return ((Enum)value).ToString("yyyy-MM-dd HH:mm:ss");
+            }*/
+            else
+            {
+                return value.ToString();
+            }
+        }
+
+
+        public static string GetObjectField(object obj, string field)
+        {
+            Type type = obj.GetType();
+            object value = null;
+            value = type.GetField(field, BindingFlags.IgnoreCase
+                 | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
+            return TransObjectField(value);
+
+        }
+
         public static void ShowAssembly(Assembly assembly)
         {
                 Console.WriteLine("Assembly FullName:" + assembly.FullName);

@@ -37,10 +37,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -158,7 +159,10 @@
     <Compile Include="PrinterEx\SupportObject\TitleDraw.cs" />
     <Compile Include="Printer\CommonPrinter.cs" />
     <Compile Include="Printer\IPrinter.cs" />
+    <Compile Include="Printer\LinePrintObject.cs" />
     <Compile Include="Printer\ObjectPrinter.cs" />
+    <Compile Include="Printer\TemplatePrintObject.cs" />
+    <Compile Include="Printer\TemplateTextObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ISecurity.cs" />
     <Compile Include="Security\KeySecurity.cs" />
@@ -206,6 +210,7 @@
     <Compile Include="TcpIp\TcpWatcherForm.designer.cs">
       <DependentUpon>TcpWatcherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Printer\TemplateTextConfig.cs" />
     <Compile Include="Tools\BaseHelper.cs" />
     <Compile Include="Tools\BeepHelper.cs" />
     <Compile Include="Tools\ComboBoxHelper.cs" />
@@ -214,12 +219,14 @@
     <Compile Include="Tools\Dragger.cs" />
     <Compile Include="Tools\FileDialogHelper.cs" />
     <Compile Include="Tools\FileHelper.cs" />
+    <Compile Include="Tools\FontHelper.cs" />
     <Compile Include="Tools\FormHelper.cs" />
     <Compile Include="Tools\FTPHelper.cs" />
     <Compile Include="Tools\HardwareManager.cs" />
     <Compile Include="Tools\IDCardHelper.cs" />
     <Compile Include="Tools\IISHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
+    <Compile Include="Tools\LPTHelper.cs" />
     <Compile Include="Tools\MathHelper.cs" />
     <Compile Include="Tools\MessageBoxHelper.cs" />
     <Compile Include="Tools\OperateHabitHelper.cs" />
@@ -227,11 +234,14 @@
     <Compile Include="Tools\ReflectHelper.cs" />
     <Compile Include="Tools\RegisterHelper.cs" />
     <Compile Include="Tools\SerializeHelper.cs" />
+    <Compile Include="Tools\SerialPortHelper.cs" />
     <Compile Include="Tools\ShortcutHelper.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\WebFormHelper.cs" />
+    <Compile Include="Tools\WindowExHelper.cs" />
     <Compile Include="Tools\WindowServicesHelper.cs" />
+    <Compile Include="Tools\WindowsPrinterHelper.cs" />
     <Compile Include="Tools\WinFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
     <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
@@ -271,6 +281,7 @@
     <Compile Include="Tools\BaseSkinForm.Designer.cs">
       <DependentUpon>BaseSkinForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Win32\WindowFormDelegate.cs" />
     <Compile Include="WindowsService\BaseWindowService.cs">
       <SubType>Component</SubType>
     </Compile>

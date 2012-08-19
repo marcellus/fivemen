@@ -43,6 +43,12 @@ namespace FT.Commons.Print
         /// </returns>
         bool HasMorePage();
 
+        /// <summary>
+        /// 获取打印文档名称
+        /// </summary>
+        /// <returns>获取打印文档名称</returns>
+        string GetDocName();
+
          /// <summary>
          /// 最后一页
          /// </summary>
