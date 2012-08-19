@@ -36,6 +36,10 @@ namespace FT.Commons.Print
         {
             this.printer = print;
             this.InitPrint();
+            this.printDocument1.DocumentName = print.GetDocName();
+
+            printDocument1.PrintController = new System.Drawing.Printing.StandardPrintController();
+            //this.printDocument1.DocumentName = "";
             this.printDocument1.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(100, 100, 100, 100);
             // 
             // printDocument1
@@ -45,7 +49,14 @@ namespace FT.Commons.Print
 
         public void Print()
         {
-            this.printDocument1.Print();
+            try
+            {
+                this.printDocument1.Print();
+            }
+            catch (Exception ex)
+            {
+                MessageBoxHelper.Show(ex.ToString());
+            }
         }
 
         /// <summary>

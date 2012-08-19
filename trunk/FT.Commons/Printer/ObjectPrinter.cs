@@ -416,6 +416,18 @@ namespace FT.Commons.Print
 
         #endregion
 
-       
+
+
+        #region IPrinter 成员
+
+
+        public string GetDocName()
+        {
+            return "打印机压力测试页";
+        }
+
+
+
+        #endregion
     }
 }

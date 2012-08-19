@@ -18,6 +18,7 @@ namespace FT.Commons.Tools
                 ser = sers[i];
                 if (sers[i].ServiceName.ToString() == service)
                 {
+                    log.Debug("匹配到服务名："+service);
                     return ser;
                 }
             }
@@ -29,6 +30,49 @@ namespace FT.Commons.Tools
             if (ser != null && (ser.Status != ServiceControllerStatus.Stopped || ser.Status != ServiceControllerStatus.StopPending))
                 ser.Stop();//ser.Pause();暂停         ser.Start();启动 
         }
+
+        public static void ForceStart(string service)
+        {
+            ServiceController ser = GetService(service);
+            ForceStart(ser);
+        }
+
+        public static void ForceStart(ServiceController ser)
+        {
+            try
+            {
+                log.Debug("开始强制启动服务：" + ser.ServiceName);
+                ser.Start();//ser.Pause();暂停         ser.Start();启动 
+                log.Debug("强制启动服务：" + ser.ServiceName+"，成功！");
+            }
+            catch (Exception ex)
+            {
+                log.Info(ex);
+            }
+        }
+
+
+
+        public static void ForceStop(ServiceController ser)
+        {
+            try
+            {
+                log.Debug("开始强制停止服务：" + ser.ServiceName);
+                ser.Stop();//ser.Pause();暂停         ser.Start();启动 
+                log.Debug("强制停止服务：" + ser.ServiceName + "，成功！");
+            }
+            catch (Exception ex)
+            {
+                log.Info(ex);
+            }
+        }
+
+        public static void ForceStop(string service)
+        {
+            ServiceController ser = GetService(service);
+            ForceStop(ser);
+        }
+
 
 
         public static void Stop(string service)
