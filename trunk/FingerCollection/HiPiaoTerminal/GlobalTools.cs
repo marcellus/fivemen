@@ -235,8 +235,8 @@ namespace HiPiaoTerminal
         /// </summary>
         public static bool QueryAccount()
         {
-
-            GlobalTools.ReturnUserAccout();
+            HiPiaoInterface.HiPiaoOperatorFactory.GetHiPiaoOperator().QueryUser(GlobalTools.GetLoginUser());
+            //GlobalTools.ReturnUserAccout();
             return true;
         }
 
@@ -245,10 +245,15 @@ namespace HiPiaoTerminal
         private static Timer UnOperationTimer;
 
         private static Timer AutoCloseComputerTimer;
+       
 
         public static void InitAll(Form form)
         {
             RefreshMovieShowList();
+            AutoCloseComputerTimer = new Timer();
+            AutoCloseComputerTimer.Interval = 6000;
+            AutoCloseComputerTimer.Tick += new EventHandler(AutoCloseComputerTimer_Tick);
+            AutoCloseComputerTimer.Start();
             UpdateTimer = new Timer();
             UpdateTimer.Interval = 60000*5;
             UpdateTimer.Tick += new EventHandler(UpdateTimer_Tick);
@@ -260,6 +265,18 @@ namespace HiPiaoTerminal
             UnOperationTimer.Start();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             MainForm = form;
+        }
+
+        static void AutoCloseComputerTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = System.DateTime.Now;
+            int hour = dt.Hour;
+            int minute = dt.Minute;
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.AutoCloseComputer && hour == config.AutoCloseComputerHour && (config.AutoCloseComputerMinitues == minute || config.AutoCloseComputerMinitues == minute+1))
+            {
+                WindowExHelper.CloseComputer();
+            }
         }
 
         static void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -430,11 +447,19 @@ namespace HiPiaoTerminal
                     Image img=null;
                     for (int i = 0; i < files.Length; i++)
                     {
-                        img = Image.FromFile(files[i].FullName);
-                        movie = new MovieObject();
-                        movie.AdImage = (Image)img.Clone();
-                        movie.Name = files[i].Name;
-                        MovieShowList.Add(movie);
+                        
+                        try
+                        {
+                            img = Image.FromFile(files[i].FullName);
+                            movie = new MovieObject();
+                            movie.AdImage = (Image)img.Clone();
+                            movie.Name = files[i].Name;
+                            MovieShowList.Add(movie);
+                        }
+                        catch (Exception ex)
+                        {
+                            //MessageBoxHelper.Show(ex.ToString());
+                        }
                     }
                 }
             }
@@ -631,6 +656,10 @@ namespace HiPiaoTerminal
             return form.ShowDialog()==DialogResult.OK;
         }
 
+        public static int ErrorManagePwdTimes = 0;
+
+        public static DateTime ErrorManagePwdLastTime = System.DateTime.Now;
+
         public static void ReturnMaintainWithPwd()
         {
             /*
@@ -639,6 +668,21 @@ namespace HiPiaoTerminal
                 ReturnMaintain();
             }
              * */
+
+            if (ErrorManagePwdTimes == 3)
+            {
+                DateTime now = System.DateTime.Now;
+                TimeSpan time = now.Subtract(ErrorManagePwdLastTime);
+                int times=(int)time.TotalMilliseconds;
+                if (times < 5 * 1000 * 60)
+                {
+                    return;
+                }
+                else
+                {
+                    ErrorManagePwdTimes = 0;
+                }
+            }
             GoPanel(new ManagerLoginWithPwdPanel());
         }
 
@@ -690,9 +734,13 @@ namespace HiPiaoTerminal
         /// </summary>
         public static void ReturnUserAccout()
         {
-            GlobalTools.LoginAccount("", "");
-            GlobalTools.GetLoginUser();
-            GoPanel(new MyAccountPanel());
+            //GlobalTools.LoginAccount("", "");
+            UserObject user=GlobalTools.GetLoginUser();
+            if (user != null)
+            {
+                GlobalTools.QueryAccount();
+                GoPanel(new MyAccountPanel());
+            }
         }
 
 

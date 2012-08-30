@@ -46,7 +46,7 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
             this.btnKeepSave = new System.Windows.Forms.PictureBox();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -322,6 +322,6 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox btnCancelSave;
         private System.Windows.Forms.PictureBox btnKeepSave;
-        private System.Windows.Forms.Label lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
     }
 }

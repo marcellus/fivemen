@@ -35,10 +35,10 @@
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
             this.btnKeepSave = new System.Windows.Forms.PictureBox();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
-            this.lbRepeatPwd = new System.Windows.Forms.Label();
-            this.lbNewPwd = new System.Windows.Forms.Label();
-            this.lbOldPwd = new System.Windows.Forms.Label();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbRepeatPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbNewPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbOldPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
@@ -198,10 +198,10 @@
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtRepeatPwd;
         private System.Windows.Forms.PictureBox btnCancelSave;
         private System.Windows.Forms.PictureBox btnKeepSave;
-        private System.Windows.Forms.Label lbReturnMsg;
-        private System.Windows.Forms.Label lbRepeatPwd;
-        private System.Windows.Forms.Label lbNewPwd;
-        private System.Windows.Forms.Label lbOldPwd;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbRepeatPwd;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbNewPwd;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbOldPwd;
 
 
 

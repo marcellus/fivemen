@@ -33,7 +33,7 @@
             this.panelContent = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.lbTimeSecond = new System.Windows.Forms.Label();
+            this.lbTimeSecond = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,7 +127,7 @@
 
         #endregion
 
-        protected System.Windows.Forms.Label lbTimeSecond;
+        protected FT.Windows.Controls.LabelEx.SimpleLabel lbTimeSecond;
         private System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.Panel panelContent;
         protected System.Windows.Forms.Panel panelHeader;

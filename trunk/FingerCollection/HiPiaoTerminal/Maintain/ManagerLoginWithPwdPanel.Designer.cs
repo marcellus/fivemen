@@ -33,7 +33,7 @@
             this.btnManagerLogin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtManagePwd = new System.Windows.Forms.TextBox();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnManagerLogin)).BeginInit();
@@ -129,7 +129,7 @@
         private System.Windows.Forms.PictureBox btnManagerLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtManagePwd;
-        private System.Windows.Forms.Label lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
 
     }
 }

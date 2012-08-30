@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbMsg2 = new System.Windows.Forms.Label();
-            this.lbMsg1 = new System.Windows.Forms.Label();
+            this.lbMsg2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMsg1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.picSure = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSure)).BeginInit();
             this.SuspendLayout();
@@ -92,8 +92,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbMsg2;
-        private System.Windows.Forms.Label lbMsg1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMsg2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMsg1;
         private System.Windows.Forms.PictureBox picSure;
     }
 }

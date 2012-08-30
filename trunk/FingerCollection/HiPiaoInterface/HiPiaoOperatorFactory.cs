@@ -14,9 +14,20 @@ namespace HiPiaoInterface
         {
             if (hiPiaoOperator == null)
             {
-                hiPiaoOperator = new MockHiPiaoOperator();
+                hiPiaoOperator = new HiPiaoOperator();
             }
             return hiPiaoOperator;
+        }
+
+
+        private static IHiPiaoOperator mockHiPiaoOperator;
+        public static IHiPiaoOperator GetMockHiPiaoOperator()
+        {
+            if (mockHiPiaoOperator == null)
+            {
+                mockHiPiaoOperator = new MockHiPiaoOperator();
+            }
+            return mockHiPiaoOperator;
         }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbTimes = new System.Windows.Forms.Label();
-            this.lbRoomName = new System.Windows.Forms.Label();
-            this.lbPrice = new System.Windows.Forms.Label();
+            this.lbTimes = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbRoomName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbPrice = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // lbTimes
@@ -92,8 +92,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbTimes;
-        private System.Windows.Forms.Label lbRoomName;
-        private System.Windows.Forms.Label lbPrice;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbTimes;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbRoomName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPrice;
     }
 }

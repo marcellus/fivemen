@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAutoCloseComputer = new System.Windows.Forms.Label();
-            this.btnReturnDesktop = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnCloseComputer = new System.Windows.Forms.Label();
-            this.btnMoreSetting = new System.Windows.Forms.Label();
-            this.btnModifyManagePwd = new System.Windows.Forms.Label();
+            this.btnAutoCloseComputer = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnReturnDesktop = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnCloseComputer = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnMoreSetting = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnModifyManagePwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,12 +151,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label btnAutoCloseComputer;
-        private System.Windows.Forms.Label btnReturnDesktop;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label btnCloseComputer;
-        private System.Windows.Forms.Label btnMoreSetting;
-        private System.Windows.Forms.Label btnModifyManagePwd;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnAutoCloseComputer;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnReturnDesktop;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnCloseComputer;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnMoreSetting;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnModifyManagePwd;
 
     }
 }

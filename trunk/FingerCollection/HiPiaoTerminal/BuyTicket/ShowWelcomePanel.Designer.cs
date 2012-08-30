@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUserName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbPoints = new System.Windows.Forms.Label();
-            this.lbCoupons = new System.Windows.Forms.Label();
-            this.lbBalance = new System.Windows.Forms.Label();
+            this.lbUserName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbPoints = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbCoupons = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbBalance = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // lbUserName
@@ -111,10 +111,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbPoints;
-        private System.Windows.Forms.Label lbCoupons;
-        private System.Windows.Forms.Label lbBalance;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbUserName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPoints;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbCoupons;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbBalance;
     }
 }

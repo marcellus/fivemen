@@ -39,9 +39,10 @@
             this.btnUserTaste = new System.Windows.Forms.PictureBox();
             this.picShowMovies = new System.Windows.Forms.PictureBox();
             this.btnQuit = new System.Windows.Forms.PictureBox();
-            this.lbWelcome1 = new System.Windows.Forms.Label();
-            this.lbWelcomeName = new System.Windows.Forms.Label();
-            this.lbWelcome3 = new System.Windows.Forms.Label();
+            this.lbWelcome1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbWelcomeName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbWelcome3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.picToMaintain2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTicketPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuyTicket)).BeginInit();
@@ -50,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUserTaste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picToMaintain2)).BeginInit();
             this.SuspendLayout();
             // 
             // timerShowMovie
@@ -59,23 +61,26 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 128);
+            this.button1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Main_TicketPrint;
+            this.button1.Location = new System.Drawing.Point(437, 51);
             this.button1.Margin = new System.Windows.Forms.Padding(7);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 54);
+            this.button1.Size = new System.Drawing.Size(156, 156);
             this.button1.TabIndex = 5;
-            this.button1.Text = "进入维护管理";
+            this.button1.Text = "维护管理";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // picToMaintain
             // 
-            this.picToMaintain.Location = new System.Drawing.Point(0, 874);
+            this.picToMaintain.Location = new System.Drawing.Point(0, 0);
             this.picToMaintain.Margin = new System.Windows.Forms.Padding(7);
             this.picToMaintain.Name = "picToMaintain";
             this.picToMaintain.Size = new System.Drawing.Size(84, 86);
             this.picToMaintain.TabIndex = 13;
             this.picToMaintain.TabStop = false;
+            this.picToMaintain.DoubleClick += new System.EventHandler(this.picToMaintain_DoubleClick);
             this.picToMaintain.Click += new System.EventHandler(this.picToMaintain_Click);
             // 
             // btnTicketPrint
@@ -162,6 +167,7 @@
             this.lbWelcome1.Location = new System.Drawing.Point(105, 255);
             this.lbWelcome1.Name = "lbWelcome1";
             this.lbWelcome1.Size = new System.Drawing.Size(124, 28);
+            this.lbWelcome1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcome1.TabIndex = 14;
             this.lbWelcome1.Text = "欢迎回来";
             // 
@@ -172,6 +178,7 @@
             this.lbWelcomeName.Location = new System.Drawing.Point(224, 255);
             this.lbWelcomeName.Name = "lbWelcomeName";
             this.lbWelcomeName.Size = new System.Drawing.Size(124, 28);
+            this.lbWelcomeName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcomeName.TabIndex = 14;
             this.lbWelcomeName.Text = "欢迎回来";
             // 
@@ -182,8 +189,20 @@
             this.lbWelcome3.Location = new System.Drawing.Point(354, 255);
             this.lbWelcome3.Name = "lbWelcome3";
             this.lbWelcome3.Size = new System.Drawing.Size(264, 28);
+            this.lbWelcome3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcome3.TabIndex = 14;
             this.lbWelcome3.Text = "，请选择您的操作：";
+            // 
+            // picToMaintain2
+            // 
+            this.picToMaintain2.Location = new System.Drawing.Point(1196, 0);
+            this.picToMaintain2.Margin = new System.Windows.Forms.Padding(7);
+            this.picToMaintain2.Name = "picToMaintain2";
+            this.picToMaintain2.Size = new System.Drawing.Size(84, 86);
+            this.picToMaintain2.TabIndex = 13;
+            this.picToMaintain2.TabStop = false;
+            this.picToMaintain2.DoubleClick += new System.EventHandler(this.picToMaintain2_DoubleClick);
+            this.picToMaintain2.Click += new System.EventHandler(this.picToMaintain2_Click);
             // 
             // MainPanel
             // 
@@ -193,6 +212,7 @@
             this.Controls.Add(this.lbWelcomeName);
             this.Controls.Add(this.lbWelcome3);
             this.Controls.Add(this.lbWelcome1);
+            this.Controls.Add(this.picToMaintain2);
             this.Controls.Add(this.picToMaintain);
             this.Controls.Add(this.btnTicketPrint);
             this.Controls.Add(this.btnBuyTicket);
@@ -213,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnUserTaste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShowMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picToMaintain2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,9 +251,10 @@
         private System.Windows.Forms.PictureBox btnTicketPrint;
         private System.Windows.Forms.PictureBox picToMaintain;
         private System.Windows.Forms.PictureBox btnQuit;
-        private System.Windows.Forms.Label lbWelcome1;
-        private System.Windows.Forms.Label lbWelcomeName;
-        private System.Windows.Forms.Label lbWelcome3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbWelcome1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbWelcomeName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbWelcome3;
+        private System.Windows.Forms.PictureBox picToMaintain2;
         
     }
 }

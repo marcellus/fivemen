@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerMoreSettingPanel));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.checkUseMask = new FT.Windows.Controls.ButtonEx.CheckButton();
             this.checkUseHardKeyboard = new FT.Windows.Controls.ButtonEx.CheckButton();
             this.txtUnOperationTime = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label5 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
             this.btnKeepSave = new System.Windows.Forms.PictureBox();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label6 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.cbProvince = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label7 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.cbCity = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label8 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.cbCinema = new System.Windows.Forms.ComboBox();
-            this.lbAddress = new System.Windows.Forms.Label();
+            this.lbAddress = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -291,23 +291,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label4;
         private FT.Windows.Controls.ButtonEx.CheckButton checkUseMask;
         private FT.Windows.Controls.ButtonEx.CheckButton checkUseHardKeyboard;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtUnOperationTime;
-        private System.Windows.Forms.Label label5;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label5;
         private System.Windows.Forms.PictureBox btnCancelSave;
         private System.Windows.Forms.PictureBox btnKeepSave;
-        private System.Windows.Forms.Label lbReturnMsg;
-        private System.Windows.Forms.Label label6;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label6;
         private System.Windows.Forms.ComboBox cbProvince;
-        private System.Windows.Forms.Label label7;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label7;
         private System.Windows.Forms.ComboBox cbCity;
-        private System.Windows.Forms.Label label8;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label8;
         private System.Windows.Forms.ComboBox cbCinema;
-        private System.Windows.Forms.Label lbAddress;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbAddress;
     }
 }

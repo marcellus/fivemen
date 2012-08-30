@@ -583,4 +583,7 @@
   <data name="BuyTicket_Ticket_TotalNum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BuyTicket_Ticket_TotalNum.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Print_ReturnBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print_ReturnBack.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

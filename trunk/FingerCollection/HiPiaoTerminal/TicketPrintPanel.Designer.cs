@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketPrintPanel));
-            this.lbMobileHint = new System.Windows.Forms.Label();
-            this.lbValidCode = new System.Windows.Forms.Label();
-            this.txtValidCode = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.txtMobile = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbValidCode = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.picReturn = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picReturnHome = new System.Windows.Forms.PictureBox();
             this.btnPrint = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.numButton9 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.numButton8 = new HiPiaoTerminal.UserControlEx.NumButton();
@@ -46,9 +47,8 @@
             this.numButton3 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.numButton2 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.numButton1 = new HiPiaoTerminal.UserControlEx.NumButton();
-            this.picReturn = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picReturnHome = new System.Windows.Forms.PictureBox();
+            this.txtValidCode = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.txtMobile = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturnHome)).BeginInit();
@@ -58,10 +58,11 @@
             // 
             this.lbMobileHint.AutoSize = true;
             this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbMobileHint.Location = new System.Drawing.Point(190, 298);
+            this.lbMobileHint.Location = new System.Drawing.Point(239, 184);
             this.lbMobileHint.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.lbMobileHint.Name = "lbMobileHint";
             this.lbMobileHint.Size = new System.Drawing.Size(125, 46);
+            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMobileHint.TabIndex = 4;
             this.lbMobileHint.Text = "手机号";
             // 
@@ -69,40 +70,46 @@
             // 
             this.lbValidCode.AutoSize = true;
             this.lbValidCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbValidCode.Location = new System.Drawing.Point(190, 392);
+            this.lbValidCode.Location = new System.Drawing.Point(239, 278);
             this.lbValidCode.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.lbValidCode.Name = "lbValidCode";
             this.lbValidCode.Size = new System.Drawing.Size(125, 46);
+            this.lbValidCode.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbValidCode.TabIndex = 4;
             this.lbValidCode.Text = "验票码";
             // 
-            // txtValidCode
+            // picReturn
             // 
-            this.txtValidCode.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtValidCode.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtValidCode.Hint = "验票码";
-            this.txtValidCode.Location = new System.Drawing.Point(359, 378);
-            this.txtValidCode.Margin = new System.Windows.Forms.Padding(0);
-            this.txtValidCode.Name = "txtValidCode";
-            this.txtValidCode.PasswordChar = '\0';
-            this.txtValidCode.RelativeLabel = this.lbValidCode;
-            this.txtValidCode.Size = new System.Drawing.Size(311, 74);
-            this.txtValidCode.TabIndex = 10;
-            this.txtValidCode.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtValidCode_onSubTextChanged);
+            this.picReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_ReturnBack;
+            this.picReturn.Location = new System.Drawing.Point(1053, 40);
+            this.picReturn.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.picReturn.Name = "picReturn";
+            this.picReturn.Size = new System.Drawing.Size(160, 83);
+            this.picReturn.TabIndex = 3;
+            this.picReturn.TabStop = false;
+            this.picReturn.Click += new System.EventHandler(this.picReturn_Click);
             // 
-            // txtMobile
+            // pictureBox2
             // 
-            this.txtMobile.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtMobile.Hint = "购票所留手机号";
-            this.txtMobile.Location = new System.Drawing.Point(359, 284);
-            this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.PasswordChar = '\0';
-            this.txtMobile.RelativeLabel = this.lbMobileHint;
-            this.txtMobile.Size = new System.Drawing.Size(311, 74);
-            this.txtMobile.TabIndex = 10;
-            this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtMobile_onSubTextChanged);
+            this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Site_Hint;
+            this.pictureBox2.Location = new System.Drawing.Point(244, 40);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(812, 83);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // picReturnHome
+            // 
+            this.picReturnHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Home;
+            this.picReturnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picReturnHome.Location = new System.Drawing.Point(0, 40);
+            this.picReturnHome.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.picReturnHome.Name = "picReturnHome";
+            this.picReturnHome.Size = new System.Drawing.Size(250, 83);
+            this.picReturnHome.TabIndex = 1;
+            this.picReturnHome.TabStop = false;
+            this.picReturnHome.Click += new System.EventHandler(this.picReturnHome_Click);
             // 
             // btnPrint
             // 
@@ -110,7 +117,7 @@
             this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.IsActived = false;
-            this.btnPrint.Location = new System.Drawing.Point(349, 490);
+            this.btnPrint.Location = new System.Drawing.Point(92, 670);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(288, 85);
             this.btnPrint.TabIndex = 12;
@@ -124,7 +131,7 @@
             this.numButton9.ForeColor = System.Drawing.Color.White;
             this.numButton9.Image = ((System.Drawing.Image)(resources.GetObject("numButton9.Image")));
             this.numButton9.IsActive = false;
-            this.numButton9.Location = new System.Drawing.Point(996, 490);
+            this.numButton9.Location = new System.Drawing.Point(725, 567);
             this.numButton9.Name = "numButton9";
             this.numButton9.Size = new System.Drawing.Size(140, 85);
             this.numButton9.TabIndex = 11;
@@ -138,7 +145,7 @@
             this.numButton8.ForeColor = System.Drawing.Color.White;
             this.numButton8.Image = ((System.Drawing.Image)(resources.GetObject("numButton8.Image")));
             this.numButton8.IsActive = false;
-            this.numButton8.Location = new System.Drawing.Point(838, 490);
+            this.numButton8.Location = new System.Drawing.Point(567, 567);
             this.numButton8.Name = "numButton8";
             this.numButton8.Size = new System.Drawing.Size(140, 85);
             this.numButton8.TabIndex = 11;
@@ -152,7 +159,7 @@
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.IsActive = false;
-            this.btnClear.Location = new System.Drawing.Point(996, 593);
+            this.btnClear.Location = new System.Drawing.Point(725, 670);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(140, 85);
             this.btnClear.TabIndex = 11;
@@ -166,7 +173,7 @@
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.IsActive = false;
-            this.btnBack.Location = new System.Drawing.Point(838, 593);
+            this.btnBack.Location = new System.Drawing.Point(567, 670);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(140, 85);
             this.btnBack.TabIndex = 11;
@@ -180,7 +187,7 @@
             this.numButton10.ForeColor = System.Drawing.Color.White;
             this.numButton10.Image = ((System.Drawing.Image)(resources.GetObject("numButton10.Image")));
             this.numButton10.IsActive = false;
-            this.numButton10.Location = new System.Drawing.Point(680, 593);
+            this.numButton10.Location = new System.Drawing.Point(409, 670);
             this.numButton10.Name = "numButton10";
             this.numButton10.Size = new System.Drawing.Size(140, 85);
             this.numButton10.TabIndex = 11;
@@ -194,7 +201,7 @@
             this.numButton7.ForeColor = System.Drawing.Color.White;
             this.numButton7.Image = ((System.Drawing.Image)(resources.GetObject("numButton7.Image")));
             this.numButton7.IsActive = false;
-            this.numButton7.Location = new System.Drawing.Point(680, 490);
+            this.numButton7.Location = new System.Drawing.Point(409, 567);
             this.numButton7.Name = "numButton7";
             this.numButton7.Size = new System.Drawing.Size(140, 85);
             this.numButton7.TabIndex = 11;
@@ -208,7 +215,7 @@
             this.numButton6.ForeColor = System.Drawing.Color.White;
             this.numButton6.Image = ((System.Drawing.Image)(resources.GetObject("numButton6.Image")));
             this.numButton6.IsActive = false;
-            this.numButton6.Location = new System.Drawing.Point(996, 387);
+            this.numButton6.Location = new System.Drawing.Point(725, 464);
             this.numButton6.Name = "numButton6";
             this.numButton6.Size = new System.Drawing.Size(140, 85);
             this.numButton6.TabIndex = 11;
@@ -222,7 +229,7 @@
             this.numButton5.ForeColor = System.Drawing.Color.White;
             this.numButton5.Image = ((System.Drawing.Image)(resources.GetObject("numButton5.Image")));
             this.numButton5.IsActive = false;
-            this.numButton5.Location = new System.Drawing.Point(838, 387);
+            this.numButton5.Location = new System.Drawing.Point(567, 464);
             this.numButton5.Name = "numButton5";
             this.numButton5.Size = new System.Drawing.Size(140, 85);
             this.numButton5.TabIndex = 11;
@@ -236,7 +243,7 @@
             this.numButton4.ForeColor = System.Drawing.Color.White;
             this.numButton4.Image = ((System.Drawing.Image)(resources.GetObject("numButton4.Image")));
             this.numButton4.IsActive = false;
-            this.numButton4.Location = new System.Drawing.Point(680, 387);
+            this.numButton4.Location = new System.Drawing.Point(409, 464);
             this.numButton4.Name = "numButton4";
             this.numButton4.Size = new System.Drawing.Size(140, 85);
             this.numButton4.TabIndex = 11;
@@ -250,7 +257,7 @@
             this.numButton3.ForeColor = System.Drawing.Color.White;
             this.numButton3.Image = ((System.Drawing.Image)(resources.GetObject("numButton3.Image")));
             this.numButton3.IsActive = false;
-            this.numButton3.Location = new System.Drawing.Point(996, 284);
+            this.numButton3.Location = new System.Drawing.Point(725, 361);
             this.numButton3.Name = "numButton3";
             this.numButton3.Size = new System.Drawing.Size(140, 85);
             this.numButton3.TabIndex = 11;
@@ -264,7 +271,7 @@
             this.numButton2.ForeColor = System.Drawing.Color.White;
             this.numButton2.Image = ((System.Drawing.Image)(resources.GetObject("numButton2.Image")));
             this.numButton2.IsActive = false;
-            this.numButton2.Location = new System.Drawing.Point(838, 284);
+            this.numButton2.Location = new System.Drawing.Point(567, 361);
             this.numButton2.Name = "numButton2";
             this.numButton2.Size = new System.Drawing.Size(140, 85);
             this.numButton2.TabIndex = 11;
@@ -278,7 +285,7 @@
             this.numButton1.ForeColor = System.Drawing.Color.White;
             this.numButton1.Image = ((System.Drawing.Image)(resources.GetObject("numButton1.Image")));
             this.numButton1.IsActive = false;
-            this.numButton1.Location = new System.Drawing.Point(680, 284);
+            this.numButton1.Location = new System.Drawing.Point(409, 361);
             this.numButton1.Name = "numButton1";
             this.numButton1.Size = new System.Drawing.Size(140, 85);
             this.numButton1.TabIndex = 11;
@@ -286,38 +293,35 @@
             this.numButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.numButton1.Click += new System.EventHandler(this.numButton1_Click);
             // 
-            // picReturn
+            // txtValidCode
             // 
-            this.picReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Return;
-            this.picReturn.Location = new System.Drawing.Point(1007, 31);
-            this.picReturn.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.picReturn.Name = "picReturn";
-            this.picReturn.Size = new System.Drawing.Size(133, 68);
-            this.picReturn.TabIndex = 3;
-            this.picReturn.TabStop = false;
-            this.picReturn.Click += new System.EventHandler(this.picReturn_Click);
+            this.txtValidCode.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtValidCode.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtValidCode.Hint = "验票码";
+            this.txtValidCode.Location = new System.Drawing.Point(408, 264);
+            this.txtValidCode.Margin = new System.Windows.Forms.Padding(0);
+            this.txtValidCode.MaxInputLength = 6;
+            this.txtValidCode.Name = "txtValidCode";
+            this.txtValidCode.PasswordChar = '\0';
+            this.txtValidCode.RelativeLabel = this.lbValidCode;
+            this.txtValidCode.Size = new System.Drawing.Size(311, 74);
+            this.txtValidCode.TabIndex = 2;
+            this.txtValidCode.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtValidCode_onSubTextChanged);
             // 
-            // pictureBox2
+            // txtMobile
             // 
-            this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Site_Hint;
-            this.pictureBox2.Location = new System.Drawing.Point(275, 31);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(649, 68);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // picReturnHome
-            // 
-            this.picReturnHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Home;
-            this.picReturnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picReturnHome.Location = new System.Drawing.Point(97, 31);
-            this.picReturnHome.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.picReturnHome.Name = "picReturnHome";
-            this.picReturnHome.Size = new System.Drawing.Size(179, 68);
-            this.picReturnHome.TabIndex = 1;
-            this.picReturnHome.TabStop = false;
-            this.picReturnHome.Click += new System.EventHandler(this.picReturnHome_Click);
+            this.txtMobile.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtMobile.Hint = "购票所留手机号";
+            this.txtMobile.Location = new System.Drawing.Point(408, 170);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMobile.MaxInputLength = 11;
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.PasswordChar = '\0';
+            this.txtMobile.RelativeLabel = this.lbMobileHint;
+            this.txtMobile.Size = new System.Drawing.Size(311, 74);
+            this.txtMobile.TabIndex = 1;
+            this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtMobile_onSubTextChanged);
             // 
             // TicketPrintPanel
             // 
@@ -362,8 +366,8 @@
         private System.Windows.Forms.PictureBox picReturnHome;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox picReturn;
-        private System.Windows.Forms.Label lbMobileHint;
-        private System.Windows.Forms.Label lbValidCode;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMobileHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbValidCode;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtMobile;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtValidCode;
         private HiPiaoTerminal.UserControlEx.NumButton numButton1;

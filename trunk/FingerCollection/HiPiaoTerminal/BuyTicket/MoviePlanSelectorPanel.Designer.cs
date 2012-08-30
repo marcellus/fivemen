@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
-            this.lbName = new System.Windows.Forms.Label();
-            this.lbOtherName = new System.Windows.Forms.Label();
-            this.lbDirector = new System.Windows.Forms.Label();
-            this.lbScreenWriter = new System.Windows.Forms.Label();
-            this.lbMainActor = new System.Windows.Forms.Label();
-            this.lbType = new System.Windows.Forms.Label();
-            this.lbNational = new System.Windows.Forms.Label();
-            this.lbLanguage = new System.Windows.Forms.Label();
-            this.lbLength = new System.Windows.Forms.Label();
+            this.lbName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbOtherName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbDirector = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbScreenWriter = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMainActor = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbType = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbNational = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbLanguage = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbLength = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.picMovieAdImage = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTomorrow = new System.Windows.Forms.Label();
-            this.btnThreeDay = new System.Windows.Forms.Label();
-            this.btnToday = new System.Windows.Forms.Label();
-            this.lbProcessHint = new System.Windows.Forms.Label();
+            this.btnTomorrow = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnThreeDay = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnToday = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -110,6 +110,7 @@
             this.lbName.Location = new System.Drawing.Point(245, 4);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(102, 32);
+            this.lbName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbName.TabIndex = 1;
             this.lbName.Text = "label1";
             // 
@@ -120,6 +121,7 @@
             this.lbOtherName.Location = new System.Drawing.Point(245, 33);
             this.lbOtherName.Name = "lbOtherName";
             this.lbOtherName.Size = new System.Drawing.Size(78, 27);
+            this.lbOtherName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbOtherName.TabIndex = 1;
             this.lbOtherName.Text = "label1";
             // 
@@ -131,6 +133,7 @@
             this.lbDirector.Location = new System.Drawing.Point(245, 69);
             this.lbDirector.Name = "lbDirector";
             this.lbDirector.Size = new System.Drawing.Size(78, 18);
+            this.lbDirector.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbDirector.TabIndex = 1;
             this.lbDirector.Text = "导演：{0}";
             // 
@@ -142,6 +145,7 @@
             this.lbScreenWriter.Location = new System.Drawing.Point(245, 91);
             this.lbScreenWriter.Name = "lbScreenWriter";
             this.lbScreenWriter.Size = new System.Drawing.Size(78, 18);
+            this.lbScreenWriter.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbScreenWriter.TabIndex = 1;
             this.lbScreenWriter.Text = "编剧：{0}";
             // 
@@ -153,6 +157,7 @@
             this.lbMainActor.Location = new System.Drawing.Point(245, 113);
             this.lbMainActor.Name = "lbMainActor";
             this.lbMainActor.Size = new System.Drawing.Size(78, 18);
+            this.lbMainActor.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMainActor.TabIndex = 1;
             this.lbMainActor.Text = "主演：{0}";
             // 
@@ -164,6 +169,7 @@
             this.lbType.Location = new System.Drawing.Point(245, 135);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(78, 18);
+            this.lbType.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbType.TabIndex = 1;
             this.lbType.Text = "类型：{0}";
             // 
@@ -175,6 +181,7 @@
             this.lbNational.Location = new System.Drawing.Point(245, 157);
             this.lbNational.Name = "lbNational";
             this.lbNational.Size = new System.Drawing.Size(78, 18);
+            this.lbNational.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbNational.TabIndex = 1;
             this.lbNational.Text = "国家：{0}";
             // 
@@ -186,6 +193,7 @@
             this.lbLanguage.Location = new System.Drawing.Point(245, 179);
             this.lbLanguage.Name = "lbLanguage";
             this.lbLanguage.Size = new System.Drawing.Size(78, 18);
+            this.lbLanguage.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbLanguage.TabIndex = 1;
             this.lbLanguage.Text = "语言：{0}";
             // 
@@ -197,6 +205,7 @@
             this.lbLength.Location = new System.Drawing.Point(245, 201);
             this.lbLength.Name = "lbLength";
             this.lbLength.Size = new System.Drawing.Size(110, 18);
+            this.lbLength.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbLength.TabIndex = 1;
             this.lbLength.Text = "片长：{0}分钟";
             // 
@@ -211,7 +220,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Home;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(243, 84);
             this.pictureBox2.TabIndex = 5;
@@ -221,7 +230,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1109, 32);
+            this.btnReturn.Location = new System.Drawing.Point(1059, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 4;
@@ -231,7 +240,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Select_Movie;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(243, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 3;
@@ -245,6 +254,7 @@
             this.btnTomorrow.Location = new System.Drawing.Point(951, 31);
             this.btnTomorrow.Name = "btnTomorrow";
             this.btnTomorrow.Size = new System.Drawing.Size(118, 81);
+            this.btnTomorrow.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnTomorrow.TabIndex = 6;
             this.btnTomorrow.Text = "   明天   {0}";
             this.btnTomorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -258,6 +268,7 @@
             this.btnThreeDay.Location = new System.Drawing.Point(1095, 31);
             this.btnThreeDay.Name = "btnThreeDay";
             this.btnThreeDay.Size = new System.Drawing.Size(118, 81);
+            this.btnThreeDay.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnThreeDay.TabIndex = 4;
             this.btnThreeDay.Text = "   后天   {0}";
             this.btnThreeDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -271,6 +282,7 @@
             this.btnToday.Location = new System.Drawing.Point(807, 31);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(118, 81);
+            this.btnToday.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnToday.TabIndex = 5;
             this.btnToday.Text = "   今天   {0}";
             this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,6 +295,7 @@
             this.lbProcessHint.Location = new System.Drawing.Point(404, 187);
             this.lbProcessHint.Name = "lbProcessHint";
             this.lbProcessHint.Size = new System.Drawing.Size(351, 32);
+            this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbProcessHint.TabIndex = 11;
             this.lbProcessHint.Text = "正在加载排期信息，请稍候";
             // 
@@ -318,20 +331,20 @@
         private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ShowWelcomePanel showWelcomePanel1;
-        private System.Windows.Forms.Label btnTomorrow;
-        private System.Windows.Forms.Label btnToday;
-        private System.Windows.Forms.Label btnThreeDay;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnTomorrow;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnToday;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnThreeDay;
         private System.Windows.Forms.PictureBox picMovieAdImage;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbOtherName;
-        private System.Windows.Forms.Label lbDirector;
-        private System.Windows.Forms.Label lbLanguage;
-        private System.Windows.Forms.Label lbNational;
-        private System.Windows.Forms.Label lbType;
-        private System.Windows.Forms.Label lbMainActor;
-        private System.Windows.Forms.Label lbScreenWriter;
-        private System.Windows.Forms.Label lbLength;
-        private System.Windows.Forms.Label lbProcessHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbOtherName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbDirector;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbLanguage;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbNational;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbType;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMainActor;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbScreenWriter;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbLength;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbProcessHint;
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
     }
 }

@@ -71,6 +71,7 @@ namespace HiPiaoTerminal
         {
             //GlobalTools.RegistUpdateUnOperationTime(UpdateUnOperationTime);
             this.webBrowser1.ScriptErrorsSuppressed = true;
+            //this.webBrowser1.
             //this.webBrowser1.sc
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             this.webBrowser1.Navigate(config.TastUrl);
@@ -89,6 +90,11 @@ namespace HiPiaoTerminal
 
         private void btnQuickBuyTicket_Click(object sender, EventArgs e)
         {
+            if (GlobalTools.loginUser == null)
+            {
+                GlobalTools.GoPanel(new UserLoginPanel(1));
+            }
+            else
             GlobalTools.QuickBuyTicket();
         }
     }

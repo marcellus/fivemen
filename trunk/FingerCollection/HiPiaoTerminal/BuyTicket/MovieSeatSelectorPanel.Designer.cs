@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
-            this.lbMovieName = new System.Windows.Forms.Label();
-            this.lbMovieDetail = new System.Windows.Forms.Label();
-            this.lbPrice = new System.Windows.Forms.Label();
+            this.lbMovieName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMovieDetail = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbPrice = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelSelectedSeat = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbPlanInfo = new System.Windows.Forms.Label();
+            this.lbPlanInfo = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbTotalPrice = new System.Windows.Forms.Label();
-            this.lbTotalNum = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbTotalPrice = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbTotalNum = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnPay = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
-            this.lbProcessHint = new System.Windows.Forms.Label();
+            this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -110,6 +110,7 @@
             this.lbMovieName.Location = new System.Drawing.Point(91, 33);
             this.lbMovieName.Name = "lbMovieName";
             this.lbMovieName.Size = new System.Drawing.Size(99, 32);
+            this.lbMovieName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieName.TabIndex = 1;
             this.lbMovieName.Text = "电影名";
             // 
@@ -120,6 +121,7 @@
             this.lbMovieDetail.Location = new System.Drawing.Point(398, 37);
             this.lbMovieDetail.Name = "lbMovieDetail";
             this.lbMovieDetail.Size = new System.Drawing.Size(135, 22);
+            this.lbMovieDetail.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieDetail.TabIndex = 2;
             this.lbMovieDetail.Text = "{0} {1} {2}分钟";
             // 
@@ -131,6 +133,7 @@
             this.lbPrice.Location = new System.Drawing.Point(931, 33);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(120, 32);
+            this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "{0}元/张";
             // 
@@ -161,6 +164,7 @@
             this.lbPlanInfo.Location = new System.Drawing.Point(3, 0);
             this.lbPlanInfo.Name = "lbPlanInfo";
             this.lbPlanInfo.Size = new System.Drawing.Size(217, 32);
+            this.lbPlanInfo.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPlanInfo.TabIndex = 0;
             this.lbPlanInfo.Text = "{0} {1} {2}";
             this.lbPlanInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,7 +181,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Home;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 34);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(243, 84);
             this.pictureBox2.TabIndex = 8;
@@ -187,7 +191,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1109, 34);
+            this.btnReturn.Location = new System.Drawing.Point(1055, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 7;
@@ -197,7 +201,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Select_Position;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(243, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 6;
@@ -223,6 +227,7 @@
             this.lbTotalPrice.Location = new System.Drawing.Point(101, 48);
             this.lbTotalPrice.Name = "lbTotalPrice";
             this.lbTotalPrice.Size = new System.Drawing.Size(75, 32);
+            this.lbTotalPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalPrice.TabIndex = 0;
             this.lbTotalPrice.Text = "0.00";
             // 
@@ -234,6 +239,7 @@
             this.lbTotalNum.Location = new System.Drawing.Point(101, 13);
             this.lbTotalNum.Name = "lbTotalNum";
             this.lbTotalNum.Size = new System.Drawing.Size(80, 32);
+            this.lbTotalNum.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalNum.TabIndex = 0;
             this.lbTotalNum.Text = "{0}张";
             // 
@@ -245,6 +251,7 @@
             this.label2.Location = new System.Drawing.Point(16, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 0;
             this.label2.Text = "总价：";
             // 
@@ -256,6 +263,7 @@
             this.label1.Location = new System.Drawing.Point(16, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 32);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 0;
             this.label1.Text = "已选：";
             // 
@@ -276,6 +284,7 @@
             this.label3.Location = new System.Drawing.Point(75, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(833, 29);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 7;
             this.label3.Text = "屏幕";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,6 +303,7 @@
             this.lbProcessHint.Location = new System.Drawing.Point(237, 5);
             this.lbProcessHint.Name = "lbProcessHint";
             this.lbProcessHint.Size = new System.Drawing.Size(323, 32);
+            this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbProcessHint.TabIndex = 9;
             this.lbProcessHint.Text = "正在加载座位图，请稍候";
             // 
@@ -328,19 +338,19 @@
         private ShowWelcomePanel showWelcomePanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnPay;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbTotalPrice;
-        private System.Windows.Forms.Label lbTotalNum;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbTotalPrice;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbTotalNum;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lbMovieName;
-        private System.Windows.Forms.Label lbMovieDetail;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMovieName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMovieDetail;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbPlanInfo;
-        private System.Windows.Forms.Label lbPrice;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPlanInfo;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPrice;
         private System.Windows.Forms.Panel panelSelectedSeat;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbProcessHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbProcessHint;
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
 
     }

@@ -30,14 +30,24 @@ namespace HiPiaoTerminal.Maintain
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (config.ManagePwd == inputPwd)
             {
+                GlobalTools.ErrorManagePwdTimes = 0;
                 GlobalTools.ReturnMaintain();
     
             }
             else
             {
+              
                 this.lbReturnMsg.Text = "密码不正确！";
+                GlobalTools.ErrorManagePwdTimes +=1;
+                GlobalTools.ErrorManagePwdLastTime = System.DateTime.Now;
+                
                 this.txtManagePwd.Text = string.Empty;
                 this.txtManagePwd.Focus();
+                if (GlobalTools.ErrorManagePwdTimes == 3)
+                {
+                    GlobalTools.ShowMessage("密码输入次数太多！", true);
+                    // GlobalTools.ReturnMain();
+                }
             }
         }
 

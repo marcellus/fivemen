@@ -131,7 +131,8 @@ namespace HiPiaoTerminal.Account
             if (record != null&&lb1!=null)
             {
                 lb1.Text =  record.BuyTime.ToString("yyyy-MM-dd HH:mm");
-                lb2.Text = listIndex.ToString() + "-"+string.Format("《{0}》 {1} 张 {2}元/张",record.Tickets[0].Movie.Name,record.Tickets.Count.ToString(),record.Tickets[0].Price.ToString());
+                //listIndex.ToString() + "-"+
+                lb2.Text = string.Format("《{0}》 {1} 张 {2}元/张",record.Tickets[0].Movie.Name,record.Tickets.Count.ToString(),record.Tickets[0].Price.ToString());
                 lb3.Text = record.Tickets[0].Seat.Room.Name+"-"+record.Tickets[0].Seat.Room.Cinema.Name + "-" ;
                 lb4.Text = record.TotalPrice.ToString();
 

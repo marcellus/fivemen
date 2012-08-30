@@ -33,7 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
-            this.btnConfirmPay = new System.Windows.Forms.Label();
+            this.btnConfirmPay = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,7 +77,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1098, 33);
+            this.btnReturn.Location = new System.Drawing.Point(1059, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 2;
@@ -86,7 +86,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_CheckInfo_Hint;
-            this.pictureBox1.Location = new System.Drawing.Point(244, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(244, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(814, 83);
             this.pictureBox1.TabIndex = 1;
@@ -95,7 +95,7 @@
             // btnHome
             // 
             this.btnHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_ReturnHome;
-            this.btnHome.Location = new System.Drawing.Point(0, 33);
+            this.btnHome.Location = new System.Drawing.Point(0, 40);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(248, 83);
             this.btnHome.TabIndex = 0;
@@ -121,6 +121,7 @@
             this.btnConfirmPay.Location = new System.Drawing.Point(969, 36);
             this.btnConfirmPay.Name = "btnConfirmPay";
             this.btnConfirmPay.Size = new System.Drawing.Size(220, 70);
+            this.btnConfirmPay.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnConfirmPay.TabIndex = 1;
             this.btnConfirmPay.Text = "确认支付";
             this.btnConfirmPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,6 +150,6 @@
         private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private ShowWelcomePanel showWelcomePanel1;
-        private System.Windows.Forms.Label btnConfirmPay;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnConfirmPay;
     }
 }

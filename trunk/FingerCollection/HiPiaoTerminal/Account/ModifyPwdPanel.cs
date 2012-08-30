@@ -18,23 +18,7 @@ namespace HiPiaoTerminal.Account
             InitializeComponent();
         }
         private bool allowUpdate = false;
-        private void txtCheckInput_KeyUp(object sender, KeyEventArgs e)
-        {
-            string oldPwd = this.txtOldPwd.Text.Trim();
-            string pwd = this.txtNewPwd.Text.Trim();
-            string repeatPwd = this.txtRepeatPwd.Text.Trim();
-            if (oldPwd.Length > 0 && pwd.Length > 0 && repeatPwd.Length > 0)
-            {
-                allowUpdate = true;
-                this.btnSure.Image = Properties.Resources.Account_btn_Active;
-            }
-            else
-            {
-                allowUpdate = false;
-                this.btnSure.Image = Properties.Resources.Account_btn_Not_Active;
-            }
-        }
-
+       
         private void btnSure_Click(object sender, EventArgs e)
         {
             if (allowUpdate)
@@ -64,6 +48,7 @@ namespace HiPiaoTerminal.Account
                     this.lbNewPwdHint.Text = "密码只允许6位数字";
                     this.picNewPwdHint.Visible = true;
                     this.picNewPwdHint.Image = Properties.Resources.Error;
+                    this.txtNewPwd.Focus();
                     result = false;
 
                 }
@@ -94,6 +79,7 @@ namespace HiPiaoTerminal.Account
                 {
                     if (HiPiaoOperatorFactory.GetHiPiaoOperator().UpdatePwd(GlobalTools.GetLoginUser(), pwd))
                     {
+                        
                         GlobalTools.Pop("修改密码成功！");
                     }
                     else
@@ -101,6 +87,23 @@ namespace HiPiaoTerminal.Account
                         GlobalTools.PopNetError();
                     }
                 }
+            }
+        }
+
+        private void txtOldPwd_onSubTextChanged()
+        {
+            string oldPwd = this.txtOldPwd.Text.Trim();
+            string pwd = this.txtNewPwd.Text.Trim();
+            string repeatPwd = this.txtRepeatPwd.Text.Trim();
+            if (oldPwd.Length > 0 && pwd.Length > 0 && repeatPwd.Length > 0)
+            {
+                allowUpdate = true;
+                this.btnSure.Image = Properties.Resources.Account_btn_Active;
+            }
+            else
+            {
+                allowUpdate = false;
+                this.btnSure.Image = Properties.Resources.Account_btn_Not_Active;
             }
         }
     }

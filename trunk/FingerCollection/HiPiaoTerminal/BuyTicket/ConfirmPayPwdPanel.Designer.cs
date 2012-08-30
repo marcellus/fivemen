@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmPayPwdPanel));
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbMsg = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtUserPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.btnCancel = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.btnConfirmPay = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
@@ -115,8 +115,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMsg;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtUserPwd;
         private HiPiaoTerminal.UserControlEx.LabelButtonWithActive btnConfirmPay;
         private HiPiaoTerminal.UserControlEx.LabelButtonWithActive btnCancel;

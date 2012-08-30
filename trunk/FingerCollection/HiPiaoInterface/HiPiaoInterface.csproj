@@ -45,7 +45,9 @@
     <Compile Include="CityObject.cs" />
     <Compile Include="CommonHiPiaoStringOperator.cs" />
     <Compile Include="CouponObject.cs" />
+    <Compile Include="DeductionObject.cs" />
     <Compile Include="HiPiaoCache.cs" />
+    <Compile Include="HiPiaoOperator.cs" />
     <Compile Include="HiPiaoOperatorFactory.cs" />
     <Compile Include="IHiPiaoOperator.cs" />
     <Compile Include="MockHiPiaoOperator.cs" />

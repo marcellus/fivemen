@@ -208,7 +208,7 @@ namespace HiPiaoInterface
             throw new NotImplementedException();
         }
 
-        public UserObject Register(string uid, string pwd, string mobile)
+        public UserObject Register(string uid, string pwd, string mobile, ref string returnCode)
         {
             if (uid != "neterror")
                 return this.MockUser();
@@ -217,6 +217,16 @@ namespace HiPiaoInterface
         }
 
         public ReturnObject PrintTicket(UserObject user, TicketObject ticket)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IHiPiaoOperator 成员
+
+
+        public void QueryUser(UserObject user)
         {
             throw new NotImplementedException();
         }

@@ -38,12 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Commons\commons-dlls\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="PresentationFramework">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -51,12 +45,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationProvider">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\ConfirmQuitAccountForm.cs">
@@ -702,9 +690,17 @@
       <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
       <Name>FT.Device</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Commons\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
+      <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
+      <Name>FT.Windows.CommonsPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.Controls\FT.Windows.Controls.csproj">
       <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
       <Name>FT.Windows.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj">
+      <Project>{78DF4A96-58A9-442F-B047-ED8D56196172}</Project>
+      <Name>FT.Windows.ExternalTool</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.Forms\FT.Windows.Forms.csproj">
       <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
@@ -887,8 +883,6 @@
     <None Include="Resources\Print_Wait_Success.png" />
     <None Include="Resources\Print_Input_Error.png" />
     <None Include="Resources\Print_Return.png" />
-    <None Include="Resources\Print_Site_Hint.png" />
-    <None Include="Resources\Print_Home.png" />
     <None Include="Resources\Main_Quit.png" />
     <None Include="Resources\BuyTicket_GetTicket.png" />
     <None Include="Resources\BuyTicket_Sell_Flag.png" />
@@ -908,6 +902,9 @@
     <None Include="Resources\BuyTicket_Sell_Flag_White.png" />
     <None Include="Resources\BuyTicket_SelectedSeat_Panel.png" />
     <None Include="Resources\BuyTicket_Seat_Select_Hint.png" />
+    <None Include="Resources\Print_Site_Hint.png" />
+    <None Include="Resources\Print_ReturnBack.png" />
+    <None Include="Resources\Print_Home.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
