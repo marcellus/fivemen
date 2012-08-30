@@ -91,10 +91,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\FT.Commons\FT.Commons.csproj">
-      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
-      <Name>FT.Commons</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
       <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
       <Name>FT.Windows.CommonsPlugin</Name>

@@ -61,6 +61,7 @@ namespace HiPiaoTerminal
                 string repeatPwd = this.txtRepeatPwd.Text.Trim();
                 string mobile = this.txtMobile.Text.Trim();
                 bool result = true;
+                /*
                 if (!HiPiaoOperatorFactory.GetHiPiaoOperator().CheckUserName(name))
                 {
                     this.lbUserNameHint.Text = "你输入的用户名已经存在，请重新输入";
@@ -75,12 +76,17 @@ namespace HiPiaoTerminal
                     this.lbUserNameHint.Text = string.Empty;
                     this.picUserNameHint.Image = Properties.Resources.Right;
                 }
+                 * */
 
                 if (!ValidatorHelper.ValidatePostCode(pwd,false))
                 {
                     this.lbPasswordHint.Text = "密码只允许6位数字";
                     this.picPasswordHint.Visible = true;
                     this.picPasswordHint.Image = Properties.Resources.Error;
+                    this.txtPassword.Focus();
+                    this.txtMobile.UnFocus();
+                    this.txtRepeatPwd.UnFocus();
+                    this.txtUserName.UnFocus();
                     result = false;
 
                 }
@@ -96,7 +102,10 @@ namespace HiPiaoTerminal
                     this.picRepeatPwdHint.Visible = true;
                     this.picRepeatPwdHint.Image = Properties.Resources.Error;
                     this.txtPassword.Text = this.txtRepeatPwd.Text = string.Empty;
-                    //this.txtPassword.Focus();
+                    this.txtPassword.Focus();
+                    this.txtMobile.UnFocus();
+                    this.txtRepeatPwd.UnFocus();
+                    this.txtUserName.UnFocus();
                     result = false;
 
                 }
@@ -111,9 +120,14 @@ namespace HiPiaoTerminal
                     this.lbMobileHint.Text = "手机号输入错误";
                     this.picMobileHint.Visible = true;
                     this.picMobileHint.Image = Properties.Resources.Error;
+                    this.txtMobile.Focus();
+                    this.txtPassword.UnFocus();
+                    this.txtRepeatPwd.UnFocus();
+                    this.txtUserName.UnFocus();
                     result = false;
 
                 }
+                    /*
                 else if (!HiPiaoOperatorFactory.GetHiPiaoOperator().CheckMobile(mobile))
                 {
                     this.lbMobileHint.Text = "您输入的手机号已经被注册";
@@ -127,11 +141,27 @@ namespace HiPiaoTerminal
                     this.lbMobileHint.Text = string.Empty;
                     this.picMobileHint.Image = Properties.Resources.Right;
                 }
+                     * */
                 if (result)
                 {
-                    if (HiPiaoOperatorFactory.GetHiPiaoOperator().Register(name, pwd, mobile)!=null)
+                    string retcode = "0";
+                   UserObject user=HiPiaoOperatorFactory.GetHiPiaoOperator().Register(name, pwd, mobile,ref retcode);
+                    if (user!=null)
                     {
+                        GlobalTools.loginUser = user;
                         GlobalTools.Pop(new UserRegister.UserRegisterSuccessPanel());
+                    }
+                    else if (retcode == "2")
+                    {
+                         this.lbUserNameHint.Text = "你输入的用户名已经存在，请重新输入";
+                        this.picUserNameHint.Visible = true;
+                        this.picUserNameHint.Image = Properties.Resources.Error;
+                        this.txtUserName.Text = string.Empty;
+                        this.txtUserName.Focus();
+                        this.txtPassword.UnFocus();
+                        this.txtRepeatPwd.UnFocus();
+                        this.txtMobile.UnFocus();
+
                     }
                     else
                     {

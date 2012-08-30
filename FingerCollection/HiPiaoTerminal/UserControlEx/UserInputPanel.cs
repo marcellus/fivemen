@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
+using FT.Commons.Win32;
 
 namespace HiPiaoTerminal.UserControlEx
 {
@@ -96,6 +97,18 @@ namespace HiPiaoTerminal.UserControlEx
             }
         }
 
+        public int MaxInputLength
+        {
+            get
+            {
+                return this.txtMain.MaxLength; ;
+            }
+            set
+            {
+                this.txtMain.MaxLength = value;
+            }
+        }
+
         public void Focus()
         {
            
@@ -148,13 +161,18 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void UserInputPanel_Resize(object sender, EventArgs e)
         {
+
+            this.ResizeCompute();
+
+        }
+
+        private void ResizeCompute()
+        {
             this.panel1.Width = this.panel2.Width = 14;
             this.panelCenter.Location = new Point(14, 0);
-            this.panelCenter.Width = this.Size.Width - 2 * this.panel1.Width ;
+            this.panelCenter.Width = this.Size.Width - 2 * this.panel1.Width;
             this.txtMain.Location = new Point(9, 16);
             this.txtMain.Width = this.Size.Width - 2 * this.panel1.Width - 5;
-            
-
         }
 
         private void FlashUnderLine()
@@ -169,7 +187,8 @@ namespace HiPiaoTerminal.UserControlEx
                     int ht = (int)gc.MeasureString("x", txtMain.Font).Height;
                     int begin = 0;
                     Point p2=this.txtMain.Location;
-                    if (this.txtMain.HasValue)
+                   // bool result = (bool)WindowFormDelegate.GetControlProperty(this.txtMain, "HasValue");
+                    if (this.txtMain.GetRealText().Length>0)
                     {
                         begin = txtMain.Text.Length-1;
                         if (begin == 0)
@@ -194,15 +213,16 @@ namespace HiPiaoTerminal.UserControlEx
                     }
                     else
                     {
-                        this.picUnderLine.Location = new Point(p2.X+5, this.picUnderLine.Location.Y);
+                        this.picUnderLine.Location = new Point(5, this.picUnderLine.Location.Y);
                     }
                     //this.picUnderLine.Width = wd;
                     //Console.WriteLine("转化后下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
                     this.picUnderLine.Visible = !this.picUnderLine.Visible;
                     System.Threading.Thread.Sleep(500);
                 }
-                catch
+                catch(Exception ex)
                 {
+                    Console.WriteLine("thread-exception===>"+ex.ToString());
                     return;
                 }
             }
@@ -283,12 +303,16 @@ namespace HiPiaoTerminal.UserControlEx
             {
                 relativeLabel.ForeColor = Color.FromArgb(121, 121, 121);
             }
-            Console.WriteLine(this.Name+"-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
-            if (flashThread.ThreadState != ThreadState.StopRequested||flashThread.ThreadState!=ThreadState.Stopped)
+
+            if (flashThread != null)
             {
-                flashThread.Abort();
-                this.picUnderLine.Visible = false;
-                Console.WriteLine("停止线程闪烁");
+                Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
+                if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
+                {
+                    flashThread.Abort();
+                    this.picUnderLine.Visible = false;
+                    Console.WriteLine("停止线程闪烁");
+                }
             }
             //Console.WriteLine("txtMain失去焦点完毕");
         }
@@ -332,6 +356,11 @@ namespace HiPiaoTerminal.UserControlEx
             {
                 this.txtMain.SelectionStart = 0;
             }
+        }
+
+        private void UserInputPanel_Load(object sender, EventArgs e)
+        {
+            this.ResizeCompute();
         }
 
         

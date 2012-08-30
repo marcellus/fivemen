@@ -32,10 +32,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnReturn = new System.Windows.Forms.PictureBox();
-            this.lbUserName = new System.Windows.Forms.Label();
+            this.lbUserName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtUserName = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.lbPwd = new System.Windows.Forms.Label();
+            this.lbPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnLogin = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.btnCancel = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.panelContent.SuspendLayout();
@@ -66,12 +66,12 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Size = new System.Drawing.Size(1413, 856);
-            this.splitContainer1.SplitterDistance = 717;
+            this.splitContainer1.SplitterDistance = 821;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Accout_UserLogin_Home;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(416, 83);
@@ -82,7 +82,8 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_UserLogin_Hint;
-            this.pictureBox2.Location = new System.Drawing.Point(415, 40);
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(415, 41);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(644, 83);
             this.pictureBox2.TabIndex = 0;
@@ -91,7 +92,8 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1099, 40);
+            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReturn.Location = new System.Drawing.Point(1063, 41);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(162, 83);
             this.btnReturn.TabIndex = 1;
@@ -101,11 +103,13 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.lbUserName.BackColor = System.Drawing.Color.Transparent;
+            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbUserName.Location = new System.Drawing.Point(178, 54);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(122, 40);
+            this.lbUserName.Size = new System.Drawing.Size(122, 39);
+            this.lbUserName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbUserName.TabIndex = 11;
             this.lbUserName.Text = "用户名";
             // 
@@ -114,13 +118,14 @@
             this.txtUserName.BackColor = System.Drawing.SystemColors.Window;
             this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
             this.txtUserName.Hint = "用户名/手机号码";
-            this.txtUserName.Location = new System.Drawing.Point(329, 36);
+            this.txtUserName.Location = new System.Drawing.Point(328, 36);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUserName.MaxInputLength = 32767;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PasswordChar = '\0';
             this.txtUserName.RelativeLabel = this.lbUserName;
-            this.txtUserName.Size = new System.Drawing.Size(352, 74);
-            this.txtUserName.TabIndex = 10;
+            this.txtUserName.Size = new System.Drawing.Size(343, 74);
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
             // txtPwd
@@ -128,29 +133,33 @@
             this.txtPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtPwd.Hint = "账户密码";
-            this.txtPwd.Location = new System.Drawing.Point(329, 144);
+            this.txtPwd.Location = new System.Drawing.Point(328, 144);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPwd.MaxInputLength = 32767;
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.RelativeLabel = this.lbPwd;
-            this.txtPwd.Size = new System.Drawing.Size(352, 74);
-            this.txtPwd.TabIndex = 10;
+            this.txtPwd.Size = new System.Drawing.Size(343, 74);
+            this.txtPwd.TabIndex = 2;
             this.txtPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
             // lbPwd
             // 
             this.lbPwd.AutoSize = true;
-            this.lbPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.lbPwd.BackColor = System.Drawing.Color.Transparent;
+            this.lbPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.lbPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbPwd.Location = new System.Drawing.Point(178, 162);
             this.lbPwd.Name = "lbPwd";
-            this.lbPwd.Size = new System.Drawing.Size(127, 40);
+            this.lbPwd.Size = new System.Drawing.Size(123, 39);
+            this.lbPwd.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPwd.TabIndex = 11;
             this.lbPwd.Text = "密    码";
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("方正兰亭黑简体", 36F);
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.IsActived = false;
@@ -164,7 +173,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("方正兰亭黑简体", 36F);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.IsActived = true;
@@ -182,7 +191,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Margin = new System.Windows.Forms.Padding(27, 21, 27, 21);
             this.Name = "UserLoginPanel";
-            this.Size = new System.Drawing.Size(1413, 856);
             this.Load += new System.EventHandler(this.UserLoginPanel_Load);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
@@ -202,9 +210,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btnReturn;
-        private System.Windows.Forms.Label lbPwd;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPwd;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtPwd;
-        private System.Windows.Forms.Label lbUserName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbUserName;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtUserName;
         private HiPiaoTerminal.UserControlEx.LabelButtonWithActive btnLogin;
         private HiPiaoTerminal.UserControlEx.LabelButtonWithActive btnCancel;

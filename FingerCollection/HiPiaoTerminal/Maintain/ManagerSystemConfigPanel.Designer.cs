@@ -52,7 +52,7 @@
             this.checkShow = new FT.Windows.Controls.ButtonEx.CheckButton();
             this.btnKeepSave = new System.Windows.Forms.PictureBox();
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnTestConnection = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -406,7 +406,7 @@
         private System.Windows.Forms.TextBox txtIp3;
         private System.Windows.Forms.TextBox txtIp2;
         private System.Windows.Forms.TextBox txtIp4;
-        private System.Windows.Forms.Label lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
         private System.Windows.Forms.PictureBox btnTestConnection;
     }
 }

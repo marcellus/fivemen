@@ -68,6 +68,7 @@
             // 
             this.btnFeeDetailInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFeeDetailInfo.BackgroundImage")));
             this.btnFeeDetailInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFeeDetailInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
             this.btnFeeDetailInfo.ForeColor = System.Drawing.Color.White;
             this.btnFeeDetailInfo.IsActive = false;
             this.btnFeeDetailInfo.Location = new System.Drawing.Point(372, 154);
@@ -97,6 +98,7 @@
             // 
             this.btnAccountInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAccountInfo.BackgroundImage")));
             this.btnAccountInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAccountInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
             this.btnAccountInfo.IsActive = false;
             this.btnAccountInfo.Location = new System.Drawing.Point(100, 154);
             this.btnAccountInfo.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);
@@ -109,7 +111,8 @@
             // btnReturnHome
             // 
             this.btnReturnHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_HomePage;
-            this.btnReturnHome.Location = new System.Drawing.Point(0, 31);
+            this.btnReturnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReturnHome.Location = new System.Drawing.Point(0, 40);
             this.btnReturnHome.Name = "btnReturnHome";
             this.btnReturnHome.Size = new System.Drawing.Size(411, 83);
             this.btnReturnHome.TabIndex = 0;
@@ -119,7 +122,8 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_SiteHint;
-            this.pictureBox2.Location = new System.Drawing.Point(411, 31);
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(411, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(640, 83);
             this.pictureBox2.TabIndex = 0;
@@ -128,7 +132,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1090, 31);
+            this.btnReturn.Location = new System.Drawing.Point(1060, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 0;

@@ -31,16 +31,16 @@
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtOldPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtNewPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbRepeatPwdHint = new System.Windows.Forms.Label();
-            this.lbNewPwdHint = new System.Windows.Forms.Label();
-            this.lbOldPwdHint = new System.Windows.Forms.Label();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbRepeatPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbNewPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbOldPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.picRepeatPwdHint = new System.Windows.Forms.PictureBox();
             this.picNewPwdHint = new System.Windows.Forms.PictureBox();
             this.picOldPwdHint = new System.Windows.Forms.PictureBox();
-            this.btnSure = new System.Windows.Forms.Label();
+            this.btnSure = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picRepeatPwdHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNewPwdHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOldPwdHint)).BeginInit();
@@ -53,11 +53,13 @@
             this.txtRepeatPwd.Hint = "请再次输新密码";
             this.txtRepeatPwd.Location = new System.Drawing.Point(325, 255);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRepeatPwd.MaxInputLength = 32767;
             this.txtRepeatPwd.Name = "txtRepeatPwd";
             this.txtRepeatPwd.PasswordChar = '*';
+            this.txtRepeatPwd.RelativeLabel = null;
             this.txtRepeatPwd.Size = new System.Drawing.Size(352, 74);
             this.txtRepeatPwd.TabIndex = 8;
-            this.txtRepeatPwd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCheckInput_KeyUp);
+            this.txtRepeatPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtOldPwd_onSubTextChanged);
             // 
             // txtOldPwd
             // 
@@ -66,11 +68,13 @@
             this.txtOldPwd.Hint = "请输入旧密码";
             this.txtOldPwd.Location = new System.Drawing.Point(325, 15);
             this.txtOldPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtOldPwd.MaxInputLength = 32767;
             this.txtOldPwd.Name = "txtOldPwd";
             this.txtOldPwd.PasswordChar = '*';
+            this.txtOldPwd.RelativeLabel = null;
             this.txtOldPwd.Size = new System.Drawing.Size(352, 74);
             this.txtOldPwd.TabIndex = 7;
-            this.txtOldPwd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCheckInput_KeyUp);
+            this.txtOldPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtOldPwd_onSubTextChanged);
             // 
             // txtNewPwd
             // 
@@ -79,11 +83,13 @@
             this.txtNewPwd.Hint = "请输入新密码";
             this.txtNewPwd.Location = new System.Drawing.Point(325, 140);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNewPwd.MaxInputLength = 32767;
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
+            this.txtNewPwd.RelativeLabel = null;
             this.txtNewPwd.Size = new System.Drawing.Size(352, 74);
             this.txtNewPwd.TabIndex = 6;
-            this.txtNewPwd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCheckInput_KeyUp);
+            this.txtNewPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtOldPwd_onSubTextChanged);
             // 
             // label3
             // 
@@ -93,6 +99,7 @@
             this.label3.Location = new System.Drawing.Point(174, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 40);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 9;
             this.label3.Text = "旧密码";
             // 
@@ -104,6 +111,7 @@
             this.label1.Location = new System.Drawing.Point(104, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 40);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 9;
             this.label1.Text = "设定新密码";
             // 
@@ -115,6 +123,7 @@
             this.label2.Location = new System.Drawing.Point(104, 271);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 40);
+            this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 9;
             this.label2.Text = "重复新密码";
             // 
@@ -126,6 +135,7 @@
             this.lbRepeatPwdHint.Location = new System.Drawing.Point(329, 343);
             this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
             this.lbRepeatPwdHint.Size = new System.Drawing.Size(0, 32);
+            this.lbRepeatPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRepeatPwdHint.TabIndex = 13;
             // 
             // lbNewPwdHint
@@ -136,6 +146,7 @@
             this.lbNewPwdHint.Location = new System.Drawing.Point(329, 223);
             this.lbNewPwdHint.Name = "lbNewPwdHint";
             this.lbNewPwdHint.Size = new System.Drawing.Size(0, 32);
+            this.lbNewPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbNewPwdHint.TabIndex = 13;
             // 
             // lbOldPwdHint
@@ -146,6 +157,7 @@
             this.lbOldPwdHint.Location = new System.Drawing.Point(329, 99);
             this.lbOldPwdHint.Name = "lbOldPwdHint";
             this.lbOldPwdHint.Size = new System.Drawing.Size(0, 32);
+            this.lbOldPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbOldPwdHint.TabIndex = 13;
             // 
             // picRepeatPwdHint
@@ -180,6 +192,7 @@
             this.btnSure.Location = new System.Drawing.Point(328, 414);
             this.btnSure.Name = "btnSure";
             this.btnSure.Size = new System.Drawing.Size(268, 95);
+            this.btnSure.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnSure.TabIndex = 14;
             this.btnSure.Text = "确  定";
             this.btnSure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,15 +233,15 @@
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtRepeatPwd;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtOldPwd;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtNewPwd;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
         private System.Windows.Forms.PictureBox picRepeatPwdHint;
         private System.Windows.Forms.PictureBox picNewPwdHint;
         private System.Windows.Forms.PictureBox picOldPwdHint;
-        private System.Windows.Forms.Label lbRepeatPwdHint;
-        private System.Windows.Forms.Label lbNewPwdHint;
-        private System.Windows.Forms.Label lbOldPwdHint;
-        private System.Windows.Forms.Label btnSure;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbRepeatPwdHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbNewPwdHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbOldPwdHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnSure;
     }
 }

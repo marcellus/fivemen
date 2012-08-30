@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbUserName = new System.Windows.Forms.Label();
-            this.lbBalance = new System.Windows.Forms.Label();
-            this.lbCoupon = new System.Windows.Forms.Label();
-            this.lbBuyRecord = new System.Windows.Forms.Label();
-            this.lbPoint = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label5 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label6 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbUserName = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbBalance = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbCoupon = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbBuyRecord = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbPoint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbEmail = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -200,17 +200,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbUserName;
-        private System.Windows.Forms.Label lbBalance;
-        private System.Windows.Forms.Label lbCoupon;
-        private System.Windows.Forms.Label lbBuyRecord;
-        private System.Windows.Forms.Label lbPoint;
-        private System.Windows.Forms.Label lbEmail;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label4;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label5;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label6;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbUserName;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbBalance;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbCoupon;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbBuyRecord;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPoint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbEmail;
     }
 }

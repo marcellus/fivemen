@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbServicePhone = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbServicePhone = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // lbServicePhone
@@ -75,7 +75,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbServicePhone;
-        private System.Windows.Forms.Label label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbServicePhone;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
     }
 }

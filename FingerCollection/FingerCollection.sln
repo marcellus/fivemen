@@ -43,9 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XServerMonitor", "XServerMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPiaoInterface", "HiPiaoInterface\HiPiaoInterface.csproj", "{73224C21-D0F5-4A32-A904-D4F192682659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPiaoImageResource", "HiPiaoImageResource\HiPiaoImageResource.csproj", "{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiPiaoTerminalWpf", "HiPiaoTerminalWpf\HiPiaoTerminalWpf.csproj", "{B636CD1C-F6E6-48F2-B09C-82A72F302A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoSoft", "PhotoSoft\PhotoSoft.csproj", "{06D51C19-0235-46F4-BF4B-E70AE1074AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterReset", "PrinterReset\PrinterReset.csproj", "{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,14 +139,18 @@ Global
 		{73224C21-D0F5-4A32-A904-D4F192682659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73224C21-D0F5-4A32-A904-D4F192682659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73224C21-D0F5-4A32-A904-D4F192682659}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A732C8C4-2095-4BD3-95A4-D96A92ADDE17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B636CD1C-F6E6-48F2-B09C-82A72F302A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B636CD1C-F6E6-48F2-B09C-82A72F302A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B636CD1C-F6E6-48F2-B09C-82A72F302A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B636CD1C-F6E6-48F2-B09C-82A72F302A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D51C19-0235-46F4-BF4B-E70AE1074AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D51C19-0235-46F4-BF4B-E70AE1074AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D51C19-0235-46F4-BF4B-E70AE1074AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D51C19-0235-46F4-BF4B-E70AE1074AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,12 +15,14 @@ namespace HiPiaoTerminal
         public TicketPrintPanel()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void TicketPrintPanel_Load(object sender, EventArgs e)
         {
             GlobalTools.RegistUpdateUnOperationTime(null);
             this.txtMobile.Focus();
+           // this.txtValidCode.UnFocus();
         }
 
         private void picReturn_Click(object sender, EventArgs e)
@@ -39,11 +41,11 @@ namespace HiPiaoTerminal
         {
             string mobile = this.txtMobile.Text.Trim();
             string validCode = this.txtValidCode.Text.Trim();
-           /* if (mobile.Length == 11 && validCode.Length == 0)
+            if (mobile.Length == 11 && validCode.Length == 0)
             {
                 this.txtValidCode.Focus();
                 return;
-            }*/
+            }
             if (mobile.Length == 11 && validCode.Length > 0)
             {
                 this.btnPrint.IsActived = true;

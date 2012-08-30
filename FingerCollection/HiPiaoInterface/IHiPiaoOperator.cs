@@ -19,11 +19,17 @@ namespace HiPiaoInterface
         /// <returns></returns>
         UserObject Login(string uid, string pwd);
 
+        /// <summary>
+        /// 查询用户账户信息
+        /// </summary>
+        /// <param name="user"></param>
+        void QueryUser(UserObject user);
+
         bool UpdatePwd(UserObject user, string newPwd);
 
         TicketObject BuyTicket(UserObject user,CinemaObject cinema, MovieObject movie,DateTime playTime);
 
-        UserObject Register(string uid, string pwd, string mobile);
+        UserObject Register(string uid, string pwd, string mobile, ref string returnCode);
 
         ReturnObject PrintTicket(UserObject user, TicketObject ticket);
 

@@ -132,7 +132,7 @@ namespace XServerMonitor
                                     log.Info(ex);
                                     //MessageBoxHelper.Show(ex.ToString());
                                 }
-                                System.Threading.Thread.Sleep(3000);
+                                System.Threading.Thread.Sleep(2000);
                                 FT.Commons.Tools.WindowServicesHelper.ForceStart(XServerName);
                             }
                             else if (counter > MonitorLineCount)
@@ -201,6 +201,7 @@ namespace XServerMonitor
         {
             //this.timer1.Stop();
             thread.Abort();
+            thread = null;
             this.btnStartMonitor.Enabled = true;
             this.btnStopMonitor.Enabled = false;
         }

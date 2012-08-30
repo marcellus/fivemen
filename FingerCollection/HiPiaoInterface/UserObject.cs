@@ -39,12 +39,12 @@ namespace HiPiaoInterface
             set { mobile = value; }
         }
 
-        private int balance;
+        private double balance;
 
         /// <summary>
         /// 账户余额
         /// </summary>
-        public int Balance
+        public double Balance
         {
             get { return balance; }
             set { balance = value; }
@@ -61,6 +61,17 @@ namespace HiPiaoInterface
             set { rewardPoints = value; }
         }
 
+        private string memberId;
+
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public string MemberId
+        {
+            get { return memberId; }
+            set { memberId = value; }
+        }
+
         private string email;
 
         /// <summary>
@@ -72,16 +83,28 @@ namespace HiPiaoInterface
             set { email = value; }
         }
 
-        private List<CouponObject> coupons=new List<CouponObject>();
+        private string hipiaoCard;
 
-        public int OneTypeCouponNum
+        /// <summary>
+        /// 哈票卡号
+        /// </summary>
+        public string HipiaoCard
+        {
+            get { return hipiaoCard; }
+            set { hipiaoCard = value; }
+        }
+
+
+       
+
+        public int CouponNum
         {
             get
             {
                 int result = 0;
                 for (int i = 0; i < coupons.Count; i++)
                 {
-                    if (coupons[i].Type == 1)
+                    if (coupons[i].Status == 1)
                     {
                         result++;
                     }
@@ -90,14 +113,14 @@ namespace HiPiaoInterface
             }
         }
 
-        public int TwoTypeCouponNum
+        public int DeductionNum
         {
             get
             {
                 int result = 0;
-                for (int i = 0; i < coupons.Count; i++)
+                for (int i = 0; i < deductions.Count; i++)
                 {
-                    if (coupons[i].Type == 2)
+                    if (deductions[i].Status == 2)
                     {
                         result++;
                     }
@@ -105,6 +128,8 @@ namespace HiPiaoInterface
                 return result;
             }
         }
+
+        private List<CouponObject> coupons = new List<CouponObject>();
 
         /// <summary>
         /// 优惠券数量
@@ -113,6 +138,17 @@ namespace HiPiaoInterface
         {
             get { return coupons; }
             set { coupons = value; }
+        }
+
+        private List<DeductionObject> deductions = new List<DeductionObject>();
+
+        /// <summary>
+        /// 抵扣券信息
+        /// </summary>
+        public List<DeductionObject> Deductions
+        {
+            get { return deductions; }
+            set { deductions = value; }
         }
 
         private List<BuyRecordObject> buyRecords=new List<BuyRecordObject>();

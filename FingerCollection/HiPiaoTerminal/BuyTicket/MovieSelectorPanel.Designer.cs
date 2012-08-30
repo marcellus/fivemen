@@ -32,9 +32,9 @@
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnTomorrow = new System.Windows.Forms.Label();
-            this.btnThreeDay = new System.Windows.Forms.Label();
-            this.btnToday = new System.Windows.Forms.Label();
+            this.btnTomorrow = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnThreeDay = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.btnToday = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,7 +78,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1109, 23);
+            this.btnReturn.Location = new System.Drawing.Point(1068, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 1;
@@ -88,7 +88,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Select_Movie;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(243, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 0;
@@ -97,7 +97,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Home;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 23);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(243, 84);
             this.pictureBox2.TabIndex = 2;
@@ -112,6 +112,7 @@
             this.btnTomorrow.Location = new System.Drawing.Point(971, 31);
             this.btnTomorrow.Name = "btnTomorrow";
             this.btnTomorrow.Size = new System.Drawing.Size(118, 81);
+            this.btnTomorrow.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnTomorrow.TabIndex = 9;
             this.btnTomorrow.Text = "   明天   {0}";
             this.btnTomorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,6 +125,7 @@
             this.btnThreeDay.Location = new System.Drawing.Point(1115, 31);
             this.btnThreeDay.Name = "btnThreeDay";
             this.btnThreeDay.Size = new System.Drawing.Size(118, 81);
+            this.btnThreeDay.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnThreeDay.TabIndex = 7;
             this.btnThreeDay.Text = "   后天   {0}";
             this.btnThreeDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,6 +138,7 @@
             this.btnToday.Location = new System.Drawing.Point(827, 31);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(118, 81);
+            this.btnToday.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.btnToday.TabIndex = 8;
             this.btnToday.Text = "   今天   {0}";
             this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,8 +165,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label btnTomorrow;
-        private System.Windows.Forms.Label btnThreeDay;
-        private System.Windows.Forms.Label btnToday;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnTomorrow;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnThreeDay;
+        private FT.Windows.Controls.LabelEx.SimpleLabel btnToday;
     }
 }

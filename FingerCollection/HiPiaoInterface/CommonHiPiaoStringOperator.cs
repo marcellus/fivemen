@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HiPiaoInterface
 {
-    public class CommonHiPiaoStringOperator:IHiPiaoOperator
+    public class CommonHiPiaoStringOperator
     {
         private static string  Common_Soap_Header=string.Empty;
         private static string Common_Soap_Footer = string.Empty;
@@ -121,6 +121,60 @@ namespace HiPiaoInterface
         //    return GetSoapServiceResult(body);
             return GetSoapServiceResult(GetProvinceBody("getCityOfprovince", "广东省", "广州市"));
 
+        }
+        public string QueryUserBuyRecord(UserObject user)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getConsumptionRequest xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getConsumptionRequest>");
+            return GetSoapServiceResult(body);
+        }
+
+        public string LoginUser(string name, string pwd)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getUserLoginResult  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<username>" + name + "</username><password>" + pwd + "</password><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getUserLoginResult>");
+            return GetSoapServiceResult(body);
+        }
+
+
+        public string UpdateUserPwd(UserObject user, string newPwd)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:updateUserInfo  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><oldpass>" + user.Pwd + "</oldpass><newpass>" + newPwd + "</newpass><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:updateUserInfo>");
+            return GetSoapServiceResult(body);
+        }
+
+        public string QueryUserCoupon(UserObject user)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getCouponInfo xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID</clintform></ns2:getCouponInfo>");
+            return GetSoapServiceResult(body);
+        }
+
+        public string QueryUserDeduction(UserObject user)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getDeductionInfo xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID</clintform></ns2:getDeductionInfo>");
+            return GetSoapServiceResult(body);
+        }
+
+        public string RegisterUser(string name,string pwd,string phone)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getRegisterRequest  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<username>"+name+"</username><password>"+pwd+"</password><telphone>"+phone+"</telphone><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getRegisterRequest>");
+            return GetSoapServiceResult(body);
         }
         private static StringBuilder GetProvinceBody(string msgType, string province, string city)
         {
@@ -243,38 +297,6 @@ namespace HiPiaoInterface
                 Console.WriteLine("city-"+i+"-"+citys[i].name);
             }
         }
-        #region IHiPiaoOperator 成员
-
-        public bool CheckUserName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool CheckMobile(string mobile)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserObject Login(string uid, string pwd)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TicketObject BuyTicket(UserObject user, CinemaObject cinema, MovieObject movie, DateTime playTime)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserObject Register(string uid, string pwd, string mobile)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ReturnObject PrintTicket(UserObject user, TicketObject ticket)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
+        
     }
 }

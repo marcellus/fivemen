@@ -20,17 +20,23 @@ namespace HiPiaoTerminal.UserRegister
             if (GlobalTools.QuitAccount())
             {
                 this.FindForm().Close();
-                //GlobalTools.ReturnMain();
+                GlobalTools.ReturnMain();
             }
         }
 
         private void btnQueryAccount_Click(object sender, EventArgs e)
         {
-            if (GlobalTools.QueryAccount())
-            {
+            //if (GlobalTools.QueryAccount())
+            //{
                 this.FindForm().Close();
-                GlobalTools.ReturnMain();
-            }
+            
+                GlobalTools.ReturnUserAccout();
+            //}
+           // else
+            //{
+               // GlobalTools.PopNetError();
+               // GlobalTools.ReturnMain();
+           // }
         }
 
         private void btnReturnHome_Click(object sender, EventArgs e)

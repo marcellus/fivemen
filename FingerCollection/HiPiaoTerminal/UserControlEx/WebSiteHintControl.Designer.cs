@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbWebSiteUrl = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbWebSiteUrl = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +74,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbWebSiteUrl;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbWebSiteUrl;
     }
 }

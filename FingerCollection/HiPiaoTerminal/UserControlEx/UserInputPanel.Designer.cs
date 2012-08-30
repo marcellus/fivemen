@@ -110,6 +110,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserInputPanel";
             this.Size = new System.Drawing.Size(249, 74);
+            this.Load += new System.EventHandler(this.UserInputPanel_Load);
             this.Leave += new System.EventHandler(this.UserInputPanel_Leave);
             this.Resize += new System.EventHandler(this.UserInputPanel_Resize);
             this.Enter += new System.EventHandler(this.UserInputPanel_Enter);

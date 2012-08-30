@@ -76,29 +76,13 @@
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.DAL\FT.DAL.csproj">
-      <Project>{24D0A7DC-A65E-4D89-AFEF-EEECAEA6DB0E}</Project>
-      <Name>FT.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.Device\FT.Device.csproj">
-      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
-      <Name>FT.Device</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.CommonsPlugin\FT.Windows.CommonsPlugin.csproj">
       <Project>{A7DB4100-DFC0-486A-91B1-85295A5F6FC2}</Project>
       <Name>FT.Windows.CommonsPlugin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.Windows.Controls\FT.Windows.Controls.csproj">
-      <Project>{9F76E9BB-9B72-4DBB-9610-2673ADC8C0AA}</Project>
-      <Name>FT.Windows.Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Commons\FT.Windows.ExternalTool\FT.Windows.ExternalTool.csproj">
       <Project>{78DF4A96-58A9-442F-B047-ED8D56196172}</Project>
       <Name>FT.Windows.ExternalTool</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.Windows.Forms\FT.Windows.Forms.csproj">
-      <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
-      <Name>FT.Windows.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

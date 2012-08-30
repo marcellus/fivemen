@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.cbAllowAutoCloseComputer = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtHour = new HiPiaoTerminal.UserControlEx.NumberInputControl();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtMinutes = new HiPiaoTerminal.UserControlEx.NumberInputControl();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -164,11 +164,11 @@
         #endregion
 
         private System.Windows.Forms.CheckBox cbAllowAutoCloseComputer;
-        private System.Windows.Forms.Label label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
         private HiPiaoTerminal.UserControlEx.NumberInputControl txtHour;
-        private System.Windows.Forms.Label label2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label2;
         private HiPiaoTerminal.UserControlEx.NumberInputControl txtMinutes;
-        private System.Windows.Forms.Label label3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label3;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.WebBrowser webBrowser1;

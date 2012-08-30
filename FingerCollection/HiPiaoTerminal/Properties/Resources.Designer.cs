@@ -935,6 +935,13 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Print_ReturnBack {
+            get {
+                object obj = ResourceManager.GetObject("Print_ReturnBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Print_Site_Hint {
             get {
                 object obj = ResourceManager.GetObject("Print_Site_Hint", resourceCulture);

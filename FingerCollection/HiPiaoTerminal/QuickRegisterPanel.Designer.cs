@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUserNameHint = new System.Windows.Forms.Label();
-            this.lbPasswordHint = new System.Windows.Forms.Label();
-            this.lbRepeatPwdHint = new System.Windows.Forms.Label();
-            this.lbMobileHint = new System.Windows.Forms.Label();
+            this.lbUserNameHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbPasswordHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbRepeatPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtMobile = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.txtPassword = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.txtUserName = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.btnAgreeAndRegister = new System.Windows.Forms.PictureBox();
             this.picMobileHint = new System.Windows.Forms.PictureBox();
             this.picRepeatPwdHint = new System.Windows.Forms.PictureBox();
@@ -45,10 +49,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReturnButton = new System.Windows.Forms.PictureBox();
             this.btnReturnHome = new System.Windows.Forms.PictureBox();
-            this.txtMobile = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.txtPassword = new HiPiaoTerminal.UserControlEx.UserInputPanel();
-            this.txtUserName = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgreeAndRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMobileHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRepeatPwdHint)).BeginInit();
@@ -72,6 +72,7 @@
             this.lbUserNameHint.Location = new System.Drawing.Point(374, 275);
             this.lbUserNameHint.Name = "lbUserNameHint";
             this.lbUserNameHint.Size = new System.Drawing.Size(0, 32);
+            this.lbUserNameHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbUserNameHint.TabIndex = 3;
             // 
             // lbPasswordHint
@@ -82,6 +83,7 @@
             this.lbPasswordHint.Location = new System.Drawing.Point(374, 396);
             this.lbPasswordHint.Name = "lbPasswordHint";
             this.lbPasswordHint.Size = new System.Drawing.Size(0, 32);
+            this.lbPasswordHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPasswordHint.TabIndex = 3;
             // 
             // lbRepeatPwdHint
@@ -92,6 +94,7 @@
             this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 518);
             this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
             this.lbRepeatPwdHint.Size = new System.Drawing.Size(0, 32);
+            this.lbRepeatPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRepeatPwdHint.TabIndex = 3;
             // 
             // lbMobileHint
@@ -102,7 +105,68 @@
             this.lbMobileHint.Location = new System.Drawing.Point(374, 638);
             this.lbMobileHint.Name = "lbMobileHint";
             this.lbMobileHint.Size = new System.Drawing.Size(0, 32);
+            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMobileHint.TabIndex = 3;
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtMobile.Hint = "请输入手机号";
+            this.txtMobile.Location = new System.Drawing.Point(373, 555);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMobile.MaxInputLength = 32767;
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.PasswordChar = '\0';
+            this.txtMobile.RelativeLabel = null;
+            this.txtMobile.Size = new System.Drawing.Size(491, 74);
+            this.txtMobile.TabIndex = 4;
+            this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
+            // 
+            // txtRepeatPwd
+            // 
+            this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtRepeatPwd.Hint = "请再次输入6位数字密码";
+            this.txtRepeatPwd.Location = new System.Drawing.Point(373, 435);
+            this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRepeatPwd.MaxInputLength = 32767;
+            this.txtRepeatPwd.Name = "txtRepeatPwd";
+            this.txtRepeatPwd.PasswordChar = '*';
+            this.txtRepeatPwd.RelativeLabel = null;
+            this.txtRepeatPwd.Size = new System.Drawing.Size(491, 74);
+            this.txtRepeatPwd.TabIndex = 3;
+            this.txtRepeatPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.Transparent;
+            this.txtPassword.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtPassword.Hint = "仅限6位数字密码";
+            this.txtPassword.Location = new System.Drawing.Point(373, 315);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPassword.MaxInputLength = 32767;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.RelativeLabel = null;
+            this.txtPassword.Size = new System.Drawing.Size(491, 74);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.BackColor = System.Drawing.Color.Transparent;
+            this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtUserName.Hint = "仅限小写字母/字母数字组合，20字符内";
+            this.txtUserName.Location = new System.Drawing.Point(373, 197);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUserName.MaxInputLength = 32767;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.PasswordChar = '\0';
+            this.txtUserName.RelativeLabel = null;
+            this.txtUserName.Size = new System.Drawing.Size(491, 74);
+            this.txtUserName.TabIndex = 1;
+            this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
             // btnAgreeAndRegister
             // 
@@ -199,7 +263,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_QuickRegister_Hint;
-            this.pictureBox1.Location = new System.Drawing.Point(444, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(444, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(641, 83);
             this.pictureBox1.TabIndex = 0;
@@ -208,7 +272,7 @@
             // btnReturnButton
             // 
             this.btnReturnButton.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturnButton.Location = new System.Drawing.Point(1106, 27);
+            this.btnReturnButton.Location = new System.Drawing.Point(1097, 40);
             this.btnReturnButton.Name = "btnReturnButton";
             this.btnReturnButton.Size = new System.Drawing.Size(160, 83);
             this.btnReturnButton.TabIndex = 0;
@@ -218,68 +282,12 @@
             // btnReturnHome
             // 
             this.btnReturnHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnHome1;
-            this.btnReturnHome.Location = new System.Drawing.Point(92, 27);
+            this.btnReturnHome.Location = new System.Drawing.Point(92, 40);
             this.btnReturnHome.Name = "btnReturnHome";
             this.btnReturnHome.Size = new System.Drawing.Size(352, 83);
             this.btnReturnHome.TabIndex = 0;
             this.btnReturnHome.TabStop = false;
             this.btnReturnHome.Click += new System.EventHandler(this.btnReturnHome_Click);
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtMobile.Hint = "请输入手机号";
-            this.txtMobile.Location = new System.Drawing.Point(373, 555);
-            this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.PasswordChar = '\0';
-            this.txtMobile.RelativeLabel = null;
-            this.txtMobile.Size = new System.Drawing.Size(491, 74);
-            this.txtMobile.TabIndex = 2;
-            this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
-            // 
-            // txtRepeatPwd
-            // 
-            this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtRepeatPwd.Hint = "请再次输入6位数字密码";
-            this.txtRepeatPwd.Location = new System.Drawing.Point(373, 435);
-            this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
-            this.txtRepeatPwd.Name = "txtRepeatPwd";
-            this.txtRepeatPwd.PasswordChar = '*';
-            this.txtRepeatPwd.RelativeLabel = null;
-            this.txtRepeatPwd.Size = new System.Drawing.Size(491, 74);
-            this.txtRepeatPwd.TabIndex = 2;
-            this.txtRepeatPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.Color.Transparent;
-            this.txtPassword.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtPassword.Hint = "仅限6位数字密码";
-            this.txtPassword.Location = new System.Drawing.Point(373, 315);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.RelativeLabel = null;
-            this.txtPassword.Size = new System.Drawing.Size(491, 74);
-            this.txtPassword.TabIndex = 2;
-            this.txtPassword.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.BackColor = System.Drawing.Color.Transparent;
-            this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtUserName.Hint = "仅限小写字母/字母数字组合，20字符内";
-            this.txtUserName.Location = new System.Drawing.Point(373, 197);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.PasswordChar = '\0';
-            this.txtUserName.RelativeLabel = null;
-            this.txtUserName.Size = new System.Drawing.Size(491, 74);
-            this.txtUserName.TabIndex = 2;
-            this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
             // QuickRegisterPanel
             // 
@@ -349,10 +357,10 @@
         private System.Windows.Forms.PictureBox picPasswordHint;
         private System.Windows.Forms.PictureBox picRepeatPwdHint;
         private System.Windows.Forms.PictureBox picMobileHint;
-        private System.Windows.Forms.Label lbUserNameHint;
-        private System.Windows.Forms.Label lbPasswordHint;
-        private System.Windows.Forms.Label lbRepeatPwdHint;
-        private System.Windows.Forms.Label lbMobileHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbUserNameHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbPasswordHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbRepeatPwdHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMobileHint;
 
     }
 }

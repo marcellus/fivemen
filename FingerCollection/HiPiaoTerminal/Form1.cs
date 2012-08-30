@@ -16,10 +16,12 @@ namespace HiPiaoTerminal
         public Form1()
         {
             InitializeComponent();
+            //SetStyle(ControlStyles.smo
             this.DoubleBuffered = true;//设置本窗体
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+            this.UpdateStyles();
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
         }

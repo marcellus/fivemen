@@ -83,6 +83,10 @@ namespace HiPiaoTerminal
 
         private void MainPanel_Load(object sender, EventArgs e)
         {
+           // ControlPaint.DrawButton(Graphics.FromHwnd(this.btnTicketPrint.Handle),
+             //   new Rectangle(10, 10, btnTicketPrint.Width - 10, btnTicketPrint.Height - 10),
+            //    ButtonState.Pushed);
+
             timerShowMovie.Start();
             GlobalTools.RegistUpdateUnOperationTime(null);
             GlobalTools.StopUnOperationCounter();
@@ -151,12 +155,34 @@ namespace HiPiaoTerminal
 
         private void picToMaintain_Click(object sender, EventArgs e)
         {
-            GlobalTools.ReturnMaintainWithPwd();
+            
+        }
+
+        private void picToMaintain2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
             GlobalTools.QuitAccount();
         }
+
+        private bool allowToMaintain = false;
+
+        private void picToMaintain_DoubleClick(object sender, EventArgs e)
+        {
+            allowToMaintain = true;
+        }
+
+        private void picToMaintain2_DoubleClick(object sender, EventArgs e)
+        {
+            if (allowToMaintain)
+            {
+                GlobalTools.ReturnMaintainWithPwd();
+            }
+        }
+
+        
     }
 }

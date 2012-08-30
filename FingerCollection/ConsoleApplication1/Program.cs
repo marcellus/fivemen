@@ -4,6 +4,9 @@ using System.Text;
 using FT.Commons.Security;
 using FT.Commons.WindowsService.SystemInfo;
 using FT.Commons.Win32;
+using System.Data.OracleClient;
+using FT.DAL;
+using FT.DAL.Oracle;
 
 namespace ConsoleApplication1
 {
@@ -11,6 +14,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            TestConnection2(10000);
 
             /* 
              * 3D3514F23F37E13A 丰大驾校
@@ -29,6 +33,7 @@ namespace ConsoleApplication1
              * 7D66505102C8DB25 隆辉驾校
              * 84A883D2309E661D 隆辉驾校
              * DCA698218706CA2B 博罗鸿信
+             * C3F979CF15706C39 金峰驾校
 
 
           
@@ -50,14 +55,18 @@ namespace ConsoleApplication1
             ISecurity md5 = new MD5Security();
               ISecurity sec = FT.Commons.Security.SecurityFactory.GetSecurity();
               //string hardwarecode=FT.Commons.Tools.HardwareManager.GetMachineCode();
-              string hardwarecode = "DCA698218706CA2B";
+             // string hardwarecode = "C3F979CF15706C39";
+              Console.WriteLine("请输入机器码并回车：");
+              string hardwarecode = Console.ReadLine();
 
               //一友驾校
               //E7A7CA598DDDAFA6
-              string company = "博罗鸿信";
-              Console.WriteLine("key->" + md5.Encrypt(sec.Encrypt(hardwarecode + company + hardwarecode)));
+             // string company = "金峰驾校";
+              Console.WriteLine("请输入授权用户名称并回车：");
+              string company = Console.ReadLine();
+              Console.WriteLine("注册码生成结果为->" + md5.Encrypt(sec.Encrypt(hardwarecode + company + hardwarecode)));
 
-              string path = Environment.CurrentDirectory + "//success.wav";
+            /*  string path = Environment.CurrentDirectory + "//success.wav";
               SystemDefine.PlaySound(path, 0, SystemDefine.SND_ASYNC | SystemDefine.SND_FILENAME);//播放音乐
               //FT.Commons.Tools.WindowsPrinterHelper.LoopPrinter();
               string printer = @"\\192.168.1.150\Brother DCP-7030 Printer";
@@ -70,7 +79,79 @@ namespace ConsoleApplication1
                 Console.WriteLine(i+"="+mybyte[i]);
             }
                 Console.ReadLine();
+             * */
+              Console.ReadLine();
            
         }
+
+        public static void TestConnection2(int num)
+        {
+            IDataAccess accessOracle = new OracleDataHelper("oradrv","aspnet", "stjj117");
+            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "开始执行");
+            for (int i = 0; i < num; i++)
+            {
+                try
+                {
+                    string sql= "insert into table_test(name,sex) values('name" + i.ToString() + "','male')";
+                    accessOracle.SelectDataTable("select 1 from dual","tmp");
+                   // accessOracle.ExecuteSql(sql);
+                    
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("执行到第几次打开关闭连接出现异常-》" + i.ToString());
+                    Console.WriteLine(e.ToString());
+                    break;
+
+                }
+            }
+            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "执行完毕");
+            Console.ReadLine();
+        }
+
+
+        public static void TestConnection(int num)
+        {
+            OracleConnection conn = new OracleConnection(@"Data Source=(
+
+DESCRIPTION =
+
+    (ADDRESS_LIST =
+
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))
+
+    )
+
+    (CONNECT_DATA =
+
+      (SERVICE_NAME = oradrv)
+
+    )
+
+);user ID=aspnet;Password=stjj117
+");
+            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "开始执行");
+            for (int i = 0; i < num; i++)
+            {
+                try
+                {
+                    conn.Open();
+                    OracleCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "insert into table_test(name,sex) values('name"+i.ToString()+"','male')";
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("执行到第几次打开关闭连接出现异常-》"+i.ToString());
+                    Console.WriteLine(e.ToString());
+                    break;
+
+                }
+            }
+            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "执行完毕");
+                Console.ReadLine();
+        }
+    
     }
 }

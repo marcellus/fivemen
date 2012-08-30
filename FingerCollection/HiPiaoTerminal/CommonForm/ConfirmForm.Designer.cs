@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbMsg2 = new System.Windows.Forms.Label();
+            this.lbMsg2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnSure = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -92,7 +92,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbMsg2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbMsg2;
         private System.Windows.Forms.PictureBox btnSure;
         private System.Windows.Forms.PictureBox btnClose;
     }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.txtManagePwd = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbReturnMsg = new System.Windows.Forms.Label();
+            this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnCancel = new System.Windows.Forms.PictureBox();
             this.btnUnLock = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
@@ -110,9 +110,9 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtManagePwd;
-        private System.Windows.Forms.Label label1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel label1;
         private System.Windows.Forms.PictureBox btnUnLock;
         private System.Windows.Forms.PictureBox btnCancel;
-        private System.Windows.Forms.Label lbReturnMsg;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
     }
 }
