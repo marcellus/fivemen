@@ -122,6 +122,19 @@ namespace HiPiaoTerminal
             }
         }
 
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                //Cursor.Current = Cursors.Default;
+                // Cursor.Show();
+                this.btnPrint_Click(null, null);
+                //this.Close();
+                //return false;
+            }
+            return false;
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             if(this.btnPrint.IsActived)

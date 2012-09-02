@@ -43,7 +43,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Manager_Login_Hint;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 164);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 172);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(291, 68);
             this.pictureBox1.TabIndex = 3;
@@ -52,7 +52,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Manager_Login_Pwd;
-            this.pictureBox2.Location = new System.Drawing.Point(156, 353);
+            this.pictureBox2.Location = new System.Drawing.Point(156, 430);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(210, 71);
             this.pictureBox2.TabIndex = 4;
@@ -61,7 +61,7 @@
             // btnManagerLogin
             // 
             this.btnManagerLogin.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Manager_Login;
-            this.btnManagerLogin.Location = new System.Drawing.Point(839, 350);
+            this.btnManagerLogin.Location = new System.Drawing.Point(839, 427);
             this.btnManagerLogin.Name = "btnManagerLogin";
             this.btnManagerLogin.Size = new System.Drawing.Size(171, 74);
             this.btnManagerLogin.TabIndex = 5;
@@ -72,7 +72,7 @@
             // 
             this.panel1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Login_Pwd_Back;
             this.panel1.Controls.Add(this.txtManagePwd);
-            this.panel1.Location = new System.Drawing.Point(372, 347);
+            this.panel1.Location = new System.Drawing.Point(372, 424);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(442, 82);
             this.panel1.TabIndex = 6;
@@ -96,6 +96,7 @@
             this.lbReturnMsg.Location = new System.Drawing.Point(156, 276);
             this.lbReturnMsg.Name = "lbReturnMsg";
             this.lbReturnMsg.Size = new System.Drawing.Size(0, 32);
+            this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbReturnMsg.TabIndex = 7;
             // 
             // ManagerLoginWithPwdPanel

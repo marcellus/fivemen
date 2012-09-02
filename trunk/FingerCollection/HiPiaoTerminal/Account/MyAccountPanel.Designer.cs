@@ -71,7 +71,7 @@
             this.btnFeeDetailInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
             this.btnFeeDetailInfo.ForeColor = System.Drawing.Color.White;
             this.btnFeeDetailInfo.IsActive = false;
-            this.btnFeeDetailInfo.Location = new System.Drawing.Point(372, 154);
+            this.btnFeeDetailInfo.Location = new System.Drawing.Point(357, 154);
             this.btnFeeDetailInfo.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);
             this.btnFeeDetailInfo.Name = "btnFeeDetailInfo";
             this.btnFeeDetailInfo.Size = new System.Drawing.Size(222, 70);
@@ -85,7 +85,7 @@
             this.btnModifyPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnModifyPwd.ForeColor = System.Drawing.Color.White;
             this.btnModifyPwd.IsActive = false;
-            this.btnModifyPwd.Location = new System.Drawing.Point(644, 154);
+            this.btnModifyPwd.Location = new System.Drawing.Point(629, 154);
             this.btnModifyPwd.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);
             this.btnModifyPwd.Name = "btnModifyPwd";
             this.btnModifyPwd.Size = new System.Drawing.Size(222, 70);
@@ -100,7 +100,7 @@
             this.btnAccountInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAccountInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
             this.btnAccountInfo.IsActive = false;
-            this.btnAccountInfo.Location = new System.Drawing.Point(100, 154);
+            this.btnAccountInfo.Location = new System.Drawing.Point(85, 154);
             this.btnAccountInfo.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);
             this.btnAccountInfo.Name = "btnAccountInfo";
             this.btnAccountInfo.Size = new System.Drawing.Size(222, 70);
@@ -142,7 +142,7 @@
             // btnQuitAccount
             // 
             this.btnQuitAccount.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_QuitAccount;
-            this.btnQuitAccount.Location = new System.Drawing.Point(644, 27);
+            this.btnQuitAccount.Location = new System.Drawing.Point(632, 31);
             this.btnQuitAccount.Name = "btnQuitAccount";
             this.btnQuitAccount.Size = new System.Drawing.Size(281, 88);
             this.btnQuitAccount.TabIndex = 1;
@@ -152,7 +152,7 @@
             // btnGoBuyTicket
             // 
             this.btnGoBuyTicket.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_GoBuyTicket;
-            this.btnGoBuyTicket.Location = new System.Drawing.Point(956, 27);
+            this.btnGoBuyTicket.Location = new System.Drawing.Point(940, 31);
             this.btnGoBuyTicket.Name = "btnGoBuyTicket";
             this.btnGoBuyTicket.Size = new System.Drawing.Size(279, 88);
             this.btnGoBuyTicket.TabIndex = 1;

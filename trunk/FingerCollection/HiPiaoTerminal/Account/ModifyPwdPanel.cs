@@ -18,6 +18,19 @@ namespace HiPiaoTerminal.Account
             InitializeComponent();
         }
         private bool allowUpdate = false;
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                //Cursor.Current = Cursors.Default;
+                // Cursor.Show();
+                this.btnSure_Click(null, null);
+                //this.Close();
+                //return true;
+            }
+            return false;
+        }
        
         private void btnSure_Click(object sender, EventArgs e)
         {

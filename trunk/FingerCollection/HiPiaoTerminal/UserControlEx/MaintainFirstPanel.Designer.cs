@@ -46,7 +46,7 @@
             // btnReturnFirstUserHome
             // 
             this.btnReturnFirstUserHome.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.ReturnFirstPanel;
-            this.btnReturnFirstUserHome.Location = new System.Drawing.Point(1006, 14);
+            this.btnReturnFirstUserHome.Location = new System.Drawing.Point(1006, 31);
             this.btnReturnFirstUserHome.Name = "btnReturnFirstUserHome";
             this.btnReturnFirstUserHome.Size = new System.Drawing.Size(242, 101);
             this.btnReturnFirstUserHome.TabIndex = 3;
