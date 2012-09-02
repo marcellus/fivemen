@@ -803,6 +803,7 @@
     <None Include="Resources\Manager_ModifyPwd_NewPwd_Hint.png" />
     <None Include="Resources\Manager_ModifyPwd_OldPwd_Hint.png" />
     <None Include="Resources\Down.png" />
+    <None Include="Resources\Thumbs.db" />
     <None Include="Resources\Up.png" />
     <None Include="Resources\Manager_AutoClose_Hint.png" />
     <None Include="Resources\Manager_AutoClose_CloseFunction_Hint.png" />
@@ -905,6 +906,24 @@
     <None Include="Resources\Print_Site_Hint.png" />
     <None Include="Resources\Print_ReturnBack.png" />
     <None Include="Resources\Print_Home.png" />
+    <None Include="Resources\UserInput_Left_Bottom_Active.png" />
+    <None Include="Resources\UserInput_Left_Bottom_NotActive.png" />
+    <None Include="Resources\UserInput_Left_Center_Active.png" />
+    <None Include="Resources\UserInput_Left_Center_NotActive.png" />
+    <None Include="Resources\UserInput_Left_Top_Active.png" />
+    <None Include="Resources\UserInput_Left_Top_NotActive.png" />
+    <None Include="Resources\UserInput_Right_Bottom_Active.png" />
+    <None Include="Resources\UserInput_Right_Bottom_NotActive.png" />
+    <None Include="Resources\UserInput_Right_Center_Active.png" />
+    <None Include="Resources\UserInput_Right_Center_NotActive.png" />
+    <None Include="Resources\UserInput_Right_Top_Active.png" />
+    <None Include="Resources\UserInput_MainBottom_NotActive.png" />
+    <None Include="Resources\UserInput_MainBottom_Active.png" />
+    <None Include="Resources\UserInput_MainTop_NotActive.png" />
+    <None Include="Resources\UserInput_MainTop_Active.png" />
+    <None Include="Resources\UserInput_Right_Top_NotActive.png" />
+    <None Include="Resources\UserInput_ClearAll.png" />
+    <None Include="Resources\UserInput_Delete.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

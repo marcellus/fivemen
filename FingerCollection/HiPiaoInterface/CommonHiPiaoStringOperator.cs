@@ -131,6 +131,15 @@ namespace HiPiaoInterface
             return GetSoapServiceResult(body);
         }
 
+        public string QueryUserBuyRecordDetail(UserObject user,string orderid)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getConsumptionDatialRequest xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><orderformid>"+orderid+"</orderformid><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getConsumptionDatialRequest>");
+            return GetSoapServiceResult(body);
+        }
+
         public string LoginUser(string name, string pwd)
         {
             StringBuilder body = new StringBuilder();
@@ -188,6 +197,16 @@ namespace HiPiaoInterface
         {
            return GetSoapServiceResult(GetProvinceBody("getHotMovieinfo",province,city));
           
+        }
+
+
+        public string GetDayMovie(string cinema,DateTime day)
+        {
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getPlancinema  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<cinemanumber>"+cinema+"</cinemanumber><date>"+day.ToString("MM月dd日")+"</date><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinema>");
+            return GetSoapServiceResult(body);
         }
 
         public string GetAdvertisement()

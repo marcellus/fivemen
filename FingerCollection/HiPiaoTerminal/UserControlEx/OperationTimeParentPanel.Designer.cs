@@ -63,7 +63,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.lbTimeSecond);
             this.splitContainer1.Panel2MinSize = 20;
             this.splitContainer1.Size = new System.Drawing.Size(1280, 960);
-            this.splitContainer1.SplitterDistance = 818;
+            this.splitContainer1.SplitterDistance = 821;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -97,9 +97,10 @@
             // 
             this.lbTimeSecond.BackColor = System.Drawing.Color.Transparent;
             this.lbTimeSecond.Font = new System.Drawing.Font("方正兰亭黑简体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTimeSecond.Location = new System.Drawing.Point(64, 40);
+            this.lbTimeSecond.Location = new System.Drawing.Point(62, 40);
             this.lbTimeSecond.Name = "lbTimeSecond";
-            this.lbTimeSecond.Size = new System.Drawing.Size(150, 63);
+            this.lbTimeSecond.Size = new System.Drawing.Size(154, 63);
+            this.lbTimeSecond.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTimeSecond.TabIndex = 0;
             this.lbTimeSecond.Text = "30";
             this.lbTimeSecond.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

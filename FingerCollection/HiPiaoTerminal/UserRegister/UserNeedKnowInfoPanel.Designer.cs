@@ -66,7 +66,7 @@
             this.btnRemark.Font = new System.Drawing.Font("微软雅黑", 17F);
             this.btnRemark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.btnRemark.IsActive = false;
-            this.btnRemark.Location = new System.Drawing.Point(2, 349);
+            this.btnRemark.Location = new System.Drawing.Point(2, 288);
             this.btnRemark.Margin = new System.Windows.Forms.Padding(0);
             this.btnRemark.Name = "btnRemark";
             this.btnRemark.Size = new System.Drawing.Size(218, 65);
@@ -81,7 +81,7 @@
             this.btnPrivatePolicy.Font = new System.Drawing.Font("微软雅黑", 17F);
             this.btnPrivatePolicy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.btnPrivatePolicy.IsActive = false;
-            this.btnPrivatePolicy.Location = new System.Drawing.Point(2, 278);
+            this.btnPrivatePolicy.Location = new System.Drawing.Point(2, 217);
             this.btnPrivatePolicy.Margin = new System.Windows.Forms.Padding(0);
             this.btnPrivatePolicy.Name = "btnPrivatePolicy";
             this.btnPrivatePolicy.Size = new System.Drawing.Size(218, 65);
@@ -96,7 +96,7 @@
             this.btnMemberProtocol.Font = new System.Drawing.Font("微软雅黑", 17F);
             this.btnMemberProtocol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.btnMemberProtocol.IsActive = false;
-            this.btnMemberProtocol.Location = new System.Drawing.Point(2, 207);
+            this.btnMemberProtocol.Location = new System.Drawing.Point(2, 146);
             this.btnMemberProtocol.Margin = new System.Windows.Forms.Padding(0);
             this.btnMemberProtocol.Name = "btnMemberProtocol";
             this.btnMemberProtocol.Size = new System.Drawing.Size(218, 65);
@@ -111,7 +111,7 @@
             this.btnWebSiteProtocol.Font = new System.Drawing.Font("微软雅黑", 17F);
             this.btnWebSiteProtocol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.btnWebSiteProtocol.IsActive = false;
-            this.btnWebSiteProtocol.Location = new System.Drawing.Point(2, 136);
+            this.btnWebSiteProtocol.Location = new System.Drawing.Point(2, 75);
             this.btnWebSiteProtocol.Margin = new System.Windows.Forms.Padding(0);
             this.btnWebSiteProtocol.Name = "btnWebSiteProtocol";
             this.btnWebSiteProtocol.Size = new System.Drawing.Size(218, 65);

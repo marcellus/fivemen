@@ -49,8 +49,21 @@ namespace HiPiaoTerminal
         {
             GlobalTools.Pop(new UserNeedKnowInfoPanel());
         }
-
-       // private 
+        /*
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                //Cursor.Current = Cursors.Default;
+                // Cursor.Show();
+                this.btnAgreeAndRegister_Click(null, null);
+                //this.Close();
+               // return true;
+            }
+            return false;
+        }
+*/
+        // private 
 
         private void btnAgreeAndRegister_Click(object sender, EventArgs e)
         {

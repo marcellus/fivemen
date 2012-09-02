@@ -37,6 +37,8 @@ namespace HiPiaoTerminal.ConfigModel
 
         public bool UseHardwareKeyboard = false;
 
+        public bool UseRfid = false;
+
         public string Province = "广东省";
 
         public string City = "广州市";

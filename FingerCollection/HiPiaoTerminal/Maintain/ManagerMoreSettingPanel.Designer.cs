@@ -47,6 +47,8 @@
             this.label8 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.cbCinema = new System.Windows.Forms.ComboBox();
             this.lbAddress = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.checkAllowRfid = new FT.Windows.Controls.ButtonEx.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +60,7 @@
             this.label1.Location = new System.Drawing.Point(35, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 46);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 5;
             this.label1.Text = "更多系统设置";
             // 
@@ -69,6 +72,7 @@
             this.label3.Location = new System.Drawing.Point(260, 306);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 40);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 5;
             this.label3.Text = "使用遮罩功能";
             // 
@@ -80,6 +84,7 @@
             this.label2.Location = new System.Drawing.Point(260, 375);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 40);
+            this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 5;
             this.label2.Text = "使用金属键盘";
             // 
@@ -91,6 +96,7 @@
             this.label4.Location = new System.Drawing.Point(180, 447);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(437, 40);
+            this.label4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label4.TabIndex = 5;
             this.label4.Text = "未操作时间返回主界面设置";
             // 
@@ -121,8 +127,11 @@
             this.txtUnOperationTime.BackColor = System.Drawing.SystemColors.Window;
             this.txtUnOperationTime.Font = new System.Drawing.Font("宋体", 21F);
             this.txtUnOperationTime.Hint = null;
+            this.txtUnOperationTime.IsActive = false;
+            this.txtUnOperationTime.IsDeleted = false;
             this.txtUnOperationTime.Location = new System.Drawing.Point(187, 506);
             this.txtUnOperationTime.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUnOperationTime.MaxInputLength = 32767;
             this.txtUnOperationTime.Name = "txtUnOperationTime";
             this.txtUnOperationTime.PasswordChar = '\0';
             this.txtUnOperationTime.RelativeLabel = null;
@@ -137,6 +146,7 @@
             this.label5.Location = new System.Drawing.Point(456, 521);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 40);
+            this.label5.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label5.TabIndex = 5;
             this.label5.Text = "秒";
             // 
@@ -169,6 +179,7 @@
             this.lbReturnMsg.Location = new System.Drawing.Point(201, 265);
             this.lbReturnMsg.Name = "lbReturnMsg";
             this.lbReturnMsg.Size = new System.Drawing.Size(0, 32);
+            this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbReturnMsg.TabIndex = 22;
             // 
             // label6
@@ -179,6 +190,7 @@
             this.label6.Location = new System.Drawing.Point(190, 598);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 40);
+            this.label6.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label6.TabIndex = 5;
             this.label6.Text = "省份";
             // 
@@ -199,6 +211,7 @@
             this.label7.Location = new System.Drawing.Point(513, 598);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 40);
+            this.label7.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label7.TabIndex = 5;
             this.label7.Text = "市区";
             // 
@@ -219,6 +232,7 @@
             this.label8.Location = new System.Drawing.Point(190, 661);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 40);
+            this.label8.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label8.TabIndex = 5;
             this.label8.Text = "影院";
             // 
@@ -239,13 +253,38 @@
             this.lbAddress.Location = new System.Drawing.Point(190, 720);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(0, 24);
+            this.lbAddress.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbAddress.TabIndex = 5;
+            // 
+            // simpleLabel1
+            // 
+            this.simpleLabel1.AutoSize = true;
+            this.simpleLabel1.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel1.Location = new System.Drawing.Point(557, 375);
+            this.simpleLabel1.Name = "simpleLabel1";
+            this.simpleLabel1.Size = new System.Drawing.Size(227, 40);
+            this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel1.TabIndex = 5;
+            this.simpleLabel1.Text = "可使用会员卡";
+            // 
+            // checkAllowRfid
+            // 
+            this.checkAllowRfid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkAllowRfid.BackgroundImage")));
+            this.checkAllowRfid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkAllowRfid.Checked = false;
+            this.checkAllowRfid.Location = new System.Drawing.Point(494, 377);
+            this.checkAllowRfid.Name = "checkAllowRfid";
+            this.checkAllowRfid.Size = new System.Drawing.Size(38, 38);
+            this.checkAllowRfid.TabIndex = 6;
+            this.checkAllowRfid.UseVisualStyleBackColor = true;
             // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
             this.Controls.Add(this.lbReturnMsg);
             this.Controls.Add(this.txtUnOperationTime);
+            this.Controls.Add(this.checkAllowRfid);
             this.Controls.Add(this.checkUseHardKeyboard);
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.checkUseMask);
@@ -255,6 +294,7 @@
             this.Controls.Add(this.btnCancelSave);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKeepSave);
+            this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -271,6 +311,7 @@
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.simpleLabel1, 0);
             this.Controls.SetChildIndex(this.btnKeepSave, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
@@ -280,6 +321,7 @@
             this.Controls.SetChildIndex(this.checkUseMask, 0);
             this.Controls.SetChildIndex(this.cbProvince, 0);
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
+            this.Controls.SetChildIndex(this.checkAllowRfid, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
@@ -309,5 +351,7 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel label8;
         private System.Windows.Forms.ComboBox cbCinema;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbAddress;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
+        private FT.Windows.Controls.ButtonEx.CheckButton checkAllowRfid;
     }
 }

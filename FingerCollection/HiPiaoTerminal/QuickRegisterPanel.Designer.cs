@@ -113,13 +113,15 @@
             this.txtMobile.BackColor = System.Drawing.SystemColors.Window;
             this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
             this.txtMobile.Hint = "请输入手机号";
+            this.txtMobile.IsActive = false;
+            this.txtMobile.IsDeleted = false;
             this.txtMobile.Location = new System.Drawing.Point(373, 555);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
             this.txtMobile.MaxInputLength = 32767;
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.PasswordChar = '\0';
             this.txtMobile.RelativeLabel = null;
-            this.txtMobile.Size = new System.Drawing.Size(491, 74);
+            this.txtMobile.Size = new System.Drawing.Size(645, 74);
             this.txtMobile.TabIndex = 4;
             this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
@@ -128,13 +130,15 @@
             this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtRepeatPwd.Hint = "请再次输入6位数字密码";
+            this.txtRepeatPwd.IsActive = false;
+            this.txtRepeatPwd.IsDeleted = false;
             this.txtRepeatPwd.Location = new System.Drawing.Point(373, 435);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtRepeatPwd.MaxInputLength = 32767;
             this.txtRepeatPwd.Name = "txtRepeatPwd";
             this.txtRepeatPwd.PasswordChar = '*';
             this.txtRepeatPwd.RelativeLabel = null;
-            this.txtRepeatPwd.Size = new System.Drawing.Size(491, 74);
+            this.txtRepeatPwd.Size = new System.Drawing.Size(645, 74);
             this.txtRepeatPwd.TabIndex = 3;
             this.txtRepeatPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
@@ -143,13 +147,15 @@
             this.txtPassword.BackColor = System.Drawing.Color.Transparent;
             this.txtPassword.Font = new System.Drawing.Font("宋体", 21F);
             this.txtPassword.Hint = "仅限6位数字密码";
+            this.txtPassword.IsActive = false;
+            this.txtPassword.IsDeleted = false;
             this.txtPassword.Location = new System.Drawing.Point(373, 315);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txtPassword.MaxInputLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.RelativeLabel = null;
-            this.txtPassword.Size = new System.Drawing.Size(491, 74);
+            this.txtPassword.Size = new System.Drawing.Size(645, 74);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
@@ -157,14 +163,16 @@
             // 
             this.txtUserName.BackColor = System.Drawing.Color.Transparent;
             this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtUserName.Hint = "仅限小写字母/字母数字组合，20字符内";
+            this.txtUserName.Hint = "仅限小写字母/字母数字组合,20字符内";
+            this.txtUserName.IsActive = false;
+            this.txtUserName.IsDeleted = false;
             this.txtUserName.Location = new System.Drawing.Point(373, 197);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(0);
             this.txtUserName.MaxInputLength = 32767;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PasswordChar = '\0';
             this.txtUserName.RelativeLabel = null;
-            this.txtUserName.Size = new System.Drawing.Size(491, 74);
+            this.txtUserName.Size = new System.Drawing.Size(645, 74);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
@@ -180,7 +188,7 @@
             // 
             // picMobileHint
             // 
-            this.picMobileHint.Location = new System.Drawing.Point(905, 577);
+            this.picMobileHint.Location = new System.Drawing.Point(1039, 577);
             this.picMobileHint.Name = "picMobileHint";
             this.picMobileHint.Size = new System.Drawing.Size(28, 31);
             this.picMobileHint.TabIndex = 1;
@@ -189,7 +197,7 @@
             // 
             // picRepeatPwdHint
             // 
-            this.picRepeatPwdHint.Location = new System.Drawing.Point(905, 457);
+            this.picRepeatPwdHint.Location = new System.Drawing.Point(1039, 457);
             this.picRepeatPwdHint.Name = "picRepeatPwdHint";
             this.picRepeatPwdHint.Size = new System.Drawing.Size(28, 31);
             this.picRepeatPwdHint.TabIndex = 1;
@@ -198,7 +206,7 @@
             // 
             // picPasswordHint
             // 
-            this.picPasswordHint.Location = new System.Drawing.Point(905, 337);
+            this.picPasswordHint.Location = new System.Drawing.Point(1039, 337);
             this.picPasswordHint.Name = "picPasswordHint";
             this.picPasswordHint.Size = new System.Drawing.Size(28, 31);
             this.picPasswordHint.TabIndex = 1;
@@ -207,7 +215,7 @@
             // 
             // picUserNameHint
             // 
-            this.picUserNameHint.Location = new System.Drawing.Point(905, 219);
+            this.picUserNameHint.Location = new System.Drawing.Point(1039, 219);
             this.picUserNameHint.Name = "picUserNameHint";
             this.picUserNameHint.Size = new System.Drawing.Size(28, 31);
             this.picUserNameHint.TabIndex = 1;

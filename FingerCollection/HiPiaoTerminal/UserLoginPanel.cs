@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoTerminal.UserControlEx;
 using HiPiaoTerminal.Account;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal
 {
@@ -24,7 +25,45 @@ namespace HiPiaoTerminal
         {
            // GlobalTools.RegistUpdateUnOperationTime(null);
             this.txtUserName.Focus();
+            this.KeyDown += new KeyEventHandler(UserLoginPanel_KeyDown);
+            HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseRfid)
+            {
+                this.panelUseRfid.Location = new Point(this.panelUseKey.Location.X, this.panelUseKey.Location.Y);
+                this.panelUseRfid.Visible = true;
+            }
+            else
+            {
+                this.panelUseRfid.Visible = false;
+            }
+            this.panelUseKey.Visible = false;
+            //this.FindForm().AcceptButton = this.btnLogin;
         }
+
+        void UserLoginPanel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin_Click(null, null);
+            }
+        }
+       // override pro
+
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                //Cursor.Current = Cursors.Default;
+               // Cursor.Show();
+                this.btnLogin_Click(null, null);
+                //this.Close();
+                
+
+            }
+            return false;
+            //return false;
+        }
+
 
        
 
@@ -67,6 +106,38 @@ namespace HiPiaoTerminal
                 allowLogin = false;
                 this.btnLogin.IsActived = false;
             }
+            if (this.txtPwd.Focused)
+            {
+                    HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                    if (config.UseHardwareKeyboard)
+                    {
+                        this.panelUseKey.Visible=true;
+                        
+                    }
+                    else
+                    {
+                        this.panelUseKey.Visible = false;
+                    }
+                    this.panelUseRfid.Visible = false;
+
+
+            }
+            else if (this.txtUserName.Focused)
+            {
+
+                HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                if (config.UseRfid)
+                {
+                    this.panelUseRfid.Visible = true;
+
+                }
+                else
+                {
+                    this.panelUseRfid.Visible = false;
+                }
+                this.panelUseKey.Visible = false;
+
+            }
 
         }
 
@@ -85,6 +156,28 @@ namespace HiPiaoTerminal
         private void btnReturn_Click(object sender, EventArgs e)
         {
             GlobalTools.ReturnMain();
+        }
+
+        protected override bool IsInputKey(System.Windows.Forms.Keys keyData)
+        {
+            switch (keyData)
+            {
+                // Add the list of special keys that you want to handle 
+                case Keys.Tab:
+                    return true;
+                case Keys.Enter:
+                    return true;
+                default:
+                    return base.IsInputKey(keyData);
+            }
+        }
+
+        private void panelContent_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin_Click(null,null);
+            }
         }
     }
 }

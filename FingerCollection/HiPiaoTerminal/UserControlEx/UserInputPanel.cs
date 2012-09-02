@@ -20,7 +20,7 @@ namespace HiPiaoTerminal.UserControlEx
             this.txtMain.TextChanged += new EventHandler(txtMain_TextChanged);
             this.txtMain.MouseDown += new MouseEventHandler(txtMain_MouseDown);
             CheckForIllegalCrossThreadCalls = false;
-            this.txtMain.TextChanged+=new EventHandler(txtMain_TextChanged);
+           // this.txtMain.TextChanged+=new EventHandler(txtMain_TextChanged);
 
            // this.txtMain.Enabled = false;
            // this.txtMain.KeyDown += new KeyEventHandler(txtMain_KeyDown);
@@ -67,6 +67,14 @@ namespace HiPiaoTerminal.UserControlEx
         void txtMain_TextChanged(object sender, EventArgs e)
         {
            // this.OnKeyUp(null);
+            if (this.IsDeleted && this.txtMain.HasValue)
+            {
+                this.btnDelete.Visible = true;
+            }
+            else
+            {
+                this.btnDelete.Visible = false;
+            }
             if (this.onSubTextChanged != null)
             {
                 onSubTextChanged();
@@ -109,14 +117,49 @@ namespace HiPiaoTerminal.UserControlEx
             }
         }
 
+        private bool isActive = false;
+
+        public bool IsActive
+        {
+            get { return isActive; }
+            set { isActive = value;
+            if (!value)
+            {
+                this.panelLeftTopBorder.BackgroundImage = Properties.Resources.UserInput_Left_Top_NotActive;
+                this.panelLeftCenterBorder.BackgroundImage = Properties.Resources.UserInput_Left_Center_NotActive;
+                this.panelLeftBottonBorder.BackgroundImage = Properties.Resources.UserInput_Left_Bottom_NotActive;
+
+                this.panelMainTopBorder.BackgroundImage = Properties.Resources.UserInput_MainTop_NotActive;
+                this.panelMainBottomBorder.BackgroundImage = Properties.Resources.UserInput_MainBottom_NotActive;
+
+                this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_NotActive;
+                this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_NotActive;
+                this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_NotActive;
+            }
+            else
+            {
+                this.panelLeftTopBorder.BackgroundImage = Properties.Resources.UserInput_Left_Top_Active;
+                this.panelLeftCenterBorder.BackgroundImage = Properties.Resources.UserInput_Left_Center_Active;
+                this.panelLeftBottonBorder.BackgroundImage = Properties.Resources.UserInput_Left_Bottom_Active;
+
+                this.panelMainTopBorder.BackgroundImage = Properties.Resources.UserInput_MainTop_Active;
+                this.panelMainBottomBorder.BackgroundImage = Properties.Resources.UserInput_MainBottom_Active;
+
+                this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_Active;
+                this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_Active;
+                this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_Active;
+            }
+            
+            
+            }
+        }
+
         public void Focus()
         {
            
            
            // this.txtMain.Focus();
-            this.panel1.BackgroundImage = HiPiaoTerminal.Properties.Resources.Green_Left;
-            this.panel2.BackgroundImage = HiPiaoTerminal.Properties.Resources.Green_Right;
-            this.panelCenter.BackgroundImage = HiPiaoTerminal.Properties.Resources.Green_Center;
+            this.IsActive = true;
             txtMain_Click(null,null);
             txtMain_Enter(null, null);
             this.txtMain.Focus();
@@ -125,10 +168,9 @@ namespace HiPiaoTerminal.UserControlEx
 
         public void UnFocus()
         {
-            this.panel1.BackgroundImage = HiPiaoTerminal.Properties.Resources.Gray_Left;
-            this.panel2.BackgroundImage = HiPiaoTerminal.Properties.Resources.Gray_Right;
-            this.panelCenter.BackgroundImage = HiPiaoTerminal.Properties.Resources.Gray_Center;
+            this.IsActive = false;
             this.txtMain_Leave(null, null);
+            //this.txtMain.FindForm().Focus();
         }
 
         public override string Text
@@ -165,14 +207,81 @@ namespace HiPiaoTerminal.UserControlEx
             this.ResizeCompute();
 
         }
+        /*
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                //Cursor.Current = Cursors.Default;
+                // Cursor.Show();
+                SendKeys.Send("{TAB}");
+                //this.Close();
+                //return false;
+            }
+            return false;
+        }
+*/
+
+        private bool isDeleted = false;
+
+        /// <summary>
+        /// 是否允许内部删除按钮
+        /// </summary>
+        public bool IsDeleted
+        {
+            get { return isDeleted; }
+            set { isDeleted = value; }
+        }
 
         private void ResizeCompute()
         {
-            this.panel1.Width = this.panel2.Width = 14;
-            this.panelCenter.Location = new Point(14, 0);
-            this.panelCenter.Width = this.Size.Width - 2 * this.panel1.Width;
-            this.txtMain.Location = new Point(9, 16);
-            this.txtMain.Width = this.Size.Width - 2 * this.panel1.Width - 5;
+            int borderLen = 14;
+            int centerHeight=this.Height-2*borderLen;
+            int centerWidth=this.Width-2*borderLen;
+            this.panelRightTopBorder.Size = this.panelRightBottonBorder.Size = this.panelLeftTopBorder.Size
+                = this.panelLeftBottonBorder.Size = new Size(borderLen, borderLen);
+            this.panelLeftTopBorder.Location = new Point(0, 0);
+            this.panelLeftCenterBorder.Location = new Point(0, borderLen);
+            this.panelLeftCenterBorder.Size=new Size(borderLen,centerHeight);
+            this.panelLeftBottonBorder.Location = new Point(0,centerHeight + borderLen);
+
+            this.panelMainTopBorder.Location = new Point(borderLen, 0);
+            this.panelMainTopBorder.Size = new Size(centerWidth, borderLen);
+            this.panelCenter.Location = new Point(borderLen, borderLen);
+            this.panelCenter.Size = new Size(centerWidth, centerHeight);
+            this.panelMainBottomBorder.Location = new Point(borderLen, centerHeight + borderLen);
+            this.panelMainBottomBorder.Size = new Size(centerWidth, borderLen);
+
+            this.panelRightTopBorder.Location = new Point(centerWidth + borderLen, 0);
+            this.panelRightCenterBorder.Location = new Point(centerWidth + borderLen, borderLen);
+            this.panelRightCenterBorder.Size = new Size(borderLen, centerHeight);
+            this.panelRightBottonBorder.Location = new Point(centerWidth+borderLen, centerHeight + borderLen);
+
+            this.txtMain.Location = new Point(0, 0);
+            FT.Commons.Tools.WinFormHelper.CenterVer(this.txtMain);
+           // this.txtMain.Width = this.Size.Width - 2 * this.panelLeftTopBorder.Width - 5;
+            this.picUnderLine.Location = new Point(0, this.txtMain.Height + 2+this.txtMain.Location.Y);
+            if (this.IsDeleted)
+            {
+                if (this.Height < 100)
+                {
+                    this.btnDelete.Size = new Size(49, 45);
+                }
+                else
+                {
+                    this.btnDelete.Size = new Size(98, 90);
+                }
+                this.btnDelete.Location = new Point(this.Width - borderLen - this.btnDelete.Width, 2);
+                this.btnDelete.BringToFront();
+                FT.Commons.Tools.WinFormHelper.CenterVer(this.btnDelete);
+                this.txtMain.Width = centerWidth-this.btnDelete.Width;
+            }
+            else
+            {
+                this.btnDelete.Visible = false;
+                this.txtMain.Width = centerWidth;
+            }
+            
         }
 
         private void FlashUnderLine()
@@ -251,6 +360,8 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void txtMain_Enter(object sender, EventArgs e)
         {
+            this.IsActive = true;
+            
             if (relativeLabel != null)
             {
                 relativeLabel.ForeColor = Color.FromArgb(48, 48, 48);
@@ -299,20 +410,17 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void txtMain_Leave(object sender, EventArgs e)
         {
+            this.IsActive = false;
             if (relativeLabel != null)
             {
                 relativeLabel.ForeColor = Color.FromArgb(121, 121, 121);
             }
-
-            if (flashThread != null)
+            Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
+            if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
             {
-                Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
-                if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
-                {
-                    flashThread.Abort();
-                    this.picUnderLine.Visible = false;
-                    Console.WriteLine("停止线程闪烁");
-                }
+                flashThread.Abort();
+                this.picUnderLine.Visible = false;
+                Console.WriteLine("停止线程闪烁");
             }
             //Console.WriteLine("txtMain失去焦点完毕");
         }
@@ -361,6 +469,32 @@ namespace HiPiaoTerminal.UserControlEx
         private void UserInputPanel_Load(object sender, EventArgs e)
         {
             this.ResizeCompute();
+            
+        }
+
+        private void panelCenter_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelMainTopBorder_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelMainBottomBorder_Enter(object sender, EventArgs e)
+        {
+            //this.Focus();
+        }
+
+        private void panelMainBottomBorder_Leave(object sender, EventArgs e)
+        {
+            //this.UnFocus();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            this.txtMain.Text = string.Empty;
         }
 
         

@@ -1151,5 +1151,131 @@ namespace HiPiaoTerminal.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap UserInput_ClearAll {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_ClearAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Delete {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Bottom_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Bottom_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Bottom_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Bottom_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Center_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Center_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Center_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Center_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Top_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Top_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Left_Top_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Left_Top_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_MainBottom_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_MainBottom_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_MainBottom_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_MainBottom_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_MainTop_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_MainTop_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_MainTop_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_MainTop_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Bottom_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Bottom_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Bottom_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Bottom_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Center_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Center_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Center_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Center_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Top_Active {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Top_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap UserInput_Right_Top_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("UserInput_Right_Top_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

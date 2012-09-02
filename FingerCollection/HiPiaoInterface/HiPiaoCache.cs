@@ -216,6 +216,47 @@ namespace HiPiaoInterface
         }
 
 
+        public static List<MovieObject> GetDayMovie(string cinema, DateTime day)
+        {
+            List<MovieObject> lists = new List<MovieObject>();
+            string xml = hiPiaoSrv.GetDayMovie(cinema, day);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            MovieObject obj = null;
+            /*
+            XmlNodeList objsNode = doc.SelectNodes("//movieInfo");
+            string picurl = string.Empty;
+            string downdir = HotMoviePath + "\\" + province + "\\" + city;
+            for (int i = 0; i < objsNode.Count; i++)
+            {
+                obj = new MovieObject();
+                obj.Name = objsNode[i].Attributes["chname"].Value;
+                obj.BelongArea = objsNode[i].Attributes["country"].Value;
+                obj.Director = objsNode[i].Attributes["director"].Value;
+                obj.OtherName = objsNode[i].Attributes["enname"].Value;
+                obj.ShowDate = Convert.ToDateTime(objsNode[i].Attributes["fshowtime"].Value);
+                obj.MainActors = objsNode[i].Attributes["leadrole"].Value;
+                obj.TotalMinutes = Convert.ToInt32(objsNode[i].Attributes["pixlength"].Value);
+                obj.Id = objsNode[i].Attributes["pixnumber"].Value;
+                obj.Type = objsNode[i].Attributes["pixtype"].Value;
+
+                picurl = objsNode[i].Attributes["picurl"].Value;
+
+                obj.AdImagePath = DownLoad(picurl, downdir + "\\" + obj.Name + "\\" + obj.Id);
+                if (obj.AdImagePath.Length > 0)
+                    obj.AdImage = Image.FromFile(obj.AdImagePath);
+                //picurl="http://img.hipiao.com/hipiao15/film/201208/174732921950207b3c903e3.jpg" pixlength="89" pixnumber="05110035"
+                //pixtype
+                obj.Introduction = objsNode[i].Attributes["intro"].Value;
+                lists.Add(obj);
+            }
+            hotMovie = lists;
+             * */
+            return lists;
+
+        }
+
+
 
         public static List<MovieObject> RefreshHotMovie(string province,string city)
         {
