@@ -5,9 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Fm.Device.ImageSupport;
+using FT.Commons.TwainSupport;
 using System.Collections;
 using System.Runtime.InteropServices;
+
 
 namespace FT.Windows.ExternalTool
 {
