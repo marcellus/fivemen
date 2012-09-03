@@ -65,10 +65,6 @@
     <Compile Include="IDCard\IDCardReader.cs" />
     <Compile Include="IDCard\IDCardReaderHelper.cs" />
     <Compile Include="IDCard\SetIDCardInvoker.cs" />
-    <Compile Include="ImageSupport\Enums.cs" />
-    <Compile Include="ImageSupport\Gdip.cs" />
-    <Compile Include="ImageSupport\ImageFromDevice.cs" />
-    <Compile Include="ImageSupport\Twain.cs" />
     <Compile Include="InvoicePrinter\InvoicePrinterImporter.cs" />
     <Compile Include="PortSupport\PortImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
