@@ -14,6 +14,8 @@ using HiPiaoTerminal.Maintain;
 using HiPiaoTerminal.Account;
 using HiPiaoTerminal.BuyTicket;
 using HiPiaoTerminal.ConfigModel;
+using HiPiaoTerminal.UserControlEx;
+using FT.Windows.Controls.TextBoxEx;
 
 namespace HiPiaoTerminal
 {
@@ -28,44 +30,120 @@ namespace HiPiaoTerminal
 
         private static VitualKeyBoardPanel allKeyBoard=new VitualKeyBoardPanel();
 
+        private static VitualKeyBoardPanel2 allKeyBoard2 = new VitualKeyBoardPanel2();
+
+        private static VitualKeyboardForm allKeyBoardForm = new VitualKeyboardForm();
+        private static VitualNumKeyboardForm numKeyBoardForm = new VitualNumKeyboardForm();
+
+        public static void SetAllKeyBoardWithForm(TextBox txt, int keyboardType)
+        {
+            Form frm=null;
+            if (keyboardType == 1)
+            {
+                if (allKeyBoardForm == null)
+                {
+                    allKeyBoardForm = new VitualKeyboardForm();
+                }
+                frm = allKeyBoardForm;
+                allKeyBoardForm.InputTextBox = txt;
+            }
+            else
+            {
+                if (numKeyBoardForm == null)
+                {
+                    numKeyBoardForm = new VitualNumKeyboardForm();
+                }
+                frm = numKeyBoardForm;
+                numKeyBoardForm.InputTextBox = txt;
+            }
+           
+
+            Point point = txt.Parent.PointToScreen(txt.Location);
+            Console.WriteLine("转化屏幕的坐标是：X=" + point.X.ToString() + "=Y=" + point.Y.ToString());
+
+            int height = txt.Parent.Parent.Height;
+            // allKeyBoard2.InputTextBox = txt;
+            Console.WriteLine("userinput下划线的坐标是：X=" + txt.Parent.Location.X.ToString() + "=Y=" + txt.Parent.Location.Y.ToString() + "userinput高度:" + height.ToString() + "键盘窗体高度：" + frm.Height.ToString());
+            frm.Hide();
+            Console.WriteLine("转化前键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
+            if (point.Y > frm.Height+14)
+            {
+                
+                if (txt is HintTextBox)
+                {
+                    frm.Location = new Point(point.X - 14, point.Y - frm.Height - 15);
+                }
+                else
+                {
+                    frm.Location = new Point(point.X, point.Y - frm.Height);
+                }
+            }
+            else
+            {
+                if (txt is HintTextBox)
+                {
+                    frm.Location = new Point(point.X - 14, point.Y + height - 14 + 1);
+                }
+                else
+                {
+                    frm.Location = new Point(point.X, point.Y + height + 1);
+                }
+            }
+            frm.TabStop = false;
+            //allKeyBoardForm.BringToFront();
+            Console.WriteLine("转化后键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
+           // frm.ShowDialog();
+            frm.Show();
+        }
+
         public static void HideAllKeyBoard()
         {
+            allKeyBoard2.InputTextBox = null;
+            allKeyBoard2.Visible = false;
+            allKeyBoard.InputTextBox = null;
             allKeyBoard.Visible = false;
+            allKeyBoardForm.InputTextBox = null;
+            allKeyBoardForm.Hide();
+            numKeyBoardForm.InputTextBox = null;
+            numKeyBoardForm.Hide();
         }
 
         public static void SetAllKeyBoard(TextBox txt)
         {
+            
+            allKeyBoard2.InputTextBox = txt;
            
-            allKeyBoard.InputTextBox = txt;
-           
-            Point point = txt.FindForm().PointToScreen(txt.Location);
+            Point point = txt.Parent.PointToScreen(txt.Location);
             Console.WriteLine("转化屏幕的坐标是：X=" + point.X.ToString() + "=Y=" + point.Y.ToString());
-            Form frm = allKeyBoard.FindForm();
+            Form frm = allKeyBoard2.FindForm();
 
             if (frm == null)
             {
                
-                txt.FindForm().Controls.Add(allKeyBoard);
+                txt.FindForm().Controls.Add(allKeyBoard2);
             }
             else
             {
-                frm.Controls.Remove(allKeyBoard);
-                txt.FindForm().Controls.Add(allKeyBoard);
+                frm.Controls.Remove(allKeyBoard2);
+                txt.FindForm().Controls.Add(allKeyBoard2);
+               
             }
 
-            Console.WriteLine("txt下划线的坐标是：X=" + txt.Location.X.ToString() + "=Y=" + txt.Location.Y.ToString()+"txt高度:"+txt.Height.ToString()+"键盘高度："+allKeyBoard.Height.ToString());
-            Console.WriteLine("转化前键盘的坐标是：X=" + allKeyBoard.Location.X.ToString() + "=Y=" + allKeyBoard.Location.Y.ToString());
-            if (point.Y > allKeyBoard.Height + txt.Height)
+           // allKeyBoard2.InputTextBox = txt;
+            Console.WriteLine("txt下划线的坐标是：X=" + txt.Location.X.ToString() + "=Y=" + txt.Location.Y.ToString()+"txt高度:"+txt.Height.ToString()+"键盘高度："+allKeyBoard2.Height.ToString());
+            Console.WriteLine("转化前键盘的坐标是：X=" + allKeyBoard2.Location.X.ToString() + "=Y=" + allKeyBoard2.Location.Y.ToString());
+            if (point.Y > allKeyBoard2.Height + txt.Height)
             {
-                allKeyBoard.Location = new Point(point.X, point.Y - allKeyBoard.Height - txt.Height + 20);
+                allKeyBoard2.Location = new Point(point.X-30, point.Y - allKeyBoard2.Height - txt.Height + 20);
             }
             else
             {
-                allKeyBoard.Location = new Point(point.X, point.Y + txt.Height + 1);
+                allKeyBoard2.Location = new Point(point.X-30, point.Y + txt.Height + 1);
             }
-            allKeyBoard.BringToFront();
-            Console.WriteLine("转化后键盘的坐标是：X=" + allKeyBoard.Location.X.ToString() + "=Y=" + allKeyBoard.Location.Y.ToString());
-            allKeyBoard.Visible = true;
+            allKeyBoard2.TabStop = false;
+            allKeyBoard2.BringToFront();
+            Console.WriteLine("转化后键盘的坐标是：X=" + allKeyBoard2.Location.X.ToString() + "=Y=" + allKeyBoard2.Location.Y.ToString());
+            allKeyBoard2.Visible = true;
         }
 
 
@@ -73,7 +151,7 @@ namespace HiPiaoTerminal
         {
 
             allKeyBoard.InputTextBox = txt;
-            Point point = txt.FindForm().PointToScreen(txt.Location);
+            Point point = txt.Parent.PointToScreen(txt.Location);
             Form frm = allKeyBoard.FindForm();
 
             if (frm == null)
@@ -265,6 +343,15 @@ namespace HiPiaoTerminal
             UnOperationTimer.Start();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             MainForm = form;
+            InitKeyboard();
+        }
+
+        public static void InitKeyboard()
+        {
+            allKeyBoardForm.Show();
+            allKeyBoardForm.Hide();
+            numKeyBoardForm.Show();
+            numKeyBoardForm.Hide();
         }
 
         static void AutoCloseComputerTimer_Tick(object sender, EventArgs e)
@@ -614,6 +701,7 @@ namespace HiPiaoTerminal
         {
             if (MainForm != null)
             {
+                HideAllKeyBoard();
                 Control parent = MainForm;
                 parent.Controls.Clear();
                 parent.Controls.Add(panel);

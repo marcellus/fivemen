@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
 using FT.Commons.Win32;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal.UserControlEx
 {
@@ -19,6 +20,8 @@ namespace HiPiaoTerminal.UserControlEx
             InitializeComponent();
             this.txtMain.TextChanged += new EventHandler(txtMain_TextChanged);
             this.txtMain.MouseDown += new MouseEventHandler(txtMain_MouseDown);
+            this.Click += new EventHandler(UserInputPanel_Click);
+            this.txtMain.Click += new EventHandler(UserInputPanel_Click);
             CheckForIllegalCrossThreadCalls = false;
            // this.txtMain.TextChanged+=new EventHandler(txtMain_TextChanged);
 
@@ -26,6 +29,23 @@ namespace HiPiaoTerminal.UserControlEx
            // this.txtMain.KeyDown += new KeyEventHandler(txtMain_KeyDown);
            
            
+        }
+
+        void UserInputPanel_Click(object sender, EventArgs e)
+        {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseVirtualKeyboard)
+            {
+                GlobalTools.HideAllKeyBoard();
+                if (this.keyboardType == 1)
+                {
+                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                }
+                else if (this.keyboardType == 2)
+                {
+                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                }
+            }
         }
 
         public override bool Focused
@@ -154,6 +174,8 @@ namespace HiPiaoTerminal.UserControlEx
             }
         }
 
+        
+
         public void Focus()
         {
            
@@ -163,13 +185,51 @@ namespace HiPiaoTerminal.UserControlEx
             txtMain_Click(null,null);
             txtMain_Enter(null, null);
             this.txtMain.Focus();
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseVirtualKeyboard)
+            {
+                GlobalTools.HideAllKeyBoard();
+                if (this.keyboardType == 1)
+                {
+                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                }
+                else if (this.keyboardType == 2)
+                {
+                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                }
+            }
+            else
+            {
+
+            }
             
         }
+
+        private int keyboardType = 1;
+
+        /// <summary>
+        /// 键盘的类型，1为窗体全键盘，2为窗体数字键盘，3为控件全键盘，4为控件数字键盘
+        /// </summary>
+        public int KeyboardType
+        {
+            get { return keyboardType; }
+            set { keyboardType = value; }
+        }
+
 
         public void UnFocus()
         {
             this.IsActive = false;
             this.txtMain_Leave(null, null);
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseVirtualKeyboard)
+            {
+                //GlobalTools.HideAllKeyBoard();
+            }
+            else
+            {
+
+            }
             //this.txtMain.FindForm().Focus();
         }
 

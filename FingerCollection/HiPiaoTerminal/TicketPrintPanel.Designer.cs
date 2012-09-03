@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketPrintPanel));
-            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbValidCode = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.picReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picReturnHome = new System.Windows.Forms.PictureBox();
+            this.lbValidCode = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnPrint = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.numButton9 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.numButton8 = new HiPiaoTerminal.UserControlEx.NumButton();
@@ -53,30 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturnHome)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lbMobileHint
-            // 
-            this.lbMobileHint.AutoSize = true;
-            this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbMobileHint.Location = new System.Drawing.Point(239, 184);
-            this.lbMobileHint.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
-            this.lbMobileHint.Name = "lbMobileHint";
-            this.lbMobileHint.Size = new System.Drawing.Size(125, 46);
-            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbMobileHint.TabIndex = 4;
-            this.lbMobileHint.Text = "手机号";
-            // 
-            // lbValidCode
-            // 
-            this.lbValidCode.AutoSize = true;
-            this.lbValidCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbValidCode.Location = new System.Drawing.Point(239, 278);
-            this.lbValidCode.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
-            this.lbValidCode.Name = "lbValidCode";
-            this.lbValidCode.Size = new System.Drawing.Size(125, 46);
-            this.lbValidCode.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbValidCode.TabIndex = 4;
-            this.lbValidCode.Text = "验票码";
             // 
             // picReturn
             // 
@@ -110,6 +86,30 @@
             this.picReturnHome.TabIndex = 1;
             this.picReturnHome.TabStop = false;
             this.picReturnHome.Click += new System.EventHandler(this.picReturnHome_Click);
+            // 
+            // lbValidCode
+            // 
+            this.lbValidCode.AutoSize = true;
+            this.lbValidCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.lbValidCode.Location = new System.Drawing.Point(239, 278);
+            this.lbValidCode.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
+            this.lbValidCode.Name = "lbValidCode";
+            this.lbValidCode.Size = new System.Drawing.Size(125, 46);
+            this.lbValidCode.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbValidCode.TabIndex = 4;
+            this.lbValidCode.Text = "验票码";
+            // 
+            // lbMobileHint
+            // 
+            this.lbMobileHint.AutoSize = true;
+            this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.lbMobileHint.Location = new System.Drawing.Point(239, 184);
+            this.lbMobileHint.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
+            this.lbMobileHint.Name = "lbMobileHint";
+            this.lbMobileHint.Size = new System.Drawing.Size(125, 46);
+            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbMobileHint.TabIndex = 4;
+            this.lbMobileHint.Text = "手机号";
             // 
             // btnPrint
             // 
@@ -298,6 +298,9 @@
             this.txtValidCode.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtValidCode.Font = new System.Drawing.Font("宋体", 21F);
             this.txtValidCode.Hint = "验票码";
+            this.txtValidCode.IsActive = false;
+            this.txtValidCode.IsDeleted = false;
+            this.txtValidCode.KeyboardType = 5;
             this.txtValidCode.Location = new System.Drawing.Point(408, 264);
             this.txtValidCode.Margin = new System.Windows.Forms.Padding(0);
             this.txtValidCode.MaxInputLength = 6;
@@ -313,6 +316,9 @@
             this.txtMobile.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
             this.txtMobile.Hint = "购票所留手机号";
+            this.txtMobile.IsActive = false;
+            this.txtMobile.IsDeleted = false;
+            this.txtMobile.KeyboardType = 5;
             this.txtMobile.Location = new System.Drawing.Point(408, 170);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
             this.txtMobile.MaxInputLength = 11;

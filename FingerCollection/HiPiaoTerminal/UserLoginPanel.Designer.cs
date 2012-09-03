@@ -130,9 +130,10 @@
             this.txtUserName.Hint = "用户名/手机号码";
             this.txtUserName.IsActive = false;
             this.txtUserName.IsDeleted = false;
+            this.txtUserName.KeyboardType = 1;
             this.txtUserName.Location = new System.Drawing.Point(276, 36);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUserName.MaxInputLength = 32767;
+            this.txtUserName.MaxInputLength = 20;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PasswordChar = '\0';
             this.txtUserName.RelativeLabel = this.lbUserName;
@@ -147,6 +148,7 @@
             this.txtPwd.Hint = "账户密码";
             this.txtPwd.IsActive = false;
             this.txtPwd.IsDeleted = false;
+            this.txtPwd.KeyboardType = 2;
             this.txtPwd.Location = new System.Drawing.Point(276, 168);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtPwd.MaxInputLength = 32767;
