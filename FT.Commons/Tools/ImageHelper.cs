@@ -11,7 +11,40 @@ namespace FT.Commons.Tools
 {
     public class ImageHelper:BaseHelper
     {
+        public static void SetSmoothFont(Graphics g)
+        {
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+        }
 
+        public static byte[] GetBytesByImage(Image bp)
+        {
+            byte[] photo_byte = null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                Bitmap bmp = new Bitmap(bp);
+                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                photo_byte = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(photo_byte, 0, Convert.ToInt32(ms.Length));
+                bmp.Dispose();
+            }
+
+            return photo_byte;
+        }
+        public static Image GetImageByBytes(byte[] bytes)
+        {
+            Image photo = null;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                ms.Write(bytes, 0, bytes.Length);
+                photo = Image.FromStream(ms, true);
+            }
+
+            return photo;
+        }
+
+        
         public static Bitmap Base64StrToBmp(string ImgBase64Str)
         {
             byte[] ImgBuffer = Convert.FromBase64String(ImgBase64Str);
@@ -55,7 +88,31 @@ namespace FT.Commons.Tools
             return null;
         }
 
-        #region 色彩处理  
+        #region 色彩处理 
+
+
+        public static Image CaptureControl(Control ctr)
+        {
+            Screen scr = Screen.PrimaryScreen;
+            Rectangle rc = scr.Bounds;
+            int iWidth = rc.Width;
+            int iHeight = rc.Height;
+            //创建一个和屏幕一样大的Bitmap
+
+            Image bmp = new Bitmap(ctr.Width, ctr.Height);
+            //从一个继承自Image类的对象中创建Graphics对象
+
+            Graphics g = Graphics.FromImage(bmp);
+            //抓屏并拷贝到myimage里
+
+            g.CopyFromScreen(ctr.PointToScreen(new Point(0, 0)), new Point(0, 0), new Size(ctr.Width, ctr.Height));
+
+            //bmp.Save("final.jpg");
+            g.Dispose();
+            return bmp;
+        }
+ 
+       
          /// <summary>  
          /// 设置图形颜色  边缘的色彩更换成新的颜色  
          /// </summary>  
@@ -169,6 +226,14 @@ namespace FT.Commons.Tools
              _NewBmp.UnlockBits(_Data);  
              return _NewBmp;  
          }  
+         public static Image ClearWhiteToTransparent(Image Img)
+         {
+            return SetImageColorAll(Img, Color.White, Color.Transparent, 0);
+         }
+         public static Image ClearBlackToTransparent(Image Img)
+         {
+             return SetImageColorAll(Img, Color.Black, Color.Transparent, 0);
+         }
          /// <summary>  
          /// 设置图形颜色  所有的色彩更换成新的颜色  
          /// </summary>  

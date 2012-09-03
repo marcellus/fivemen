@@ -16,6 +16,17 @@ namespace FT.Commons.Tools
         {
         }
 
+        public static object GetObjectPropertyObject(object obj, string property)
+        {
+            Type type = obj.GetType();
+            object value = null;
+            value = type.GetProperty(property, BindingFlags.IgnoreCase
+                 | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj, null);
+            return value;
+
+
+        }
+
         public static string GetObjectProperty(object obj, string property)
         {
             Type type = obj.GetType();
@@ -53,6 +64,34 @@ namespace FT.Commons.Tools
             }
         }
 
+        public static void WriteObjectProperty(object obj)
+        {
+            Type type = obj.GetType();
+            PropertyInfo[] property =type.GetProperties();
+            object value = null;
+            for (int i = 0; i < property.Length; i++)
+            {
+
+                value = property[i].GetValue(obj, null);
+              //  value = type.GetProperty(property[i].Name, BindingFlags.IgnoreCase
+             //  | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
+               Console.WriteLine("属性：" + property[i].Name + " 类型：" + property[i].PropertyType.ToString() + " 值：" + value);
+            }
+        }
+
+        public static void WriteObjectField(object obj)
+        {
+            Type type = obj.GetType();
+            FieldInfo[] property = type.GetFields();
+            object value = null;
+            for (int i = 0; i < property.Length; i++)
+            {
+                value = property[i].GetValue(obj);
+                Console.WriteLine("属性：" + property[i].Name + " 类型：" + property[i].FieldType.ToString() + " 值：" + value);
+                //  value = type.GetProperty(field, BindingFlags.IgnoreCase
+                //  | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy).GetValue(obj);
+            }
+        }
 
         public static string GetObjectField(object obj, string field)
         {

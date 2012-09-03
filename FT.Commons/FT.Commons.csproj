@@ -51,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=11cfa29b26485adc, processorArchitecture=MSIL">
@@ -217,6 +218,7 @@
     <Compile Include="Tools\ConfigLoader.cs" />
     <Compile Include="Tools\DateTimeHelper.cs" />
     <Compile Include="Tools\Dragger.cs" />
+    <Compile Include="Tools\EmailHelper.cs" />
     <Compile Include="Tools\FileDialogHelper.cs" />
     <Compile Include="Tools\FileHelper.cs" />
     <Compile Include="Tools\FontHelper.cs" />
@@ -244,6 +246,12 @@
     <Compile Include="Tools\WindowsPrinterHelper.cs" />
     <Compile Include="Tools\WinFormHelper.cs" />
     <Compile Include="Tools\XmlHelper.cs" />
+    <Compile Include="TwainSupport\VedioGrap.cs" />
+    <Compile Include="TwainSupport\Enums.cs" />
+    <Compile Include="TwainSupport\Gdip.cs" />
+    <Compile Include="TwainSupport\ImageFromDevice.cs" />
+    <Compile Include="TwainSupport\Twain.cs" />
+    <Compile Include="Tools\TwainHelper.cs" />
     <Compile Include="WebCatcher\BaseAbstractCatcher.cs" />
     <Compile Include="WebCatcher\CatcherConfig.cs" />
     <Compile Include="WebCatcher\CatcherConfigForm.cs">
