@@ -40,7 +40,7 @@ namespace FT.Windows.Controls.ButtonEx
             }
         }
 
-        private static Font btnFont = new Font("方正兰亭黑简体", 17);
+        private static Font btnFont = new Font("方正兰亭黑简体", 24);
         private static Color notActiveColor = Color.FromArgb(255, 255, 255);
         private static Color activeColor = Color.FromArgb(89, 87, 87);
 

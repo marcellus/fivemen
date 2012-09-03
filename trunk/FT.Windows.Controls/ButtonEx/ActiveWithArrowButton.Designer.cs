@@ -1,4 +1,5 @@
-﻿namespace FT.Windows.Controls.ButtonEx
+﻿using FT.Windows.Controls.LabelEx;
+namespace FT.Windows.Controls.ButtonEx
 {
     partial class ActiveWithArrowButton
     {
@@ -28,36 +29,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbHintText = new System.Windows.Forms.Label();
+            this.lbHintText = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // lbHintText
             // 
-            this.lbHintText.AutoSize = true;
             this.lbHintText.BackColor = System.Drawing.Color.Transparent;
-            this.lbHintText.Location = new System.Drawing.Point(19, 19);
+            this.lbHintText.ForeColor = System.Drawing.Color.Black;
+            this.lbHintText.Location = new System.Drawing.Point(3, 0);
+            this.lbHintText.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.lbHintText.Name = "lbHintText";
-            this.lbHintText.Size = new System.Drawing.Size(79, 30);
-            this.lbHintText.TabIndex = 0;
-            this.lbHintText.Text = "label1";
+            this.lbHintText.Size = new System.Drawing.Size(215, 65);
+            this.lbHintText.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbHintText.TabIndex = 1;
+            this.lbHintText.Text = "sdfdsfds";
+            this.lbHintText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbHintText.Click += new System.EventHandler(this.lbHintText_Click);
             // 
             // ActiveWithArrowButton
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbHintText);
             this.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ActiveWithArrowButton";
-            this.Size = new System.Drawing.Size(218, 65);
+            this.Size = new System.Drawing.Size(218, 69);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbHintText;
+        private SimpleLabel lbHintText;
     }
 }

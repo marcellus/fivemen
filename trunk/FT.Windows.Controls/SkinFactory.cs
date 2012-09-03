@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace FT.Windows.Controls
 {
@@ -21,6 +22,7 @@ namespace FT.Windows.Controls
             ISkinControl tmp = ctr as ISkinControl;
             if (tmp != null)
             {
+               // ctr.Paint += new PaintEventHandler(ctr_Paint);
                 if (tmp.Skin == SimpleSkinType.Blue)
                 {
                     //ctr.BackColor = Color.Blue;
@@ -37,12 +39,20 @@ namespace FT.Windows.Controls
                     ctr.BackColor = Color.Red;
                     ctr.ForeColor = Color.White;
                 }
-                else
+                else if(tmp.Skin==SimpleSkinType.Normal)
                 {
                     ctr.BackColor = SystemColors.Control;
                     ctr.ForeColor = Color.Black;
                 }
             }
+        }
+
+        static void ctr_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            
+            //throw new NotImplementedException();
         }
         /// <summary>
         /// 为单个控件设置样式
