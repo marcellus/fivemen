@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using FT.Commons.Tools;
 
 namespace FT.Windows.Controls.ButtonEx
 {
@@ -12,6 +13,7 @@ namespace FT.Windows.Controls.ButtonEx
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs pevent)
         {
             //this.DesignBySkin();
+            ImageHelper.SetSmoothFont(pevent.Graphics);
             base.OnPaint(pevent);
         }
 

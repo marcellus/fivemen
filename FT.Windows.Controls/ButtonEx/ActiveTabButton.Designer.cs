@@ -1,4 +1,5 @@
-﻿namespace FT.Windows.Controls.ButtonEx
+﻿using FT.Windows.Controls.LabelEx;
+namespace FT.Windows.Controls.ButtonEx
 {
     partial class ActiveTabButton
     {
@@ -28,18 +29,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbHintText = new System.Windows.Forms.Label();
+            this.lbHintText = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.SuspendLayout();
             // 
             // lbHintText
             // 
             this.lbHintText.BackColor = System.Drawing.Color.Transparent;
             this.lbHintText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHintText.Font = new System.Drawing.Font("方正兰亭黑简体", 21F);
+            this.lbHintText.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
             this.lbHintText.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbHintText.Location = new System.Drawing.Point(0, 0);
             this.lbHintText.Name = "lbHintText";
             this.lbHintText.Size = new System.Drawing.Size(223, 70);
+            this.lbHintText.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbHintText.TabIndex = 0;
             this.lbHintText.Text = "label1";
             this.lbHintText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -58,6 +60,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbHintText;
+        private SimpleLabel lbHintText;
     }
 }

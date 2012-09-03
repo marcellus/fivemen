@@ -70,6 +70,12 @@
     <Compile Include="ButtonEx\SimpleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ButtonEx\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonEx\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComboBoxEx\SimpleComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     <Compile Include="PanelEx\DataSearch.Designer.cs">
       <DependentUpon>DataSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="PanelEx\ImageProcessPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\ImageProcessPanel.Designer.cs">
+      <DependentUpon>ImageProcessPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelEx\ProcessPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +146,18 @@
     </Compile>
     <Compile Include="PanelEx\VitualKeyBoardPanel.Designer.cs">
       <DependentUpon>VitualKeyBoardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelEx\VitualKeyBoardPanel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\VitualKeyBoardPanel2.Designer.cs">
+      <DependentUpon>VitualKeyBoardPanel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelEx\VitualNumKeyBoardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelEx\VitualNumKeyBoardPanel.Designer.cs">
+      <DependentUpon>VitualNumKeyBoardPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -252,6 +276,10 @@
       <DependentUpon>ActiveWithArrowButton.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ButtonEx\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -276,12 +304,24 @@
       <SubType>Designer</SubType>
       <DependentUpon>DataSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\ImageProcessPanel.resx">
+      <DependentUpon>ImageProcessPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PanelEx\ProcessPanel.resx">
       <DependentUpon>ProcessPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelEx\VitualKeyBoardPanel.resx">
       <DependentUpon>VitualKeyBoardPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\VitualKeyBoardPanel2.resx">
+      <DependentUpon>VitualKeyBoardPanel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelEx\VitualNumKeyBoardPanel.resx">
+      <DependentUpon>VitualNumKeyBoardPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -300,7 +340,7 @@
       <Name>FT.Commons</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
-      <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
+      <Project>{24D0A7DC-A65E-4D89-AFEF-EEECAEA6DB0E}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
   </ItemGroup>

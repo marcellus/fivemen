@@ -5,11 +5,14 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using FT.Commons.Tools;
 
 namespace FT.Windows.Controls.ButtonEx
 {
     public partial class ActiveWithArrowButton : UserControl
     {
+
+       
         public ActiveWithArrowButton()
         {
             InitializeComponent();
@@ -50,7 +53,7 @@ namespace FT.Windows.Controls.ButtonEx
             }
         }
 
-        public override string Text
+        public  string ButtonText
         {
             get
             {

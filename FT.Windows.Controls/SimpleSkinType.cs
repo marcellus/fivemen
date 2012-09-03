@@ -6,6 +6,11 @@ namespace FT.Windows.Controls
 {
     public enum SimpleSkinType
     {
+        
+        /// <summary>
+        /// 自定义样式
+        /// </summary>
+        Custom,
         /// <summary>
         /// 湛蓝世界
         /// </summary>
