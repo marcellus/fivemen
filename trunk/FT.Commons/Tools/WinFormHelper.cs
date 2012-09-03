@@ -13,6 +13,39 @@ namespace FT.Commons.Tools
         private WinFormHelper()
         {
         }
+
+        private static Point mouse_offset;
+
+
+        public static void DropMove(Control ctr)
+        {
+            ctr.MouseDown += new MouseEventHandler(ctr_MouseDown);
+            ctr.MouseUp += new MouseEventHandler(ctr_MouseUp);
+            ctr.MouseMove += new MouseEventHandler(ctr_MouseMove);
+        }
+
+        static void ctr_MouseMove(object sender, MouseEventArgs e)
+        {
+            ((Control)sender).Cursor = Cursors.Arrow;//设置拖动时鼠标箭头
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouse_offset.X, mouse_offset.Y);//设置偏移
+                ((Control)sender).Location = ((Control)sender).Parent.PointToClient(mousePos);
+            }
+
+        }
+
+        static void ctr_MouseUp(object sender, MouseEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        static void ctr_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouse_offset = new Point(-e.X, -e.Y);//
+            //throw new NotImplementedException();
+        }
         public static void CenterHor(Control ctr)
         {
             if (ctr != null && ctr.Parent != null)

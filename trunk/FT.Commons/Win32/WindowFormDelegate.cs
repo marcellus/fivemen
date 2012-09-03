@@ -11,6 +11,19 @@ namespace FT.Commons.Win32
         {
         }
 
+        public static object GetControlProperty(Control ctr, string property)
+        {
+            if (ctr.InvokeRequired)
+            {
+                GetControlPropertyDelegate msgCallback = new GetControlPropertyDelegate(WindowFormDelegate.GetControlProperty);
+                return ctr.Invoke(msgCallback, new object[] { ctr, property });
+            }
+            else
+            {
+                return FT.Commons.Tools.ReflectHelper.GetObjectPropertyObject(ctr, property);
+            }
+        }
+
         public static void SetMainThreadHint(Label label, string msg)
         {
             if (label.InvokeRequired)
@@ -50,6 +63,12 @@ namespace FT.Commons.Win32
             }
         }
     }
+
+    /// <summary>
+    /// 获取控件属性
+    /// </summary>
+    /// <param name="str"></param>
+    public delegate object GetControlPropertyDelegate(Control ctr, string property);
 
     /// <summary>
     /// 移除控件委托
