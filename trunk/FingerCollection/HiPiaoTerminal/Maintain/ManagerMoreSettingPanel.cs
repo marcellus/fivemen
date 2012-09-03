@@ -31,6 +31,7 @@ namespace HiPiaoTerminal.Maintain
                 config.UseHardwareKeyboard = this.checkUseHardKeyboard.Checked;
                 config.UseMaskPanel = this.checkUseMask.Checked;
                 config.UseRfid = this.checkAllowRfid.Checked;
+                config.UseVirtualKeyboard = this.checkVitualKeyboard.Checked;
                 config.UnOperationTime = Convert.ToInt32(this.txtUnOperationTime.Text);
                 config.Province = this.cbProvince.Text;
                 config.City = this.cbCity.Text;
@@ -54,6 +55,7 @@ namespace HiPiaoTerminal.Maintain
                 this.checkUseHardKeyboard.Checked = config.UseHardwareKeyboard;
                 this.checkUseMask.Checked = config.UseMaskPanel;
                 this.checkAllowRfid.Checked = config.UseRfid;
+                this.checkVitualKeyboard.Checked = config.UseVirtualKeyboard;
                 this.txtUnOperationTime.Text = config.UnOperationTime.ToString();
                 this.cbProvince.DropDownStyle = ComboBoxStyle.DropDownList;
                 this.cbProvince.DataSource = HiPiaoCache.GetProvince();

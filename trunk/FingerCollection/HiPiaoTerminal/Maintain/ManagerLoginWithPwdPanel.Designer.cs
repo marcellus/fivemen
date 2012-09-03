@@ -31,13 +31,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnManagerLogin = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtManagePwd = new System.Windows.Forms.TextBox();
             this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtManagePwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnManagerLogin)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -68,25 +66,6 @@
             this.btnManagerLogin.TabStop = false;
             this.btnManagerLogin.Click += new System.EventHandler(this.btnManagerLogin_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Login_Pwd_Back;
-            this.panel1.Controls.Add(this.txtManagePwd);
-            this.panel1.Location = new System.Drawing.Point(372, 424);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 82);
-            this.panel1.TabIndex = 6;
-            // 
-            // txtManagePwd
-            // 
-            this.txtManagePwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtManagePwd.Font = new System.Drawing.Font("宋体", 29F);
-            this.txtManagePwd.Location = new System.Drawing.Point(16, 22);
-            this.txtManagePwd.Name = "txtManagePwd";
-            this.txtManagePwd.PasswordChar = '*';
-            this.txtManagePwd.Size = new System.Drawing.Size(406, 45);
-            this.txtManagePwd.TabIndex = 0;
-            // 
             // lbReturnMsg
             // 
             this.lbReturnMsg.AutoSize = true;
@@ -99,25 +78,41 @@
             this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbReturnMsg.TabIndex = 7;
             // 
+            // txtManagePwd
+            // 
+            this.txtManagePwd.BackColor = System.Drawing.Color.Transparent;
+            this.txtManagePwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtManagePwd.Hint = null;
+            this.txtManagePwd.IsActive = true;
+            this.txtManagePwd.IsDeleted = false;
+            this.txtManagePwd.KeyboardType = 1;
+            this.txtManagePwd.Location = new System.Drawing.Point(381, 428);
+            this.txtManagePwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtManagePwd.MaxInputLength = 12;
+            this.txtManagePwd.Name = "txtManagePwd";
+            this.txtManagePwd.PasswordChar = '*';
+            this.txtManagePwd.RelativeLabel = null;
+            this.txtManagePwd.Size = new System.Drawing.Size(442, 74);
+            this.txtManagePwd.TabIndex = 8;
+            // 
             // ManagerLoginWithPwdPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.Controls.Add(this.txtManagePwd);
             this.Controls.Add(this.lbReturnMsg);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnManagerLogin);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ManagerLoginWithPwdPanel";
+            this.Load += new System.EventHandler(this.ManagerLoginWithPwdPanel_Load);
             this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.pictureBox2, 0);
             this.Controls.SetChildIndex(this.btnManagerLogin, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
+            this.Controls.SetChildIndex(this.txtManagePwd, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnManagerLogin)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +123,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btnManagerLogin;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtManagePwd;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtManagePwd;
 
     }
 }

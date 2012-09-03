@@ -49,6 +49,8 @@
             this.lbAddress = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.checkAllowRfid = new FT.Windows.Controls.ButtonEx.CheckButton();
+            this.simpleLabel2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.checkVitualKeyboard = new FT.Windows.Controls.ButtonEx.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -279,11 +281,35 @@
             this.checkAllowRfid.TabIndex = 6;
             this.checkAllowRfid.UseVisualStyleBackColor = true;
             // 
+            // simpleLabel2
+            // 
+            this.simpleLabel2.AutoSize = true;
+            this.simpleLabel2.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel2.Location = new System.Drawing.Point(557, 306);
+            this.simpleLabel2.Name = "simpleLabel2";
+            this.simpleLabel2.Size = new System.Drawing.Size(192, 40);
+            this.simpleLabel2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel2.TabIndex = 5;
+            this.simpleLabel2.Text = "使用软键盘";
+            // 
+            // checkVitualKeyboard
+            // 
+            this.checkVitualKeyboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkVitualKeyboard.BackgroundImage")));
+            this.checkVitualKeyboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkVitualKeyboard.Checked = false;
+            this.checkVitualKeyboard.Location = new System.Drawing.Point(494, 308);
+            this.checkVitualKeyboard.Name = "checkVitualKeyboard";
+            this.checkVitualKeyboard.Size = new System.Drawing.Size(38, 38);
+            this.checkVitualKeyboard.TabIndex = 6;
+            this.checkVitualKeyboard.UseVisualStyleBackColor = true;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
             this.Controls.Add(this.lbReturnMsg);
             this.Controls.Add(this.txtUnOperationTime);
+            this.Controls.Add(this.checkVitualKeyboard);
             this.Controls.Add(this.checkAllowRfid);
             this.Controls.Add(this.checkUseHardKeyboard);
             this.Controls.Add(this.cbProvince);
@@ -294,6 +320,7 @@
             this.Controls.Add(this.btnCancelSave);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKeepSave);
+            this.Controls.Add(this.simpleLabel2);
             this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
@@ -312,6 +339,7 @@
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.simpleLabel1, 0);
+            this.Controls.SetChildIndex(this.simpleLabel2, 0);
             this.Controls.SetChildIndex(this.btnKeepSave, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
@@ -322,6 +350,7 @@
             this.Controls.SetChildIndex(this.cbProvince, 0);
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
             this.Controls.SetChildIndex(this.checkAllowRfid, 0);
+            this.Controls.SetChildIndex(this.checkVitualKeyboard, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
@@ -353,5 +382,7 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbAddress;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
         private FT.Windows.Controls.ButtonEx.CheckButton checkAllowRfid;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel2;
+        private FT.Windows.Controls.ButtonEx.CheckButton checkVitualKeyboard;
     }
 }

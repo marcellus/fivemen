@@ -25,6 +25,7 @@ namespace HiPiaoTerminal.Maintain
                 this.lbReturnMsg.Text = "请输入登陆密码再点击登陆！";
                 this.txtManagePwd.Text = string.Empty;
                 this.txtManagePwd.Focus();
+               // GlobalTools.SetAllKeyBoardWithForm(this.txtManagePwd, 1);
                 return;
             }
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
@@ -49,6 +50,11 @@ namespace HiPiaoTerminal.Maintain
                     // GlobalTools.ReturnMain();
                 }
             }
+        }
+
+        private void ManagerLoginWithPwdPanel_Load(object sender, EventArgs e)
+        {
+            this.txtManagePwd.Focus();
         }
 
         
