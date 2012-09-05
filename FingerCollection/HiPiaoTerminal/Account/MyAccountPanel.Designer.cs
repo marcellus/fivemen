@@ -77,6 +77,7 @@
             this.btnFeeDetailInfo.Size = new System.Drawing.Size(222, 70);
             this.btnFeeDetailInfo.TabIndex = 1;
             this.btnFeeDetailInfo.TabText = "消费记录";
+            this.btnFeeDetailInfo.Load += new System.EventHandler(this.btnFeeDetailInfo_Load);
             this.btnFeeDetailInfo.Click += new System.EventHandler(this.btnFeeDetailInfo_Click);
             // 
             // btnModifyPwd

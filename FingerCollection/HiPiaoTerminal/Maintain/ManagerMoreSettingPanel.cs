@@ -38,6 +38,8 @@ namespace HiPiaoTerminal.Maintain
                 config.CityId = this.cbCity.SelectedValue.ToString();
                 config.CinemaId = this.cbCinema.SelectedValue.ToString();
                 config.Cinema = this.cbCinema.Text;
+
+                config.UpdateMovieTime = Convert.ToInt32( this.txtRefreshCacheTime.Text) ;
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
                 this.lbReturnMsg.Text = "修改成功！";
             }
@@ -63,6 +65,7 @@ namespace HiPiaoTerminal.Maintain
                 this.cbProvince.Text = config.Province;
                 this.cbCity.Text = config.City;
                 this.cbCinema.Text = config.Cinema;
+                this.txtRefreshCacheTime.Text = config.UpdateMovieTime.ToString();
             }
             catch
             {

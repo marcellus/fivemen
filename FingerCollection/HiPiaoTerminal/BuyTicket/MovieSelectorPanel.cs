@@ -25,16 +25,22 @@ namespace HiPiaoTerminal.BuyTicket
             this.btnTomorrow.Text = string.Format(this.btnTomorrow.Text, now.AddDays(1).ToString("MM月dd日"));
             this.btnThreeDay.Text = string.Format(this.btnThreeDay.Text, now.AddDays(2).ToString("MM月dd日"));
             this.SetSepartor(false);
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            List<MovieObject> hotmovies=HiPiaoCache.GetHotMovie(config.Province, config.City);
-            this.InitMovies(hotmovies);
+            
+            this.InitMovies(now);
             this.SetOperationTime(60);
         }
 
         //private static Font MovieNameColor=new Font("",
 
-        private void InitMovies(List<MovieObject> lists)
+
+        
+
+        private void InitMovies(DateTime dt)
         {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            List<MovieObject> lists = HiPiaoCache.GetHotMovie(config.Province, config.City);
+
+            List<MovieObject> lists2= HiPiaoCache.GetDayMovie(config.CinemaId, dt);
             if (lists != null && lists.Count > 0)
             {
                 this.panelContent.Controls.Clear();
@@ -89,6 +95,21 @@ namespace HiPiaoTerminal.BuyTicket
         private void btnReturn_Click(object sender, EventArgs e)
         {
             GlobalTools.ReturnMain();
+        }
+
+        private void btnThreeDay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTomorrow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

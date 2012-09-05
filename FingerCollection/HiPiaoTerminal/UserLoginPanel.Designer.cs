@@ -125,9 +125,10 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.SmallLetterAndNumber;
             this.txtUserName.BackColor = System.Drawing.SystemColors.Window;
             this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
-            this.txtUserName.Hint = "用户名/手机号码";
+            this.txtUserName.Hint = "请输入用户名";
             this.txtUserName.IsActive = false;
             this.txtUserName.IsDeleted = false;
             this.txtUserName.KeyboardType = 1;
@@ -143,15 +144,16 @@
             // 
             // txtPwd
             // 
+            this.txtPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtPwd.Hint = "账户密码";
             this.txtPwd.IsActive = false;
             this.txtPwd.IsDeleted = false;
-            this.txtPwd.KeyboardType = 2;
+            this.txtPwd.KeyboardType = 5;
             this.txtPwd.Location = new System.Drawing.Point(276, 168);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPwd.MaxInputLength = 32767;
+            this.txtPwd.MaxInputLength = 6;
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.RelativeLabel = this.lbPwd;

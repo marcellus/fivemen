@@ -41,6 +41,19 @@ namespace HiPiaoInterface
             set { playTime = value; }
         }
 
+
+        private DateTime buyTime;
+
+        /// <summary>
+        /// 购买时间
+        /// </summary>
+        public DateTime BuyTime
+        {
+            get { return buyTime; }
+            set { buyTime = value; }
+        }
+
+
         private SeatObject seat;
         /// <summary>
         /// 座位

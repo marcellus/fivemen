@@ -204,6 +204,7 @@
     <None Include="Web References\com.51cp.iphone\videoPojo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <Content Include="xml\CouponInfoResponse.xml" />
   </ItemGroup>
   <ItemGroup>
     <WebReferenceUrl Include="http://iphone.51cp.com:8080/ws/hpcinema%3fwsdl">
@@ -223,6 +224,15 @@
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\ConsumptionResponse.xml" />
+    <Content Include="xml\ConsumptionRequest.xml" />
+    <Content Include="xml\CouponInfoRequest.xml" />
+    <Content Include="xml\DeductionInfoRequest.xml" />
+    <Content Include="xml\DeductionInfoInfoResponse.xml" />
+    <Content Include="xml\PlancinemaRequest.xml" />
+    <Content Include="xml\PlancinemaResponse.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

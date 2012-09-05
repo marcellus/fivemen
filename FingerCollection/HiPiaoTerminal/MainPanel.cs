@@ -88,6 +88,7 @@ namespace HiPiaoTerminal
             //    ButtonState.Pushed);
 
             timerShowMovie.Start();
+            GlobalTools.HideAllKeyBoard();
             GlobalTools.RegistUpdateUnOperationTime(null);
             GlobalTools.StopUnOperationCounter();
             if (GlobalTools.loginUser == null)

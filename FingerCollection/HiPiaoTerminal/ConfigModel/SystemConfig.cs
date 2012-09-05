@@ -27,7 +27,10 @@ namespace HiPiaoTerminal.ConfigModel
 
         public int UnOperationTime = 20;
 
-        public int UpdateMovieTime = 12000;
+        /// <summary>
+        /// 定时更新电影信息时间
+        /// </summary>
+        public int UpdateMovieTime = 5;
 
 
         public bool AllowShowMouse = false;

@@ -73,21 +73,29 @@ namespace HiPiaoTerminal
         {
             if (allowLogin)
             {
-                if (GlobalTools.LoginAccount(this.txtUserName.Text, this.txtPwd.Text))
+                try
                 {
-                    if (loginSuccessType == 0)
+
+                    if (GlobalTools.LoginAccount(this.txtUserName.Text, this.txtPwd.Text))
                     {
-                        GlobalTools.ReturnUserAccout();
+                        if (loginSuccessType == 0)
+                        {
+                            GlobalTools.ReturnUserAccout();
+                        }
+                        else if (loginSuccessType == 1)
+                        {
+                            GlobalTools.QuickBuyTicket();
+                        }
                     }
-                    else if (loginSuccessType == 1)
+                    else
                     {
-                        GlobalTools.QuickBuyTicket();
+                        GlobalTools.Pop(new UIdOrPwdErrorPanel());
+
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    GlobalTools.Pop(new UIdOrPwdErrorPanel());
-
+                    GlobalTools.PopNetError();
                 }
             }
         }

@@ -86,10 +86,10 @@
             // btnTicketPrint
             // 
             this.btnTicketPrint.Image = global::HiPiaoTerminal.Properties.Resources.Main_TicketPrint;
-            this.btnTicketPrint.Location = new System.Drawing.Point(639, 130);
+            this.btnTicketPrint.Location = new System.Drawing.Point(660, 142);
             this.btnTicketPrint.Margin = new System.Windows.Forms.Padding(7);
             this.btnTicketPrint.Name = "btnTicketPrint";
-            this.btnTicketPrint.Size = new System.Drawing.Size(156, 156);
+            this.btnTicketPrint.Size = new System.Drawing.Size(149, 150);
             this.btnTicketPrint.TabIndex = 10;
             this.btnTicketPrint.TabStop = false;
             this.btnTicketPrint.Click += new System.EventHandler(this.btnTicketPrint_Click);
@@ -97,10 +97,10 @@
             // btnBuyTicket
             // 
             this.btnBuyTicket.Image = global::HiPiaoTerminal.Properties.Resources.Main_QuickBuyTicket;
-            this.btnBuyTicket.Location = new System.Drawing.Point(809, 130);
+            this.btnBuyTicket.Location = new System.Drawing.Point(816, 142);
             this.btnBuyTicket.Margin = new System.Windows.Forms.Padding(7);
             this.btnBuyTicket.Name = "btnBuyTicket";
-            this.btnBuyTicket.Size = new System.Drawing.Size(156, 156);
+            this.btnBuyTicket.Size = new System.Drawing.Size(149, 150);
             this.btnBuyTicket.TabIndex = 9;
             this.btnBuyTicket.TabStop = false;
             this.btnBuyTicket.Click += new System.EventHandler(this.btnBuyTicket_Click);
@@ -108,10 +108,10 @@
             // btnLoginPassport
             // 
             this.btnLoginPassport.Image = global::HiPiaoTerminal.Properties.Resources.Main_UserAccount;
-            this.btnLoginPassport.Location = new System.Drawing.Point(979, 130);
+            this.btnLoginPassport.Location = new System.Drawing.Point(972, 142);
             this.btnLoginPassport.Margin = new System.Windows.Forms.Padding(7);
             this.btnLoginPassport.Name = "btnLoginPassport";
-            this.btnLoginPassport.Size = new System.Drawing.Size(156, 156);
+            this.btnLoginPassport.Size = new System.Drawing.Size(149, 150);
             this.btnLoginPassport.TabIndex = 8;
             this.btnLoginPassport.TabStop = false;
             this.btnLoginPassport.Click += new System.EventHandler(this.btnLoginPassport_Click);
@@ -119,10 +119,10 @@
             // btnQuickRegister
             // 
             this.btnQuickRegister.Image = global::HiPiaoTerminal.Properties.Resources.Main_UserRegister;
-            this.btnQuickRegister.Location = new System.Drawing.Point(979, 299);
+            this.btnQuickRegister.Location = new System.Drawing.Point(972, 299);
             this.btnQuickRegister.Margin = new System.Windows.Forms.Padding(7);
             this.btnQuickRegister.Name = "btnQuickRegister";
-            this.btnQuickRegister.Size = new System.Drawing.Size(156, 156);
+            this.btnQuickRegister.Size = new System.Drawing.Size(149, 150);
             this.btnQuickRegister.TabIndex = 7;
             this.btnQuickRegister.TabStop = false;
             this.btnQuickRegister.Click += new System.EventHandler(this.btnQuickRegister_Click);
@@ -130,17 +130,17 @@
             // btnUserTaste
             // 
             this.btnUserTaste.Image = global::HiPiaoTerminal.Properties.Resources.Main_HiPiaoTaste;
-            this.btnUserTaste.Location = new System.Drawing.Point(979, 470);
+            this.btnUserTaste.Location = new System.Drawing.Point(972, 456);
             this.btnUserTaste.Margin = new System.Windows.Forms.Padding(7);
             this.btnUserTaste.Name = "btnUserTaste";
-            this.btnUserTaste.Size = new System.Drawing.Size(156, 156);
+            this.btnUserTaste.Size = new System.Drawing.Size(149, 150);
             this.btnUserTaste.TabIndex = 6;
             this.btnUserTaste.TabStop = false;
             this.btnUserTaste.Click += new System.EventHandler(this.btnUserTaste_Click);
             // 
             // picShowMovies
             // 
-            this.picShowMovies.Location = new System.Drawing.Point(110, 300);
+            this.picShowMovies.Location = new System.Drawing.Point(111, 299);
             this.picShowMovies.Margin = new System.Windows.Forms.Padding(7);
             this.picShowMovies.Name = "picShowMovies";
             this.picShowMovies.Size = new System.Drawing.Size(854, 480);
@@ -152,10 +152,10 @@
             // 
             this.btnQuit.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Main_Quit;
             this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnQuit.Location = new System.Drawing.Point(979, 640);
+            this.btnQuit.Location = new System.Drawing.Point(972, 613);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(7);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(156, 156);
+            this.btnQuit.Size = new System.Drawing.Size(149, 150);
             this.btnQuit.TabIndex = 6;
             this.btnQuit.TabStop = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -206,8 +206,7 @@
             // 
             // MainPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.lbWelcomeName);
             this.Controls.Add(this.lbWelcome3);
@@ -222,7 +221,7 @@
             this.Controls.Add(this.btnUserTaste);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picShowMovies);
-            this.Margin = new System.Windows.Forms.Padding(16);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MainPanel";
             this.Load += new System.EventHandler(this.MainPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain)).EndInit();

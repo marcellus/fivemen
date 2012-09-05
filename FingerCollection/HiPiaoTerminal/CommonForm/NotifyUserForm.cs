@@ -57,7 +57,14 @@ namespace HiPiaoTerminal.CommonForm
         {
             if (this.panel != null)
             {
-                form = new Form();
+                if (colorType == 1)
+                {
+                    form = new FirstRoundNotifyForm();
+                }
+                else
+                {
+                    form = new SecondRoundNotifyForm();
+                }
                 
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.StartPosition = FormStartPosition.CenterScreen;

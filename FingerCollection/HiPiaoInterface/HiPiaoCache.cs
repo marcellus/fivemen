@@ -74,13 +74,21 @@ namespace HiPiaoInterface
         {
         }
 
-        public static string  DownLoad(string url, string dir)
+        public static string  DownLoad(string url, string dir,string file)
         {
             try
             {
                 FileHelper.CheckDirExistsAndCreate(dir);
                 WebClient client = new WebClient();
-                string filename = url.Substring(url.LastIndexOf('/') + 1);
+                string filename=string.Empty;
+                if (file.Length == 0)
+                {
+                    filename = url.Substring(url.LastIndexOf('/') + 1);
+                }
+                else
+                {
+                    filename = file;
+                }
                 string fullname = System.IO.Path.Combine(Path.Combine(Application.StartupPath, dir), filename);
                 client.DownloadFile(url, fullname);
                 return fullname;
@@ -215,6 +223,71 @@ namespace HiPiaoInterface
             return hotMovie;
         }
 
+        public static List<BuyRecordObject> GetUserBuyRecord(UserObject user)
+        {
+            List<BuyRecordObject> lists = new List<BuyRecordObject>();
+            Console.WriteLine("开始执行获取订购记录时间！"+System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            string xml = hiPiaoSrv.QueryUserBuyRecord(user);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlDocument docOrderDetail = null;
+            string xmlOrderDetail = string.Empty;
+            XmlNodeList orderNodes = doc.SelectNodes("//consum");
+            XmlNode detailNode = null;
+            string orderid = string.Empty;
+            BuyRecordObject obj = null;
+            TicketObject ticket=null;
+            MovieObject movie=null;
+            CinemaObject cinema=null;
+            SeatObject seat=null;
+            RoomObject room = null;
+            for (int i = 0; i < orderNodes.Count; i++)
+            {
+                Console.WriteLine("开始执行获取订购记录详细时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                obj = new BuyRecordObject();
+                //obj.BuyTime
+                orderid = orderNodes[i].Attributes["orderformid"].Value;
+                xmlOrderDetail = hiPiaoSrv.QueryUserBuyRecordDetail(user,orderid);
+                docOrderDetail = new XmlDocument();
+                docOrderDetail.LoadXml(xmlOrderDetail);
+                detailNode = docOrderDetail.SelectSingleNode("//return ");
+
+                obj.BuyTime=DateTime.Parse(docOrderDetail.SelectSingleNode("//buytime").InnerText);
+                obj.ConnectMobile = docOrderDetail.SelectSingleNode("//phonenum").InnerText;
+                //obj.TotalPrice = Int32.Parse(docOrderDetail.SelectSingleNode("//summoney").InnerText);
+                obj.ValidCode = docOrderDetail.SelectSingleNode("//hipiaonumber").InnerText;
+                int count = Int32.Parse(docOrderDetail.SelectSingleNode("//ticketnum").InnerText);
+                cinema = new CinemaObject();
+                cinema.Name = docOrderDetail.SelectSingleNode("//cinemaname").InnerText;
+                seat = new SeatObject();
+                seat.SeatId = docOrderDetail.SelectSingleNode("//cinemaseat").InnerText;
+                room = new RoomObject();
+                room.Name = docOrderDetail.SelectSingleNode("//cinemahall").InnerText;
+                seat.Room = room;
+                room.Cinema = cinema;
+                //cinemaseat onemoney
+                double price = double.Parse(docOrderDetail.SelectSingleNode("//onemoney").InnerText); 
+                movie = new MovieObject();
+                movie.Name = docOrderDetail.SelectSingleNode("//pixname").InnerText;
+                
+                for (int j = 0; j < count; j++)
+                {
+                    ticket = new TicketObject();
+                    ticket.BuyTime = DateTime.Parse(docOrderDetail.SelectSingleNode("//buytime").InnerText);
+                    ticket.Price = (int)price;
+                    ticket.PlayTime = DateTime.Parse(docOrderDetail.SelectSingleNode("//playtime").InnerText);
+                    ticket.Movie = movie;
+                    ticket.Seat = seat;
+                    obj.Tickets.Add(ticket);
+                }
+                    lists.Add(obj);
+                    Console.WriteLine("开始借宿获取订购记录详细时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            }
+            Console.WriteLine("结束执行获取订购记录时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            return lists;
+        }
+
 
         public static List<MovieObject> GetDayMovie(string cinema, DateTime day)
         {
@@ -283,7 +356,7 @@ namespace HiPiaoInterface
 
                 picurl=objsNode[i].Attributes["picurl"].Value;
 
-                obj.AdImagePath = DownLoad(picurl, downdir+"\\"+obj.Name+"\\"+obj.Id);
+                obj.AdImagePath = DownLoad(picurl, downdir+"\\"+obj.Name+"\\"+obj.Id+"\\adimage","shortimg.jpg");
                 if(obj.AdImagePath.Length>0)
                     obj.AdImage = Image.FromFile(obj.AdImagePath);
                 //picurl="http://img.hipiao.com/hipiao15/film/201208/174732921950207b3c903e3.jpg" pixlength="89" pixnumber="05110035"

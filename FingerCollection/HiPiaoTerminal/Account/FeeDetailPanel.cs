@@ -124,6 +124,10 @@ namespace HiPiaoTerminal.Account
         private void SetRow(int row,BuyRecordObject record,int listIndex)
         {
             Console.WriteLine(string.Format("row:{0},listIndex{1}",row,listIndex));
+            if (row < 1 || row > 6)
+            {
+                return;
+            }
             Label lb1 = this.Controls["panelRow"+row.ToString()+"Col1"].Controls["lbRow" + row.ToString() + "Col1"] as Label;
             Label lb2 = this.Controls["panelRow" + row.ToString() + "Col2"].Controls["lbRow" + row.ToString() + "Col2"] as Label;
             Label lb3 = this.Controls["panelRow" + row.ToString() + "Col2"].Controls["lbRow" + row.ToString() + "Col3"] as Label;

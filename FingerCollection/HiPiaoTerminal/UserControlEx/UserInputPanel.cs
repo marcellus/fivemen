@@ -27,9 +27,12 @@ namespace HiPiaoTerminal.UserControlEx
 
            // this.txtMain.Enabled = false;
            // this.txtMain.KeyDown += new KeyEventHandler(txtMain_KeyDown);
+            this.txtMain.KeyPress += new KeyPressEventHandler(txtMain_KeyPress);
            
            
         }
+
+      
 
         void UserInputPanel_Click(object sender, EventArgs e)
         {
@@ -56,11 +59,86 @@ namespace HiPiaoTerminal.UserControlEx
             }
         }
 
+        private AllowInputEnum allowInputType=AllowInputEnum.AllowAll;
+
+        public AllowInputEnum AllowInputType
+        {
+            get { return allowInputType; }
+            set { allowInputType = value; }
+        }
+
         public delegate void OnSubTextChanged();//定义委托
         public event OnSubTextChanged onSubTextChanged;//定义事件
 
+        void txtMain_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8 || e.KeyChar == 9 || e.KeyChar == 13 || e.KeyChar == 32)
+            {
+            }
+         
+            else if (this.allowInputType == AllowInputEnum.LargeLetter)
+            {
+               
+                    if ((90 >= e.KeyChar && e.KeyChar >= 65))
+                    {
+
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+            }
+            else if (this.allowInputType == AllowInputEnum.LargeLetterAndNumber)
+            {
+                if ((57 >= e.KeyChar && e.KeyChar >= 48) || (90 >= e.KeyChar && e.KeyChar >= 65))
+                {
+
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (this.allowInputType == AllowInputEnum.Number)
+            {
+                if ((57 >= e.KeyChar && e.KeyChar >= 48))
+                {
+
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (this.allowInputType == AllowInputEnum.SmallLetter)
+            {
+                if ((122 >= e.KeyChar & e.KeyChar >= 97))
+                {
+
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (this.allowInputType == AllowInputEnum.SmallLetterAndNumber)
+            {
+                if ((57 >= e.KeyChar && e.KeyChar >= 48) || (122 >= e.KeyChar & e.KeyChar >= 97))
+                {
+
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         void txtMain_KeyDown(object sender, KeyEventArgs e)
         {
+           
+           
+            /*
             if ((57 >= e.KeyValue && e.KeyValue >= 48) || (90 >= e.KeyValue && e.KeyValue >= 65) || (122 >= e.KeyValue & e.KeyValue >= 97))
             {
                 if (this.txtMain.Text != this.txtMain.Hint)
@@ -73,6 +151,7 @@ namespace HiPiaoTerminal.UserControlEx
                     //this.txtMain.HideHint();
                 }
             }
+             */
         }
 
         void txtMain_MouseDown(object sender, MouseEventArgs e)
@@ -155,6 +234,10 @@ namespace HiPiaoTerminal.UserControlEx
                 this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_NotActive;
                 this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_NotActive;
                 this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_NotActive;
+                if (this.txtMain.Text.Length > 0)
+                {
+                    this.btnDelete.Visible = false;
+                }
             }
             else
             {
@@ -168,6 +251,10 @@ namespace HiPiaoTerminal.UserControlEx
                 this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_Active;
                 this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_Active;
                 this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_Active;
+                if (this.txtMain.Text.Length > 0)
+                {
+                    this.btnDelete.Visible = true;
+                }
             }
             
             
@@ -245,6 +332,13 @@ namespace HiPiaoTerminal.UserControlEx
                 if (this.txtMain.Hint != value)
                 {
                     this.txtMain.ForeColor = Color.Black;
+                }
+                if (value == string.Empty)
+                {
+                    if (!this.txtMain.Focused)
+                    {
+                        this.txtMain.UnFocus();
+                    }
                 }
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace HiPiaoTerminal.CommonForm
 {
-    partial class NotifyUserForm
+    partial class FirstRoundNotifyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timer1
+            // FirstRoundNotifyForm
             // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // NotifyUserForm
-            // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(1280, 780);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(174)))));
+            this.ClientSize = new System.Drawing.Size(292, 266);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NotifyUserForm";
-            this.Opacity = 0.6;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NotifyUserForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.NotifyUserForm_Load);
+            this.Name = "FirstRoundNotifyForm";
+            this.Text = "FirstRoundNotifyForm";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FirstRoundNotifyForm_Paint);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
-
     }
 }

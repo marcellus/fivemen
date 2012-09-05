@@ -69,6 +69,7 @@ namespace HiPiaoTerminal
         {
             if (allowRegister)
             {
+                GlobalTools.HideAllKeyBoard();
                 string name = this.txtUserName.Text.Trim();
                 string pwd = this.txtPassword.Text.Trim();
                 string repeatPwd = this.txtRepeatPwd.Text.Trim();
@@ -187,6 +188,7 @@ namespace HiPiaoTerminal
         private void txtUserName_onSubTextChanged()
         {
             string name = this.txtUserName.Text.Trim();
+            this.txtUserName.Text = this.txtUserName.Text.ToLower();
             string pwd = this.txtPassword.Text.Trim();
             string repeatPwd = this.txtRepeatPwd.Text.Trim();
             string mobile = this.txtMobile.Text.Trim();
