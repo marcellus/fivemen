@@ -39,9 +39,9 @@ namespace HiPiaoTerminal.CommonForm
 
         private void MessageForm_Paint(object sender, PaintEventArgs e)
         {
-            //WinFormHelper.PaintRound(sender);
-            WinFormHelper.PainYellowBorder(sender, e);
-            /*
+            WinFormHelper.PaintRound(sender);
+           // WinFormHelper.PainYellowBorder(sender, e);
+            
             ControlPaint.DrawBorder(e.Graphics,
                                 this.ClientRectangle,
                                 Color.LightSeaGreen,//7f9db9
@@ -56,7 +56,7 @@ namespace HiPiaoTerminal.CommonForm
                                 Color.LightSeaGreen,
                                 1,
                                 ButtonBorderStyle.Solid);
-             * */
+            /* * */
 
         }
 

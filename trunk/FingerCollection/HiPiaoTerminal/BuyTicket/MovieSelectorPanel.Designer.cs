@@ -63,7 +63,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnThreeDay);
             this.splitContainer1.Panel2.Controls.Add(this.btnToday);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
-            this.splitContainer1.SplitterDistance = 821;
             // 
             // showWelcomePanel1
             // 
@@ -116,6 +115,7 @@
             this.btnTomorrow.TabIndex = 9;
             this.btnTomorrow.Text = "   明天   {0}";
             this.btnTomorrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnTomorrow.Click += new System.EventHandler(this.btnTomorrow_Click);
             // 
             // btnThreeDay
             // 
@@ -129,6 +129,7 @@
             this.btnThreeDay.TabIndex = 7;
             this.btnThreeDay.Text = "   后天   {0}";
             this.btnThreeDay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnThreeDay.Click += new System.EventHandler(this.btnThreeDay_Click);
             // 
             // btnToday
             // 
@@ -142,6 +143,7 @@
             this.btnToday.TabIndex = 8;
             this.btnToday.Text = "   今天   {0}";
             this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // MovieSelectorPanel
             // 

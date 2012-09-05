@@ -104,6 +104,11 @@ namespace HiPiaoTerminal.Account
 
         }
 
+        private void btnFeeDetailInfo_Load(object sender, EventArgs e)
+        {
+
+        }
+
         
 
        

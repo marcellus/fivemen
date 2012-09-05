@@ -36,6 +36,34 @@ namespace HiPiaoInterface
             return Common_Soap_Header;
         }
 
+        public static string BuildSoapHeader(string sessionKey)
+        {
+            
+                StringBuilder header = new StringBuilder();
+                header.Append("<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"><SOAP-ENV:Header>");
+                header.Append("<xs:RequestSOAPHeader xmlns:xs=\"http://www\"><xs:spId xmlns:xs=\"http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1\">hipiao</xs:spId>");
+                header.Append("<xs:spPassword xmlns:xs=\"http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1\">hipiao@iphone</xs:spPassword>");
+                header.Append("<xs:sessionkey xmlns:xs=\"http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1\">" + sessionKey + "</xs:sessionkey>");
+                header.Append("<xs:mobilekey xmlns:xs=\"http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1\">13800000000</xs:mobilekey>");
+                
+                header.Append("</xs:RequestSOAPHeader></SOAP-ENV:Header><SOAP-ENV:Body>");
+               return header.ToString();
+            
+        }
+
+        public static string GetSoapServiceResult(StringBuilder body,string sessionKey)
+        {
+            StringBuilder soap = new StringBuilder();
+            soap.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            soap.Append(BuildSoapHeader(sessionKey));
+            soap.Append(body);
+            soap.Append(BuildSoapFooter());
+            Console.WriteLine("发送的xml请求内容为：" + soap.ToString());
+            string result = GetSOAPReSource(GetInterfaceUrl(), soap.ToString());
+            Console.WriteLine("xml请求结果内容为：" + result);
+            return result;
+        }
+
         public static string GetSoapServiceResult(StringBuilder body)
         {
             StringBuilder soap = new StringBuilder();
@@ -43,8 +71,9 @@ namespace HiPiaoInterface
             soap.Append(BuildSoapHeader());
             soap.Append(body);
             soap.Append(BuildSoapFooter());
+            Console.WriteLine("发送的xml请求内容为："+soap.ToString());
             string result = GetSOAPReSource(GetInterfaceUrl(), soap.ToString());
-            Console.WriteLine(result);
+            Console.WriteLine("xml请求结果内容为："+result);
             return result;
         }
 
@@ -127,8 +156,8 @@ namespace HiPiaoInterface
             StringBuilder body = new StringBuilder();
 
             body.Append("<ns2:getConsumptionRequest xmlns:ns2=\"http://service.server.com\">");
-            body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getConsumptionRequest>");
-            return GetSoapServiceResult(body);
+            body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID</clintform></ns2:getConsumptionRequest>");
+            return GetSoapServiceResult(body,user.SessionKey);
         }
 
         public string QueryUserBuyRecordDetail(UserObject user,string orderid)
@@ -137,7 +166,7 @@ namespace HiPiaoInterface
 
             body.Append("<ns2:getConsumptionDatialRequest xmlns:ns2=\"http://service.server.com\">");
             body.Append("<memberid>" + user.MemberId + "</memberid><orderformid>"+orderid+"</orderformid><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getConsumptionDatialRequest>");
-            return GetSoapServiceResult(body);
+            return GetSoapServiceResult(body, user.SessionKey);
         }
 
         public string LoginUser(string name, string pwd)
@@ -165,7 +194,7 @@ namespace HiPiaoInterface
 
             body.Append("<ns2:getCouponInfo xmlns:ns2=\"http://service.server.com\">");
             body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID</clintform></ns2:getCouponInfo>");
-            return GetSoapServiceResult(body);
+            return GetSoapServiceResult(body,user.SessionKey);
         }
 
         public string QueryUserDeduction(UserObject user)
@@ -174,7 +203,7 @@ namespace HiPiaoInterface
 
             body.Append("<ns2:getDeductionInfo xmlns:ns2=\"http://service.server.com\">");
             body.Append("<memberid>" + user.MemberId + "</memberid><clintform>ANDROID</clintform></ns2:getDeductionInfo>");
-            return GetSoapServiceResult(body);
+            return GetSoapServiceResult(body, user.SessionKey);
         }
 
         public string RegisterUser(string name,string pwd,string phone)
@@ -204,7 +233,7 @@ namespace HiPiaoInterface
         {
             StringBuilder body = new StringBuilder();
 
-            body.Append("<ns2:getPlancinema  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<ns2:getPlancinema xmlns:ns2=\"http://service.server.com\">");
             body.Append("<cinemanumber>"+cinema+"</cinemanumber><date>"+day.ToString("MM月dd日")+"</date><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinema>");
             return GetSoapServiceResult(body);
         }

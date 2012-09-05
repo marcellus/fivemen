@@ -1,0 +1,9 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:ConsumptionResponse xmlns:ns1="http://service.server.com">
+      <return xmlns:ns2="http://service.server.com/">
+        <consumption memberId="999" />
+      </return>
+    </ns1:ConsumptionResponse>
+  </soap:Body>
+</soap:Envelope>

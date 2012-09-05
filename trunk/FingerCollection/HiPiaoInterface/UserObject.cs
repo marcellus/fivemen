@@ -39,6 +39,17 @@ namespace HiPiaoInterface
             set { mobile = value; }
         }
 
+        private string sessionKey;
+
+        /// <summary>
+        /// 用户登录的SessionKey
+        /// </summary>
+        public string SessionKey
+        {
+            get { return sessionKey; }
+            set { sessionKey = value; }
+        }
+
         private double balance;
 
         /// <summary>
@@ -153,12 +164,20 @@ namespace HiPiaoInterface
 
         private List<BuyRecordObject> buyRecords=new List<BuyRecordObject>();
 
+        
+
         /// <summary>
         /// 购买记录数
         /// </summary>
         public List<BuyRecordObject> BuyRecords
         {
-            get { return buyRecords; }
+            get {
+                if (buyRecords.Count == 0)
+                {
+                   buyRecords= HiPiaoCache.GetUserBuyRecord(this);
+                }
+                return buyRecords; 
+            }
             set { buyRecords = value; }
         }
         

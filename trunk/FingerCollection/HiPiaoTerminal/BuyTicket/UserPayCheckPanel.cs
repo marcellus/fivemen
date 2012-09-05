@@ -23,7 +23,7 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnConfirmPay_Click(object sender, EventArgs e)
         {
-            GlobalTools.Pop(new UserPayCheckPanel());
+            GlobalTools.Pop(new UserPayCheckPanel(),1);
         }
     }
 }

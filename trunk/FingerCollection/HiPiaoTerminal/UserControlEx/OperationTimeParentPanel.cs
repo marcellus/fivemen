@@ -13,6 +13,13 @@ namespace HiPiaoTerminal.UserControlEx
         public OperationTimeParentPanel()
         {
             InitializeComponent();
+            try
+            {
+                GlobalTools.StopUnOperationCounter();
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public void SetSepartor(bool result)

@@ -1,0 +1,7 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:DeductionInfoInfoResponse xmlns:ns1="http://service.server.com">
+      <return xmlns:ns2="http://service.server.com/" />
+    </ns1:DeductionInfoInfoResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -51,6 +51,9 @@
             this.checkAllowRfid = new FT.Windows.Controls.ButtonEx.CheckButton();
             this.simpleLabel2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.checkVitualKeyboard = new FT.Windows.Controls.ButtonEx.CheckButton();
+            this.txtRefreshCacheTime = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.simpleLabel3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -126,11 +129,13 @@
             // 
             // txtUnOperationTime
             // 
+            this.txtUnOperationTime.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtUnOperationTime.BackColor = System.Drawing.SystemColors.Window;
             this.txtUnOperationTime.Font = new System.Drawing.Font("宋体", 21F);
             this.txtUnOperationTime.Hint = null;
             this.txtUnOperationTime.IsActive = false;
             this.txtUnOperationTime.IsDeleted = false;
+            this.txtUnOperationTime.KeyboardType = 2;
             this.txtUnOperationTime.Location = new System.Drawing.Point(187, 506);
             this.txtUnOperationTime.Margin = new System.Windows.Forms.Padding(0);
             this.txtUnOperationTime.MaxInputLength = 32767;
@@ -304,10 +309,53 @@
             this.checkVitualKeyboard.TabIndex = 6;
             this.checkVitualKeyboard.UseVisualStyleBackColor = true;
             // 
+            // txtRefreshCacheTime
+            // 
+            this.txtRefreshCacheTime.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtRefreshCacheTime.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRefreshCacheTime.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtRefreshCacheTime.Hint = null;
+            this.txtRefreshCacheTime.IsActive = false;
+            this.txtRefreshCacheTime.IsDeleted = false;
+            this.txtRefreshCacheTime.KeyboardType = 2;
+            this.txtRefreshCacheTime.Location = new System.Drawing.Point(619, 506);
+            this.txtRefreshCacheTime.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRefreshCacheTime.MaxInputLength = 32767;
+            this.txtRefreshCacheTime.Name = "txtRefreshCacheTime";
+            this.txtRefreshCacheTime.PasswordChar = '\0';
+            this.txtRefreshCacheTime.RelativeLabel = null;
+            this.txtRefreshCacheTime.Size = new System.Drawing.Size(249, 74);
+            this.txtRefreshCacheTime.TabIndex = 7;
+            // 
+            // simpleLabel3
+            // 
+            this.simpleLabel3.AutoSize = true;
+            this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel3.Location = new System.Drawing.Point(623, 447);
+            this.simpleLabel3.Name = "simpleLabel3";
+            this.simpleLabel3.Size = new System.Drawing.Size(297, 40);
+            this.simpleLabel3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel3.TabIndex = 5;
+            this.simpleLabel3.Text = "定时刷新缓存时间";
+            // 
+            // simpleLabel4
+            // 
+            this.simpleLabel4.AutoSize = true;
+            this.simpleLabel4.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel4.Location = new System.Drawing.Point(887, 521);
+            this.simpleLabel4.Name = "simpleLabel4";
+            this.simpleLabel4.Size = new System.Drawing.Size(87, 40);
+            this.simpleLabel4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel4.TabIndex = 5;
+            this.simpleLabel4.Text = "分钟";
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
             this.Controls.Add(this.lbReturnMsg);
+            this.Controls.Add(this.txtRefreshCacheTime);
             this.Controls.Add(this.txtUnOperationTime);
             this.Controls.Add(this.checkVitualKeyboard);
             this.Controls.Add(this.checkAllowRfid);
@@ -315,9 +363,11 @@
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.checkUseMask);
             this.Controls.Add(this.cbCity);
+            this.Controls.Add(this.simpleLabel4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbCinema);
             this.Controls.Add(this.btnCancelSave);
+            this.Controls.Add(this.simpleLabel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKeepSave);
             this.Controls.Add(this.simpleLabel2);
@@ -342,9 +392,11 @@
             this.Controls.SetChildIndex(this.simpleLabel2, 0);
             this.Controls.SetChildIndex(this.btnKeepSave, 0);
             this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.simpleLabel3, 0);
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
             this.Controls.SetChildIndex(this.cbCinema, 0);
             this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.simpleLabel4, 0);
             this.Controls.SetChildIndex(this.cbCity, 0);
             this.Controls.SetChildIndex(this.checkUseMask, 0);
             this.Controls.SetChildIndex(this.cbProvince, 0);
@@ -352,6 +404,7 @@
             this.Controls.SetChildIndex(this.checkAllowRfid, 0);
             this.Controls.SetChildIndex(this.checkVitualKeyboard, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
+            this.Controls.SetChildIndex(this.txtRefreshCacheTime, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).EndInit();
@@ -384,5 +437,8 @@
         private FT.Windows.Controls.ButtonEx.CheckButton checkAllowRfid;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel2;
         private FT.Windows.Controls.ButtonEx.CheckButton checkVitualKeyboard;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtRefreshCacheTime;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel4;
     }
 }

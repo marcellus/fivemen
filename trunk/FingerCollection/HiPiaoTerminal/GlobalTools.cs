@@ -188,7 +188,7 @@ namespace HiPiaoTerminal
 
         public static void PopNetError()
         {
-            GlobalTools.Pop("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
+            GlobalTools.Pop("网络故障，请向影院工作人员垂询！", "或拨打400-601-5566");
         }
 
         public static void Pop(string hint1)
@@ -217,31 +217,45 @@ namespace HiPiaoTerminal
 
         public static DialogResult Pop(Control panel)
         {
+            return Pop(panel, 1);
+        }
+
+
+        public static DialogResult Pop(Control panel,int type)
+        {
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<ConfigModel.SystemConfig>();
             if (config.UseMaskPanel)
             {
-                return PopMask(panel);
+                return PopMask(panel,type);
             }
             else
             {
-                return PopUnMask(panel);
+                return PopUnMask(panel,type);
             }
         }
 
 
-        public static DialogResult PopMask(Control panel)
+        public static DialogResult PopMask(Control panel,int type)
         {
-            Form form = new NotifyUserForm(panel);
+            NotifyUserForm form = new NotifyUserForm(panel);
 
-
+            form.ColorType = type;
             return form.ShowDialog();
         }
 
-        public static DialogResult PopUnMask(Control panel)
+        public static DialogResult PopUnMask(Control panel,int type)
         {
            // /*
              
-           Form form = new Form();
+           Form form =null;
+           if (type == 1)
+           {
+               form = new FirstRoundNotifyForm();
+           }
+           else
+           {
+               form = new SecondRoundNotifyForm();
+           }
                 
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.StartPosition = FormStartPosition.CenterScreen;
@@ -287,16 +301,19 @@ namespace HiPiaoTerminal
         /// <param name="pwd"></param>
         public static bool LoginAccount(string uid, string pwd)
         {
-            UserObject obj=HiPiaoInterface.HiPiaoOperatorFactory.GetHiPiaoOperator().Login(uid, pwd);
-            if (obj != null)
-            {
-                loginUser = obj;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            
+                UserObject obj = HiPiaoInterface.HiPiaoOperatorFactory.GetHiPiaoOperator().Login(uid, pwd);
+                if (obj != null)
+                {
+                    loginUser = obj;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+                
         }
         /// <summary>
         /// 退出账户
@@ -328,16 +345,17 @@ namespace HiPiaoTerminal
         public static void InitAll(Form form)
         {
             RefreshMovieShowList();
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             AutoCloseComputerTimer = new Timer();
             AutoCloseComputerTimer.Interval = 6000;
             AutoCloseComputerTimer.Tick += new EventHandler(AutoCloseComputerTimer_Tick);
             AutoCloseComputerTimer.Start();
             UpdateTimer = new Timer();
-            UpdateTimer.Interval = 60000*5;
+            UpdateTimer.Interval = 60000*config.UpdateMovieTime;
             UpdateTimer.Tick += new EventHandler(UpdateTimer_Tick);
             UpdateTimer.Start();
             UnOperationTimer = new Timer();
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            
             UnOperationTimer.Interval = config.UnOperationTime*1000;
             UnOperationTimer.Tick += new EventHandler(UnOperationTimer_Tick);
             UnOperationTimer.Start();
@@ -525,6 +543,8 @@ namespace HiPiaoTerminal
         {
             lock (synObj)
             {
+                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                HiPiaoCache.RefreshHotMovie(config.Province,config.City);
                 MovieShowList.Clear();
                 DirectoryInfo dir = new DirectoryInfo("MovieShows");
                 if (dir != null)

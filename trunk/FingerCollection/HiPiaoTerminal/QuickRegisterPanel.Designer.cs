@@ -67,7 +67,7 @@
             // lbPasswordHint
             // 
             this.lbPasswordHint.AutoSize = true;
-            this.lbPasswordHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPasswordHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPasswordHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbPasswordHint.Location = new System.Drawing.Point(374, 391);
             this.lbPasswordHint.Name = "lbPasswordHint";
@@ -78,7 +78,7 @@
             // lbMobileHint
             // 
             this.lbMobileHint.AutoSize = true;
-            this.lbMobileHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMobileHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbMobileHint.Location = new System.Drawing.Point(374, 623);
             this.lbMobileHint.Name = "lbMobileHint";
@@ -89,7 +89,7 @@
             // lbRepeatPwdHint
             // 
             this.lbRepeatPwdHint.AutoSize = true;
-            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRepeatPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 508);
             this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
@@ -100,7 +100,7 @@
             // lbUserNameHint
             // 
             this.lbUserNameHint.AutoSize = true;
-            this.lbUserNameHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUserNameHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbUserNameHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbUserNameHint.Location = new System.Drawing.Point(374, 275);
             this.lbUserNameHint.Name = "lbUserNameHint";
@@ -231,6 +231,7 @@
             // 
             // txtMobile
             // 
+            this.txtMobile.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtMobile.BackColor = System.Drawing.SystemColors.Window;
             this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
             this.txtMobile.Hint = "请输入手机号";
@@ -249,12 +250,13 @@
             // 
             // txtRepeatPwd
             // 
+            this.txtRepeatPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtRepeatPwd.Hint = "请再次输入6位数字密码";
             this.txtRepeatPwd.IsActive = false;
             this.txtRepeatPwd.IsDeleted = false;
-            this.txtRepeatPwd.KeyboardType = 2;
+            this.txtRepeatPwd.KeyboardType = 5;
             this.txtRepeatPwd.Location = new System.Drawing.Point(373, 425);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtRepeatPwd.MaxInputLength = 6;
@@ -267,12 +269,13 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtPassword.BackColor = System.Drawing.Color.Transparent;
             this.txtPassword.Font = new System.Drawing.Font("宋体", 21F);
             this.txtPassword.Hint = "仅限6位数字密码";
             this.txtPassword.IsActive = false;
             this.txtPassword.IsDeleted = false;
-            this.txtPassword.KeyboardType = 2;
+            this.txtPassword.KeyboardType = 5;
             this.txtPassword.Location = new System.Drawing.Point(373, 310);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txtPassword.MaxInputLength = 6;
@@ -285,6 +288,7 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.SmallLetterAndNumber;
             this.txtUserName.BackColor = System.Drawing.Color.Transparent;
             this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
             this.txtUserName.Hint = "仅限小写字母/字母数字组合,20字符内";

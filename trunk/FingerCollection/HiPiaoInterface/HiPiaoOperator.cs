@@ -40,6 +40,7 @@ namespace HiPiaoInterface
                 user.Mobile = doc.SelectSingleNode("//phone").InnerText;
                 user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
                 user.MemberId = doc.SelectSingleNode("//hipiaocard").InnerText;
+                user.SessionKey = doc.SelectSingleNode("//sessionkey").InnerText;
                 user.RewardPoints = Convert.ToInt32(doc.SelectSingleNode("//score").InnerText);
                 XmlNode blance = doc.SelectSingleNode("//blance");
                 user.Balance = Convert.ToDouble(blance.InnerText);
@@ -88,6 +89,7 @@ namespace HiPiaoInterface
                 user.Mobile = doc.SelectSingleNode("//phone").InnerText;
                 user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
                 user.MemberId = doc.SelectSingleNode("//hipiaocard").InnerText;
+                user.SessionKey = doc.SelectSingleNode("//sessionkey").InnerText;
                 user.RewardPoints = Convert.ToInt32(doc.SelectSingleNode("//score").InnerText);
                 XmlNode blance=doc.SelectSingleNode("//blance");
                 user.Balance = Convert.ToDouble(blance.InnerText);

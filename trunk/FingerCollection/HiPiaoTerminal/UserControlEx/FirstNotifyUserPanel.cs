@@ -15,13 +15,16 @@ namespace HiPiaoTerminal.UserControlEx
         public FirstNotifyUserPanel()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(245, 245, 245);
+            //如果不使用遮罩
+            //this.BackColor = Color.FromArgb(245, 245, 245);
+            //如果使用遮罩
+            this.BackColor = Color.FromArgb(174,174,174);
         }
 
         private void YellowNotifyUserPanel_Paint(object sender, PaintEventArgs e)
         {
-            //WinFormHelper.PaintRound(sender);
-            WinFormHelper.PainYellowBorder(sender, e);
+            WinFormHelper.PaintRound(sender);
+            //WinFormHelper.PainYellowBorder(sender, e);
         }
 
        
