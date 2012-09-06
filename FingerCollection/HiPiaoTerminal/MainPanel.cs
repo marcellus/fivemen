@@ -88,6 +88,7 @@ namespace HiPiaoTerminal
             //    ButtonState.Pushed);
 
             timerShowMovie.Start();
+            Console.WriteLine("MainPanel_Load开始隐藏小键盘");
             GlobalTools.HideAllKeyBoard();
             GlobalTools.RegistUpdateUnOperationTime(null);
             GlobalTools.StopUnOperationCounter();

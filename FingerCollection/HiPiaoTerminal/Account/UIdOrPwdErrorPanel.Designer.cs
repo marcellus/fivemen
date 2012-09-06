@@ -39,7 +39,7 @@
             // btnCancel
             // 
             this.btnCancel.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(432, 300);
+            this.btnCancel.Location = new System.Drawing.Point(439, 335);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(295, 112);
             this.btnCancel.TabIndex = 3;
@@ -49,7 +49,7 @@
             // btnModify
             // 
             this.btnModify.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_Modify;
-            this.btnModify.Location = new System.Drawing.Point(71, 300);
+            this.btnModify.Location = new System.Drawing.Point(76, 335);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(295, 112);
             this.btnModify.TabIndex = 4;
@@ -59,20 +59,21 @@
             // btnConfirmQuitAccount
             // 
             this.btnConfirmQuitAccount.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_UidOrPwd_Error;
-            this.btnConfirmQuitAccount.Location = new System.Drawing.Point(71, 75);
+            this.btnConfirmQuitAccount.Location = new System.Drawing.Point(75, 82);
             this.btnConfirmQuitAccount.Name = "btnConfirmQuitAccount";
             this.btnConfirmQuitAccount.Size = new System.Drawing.Size(650, 100);
             this.btnConfirmQuitAccount.TabIndex = 2;
             this.btnConfirmQuitAccount.TabStop = false;
             // 
-            // UIdOrPwdErrorForm
+            // UIdOrPwdErrorPanel
             // 
-           
-            this.ClientSize = new System.Drawing.Size(800, 490);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnConfirmQuitAccount);
-            this.Name = "UIdOrPwdErrorForm";
+            this.Name = "UIdOrPwdErrorPanel";
+            this.Size = new System.Drawing.Size(804, 492);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnModify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirmQuitAccount)).EndInit();

@@ -21,7 +21,7 @@ namespace HiPiaoTerminal.UserControlEx
         {
             //125,183,0
             
-            WinFormHelper.PainSecondBorder(sender, e);
+            WinFormHelper.PaintSecondRound(sender, e);
            // WinFormHelper.PaintRound(sender);
         }
     }

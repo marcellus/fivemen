@@ -36,12 +36,17 @@ namespace HiPiaoTerminal.UserControlEx
 
         void UserInputPanel_Click(object sender, EventArgs e)
         {
+           // this.txtMain.Focus();
+            
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (config.UseVirtualKeyboard)
             {
+                Console.WriteLine("用户单击了按钮" + this.Name);
                 GlobalTools.HideAllKeyBoard();
+              
                 if (this.keyboardType == 1)
                 {
+
                     GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
                 }
                 else if (this.keyboardType == 2)
@@ -49,6 +54,7 @@ namespace HiPiaoTerminal.UserControlEx
                     GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
                 }
             }
+             
         }
 
         public override bool Focused
@@ -263,32 +269,16 @@ namespace HiPiaoTerminal.UserControlEx
 
         
 
-        public void Focus()
+        public new void Focus()
         {
            
            
            // this.txtMain.Focus();
-            this.IsActive = true;
-            txtMain_Click(null,null);
-            txtMain_Enter(null, null);
+           // this.IsActive = true;
+           // txtMain_Click(null,null);
+           // txtMain_Enter(null, null);
             this.txtMain.Focus();
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            if (config.UseVirtualKeyboard)
-            {
-                GlobalTools.HideAllKeyBoard();
-                if (this.keyboardType == 1)
-                {
-                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
-                }
-                else if (this.keyboardType == 2)
-                {
-                    GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
-                }
-            }
-            else
-            {
-
-            }
+            
             
         }
 
@@ -306,17 +296,9 @@ namespace HiPiaoTerminal.UserControlEx
 
         public void UnFocus()
         {
-            this.IsActive = false;
+            //this.IsActive = false;
             this.txtMain_Leave(null, null);
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            if (config.UseVirtualKeyboard)
-            {
-                //GlobalTools.HideAllKeyBoard();
-            }
-            else
-            {
-
-            }
+            
             //this.txtMain.FindForm().Focus();
         }
 
@@ -345,14 +327,35 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void UserInputPanel_Enter(object sender, EventArgs e)
         {
-           
-            this.Focus();
+            Console.WriteLine("userinputpanel获取焦点"+this.Name);
+            if (this.Parent != null)
+            {
+                Console.WriteLine(this.Name+"的parent为"+this.Parent.Name+"findform="+this.FindForm());
+            }
+            if (this.FindForm() != null)
+            {
+                Console.WriteLine("输入框属于窗体");
+                this.Focus();
+            }
+            else
+            {
+                Console.WriteLine("输入框不属于窗体了");
+            }
+            
             
         }
 
         private void UserInputPanel_Leave(object sender, EventArgs e)
         {
-            this.UnFocus();
+            if (this.FindForm() != null)
+            {
+                Console.WriteLine("userinputpanel失去焦点" + this.Name);
+                this.UnFocus();
+            }
+            else
+            {
+                Console.WriteLine("输入框不属于窗体了");
+            }
         }
 
         private void UserInputPanel_Resize(object sender, EventArgs e)
@@ -514,33 +517,58 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void txtMain_Enter(object sender, EventArgs e)
         {
-            this.IsActive = true;
-            
-            if (relativeLabel != null)
+            if (this.FindForm() != null)
             {
-                relativeLabel.ForeColor = Color.FromArgb(48, 48, 48);
-            }
+                this.IsActive = true;
+                txtMain_Click(null, null);
+                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                if (config.UseVirtualKeyboard)
+                {
+                    Console.WriteLine("用户定焦了输入框" + this.Name);
+                    GlobalTools.HideAllKeyBoard();
+                    if (this.keyboardType == 1)
+                    {
+                        GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                    }
+                    else if (this.keyboardType == 2)
+                    {
+                        GlobalTools.SetAllKeyBoardWithForm(this.txtMain, keyboardType);
+                    }
+                }
+                else
+                {
 
-            this.picUnderLine.Visible = true;
-            Console.WriteLine(this.Name + "-txtMain获取到焦点");
-            if (flashThread != null)
+                }
+
+                if (relativeLabel != null)
+                {
+                    relativeLabel.ForeColor = Color.FromArgb(48, 48, 48);
+                }
+
+                this.picUnderLine.Visible = true;
+                Console.WriteLine(this.Name + "-txtMain获取到焦点");
+                if (flashThread != null)
+                {
+                    try
+                    {
+                        flashThread.Abort();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(this.Name + "-txtMain停止线程异常" + ex);
+                    }
+
+                }
+
+                flashThread = new Thread(new ThreadStart(FlashUnderLine));
+                flashThread.IsBackground = true;
+                flashThread.Start();
+                Console.WriteLine(this.Name + "-txtMain开启线程闪烁");
+            }
+            else
             {
-                try
-                {
-                    flashThread.Abort();
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(this.Name + "-txtMain停止线程异常"+ex);
-                }
-
+                Console.WriteLine("TxtMain-Enter:控件不属于窗体了");
             }
-           
-            flashThread = new Thread(new ThreadStart(FlashUnderLine));
-            flashThread.IsBackground = true;
-            flashThread.Start();
-            Console.WriteLine(this.Name + "-txtMain开启线程闪烁");
-           
             /*
             Console.WriteLine("txtMain获取焦点开始"+flashThread.ThreadState.ToString());
             if (flashThread.ThreadState == ThreadState.Unstarted)
@@ -565,17 +593,31 @@ namespace HiPiaoTerminal.UserControlEx
         private void txtMain_Leave(object sender, EventArgs e)
         {
             this.IsActive = false;
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseVirtualKeyboard)
+            {
+                Console.WriteLine("TxtMain-Leave开始隐藏小键盘");
+                GlobalTools.HideAllKeyBoard();
+            }
+            else
+            {
+
+            }
             if (relativeLabel != null)
             {
                 relativeLabel.ForeColor = Color.FromArgb(121, 121, 121);
             }
-            Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
-            if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
+            if (flashThread != null)
             {
-                flashThread.Abort();
-                this.picUnderLine.Visible = false;
-                Console.WriteLine("停止线程闪烁");
+                Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
+                if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
+                {
+                    flashThread.Abort();
+                    this.picUnderLine.Visible = false;
+                    Console.WriteLine("停止线程闪烁");
+                }
             }
+
             //Console.WriteLine("txtMain失去焦点完毕");
         }
 

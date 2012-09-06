@@ -18,8 +18,8 @@ namespace HiPiaoTerminal.CommonForm
 
         private void FirstRoundNotifyForm_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
-            WinFormHelper.PainYellowBorder(sender, e);
+            WinFormHelper.PaintFirstRound(sender,e);
+           // WinFormHelper.PainYellowBorder(sender, e);
         }
     }
 }

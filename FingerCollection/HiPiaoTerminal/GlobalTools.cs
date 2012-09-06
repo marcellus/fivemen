@@ -46,6 +46,7 @@ namespace HiPiaoTerminal
                 }
                 frm = allKeyBoardForm;
                 allKeyBoardForm.InputTextBox = txt;
+                Console.WriteLine("SetAllKeyBoardWithForm开始显示键盘VitualKeyboardForm");
             }
             else
             {
@@ -55,6 +56,7 @@ namespace HiPiaoTerminal
                 }
                 frm = numKeyBoardForm;
                 numKeyBoardForm.InputTextBox = txt;
+                Console.WriteLine("SetAllKeyBoardWithForm开始显示键盘numKeyBoardForm");
             }
            
 
@@ -104,7 +106,9 @@ namespace HiPiaoTerminal
             allKeyBoard.Visible = false;
             allKeyBoardForm.InputTextBox = null;
             allKeyBoardForm.Hide();
+            
             numKeyBoardForm.InputTextBox = null;
+            
             numKeyBoardForm.Hide();
         }
 
@@ -193,14 +197,19 @@ namespace HiPiaoTerminal
 
         public static void Pop(string hint1)
         {
-            MessageForm form = new MessageForm(hint1);
-            form.ShowDialog();
+           // MessageForm form = new MessageForm(hint1);
+          //  form.ShowDialog();
+            MessagePanel panel=new MessagePanel(hint1);
+            Pop(panel,1); 
         }
 
         public static void Pop(string hint1, string hint2)
         {
-            MessageForm form = new MessageForm(hint1, hint2);
-            form.ShowDialog();
+           // MessageForm form = new MessageForm(hint1, hint2);
+            //form.ShowDialog();
+
+            MessagePanel panel = new MessagePanel(hint1,hint2);
+            Pop(panel, 1); 
         }
 
         public static void ChangePanel(Form frm,Control panel)
@@ -224,6 +233,11 @@ namespace HiPiaoTerminal
         public static DialogResult Pop(Control panel,int type)
         {
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<ConfigModel.SystemConfig>();
+            if (config.UseVirtualKeyboard)
+            {
+                Console.WriteLine("Pop方法开始隐藏小键盘");
+                GlobalTools.HideAllKeyBoard();
+            }
             if (config.UseMaskPanel)
             {
                 return PopMask(panel,type);
@@ -363,13 +377,20 @@ namespace HiPiaoTerminal
             MainForm = form;
             InitKeyboard();
         }
+        private static bool isFirstKeyboardLoad = false;
 
         public static void InitKeyboard()
         {
-            allKeyBoardForm.Show();
-            allKeyBoardForm.Hide();
-            numKeyBoardForm.Show();
-            numKeyBoardForm.Hide();
+            if (!isFirstKeyboardLoad)
+            {
+                Console.WriteLine("开始初始化小键盘");
+                allKeyBoardForm.Show();
+                allKeyBoardForm.Hide();
+
+                numKeyBoardForm.Show();
+                numKeyBoardForm.Hide();
+                isFirstKeyboardLoad = true;
+            }
         }
 
         static void AutoCloseComputerTimer_Tick(object sender, EventArgs e)
@@ -692,7 +713,7 @@ namespace HiPiaoTerminal
 
         static void form_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
+            WinFormHelper.PaintSecondRound(sender,e);
         }
 
         static void form_Load(object sender, EventArgs e)
@@ -721,9 +742,11 @@ namespace HiPiaoTerminal
         {
             if (MainForm != null)
             {
-                HideAllKeyBoard();
+               
                 Control parent = MainForm;
                 parent.Controls.Clear();
+                Console.WriteLine("GoPanel开始隐藏小键盘");
+                HideAllKeyBoard();
                 parent.Controls.Add(panel);
                 if (panel is MainPanel)
                 {
@@ -736,6 +759,7 @@ namespace HiPiaoTerminal
                     StartUnOperationCounter();
                     InitUnOperationControl(parent.Controls[0]);
                 }
+               
             }
 
         }

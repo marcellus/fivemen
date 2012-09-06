@@ -36,22 +36,26 @@
             // 
             // lbMsg2
             // 
+            this.lbMsg2.Font = new System.Drawing.Font("微软雅黑", 33.25F, System.Drawing.FontStyle.Bold);
             this.lbMsg2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbMsg2.Location = new System.Drawing.Point(9, 130);
+            this.lbMsg2.Location = new System.Drawing.Point(6, 183);
             this.lbMsg2.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.lbMsg2.Name = "lbMsg2";
-            this.lbMsg2.Size = new System.Drawing.Size(580, 38);
+            this.lbMsg2.Size = new System.Drawing.Size(792, 64);
+            this.lbMsg2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMsg2.TabIndex = 8;
             this.lbMsg2.Text = "label1";
             this.lbMsg2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbMsg1
             // 
+            this.lbMsg1.Font = new System.Drawing.Font("微软雅黑", 33.25F, System.Drawing.FontStyle.Bold);
             this.lbMsg1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbMsg1.Location = new System.Drawing.Point(9, 69);
+            this.lbMsg1.Location = new System.Drawing.Point(8, 92);
             this.lbMsg1.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.lbMsg1.Name = "lbMsg1";
-            this.lbMsg1.Size = new System.Drawing.Size(580, 38);
+            this.lbMsg1.Size = new System.Drawing.Size(790, 63);
+            this.lbMsg1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMsg1.TabIndex = 9;
             this.lbMsg1.Text = "网络故障，请向影院工作人员垂询！";
             this.lbMsg1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,10 +64,10 @@
             // 
             this.picSure.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.btnSure;
             this.picSure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picSure.Location = new System.Drawing.Point(180, 200);
+            this.picSure.Location = new System.Drawing.Point(231, 325);
             this.picSure.Margin = new System.Windows.Forms.Padding(27, 32, 27, 32);
             this.picSure.Name = "picSure";
-            this.picSure.Size = new System.Drawing.Size(189, 77);
+            this.picSure.Size = new System.Drawing.Size(297, 111);
             this.picSure.TabIndex = 7;
             this.picSure.TabStop = false;
             this.picSure.Click += new System.EventHandler(this.picSure_Click);
@@ -71,13 +75,14 @@
             // MessagePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 38F);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.lbMsg2);
             this.Controls.Add(this.lbMsg1);
             this.Controls.Add(this.picSure);
             this.Font = new System.Drawing.Font("微软雅黑", 21.75F);
             this.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.Name = "MessagePanel";
-            this.Size = new System.Drawing.Size(600, 328);
+            this.Size = new System.Drawing.Size(804, 492);
             ((System.ComponentModel.ISupportInitialize)(this.picSure)).EndInit();
             this.ResumeLayout(false);
 

@@ -230,7 +230,7 @@
     <Content Include="xml\ConsumptionRequest.xml" />
     <Content Include="xml\CouponInfoRequest.xml" />
     <Content Include="xml\DeductionInfoRequest.xml" />
-    <Content Include="xml\DeductionInfoInfoResponse.xml" />
+    <Content Include="xml\DeductionInfoResponse.xml" />
     <Content Include="xml\PlancinemaRequest.xml" />
     <Content Include="xml\PlancinemaResponse.xml" />
   </ItemGroup>

@@ -41,7 +41,7 @@
             // btnQuitAccount
             // 
             this.btnQuitAccount.Image = global::HiPiaoTerminal.Properties.Resources.Register_QuitAccount;
-            this.btnQuitAccount.Location = new System.Drawing.Point(739, 577);
+            this.btnQuitAccount.Location = new System.Drawing.Point(716, 551);
             this.btnQuitAccount.Name = "btnQuitAccount";
             this.btnQuitAccount.Size = new System.Drawing.Size(260, 83);
             this.btnQuitAccount.TabIndex = 0;
@@ -51,7 +51,7 @@
             // btnQueryAccount
             // 
             this.btnQueryAccount.Image = global::HiPiaoTerminal.Properties.Resources.Register_QueryAccount;
-            this.btnQueryAccount.Location = new System.Drawing.Point(422, 577);
+            this.btnQueryAccount.Location = new System.Drawing.Point(428, 551);
             this.btnQueryAccount.Name = "btnQueryAccount";
             this.btnQueryAccount.Size = new System.Drawing.Size(260, 83);
             this.btnQueryAccount.TabIndex = 0;
@@ -61,7 +61,7 @@
             // btnReturnHome
             // 
             this.btnReturnHome.Image = global::HiPiaoTerminal.Properties.Resources.Register_ReturnHome;
-            this.btnReturnHome.Location = new System.Drawing.Point(100, 577);
+            this.btnReturnHome.Location = new System.Drawing.Point(146, 551);
             this.btnReturnHome.Name = "btnReturnHome";
             this.btnReturnHome.Size = new System.Drawing.Size(260, 83);
             this.btnReturnHome.TabIndex = 0;
@@ -71,7 +71,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HiPiaoTerminal.Properties.Resources.Register_Success;
-            this.pictureBox1.Location = new System.Drawing.Point(138, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(150, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(802, 530);
             this.pictureBox1.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.Controls.Add(this.btnReturnHome);
             this.Controls.Add(this.pictureBox1);
             this.Name = "UserRegisterSuccessPanel";
-            this.Size = new System.Drawing.Size(1100, 680);
+            this.Size = new System.Drawing.Size(1113, 684);
             ((System.ComponentModel.ISupportInitialize)(this.btnQuitAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQueryAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).EndInit();
