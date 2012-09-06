@@ -74,7 +74,7 @@ namespace FT.Commons.Tools
         private static Color yellowBorderColor = Color.FromArgb(243, 152, 0);
 
         private static Color secondBorderColor = Color.FromArgb(125, 183, 0);
-        private static int yellowBorderWidth = 2;
+        private static int yellowBorderWidth = 4;
 
         private static Color grayBorderColor = Color.Gray;
 
@@ -112,7 +112,8 @@ namespace FT.Commons.Tools
                               borderWidth,
                               ButtonBorderStyle.Solid);
             // * */
-           // PaintPath(e.Graphics,ctr, borderColor, borderWidth);
+           
+          //  PaintPath(e.Graphics,ctr, borderColor, borderWidth);
        }
 
         private static void PaintPath(Graphics graphics,Control ctr, Color borderColor, int borderWidth)
@@ -264,7 +265,67 @@ namespace FT.Commons.Tools
             graphics.DrawPath(pen, path);
         }
 
-       public static void PaintRound(object sender)
+        public static void PaintFirstRound(object sender, PaintEventArgs e)
+        {
+            PaintRound(sender, yellowBorderColor, yellowBorderWidth, e);
+        }
+
+        public static void PaintSecondRound(object sender, PaintEventArgs e)
+        {
+            PaintRound(sender,secondBorderColor, yellowBorderWidth, e);
+        }
+
+
+        /*
+          sharecodes.org 友情提醒：尊重知识，转载请注明原创作者、出处！
+        */
+
+        /// <summary>
+        /// C# GDI+ 绘制圆角矩形
+        /// </summary>
+        /// <param name="g">Graphics 对象</param>
+        /// <param name="rectangle">Rectangle 对象，圆角矩形区域</param>
+        /// <param name="borderColor">边框颜色</param>
+        /// <param name="borderWidth">边框宽度</param>
+        /// <param name="r">圆角半径</param>
+        public static void DrawRoundRectangle(Graphics g, Rectangle rectangle, Color borderColor, float borderWidth, int r)
+        {
+            // 如要使边缘平滑，请取消下行的注释
+            // g.SmoothingMode = SmoothingMode.HighQuality;
+
+            // 由于边框也需要一定宽度，需要对矩形进行修正
+            rectangle = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width - 1, rectangle.Height - 1);
+            Pen p = new Pen(borderColor, borderWidth);
+            // 调用 getRoundRectangle 得到圆角矩形的路径，然后再进行绘制
+            g.DrawPath(p, getRoundRectangle(rectangle, r));
+        }
+
+        /// <summary>
+        /// 根据普通矩形得到圆角矩形的路径
+        /// </summary>
+        /// <param name="rectangle">原始矩形</param>
+        /// <param name="r">半径</param>
+        /// <returns>图形路径</returns>
+        private static GraphicsPath getRoundRectangle(Rectangle rectangle, int r)
+        {
+            int l = 2 * r;
+            // 把圆角矩形分成八段直线、弧的组合，依次加到路径中
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddLine(new Point(rectangle.X + r, rectangle.Y), new Point(rectangle.Right - r, rectangle.Y));
+            gp.AddArc(new Rectangle(rectangle.Right - l, rectangle.Y, l, l), 270F, 90F);
+
+            gp.AddLine(new Point(rectangle.Right, rectangle.Y + r), new Point(rectangle.Right, rectangle.Bottom - r));
+            gp.AddArc(new Rectangle(rectangle.Right - l, rectangle.Bottom - l, l, l), 0F, 90F);
+
+            gp.AddLine(new Point(rectangle.Right - r, rectangle.Bottom), new Point(rectangle.X + r, rectangle.Bottom));
+            gp.AddArc(new Rectangle(rectangle.X, rectangle.Bottom - l, l, l), 90F, 90F);
+
+            gp.AddLine(new Point(rectangle.X, rectangle.Bottom - r), new Point(rectangle.X, rectangle.Y + r));
+            gp.AddArc(new Rectangle(rectangle.X, rectangle.Y, l, l), 180F, 90F);
+            return gp;
+        }
+
+        public static void PaintRound(object sender, Color borderColor, int borderWidth, PaintEventArgs e)
        {
            Control form = ((Control)sender);
            //if (shape == null)
@@ -273,7 +334,7 @@ namespace FT.Commons.Tools
                int width = form.Width;
                int height = form.Height;
                #region 边框有锯齿的
-            //   /*
+              /*
 
                //左上
                list.Add(new Point(0, 5));
@@ -316,7 +377,7 @@ namespace FT.Commons.Tools
                list.Add(new Point(1, height - 5));
                list.Add(new Point(0, height - 5));
 
-             //  */
+              */
                #endregion
 
                         #region 四个圆角
@@ -458,13 +519,39 @@ namespace FT.Commons.Tools
             list.Add(new Point(0, height - 47));
 */
             #endregion
-
+/*
                 Point[] points = list.ToArray();
 
                 GraphicsPath shape = new GraphicsPath();
                 shape.AddPolygon(points);
-           // }
+                Pen pen = new Pen(borderColor, borderWidth);
+                pen.DashStyle = DashStyle.Solid;
+                GraphicsPath path = new GraphicsPath();
+                path.AddLines(points);
 
+                e.Graphics.DrawPath(pen, path);
+
+                ControlPaint.DrawBorder(e.Graphics,
+                                  form.ClientRectangle,
+                                  borderColor,//7f9db9
+                                  borderWidth,
+                                  ButtonBorderStyle.Solid,
+                                 borderColor,
+                                 borderWidth,
+                                 ButtonBorderStyle.Solid,
+                                 borderColor,
+                                 borderWidth,
+                                 ButtonBorderStyle.Solid,
+                                 borderColor,
+                                 borderWidth,
+                                 ButtonBorderStyle.Solid);
+ */ 
+           // }
+               int r = 17;
+               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+               GraphicsPath shape = getRoundRectangle(form.ClientRectangle, r);
             //将控件的显示区域设为GraphicsPath的实例 
             form.Region = new System.Drawing.Region(shape);
 
