@@ -84,8 +84,10 @@ namespace HiPiaoTerminal.BuyTicket
                 }
             }
             if (plan == null)
-            {   
+            {
 
+                this.lbLanguage.Text = "没有找到该影片的排期";
+                this.lbLanguage.ForeColor = SystemColors.MenuHighlight;
                     return;
             }
             if (movie.OtherName.Length>0)
@@ -99,7 +101,8 @@ namespace HiPiaoTerminal.BuyTicket
                 if(plan.Type.Length>0)
                     this.lbOtherName.Text = movie.OtherName + "(" + plan.Type + ")";
             }
-            this.lbLanguage.Text = string.Format(this.lbLanguage.Text, plan.Language);
+            this.lbLanguage.Text = string.Format("语言：{0}", plan.Language);
+            this.lbLanguage.ForeColor = Color.FromArgb(85, 85, 85);
             List<RoomPlanObject> lists=plan.RoomPlans;
             if (lists != null && lists.Count > 0)
             {
@@ -165,17 +168,26 @@ namespace HiPiaoTerminal.BuyTicket
         private void btnTomorrow_Click(object sender, EventArgs e)
         {
             GetPlan(System.DateTime.Now.AddDays(1));
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             
         }
 
         private void btnThreeDay_Click(object sender, EventArgs e)
         {
             GetPlan(System.DateTime.Now.AddDays(2));
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
             GetPlan(System.DateTime.Now);
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today; 
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
         }
     }
 }

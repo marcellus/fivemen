@@ -46,7 +46,9 @@ namespace HiPiaoTerminal
                 }
                 frm = allKeyBoardForm;
                 allKeyBoardForm.InputTextBox = txt;
+#if DEBUG
                 Console.WriteLine("SetAllKeyBoardWithForm开始显示键盘VitualKeyboardForm");
+#endif
             }
             else
             {
@@ -56,18 +58,25 @@ namespace HiPiaoTerminal
                 }
                 frm = numKeyBoardForm;
                 numKeyBoardForm.InputTextBox = txt;
+#if DEBUG
                 Console.WriteLine("SetAllKeyBoardWithForm开始显示键盘numKeyBoardForm");
+#endif
             }
            
 
             Point point = txt.Parent.PointToScreen(txt.Location);
+#if DEBUG
             Console.WriteLine("转化屏幕的坐标是：X=" + point.X.ToString() + "=Y=" + point.Y.ToString());
-
+#endif
             int height = txt.Parent.Parent.Height;
             // allKeyBoard2.InputTextBox = txt;
+#if DEBUG
             Console.WriteLine("userinput下划线的坐标是：X=" + txt.Parent.Location.X.ToString() + "=Y=" + txt.Parent.Location.Y.ToString() + "userinput高度:" + height.ToString() + "键盘窗体高度：" + frm.Height.ToString());
+#endif
             frm.Hide();
+#if DEBUG
             Console.WriteLine("转化前键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
+#endif
             if (point.Y > frm.Height+14)
             {
                 
@@ -92,9 +101,11 @@ namespace HiPiaoTerminal
                 }
             }
             frm.TabStop = false;
+#if DEBUG
             //allKeyBoardForm.BringToFront();
             Console.WriteLine("转化后键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
-           // frm.ShowDialog();
+#endif
+            // frm.ShowDialog();
             frm.Show();
         }
 
@@ -118,7 +129,9 @@ namespace HiPiaoTerminal
             allKeyBoard2.InputTextBox = txt;
            
             Point point = txt.Parent.PointToScreen(txt.Location);
+#if DEBUG
             Console.WriteLine("转化屏幕的坐标是：X=" + point.X.ToString() + "=Y=" + point.Y.ToString());
+#endif
             Form frm = allKeyBoard2.FindForm();
 
             if (frm == null)
@@ -134,8 +147,10 @@ namespace HiPiaoTerminal
             }
 
            // allKeyBoard2.InputTextBox = txt;
+#if DEBUG
             Console.WriteLine("txt下划线的坐标是：X=" + txt.Location.X.ToString() + "=Y=" + txt.Location.Y.ToString()+"txt高度:"+txt.Height.ToString()+"键盘高度："+allKeyBoard2.Height.ToString());
             Console.WriteLine("转化前键盘的坐标是：X=" + allKeyBoard2.Location.X.ToString() + "=Y=" + allKeyBoard2.Location.Y.ToString());
+#endif
             if (point.Y > allKeyBoard2.Height + txt.Height)
             {
                 allKeyBoard2.Location = new Point(point.X-30, point.Y - allKeyBoard2.Height - txt.Height + 20);
@@ -146,7 +161,9 @@ namespace HiPiaoTerminal
             }
             allKeyBoard2.TabStop = false;
             allKeyBoard2.BringToFront();
+#if DEBUG
             Console.WriteLine("转化后键盘的坐标是：X=" + allKeyBoard2.Location.X.ToString() + "=Y=" + allKeyBoard2.Location.Y.ToString());
+#endif
             allKeyBoard2.Visible = true;
         }
 
@@ -160,7 +177,7 @@ namespace HiPiaoTerminal
 
             if (frm == null)
             {
-                Console.WriteLine("");
+               // Console.WriteLine("");
                 txt.FindForm().Controls.Add(allKeyBoard);
             }
             else
@@ -235,7 +252,9 @@ namespace HiPiaoTerminal
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<ConfigModel.SystemConfig>();
             if (config.UseVirtualKeyboard)
             {
+#if DEBUG
                 Console.WriteLine("Pop方法开始隐藏小键盘");
+#endif
                 GlobalTools.HideAllKeyBoard();
             }
             if (config.UseMaskPanel)
@@ -383,7 +402,9 @@ namespace HiPiaoTerminal
         {
             if (!isFirstKeyboardLoad)
             {
+#if DEBUG
                 Console.WriteLine("开始初始化小键盘");
+#endif
                 allKeyBoardForm.Show();
                 allKeyBoardForm.Hide();
 
@@ -491,6 +512,7 @@ namespace HiPiaoTerminal
         //未操作时候返回主界面
         static void UnOperationTimer_Tick(object sender, EventArgs e)
         {
+            
             if (MainForm.Controls.Count > 0)
             {
                 MainPanel panel = MainForm.Controls[0] as MainPanel;
@@ -509,6 +531,9 @@ namespace HiPiaoTerminal
                     }
                     if (UnOperationLeaveSecond == 0)
                     {
+#if DEBUG
+                        Console.WriteLine("未操作时间已到，跳转到主界面");
+#endif
                         ReturnMain();
 
                     }
@@ -521,7 +546,9 @@ namespace HiPiaoTerminal
         /// </summary>
         public static void StopUnOperationCounter()
         {
-
+#if DEBUG
+            Console.WriteLine("停止未操作计数");
+#endif
             UnOperationTimer.Stop();
             UnOperationLeaveSecond = UnOperationMaxSecond;
         }
@@ -530,7 +557,9 @@ namespace HiPiaoTerminal
         /// </summary>
         public static void StartUnOperationCounter()
         {
-            
+#if DEBUG
+            Console.WriteLine("开启未操作计数");
+#endif
             UnOperationLeaveSecond = UnOperationMaxSecond;
             UnOperationTimer.Start();
         }
@@ -745,12 +774,19 @@ namespace HiPiaoTerminal
                
                 Control parent = MainForm;
                 parent.Controls.Clear();
+#if DEBUG
                 Console.WriteLine("GoPanel开始隐藏小键盘");
+#endif
                 HideAllKeyBoard();
                 parent.Controls.Add(panel);
                 if (panel is MainPanel)
                 {
                     StopUnOperationCounter();
+                }
+                else if (panel is OperationTimeParentPanel)
+                {
+                    StopUnOperationCounter();
+                    InitUnOperationControl(parent.Controls[0]);
                 }
                 else
                 {

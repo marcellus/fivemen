@@ -58,9 +58,14 @@ namespace HiPiaoInterface
             soap.Append(BuildSoapHeader(sessionKey));
             soap.Append(body);
             soap.Append(BuildSoapFooter());
-            Console.WriteLine("发送的xml请求内容为：" + soap.ToString());
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送的xml请求内容为：" + soap.ToString());
+            
+#endif
             string result = GetSOAPReSource(GetInterfaceUrl(), soap.ToString());
-            Console.WriteLine("xml请求结果内容为：" + result);
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "xml请求结果内容为：" + result);
+#endif
             return result;
         }
 
@@ -71,9 +76,13 @@ namespace HiPiaoInterface
             soap.Append(BuildSoapHeader());
             soap.Append(body);
             soap.Append(BuildSoapFooter());
+#if DEBUG
             Console.WriteLine("发送的xml请求内容为："+soap.ToString());
+#endif
             string result = GetSOAPReSource(GetInterfaceUrl(), soap.ToString());
+#if DEBUG
             Console.WriteLine("xml请求结果内容为："+result);
+#endif
             return result;
         }
 
@@ -233,8 +242,8 @@ namespace HiPiaoInterface
         {
             StringBuilder body = new StringBuilder();
 
-            body.Append("<ns2:getPlancinema xmlns:ns2=\"http://service.server.com\">");
-            body.Append("<cinemanumber>"+cinema+"</cinemanumber><date>"+day.ToString("MM月dd日")+"</date><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinema>");
+            body.Append("<ns2:getPlancinemaVii xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<cinemanumber>" + cinema + "</cinemanumber><date>" + day.ToString("MM月dd日") + "</date><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinemaVii>");
             return GetSoapServiceResult(body);
         }
 
@@ -342,6 +351,7 @@ namespace HiPiaoInterface
             provinceCity[] citys=service.getCityOfprovince("广东省", "广州市");
             for (int i = 0; i < citys.Length; i++)
             {
+
                 Console.WriteLine("city-"+i+"-"+citys[i].name);
             }
         }

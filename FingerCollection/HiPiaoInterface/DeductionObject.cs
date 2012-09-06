@@ -68,12 +68,12 @@ namespace HiPiaoInterface
         }
 
 
-        private int status;
+        private string status;
 
         /// <summary>
         /// 1未提取2已提取未使用3已使用4已作废5单张激活
         /// </summary>
-        public int Status
+        public string Status
         {
             get { return status; }
             set { status = value; }

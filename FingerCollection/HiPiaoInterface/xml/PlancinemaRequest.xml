@@ -8,10 +8,10 @@
     </xs:RequestSOAPHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getPlancinema xmlns:ns2="http://service.server.com">
+    <ns2:getPlancinemaVii xmlns:ns2="http://service.server.com">
       <cinemanumber>44004501</cinemanumber>
-      <date>09月05日</date>
+      <date>09月06日</date>
       <clintform>ANDROID/IPHONE/IPAD</clintform>
-    </ns2:getPlancinema>
+    </ns2:getPlancinemaVii>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

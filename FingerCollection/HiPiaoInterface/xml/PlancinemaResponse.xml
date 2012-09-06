@@ -1,7 +1,13 @@
 ﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
-    <ns1:PlancinemaResponse xmlns:ns1="http://service.server.com">
-      <return xmlns:ns2="http://service.server.com/" />
-    </ns1:PlancinemaResponse>
+    <ns1:getPlancinemaViiResponse xmlns:ns1="http://service.server.com/">
+      <return xmlns="">
+        <movieInfo name="敢死队2" pixnumber="05110140">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="2752dff0-f01f-11e0-98ca-001bb97ef1a4" hname="2号厅" planId="4e6b3da0-f779-11e1-a9dc-001bb97ef1a4@@6" playtime="23:10" price="25.00" sprice="25.00" />
+          </savetype>
+        </movieInfo>
+      </return>
+    </ns1:getPlancinemaViiResponse>
   </soap:Body>
 </soap:Envelope>

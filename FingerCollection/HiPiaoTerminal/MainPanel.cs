@@ -24,6 +24,26 @@ namespace HiPiaoTerminal
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                    ControlStyles.ResizeRedraw |
                    ControlStyles.AllPaintingInWmPaint, true);
+            timerShowMovie.Start();
+            Console.WriteLine("MainPanel_Load开始隐藏小键盘");
+            GlobalTools.HideAllKeyBoard();
+            GlobalTools.RegistUpdateUnOperationTime(null);
+            GlobalTools.StopUnOperationCounter();
+            if (GlobalTools.loginUser == null)
+            {
+                this.lbWelcome1.Visible = false;
+                this.lbWelcomeName.Visible = false;
+                this.lbWelcome3.Visible = false;
+                this.btnQuit.Visible = false;
+            }
+            else
+            {
+                this.lbWelcome1.Visible = true;
+                this.lbWelcomeName.Visible = true;
+                this.lbWelcomeName.Text = GlobalTools.loginUser.Name;
+                this.lbWelcome3.Visible = true;
+                this.btnQuit.Visible = true;
+            }
         }
 
         private void btnLoginPassport_Click(object sender, EventArgs e)
@@ -87,25 +107,7 @@ namespace HiPiaoTerminal
              //   new Rectangle(10, 10, btnTicketPrint.Width - 10, btnTicketPrint.Height - 10),
             //    ButtonState.Pushed);
 
-            timerShowMovie.Start();
-            Console.WriteLine("MainPanel_Load开始隐藏小键盘");
-            GlobalTools.HideAllKeyBoard();
-            GlobalTools.RegistUpdateUnOperationTime(null);
-            GlobalTools.StopUnOperationCounter();
-            if (GlobalTools.loginUser == null)
-            {
-                this.lbWelcome1.Visible=false;
-                this.lbWelcomeName.Visible=false;
-                this.lbWelcome3.Visible=false;
-                this.btnQuit.Visible=false;
-            }
-            else{
-                this.lbWelcome1.Visible = true;
-                this.lbWelcomeName.Visible = true;
-                this.lbWelcomeName.Text = GlobalTools.loginUser.Name;
-                this.lbWelcome3.Visible = true;
-                this.btnQuit.Visible = true;
-            }
+           
 
             
         }

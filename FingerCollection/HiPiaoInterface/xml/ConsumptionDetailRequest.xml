@@ -4,14 +4,15 @@
     <xs:RequestSOAPHeader xmlns:xs="http://www">
       <xs:spId xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">hipiao</xs:spId>
       <xs:spPassword xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">hipiao@iphone</xs:spPassword>
-      <xs:sessionkey xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">v6qtpe3zt3nnz90dawih1346938172459</xs:sessionkey>
+      <xs:sessionkey xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">ggj18ntqqaivcq6o6jny1346938423807</xs:sessionkey>
       <xs:mobilekey xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">13800000000</xs:mobilekey>
     </xs:RequestSOAPHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getConsumptionRequest xmlns:ns2="http://service.server.com">
+    <ns2:getConsumptionDatialRequest xmlns:ns2="http://service.server.com">
       <memberid>26c52c2e-69ae-102e-8c3d-001a4beef7e4</memberid>
-      <clintform>ANDROID</clintform>
-    </ns2:getConsumptionRequest>
+      <orderformid>8efadf84-4885-1030-92ee-782bcb25393f</orderformid>
+      <clintform>ANDROID/IPHONE/IPAD</clintform>
+    </ns2:getConsumptionDatialRequest>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

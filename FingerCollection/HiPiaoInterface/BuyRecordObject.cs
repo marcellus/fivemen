@@ -42,6 +42,17 @@ namespace HiPiaoInterface
             get { return connectMobile; }
             set { connectMobile = value; }
         }
+        private string orderId;
+
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string OrderId
+        {
+            get { return orderId; }
+            set { orderId = value; }
+        }
+
         private string validCode;
 
         /// <summary>
@@ -60,7 +71,13 @@ namespace HiPiaoInterface
         /// </summary>
         public DateTime BuyTime
         {
-            get { return buyTime; }
+            get {
+
+                if (buyTime.ToString("yyyy") == "0001")
+                {
+                    HiPiaoCache.GetUserBuyRecordDetail(this);
+                }
+                return buyTime; }
             set { buyTime = value; }
         }
 

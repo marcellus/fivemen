@@ -15,19 +15,26 @@ namespace HiPiaoTerminal.BuyTicket
         public MovieSelectorPanel()
         {
             InitializeComponent();
+            try
+            {
+                DateTime now = System.DateTime.Now;
+
+                this.btnToday.Text = string.Format(this.btnToday.Text, now.ToString("MM月dd日"));
+                this.btnTomorrow.Text = string.Format(this.btnTomorrow.Text, now.AddDays(1).ToString("MM月dd日"));
+                this.btnThreeDay.Text = string.Format(this.btnThreeDay.Text, now.AddDays(2).ToString("MM月dd日"));
+                this.SetSepartor(false);
+
+                this.InitMovies(now);
+                this.SetOperationTime(60);
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void MovieSelectorPanel_Load(object sender, EventArgs e)
         {
-            DateTime now = System.DateTime.Now;
-            
-            this.btnToday.Text=string.Format(this.btnToday.Text,now.ToString("MM月dd日"));
-            this.btnTomorrow.Text = string.Format(this.btnTomorrow.Text, now.AddDays(1).ToString("MM月dd日"));
-            this.btnThreeDay.Text = string.Format(this.btnThreeDay.Text, now.AddDays(2).ToString("MM月dd日"));
-            this.SetSepartor(false);
-            
-            this.InitMovies(now);
-            this.SetOperationTime(60);
+           
         }
 
         //private static Font MovieNameColor=new Font("",
@@ -38,10 +45,10 @@ namespace HiPiaoTerminal.BuyTicket
         private void InitMovies(DateTime dt)
         {
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            List<MovieObject> lists = HiPiaoCache.GetHotMovie(config.Province, config.City);
+            List<MovieObject> all = HiPiaoCache.GetHotMovie(config.Province, config.City);
 
-            List<MovieObject> lists2= HiPiaoCache.GetDayMovie(config.CinemaId, dt);
-            if (lists != null && lists.Count > 0)
+            List<MovieObject> lists= HiPiaoCache.GetDayMovie(config.CinemaId, dt,all);
+            if (lists != null )
             {
                 this.panelContent.Controls.Clear();
                 int x=100;
@@ -99,17 +106,26 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnThreeDay_Click(object sender, EventArgs e)
         {
-
+            this.InitMovies(System.DateTime.Now.AddDays(2));
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
         }
 
         private void btnTomorrow_Click(object sender, EventArgs e)
         {
-
+            this.InitMovies(System.DateTime.Now.AddDays(1));
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-
+            this.InitMovies(System.DateTime.Now);
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
         }
     }
 }

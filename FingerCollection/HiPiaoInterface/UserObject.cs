@@ -113,12 +113,12 @@ namespace HiPiaoInterface
             get
             {
                 int result = 0;
-                for (int i = 0; i < coupons.Count; i++)
+                for (int i = 0; i < this.Coupons.Count; i++)
                 {
-                    if (coupons[i].Status == 1)
-                    {
+                    //if (coupons[i].Status == 1)
+                    //{
                         result++;
-                    }
+                    //}
                 }
                 return result;
             }
@@ -129,12 +129,12 @@ namespace HiPiaoInterface
             get
             {
                 int result = 0;
-                for (int i = 0; i < deductions.Count; i++)
+                for (int i = 0; i < this.Deductions.Count; i++)
                 {
-                    if (deductions[i].Status == 2)
-                    {
+                    //if (deductions[i].Status == 2)
+                    //{
                         result++;
-                    }
+                    //}
                 }
                 return result;
             }
@@ -142,29 +142,47 @@ namespace HiPiaoInterface
 
         private List<CouponObject> coupons = new List<CouponObject>();
 
+        private bool isQueryCoupons = false;
+
         /// <summary>
         /// 优惠券数量
         /// </summary>
         public List<CouponObject> Coupons
         {
-            get { return coupons; }
+            get {
+                if (!isQueryCoupons)
+                {
+                    coupons = HiPiaoCache.GetUserCoupons(this);
+                    isQueryCoupons = true;
+                }
+                return coupons; 
+            }
             set { coupons = value; }
         }
 
         private List<DeductionObject> deductions = new List<DeductionObject>();
+
+        private bool isQueryDeduction = false;
 
         /// <summary>
         /// 抵扣券信息
         /// </summary>
         public List<DeductionObject> Deductions
         {
-            get { return deductions; }
+            get {
+                if (!isQueryDeduction)
+                {
+                    deductions = HiPiaoCache.GetUserDeduction(this);
+                    isQueryDeduction = true;
+                }
+                return deductions; }
             set { deductions = value; }
         }
 
         private List<BuyRecordObject> buyRecords=new List<BuyRecordObject>();
 
-        
+
+        private bool isQueryBuyRecord = false;
 
         /// <summary>
         /// 购买记录数
@@ -172,9 +190,10 @@ namespace HiPiaoInterface
         public List<BuyRecordObject> BuyRecords
         {
             get {
-                if (buyRecords.Count == 0)
+                if (!isQueryBuyRecord)
                 {
                    buyRecords= HiPiaoCache.GetUserBuyRecord(this);
+                   isQueryBuyRecord = true;
                 }
                 return buyRecords; 
             }

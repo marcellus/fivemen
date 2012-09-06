@@ -18,7 +18,9 @@ namespace HiPiaoTerminal.PrinterTicket
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+#if DEBUG
             Console.WriteLine("执行定时器关闭窗体！");
+#endif
             timer1.Enabled = false;
             this.FindForm().Close();
             GlobalTools.ReturnMain();
