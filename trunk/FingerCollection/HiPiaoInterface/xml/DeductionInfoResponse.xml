@@ -1,7 +1,114 @@
 ﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
     <ns1:DeductionInfoInfoResponse xmlns:ns1="http://service.server.com">
-      <return xmlns:ns2="http://service.server.com/" />
+      <return xmlns:ns2="http://service.server.com/">
+        <dif amount="5" cardId="443120800010500005" period="12/08/20 00:00-12/11/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="1" cardId="391120400010100486" period="12/04/23 00:00-12/07/31 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="3" cardId="003120300010300002" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="3" cardId="003120300010300004" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="003120300031000001" period="12/03/06 00:00-12/12/24 23:59" status="已使用" useDate="2012-05-10 13:51:26" useRule="抵扣现金" />
+        <dif amount="3" cardId="003120300010300005" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="003120300031000003" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="3" cardId="003120300010300001" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003120300020500003" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="003120300031000005" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003120300020500001" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="003120300031000002" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003120300020500002" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="003120300031000004" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003120300020500004" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="3" cardId="003120300010300003" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003120300020500005" period="12/03/06 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="341120200011000001" period="12/02/27 00:00-12/12/24 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="3" cardId="337120200010300002" period="12/02/21 00:00-12/03/15 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="1" cardId="301111200010100095" period="11/12/28 00:00-12/02/29 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="1" cardId="205110900010100002" period="11/09/20 00:00-12/09/20 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="1" cardId="205110900010100001" period="11/09/20 00:00-12/09/20 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="187110900011000001" period="11/09/09 00:00-11/12/10 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="187110900011000002" period="11/09/09 00:00-11/12/10 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="176110800010500016" period="11/08/26 00:00-11/12/31 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="037110100051001856" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222644" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222652" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222565" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222617" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507224" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222636" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507307" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222585" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222456" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222625" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222588" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222614" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507188" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222550" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507321" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222548" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222586" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222578" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507293" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222584" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222603" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222530" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222568" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222590" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222573" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507313" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222561" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222595" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222542" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222587" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222534" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222575" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222367" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507231" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222547" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222529" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222580" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="挚巯纸" />"
+        <dif amount="10" cardId="037110100051001804" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222557" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222517" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222539" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222556" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222536" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222553" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507207" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222546" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222519" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222538" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222505" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507273" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222416" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222516" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222531" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222491" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="037110100030507279" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222467" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222498" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222479" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222395" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222499" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222437" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222473" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222509" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222510" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222502" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222429" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222457" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222455" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222487" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222421" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222272" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222477" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010222463" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="8" cardId="037110100040800245" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="10" cardId="037110100051000280" period="11/02/10 00:00-11/06/30 23:59" status="已使用" useDate="2011-02-12 18:44:29" useRule="抵扣现金" />
+        <dif amount="8" cardId="037110100040800148" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="8" cardId="037110100040800272" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010200228" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="2" cardId="037110100010200246" period="11/02/10 00:00-11/06/30 23:59" status="已提取未使用" useRule="抵扣现金" />
+        <dif amount="5" cardId="003110100010500004" period="11/01/05 00:00-11/01/10 23:59" status="已提取未使用" useRule="抵扣现金" />
+      </return>
     </ns1:DeductionInfoInfoResponse>
   </soap:Body>
 </soap:Envelope>

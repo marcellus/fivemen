@@ -16,6 +16,7 @@ namespace HiPiaoTerminal.UserControlEx
             try
             {
                 GlobalTools.StopUnOperationCounter();
+                this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             }
             catch (Exception ex)
             {
@@ -35,22 +36,41 @@ namespace HiPiaoTerminal.UserControlEx
 
         public void BeginOperationSeconds()
         {
-
+            timer1.Stop();
             timer1.Start();
         }
 
+        private bool CounterTime = false;
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int count = Convert.ToInt32(this.lbTimeSecond.Text);
-            if (count > 1)
-                this.lbTimeSecond.Text = (count - 1).ToString();
-            else
+            if (!CounterTime)
             {
-                //GlobalTools.StopUnOperationCounter();
-                timer1.Stop();
-                GlobalTools.ReturnMain();
+                CounterTime = true;
+                this.timer1.Stop();
+                this.timer1.Enabled = false;
+                int count = Convert.ToInt32(this.lbTimeSecond.Text);
+#if DEBUG
+                Console.WriteLine(System.DateTime.Now.Second.ToString() + "操作界面倒计时时间：" + this.lbTimeSecond.Text);
+#endif
+                if (count > 1)
+                {
+                    this.lbTimeSecond.Text = (count - 1).ToString();
+                    this.timer1.Enabled = true;
+                    this.timer1.Start();
+                }
+                else
+                {
+                    //GlobalTools.StopUnOperationCounter();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+#if DEBUG           
+                    Console.WriteLine("操作界面本身的操作时间已经到了！");
+#endif
+                    GlobalTools.ReturnMain();
+                }
+                CounterTime = false;
             }
         }
     }

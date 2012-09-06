@@ -1,0 +1,26 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:ConsumptionDatialResponse xmlns:ns1="http://service.server.com">
+      <return xmlns:ns2="http://service.server.com/">
+        <buyplace>WEB</buyplace>
+        <buytime>2012-09-05 16:40:40</buytime>
+        <cinemahall>4号厅</cinemahall>
+        <cinemaname>大地数字影院--广州增城东汇城</cinemaname>
+        <cinemaseat>11排17号</cinemaseat>
+        <format>数字</format>
+        <hipiaonumber>340887</hipiaonumber>
+        <issend>全部退票</issend>
+        <language>英语</language>
+        <memberId>26c52c2e-69ae-102e-8c3d-001a4beef7e4</memberId>
+        <onemoney>￥30元*1</onemoney>
+        <paytype>仅使用账户余额</paytype>
+        <phonenum>13269402753</phonenum>
+        <pixname>蝙蝠侠：黑暗骑士崛起</pixname>
+        <playtime>2012-09-05 22:10:00</playtime>
+        <result>1</result>
+        <summoney>30元</summoney>
+        <ticketnum>1</ticketnum>
+      </return>
+    </ns1:ConsumptionDatialResponse>
+  </soap:Body>
+</soap:Envelope>

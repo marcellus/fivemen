@@ -39,7 +39,7 @@ namespace HiPiaoInterface
                 user.Name = doc.SelectSingleNode("//nickname").InnerText;
                 user.Mobile = doc.SelectSingleNode("//phone").InnerText;
                 user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
-                user.MemberId = doc.SelectSingleNode("//hipiaocard").InnerText;
+                user.HipiaoCard = doc.SelectSingleNode("//hipiaocard").InnerText;
                 user.SessionKey = doc.SelectSingleNode("//sessionkey").InnerText;
                 user.RewardPoints = Convert.ToInt32(doc.SelectSingleNode("//score").InnerText);
                 XmlNode blance = doc.SelectSingleNode("//blance");
@@ -115,54 +115,8 @@ namespace HiPiaoInterface
 
         public void QueryUser(UserObject user)
         {
-            string xmlCoupon = hiPiaoSrv.QueryUserCoupon(user);
-            XmlDocument docCoupon = new XmlDocument();
-            docCoupon.LoadXml(xmlCoupon);
-            XmlNodeList couponNode = docCoupon.SelectNodes("//CouponInfo");
-            
-            CouponObject coupon = null;
-
-            for (int i = 0; i < couponNode.Count; i++)
-            {
-                coupon = new CouponObject();
-                coupon.CardId = couponNode[i].Attributes["cardId"].Value;
-                coupon.Period = couponNode[i].Attributes["period"].Value;
-                coupon.UseDate = couponNode[i].Attributes["useDate"].Value;
-                coupon.Status = Convert.ToInt32(couponNode[i].Attributes["status"].Value);
-                coupon.Type = Convert.ToInt32(couponNode[i].Attributes["type"].Value);
-
-                coupon.WeekEnd = couponNode[i].Attributes["weekEnd"].Value == "1";
-                coupon.Enable3D = couponNode[i].Attributes["3D"].Value == "1";
-                coupon.UseCinema = couponNode[i].Attributes["useCinema"].Value;
-
-                coupon.FileRule = couponNode[i].Attributes["fileRule"].Value;
-                coupon.EveryDayTime = couponNode[i].Attributes["everyDayTime"].Value;
-
-                user.Coupons.Add(coupon);
-            }
-
-
-            string xmlDeduction = hiPiaoSrv.QueryUserDeduction(user);
-            XmlDocument docDeduction = new XmlDocument();
-            docDeduction.LoadXml(xmlDeduction);
-            XmlNodeList deductionNode = docDeduction.SelectNodes("//DeductionInfo");
-
-            DeductionObject deduction = null;
-
-            for (int i = 0; i < deductionNode.Count; i++)
-            {
-                deduction = new DeductionObject();
-                deduction.CardId = deductionNode[i].Attributes["cardId"].Value;
-                deduction.Period = deductionNode[i].Attributes["period"].Value;
-                deduction.UseDate = deductionNode[i].Attributes["useDate"].Value;
-                deduction.Status = Convert.ToInt32(deductionNode[i].Attributes["status"].Value);
-                deduction.Amount = Convert.ToDouble(deductionNode[i].Attributes["amount"].Value);
-
-                deduction.UseRule = deductionNode[i].Attributes["useRule"].Value;
-               
-
-                user.Deductions.Add(deduction);
-            }
+            int c=user.Deductions.Count;
+            int t = user.Coupons.Count;
 
 /*
             string xmlBuyRecord = hiPiaoSrv.QueryUserBuyRecord(user);

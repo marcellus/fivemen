@@ -125,6 +125,7 @@ namespace HiPiaoTerminal.CommonForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            this.timer1.Enabled = false;
             this.DialogResult= DialogResult.None;
             this.Close();
         }
