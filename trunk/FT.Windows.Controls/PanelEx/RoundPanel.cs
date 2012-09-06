@@ -68,6 +68,7 @@ namespace FT.Windows.Controls.PanelEx
             int height = base.Height - base.Margin.Top - base.Margin.Bottom;
             Rectangle rec = new Rectangle(base.Margin.Left, base.Margin.Top, width, height);
             GraphicsPath round = CreateRound(rec, mMatrixRound);
+            
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.FillPath((Brush)(new SolidBrush(mBack)), round);
         }

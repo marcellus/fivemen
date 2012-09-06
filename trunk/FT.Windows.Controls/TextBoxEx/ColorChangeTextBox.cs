@@ -15,14 +15,14 @@ namespace FT.Windows.Controls.TextBoxEx
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(this);
+            //WinFormHelper.PaintRound(this);
             if (this.Focus() || this.Text.Trim().Length > 0)
             {
-                WinFormHelper.PainYellowBorder(this, e);
+                WinFormHelper.PaintFirstRound(this, e);
             }
             else
             {
-                WinFormHelper.PainGrayBorder(this,e);
+                WinFormHelper.PaintSecondRound(this,e);
             }
         }
     }

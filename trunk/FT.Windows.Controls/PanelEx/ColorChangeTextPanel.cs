@@ -18,14 +18,15 @@ namespace FT.Windows.Controls.PanelEx
 
         private void ColorChangeTextPanel_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
+            
             if (this.textBox1.Focused || this.textBox1.Text.Length > 0)
             {
-                WinFormHelper.PainYellowBorder(sender,e);
+                WinFormHelper.PaintSecondRound(sender, e);
+                //WinFormHelper.PainYellowBorder(sender,e);
             }
             else
             {
-                WinFormHelper.PainGrayBorder(sender, e);
+                WinFormHelper.PaintFirstRound(sender, e);
             }
         }
 
