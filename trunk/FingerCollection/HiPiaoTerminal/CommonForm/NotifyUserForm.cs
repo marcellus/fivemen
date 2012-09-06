@@ -70,6 +70,7 @@ namespace HiPiaoTerminal.CommonForm
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.Width = panel.Width;
                 form.Height = panel.Height;
+                form.BackColor = Color.Red;
                 panel.Dock = DockStyle.Fill;
                 //form.BackColor = Color.Red;
                 //form.BackColor = Color.FromArgb(117, 117, 117);

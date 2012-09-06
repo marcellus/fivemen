@@ -39,24 +39,24 @@ namespace HiPiaoTerminal.CommonForm
 
         private void MessageForm_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
+            WinFormHelper.PaintFirstRound(sender,e);
            // WinFormHelper.PainYellowBorder(sender, e);
-            
-            ControlPaint.DrawBorder(e.Graphics,
-                                this.ClientRectangle,
-                                Color.LightSeaGreen,//7f9db9
-                                1,
-                                ButtonBorderStyle.Solid,
-                                Color.LightSeaGreen,
-                                1,
-                                ButtonBorderStyle.Solid,
-                                Color.LightSeaGreen,
-                                1,
-                                ButtonBorderStyle.Solid,
-                                Color.LightSeaGreen,
-                                1,
-                                ButtonBorderStyle.Solid);
-            /* * */
+            /*   
+               ControlPaint.DrawBorder(e.Graphics,
+                                   this.ClientRectangle,
+                                   Color.LightSeaGreen,//7f9db9
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.LightSeaGreen,
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.LightSeaGreen,
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.LightSeaGreen,
+                                   1,
+                                   ButtonBorderStyle.Solid);
+                * */
 
         }
 

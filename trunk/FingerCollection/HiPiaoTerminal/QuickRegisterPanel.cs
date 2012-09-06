@@ -18,12 +18,13 @@ namespace HiPiaoTerminal
             InitializeComponent();
             WinFormHelper.CenterHor(this.btnAgreeAndRegister);
             WinFormHelper.CenterHor(this.btnViewProtocol);
+            this.txtUserName.Focus();
         }
 
         private void QuickRegisterPanel_Load(object sender, EventArgs e)
         {
             //GlobalTools.RegistUpdateUnOperationTime(null);
-            this.txtUserName.Focus();
+           // 
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -67,8 +68,16 @@ namespace HiPiaoTerminal
 
         private void btnAgreeAndRegister_Click(object sender, EventArgs e)
         {
+           // this.txtPassword.UnFocus();
+          //  this.txtRepeatPwd.UnFocus();
+          //  this.txtMobile.UnFocus();
+          //  this.txtUserName.UnFocus();
+           // GlobalTools.Pop(new UserRegister.UserRegisterSuccessPanel());
+           // GlobalTools.PopNetError();
+          //  return;
             if (allowRegister)
             {
+                Console.WriteLine("点击注册按钮开始隐藏小键盘");
                 GlobalTools.HideAllKeyBoard();
                 string name = this.txtUserName.Text.Trim();
                 string pwd = this.txtPassword.Text.Trim();
@@ -97,10 +106,11 @@ namespace HiPiaoTerminal
                     this.lbPasswordHint.Text = "密码只允许6位数字";
                     this.picPasswordHint.Visible = true;
                     this.picPasswordHint.Image = Properties.Resources.Error;
-                    this.txtPassword.Focus();
+                  
                     this.txtMobile.UnFocus();
                     this.txtRepeatPwd.UnFocus();
                     this.txtUserName.UnFocus();
+                    this.txtPassword.Focus();
                     result = false;
 
                 }
@@ -116,10 +126,11 @@ namespace HiPiaoTerminal
                     this.picRepeatPwdHint.Visible = true;
                     this.picRepeatPwdHint.Image = Properties.Resources.Error;
                     this.txtPassword.Text = this.txtRepeatPwd.Text = string.Empty;
-                    this.txtPassword.Focus();
+                    
                     this.txtMobile.UnFocus();
                     this.txtRepeatPwd.UnFocus();
                     this.txtUserName.UnFocus();
+                    this.txtPassword.Focus();
                     result = false;
 
                 }
@@ -134,10 +145,11 @@ namespace HiPiaoTerminal
                     this.lbMobileHint.Text = "手机号输入错误";
                     this.picMobileHint.Visible = true;
                     this.picMobileHint.Image = Properties.Resources.Error;
-                    this.txtMobile.Focus();
+                   
                     this.txtPassword.UnFocus();
                     this.txtRepeatPwd.UnFocus();
                     this.txtUserName.UnFocus();
+                    this.txtMobile.Focus();
                     result = false;
 
                 }
@@ -163,6 +175,10 @@ namespace HiPiaoTerminal
                     if (user!=null)
                     {
                         GlobalTools.loginUser = user;
+                        this.txtPassword.UnFocus();
+                        this.txtRepeatPwd.UnFocus();
+                        this.txtMobile.UnFocus();
+                        this.txtUserName.UnFocus();
                         GlobalTools.Pop(new UserRegister.UserRegisterSuccessPanel());
                     }
                     else if (retcode == "2")
@@ -171,10 +187,11 @@ namespace HiPiaoTerminal
                         this.picUserNameHint.Visible = true;
                         this.picUserNameHint.Image = Properties.Resources.Error;
                         this.txtUserName.Text = string.Empty;
-                        this.txtUserName.Focus();
+                      
                         this.txtPassword.UnFocus();
                         this.txtRepeatPwd.UnFocus();
                         this.txtMobile.UnFocus();
+                        this.txtUserName.Focus();
 
                     }
                     else

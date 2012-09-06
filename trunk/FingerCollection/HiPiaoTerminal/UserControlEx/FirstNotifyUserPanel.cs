@@ -23,8 +23,8 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void YellowNotifyUserPanel_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
-            //WinFormHelper.PainYellowBorder(sender, e);
+            WinFormHelper.PaintFirstRound(sender,e);
+          //  WinFormHelper.PainYellowBorder(sender, e);
         }
 
        

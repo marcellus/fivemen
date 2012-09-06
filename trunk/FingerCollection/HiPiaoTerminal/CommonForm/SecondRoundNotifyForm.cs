@@ -18,8 +18,8 @@ namespace HiPiaoTerminal.CommonForm
 
         private void SecondRoundNotifyForm_Paint(object sender, PaintEventArgs e)
         {
-            WinFormHelper.PaintRound(sender);
-            WinFormHelper.PainSecondBorder(sender, e);
+            WinFormHelper.PaintSecondRound(sender,e);
+            //WinFormHelper.PainSecondBorder(sender, e);
         }
     }
 }
