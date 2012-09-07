@@ -241,6 +241,9 @@ namespace HiPiaoInterface
 #endif
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
             XmlNodeList deductionNodes = doc.SelectNodes("//dif");
             DeductionObject deduction;
             for (int i = 0; i < deductionNodes.Count; i++)
@@ -249,6 +252,7 @@ namespace HiPiaoInterface
                 Console.WriteLine("初始化折扣券对象时间1！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif 
                 deduction = new DeductionObject();
+                /*
                 deduction.Amount = Double.Parse(deductionNodes[i].Attributes["amount"].Value);
                 deduction.CardId = deductionNodes[i].Attributes["cardId"].Value;
                 deduction.Period = deductionNodes[i].Attributes["period"].Value;
@@ -258,6 +262,7 @@ namespace HiPiaoInterface
 #if DEBUG
                 Console.WriteLine("初始化折扣券对象时间2！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif      
+                 * */
                 lists.Add(deduction);
             }
             return lists;
@@ -274,6 +279,9 @@ namespace HiPiaoInterface
 #endif 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
             XmlNodeList couponNodes = doc.SelectNodes("//couponInfo");
             XmlNode useRuleNode;
             CouponObject coupon;
@@ -283,6 +291,7 @@ namespace HiPiaoInterface
                 Console.WriteLine("初始化抵购券对象时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif 
                 coupon = new CouponObject();
+                /*
                 coupon.CardId = couponNodes[i].Attributes["cardId"].Value;
 #if DEBUG
                 Console.WriteLine("抵扣券ID："+coupon.CardId);
@@ -304,6 +313,7 @@ namespace HiPiaoInterface
                     coupon.Type = Convert.ToInt32(useRuleNode.Attributes["type"].Value);
                     
                 }
+                 * */
 #if DEBUG
                 Console.WriteLine("初始化抵购券对象时间3！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif 
@@ -366,9 +376,14 @@ namespace HiPiaoInterface
             Console.WriteLine("开始执行获取订购记录时间！"+System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif      
             string xml = hiPiaoSrv.QueryUserBuyRecord(user);
+#if DEBUG
+            Console.WriteLine("结束执行获取订购记录时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
-            
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
             string xmlOrderDetail = string.Empty;
             XmlNodeList orderNodes = doc.SelectNodes("//consumption");
             
@@ -413,9 +428,7 @@ namespace HiPiaoInterface
                 Console.WriteLine("开始结束获取订购记录详细时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif
             }
-#if DEBUG
-            Console.WriteLine("结束执行获取订购记录时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-#endif
+
             return lists;
         }
 

@@ -78,6 +78,9 @@ namespace HiPiaoTerminal.UserControlEx
 
         void txtMain_KeyPress(object sender, KeyPressEventArgs e)
         {
+#if DEBUG
+            Console.WriteLine("用户输入的keychar为"+e.KeyChar);
+#endif
             if (e.KeyChar == 8 || e.KeyChar == 9 || e.KeyChar == 13 || e.KeyChar == 32)
             {
             }
@@ -180,7 +183,7 @@ namespace HiPiaoTerminal.UserControlEx
             {
                 this.btnDelete.Visible = false;
             }
-            if (this.onSubTextChanged != null)
+            if (this.txtMain.HasValue&&this.onSubTextChanged != null)
             {
                 onSubTextChanged();
                 
@@ -297,7 +300,7 @@ namespace HiPiaoTerminal.UserControlEx
         public void UnFocus()
         {
             //this.IsActive = false;
-            this.txtMain_Leave(null, null);
+            this.User_Leave(null, null);
             
             //this.txtMain.FindForm().Focus();
         }
@@ -308,13 +311,11 @@ namespace HiPiaoTerminal.UserControlEx
             {
                 return this.txtMain.GetRealText() ;
             }
+            
             set
             {
                 this.txtMain.Text = value;
-                if (this.txtMain.Hint != value)
-                {
-                    this.txtMain.ForeColor = Color.Black;
-                }
+                
                 if (value == string.Empty)
                 {
                     if (!this.txtMain.Focused)
@@ -322,7 +323,12 @@ namespace HiPiaoTerminal.UserControlEx
                         this.txtMain.UnFocus();
                     }
                 }
+                else if (this.txtMain.Hint != value)
+                {
+                    this.txtMain.ForeColor = Color.Black;
+                }
             }
+            
         }
 
         private void UserInputPanel_Enter(object sender, EventArgs e)
@@ -590,7 +596,7 @@ namespace HiPiaoTerminal.UserControlEx
              * */
         }
 
-        private void txtMain_Leave(object sender, EventArgs e)
+        private void User_Leave(object sender, EventArgs e)
         {
             this.IsActive = false;
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();

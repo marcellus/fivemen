@@ -22,15 +22,5 @@ namespace HiPiaoInterface.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://iphone.51cp.com:8080/ws/hpcinema")]
-        public string HiPiaoInterface_com_51cp_iphone_HipiaoService {
-            get {
-                return ((string)(this["HiPiaoInterface_com_51cp_iphone_HipiaoService"]));
-            }
-        }
     }
 }

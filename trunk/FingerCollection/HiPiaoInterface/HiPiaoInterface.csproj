@@ -29,9 +29,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
@@ -67,11 +70,6 @@
     <Compile Include="TicketObject.cs" />
     <Compile Include="TicketPrintObject.cs" />
     <Compile Include="UserObject.cs" />
-    <Compile Include="Web References\com.51cp.iphone\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -82,142 +80,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\com.51cp.iphone\addCouponesult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\advertisementList.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\cinema.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\cinemaInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\cinemaPojo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\cinemaViiPojo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\consumptionFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\couponInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\deductionInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\filmPixFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\filmPixnumber.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\googleMap.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\helpInfoContent.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\HipiaoService.wsdl" />
-    <None Include="Web References\com.51cp.iphone\hotFilmPixPojo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpAboutUs.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpCore.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpCradOrder.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpMemberWaste.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpOrderFormDetail.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\hpVersion.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\interestsContent.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\memberMoreList.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\movieFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\movieFactoryVii.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\nearCinemaPojo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\provinceCity.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\com.51cp.iphone\scheludeCinemaDir.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\scheludeDir.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\siteMapFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\suggestionInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\synchronousFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\topicPhotoCount.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\topicPhotoUrlFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\topicWillOneInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\topicWillPlayFactory.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\updateUserResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\useCouponInfo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\userLoginResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\com.51cp.iphone\videoPojo.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <Content Include="xml\CouponInfoResponse.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://iphone.51cp.com:8080/ws/hpcinema%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\com.51cp.iphone\</RelPath>
-      <UpdateFromURL>http://iphone.51cp.com:8080/ws/hpcinema%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HiPiaoInterface_com_51cp_iphone_HipiaoService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Commons\FT.Commons\FT.Commons.csproj">

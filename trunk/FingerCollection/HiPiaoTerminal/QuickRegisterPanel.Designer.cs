@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbPasswordHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbRepeatPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbUserNameHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnAgreeAndRegister = new System.Windows.Forms.PictureBox();
             this.picMobileHint = new System.Windows.Forms.PictureBox();
             this.picRepeatPwdHint = new System.Windows.Forms.PictureBox();
@@ -45,6 +41,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReturnButton = new System.Windows.Forms.PictureBox();
             this.btnReturnHome = new System.Windows.Forms.PictureBox();
+            this.lbPasswordHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbMobileHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbRepeatPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.lbUserNameHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtMobile = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtPassword = new HiPiaoTerminal.UserControlEx.UserInputPanel();
@@ -64,54 +64,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbPasswordHint
-            // 
-            this.lbPasswordHint.AutoSize = true;
-            this.lbPasswordHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbPasswordHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbPasswordHint.Location = new System.Drawing.Point(374, 391);
-            this.lbPasswordHint.Name = "lbPasswordHint";
-            this.lbPasswordHint.Size = new System.Drawing.Size(0, 32);
-            this.lbPasswordHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbPasswordHint.TabIndex = 3;
-            // 
-            // lbMobileHint
-            // 
-            this.lbMobileHint.AutoSize = true;
-            this.lbMobileHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbMobileHint.Location = new System.Drawing.Point(374, 623);
-            this.lbMobileHint.Name = "lbMobileHint";
-            this.lbMobileHint.Size = new System.Drawing.Size(0, 32);
-            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbMobileHint.TabIndex = 3;
-            // 
-            // lbRepeatPwdHint
-            // 
-            this.lbRepeatPwdHint.AutoSize = true;
-            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbRepeatPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 508);
-            this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
-            this.lbRepeatPwdHint.Size = new System.Drawing.Size(0, 32);
-            this.lbRepeatPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbRepeatPwdHint.TabIndex = 3;
-            // 
-            // lbUserNameHint
-            // 
-            this.lbUserNameHint.AutoSize = true;
-            this.lbUserNameHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbUserNameHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbUserNameHint.Location = new System.Drawing.Point(374, 275);
-            this.lbUserNameHint.Name = "lbUserNameHint";
-            this.lbUserNameHint.Size = new System.Drawing.Size(0, 32);
-            this.lbUserNameHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbUserNameHint.TabIndex = 3;
-            // 
             // btnAgreeAndRegister
             // 
             this.btnAgreeAndRegister.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_Agree_NotOk;
-            this.btnAgreeAndRegister.Location = new System.Drawing.Point(456, 686);
+            this.btnAgreeAndRegister.Location = new System.Drawing.Point(484, 686);
             this.btnAgreeAndRegister.Name = "btnAgreeAndRegister";
             this.btnAgreeAndRegister.Size = new System.Drawing.Size(422, 65);
             this.btnAgreeAndRegister.TabIndex = 1;
@@ -120,7 +76,7 @@
             // 
             // picMobileHint
             // 
-            this.picMobileHint.Location = new System.Drawing.Point(1039, 577);
+            this.picMobileHint.Location = new System.Drawing.Point(1039, 563);
             this.picMobileHint.Name = "picMobileHint";
             this.picMobileHint.Size = new System.Drawing.Size(28, 31);
             this.picMobileHint.TabIndex = 1;
@@ -129,7 +85,7 @@
             // 
             // picRepeatPwdHint
             // 
-            this.picRepeatPwdHint.Location = new System.Drawing.Point(1039, 457);
+            this.picRepeatPwdHint.Location = new System.Drawing.Point(1039, 446);
             this.picRepeatPwdHint.Name = "picRepeatPwdHint";
             this.picRepeatPwdHint.Size = new System.Drawing.Size(28, 31);
             this.picRepeatPwdHint.TabIndex = 1;
@@ -138,7 +94,7 @@
             // 
             // picPasswordHint
             // 
-            this.picPasswordHint.Location = new System.Drawing.Point(1039, 337);
+            this.picPasswordHint.Location = new System.Drawing.Point(1039, 332);
             this.picPasswordHint.Name = "picPasswordHint";
             this.picPasswordHint.Size = new System.Drawing.Size(28, 31);
             this.picPasswordHint.TabIndex = 1;
@@ -157,7 +113,7 @@
             // btnViewProtocol
             // 
             this.btnViewProtocol.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_Protocol_Hint;
-            this.btnViewProtocol.Location = new System.Drawing.Point(590, 626);
+            this.btnViewProtocol.Location = new System.Drawing.Point(602, 647);
             this.btnViewProtocol.Name = "btnViewProtocol";
             this.btnViewProtocol.Size = new System.Drawing.Size(166, 34);
             this.btnViewProtocol.TabIndex = 1;
@@ -228,6 +184,50 @@
             this.btnReturnHome.TabIndex = 0;
             this.btnReturnHome.TabStop = false;
             this.btnReturnHome.Click += new System.EventHandler(this.btnReturnHome_Click);
+            // 
+            // lbPasswordHint
+            // 
+            this.lbPasswordHint.AutoSize = true;
+            this.lbPasswordHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPasswordHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
+            this.lbPasswordHint.Location = new System.Drawing.Point(374, 386);
+            this.lbPasswordHint.Name = "lbPasswordHint";
+            this.lbPasswordHint.Size = new System.Drawing.Size(0, 32);
+            this.lbPasswordHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbPasswordHint.TabIndex = 3;
+            // 
+            // lbMobileHint
+            // 
+            this.lbMobileHint.AutoSize = true;
+            this.lbMobileHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
+            this.lbMobileHint.Location = new System.Drawing.Point(374, 617);
+            this.lbMobileHint.Name = "lbMobileHint";
+            this.lbMobileHint.Size = new System.Drawing.Size(0, 32);
+            this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbMobileHint.TabIndex = 3;
+            // 
+            // lbRepeatPwdHint
+            // 
+            this.lbRepeatPwdHint.AutoSize = true;
+            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRepeatPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
+            this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 502);
+            this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
+            this.lbRepeatPwdHint.Size = new System.Drawing.Size(0, 32);
+            this.lbRepeatPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbRepeatPwdHint.TabIndex = 3;
+            // 
+            // lbUserNameHint
+            // 
+            this.lbUserNameHint.AutoSize = true;
+            this.lbUserNameHint.Font = new System.Drawing.Font("方正兰亭黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUserNameHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
+            this.lbUserNameHint.Location = new System.Drawing.Point(374, 275);
+            this.lbUserNameHint.Name = "lbUserNameHint";
+            this.lbUserNameHint.Size = new System.Drawing.Size(0, 32);
+            this.lbUserNameHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbUserNameHint.TabIndex = 3;
             // 
             // txtMobile
             // 
