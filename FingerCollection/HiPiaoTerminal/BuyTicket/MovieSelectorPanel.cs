@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoInterface;
 using HiPiaoTerminal.ConfigModel;
+using FT.Commons.Tools;
 
 namespace HiPiaoTerminal.BuyTicket
 {
@@ -26,6 +27,10 @@ namespace HiPiaoTerminal.BuyTicket
 
                 this.InitMovies(now);
                 this.SetOperationTime(60);
+                WinFormHelper.InitButtonStyle(this.btnThreeDay);
+                WinFormHelper.InitButtonStyle(this.btnToday);
+                WinFormHelper.InitButtonStyle(this.btnTomorrow);
+                WinFormHelper.InitButtonStyle(this.btnReturn);
             }
             catch (Exception ex)
             {

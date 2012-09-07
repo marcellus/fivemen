@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HiPiaoInterface.com._51cp.iphone;
+//using HiPiaoInterface.com._51cp.iphone;
 using System.Net;
 using System.IO;
 
@@ -13,14 +13,27 @@ namespace HiPiaoInterface
         private static string Common_Soap_Footer = string.Empty;
 
         private static string Interface_Url = string.Empty;
+        private static int Interface_Timeout = 0;
         public static string GetInterfaceUrl()
         {
             if (Interface_Url.Length == 0)
             {
-                Interface_Url = "http://iphone.51cp.com:8080/ws/hpcinema";
+                Interface_Url = System.Configuration.ConfigurationManager.AppSettings["Interface_Url"].ToString();
+               // Interface_Url = "http://iphone.51cp.com:8080/ws/hpcinema";
             }
             return Interface_Url;
         }
+
+        public static int GetInterfaceTimeout()
+        {
+            if (Interface_Timeout == 0)
+            {
+                Interface_Timeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["Interface_Timeout"].ToString())*1000;
+                // Interface_Url = "http://iphone.51cp.com:8080/ws/hpcinema";
+            }
+            return Interface_Timeout;
+        }
+
         public static string BuildSoapHeader()
         {
             if (Common_Soap_Header.Length == 0)
@@ -53,11 +66,18 @@ namespace HiPiaoInterface
 
         public static string GetSoapServiceResult(StringBuilder body,string sessionKey)
         {
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +"开始请求字符串组成");
+#endif
             StringBuilder soap = new StringBuilder();
             soap.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             soap.Append(BuildSoapHeader(sessionKey));
             soap.Append(body);
             soap.Append(BuildSoapFooter());
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "结束请求字符串组成");
+#endif
+
 #if DEBUG
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送的xml请求内容为：" + soap.ToString());
             
@@ -290,6 +310,7 @@ namespace HiPiaoInterface
             webRequest.ContentType ="text/xml; charset=utf-8";
  
             webRequest.Method ="POST";
+            webRequest.Timeout = GetInterfaceTimeout();
  
             using (Stream requestStream = webRequest.GetRequestStream())
  
@@ -329,6 +350,7 @@ namespace HiPiaoInterface
         {
             return true;
         }
+        /*
         public HipiaoService CreateWebService()
         {
             com._51cp.iphone.HipiaoService service = new com._51cp.iphone.HipiaoService();
@@ -338,13 +360,14 @@ namespace HiPiaoInterface
             //city.
           
         }
+         * */
 
         public void GetCity2()
         {
            // GetCityCinema();
             
         }
-
+        /*
         public void GetCity()
         {
             HipiaoService service = this.CreateWebService();
@@ -355,6 +378,7 @@ namespace HiPiaoInterface
                 Console.WriteLine("city-"+i+"-"+citys[i].name);
             }
         }
+         * */
         
     }
 }

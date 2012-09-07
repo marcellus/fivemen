@@ -45,7 +45,15 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!CounterTime)
+            if (this.FindForm() == null)
+            {
+#if DEBUG
+                Console.WriteLine("控件不属于窗体，停止计时器");
+#endif
+                this.timer1.Stop();
+                this.timer1.Enabled = false;
+            }
+            else if (!CounterTime)
             {
                 CounterTime = true;
                 this.timer1.Stop();
