@@ -105,6 +105,29 @@ namespace FT.Commons.Tools
             return GetMonthFirstDay(System.DateTime.Now);
         }
 
+        public static string GetChineseXq(DateTime dt)
+        {
+            switch (dt.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return "星期一";
+                case DayOfWeek.Tuesday:
+                    return "星期二";
+                case DayOfWeek.Wednesday:
+                    return "星期三";
+                case DayOfWeek.Thursday:
+                    return "星期四";
+                case DayOfWeek.Friday:
+                    return "星期五";
+                case DayOfWeek.Saturday:
+                    return "星期六";
+                case DayOfWeek.Sunday:
+                    return "星期日";
+                default:
+                    return "未知星期";
+            }
+        }
+
         public static string GetChineseXq(int i)
         {
             switch (i)

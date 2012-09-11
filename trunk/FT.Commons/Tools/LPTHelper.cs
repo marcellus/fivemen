@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace FT.Commons.Tools
 {
-    public class LPTHelper:BaseHelper
+    public class LPTHelper : BaseHelper, ITerminalPrinter
     {
         public LPTHelper()
         {
@@ -263,6 +263,21 @@ namespace FT.Commons.Tools
         
         #endregion
 
+
+        #region ITerminalPrinter 成员
+
+        public bool Open()
+        {
+            return Open(string.Empty);
+        }
+
+       
+        public bool HasPaper()
+        {
+            return true;
+        }
+
+        #endregion
     }
 
     public delegate void HandleReturnStringDelegate(string str);
