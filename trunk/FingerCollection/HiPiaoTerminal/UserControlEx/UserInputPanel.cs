@@ -9,6 +9,7 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using FT.Commons.Win32;
 using HiPiaoTerminal.ConfigModel;
+using FT.Commons.Tools;
 
 namespace HiPiaoTerminal.UserControlEx
 {
@@ -227,22 +228,35 @@ namespace HiPiaoTerminal.UserControlEx
 
         private bool isActive = false;
 
+        private Image SetBackImage(Image image)
+        {
+            if (this.BackColor != SystemColors.Window)
+            {
+                return ImageHelper.SetImageColorAll(image, Color.White, this.BackColor, 0);
+            }
+            else
+            {
+                return image;
+            }
+        }
+
         public bool IsActive
         {
             get { return isActive; }
             set { isActive = value;
             if (!value)
             {
-                this.panelLeftTopBorder.BackgroundImage = Properties.Resources.UserInput_Left_Top_NotActive;
-                this.panelLeftCenterBorder.BackgroundImage = Properties.Resources.UserInput_Left_Center_NotActive;
-                this.panelLeftBottonBorder.BackgroundImage = Properties.Resources.UserInput_Left_Bottom_NotActive;
+                
+                this.panelLeftTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Top_NotActive);
+                this.panelLeftCenterBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Center_NotActive);
+                this.panelLeftBottonBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Bottom_NotActive);
 
-                this.panelMainTopBorder.BackgroundImage = Properties.Resources.UserInput_MainTop_NotActive;
-                this.panelMainBottomBorder.BackgroundImage = Properties.Resources.UserInput_MainBottom_NotActive;
+                this.panelMainTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_MainTop_NotActive);
+                this.panelMainBottomBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_MainBottom_NotActive);
 
-                this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_NotActive;
-                this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_NotActive;
-                this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_NotActive;
+                this.panelRightTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Top_NotActive);
+                this.panelRightBottonBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Bottom_NotActive);
+                this.panelRightCenterBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Center_NotActive);
                 if (this.txtMain.Text.Length > 0)
                 {
                     this.btnDelete.Visible = false;
@@ -250,16 +264,16 @@ namespace HiPiaoTerminal.UserControlEx
             }
             else
             {
-                this.panelLeftTopBorder.BackgroundImage = Properties.Resources.UserInput_Left_Top_Active;
-                this.panelLeftCenterBorder.BackgroundImage = Properties.Resources.UserInput_Left_Center_Active;
-                this.panelLeftBottonBorder.BackgroundImage = Properties.Resources.UserInput_Left_Bottom_Active;
+                this.panelLeftTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Top_Active);
+                this.panelLeftCenterBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Center_Active);
+                this.panelLeftBottonBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Left_Bottom_Active);
 
-                this.panelMainTopBorder.BackgroundImage = Properties.Resources.UserInput_MainTop_Active;
-                this.panelMainBottomBorder.BackgroundImage = Properties.Resources.UserInput_MainBottom_Active;
+                this.panelMainTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_MainTop_Active);
+                this.panelMainBottomBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_MainBottom_Active);
 
-                this.panelRightTopBorder.BackgroundImage = Properties.Resources.UserInput_Right_Top_Active;
-                this.panelRightBottonBorder.BackgroundImage = Properties.Resources.UserInput_Right_Bottom_Active;
-                this.panelRightCenterBorder.BackgroundImage = Properties.Resources.UserInput_Right_Center_Active;
+                this.panelRightTopBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Top_Active);
+                this.panelRightBottonBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Bottom_Active);
+                this.panelRightCenterBorder.BackgroundImage = this.SetBackImage(Properties.Resources.UserInput_Right_Center_Active);
                 if (this.txtMain.Text.Length > 0)
                 {
                     this.btnDelete.Visible = true;

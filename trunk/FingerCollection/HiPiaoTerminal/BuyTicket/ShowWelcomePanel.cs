@@ -15,6 +15,8 @@ namespace HiPiaoTerminal.BuyTicket
         public ShowWelcomePanel()
         {
             InitializeComponent();
+            this.Width = 527;
+            this.Height = 80;
         }
 
         private void ShowWelcomePanel_Load(object sender, EventArgs e)

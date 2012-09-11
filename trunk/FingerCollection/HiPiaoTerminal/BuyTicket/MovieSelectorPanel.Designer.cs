@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieSelectorPanel));
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,15 +64,17 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnThreeDay);
             this.splitContainer1.Panel2.Controls.Add(this.btnToday);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
+            this.splitContainer1.SplitterDistance = 827;
             // 
             // showWelcomePanel1
             // 
+            this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
             this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
-            this.showWelcomePanel1.Location = new System.Drawing.Point(237, 31);
+            this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
             this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.showWelcomePanel1.Name = "showWelcomePanel1";
-            this.showWelcomePanel1.Size = new System.Drawing.Size(530, 80);
+            this.showWelcomePanel1.Size = new System.Drawing.Size(527, 80);
             this.showWelcomePanel1.TabIndex = 1;
             // 
             // btnReturn
@@ -108,7 +111,7 @@
             this.btnTomorrow.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnTomorrow.ForeColor = System.Drawing.Color.White;
             this.btnTomorrow.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Location = new System.Drawing.Point(971, 31);
+            this.btnTomorrow.Location = new System.Drawing.Point(953, 30);
             this.btnTomorrow.Name = "btnTomorrow";
             this.btnTomorrow.Size = new System.Drawing.Size(118, 81);
             this.btnTomorrow.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -119,10 +122,10 @@
             // 
             // btnThreeDay
             // 
-            this.btnThreeDay.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnThreeDay.Font = new System.Drawing.Font("方正兰亭粗黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnThreeDay.ForeColor = System.Drawing.Color.White;
             this.btnThreeDay.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Location = new System.Drawing.Point(1115, 31);
+            this.btnThreeDay.Location = new System.Drawing.Point(1101, 30);
             this.btnThreeDay.Name = "btnThreeDay";
             this.btnThreeDay.Size = new System.Drawing.Size(118, 81);
             this.btnThreeDay.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -136,7 +139,7 @@
             this.btnToday.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnToday.ForeColor = System.Drawing.Color.White;
             this.btnToday.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Today;
-            this.btnToday.Location = new System.Drawing.Point(827, 31);
+            this.btnToday.Location = new System.Drawing.Point(805, 30);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(118, 81);
             this.btnToday.Skin = FT.Windows.Controls.SimpleSkinType.Custom;

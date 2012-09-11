@@ -61,11 +61,14 @@ namespace HiPiaoTerminal.BuyTicket
                 this.lbDirector.Text = string.Format(this.lbDirector.Text,movie.Director);
                 this.lbScreenWriter.Text = string.Format(this.lbScreenWriter.Text,movie.ScreenWriter);
                 this.lbMainActor.Text =string.Format(this.lbMainActor.Text, movie.MainActors);
-                if(movie.AdImagePath.Length>0)
-                    this.picMovieAdImage.Image = Image.FromFile(movie.AdImagePath);
+                if (movie.AdImagePath.Length > 0)
+                {
+                    this.picMovieAdImage.BackgroundImage = Image.FromFile(movie.AdImagePath);
+                    //this.picMovieAdImage.
+                }
                 this.lbLength.Text = string.Format(this.lbLength.Text, movie.TotalMinutes);
                 this.lbNational.Text = string.Format(this.lbNational.Text, movie.BelongArea);
-                this.lbType.Text = string.Format(this.lbType.Text, movie.Type);
+                this.lbType.Text = string.Format(this.lbType.Text, movie.Type.Trim());
             }
         }
         
@@ -107,13 +110,13 @@ namespace HiPiaoTerminal.BuyTicket
             if (lists != null && lists.Count > 0)
             {
                 //this.panelContent.Controls.Clear();
-                int x = 58;
-                int y = 250;
+                int x = 57;
+                int y = 274;
                 int linecount = 5;
                 int picWid = 195;
                 int picHeight = 88;
-                int colSep = 20;
-                int rowSep = 20;
+                int colSep = 14;
+                int rowSep = 14;
                 for (int i = 0; i < lists.Count; i++)
                 {
                     RoomPlanShowPanel pc = new RoomPlanShowPanel(lists[i]);

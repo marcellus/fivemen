@@ -10,6 +10,9 @@ namespace HiPiaoInterface
         public string TicketId;
         public string MovieName;
 
+        public string PlanId;
+        public string SeatId;
+
         public string RoomName;
         public string Seat;
         public string Cinema;

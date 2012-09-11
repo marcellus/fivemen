@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieSeatSelectorPanel));
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.lbMovieName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbMovieDetail = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -48,6 +49,7 @@
             this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
             this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.panelSeat = new System.Windows.Forms.Panel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -64,6 +66,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.panelSeat);
             this.panelContent.Controls.Add(this.lbProcessHint);
             this.panelContent.Controls.Add(this.processPanel1);
             this.panelContent.Controls.Add(this.label3);
@@ -90,16 +93,17 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.btnPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
-            this.splitContainer1.SplitterDistance = 821;
+            this.splitContainer1.SplitterDistance = 827;
             // 
             // showWelcomePanel1
             // 
+            this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
             this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
-            this.showWelcomePanel1.Location = new System.Drawing.Point(243, 33);
+            this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
             this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.showWelcomePanel1.Name = "showWelcomePanel1";
-            this.showWelcomePanel1.Size = new System.Drawing.Size(530, 80);
+            this.showWelcomePanel1.Size = new System.Drawing.Size(527, 80);
             this.showWelcomePanel1.TabIndex = 4;
             // 
             // lbMovieName
@@ -107,7 +111,7 @@
             this.lbMovieName.AutoSize = true;
             this.lbMovieName.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.lbMovieName.Location = new System.Drawing.Point(91, 33);
+            this.lbMovieName.Location = new System.Drawing.Point(124, 33);
             this.lbMovieName.Name = "lbMovieName";
             this.lbMovieName.Size = new System.Drawing.Size(99, 32);
             this.lbMovieName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -130,7 +134,7 @@
             this.lbPrice.AutoSize = true;
             this.lbPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
-            this.lbPrice.Location = new System.Drawing.Point(931, 33);
+            this.lbPrice.Location = new System.Drawing.Point(820, 33);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(120, 32);
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -143,7 +147,7 @@
             this.panelSelectedSeat.BackColor = System.Drawing.SystemColors.Window;
             this.panelSelectedSeat.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_SelectedSeat_Panel;
             this.panelSelectedSeat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSelectedSeat.Location = new System.Drawing.Point(1004, 222);
+            this.panelSelectedSeat.Location = new System.Drawing.Point(994, 177);
             this.panelSelectedSeat.Name = "panelSelectedSeat";
             this.panelSelectedSeat.Size = new System.Drawing.Size(228, 276);
             this.panelSelectedSeat.TabIndex = 5;
@@ -152,7 +156,7 @@
             // 
             this.panel3.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_SiteHint;
             this.panel3.Controls.Add(this.lbPlanInfo);
-            this.panel3.Location = new System.Drawing.Point(649, 33);
+            this.panel3.Location = new System.Drawing.Point(581, 33);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(223, 32);
             this.panel3.TabIndex = 3;
@@ -172,7 +176,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Sell_Flag_White;
-            this.pictureBox3.Location = new System.Drawing.Point(1004, 78);
+            this.pictureBox3.Location = new System.Drawing.Point(997, 38);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(228, 138);
             this.pictureBox3.TabIndex = 0;
@@ -214,7 +218,7 @@
             this.panel2.Controls.Add(this.lbTotalNum);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(842, 33);
+            this.panel2.Location = new System.Drawing.Point(860, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(203, 89);
             this.panel2.TabIndex = 5;
@@ -270,20 +274,21 @@
             // btnPay
             // 
             this.btnPay.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Ticket_Pay;
-            this.btnPay.Location = new System.Drawing.Point(1045, 33);
+            this.btnPay.Location = new System.Drawing.Point(1063, 30);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(161, 89);
             this.btnPay.TabIndex = 6;
             this.btnPay.TabStop = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
             this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(75, 78);
+            this.label3.Location = new System.Drawing.Point(124, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(833, 29);
+            this.label3.Size = new System.Drawing.Size(813, 29);
             this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 7;
             this.label3.Text = "屏幕";
@@ -306,6 +311,14 @@
             this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbProcessHint.TabIndex = 9;
             this.lbProcessHint.Text = "正在加载座位图，请稍候";
+            // 
+            // panelSeat
+            // 
+            this.panelSeat.AutoScroll = true;
+            this.panelSeat.Location = new System.Drawing.Point(124, 124);
+            this.panelSeat.Name = "panelSeat";
+            this.panelSeat.Size = new System.Drawing.Size(813, 555);
+            this.panelSeat.TabIndex = 10;
             // 
             // MovieSeatSelectorPanel
             // 
@@ -352,6 +365,7 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel label3;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbProcessHint;
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
+        private System.Windows.Forms.Panel panelSeat;
 
     }
 }

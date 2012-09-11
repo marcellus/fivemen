@@ -25,7 +25,8 @@ namespace HiPiaoTerminal.Account
                 this.lbEmail.Text = user.Email;
                 this.lbCoupon.Text = user.CouponNum.ToString();
                 this.lbBalance.Text = user.Balance.ToString();
-                this.lbBuyRecord.Text = user.BuyRecords.Count.ToString();
+               // this.lbBuyRecord.Text = user.BuyRecords.Count.ToString();
+                this.lbBuyRecord.Text = user.BuyRecordNum.ToString();
             }
             else
             {

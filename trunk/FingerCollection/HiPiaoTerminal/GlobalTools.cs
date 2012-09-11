@@ -447,7 +447,7 @@ namespace HiPiaoTerminal
         }
 
         //主操作窗体，所有控件创建和销毁都在被窗体内
-        private static Form MainForm;
+        public static Form MainForm;
 
         private static UpdateUnOperationTimeDelegate UpdateUnOperationTime;
 
@@ -593,31 +593,38 @@ namespace HiPiaoTerminal
         {
             lock (synObj)
             {
-                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                HiPiaoCache.RefreshHotMovie(config.Province,config.City);
-                MovieShowList.Clear();
-                DirectoryInfo dir = new DirectoryInfo("MovieShows");
-                if (dir != null)
+                try
                 {
-                    FileInfo[] files = dir.GetFiles();
-                    MovieObject movie = null;
-                    Image img=null;
-                    for (int i = 0; i < files.Length; i++)
+                    SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                    HiPiaoCache.RefreshHotMovie(config.Province, config.City);
+                    MovieShowList.Clear();
+                    DirectoryInfo dir = new DirectoryInfo("MovieShows");
+                    if (dir != null)
                     {
-                        
-                        try
+                        FileInfo[] files = dir.GetFiles();
+                        MovieObject movie = null;
+                        Image img = null;
+                        for (int i = 0; i < files.Length; i++)
                         {
-                            img = Image.FromFile(files[i].FullName);
-                            movie = new MovieObject();
-                            movie.AdImage = (Image)img.Clone();
-                            movie.Name = files[i].Name;
-                            MovieShowList.Add(movie);
-                        }
-                        catch (Exception ex)
-                        {
-                            //MessageBoxHelper.Show(ex.ToString());
+
+                            try
+                            {
+                                img = Image.FromFile(files[i].FullName);
+                                movie = new MovieObject();
+                                movie.AdImage = (Image)img.Clone();
+                                movie.Name = files[i].Name;
+                                MovieShowList.Add(movie);
+                            }
+                            catch (Exception ex)
+                            {
+                                //MessageBoxHelper.Show(ex.ToString());
+                            }
                         }
                     }
+                }
+                catch
+                {
+                    GlobalTools.PopNetError();
                 }
             }
             //FileInfo

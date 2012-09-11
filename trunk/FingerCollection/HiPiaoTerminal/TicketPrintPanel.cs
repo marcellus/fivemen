@@ -41,6 +41,14 @@ namespace HiPiaoTerminal
         {
             string mobile = this.txtMobile.Text.Trim();
             string validCode = this.txtValidCode.Text.Trim();
+            if (mobile.Length > 0 || validCode.Length > 0)
+            {
+                this.btnClearAll.Visible = true;
+            }
+            else
+            {
+                this.btnClearAll.Visible = false;
+            }
             if (mobile.Length == 11 && validCode.Length == 0)
             {
                 this.txtValidCode.Focus();
@@ -48,11 +56,11 @@ namespace HiPiaoTerminal
             }
             if (mobile.Length == 11 && validCode.Length > 0)
             {
-                this.btnPrint.IsActived = true;
+                //this.btnPrint2.IsActived = true;
             }
             else
             {
-                this.btnPrint.IsActived = false;
+                //this.btnPrint2.IsActived = false;
             }
             //string validCode=
         }
@@ -77,6 +85,10 @@ namespace HiPiaoTerminal
             if (txt != null)
             {
                 Label lb=sender as Label;
+                if (txt.Text.Length == txt.MaxInputLength)
+                {
+                    return;
+                }
                 txt.Text += lb.Text;
                 if (txt == this.txtMobile && txt.Text.Length >= 11)
                 {
@@ -108,17 +120,30 @@ namespace HiPiaoTerminal
             }
         }
 
+        private bool allowPrint;
         private void txtValidCode_onSubTextChanged()
         {
             string mobile = this.txtMobile.Text.Trim();
             string validCode = this.txtValidCode.Text.Trim();
-            if (mobile.Length == 11 && validCode.Length > 0)
+            if (mobile.Length > 0 || validCode.Length > 0)
             {
-                this.btnPrint.IsActived = true;
+                this.btnClearAll.Visible = true;
             }
             else
             {
-                this.btnPrint.IsActived = false;
+                this.btnClearAll.Visible = false;
+            }
+            if (mobile.Length == 11 && validCode.Length ==6)
+            {
+                //this.btnPrint2.IsActived = true;
+                this.allowPrint = true;
+                this.btnPrint.Image = Properties.Resources.Print_Ticket_Num_GetTicket_Active;
+            }
+            else
+            {
+                //this.btnPrint2.IsActived = false;
+                this.allowPrint = false;
+                this.btnPrint.Image = Properties.Resources.Print_Ticket_Num_GetTicket_Not_Active;
             }
         }
 
@@ -137,8 +162,22 @@ namespace HiPiaoTerminal
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if(this.btnPrint.IsActived)
-                GlobalTools.Pop(new WaitValidPanel(this.txtMobile.Text,this.txtValidCode.Text));
+            //if(this.btnPrint2.IsActived)
+                
+        }
+
+        private void btnPrint_Click_1(object sender, EventArgs e)
+        {
+            if (allowPrint)
+            {
+                GlobalTools.Pop(new WaitValidPanel(this.txtMobile.Text, this.txtValidCode.Text));
+            }
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            this.txtMobile.Text=this.txtValidCode.Text = string.Empty;
+            this.txtMobile.Focus();
         }
     }
 }

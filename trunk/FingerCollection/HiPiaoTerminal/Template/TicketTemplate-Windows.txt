@@ -1,0 +1,16 @@
+﻿
+
+
+field:  #Cinema#   票号：#TicketId#        #RoomName#
+
+field:  影厅：#RoomName#   座位：#Seat#         #Seat#
+
+field:    影片：#MovieName#
+
+field:    日期：#PlayDate#  时间：#PlayTime#    #PlayDate# 
+
+field:                                     #PlayTime#
+
+field:    手续费：￥0.00    票价：￥#Price#.00  #TicketId#
+
+field:   出票时间：#PrintTime# 

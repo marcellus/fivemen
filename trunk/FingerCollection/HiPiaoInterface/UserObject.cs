@@ -106,12 +106,20 @@ namespace HiPiaoInterface
         }
 
 
-       
+        private int couponNum = 0;
+        private bool loadCouponNum = false;
 
         public int CouponNum
         {
             get
             {
+                if (!loadCouponNum)
+                {
+                    this.couponNum = HiPiaoCache.GetUserCouponsCount(this);
+                    this.loadCouponNum = true;
+                }
+                return this.couponNum;
+                /*
                 int result = 0;
                 for (int i = 0; i < this.Coupons.Count; i++)
                 {
@@ -121,13 +129,30 @@ namespace HiPiaoInterface
                     //}
                 }
                 return result;
+                 * */
+            }
+            set
+            {
+                couponNum = value;
             }
         }
 
+        private int deductionNum = 0;
+        private bool loadDeductionNum = false;
+
+      
+            
         public int DeductionNum
         {
             get
             {
+                if (!loadDeductionNum)
+                {
+                    this.deductionNum = HiPiaoCache.GetUserDeductionCount(this);
+                    this.loadDeductionNum = true;
+                }
+                return this.deductionNum;
+/*
                 int result = 0;
                 for (int i = 0; i < this.Deductions.Count; i++)
                 {
@@ -137,6 +162,11 @@ namespace HiPiaoInterface
                     //}
                 }
                 return result;
+ */
+            }
+            set
+            {
+                deductionNum = value;
             }
         }
 
@@ -177,6 +207,38 @@ namespace HiPiaoInterface
                 }
                 return deductions; }
             set { deductions = value; }
+        }
+
+
+        private int buyRecordNum = 0;
+        private bool loadBuyRecordNum = false;
+
+        public int BuyRecordNum
+        {
+            get
+            {
+                if (!loadBuyRecordNum)
+                {
+                    this.buyRecordNum = HiPiaoCache.GetUserBuyRecordCount(this);
+                    this.loadBuyRecordNum = true;
+                }
+                return this.buyRecordNum;
+                /*
+                int result = 0;
+                for (int i = 0; i < this.Coupons.Count; i++)
+                {
+                    //if (coupons[i].Status == 1)
+                    //{
+                        result++;
+                    //}
+                }
+                return result;
+                 * */
+            }
+            set
+            {
+                buyRecordNum = value;
+            }
         }
 
         private List<BuyRecordObject> buyRecords=new List<BuyRecordObject>();
