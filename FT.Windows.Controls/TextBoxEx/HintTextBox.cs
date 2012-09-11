@@ -107,16 +107,23 @@ namespace FT.Windows.Controls.TextBoxEx
 
         public void UnFocus()
         {
-            if (this.Focused)
+#if DEBUG
+            if (this.Parent.Parent != null)
             {
-                Console.WriteLine("失去焦点+" + this.Name);
+                Console.WriteLine("输入框所在父控件为"+this.Parent.Parent.Name);
+            }
+            Console.WriteLine("输入框失去焦点+" + this.Name+this.Focused);
+#endif
+           // if (this.Focused)
+           // {
+                //Console.WriteLine("失去焦点+" + this.Name);
                 if (this.Text.Trim().Length == 0)
                 {
                     //this.focu
                     // this.FindForm().Focus();
                     this.SetHint();
                 }
-            }
+          //  }
         }
 
 
@@ -127,7 +134,9 @@ namespace FT.Windows.Controls.TextBoxEx
 
         public void MyFocus()
         {
+#if DEBUG
             Console.WriteLine("获取焦点+" + this.Name);
+#endif
             if (!this.HasValue)
             {
                 this.HideHint();
