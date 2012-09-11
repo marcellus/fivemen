@@ -77,7 +77,9 @@ namespace HiPiaoTerminal
           //  return;
             if (allowRegister)
             {
+#if DEBUG
                 Console.WriteLine("点击注册按钮开始隐藏小键盘");
+#endif
                 GlobalTools.HideAllKeyBoard();
                 string name = this.txtUserName.Text.Trim();
                 string pwd = this.txtPassword.Text.Trim();
@@ -112,6 +114,7 @@ namespace HiPiaoTerminal
                     this.txtUserName.UnFocus();
                     this.txtPassword.Focus();
                     result = false;
+                    return;
 
                 }
                 else
@@ -132,6 +135,7 @@ namespace HiPiaoTerminal
                     this.txtUserName.UnFocus();
                     this.txtPassword.Focus();
                     result = false;
+                    return;
 
                 }
                 else
@@ -151,6 +155,7 @@ namespace HiPiaoTerminal
                     this.txtUserName.UnFocus();
                     this.txtMobile.Focus();
                     result = false;
+                    return;
 
                 }
                     /*

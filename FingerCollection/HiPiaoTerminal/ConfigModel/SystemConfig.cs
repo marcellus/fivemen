@@ -27,6 +27,8 @@ namespace HiPiaoTerminal.ConfigModel
 
         public int UnOperationTime = 20;
 
+        public string PrinterType = "并口";
+
         /// <summary>
         /// 定时更新电影信息时间
         /// </summary>

@@ -96,8 +96,8 @@ namespace HiPiaoTerminal.BuyTicket
         private static int colSep = 20;
         private static int rowSep = 40;
 
-        private static int picWid=156;
-        private static int picHeight=216;
+        private static int picWid=172;
+        private static int picHeight=240;
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {

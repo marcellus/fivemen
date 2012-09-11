@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="lbTimeSecond.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="panelContent.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="lbProcessHint.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -159,9 +153,6 @@
   <metadata name="picMovieAdImage.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="panelHeader.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="pictureBox2.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -169,9 +160,6 @@
     <value>True</value>
   </metadata>
   <metadata name="pictureBox1.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="splitContainer1.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="btnTomorrow.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -184,6 +172,75 @@
     <value>True</value>
   </metadata>
   <metadata name="showWelcomePanel1.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="showWelcomePanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAg8AAABQCAIAAAARAAH+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAA
+        DsEBuJFr7QAAA7FJREFUeF7t2stqImEUhdHEke//iCktQVFBBC8FZZ/GH2NM0XveLgcG5Uyy2OTDJJ+3
+        2+3j52Mcx/P5XM8v73tJgAABAv+9wGw2m8/n9fz6nVYtHo9hGLbb7ZcHAQIECLy3QLWgivAciI/Hi9Pp
+        1HXde/v47gkQIECgCVQRqguPRrRaXC4XqbARAgQIEHgWqC5UHe7B+FuL+hNF3/eMCBAgQIDAi0DVoRrR
+        anE8HgERIECAAIFJgWpEq8Vms2FEgAABAgQmBaoRrRaLxYIRAQIECBCYFFgul60WgAgQIECAwD8E1MI8
+        CBAgQCALqEU2ckGAAAECamEDBAgQIJAF1CIbuSBAgAABtbABAgQIEMgCapGNXBAgQICAWtgAAQIECGQB
+        tchGLggQIEBALWyAAAECBLKAWmQjFwQIECCgFjZAgAABAllALbKRCwIECBBQCxsgQIAAgSygFtnIBQEC
+        BAiohQ0QIECAQBZQi2zkggABAgTUwgYIECBAIAuoRTZyQYAAAQJqYQMECBAgkAXUIhu5IECAAAG1sAEC
+        BAgQyAJqkY1cECBAgIBa2AABAgQIZAG1yEYuCBAgQEAtbIAAAQIEsoBaZCMXBAgQIKAWNkCAAAECWUAt
+        spELAgQIEFALGyBAgACBLKAW2cgFAQIECKiFDRAgQIBAFlCLbOSCAAECBNTCBggQIEAgC6hFNnJBgAAB
+        AmphAwQIECCQBdQiG7kgQIAAAbWwAQIECBDIAmqRjVwQIECAgFrYAAECBAhkAbXIRi4IECBAQC1sgAAB
+        AgSygFpkIxcECBAgoBY2QIAAAQJZQC2ykQsCBAgQUAsbIECAAIEsoBbZyAUBAgQIqIUNECBAgEAWUIts
+        5IIAAQIE1MIGCBAgQCALqEU2ckGAAAECamEDBAgQIJAF1CIbuSBAgAABtbABAgQIEMgCapGNXBAgQICA
+        WtgAAQIECGQBtchGLggQIEBALWyAAAECBLKAWmQjFwQIECCgFjZAgAABAllALbKRCwIECBBQCxsgQIAA
+        gSygFtnIBQECBAi0WnRdx4IAAQIECEwKVCNaLfq+Z0SAAAECBCYFVqtVq8Vut2NEgAABAgQmBfb7favF
+        9XplRIAAAQIEJgWqEa0W9cXHCyshQIAAgd8C9w8W37UYx3G9XpMiQIAAAQIPgepC1eFHLe4vDoeD/48y
+        FAIECBCoFlQR7mmYqEW9NQxDfe6ov4DDIkCAAIE3FKif/1WBasFzKr5/E/XyrpcECBAgQOBZ4A8gDtTZ
+        7ZZn2wAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="lbName.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbOtherName.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbDirector.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbScreenWriter.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbMainActor.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbType.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbNational.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbLanguage.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbLength.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="picMovieAdImage.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="pictureBox2.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnReturn.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="pictureBox1.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lbProcessHint.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="processPanel1.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

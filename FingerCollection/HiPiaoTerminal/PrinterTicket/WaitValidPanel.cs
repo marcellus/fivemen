@@ -75,7 +75,7 @@ namespace HiPiaoTerminal.PrinterTicket
         {
             timer1.Stop();
             try{
-            TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetHiPiaoOperator().GetTicket(mobile, valid);
+            TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
             GlobalHardwareTools.ticket = ticket;
             
             if (ticket != null)

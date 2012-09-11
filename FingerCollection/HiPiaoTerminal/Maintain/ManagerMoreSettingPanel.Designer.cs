@@ -54,6 +54,8 @@
             this.txtRefreshCacheTime = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.simpleLabel3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel5 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.cbPrinterType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -351,6 +353,30 @@
             this.simpleLabel4.TabIndex = 5;
             this.simpleLabel4.Text = "分钟";
             // 
+            // simpleLabel5
+            // 
+            this.simpleLabel5.AutoSize = true;
+            this.simpleLabel5.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel5.Location = new System.Drawing.Point(781, 304);
+            this.simpleLabel5.Name = "simpleLabel5";
+            this.simpleLabel5.Size = new System.Drawing.Size(157, 40);
+            this.simpleLabel5.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel5.TabIndex = 5;
+            this.simpleLabel5.Text = "打印方式";
+            // 
+            // cbPrinterType
+            // 
+            this.cbPrinterType.FormattingEnabled = true;
+            this.cbPrinterType.Items.AddRange(new object[] {
+            "并口",
+            "串口",
+            "Windows"});
+            this.cbPrinterType.Location = new System.Drawing.Point(954, 304);
+            this.cbPrinterType.Name = "cbPrinterType";
+            this.cbPrinterType.Size = new System.Drawing.Size(122, 36);
+            this.cbPrinterType.TabIndex = 23;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
@@ -362,6 +388,7 @@
             this.Controls.Add(this.checkUseHardKeyboard);
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.checkUseMask);
+            this.Controls.Add(this.cbPrinterType);
             this.Controls.Add(this.cbCity);
             this.Controls.Add(this.simpleLabel4);
             this.Controls.Add(this.label5);
@@ -376,6 +403,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.simpleLabel5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lbAddress);
@@ -384,6 +412,7 @@
             this.Controls.SetChildIndex(this.lbAddress, 0);
             this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.simpleLabel5, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label6, 0);
@@ -398,6 +427,7 @@
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.simpleLabel4, 0);
             this.Controls.SetChildIndex(this.cbCity, 0);
+            this.Controls.SetChildIndex(this.cbPrinterType, 0);
             this.Controls.SetChildIndex(this.checkUseMask, 0);
             this.Controls.SetChildIndex(this.cbProvince, 0);
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
@@ -440,5 +470,7 @@
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtRefreshCacheTime;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel3;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel4;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel5;
+        private System.Windows.Forms.ComboBox cbPrinterType;
     }
 }

@@ -70,6 +70,7 @@
             // InputErrorPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.pictureBox1);

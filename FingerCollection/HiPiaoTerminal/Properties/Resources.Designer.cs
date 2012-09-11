@@ -312,6 +312,34 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BuyTick_ConfirmPay {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_ConfirmPay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_ConfirmPay_Active {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_ConfirmPay_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_ConfirmPay_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_ConfirmPay_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_Money_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_Money_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BuyTicket_Btn_Active {
             get {
                 object obj = ResourceManager.GetObject("BuyTicket_Btn_Active", resourceCulture);
@@ -336,6 +364,13 @@ namespace HiPiaoTerminal.Properties {
         internal static System.Drawing.Bitmap BuyTicket_CheckInfo_Hint {
             get {
                 object obj = ResourceManager.GetObject("BuyTicket_CheckInfo_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_ConfirmTickets {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_ConfirmTickets", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -949,6 +984,48 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Print_Ticket_ClearAll {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_ClearAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Ticket_Num_Active {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_Num_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Ticket_Num_GetTicket_Active {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_Num_GetTicket_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Ticket_Num_GetTicket_Not_Active {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_Num_GetTicket_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Ticket_Num_Not_Active {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_Num_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Print_Ticket_Phone {
+            get {
+                object obj = ResourceManager.GetObject("Print_Ticket_Phone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Print_Wait_Print {
             get {
                 object obj = ResourceManager.GetObject("Print_Wait_Print", resourceCulture);
@@ -1127,6 +1204,13 @@ namespace HiPiaoTerminal.Properties {
         internal static System.Drawing.Bitmap SameBackgroud {
             get {
                 object obj = ResourceManager.GetObject("SameBackgroud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ShowWelcomeBack {
+            get {
+                object obj = ResourceManager.GetObject("ShowWelcomeBack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

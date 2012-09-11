@@ -83,6 +83,12 @@
     <Compile Include="Account\UserInfoPanel.Designer.cs">
       <DependentUpon>UserInfoPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyTicket\BuyMoneyHint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\BuyMoneyHint.Designer.cs">
+      <DependentUpon>BuyMoneyHint.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyTicket\ConfirmPayPwdPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,11 +125,29 @@
     <Compile Include="BuyTicket\ShowWelcomePanel.Designer.cs">
       <DependentUpon>ShowWelcomePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyTicket\SuccessBuyTicketPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\SuccessBuyTicketPanel.Designer.cs">
+      <DependentUpon>SuccessBuyTicketPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyTicket\UserPayCheckPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BuyTicket\UserPayCheckPanel.Designer.cs">
       <DependentUpon>UserPayCheckPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\WaitSuccessPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\WaitSuccessPrintPanel.Designer.cs">
+      <DependentUpon>WaitSuccessPrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyTicket\WaitTicketPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\WaitTicketPrintPanel.Designer.cs">
+      <DependentUpon>WaitTicketPrintPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonForm\BaseOneLineMessageForm.cs">
       <SubType>Form</SubType>
@@ -304,6 +328,12 @@
     <Compile Include="UserControlEx\LabelButtonWithActive.Designer.cs">
       <DependentUpon>LabelButtonWithActive.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlEx\LabelButtonWithActive2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\LabelButtonWithActive2.Designer.cs">
+      <DependentUpon>LabelButtonWithActive2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlEx\MaintainFirstPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -366,6 +396,10 @@
       <DependentUpon>UserInfoPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\BuyMoneyHint.resx">
+      <DependentUpon>BuyMoneyHint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\ConfirmPayPwdPanel.resx">
       <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -390,8 +424,20 @@
       <DependentUpon>ShowWelcomePanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\SuccessBuyTicketPanel.resx">
+      <DependentUpon>SuccessBuyTicketPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\UserPayCheckPanel.resx">
       <DependentUpon>UserPayCheckPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\WaitSuccessPrintPanel.resx">
+      <DependentUpon>WaitSuccessPrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\WaitTicketPrintPanel.resx">
+      <DependentUpon>WaitTicketPrintPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\BaseOneLineMessageForm.resx">
@@ -965,7 +1011,22 @@
     <None Include="Resources\UserInput_Right_Top_NotActive.png" />
     <None Include="Resources\UserInput_ClearAll.png" />
     <None Include="Resources\UserInput_Delete.png" />
+    <None Include="Resources\BuyTicket_ConfirmTickets.png" />
+    <None Include="Resources\BuyTick_ConfirmPay_Active.png" />
+    <None Include="Resources\BuyTick_ConfirmPay_NotActive.png" />
+    <None Include="Resources\BuyTick_Money_Hint.png" />
+    <None Include="Resources\BuyTick_ConfirmPay.png" />
+    <None Include="Resources\ShowWelcomeBack.png" />
+    <None Include="Resources\Print_Ticket_Phone.png" />
+    <None Include="Resources\Print_Ticket_Num_Active.png" />
+    <None Include="Resources\Print_Ticket_Num_GetTicket_Active.png" />
+    <None Include="Resources\Print_Ticket_Num_GetTicket_Not_Active.png" />
+    <None Include="Resources\Print_Ticket_Num_Not_Active.png" />
+    <None Include="Resources\Print_Ticket_ClearAll.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\TicketTemplate-Windows.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TextFile1.txt" />

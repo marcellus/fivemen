@@ -10,6 +10,7 @@ using FT.Commons.Tools;
 using System.Threading;
 using FT.Commons.Win32;
 using System.Collections;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal.BuyTicket
 {
@@ -19,6 +20,12 @@ namespace HiPiaoTerminal.BuyTicket
         private MovieObject movie;
         private DateTime dt;
         private MoviePlanObject moviePlan;
+
+        public void RefreshSeat()
+        {
+            this.panelSeat.Controls.Clear();
+            this.LoadSeat();
+        }
         public MovieSeatSelectorPanel(RoomPlanObject roomPlan,MovieObject movie,MoviePlanObject moviePlan,DateTime dt)
         {
             InitializeComponent();
@@ -44,7 +51,7 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void MovieSeatSelectorPanel_Load(object sender, EventArgs e)
         {
-            this.lbTotalNum.Text = selectedSeat.Count.ToString() + "张";
+            
             if (movie != null&&moviePlan!=null)
             {
                 this.lbMovieName.Text = movie.Name;
@@ -52,6 +59,7 @@ namespace HiPiaoTerminal.BuyTicket
                
 
             }
+            this.lbTotalNum.Text = selectedSeat.Count.ToString() + "张";
             if (roomPlan != null)
             {
                 this.lbPrice.Text = string.Format(this.lbPrice.Text, roomPlan.SPrice);
@@ -117,7 +125,8 @@ namespace HiPiaoTerminal.BuyTicket
                     //this.panelContent.Controls.Add(lb);
                     lb.Location = new Point(x + lists[i].XPoint, y + lists[i].YPoint);
                     lb.Click += new EventHandler(lb_Click);
-                     WindowFormDelegate.AddControlTo(this.panelContent,lb);
+                   //  WindowFormDelegate.AddControlTo(this.panelContent,lb);
+                    WindowFormDelegate.AddControlTo(this.panelSeat, lb);
 
                   
                 }
@@ -152,7 +161,7 @@ namespace HiPiaoTerminal.BuyTicket
             Control ctr = sender as Control;
             string seatId = ctr.Tag.ToString();
             this.selectedSeat.Remove(seatId);
-            this.panelContent.Controls[seatId].BackColor = Color.FromArgb(125, 183, 0);
+            this.panelSeat.Controls[seatId].BackColor = Color.FromArgb(125, 183, 0);
             this.RefreshSelectedPanel();
             
         }
@@ -170,7 +179,7 @@ namespace HiPiaoTerminal.BuyTicket
             SeatObject seat = null;
             System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
             int i = 0;
-            Font font = new Font("方正兰亭黑简体", 15);
+            Font font = new Font("方正兰亭黑简体", 14);
             while (enumerator.MoveNext())
             {
                 seat = enumerator.Value as SeatObject;
@@ -191,6 +200,46 @@ namespace HiPiaoTerminal.BuyTicket
                 i++;
             }
 
+        }
+
+
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (selectedSeat.Count == 0)
+            {
+                return;
+            }
+            if (GlobalTools.GetLoginUser().Balance < Convert.ToDouble(this.lbTotalPrice.Text))
+            {
+                GlobalTools.Pop(new BuyMoneyHint());
+                return;
+            }
+            List<TicketPrintObject> tickets = new List<TicketPrintObject>();
+            System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
+            TicketPrintObject ticket = null;
+            SeatObject seat = null;
+            SystemConfig config=FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            while (enumerator.MoveNext())
+            {
+                ticket = new TicketPrintObject();
+                seat = enumerator.Value as SeatObject;
+                ticket.Seat = string.Format("{0}排{1}号", seat.RowNum, seat.SeatNo); ;
+                ticket.MovieName = movie.Name;
+                ticket.Cinema =config.Cinema;
+                ticket.TicketId = "0000FED001";
+                ticket.RoomName = roomPlan.RoomName;
+                ticket.Price = Convert.ToInt32(roomPlan.SPrice);
+                ticket.PrintTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                ticket.PlayTime = roomPlan.Playtime;
+                ticket.PlayDate = Convert.ToDateTime(roomPlan.Playtime).ToString("yyyy.MM.dd");
+                ticket.PlanId = roomPlan.PlanId;
+                ticket.SeatId = seat.SeatId;
+                tickets.Add(ticket);
+                    
+            }
+            
+                GlobalTools.GoPanel(new UserPayCheckPanel(tickets,movie,moviePlan,roomPlan,dt));
         }
     }
 }

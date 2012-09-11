@@ -4,6 +4,7 @@ using System.Text;
 //using HiPiaoInterface.com._51cp.iphone;
 using System.Net;
 using System.IO;
+using FT.Commons.Security;
 
 namespace HiPiaoInterface
 {
@@ -63,6 +64,8 @@ namespace HiPiaoInterface
                return header.ToString();
             
         }
+
+       
 
         public static string GetSoapServiceResult(StringBuilder body,string sessionKey)
         {
@@ -297,6 +300,78 @@ namespace HiPiaoInterface
 
             return GetSoapServiceResult(GetProvinceBody("getCityCinema", province, city));
         }
+        public string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)
+        {
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "开始购票");
+#endif
+            string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Buy_Url"];
+            StringBuilder body = new StringBuilder();
+            String fromclient = "ANDROID";
+            string seatv = string.Empty;
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                seatv += tickets[i].SeatId + ",";
+            }
+            seatv=seatv.TrimEnd(',');
+            ISecurity md5 = new MD5Security();
+            String r1 = "MEMBERID" + user.MemberId +
+                        
+                        "mobile" + user.Mobile +
+                        "normal" + tickets.Count.ToString() +
+                        "planId" + tickets[0].PlanId +
+                        "seatids" + seatv+
+                        "fromclient" + fromclient
+                        ;
+            String r2 = md5.Encrypt(md5.Encrypt(md5.Encrypt(user.Pwd)) + user.HipiaoCard);
+            String r3 = md5.Encrypt(r1 + r2);
+            String r4 = "MEMBERID=" + user.MemberId + "&mobile="
+                    + user.Mobile + "&normal="
+                    + tickets.Count.ToString() + "&planId="
+                    + tickets[0].PlanId + "&seatids=" + seatv
+                    + "&fromclient=" + fromclient;
+            String query = r4 + "&pass=" + r3;
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
+#endif
+            Uri uri = new Uri(url);
+
+            WebRequest webRequest = WebRequest.Create(uri);
+
+            webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            webRequest.ContentLength = query.Length;
+            webRequest.Method = "POST";
+
+            webRequest.Timeout = GetInterfaceTimeout();
+
+            using (Stream requestStream = webRequest.GetRequestStream())
+            {
+
+                byte[] paramBytes = Encoding.UTF8.GetBytes(query.ToString());
+
+                requestStream.Write(paramBytes, 0, paramBytes.Length);
+
+            }
+
+            //响应
+
+            WebResponse webResponse = webRequest.GetResponse();
+
+            using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
+            {
+
+                string result = "";
+                 result = myStreamReader.ReadToEnd();
+#if DEBUG
+                Console.WriteLine("调用购票接口返回结果为："+result);
+#endif
+                return result;
+
+
+            }
+            return string.Empty;
+        }
+
         public static string GetSOAPReSource(string url, string datastr)
  
         {
@@ -310,6 +385,7 @@ namespace HiPiaoInterface
             webRequest.ContentType ="text/xml; charset=utf-8";
  
             webRequest.Method ="POST";
+            
             webRequest.Timeout = GetInterfaceTimeout();
  
             using (Stream requestStream = webRequest.GetRequestStream())

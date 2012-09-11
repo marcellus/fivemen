@@ -43,7 +43,7 @@ namespace HiPiaoTerminal.UserRegister
         {
            
             this.FindForm().Close();
-            GlobalTools.ReturnMain();
+            GlobalTools.UserLogin();
         }
 
        

@@ -194,7 +194,7 @@ namespace FingerMonitor
                                 continue;
                             }
                         }
-                        else {
+                        else if(thisStudent.LSH==null||thisStudent.LSH.Length==0){
                             String updateSet = string.Empty;
                             String msg = string.Empty;
                             String msgPattern=" {0} 由{1}更新为{2} ,";

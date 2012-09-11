@@ -40,7 +40,11 @@ namespace HiPiaoTerminal.Maintain
                 config.Cinema = this.cbCinema.Text;
 
                 config.UpdateMovieTime = Convert.ToInt32( this.txtRefreshCacheTime.Text) ;
+                config.PrinterType = this.cbPrinterType.Text;
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
+
+
+
                 this.lbReturnMsg.Text = "修改成功！";
             }
             catch
@@ -66,6 +70,7 @@ namespace HiPiaoTerminal.Maintain
                 this.cbCity.Text = config.City;
                 this.cbCinema.Text = config.Cinema;
                 this.txtRefreshCacheTime.Text = config.UpdateMovieTime.ToString();
+                this.cbPrinterType.Text = config.PrinterType;
             }
             catch
             {

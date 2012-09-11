@@ -16,6 +16,9 @@ namespace HiPiaoInterface
         {
         }
 
+
+        
+
         private static List<MoviePlanObject> GetCinemasMoviePlan(string cinemaId, DateTime dt)
         {
             List<MoviePlanObject> lists = new List<MoviePlanObject>();
@@ -27,6 +30,19 @@ namespace HiPiaoInterface
         private static List<CinemaObject> cinemasList = new List<CinemaObject>();
 
         private static CommonHiPiaoStringOperator hiPiaoSrv =new  CommonHiPiaoStringOperator();
+
+        public static string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)
+        {
+            string xml = hiPiaoSrv.UserBuyTicket(user, tickets);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node = doc.SelectSingleNode("//order");
+            if (node != null)
+            {
+                return node.Attributes["res"].Value.ToString();
+            }
+            else return "-1";
+        }
 
         public static List<CinemaObject> GetCinemas(string province, string city)
         {
@@ -46,6 +62,8 @@ namespace HiPiaoInterface
             
             return cinemasList;
         }
+
+       
 
         public static List<CinemaObject> RefreshCinemas(string province, string city)
         {
@@ -229,6 +247,23 @@ namespace HiPiaoInterface
             }
             return hotMovie;
         }
+        public static int GetUserDeductionCount(UserObject user)
+        {
+#if DEBUG
+            Console.WriteLine("开始执行获取用户折扣券数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            string xml = hiPiaoSrv.QueryUserDeduction(user);
+#if DEBUG
+            Console.WriteLine("结束执行获取用户折扣券数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            XmlNodeList deductionNodes = doc.SelectNodes("//dif");
+            return deductionNodes.Count;
+        }
         public static List<DeductionObject> GetUserDeduction(UserObject user)
         {
             List<DeductionObject> lists = new List<DeductionObject>();
@@ -266,6 +301,23 @@ namespace HiPiaoInterface
                 lists.Add(deduction);
             }
             return lists;
+        }
+        public static int GetUserCouponsCount(UserObject user)
+        {
+#if DEBUG
+            Console.WriteLine("开始执行获取用户抵购券数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            string xml = hiPiaoSrv.QueryUserCoupon(user);
+#if DEBUG
+            Console.WriteLine("结束执行获取用户抵购券数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            XmlNodeList couponNodes = doc.SelectNodes("//couponInfo");
+            return couponNodes.Count;
         }
         public static List<CouponObject> GetUserCoupons(UserObject user)
         {
@@ -367,6 +419,24 @@ namespace HiPiaoInterface
                 ticket.Seat = seat;
                 obj.Tickets.Add(ticket);
             }
+        }
+        public static int GetUserBuyRecordCount(UserObject user)
+        {
+#if DEBUG
+            Console.WriteLine("开始执行获取订购记录数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            string xml = hiPiaoSrv.QueryUserBuyRecord(user);
+#if DEBUG
+            Console.WriteLine("结束执行获取订购记录数量时间！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+#if DEBUG
+            Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+#endif
+            string xmlOrderDetail = string.Empty;
+            XmlNodeList orderNodes = doc.SelectNodes("//consumption");
+            return orderNodes.Count;
         }
 
         public static List<BuyRecordObject> GetUserBuyRecord(UserObject user)

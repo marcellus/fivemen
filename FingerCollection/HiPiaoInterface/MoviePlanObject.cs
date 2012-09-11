@@ -10,5 +10,6 @@ namespace HiPiaoInterface
         public string Language;
         public string Type;
         public List<RoomPlanObject> RoomPlans = new List<RoomPlanObject>();
+        public string Id;
     }
 }

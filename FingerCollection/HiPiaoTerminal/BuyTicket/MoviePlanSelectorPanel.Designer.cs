@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoviePlanSelectorPanel));
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.lbName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbOtherName = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -95,12 +96,13 @@
             // 
             // showWelcomePanel1
             // 
+            this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
             this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
-            this.showWelcomePanel1.Location = new System.Drawing.Point(225, 31);
+            this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
             this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.showWelcomePanel1.Name = "showWelcomePanel1";
-            this.showWelcomePanel1.Size = new System.Drawing.Size(530, 80);
+            this.showWelcomePanel1.Size = new System.Drawing.Size(527, 80);
             this.showWelcomePanel1.TabIndex = 3;
             // 
             // lbName
@@ -211,9 +213,10 @@
             // 
             // picMovieAdImage
             // 
-            this.picMovieAdImage.Location = new System.Drawing.Point(58, 3);
+            this.picMovieAdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picMovieAdImage.Location = new System.Drawing.Point(64, 11);
             this.picMovieAdImage.Name = "picMovieAdImage";
-            this.picMovieAdImage.Size = new System.Drawing.Size(156, 216);
+            this.picMovieAdImage.Size = new System.Drawing.Size(177, 240);
             this.picMovieAdImage.TabIndex = 0;
             this.picMovieAdImage.TabStop = false;
             // 
@@ -248,10 +251,10 @@
             // 
             // btnTomorrow
             // 
-            this.btnTomorrow.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnTomorrow.Font = new System.Drawing.Font("方正兰亭粗黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnTomorrow.ForeColor = System.Drawing.Color.White;
             this.btnTomorrow.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Location = new System.Drawing.Point(951, 31);
+            this.btnTomorrow.Location = new System.Drawing.Point(953, 30);
             this.btnTomorrow.Name = "btnTomorrow";
             this.btnTomorrow.Size = new System.Drawing.Size(118, 81);
             this.btnTomorrow.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -262,10 +265,10 @@
             // 
             // btnThreeDay
             // 
-            this.btnThreeDay.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnThreeDay.Font = new System.Drawing.Font("方正兰亭粗黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnThreeDay.ForeColor = System.Drawing.Color.White;
             this.btnThreeDay.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Location = new System.Drawing.Point(1095, 31);
+            this.btnThreeDay.Location = new System.Drawing.Point(1101, 30);
             this.btnThreeDay.Name = "btnThreeDay";
             this.btnThreeDay.Size = new System.Drawing.Size(118, 81);
             this.btnThreeDay.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -276,10 +279,10 @@
             // 
             // btnToday
             // 
-            this.btnToday.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnToday.Font = new System.Drawing.Font("方正兰亭粗黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnToday.ForeColor = System.Drawing.Color.White;
             this.btnToday.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Select_Day_Today;
-            this.btnToday.Location = new System.Drawing.Point(807, 31);
+            this.btnToday.Location = new System.Drawing.Point(805, 30);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(118, 81);
             this.btnToday.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
