@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FT.Commons.Tools
 {
-    public class SerialPortHelper:BaseHelper
+    public class SerialPortHelper:BaseHelper,ITerminalPrinter
     {
         public  SerialPortHelper()
         {
@@ -134,5 +134,28 @@ namespace FT.Commons.Tools
             }
         }
 
+
+        #region ITerminalPrinter 成员
+
+        #region ITerminalPrinter 成员
+
+        public bool Open()
+        {
+            return Open("com1",38400,Parity.None,8,StopBits.One);
+        }
+        public bool Open(string port)
+        {
+            return Open(port, 38400, Parity.None, 8, StopBits.One);
+        }
+
+
+        public bool HasPaper()
+        {
+            return true;
+        }
+
+        #endregion
+
+        #endregion
     }
 }

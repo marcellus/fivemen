@@ -13,6 +13,102 @@ namespace FT.Commons.Tools
         private WinFormHelper()
         {
         }
+      /*  public static void LocationAfter(Control ctr, Control ctr...)
+        {
+            next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
+        }
+       * */
+        public static void LocationAfter(Control ctr, Control next)
+        {
+            next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
+        }
+
+        public static void InitButtonStyle(Control ctr)
+        {
+            if (ctr == null)
+            {
+                return;
+            }
+            ctr.MouseHover += new EventHandler(ctr_MouseHover);
+            ctr.MouseLeave += new EventHandler(ctr_Click);
+            ctr.Click+=new EventHandler(ctr_Click);
+            
+            
+        }
+
+        static void ctr_MouseHover(object sender, EventArgs e)
+        {
+#if DEBUG
+            Console.WriteLine("用户鼠标悬停到按钮上了！！");
+#endif
+            if (sender is PictureBox)
+            {
+                PictureBox btn = sender as PictureBox;
+
+                btn.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else if (sender is Button)
+            {
+                Button btn = sender as Button;
+                btn.FlatStyle = FlatStyle.Standard;
+
+            }
+            else if (sender is Label)
+            {
+                Label btn = sender as Label;
+
+                btn.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+
+        static void ctr_Click(object sender, EventArgs e)
+        {
+#if DEBUG
+            Console.WriteLine("用户单击了样式按钮！！");
+#endif
+            if (sender is PictureBox)
+            {
+                PictureBox btn = sender as PictureBox;
+
+                btn.BorderStyle = BorderStyle.None;
+            }
+           else if (sender is Button)
+            {
+                Button btn = sender as Button;
+                btn.FlatStyle = FlatStyle.Flat;
+            }
+            else if (sender is Label)
+            {
+                Label btn = sender as Label;
+                
+                btn.BorderStyle = BorderStyle.None;
+            }
+        }
+
+        static void ctr_MouseMove(object sender, EventArgs e)
+        {
+#if DEBUG
+            Console.WriteLine("用户鼠标移动到按钮上了！！");
+#endif
+            if (sender is PictureBox)
+            {
+                PictureBox btn = sender as PictureBox;
+
+                btn.BorderStyle = BorderStyle.Fixed3D;
+            }
+            else if (sender is Button)
+            {
+                Button btn = sender as Button;
+                btn.FlatStyle = FlatStyle.Standard;
+               
+            }
+            else if (sender is Label)
+            {
+                Label btn = sender as Label;
+
+                btn.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
 
         private static Point mouse_offset;
 

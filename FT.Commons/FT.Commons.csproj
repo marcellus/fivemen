@@ -161,6 +161,7 @@
     <Compile Include="Printer\CommonPrinter.cs" />
     <Compile Include="Printer\IPrinter.cs" />
     <Compile Include="Printer\LinePrintObject.cs" />
+    <Compile Include="Printer\ListStringPrintObject.cs" />
     <Compile Include="Printer\ObjectPrinter.cs" />
     <Compile Include="Printer\TemplatePrintObject.cs" />
     <Compile Include="Printer\TemplateTextObject.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Tools\IDCardHelper.cs" />
     <Compile Include="Tools\IISHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
+    <Compile Include="Tools\ITerminalPrinter.cs" />
     <Compile Include="Tools\LPTHelper.cs" />
     <Compile Include="Tools\MathHelper.cs" />
     <Compile Include="Tools\MessageBoxHelper.cs" />
