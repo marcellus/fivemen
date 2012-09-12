@@ -43,7 +43,7 @@ namespace FT.Windows.Controls.PanelEx
             Button btn = sender as Button;
             if (btn != null)
             {
-                this.SendKey(btn.Text.ToLower());
+                this.SendKey(btn.Tag.ToString().ToLower());
             }
         }
 
@@ -69,7 +69,7 @@ namespace FT.Windows.Controls.PanelEx
         {
             if (this.inputTextBox != null)
             {
-                string str = this.inputTextBox.Text;
+                string str = this.inputTextBox.Text.ToString();
                 if (str.Length >= 1)
                 {
                     this.inputTextBox.Text = this.inputTextBox.Text.Substring(0, this.inputTextBox.Text.Length - 1);
@@ -122,6 +122,12 @@ namespace FT.Windows.Controls.PanelEx
         private void btnNum1_Click(object sender, EventArgs e)
         {
             //MessageBoxHelper.Show("单击了按钮一");
+        }
+
+        private void VitualKeyBoardPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            Color color = Color.FromArgb(241,241,241);
+            WinFormHelper.PaintRound(sender, color, 1, e);
         }
     }
 }
