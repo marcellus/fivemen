@@ -19,12 +19,7 @@ namespace HiPiaoTerminal
             InitializeComponent();
             this.SetSepartor(false);
             loginSuccessType=type;
-        }
-
-        private void UserLoginPanel_Load(object sender, EventArgs e)
-        {
-           // GlobalTools.RegistUpdateUnOperationTime(null);
-            this.txtUserName.Focus();
+           
             this.KeyDown += new KeyEventHandler(UserLoginPanel_KeyDown);
             HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (config.UseRfid)
@@ -37,7 +32,14 @@ namespace HiPiaoTerminal
                 this.panelUseRfid.Visible = false;
             }
             this.panelUseKey.Visible = false;
+        }
+
+        private void UserLoginPanel_Load(object sender, EventArgs e)
+        {
+           // GlobalTools.RegistUpdateUnOperationTime(null);
+            
             //this.FindForm().AcceptButton = this.btnLogin;
+            this.txtUserName.Focus();
         }
 
         void UserLoginPanel_KeyDown(object sender, KeyEventArgs e)
@@ -104,7 +106,7 @@ namespace HiPiaoTerminal
         {
             string uid = this.txtUserName.Text;
             string pwd = this.txtPwd.Text;
-            if (uid.Length > 0 && pwd.Length > 0)
+            if (uid.Length > 0 && pwd.Length ==6)
             {
                 allowLogin = true;
                 this.btnLogin.IsActived = true;

@@ -33,7 +33,7 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 TicketPrintObject ticket = tickets[0];
                 this.picAdImage.Image = movieInfo.AdImage;
-                ticket.MovieName = "假如真的是爱情有天意的话";
+                //ticket.MovieName = "假如真的是爱情有天意的话";
                 if (ticket.MovieName.Length > 9)
                 {
                     this.lbMovieName.Text = ticket.MovieName.Substring(0, 9) + "\n" +  ticket.MovieName.Substring(9);
@@ -88,6 +88,7 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnConfirmPay_Click(object sender, EventArgs e)
         {
+            this.SetOperationTime(30);
             GlobalTools.Pop(new ConfirmPayPwdPanel(lists,this.movieInfo,this.moviePlan,this.roomPlan,this.dt),1);
         }
 

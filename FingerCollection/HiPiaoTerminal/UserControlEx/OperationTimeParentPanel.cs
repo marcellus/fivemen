@@ -34,6 +34,10 @@ namespace HiPiaoTerminal.UserControlEx
             BeginOperationSeconds();
         }
 
+        public void StopOpertionTime()
+        {
+            this.timer1.Stop();
+        }
         public void BeginOperationSeconds()
         {
             timer1.Stop();

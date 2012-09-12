@@ -7,6 +7,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using HiPiaoInterface;
+using System.Threading;
 
 namespace HiPiaoTerminal.Account
 {
@@ -16,6 +17,7 @@ namespace HiPiaoTerminal.Account
         public UserInfoPanel(UserObject user)
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             if (user != null)
             {
                 this.Visible = true;
@@ -23,16 +25,25 @@ namespace HiPiaoTerminal.Account
                 this.lbUserName.Text = user.Name;
                 this.lbPoint.Text = user.RewardPoints.ToString();
                 this.lbEmail.Text = user.Email;
-                this.lbCoupon.Text = user.CouponNum.ToString();
+                this.lbCoupon.Text = this.lbBuyRecord.Text = "正在加载...";
+               
                 this.lbBalance.Text = user.Balance.ToString();
                // this.lbBuyRecord.Text = user.BuyRecords.Count.ToString();
-                this.lbBuyRecord.Text = user.BuyRecordNum.ToString();
+                Thread thread = new Thread(new ThreadStart(SetValue));
+                thread.IsBackground = true;
+                thread.Start();
             }
             else
             {
                 this.Visible = false;
             }
 
+        }
+
+        public void SetValue()
+        {
+            this.lbCoupon.Text = this.userInfo.CouponNum.ToString();
+            this.lbBuyRecord.Text = userInfo.BuyRecordNum.ToString();
         }
 
         

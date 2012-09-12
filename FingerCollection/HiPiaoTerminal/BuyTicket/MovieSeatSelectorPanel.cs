@@ -234,6 +234,7 @@ namespace HiPiaoTerminal.BuyTicket
                 ticket.PlayTime = roomPlan.Playtime;
                 ticket.PlayDate = Convert.ToDateTime(roomPlan.Playtime).ToString("yyyy.MM.dd");
                 ticket.PlanId = roomPlan.PlanId;
+                //ticket.PlanId = roomPlan.PlanId.Substring(0, 16);
                 ticket.SeatId = seat.SeatId;
                 tickets.Add(ticket);
                     

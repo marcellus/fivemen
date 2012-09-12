@@ -80,6 +80,7 @@
             // 
             // txtManagePwd
             // 
+            this.txtManagePwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtManagePwd.BackColor = System.Drawing.Color.Transparent;
             this.txtManagePwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtManagePwd.Hint = null;

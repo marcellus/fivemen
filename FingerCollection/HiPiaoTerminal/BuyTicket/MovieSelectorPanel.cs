@@ -27,10 +27,10 @@ namespace HiPiaoTerminal.BuyTicket
 
                 this.InitMovies(now);
                 this.SetOperationTime(60);
-                WinFormHelper.InitButtonStyle(this.btnThreeDay);
-                WinFormHelper.InitButtonStyle(this.btnToday);
-                WinFormHelper.InitButtonStyle(this.btnTomorrow);
-                WinFormHelper.InitButtonStyle(this.btnReturn);
+                //WinFormHelper.InitButtonStyle(this.btnThreeDay);
+                //WinFormHelper.InitButtonStyle(this.btnToday);
+               // WinFormHelper.InitButtonStyle(this.btnTomorrow);
+               // WinFormHelper.InitButtonStyle(this.btnReturn);
             }
             catch (Exception ex)
             {

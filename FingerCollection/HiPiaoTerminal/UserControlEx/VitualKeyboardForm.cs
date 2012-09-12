@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using FT.Commons.Tools;
 
 namespace HiPiaoTerminal.UserControlEx
 {
@@ -31,6 +32,12 @@ namespace HiPiaoTerminal.UserControlEx
             {
                 this.vitualKeyBoardPanel21.InputTextBox=value;
             }
+        }
+
+        private void VitualKeyboardForm_Paint(object sender, PaintEventArgs e)
+        {
+            Color color = Color.FromArgb(241, 241, 241);
+            WinFormHelper.PaintRound(sender, color, 1, e);
         }
     }
 }
