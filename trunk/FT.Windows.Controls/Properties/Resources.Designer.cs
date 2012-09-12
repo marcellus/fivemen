@@ -109,6 +109,13 @@ namespace FT.Windows.Controls.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap backspace_bg {
+            get {
+                object obj = ResourceManager.GetObject("backspace_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bold {
             get {
                 object obj = ResourceManager.GetObject("bold", resourceCulture);
@@ -235,6 +242,286 @@ namespace FT.Windows.Controls.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Keyboard_A {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_A", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_B {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap KeyBoard_Back {
+            get {
+                object obj = ResourceManager.GetObject("KeyBoard_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_C {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_C", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap keyboard_clearall {
+            get {
+                object obj = ResourceManager.GetObject("keyboard_clearall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_D {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_D", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_E {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_E", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_F {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_F", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_G {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_H {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_H", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_I {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_I", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_J {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_J", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_K {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_K", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_L {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_L", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_M {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_M", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_N {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_N", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_0 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_1 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_2 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_3 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_4 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_5 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_6 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_7 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_8 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_NuM_9 {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_NuM_9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_O {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_O", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_P {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_P", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_Q {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_Q", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_R {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_S {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_S", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap keyboard_space {
+            get {
+                object obj = ResourceManager.GetObject("keyboard_space", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap keyboard_sure {
+            get {
+                object obj = ResourceManager.GetObject("keyboard_sure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_T {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_T", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_U {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_U", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_V {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_V", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_W {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_W", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_X {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_X", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_Y {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_Y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Keyboard_Z {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_Z", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap link {
             get {
                 object obj = ResourceManager.GetObject("link", resourceCulture);
@@ -245,6 +532,13 @@ namespace FT.Windows.Controls.Properties {
         internal static System.Drawing.Bitmap lj {
             get {
                 object obj = ResourceManager.GetObject("lj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap NumBack {
+            get {
+                object obj = ResourceManager.GetObject("NumBack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

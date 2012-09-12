@@ -242,4 +242,130 @@
   <data name="Account_Tab_NotActive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Account_Tab_NotActive.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NumBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumBack.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backspace_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backspace_bg.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_A.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_B.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KeyBoard_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KeyBoard_Back.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_C.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keyboard_clearall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keyboard_clearall.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_D.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_E" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_E.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_F" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_F.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_G" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_G.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_H.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_I.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_J.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_K.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_L.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_M.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_N" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_N.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_0.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_8.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_NuM_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_NuM_9.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_O" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_O.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_P" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_P.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_Q.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_R.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_S.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keyboard_space" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keyboard_space.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keyboard_sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keyboard_sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_T" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_T.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_U" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_U.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_V.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_W.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_X" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_X.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_Y" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_Y.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_Z" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keyboard_Z.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
