@@ -133,5 +133,44 @@ namespace FT.Commons.Cache
                 Add(typename, config);
             }
         }
+
+
+        /// <summary>
+        /// 保存某一个对象的配置
+        /// </summary>
+        /// <typeparam name="T">泛型对象</typeparam>
+        /// <returns>如果不存在会怎么样？</returns>
+        public static void SaveToCaches(object config,string file)
+        {
+            string dir = ReflectHelper.GetExePath() + "/Caches";
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+            string path = ReflectHelper.GetExePath() + "/Caches/" + file + ".txt";
+            if (SerializeHelper.SerializeToFile(config, path))
+            {
+                
+            }
+        }
+
+        /// <summary>
+        /// 保存某一个对象的配置
+        /// </summary>
+        /// <typeparam name="T">泛型对象</typeparam>
+        /// <returns>如果不存在会怎么样？</returns>
+        public static object GetFromCaches(string file)
+        {
+            string dir = ReflectHelper.GetExePath() + "/Caches";
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+            string path = ReflectHelper.GetExePath() + "/Caches/" + file + ".txt";
+            if (File.Exists(path))
+                return SerializeHelper.DeserializeFromFile(path);
+            else
+                return null;
+        }
     }
 }
