@@ -17,6 +17,10 @@ namespace HiPiaoInterface
         }
 
 
+
+        
+
+
         
 
         private static List<MoviePlanObject> GetCinemasMoviePlan(string cinemaId, DateTime dt)
@@ -222,10 +226,32 @@ namespace HiPiaoInterface
         public static void DeSerializedCache()
         {
             CheckAllDir();
-            if (File.Exists(HotMovieCacheFile))
-                hotMovie = SerializeHelper.DeserializeFromFile(HotMovieCacheFile) as List<MovieObject>;
+            
             if (File.Exists(ProvincesCacheFile))
                 provincesList = SerializeHelper.DeserializeFromFile(ProvincesCacheFile) as List<ProvinceObject>;
+            if (File.Exists(HotMovieCacheFile))
+            {
+                hotMovie = SerializeHelper.DeserializeFromFile(HotMovieCacheFile) as List<MovieObject>;
+                for (int i = 0; i < hotMovie.Count; i++)
+                {
+                    if (hotMovie[i].AdImagePath.Length > 0)
+                    {
+                        hotMovie[i].AdImage = Image.FromFile(hotMovie[i].AdImagePath);
+                    }
+                }
+            }
+            //hotMovie = FT.Commons.Cache.StaticCacheManager.GetFromConfig( "hotmovie") as List<MovieObject>;
+            advertisementLists = FT.Commons.Cache.StaticCacheManager.GetFromCaches("advertisement") as List<AdvertisementObject>;
+            if (advertisementLists != null)
+            {
+                for (int i = 0; i < advertisementLists.Count; i++)
+                {
+                    if (advertisementLists[i].AdImagePath.Length > 0)
+                    {
+                        advertisementLists[i].AdvPic = Image.FromFile(advertisementLists[i].AdImagePath);
+                    }
+                }
+            }
            
         }
 
@@ -234,6 +260,7 @@ namespace HiPiaoInterface
             CheckAllDir();
             SerializeHelper.SerializeToFile(hotMovie, HotMovieCacheFile+"");
             SerializeHelper.SerializeToFile(provincesList,ProvincesCacheFile );
+            FT.Commons.Cache.StaticCacheManager.SaveToCaches(advertisementLists, "advertisement");
             //SerializeHelper.SerializeToFile(cinemasList,CinemasCacheDir);
         }
 
@@ -554,8 +581,47 @@ namespace HiPiaoInterface
                 return lists;
 
         }
+        //<advertisement advName="" advPic="" advPicLink="" advWeizhiOne="" advWeizhiTwo="" />
 
+        private static List<AdvertisementObject> advertisementLists = new List<AdvertisementObject>();
 
+        public static List<AdvertisementObject> GetAdvertisement(string cinema)
+        {
+            if (advertisementLists.Count == 0)
+            {
+                RefreshAdvertisement(cinema);
+            }
+            return advertisementLists;
+        }
+
+        public static List<AdvertisementObject> RefreshAdvertisement(string cinema)
+        {
+            List<AdvertisementObject> lists = new List<AdvertisementObject>();
+            string xml = hiPiaoSrv.GetAdvertisement();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            AdvertisementObject obj = null;
+            XmlNodeList objsNode = doc.SelectNodes("//advertisement");
+            string picurl = string.Empty;
+            string downdir = "Caches\\Advertisement\\" ;
+            for (int i = 0; i < objsNode.Count; i++)
+            {
+                obj = new AdvertisementObject();
+                obj.AdvName = objsNode[i].Attributes["advName"].Value;
+                obj.AdvPicLink = objsNode[i].Attributes["advPicLink"].Value;
+                obj.AdvWeizhiOne = objsNode[i].Attributes["advWeizhiOne"].Value;
+                obj.AdvWeizhiTwo = objsNode[i].Attributes["advWeizhiTwo"].Value;
+                picurl = objsNode[i].Attributes["advPic"].Value;
+                obj.AdImagePath = DownLoad(picurl, downdir, string.Empty);
+                if (obj.AdImagePath.Length > 0)
+                    obj.AdvPic = Image.FromFile(obj.AdImagePath);
+                //picurl="http://img.hipiao.com/hipiao15/film/201208/174732921950207b3c903e3.jpg" pixlength="89" pixnumber="05110035"
+                //pixtype
+                lists.Add(obj);
+            }
+            advertisementLists = lists;
+            return lists;
+        } 
 
         public static List<MovieObject> RefreshHotMovie(string province,string city)
         {

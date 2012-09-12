@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VitualKeyboardForm));
             this.vitualKeyBoardPanel21 = new FT.Windows.Controls.PanelEx.VitualKeyBoardPanel2();
             this.SuspendLayout();
             // 
             // vitualKeyBoardPanel21
             // 
+            this.vitualKeyBoardPanel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.vitualKeyBoardPanel21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vitualKeyBoardPanel21.BackgroundImage")));
             this.vitualKeyBoardPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vitualKeyBoardPanel21.InputTextBox = null;
             this.vitualKeyBoardPanel21.Location = new System.Drawing.Point(0, 0);
             this.vitualKeyBoardPanel21.Name = "vitualKeyBoardPanel21";
             this.vitualKeyBoardPanel21.ShowWithForm = false;
-            this.vitualKeyBoardPanel21.Size = new System.Drawing.Size(894, 325);
+            this.vitualKeyBoardPanel21.Size = new System.Drawing.Size(952, 325);
             this.vitualKeyBoardPanel21.TabIndex = 0;
             this.vitualKeyBoardPanel21.TabStop = false;
             this.vitualKeyBoardPanel21.Load += new System.EventHandler(this.vitualKeyBoardPanel21_Load);
@@ -47,7 +50,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 325);
+            this.ClientSize = new System.Drawing.Size(952, 325);
             this.Controls.Add(this.vitualKeyBoardPanel21);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VitualKeyboardForm";
@@ -55,6 +58,7 @@
             this.ShowInTaskbar = false;
             this.Text = "VitualKeyboardForm";
             this.TopMost = true;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.VitualKeyboardForm_Paint);
             this.ResumeLayout(false);
 
         }

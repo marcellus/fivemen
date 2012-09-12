@@ -71,33 +71,41 @@ namespace HiPiaoTerminal
             int height = txt.Parent.Parent.Height;
             // allKeyBoard2.InputTextBox = txt;
 #if DEBUG
-            Console.WriteLine("userinput下划线的坐标是：X=" + txt.Parent.Location.X.ToString() + "=Y=" + txt.Parent.Location.Y.ToString() + "userinput高度:" + height.ToString() + "键盘窗体高度：" + frm.Height.ToString());
+            Console.WriteLine("userinput下划线的坐标是：X=" + txt.Parent.Location.X.ToString() + "=Y=" + txt.Parent.Location.Y.ToString() + "userinput高度:" + height.ToString() + "键盘窗体高度：" + frm.Height.ToString() + "键盘窗体宽度：" + frm.Width.ToString());
 #endif
             frm.Hide();
 #if DEBUG
-            Console.WriteLine("转化前键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
+            Console.WriteLine("转化前键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString()+"-txt所在窗体的宽度为："+txt.FindForm().Width.ToString());
 #endif
+            int tmpx = point.X;
+            if (txt.FindForm().Width < tmpx + frm.Width)
+            {
+                tmpx = txt.FindForm().Width - frm.Width - 30;
+            }
+            
+           
+
             if (point.Y > frm.Height+14)
             {
                 
                 if (txt is HintTextBox)
                 {
-                    frm.Location = new Point(point.X - 14, point.Y - frm.Height - 15);
+                    frm.Location = new Point(tmpx - 14, point.Y - frm.Height - 15);
                 }
                 else
                 {
-                    frm.Location = new Point(point.X, point.Y - frm.Height);
+                    frm.Location = new Point(tmpx, point.Y - frm.Height);
                 }
             }
             else
             {
                 if (txt is HintTextBox)
                 {
-                    frm.Location = new Point(point.X - 14, point.Y + height - 14 + 1);
+                    frm.Location = new Point(tmpx - 14, point.Y + height - 14 + 1);
                 }
                 else
                 {
-                    frm.Location = new Point(point.X, point.Y + height + 1);
+                    frm.Location = new Point(tmpx, point.Y + height + 1);
                 }
             }
             frm.TabStop = false;
@@ -148,16 +156,21 @@ namespace HiPiaoTerminal
 
            // allKeyBoard2.InputTextBox = txt;
 #if DEBUG
-            Console.WriteLine("txt下划线的坐标是：X=" + txt.Location.X.ToString() + "=Y=" + txt.Location.Y.ToString()+"txt高度:"+txt.Height.ToString()+"键盘高度："+allKeyBoard2.Height.ToString());
+            Console.WriteLine("txt下划线的坐标是：X=" + txt.Location.X.ToString() + "=Y=" + txt.Location.Y.ToString() + "txt高度:" + txt.Height.ToString() + "键盘高度：" + allKeyBoard2.Height.ToString() + "键盘宽度：" + allKeyBoard2.Width.ToString());
             Console.WriteLine("转化前键盘的坐标是：X=" + allKeyBoard2.Location.X.ToString() + "=Y=" + allKeyBoard2.Location.Y.ToString());
 #endif
+            int tmpx = point.X-30;
+            if (txt.FindForm().Width < point.X + allKeyBoard2.Width)
+            {
+                tmpx=txt.FindForm().Width-allKeyBoard2.Width-30;
+            }
             if (point.Y > allKeyBoard2.Height + txt.Height)
             {
-                allKeyBoard2.Location = new Point(point.X-30, point.Y - allKeyBoard2.Height - txt.Height + 20);
+                allKeyBoard2.Location = new Point(tmpx, point.Y - allKeyBoard2.Height - txt.Height + 20);
             }
             else
             {
-                allKeyBoard2.Location = new Point(point.X-30, point.Y + txt.Height + 1);
+                allKeyBoard2.Location = new Point(tmpx, point.Y + txt.Height + 1);
             }
             allKeyBoard2.TabStop = false;
             allKeyBoard2.BringToFront();
@@ -586,6 +599,10 @@ namespace HiPiaoTerminal
             RefreshMovieShowList();
         }
 
+        
+
+        
+
         /// <summary>
         /// 定时刷新影片显示内容
         /// </summary>
@@ -596,7 +613,11 @@ namespace HiPiaoTerminal
                 try
                 {
                     SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                   
                     HiPiaoCache.RefreshHotMovie(config.Province, config.City);
+                    HiPiaoCache.RefreshAdvertisement(config.Cinema);
+                    
+                    /*
                     MovieShowList.Clear();
                     DirectoryInfo dir = new DirectoryInfo("MovieShows");
                     if (dir != null)
@@ -621,6 +642,9 @@ namespace HiPiaoTerminal
                             }
                         }
                     }
+                     * */
+
+                   
                 }
                 catch
                 {

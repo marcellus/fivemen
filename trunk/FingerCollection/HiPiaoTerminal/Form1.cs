@@ -22,6 +22,12 @@ namespace HiPiaoTerminal
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
             this.UpdateStyles();
+            //this.WindowState = FormWindowState.Maximized;
+            this.Width = 1280;
+            this.Height = 960;
+            HiPiaoCache.DeSerializedCache();
+            GlobalTools.InitAll(this);
+            //HiPiaoCache.DeSerializedCache();
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
         }
@@ -41,9 +47,7 @@ namespace HiPiaoTerminal
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            HiPiaoCache.DeSerializedCache();
-            GlobalTools.InitAll(this);
+            
             GlobalTools.ReturnMain();
             
             

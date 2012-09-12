@@ -64,6 +64,7 @@ namespace HiPiaoInterface
         /// </summary>
         public string Introduction;
 
+        [NonSerialized]
         public List<Image> ClassicImages = new List<Image>();
     }
 }

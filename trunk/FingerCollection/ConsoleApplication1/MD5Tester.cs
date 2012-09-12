@@ -1,231 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using FT.Commons.Security;
-using FT.Commons.WindowsService.SystemInfo;
-using FT.Commons.Win32;
-using System.Data.OracleClient;
-using FT.DAL;
-using FT.DAL.Oracle;
-using System.Security.Cryptography;
 
 namespace ConsoleApplication1
 {
-    class Program
-    {
-        public static sbyte[] ConvertToSbyte(byte[] arr)
-        {
-            sbyte[] Hash = new
-          sbyte[arr.Length];
-            int
-          i = 0;
-            foreach
-          (byte b in
-          arr)
-            {
-                Hash[i] = unchecked
-            ((sbyte)b);
-                i++;
-            }
-            return
-          Hash;
-        }
-        public static string Encrypt(string source)
-        {
-            MD5 md5 = MD5.Create();//将源字符串转换成字节数组
-            //byte[] soureBytes = System.Text.Encoding.UTF8.GetBytes(source);
-            byte[] soureBytes = System.Text.Encoding.UTF8.GetBytes(source);
-            //md5.co
-            byte[] resultBytes = md5.ComputeHash(soureBytes);//将加密后的字节数组转换成字符串
-            
-            string result = null;
-            
-            for (int i = 0; i < resultBytes.Length; i++)
-            { result = result + resultBytes[i].ToString("x2"); }
-           // if (result.Length > 30)//如果超过30个字符，就截取前30个
-           // { result = result.Substring(0, 30); }
-            return result;
-
-            
-        }
-
-        public static string md5One(string s)
-        {
-            MD5 md = new MD5CryptoServiceProvider();
-            byte[] ss = md.ComputeHash(UnicodeEncoding.UTF8.GetBytes(s));
-            return byteArrayToHexString(ss);
-        }  
-
-
-        private static string[] HexCode = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
-
-        public static string byteToHexString(byte b)
-        {
-            int n = b;
-            if (n < 0)
-            {
-                n = 256 + n;
-            }
-            int d1 = n / 16;
-            int d2 = n % 16;
-            return HexCode[d1] + HexCode[d2];
-        }
-
-        public static String byteArrayToHexString(byte[] b)
-        {
-            String result = "";
-            for (int i = 0; i < b.Length; i++)
-            {
-                result = result + byteToHexString(b[i]);
-            }
-            return result;
-        }  
-
-
-
-
-        static void Main(string[] args)
-        {
-            ISecurity md5 = new MD5Security();
-            //1b8dc01720fc2b67ad19a3c526c7bca2
-            Console.WriteLine("最终加密结果为:"+Encrypt("789001"));
-            string menberid="26c52c2e-69ae-102e-8c3d-001a4beef7e4";
-            string mobile="18618237773";
-            string count="4";
-            string planid="c81f8af0-fb63-11e1-a9dc-001bb97ef1a4@@6";
-            string seatv="9be8e070-8acb-11e1-b245-001bb97ef1a4,9be81d20-8acb-11e1-b245-001bb97ef1a4,9be86b40-8acb-11e1-b245-001bb97ef1a4,9be9cad0-8acb-11e1-b245-001bb97ef1a4";
-            string fromclient="ANDROID";
-            string pwd="789001";
-            string hipiaocard = "26c52c2e69";
-             String r1 = "MEMBERID" + menberid+
-                         "fromclient" + fromclient+
-                        "mobile" + mobile +
-                        "normal" + count +
-                        "planId" + planid +
-                        "seatids" + seatv
-                       
-                        ;
-            //String r2 = md5.Encrypt(md5.Encrypt(md5.Encrypt(pwd)) +hipiaocard);
-            //String r3 = md5.Encrypt(r1 + r2);
-             Console.WriteLine("r1==" + r1);
-            String r2 = Encrypt(Encrypt(Encrypt(pwd)) +hipiaocard);
-            Console.WriteLine("r2=="+r2);
-             String tmp=r1+r2;
-             Console.WriteLine("tmp==" + tmp);
-             //MD5Tester tester = new MD5Tester();
-            // Console.WriteLine("临时加密结果为：" + MD5Tester.Encrypt(tmp,32));
-             Console.WriteLine("临时加密结果为：" + md5One(tmp));
-            String r3 = Encrypt(r1 + r2);
-            Console.WriteLine("r3==" + r3);
-            String r4 = "MEMBERID=" + menberid + "&mobile="
-                    +mobile + "&normal="
-                    + count + "&planId="
-                    + planid + "&seatids=" + seatv
-                    + "&fromclient" + fromclient;
-            //String query = r4 + "&pass=" + r3;
-            String query = r4 + "&pass=" + r3;
-#if DEBUG
-            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
-#endif
-            //9457ea0b240e8dfaa85622d371330f89
-            //MEMBERID=&mobile=18618237773&normal=4&planId=&seatids=&fromclient&pass=
-
-           // TestConnection2(10000);
-
-            /* 
-             * 3D3514F23F37E13A 丰大驾校
-             * 4D64496ADCEF53E0 安泰驾校
-             * 13EE4553EEF0DF7E 市驾培中心
-             * A59B773F9C3AA159 惠东平安
-             * C4FA4E8E43E6A92F 惠东怡辉
-             * 70C1D30CC159B03B 博罗鸿信
-             * A60793889949C6F6 光大驾校
-             * 23762878906B059C 亮丽驾校
-             * AD8045BF9592308E 博罗鸿信
-             * 3D00BF143CC95448 环球驾校
-             * F1844D78F2236926 宏达驾校
-             * 50B4238104DABA1C 
-             * E48EF54511ED7D4F 市驾培中心
-             * 7D66505102C8DB25 隆辉驾校
-             * 84A883D2309E661D 隆辉驾校
-             * DCA698218706CA2B 博罗鸿信
-             * C3F979CF15706C39 金峰驾校
-
-
-          
-        
-            ComputerMonitorHelper helper = new ComputerMonitorHelper();
-              helper.CheckIsOpenPort(3389);
-              helper.CheckIsOpenPort("192.168.1.10",3389);
-              //FT.Commons.WindowsService.BaseWindowService serv = new FT.Commons.WindowsService.ExDiskPluginMonitorService("CDEF", 1000);
-              //FT.Commons.WindowsService.BaseWindowService serv = new FT.Commons.WindowsService.NetworkMonitorService( 1000);
-             // FT.Commons.WindowsService.BaseWindowService serv = new FT.Commons.WindowsService.SystemServiceMonitorService(30000);
-             // FT.Commons.WindowsService.BaseWindowService serv = new FT.Commons.WindowsService.ProcessMonitorService(30000);
-            
-            //  serv.DoTask();
-              //ComputerInitHelper.InitFolderMd5("Windows Xp","Sp3","D:\\自助终端","D:\\自助终端");
-             // ComputerInitHelper.InitSystemServices();
-              //ComputerInitHelper.InitSystemNetworkCard();
-              Console.ReadLine();
-             */
-            //ISecurity md5 = new MD5Security();
-              ISecurity sec = FT.Commons.Security.SecurityFactory.GetSecurity();
-              //string hardwarecode=FT.Commons.Tools.HardwareManager.GetMachineCode();
-             // string hardwarecode = "C3F979CF15706C39";
-              Console.WriteLine("请输入机器码并回车：");
-              string hardwarecode = Console.ReadLine();
-
-              //一友驾校
-              //E7A7CA598DDDAFA6
-             // string company = "金峰驾校";
-              Console.WriteLine("请输入授权用户名称并回车：");
-              string company = Console.ReadLine();
-              Console.WriteLine("注册码生成结果为->" + md5.Encrypt(sec.Encrypt(hardwarecode + company + hardwarecode)));
-
-            /*  string path = Environment.CurrentDirectory + "//success.wav";
-              SystemDefine.PlaySound(path, 0, SystemDefine.SND_ASYNC | SystemDefine.SND_FILENAME);//播放音乐
-              //FT.Commons.Tools.WindowsPrinterHelper.LoopPrinter();
-              string printer = @"\\192.168.1.150\Brother DCP-7030 Printer";
-           // Console.WriteLine("打印机状态为："+FT.Commons.Tools.WindowsPrinterHelper.GetPrinterStat(printer).ToString());
-
-            string cmd = ""+(char)(27)+(char)(33)+(char)(10)+"模";
-            byte[] mybyte = System.Text.Encoding.Default.GetBytes(cmd);
-            for (int i = 0; i < mybyte.Length; i++)
-            {
-                Console.WriteLine(i+"="+mybyte[i]);
-            }
-                Console.ReadLine();
-             * */
-              Console.ReadLine();
-           
-        }
-
-        public static void TestConnection2(int num)
-        {
-            IDataAccess accessOracle = new OracleDataHelper("oradrv","aspnet", "stjj117");
-            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "开始执行");
-            for (int i = 0; i < num; i++)
-            {
-                try
-                {
-                    string sql= "insert into table_test(name,sex) values('name" + i.ToString() + "','male')";
-                    accessOracle.SelectDataTable("select 1 from dual","tmp");
-                   // accessOracle.ExecuteSql(sql);
-                    
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("执行到第几次打开关闭连接出现异常-》" + i.ToString());
-                    Console.WriteLine(e.ToString());
-                    break;
-
-                }
-            }
-            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "执行完毕");
-            Console.ReadLine();
-        }
-
-        const int BITS_TO_A_BYTE = 8;
+     /// <summary>
+ /// Summary description for MD5.
+ /// </summary>
+ public class MD5Tester
+ {
+  const int BITS_TO_A_BYTE = 8;
   const int BYTES_TO_A_WORD = 4;
   const int BITS_TO_A_WORD = 32; 
   private static long[] m_lOnBits = new long[30 + 1];
@@ -494,11 +278,8 @@ namespace ConsoleApplication1
    return strhex;
   }
 
-  public static string Encrypt2(string source)
-  {
-      return Encrypt2(source, 32);
-  }
-  public static string Encrypt2(string sMessage, int stype)
+
+  public static string Encrypt(string sMessage, int stype)
   {
    string MD5 = "";
    
@@ -630,55 +411,8 @@ namespace ConsoleApplication1
     MD5 = ((WordToHex(b)) + (WordToHex(c))).ToLower();
    }
    return MD5;
-    }
-
-
-
-
-
-
-        public static void TestConnection(int num)
-        {
-            OracleConnection conn = new OracleConnection(@"Data Source=(
-
-DESCRIPTION =
-
-    (ADDRESS_LIST =
-
-      (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))
-
-    )
-
-    (CONNECT_DATA =
-
-      (SERVICE_NAME = oradrv)
-
-    )
-
-);user ID=aspnet;Password=stjj117
-");
-            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "开始执行");
-            for (int i = 0; i < num; i++)
-            {
-                try
-                {
-                    conn.Open();
-                    OracleCommand cmd = conn.CreateCommand();
-                    cmd.CommandText = "insert into table_test(name,sex) values('name"+i.ToString()+"','male')";
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("执行到第几次打开关闭连接出现异常-》"+i.ToString());
-                    Console.WriteLine(e.ToString());
-                    break;
-
-                }
-            }
-            Console.WriteLine(System.DateTime.Now.ToLocalTime().ToString() + "执行完毕");
-                Console.ReadLine();
-        }
-    
-    }
+  }
+  }
 }
+
+

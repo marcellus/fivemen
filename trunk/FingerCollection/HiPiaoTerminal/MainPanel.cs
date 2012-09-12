@@ -13,11 +13,14 @@ using HiPiaoTerminal.UserControlEx;
 using HiPiaoTerminal.Maintain;
 using HiPiaoTerminal.TestForm;
 using HiPiaoTerminal.BuyTicket;
+using HiPiaoInterface;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal
 {
     public partial class MainPanel : SameBackgroudParentPanel
     {
+
         public MainPanel()
         {
             InitializeComponent();
@@ -79,6 +82,27 @@ namespace HiPiaoTerminal
         private void timerShowMovie_Tick(object sender, EventArgs e)
         {
             timerShowMovie.Stop();
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            List<AdvertisementObject> lists=HiPiaoCache.GetAdvertisement(config.Cinema);
+            int len = lists.Count;
+            if (len == 0)
+            {
+                
+                return;
+            }
+            if (this.picShowMovies.Tag == null || this.picShowMovies.Tag.ToString() == (len - 1).ToString())
+            {
+                this.picShowMovies.Image = lists[0].AdvPic;
+                this.picShowMovies.Tag = "0";
+            }
+            else
+            {
+                int currentIndex = Convert.ToInt32(this.picShowMovies.Tag.ToString());
+                int nowIndex = currentIndex + 1;
+                this.picShowMovies.Image = lists[nowIndex].AdvPic; 
+                this.picShowMovies.Tag = nowIndex.ToString();
+            }
+            /*
             int len=GlobalTools.MovieShowList.Count;
             if(len==0)
             {
@@ -96,6 +120,7 @@ namespace HiPiaoTerminal
                 this.picShowMovies.Image = GlobalTools.MovieShowList[nowIndex].AdImage;
                 this.picShowMovies.Tag = nowIndex.ToString();
             }
+             * */
             timerShowMovie.Start();
         }
 

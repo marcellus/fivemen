@@ -5,6 +5,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 using FT.Commons.Security;
+using System.Security.Cryptography;
 
 namespace HiPiaoInterface
 {
@@ -300,6 +301,24 @@ namespace HiPiaoInterface
 
             return GetSoapServiceResult(GetProvinceBody("getCityCinema", province, city));
         }
+        public static string Encrypt(string source)
+        {
+            MD5 md5 = MD5.Create();//将源字符串转换成字节数组
+            //byte[] soureBytes = System.Text.Encoding.UTF8.GetBytes(source);
+            byte[] soureBytes = System.Text.Encoding.UTF8.GetBytes(source);
+            //md5.co
+            byte[] resultBytes = md5.ComputeHash(soureBytes);//将加密后的字节数组转换成字符串
+
+            string result = null;
+
+            for (int i = 0; i < resultBytes.Length; i++)
+            { result = result + resultBytes[i].ToString("x2"); }
+           
+            return result;
+
+
+        }
+
         public string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)
         {
 #if DEBUG
@@ -314,23 +333,26 @@ namespace HiPiaoInterface
                 seatv += tickets[i].SeatId + ",";
             }
             seatv=seatv.TrimEnd(',');
-            ISecurity md5 = new MD5Security();
+            string planid = tickets[0].PlanId;
+            //string planid = tickets[0].PlanId.Substring(0, tickets[0].PlanId.IndexOf("@@")) ;
+            //ISecurity md5 = new MD5Security();
             String r1 = "MEMBERID" + user.MemberId +
-                        
+                        "fromclient" + fromclient+
                         "mobile" + user.Mobile +
                         "normal" + tickets.Count.ToString() +
-                        "planId" + tickets[0].PlanId +
-                        "seatids" + seatv+
-                        "fromclient" + fromclient
+                        "planId" + planid +
+                        "seatids" + seatv
+                        
                         ;
-            String r2 = md5.Encrypt(md5.Encrypt(md5.Encrypt(user.Pwd)) + user.HipiaoCard);
-            String r3 = md5.Encrypt(r1 + r2);
+            String r2 = Encrypt(Encrypt(Encrypt(user.Pwd)) + user.HipiaoCard);
+            String r3 = Encrypt(r1 + r2);
             String r4 = "MEMBERID=" + user.MemberId + "&mobile="
                     + user.Mobile + "&normal="
                     + tickets.Count.ToString() + "&planId="
-                    + tickets[0].PlanId + "&seatids=" + seatv
-                    + "&fromclient=" + fromclient;
-            String query = r4 + "&pass=" + r3;
+                    + planid + "&seatids=" + seatv
+                    + "&fromclient" + fromclient;
+            //String query = r4 + "&pass=" + r3;
+            String query = r4 + "&pass=" + r2;
 #if DEBUG
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
 #endif
