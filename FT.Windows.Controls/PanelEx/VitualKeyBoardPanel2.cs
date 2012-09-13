@@ -126,8 +126,11 @@ namespace FT.Windows.Controls.PanelEx
 
         private void VitualKeyBoardPanel2_Paint(object sender, PaintEventArgs e)
         {
-            Color color = Color.FromArgb(241,241,241);
-            WinFormHelper.PaintRound(sender, color, 1, e);
+#if DEBUG
+            Console.WriteLine("键盘重绘");
+#endif
+          //  Color color = Color.FromArgb(241,241,241);
+           // WinFormHelper.PaintRound(sender, color, 1, e);
         }
     }
 }
