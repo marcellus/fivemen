@@ -1,0 +1,12 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:AdvertisementResponse xmlns:ns1="http://service.server.com">
+      <return xmlns:ns2="http://service.server.com/">
+        <advertisement advName="好礼等你拿" advPic="http://open.hipiao.com:8000/adv/sys/../guanggao_pic/u1347526910385226956958.jpg" advPicLink="http://www.hipiao.com" advWeizhiOne="屏保" advWeizhiTwo="屏保轮刷广告" />
+        <advertisement advName="好礼等你拿" advPic="http://open.hipiao.com:8000/adv/sys/../guanggao_pic/u1347526985272068411614.jpg" advPicLink="http://www.hipiao.com" advWeizhiOne="首页" advWeizhiTwo="首页轮刷广告" />
+        <advertisement advName="征服者" advPic="http://open.hipiao.com:8000/adv/sys/../guanggao_pic/u1347527101669207674589.jpg" advPicLink="http://www.hipiao.com" advWeizhiOne="取票完成页" advWeizhiTwo="取票完成页广告" />
+        <advertisement advName="征服者" advPic="http://open.hipiao.com:8000/adv/sys/../guanggao_pic/u1347527138101213362666.jpg" advPicLink="http://www.hipiao.com" advWeizhiOne="购票完成页" advWeizhiTwo="购票完成页广告" />
+      </return>
+    </ns1:AdvertisementResponse>
+  </soap:Body>
+</soap:Envelope>

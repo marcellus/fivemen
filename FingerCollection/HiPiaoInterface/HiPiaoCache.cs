@@ -170,12 +170,13 @@ namespace HiPiaoInterface
             {
                 return null;
             }
-            XmlNode node2 = node.SelectSingleNode("//savetype");
+            XmlNode node2 = node.SelectSingleNode("savetype");
             string language = node2.Attributes["language"].Value;
             string type = node2.Attributes["type"].Value;
             moviePlan.Language = language;
             moviePlan.Type = type;
-            XmlNodeList objsNode = node.SelectNodes("//plan");
+            XmlNodeList objsNode = node2.SelectNodes("plan");
+           // XmlNodeList objsNode = node2.ChildNodes;
             for (int i = 0; i < objsNode.Count; i++)
             {
                 lists.Add(ParseRoomPlan(objsNode[i]));
@@ -435,13 +436,14 @@ namespace HiPiaoInterface
             double price = double.Parse(tmp);
             movie = new MovieObject();
             movie.Name = docOrderDetail.SelectSingleNode("//pixname").InnerText;
-          
+            DateTime buyTime = DateTime.Parse(docOrderDetail.SelectSingleNode("//buytime").InnerText);
+            DateTime playTime=DateTime.Parse(docOrderDetail.SelectSingleNode("//playtime").InnerText);
             for (int j = 0; j < count; j++)
             {
                 ticket = new TicketObject();
-                ticket.BuyTime = DateTime.Parse(docOrderDetail.SelectSingleNode("//buytime").InnerText);
+                ticket.BuyTime =buyTime ;
                 ticket.Price = (int)price;
-                ticket.PlayTime = DateTime.Parse(docOrderDetail.SelectSingleNode("//playtime").InnerText);
+                ticket.PlayTime = playTime;
                 ticket.Movie = movie;
                 ticket.Seat = seat;
                 obj.Tickets.Add(ticket);

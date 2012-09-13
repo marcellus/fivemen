@@ -103,6 +103,12 @@
     <Content Include="xml\LoginResponse.xml" />
     <Content Include="xml\HotMovieRequest.xml" />
     <Content Include="xml\HotMovieResponse.xml" />
+    <Content Include="xml\PlanViiRequest.xml" />
+    <Content Include="xml\PlanViiResponse.xml" />
+    <Content Include="xml\SiteMapResponseRequest.xml" />
+    <Content Include="xml\SiteMapResponseResponse.xml" />
+    <Content Include="xml\AdvertisementRequest.xml" />
+    <Content Include="xml\AdvertisementResponse.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

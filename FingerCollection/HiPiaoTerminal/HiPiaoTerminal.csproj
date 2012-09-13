@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\BindMobilePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\BindMobilePanel.Designer.cs">
+      <DependentUpon>BindMobilePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account\ConfirmQuitAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="Account\MyAccountPanel.Designer.cs">
       <DependentUpon>MyAccountPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\NotifyBindMobilePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\NotifyBindMobilePanel.Designer.cs">
+      <DependentUpon>NotifyBindMobilePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Account\UIdOrPwdErrorPanel.cs">
       <SubType>UserControl</SubType>
@@ -372,6 +384,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Account\BindMobilePanel.resx">
+      <DependentUpon>BindMobilePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Account\ConfirmQuitAccountForm.resx">
       <DependentUpon>ConfirmQuitAccountForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -386,6 +402,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Account\MyAccountPanel.resx">
       <DependentUpon>MyAccountPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\NotifyBindMobilePanel.resx">
+      <DependentUpon>NotifyBindMobilePanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\UIdOrPwdErrorPanel.resx">
@@ -1059,6 +1079,11 @@
     <None Include="Resources\Keyboard_NuM_3.png" />
     <None Include="Resources\Keyboard_NuM_2.png" />
     <None Include="Resources\Keyboard_NuM_1.png" />
+    <None Include="Resources\BindMobile_SendValidCode.png" />
+    <None Include="Resources\BuyTick_No_Plan.png" />
+    <None Include="Resources\BuyTick_NotifyBindMobile_Back.png" />
+    <None Include="Resources\BindMobile_Cancel.png" />
+    <None Include="Resources\BindMobile_Sure.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

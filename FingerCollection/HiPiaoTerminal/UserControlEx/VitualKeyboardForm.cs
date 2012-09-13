@@ -14,6 +14,11 @@ namespace HiPiaoTerminal.UserControlEx
         public VitualKeyboardForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;//设置本窗体
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+            this.UpdateStyles();
         }
 
         private void vitualKeyBoardPanel21_Load(object sender, EventArgs e)

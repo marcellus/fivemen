@@ -107,7 +107,7 @@ namespace HiPiaoTerminal.BuyTicket
                     lb.BackColor = Color.Transparent;
                     lb.Text = lists[i].SeatNo.ToString();
                     lb.AutoSize = false;
-                    if (lists[i].LockState == "1")
+                    if (lists[i].LockState == "0")
                     {
                         lb.BackColor = Color.FromArgb(125, 183, 0);
                     }
@@ -138,7 +138,7 @@ namespace HiPiaoTerminal.BuyTicket
             Control ctr=sender as Control;
             SeatObject seat = ctr.Tag as SeatObject;
             //253,208,0
-            if (seat.LockState == "1")
+            if (seat.LockState == "0")
             {
                 if (ctr.BackColor.R == (byte)125)
                 {
@@ -148,6 +148,9 @@ namespace HiPiaoTerminal.BuyTicket
                 }
                 else
                 {
+                    //this.selectedSeat.Add(seat.SeatId, seat);
+                   // ctr.BackColor = Color.FromArgb(253, 208, 0);
+                   // this.RefreshSelectedPanel();
                     //this.selectedSeat.Remove(seat.SeatId);
                 }
             }
