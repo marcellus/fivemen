@@ -360,11 +360,21 @@ namespace FT.Commons.Tools
 
             graphics.DrawPath(pen, path);
         }
+        public static void PaintFirstRound(object sender)
+        {
+            PaintRound(sender, yellowBorderColor, yellowBorderWidth);
+        }
 
         public static void PaintFirstRound(object sender, PaintEventArgs e)
         {
             PaintRound(sender, yellowBorderColor, yellowBorderWidth, e);
         }
+
+        public static void PaintSecondRound(object sender)
+        {
+            PaintRound(sender, secondBorderColor, yellowBorderWidth);
+        }
+
 
         public static void PaintSecondRound(object sender, PaintEventArgs e)
         {
@@ -420,10 +430,38 @@ namespace FT.Commons.Tools
             gp.AddArc(new Rectangle(rectangle.X, rectangle.Y, l, l), 180F, 90F);
             return gp;
         }
+        public static void PaintRound(object sender, Color borderColor, int borderWidth)
+        {
+            Control form = ((Control)sender);
+#if DEBUG
+            Console.WriteLine("控件：" + form.Name + "画椭圆边框");
+#endif
+
+            //if (shape == null)
+            // {
+            List<Point> list = new List<Point>();
+            int width = form.Width;
+            int height = form.Height;
+            int r = 17;
+            DrawRoundRectangle(form.CreateGraphics(), form.ClientRectangle, borderColor, borderWidth, r);
+            DrawRoundRectangle(form.CreateGraphics(), form.ClientRectangle, borderColor, borderWidth, r);
+            DrawRoundRectangle(form.CreateGraphics(), form.ClientRectangle, borderColor, borderWidth, r);
+            GraphicsPath shape = getRoundRectangle(form.ClientRectangle, r);
+            //将控件的显示区域设为GraphicsPath的实例 
+            form.Region = new System.Drawing.Region(shape);
+
+
+
+
+        }
 
         public static void PaintRound(object sender, Color borderColor, int borderWidth, PaintEventArgs e)
        {
            Control form = ((Control)sender);
+#if DEBUG
+            Console.WriteLine("控件："+form.Name+"画椭圆边框");
+#endif
+          
            //if (shape == null)
           // {
                List<Point> list = new List<Point>();
@@ -615,7 +653,8 @@ namespace FT.Commons.Tools
             list.Add(new Point(0, height - 47));
 */
             #endregion
-/*
+               #region 临时
+               /*
                 Point[] points = list.ToArray();
 
                 GraphicsPath shape = new GraphicsPath();
@@ -641,8 +680,9 @@ namespace FT.Commons.Tools
                                  borderColor,
                                  borderWidth,
                                  ButtonBorderStyle.Solid);
- */ 
-           // }
+ */
+               // }
+               #endregion
                int r = 17;
                DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
                DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
