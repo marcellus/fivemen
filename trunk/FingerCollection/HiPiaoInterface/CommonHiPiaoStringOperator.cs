@@ -351,8 +351,8 @@ namespace HiPiaoInterface
                     + tickets.Count.ToString() + "&planId="
                     + planid + "&seatids=" + seatv
                     + "&fromclient" + fromclient;
-            //String query = r4 + "&pass=" + r3;
-            String query = r4 + "&pass=" + r2;
+            String query = r4 + "&pass=" + r3;
+            //String query = r4 + "&pass=" + r2;
 #if DEBUG
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
 #endif

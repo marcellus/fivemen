@@ -16,6 +16,7 @@ using HiPiaoTerminal.BuyTicket;
 using HiPiaoTerminal.ConfigModel;
 using HiPiaoTerminal.UserControlEx;
 using FT.Windows.Controls.TextBoxEx;
+using System.Collections;
 
 namespace HiPiaoTerminal
 {
@@ -114,7 +115,8 @@ namespace HiPiaoTerminal
             Console.WriteLine("转化后键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString());
 #endif
             // frm.ShowDialog();
-            frm.Show();
+           // frm.Show();
+            frm.Visible = true;
         }
 
         public static void HideAllKeyBoard()
@@ -124,11 +126,12 @@ namespace HiPiaoTerminal
             allKeyBoard.InputTextBox = null;
             allKeyBoard.Visible = false;
             allKeyBoardForm.InputTextBox = null;
-            allKeyBoardForm.Hide();
+            allKeyBoardForm.Visible = false;
+            //allKeyBoardForm.Hide();
             
             numKeyBoardForm.InputTextBox = null;
-            
-            numKeyBoardForm.Hide();
+            numKeyBoardForm.Visible = false;
+            //numKeyBoardForm.Hide();
         }
 
         public static void SetAllKeyBoard(TextBox txt)
@@ -283,17 +286,53 @@ namespace HiPiaoTerminal
 
         public static DialogResult PopMask(Control panel,int type)
         {
-            NotifyUserForm form = new NotifyUserForm(panel);
+            InitUnOperationControl(panel);
+            NotifyUserForm popForm = new NotifyUserForm(panel);
+            
+            popForm.ColorType = type;
+           // popForm.Show();
+           // return DialogResult.OK;
+            
+            return popForm.ShowDialog();
+        }
 
-            form.ColorType = type;
-            return form.ShowDialog();
+        public static ArrayList popForms = new ArrayList();
+
+        /// <summary>
+        /// 定时关闭弹出窗口
+        /// </summary>
+        public static void CloseAllPopForms()
+        {
+            Form frm = null;
+            for (int i = 0; i < popForms.Count; i++)
+            {
+                frm=popForms[i] as Form;
+                frm.Close();
+
+            }
+            popForms.Clear();
+        }
+
+        public static void popForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            for (int i = 0; i < popForms.Count; i++)
+            {
+                if (popForms[i] == sender)
+                {
+                    popForms.RemoveAt(i);
+                    break;
+                }
+
+            }
         }
 
         public static DialogResult PopUnMask(Control panel,int type)
         {
+            InitUnOperationControl(panel);
            // /*
              
            Form form =null;
+           
            if (type == 1)
            {
                form = new FirstRoundNotifyForm();
@@ -302,6 +341,7 @@ namespace HiPiaoTerminal
            {
                form = new SecondRoundNotifyForm();
            }
+           form.FormClosing += new FormClosingEventHandler(popForm_FormClosing);
                 
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.StartPosition = FormStartPosition.CenterScreen;
@@ -534,6 +574,7 @@ namespace HiPiaoTerminal
                     UnOperationLeaveSecond = UnOperationMaxSecond;
                     UpdateUnOperationTime = null;
                     UnOperationTimer.Stop();
+                    
                 }
                 else
                 {
@@ -547,11 +588,13 @@ namespace HiPiaoTerminal
 #if DEBUG
                         Console.WriteLine("未操作时间已到，跳转到主界面");
 #endif
+                        CloseAllPopForms();
                         ReturnMain();
 
                     }
                 }
             }
+            
             
         }
         /// <summary>
@@ -661,6 +704,7 @@ namespace HiPiaoTerminal
         /// <param name="ctr"></param>
         public static void InitUnOperationControl(Control ctr)
         {
+            ctr.Click+=new EventHandler(ctr_Click);
             if (ctr.Controls.Count == 0)
             {
                 if (ctr is Button || ctr is PictureBox)
@@ -845,7 +889,18 @@ namespace HiPiaoTerminal
 
         public static void QuickBuyTicket()
         {
-            GoPanel(new MovieSelectorPanel());       
+            if (!GlobalTools.GetLoginUser().IsBindMobile)
+            {
+                if (GlobalTools.Pop(new NotifyBindMobilePanel()) == DialogResult.OK)
+                {
+                    GoPanel(new MovieSelectorPanel());
+                }
+            }
+            else
+            {
+                GoPanel(new MovieSelectorPanel());
+            }
+           
             //InitUnOperationControl(parent.Controls[0]);   
         }
 

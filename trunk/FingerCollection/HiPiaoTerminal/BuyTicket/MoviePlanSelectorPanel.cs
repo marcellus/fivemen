@@ -20,6 +20,7 @@ namespace HiPiaoTerminal.BuyTicket
         {
             InitializeComponent();
             this.movie = movie;
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void MoviePlanSelectorPanel_Load(object sender, EventArgs e)
@@ -79,19 +80,32 @@ namespace HiPiaoTerminal.BuyTicket
             for (int i = this.panelContent.Controls.Count-1; i >=0 ; i--)
             {
                 Control ctr = this.panelContent.Controls[i];
-                if (ctr is RoomPlanShowPanel)
+                if (ctr.Name == "picNoPlanHint")
+                {
+                    WindowFormDelegate.RemoveControlFrom(this.panelContent, ctr);
+                }
+                else if (ctr is RoomPlanShowPanel)
                 {
                     //
                     //this.panelContent.Controls.Remove(ctr);
                     WindowFormDelegate.RemoveControlFrom(this.panelContent, ctr);
                 }
+                //this.picNoPlanHint.Visible = false;
             }
             if (plan == null)
             {
-
-                this.lbLanguage.Text = "没有找到该影片的排期";
-                this.lbLanguage.ForeColor = SystemColors.MenuHighlight;
-                    return;
+               // 274, 257
+                PictureBox pic = new PictureBox();
+                pic.Name = "picNoPlanHint";
+                pic.BackgroundImage = Properties.Resources.BuyTick_No_Plan;
+                pic.Width = 745;
+                pic.Height = 374;
+                pic.Location = new Point(274, 257);
+                //this.panelContent.Controls.Clear();
+                WindowFormDelegate.AddControlTo(this.panelContent, pic);
+               // this.panelContent.Controls.Add(pic);
+                //this..Visible = true;
+                return;
             }
             if (movie.OtherName.Length>0)
             {

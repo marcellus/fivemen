@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows;
+using System.Threading;
 //using HiPiaoTerminalWpf;
 //using HiPiaoTerminal.Wpf;
 
@@ -16,6 +17,11 @@ namespace HiPiaoTerminal.CommonForm
         public NotifyUserForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;//设置本窗体
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+            this.UpdateStyles();
             //this.BackColor = Color.White;
             //this.TransparencyKey = Color.White; 
         }
@@ -32,6 +38,7 @@ namespace HiPiaoTerminal.CommonForm
         {
             InitializeComponent();
             this.panel = panel;
+           
             //this.BackColor = Color.White;
             //this.TransparencyKey = Color.White; 
         }
@@ -53,10 +60,14 @@ namespace HiPiaoTerminal.CommonForm
         private Window window = null;
 */
         private Form form = null;
-        private void NotifyUserForm_Load(object sender, EventArgs e)
+        private bool Poped = false;
+
+        private void PopMessageForm()
         {
-            if (this.panel != null)
+            System.Threading.Thread.Sleep(300);
+            if (this.panel != null && !Poped)
             {
+                Poped = true;
                 if (colorType == 1)
                 {
                     form = new FirstRoundNotifyForm();
@@ -65,12 +76,14 @@ namespace HiPiaoTerminal.CommonForm
                 {
                     form = new SecondRoundNotifyForm();
                 }
-                
+                GlobalTools.popForms.Add(form);
+                form.FormClosing += new FormClosingEventHandler(GlobalTools.popForm_FormClosing);
+
                 form.FormBorderStyle = FormBorderStyle.None;
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.Width = panel.Width;
                 form.Height = panel.Height;
-                form.BackColor = Color.Red;
+                //form.BackColor = Color.Red;
                 panel.Dock = DockStyle.Fill;
                 //form.BackColor = Color.Red;
                 //form.BackColor = Color.FromArgb(117, 117, 117);
@@ -80,7 +93,32 @@ namespace HiPiaoTerminal.CommonForm
                 form.Controls.Add(panel);
                 form.FormClosing += new FormClosingEventHandler(form_FormClosing);
                 form.ShowDialog();
+                //form.Show();
             }
+        }
+
+        protected override CreateParams CreateParams
+        {
+
+            get
+            {
+
+                CreateParams cp = base.CreateParams;
+
+                cp.ExStyle |= 0x02000000;
+
+                return cp;
+
+            }
+
+        }
+
+
+        private void NotifyUserForm_Load(object sender, EventArgs e)
+        {
+            PopMessageForm();
+           // Thread thread = new Thread(new ThreadStart(PopMessageForm));
+           // thread.Start();
             /*
             if (this.panel2 != null)
             {

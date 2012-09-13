@@ -1,0 +1,93 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:getPlanViiResponse xmlns:ns1="http://service.server.com/">
+      <return xmlns="">
+        <cinema address="广州天河员村二横路２号员村工人文化宫内" cinemanumber="44001901" cname="大地数字影院--广州天河员宫" tel="020-85575341">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="05f9ac50-8ac3-11e1-b422-001bb97ef1a4" hname="1号厅" planId="9c0f94e0-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="19:50" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="05f91010-8ac3-11e1-b422-001bb97ef1a4" hname="2号厅" planId="9c14ec10-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="22:20" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="增城市挂绿路2号挂绿广场五楼" cinemanumber="44003501" cname="大地数字影院--广州增城挂绿广场" tel="020-82718790">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="93b59450-5b8d-11dd-9582-001bb97ef1a4" hname="2号厅" planId="9c4a05d0-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="17:20" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="93b51f20-5b8d-11dd-9582-001bb97ef1a4" hname="1号厅" planId="9c3d3490-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="18:00" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="93b51f20-5b8d-11dd-9582-001bb97ef1a4" hname="1号厅" planId="9c3fcca0-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="19:55" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="93b51f20-5b8d-11dd-9582-001bb97ef1a4" hname="1号厅" planId="9c4264b0-fc22-11e1-a9dc-001bb97ef1a4@@6" playtime="21:50" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州市番禺区大石街朝阳西路大石城5楼" cinemanumber="44004501" cname="大地数字影院--广州番禺大石城" tel="020-28650753">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="2752dff0-f01f-11e0-98ca-001bb97ef1a4" hname="2号厅" planId="3c796fd0-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="17:20" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="2752dff0-f01f-11e0-98ca-001bb97ef1a4" hname="2号厅" planId="3c7af670-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="19:20" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="2752dff0-f01f-11e0-98ca-001bb97ef1a4" hname="2号厅" planId="3c7c7d10-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="21:15" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="2752dff0-f01f-11e0-98ca-001bb97ef1a4" hname="2号厅" planId="3c7e03b0-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="23:10" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="增城市新塘镇东坑三横路大旺城百货广场4楼" cinemanumber="44004601" cname="大地数字影院--广州增城大旺城" tel="020-32919313">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="35f73ea0-1966-11e1-86d3-001bb97ef1a4" hname="1号厅" planId="cd0e78a0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="17:05" price="25.00元" sprice="25.00元" />
+            <plan color="green" hallId="35f73ea0-1966-11e1-86d3-001bb97ef1a4" hname="1号厅" planId="cd0fd830-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="19:00" price="25.00元" sprice="25.00元" />
+            <plan color="green" hallId="35f62d30-1966-11e1-86d3-001bb97ef1a4" hname="4号厅" planId="cd236030-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="20:10" price="25.00元" sprice="25.00元" />
+            <plan color="green" hallId="35f73ea0-1966-11e1-86d3-001bb97ef1a4" hname="1号厅" planId="cd1137c0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="20:55" price="25.00元" sprice="25.00元" />
+            <plan color="green" hallId="35f6c970-1966-11e1-86d3-001bb97ef1a4" hname="3号厅" planId="cd20a110-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="22:25" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州市天河区奥体南路12号高德美居中心家居馆三楼" cinemanumber="44006601" cname="大地数字影院--广州东圃奥体高德美居" tel="020-82524282">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="01bb2380-a6f7-11e1-aa57-001bb97ef1a4" hname="5号厅" planId="49dc50c0-fc89-11e1-a9dc-001bb97ef1a4@@6" playtime="17:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="01bc34f0-a6f7-11e1-aa57-001bb97ef1a4" hname="2号厅" planId="49d524d0-fc89-11e1-a9dc-001bb97ef1a4@@6" playtime="18:05" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="01bb2380-a6f7-11e1-aa57-001bb97ef1a4" hname="5号厅" planId="49dced00-fc89-11e1-a9dc-001bb97ef1a4@@6" playtime="19:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="01bc34f0-a6f7-11e1-aa57-001bb97ef1a4" hname="2号厅" planId="49d5e820-fc89-11e1-a9dc-001bb97ef1a4@@6" playtime="20:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="01bb2380-a6f7-11e1-aa57-001bb97ef1a4" hname="5号厅" planId="49ddb050-fc89-11e1-a9dc-001bb97ef1a4@@6" playtime="21:05" price="30.00元" sprice="30.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州黄埔区荔联街宏明路263号东区商业城4楼" cinemanumber="44006801" cname="大地数字影院--广州黄埔东区商业城" tel="020-62247835">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="9c773980-b9a0-11e0-a7b0-001bb97ef1a4" hname="1号厅" planId="8ebe51a0-fc31-11e1-a9dc-001bb97ef1a4@@6" playtime="17:35" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="9c767630-b9a0-11e0-a7b0-001bb97ef1a4" hname="4号厅" planId="8ed4e6e0-fc31-11e1-a9dc-001bb97ef1a4@@6" playtime="19:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="9c7564c0-b9a0-11e0-a7b0-001bb97ef1a4" hname="2号厅" planId="8ec57d90-fc31-11e1-a9dc-001bb97ef1a4@@6" playtime="20:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="9c773980-b9a0-11e0-a7b0-001bb97ef1a4" hname="1号厅" planId="8ec02660-fc31-11e1-a9dc-001bb97ef1a4@@6" playtime="21:55" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州市黄埔区领好广场五楼" cinemanumber="44006901" cname="大地数字影院--广州黄埔领好广场" tel="020-22197293">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="f2250fa0-4579-11e1-96da-001bb97ef1a4" hname="3号厅" planId="cbf50110-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="17:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="f2255dc0-4579-11e1-96da-001bb97ef1a4" hname="4号厅" planId="cbfaa660-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="17:50" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="f2250fa0-4579-11e1-96da-001bb97ef1a4" hname="3号厅" planId="cbf63990-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="19:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="f2255dc0-4579-11e1-96da-001bb97ef1a4" hname="4号厅" planId="cbfbb7d0-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="19:55" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="f2250fa0-4579-11e1-96da-001bb97ef1a4" hname="3号厅" planId="cbf74b00-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="21:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="f225abe0-4579-11e1-96da-001bb97ef1a4" hname="2号厅" planId="cbf1a5b0-fc20-11e1-a9dc-001bb97ef1a4@@6" playtime="22:05" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州市番禺区市桥工业路128号百德商业中心三楼" cinemanumber="44007701" cname="大地数字影院--广州番禺百德商业中心" tel="020-84889802">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="1235f330-375c-11e1-86d3-001bb97ef1a4" hname="1号厅" planId="9dd1cf90-fc28-11e1-a9dc-001bb97ef1a4@@6" playtime="19:55" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="1235f330-375c-11e1-86d3-001bb97ef1a4" hname="1号厅" planId="9dd3f270-fc28-11e1-a9dc-001bb97ef1a4@@6" playtime="21:50" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州市白云区人和镇鹤龙六路187号华通广场3F" cinemanumber="44007801" cname="大地数字影院-广州人和华通广场影院" tel="020-86456815">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="1798f9e0-3cc9-11e1-86d3-001bb97ef1a4" hname="5号厅" planId="cd6969e0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="17:15" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="17972520-3cc9-11e1-86d3-001bb97ef1a4" hname="6号厅" planId="cd6e24d0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="18:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="1798f9e0-3cc9-11e1-86d3-001bb97ef1a4" hname="5号厅" planId="cd6aa260-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="19:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="17972520-3cc9-11e1-86d3-001bb97ef1a4" hname="6号厅" planId="cd6f5d50-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="20:10" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="1798f9e0-3cc9-11e1-86d3-001bb97ef1a4" hname="5号厅" planId="cd6bb3d0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="21:05" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="17972520-3cc9-11e1-86d3-001bb97ef1a4" hname="6号厅" planId="cd706ec0-fc26-11e1-a9dc-001bb97ef1a4@@6" playtime="22:05" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+        <cinema address="广州增城市荔城街府佑路98号东汇城4楼大地数字影院" cinemanumber="44008101" cname="大地数字影院--广州增城东汇城" tel="020-32831009">
+          <savetype language="英语" type="">
+            <plan color="green" hallId="5d78dce0-44ef-11e1-96da-001bb97ef1a4" hname="1号厅" planId="2a2feaa0-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="17:05" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="5d777d50-44ef-11e1-96da-001bb97ef1a4" hname="5号厅" planId="2a4128b0-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="18:05" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="5d78dce0-44ef-11e1-96da-001bb97ef1a4" hname="1号厅" planId="2a30fc10-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="19:00" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="5d777d50-44ef-11e1-96da-001bb97ef1a4" hname="5号厅" planId="2a423a20-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="20:00" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="5d78dce0-44ef-11e1-96da-001bb97ef1a4" hname="1号厅" planId="2a323490-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="20:55" price="30.00元" sprice="30.00元" />
+            <plan color="green" hallId="5d777d50-44ef-11e1-96da-001bb97ef1a4" hname="5号厅" planId="2a434b90-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="21:55" price="25.00元" sprice="25.00元" />
+            <plan color="green" hallId="5d78dce0-44ef-11e1-96da-001bb97ef1a4" hname="1号厅" planId="2a334600-fc1d-11e1-a9dc-001bb97ef1a4@@6" playtime="22:50" price="25.00元" sprice="25.00元" />
+          </savetype>
+        </cinema>
+      </return>
+    </ns1:getPlanViiResponse>
+  </soap:Body>
+</soap:Envelope>

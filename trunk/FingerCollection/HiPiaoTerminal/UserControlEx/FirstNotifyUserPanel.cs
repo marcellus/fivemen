@@ -19,6 +19,11 @@ namespace HiPiaoTerminal.UserControlEx
             //this.BackColor = Color.FromArgb(245, 245, 245);
             //如果使用遮罩
             this.BackColor = Color.FromArgb(174,174,174);
+            this.DoubleBuffered = true;//设置本窗体
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+            this.UpdateStyles();
         }
 
         private void YellowNotifyUserPanel_Paint(object sender, PaintEventArgs e)

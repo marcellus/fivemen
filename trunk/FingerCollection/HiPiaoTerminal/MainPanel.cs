@@ -47,6 +47,7 @@ namespace HiPiaoTerminal
                 this.lbWelcome3.Visible = true;
                 this.btnQuit.Visible = true;
             }
+            GlobalTools.CloseAllPopForms();
         }
 
         private void btnLoginPassport_Click(object sender, EventArgs e)

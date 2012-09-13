@@ -14,7 +14,13 @@ namespace HiPiaoTerminal.UserControlEx
         public SecondNotifyUserPanel()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(245, 245, 245);
+           // this.BackColor = Color.Green;
+           this.BackColor = Color.FromArgb(245, 245, 245);
+           this.DoubleBuffered = true;//设置本窗体
+           SetStyle(ControlStyles.UserPaint, true);
+           SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+           SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+           this.UpdateStyles();
         }
 
         private void SecondNotifyUserPanel_Paint(object sender, PaintEventArgs e)

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <xs:RequestSOAPHeader xmlns:xs="http://www">
+      <xs:spId xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">hipiao</xs:spId>
+      <xs:spPassword xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">hipiao@iphone</xs:spPassword>
+      <xs:mobilekey xmlns:xs="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1">13800000000</xs:mobilekey>
+    </xs:RequestSOAPHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getPlanVii  xmlns:ns2="http://service.server.com">
+      <province>广东省</province>
+      <city>广州市</city>
+      <pixnumber>05110140</pixnumber>
+      <date>09月12日</date>
+      <version>2</version>
+      <clintform>ANDROID/IPHONE/IPAD</clintform>
+    </ns2:getPlanVii>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

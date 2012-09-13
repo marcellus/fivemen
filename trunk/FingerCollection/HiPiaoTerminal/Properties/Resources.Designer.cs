@@ -291,6 +291,27 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BindMobile_Cancel {
+            get {
+                object obj = ResourceManager.GetObject("BindMobile_Cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindMobile_SendValidCode {
+            get {
+                object obj = ResourceManager.GetObject("BindMobile_SendValidCode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindMobile_Sure {
+            get {
+                object obj = ResourceManager.GetObject("BindMobile_Sure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap btnCancel {
             get {
                 object obj = ResourceManager.GetObject("btnCancel", resourceCulture);
@@ -336,6 +357,20 @@ namespace HiPiaoTerminal.Properties {
         internal static System.Drawing.Bitmap BuyTick_Money_Hint {
             get {
                 object obj = ResourceManager.GetObject("BuyTick_Money_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_No_Plan {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_No_Plan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_NotifyBindMobile_Back {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_NotifyBindMobile_Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

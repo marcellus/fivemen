@@ -8,11 +8,13 @@ using System.Windows.Forms;
 using HiPiaoInterface;
 using HiPiaoTerminal.ConfigModel;
 using FT.Commons.Tools;
+using HiPiaoTerminal.Account;
 
 namespace HiPiaoTerminal.BuyTicket
 {
     public partial class MovieSelectorPanel : HiPiaoTerminal.UserControlEx.OperationTimeParentPanel
     {
+       
         public MovieSelectorPanel()
         {
             InitializeComponent();
@@ -25,8 +27,8 @@ namespace HiPiaoTerminal.BuyTicket
                 this.btnThreeDay.Text = string.Format(this.btnThreeDay.Text, now.AddDays(2).ToString("MM月dd日"));
                 this.SetSepartor(false);
 
-                this.InitMovies(now);
-                this.SetOperationTime(60);
+               
+               
                 //WinFormHelper.InitButtonStyle(this.btnThreeDay);
                 //WinFormHelper.InitButtonStyle(this.btnToday);
                // WinFormHelper.InitButtonStyle(this.btnTomorrow);
@@ -40,6 +42,9 @@ namespace HiPiaoTerminal.BuyTicket
         private void MovieSelectorPanel_Load(object sender, EventArgs e)
         {
            
+            DateTime now = System.DateTime.Now;
+            this.InitMovies(now);
+            this.SetOperationTime(60);
         }
 
         //private static Font MovieNameColor=new Font("",
@@ -53,7 +58,21 @@ namespace HiPiaoTerminal.BuyTicket
             List<MovieObject> all = HiPiaoCache.GetHotMovie(config.Province, config.City);
 
             List<MovieObject> lists= HiPiaoCache.GetDayMovie(config.CinemaId, dt,all);
-            if (lists != null )
+            if (lists == null || lists.Count == 0)
+            {
+                //274, 42
+                //745, 374
+                PictureBox pic = new PictureBox();
+                pic.BackgroundImage = Properties.Resources.BuyTick_No_Plan;
+                pic.Width = 745;
+                pic.Height = 374;
+                pic.Location = new Point(274, 42);
+                this.panelContent.Controls.Clear();
+                this.panelContent.Controls.Add(pic);
+                //this.picShowNoPlanHint.Visible = true;
+            }
+           
+            else if (lists != null&&lists.Count>0 )
             {
                 this.panelContent.Controls.Clear();
                 int x=100;

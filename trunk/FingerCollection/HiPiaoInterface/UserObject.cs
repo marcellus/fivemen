@@ -39,6 +39,19 @@ namespace HiPiaoInterface
             set { mobile = value; }
         }
 
+        private bool isBindMobile = false;
+
+        /// <summary>
+        /// 是否绑定手机
+        /// </summary>
+        public bool IsBindMobile
+        {
+            get { return isBindMobile; }
+            set { isBindMobile = value; }
+        }
+
+
+
         private string sessionKey;
 
         /// <summary>
