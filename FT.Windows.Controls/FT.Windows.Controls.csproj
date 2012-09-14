@@ -114,6 +114,9 @@
     <Compile Include="PanelEx\AdShowPanel.Designer.cs">
       <DependentUpon>AdShowPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="PanelEx\MyOpaqueLayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PanelEx\ColorChangeTextPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +135,7 @@
     <Compile Include="PanelEx\ImageProcessPanel.Designer.cs">
       <DependentUpon>ImageProcessPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="PanelEx\MyOpaqueLayerTools.cs" />
     <Compile Include="PanelEx\ProcessPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
