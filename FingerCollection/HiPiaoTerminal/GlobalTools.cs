@@ -29,6 +29,19 @@ namespace HiPiaoTerminal
         {
         }
 
+        private static FullAdShowForm fullAdForm = new FullAdShowForm();
+        public static void ShowFullAdForm()
+        {
+            if (!fullAdForm.Visible)
+            {
+#if DEBUG
+                Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"开始显示全屏广告!");
+#endif
+                fullAdForm.BringToFront();
+                fullAdForm.ShowDialog();
+            }
+        }
+
         private static VitualKeyBoardPanel allKeyBoard=new VitualKeyBoardPanel();
 
         private static VitualKeyBoardPanel2 allKeyBoard2 = new VitualKeyBoardPanel2();
@@ -287,6 +300,9 @@ namespace HiPiaoTerminal
         public static DialogResult PopMask(Control panel,int type)
         {
             InitUnOperationControl(panel);
+            //MyOpaqueLayerTools.ShowOpaqueLayer(MainForm, 60, true);
+           // return PopUnMask(panel, type);
+           
             NotifyUserForm popForm = new NotifyUserForm(panel);
             
             popForm.ColorType = type;
@@ -294,6 +310,7 @@ namespace HiPiaoTerminal
            // return DialogResult.OK;
             
             return popForm.ShowDialog();
+           
         }
 
         public static ArrayList popForms = new ArrayList();
@@ -315,6 +332,7 @@ namespace HiPiaoTerminal
 
         public static void popForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            MyOpaqueLayerTools.HideOpaqueLayer();
             for (int i = 0; i < popForms.Count; i++)
             {
                 if (popForms[i] == sender)
@@ -347,7 +365,7 @@ namespace HiPiaoTerminal
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.Width = panel.Width;
                 form.Height = panel.Height;
-                panel.Dock = DockStyle.Fill;
+                //panel.Dock = DockStyle.Fill;
                 //form.BackColor = Color.Red;
                 //form.BackColor = Color.FromArgb(117, 117, 117);
                 //form.Opacity = 0.6d;

@@ -107,6 +107,12 @@
     <Compile Include="BuyTicket\ConfirmPayPwdPanel.Designer.cs">
       <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyTicket\FullScreenSeatSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\FullScreenSeatSelectorForm.Designer.cs">
+      <DependentUpon>FullScreenSeatSelectorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyTicket\MoviePlanSelectorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FullAdShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullAdShowForm.Designer.cs">
+      <DependentUpon>FullAdShowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalHardwareTools.cs" />
     <Compile Include="GlobalTools.cs" />
     <Compile Include="MainPanel.cs">
@@ -333,6 +345,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControlEx\AdShowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\AdShowPanel.Designer.cs">
+      <DependentUpon>AdShowPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlEx\AllowInputEnum.cs" />
     <Compile Include="UserControlEx\LabelButtonWithActive.cs">
       <SubType>Component</SubType>
@@ -424,6 +442,9 @@
       <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\FullScreenSeatSelectorForm.resx">
+      <DependentUpon>FullScreenSeatSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\MoviePlanSelectorPanel.resx">
       <DependentUpon>MoviePlanSelectorPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -500,6 +521,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FullAdShowForm.resx">
+      <DependentUpon>FullAdShowForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -572,6 +597,10 @@
     <EmbeddedResource Include="TestResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TestResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\AdShowPanel.resx">
+      <DependentUpon>AdShowPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlEx\MaintainFirstPanel.resx">
@@ -1084,6 +1113,14 @@
     <None Include="Resources\BuyTick_NotifyBindMobile_Back.png" />
     <None Include="Resources\BindMobile_Cancel.png" />
     <None Include="Resources\BindMobile_Sure.png" />
+    <None Include="Resources\BuyTicket_FullScreen_Hint.png" />
+    <None Include="Resources\BuyTicket_FullScreen_Sure.png" />
+    <None Include="Resources\BuyTicket_FullScreen_Cancel.png" />
+    <None Include="Resources\BuyTicket_FullScreen_Click.png" />
+    <None Include="Resources\BuyTicket_FullScreen_PlanDetail.png" />
+    <None Include="Resources\Buyticket_QuitAccout_Cancel.png" />
+    <None Include="Resources\Buyticket_QuitAccout_Hint.png" />
+    <None Include="Resources\Buyticket_QuitAccout_Sure.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

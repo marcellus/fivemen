@@ -9,7 +9,7 @@ using HiPiaoInterface;
 
 namespace HiPiaoTerminal.BuyTicket
 {
-    public partial class WaitTicketPrintPanel : UserControl
+    public partial class WaitTicketPrintPanel : HiPiaoTerminal.UserControlEx.OperationTimeParentPanel
     {
         private List<TicketPrintObject> lists;
         public WaitTicketPrintPanel( List<TicketPrintObject>  tickets)

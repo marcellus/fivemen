@@ -17,9 +17,33 @@ namespace HiPiaoTerminal.BuyTicket
     public partial class MovieSeatSelectorPanel : HiPiaoTerminal.UserControlEx.OperationTimeParentPanel
     {
         private RoomPlanObject roomPlan;
+
+        public RoomPlanObject RoomPlan
+        {
+            get { return roomPlan; }
+            set { roomPlan = value; }
+        }
         private MovieObject movie;
+
+        public MovieObject Movie
+        {
+            get { return movie; }
+            set { movie = value; }
+        }
         private DateTime dt;
+
+        public DateTime Dt
+        {
+            get { return dt; }
+            set { dt = value; }
+        }
         private MoviePlanObject moviePlan;
+
+        public MoviePlanObject MoviePlan
+        {
+            get { return moviePlan; }
+            set { moviePlan = value; }
+        }
 
         public void RefreshSeat()
         {
@@ -47,7 +71,13 @@ namespace HiPiaoTerminal.BuyTicket
         }
 
 
-        private Hashtable selectedSeat = new Hashtable();
+        public Hashtable selectedSeat = new Hashtable();
+
+        public Hashtable SelectedSeat
+        {
+            get { return selectedSeat; }
+            set { selectedSeat = value; }
+        }
 
         private void MovieSeatSelectorPanel_Load(object sender, EventArgs e)
         {
@@ -85,17 +115,21 @@ namespace HiPiaoTerminal.BuyTicket
             this.processPanel1.Visible = false;
             
         }
-
+        public List<SeatObject> SeatList;
         private void InitSeat(List<SeatObject> lists)
         {
             if (lists == null || lists.Count == 0)
             {
                 return;
             }
+            SeatList = lists;
             //75, 78 height=29
                 int x = 0;
                 int y =0;
+                int lineOneY = lists[0].YPoint;
+#if DEBUG
                 Console.WriteLine("第一行"+lists[0].XPoint+"-"+lists[0].YPoint);
+#endif
 
                 int picWid = 25;
                 int picHeight = 25;
@@ -109,11 +143,11 @@ namespace HiPiaoTerminal.BuyTicket
                     lb.AutoSize = false;
                     if (lists[i].LockState == "0")
                     {
-                        lb.BackColor = Color.FromArgb(125, 183, 0);
+                        lb.BackColor = emptyColor;
                     }
                     else
                     {
-                        lb.BackColor = Color.FromArgb(164, 0, 0);
+                        lb.BackColor = selledColor;
                     }
                     lb.ForeColor = Color.White;
                     lb.Font = font;
@@ -123,7 +157,7 @@ namespace HiPiaoTerminal.BuyTicket
                     lb.TextAlign = ContentAlignment.MiddleCenter;
                     lb.Tag = lists[i];
                     //this.panelContent.Controls.Add(lb);
-                    lb.Location = new Point(x + lists[i].XPoint, y + lists[i].YPoint);
+                    lb.Location = new Point(x + lists[i].XPoint, y + lists[i].YPoint - lineOneY);
                     lb.Click += new EventHandler(lb_Click);
                    //  WindowFormDelegate.AddControlTo(this.panelContent,lb);
                     WindowFormDelegate.AddControlTo(this.panelSeat, lb);
@@ -143,14 +177,20 @@ namespace HiPiaoTerminal.BuyTicket
                 if (ctr.BackColor.R == (byte)125)
                 {
                     this.selectedSeat.Add(seat.SeatId, seat);
-                    ctr.BackColor = Color.FromArgb(253, 208, 0);
+                    ctr.BackColor = selectedColor;
+                    this.RefreshSelectedPanel();
+                }
+                else if (ctr.BackColor.R == (byte)253)
+                {
+                    this.selectedSeat.Remove(seat.SeatId);
+                    ctr.BackColor = emptyColor;
                     this.RefreshSelectedPanel();
                 }
                 else
                 {
                     //this.selectedSeat.Add(seat.SeatId, seat);
-                   // ctr.BackColor = Color.FromArgb(253, 208, 0);
-                   // this.RefreshSelectedPanel();
+                    // ctr.BackColor = Color.FromArgb(253, 208, 0);
+                    // this.RefreshSelectedPanel();
                     //this.selectedSeat.Remove(seat.SeatId);
                 }
             }
@@ -159,17 +199,21 @@ namespace HiPiaoTerminal.BuyTicket
             //throw new NotImplementedException();
         }
 
+        public Color selectedColor = Color.FromArgb(253, 208, 0);
+        public Color emptyColor = Color.FromArgb(125, 183, 0);
+        public Color selledColor = Color.FromArgb(164, 0, 0);
+
         void lbTmp_Click(object sender, EventArgs e)
         {
             Control ctr = sender as Control;
             string seatId = ctr.Tag.ToString();
             this.selectedSeat.Remove(seatId);
-            this.panelSeat.Controls[seatId].BackColor = Color.FromArgb(125, 183, 0);
+            this.panelSeat.Controls[seatId].BackColor = emptyColor;
             this.RefreshSelectedPanel();
             
         }
 
-        private void RefreshSelectedPanel()
+        public void RefreshSelectedPanel()
         {
             this.panelSelectedSeat.Controls.Clear();
 
@@ -186,6 +230,7 @@ namespace HiPiaoTerminal.BuyTicket
             while (enumerator.MoveNext())
             {
                 seat = enumerator.Value as SeatObject;
+                this.panelSeat.Controls[seat.SeatId].BackColor = selectedColor;
                 Label lbTmp = new Label();
                 lbTmp.Font = font;
                 lbTmp.ForeColor = Color.FromArgb(80, 79, 79);
@@ -203,6 +248,18 @@ namespace HiPiaoTerminal.BuyTicket
                 i++;
             }
 
+        }
+
+        public void RemoveAllSelected()
+        {
+            System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
+            SeatObject seat=null;
+            while (enumerator.MoveNext())
+            {
+                seat = enumerator.Value as SeatObject;
+                this.panelSeat.Controls[seat.SeatId].BackColor = emptyColor;
+            }
+            selectedSeat.Clear();
         }
 
 
@@ -245,5 +302,21 @@ namespace HiPiaoTerminal.BuyTicket
             
                 GlobalTools.GoPanel(new UserPayCheckPanel(tickets,movie,moviePlan,roomPlan,dt));
         }
+
+        private void panelSeat_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.panelSeat.Controls.Count > 0)
+            {
+                FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,8);
+                form.ShowDialog();
+            }
+        }
+
+        private void btnDoubleToFullScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

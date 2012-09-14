@@ -410,9 +410,65 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BuyTicket_FullScreen_Cancel {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_FullScreen_Cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_FullScreen_Click {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_FullScreen_Click", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_FullScreen_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_FullScreen_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_FullScreen_PlanDetail {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_FullScreen_PlanDetail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTicket_FullScreen_Sure {
+            get {
+                object obj = ResourceManager.GetObject("BuyTicket_FullScreen_Sure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BuyTicket_GetTicket {
             get {
                 object obj = ResourceManager.GetObject("BuyTicket_GetTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Buyticket_QuitAccout_Cancel {
+            get {
+                object obj = ResourceManager.GetObject("Buyticket_QuitAccout_Cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Buyticket_QuitAccout_Hint {
+            get {
+                object obj = ResourceManager.GetObject("Buyticket_QuitAccout_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Buyticket_QuitAccout_Sure {
+            get {
+                object obj = ResourceManager.GetObject("Buyticket_QuitAccout_Sure", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
