@@ -27,7 +27,7 @@ namespace HiPiaoTerminal
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                    ControlStyles.ResizeRedraw |
                    ControlStyles.AllPaintingInWmPaint, true);
-            timerShowMovie.Start();
+            //timerShowMovie.Start();
             Console.WriteLine("MainPanel_Load开始隐藏小键盘");
             GlobalTools.HideAllKeyBoard();
             GlobalTools.RegistUpdateUnOperationTime(null);
@@ -48,6 +48,7 @@ namespace HiPiaoTerminal
                 this.btnQuit.Visible = true;
             }
             GlobalTools.CloseAllPopForms();
+            adFullTimer.Start();
         }
 
         private void btnLoginPassport_Click(object sender, EventArgs e)
@@ -82,7 +83,8 @@ namespace HiPiaoTerminal
 
         private void timerShowMovie_Tick(object sender, EventArgs e)
         {
-            timerShowMovie.Stop();
+            /*
+            //timerShowMovie.Stop();
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             List<AdvertisementObject> lists=HiPiaoCache.GetAdvertisement(config.Cinema);
             int len = lists.Count;
@@ -103,26 +105,9 @@ namespace HiPiaoTerminal
                 this.picShowMovies.Image = lists[nowIndex].AdvPic; 
                 this.picShowMovies.Tag = nowIndex.ToString();
             }
-            /*
-            int len=GlobalTools.MovieShowList.Count;
-            if(len==0)
-            {
-                return;
-            }
-            if (this.picShowMovies.Tag == null || this.picShowMovies.Tag.ToString() == (len - 1).ToString())
-            {
-                this.picShowMovies.Image = GlobalTools.MovieShowList[0].AdImage;
-                this.picShowMovies.Tag = "0";
-            }
-            else
-            {
-                int currentIndex=Convert.ToInt32(this.picShowMovies.Tag.ToString());
-                int nowIndex = currentIndex + 1;
-                this.picShowMovies.Image = GlobalTools.MovieShowList[nowIndex].AdImage;
-                this.picShowMovies.Tag = nowIndex.ToString();
-            }
-             * */
+
             timerShowMovie.Start();
+            */
         }
 
         
@@ -211,6 +196,13 @@ namespace HiPiaoTerminal
             {
                 GlobalTools.ReturnMaintainWithPwd();
             }
+        }
+
+        private void adFullTimer_Tick(object sender, EventArgs e)
+        {
+            //adFullTimer.Stop();
+            GlobalTools.ShowFullAdForm();
+           // adFullTimer.Start();
         }
 
         

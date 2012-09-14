@@ -86,20 +86,24 @@ namespace HiPiaoTerminal.BuyTicket
                     return;
                 }
                 this.FindForm().Close();
-                string retCode=HiPiaoCache.UserBuyTicket(GlobalTools.GetLoginUser(), this.lists);
+                string retCode="1";
+                //string retCode=HiPiaoCache.UserBuyTicket(GlobalTools.GetLoginUser(), this.lists);
                 //订购成功
                 if (retCode == "1")
                 {
+                    this.FindForm().Close();
                     GlobalTools.ChangePanel(GlobalTools.MainForm, new WaitTicketPrintPanel(this.lists));
                 }
                     //订购失败
                 else if (retCode == "0")
                 {
+                    this.FindForm().Close();
                     GlobalTools.PopNetError();
                 }
                     //座位已售出，重新刷座位图
                 else if (retCode == "2")
                 {
+                    this.FindForm().Close();
                    this.lbMsg.Text="座位已售出，重新选择座位！";
                     GlobalTools.ChangePanel(GlobalTools.MainForm,new MovieSeatSelectorPanel(this.roomPlan,this.movieInfo,this.moviePlan,dt));
                 }

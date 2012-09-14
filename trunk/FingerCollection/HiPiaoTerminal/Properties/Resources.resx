@@ -691,4 +691,28 @@
   <data name="BindMobile_Sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BindMobile_Sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BuyTicket_FullScreen_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTicket_FullScreen_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTicket_FullScreen_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTicket_FullScreen_Click.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTicket_FullScreen_Hint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTicket_FullScreen_Hint.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTicket_FullScreen_PlanDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTicket_FullScreen_PlanDetail.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTicket_FullScreen_Sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTicket_FullScreen_Sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buyticket_QuitAccout_Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Buyticket_QuitAccout_Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buyticket_QuitAccout_Hint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Buyticket_QuitAccout_Hint.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buyticket_QuitAccout_Sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Buyticket_QuitAccout_Sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

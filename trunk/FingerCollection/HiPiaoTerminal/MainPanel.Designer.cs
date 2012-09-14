@@ -13,6 +13,11 @@
         /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
+            if (adFullTimer != null)
+            {
+                adFullTimer.Stop();
+                adFullTimer.Enabled = false;
+            }
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -29,7 +34,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timerShowMovie = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.picToMaintain = new System.Windows.Forms.PictureBox();
             this.btnTicketPrint = new System.Windows.Forms.PictureBox();
@@ -37,27 +41,22 @@
             this.btnLoginPassport = new System.Windows.Forms.PictureBox();
             this.btnQuickRegister = new System.Windows.Forms.PictureBox();
             this.btnUserTaste = new System.Windows.Forms.PictureBox();
-            this.picShowMovies = new System.Windows.Forms.PictureBox();
             this.btnQuit = new System.Windows.Forms.PictureBox();
             this.lbWelcome1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbWelcomeName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbWelcome3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.picToMaintain2 = new System.Windows.Forms.PictureBox();
+            this.adShowPanel1 = new HiPiaoTerminal.UserControlEx.AdShowPanel();
+            this.adFullTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTicketPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuyTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoginPassport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuickRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUserTaste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // timerShowMovie
-            // 
-            this.timerShowMovie.Interval = 2000;
-            this.timerShowMovie.Tick += new System.EventHandler(this.timerShowMovie_Tick);
             // 
             // button1
             // 
@@ -138,16 +137,6 @@
             this.btnUserTaste.TabStop = false;
             this.btnUserTaste.Click += new System.EventHandler(this.btnUserTaste_Click);
             // 
-            // picShowMovies
-            // 
-            this.picShowMovies.Location = new System.Drawing.Point(111, 299);
-            this.picShowMovies.Margin = new System.Windows.Forms.Padding(7);
-            this.picShowMovies.Name = "picShowMovies";
-            this.picShowMovies.Size = new System.Drawing.Size(854, 480);
-            this.picShowMovies.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picShowMovies.TabIndex = 1;
-            this.picShowMovies.TabStop = false;
-            // 
             // btnQuit
             // 
             this.btnQuit.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Main_Quit;
@@ -204,10 +193,27 @@
             this.picToMaintain2.DoubleClick += new System.EventHandler(this.picToMaintain2_DoubleClick);
             this.picToMaintain2.Click += new System.EventHandler(this.picToMaintain2_Click);
             // 
+            // adShowPanel1
+            // 
+            this.adShowPanel1.AdType = "所有位置";
+            this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adShowPanel1.Interval = 1000;
+            this.adShowPanel1.Location = new System.Drawing.Point(111, 299);
+            this.adShowPanel1.Margin = new System.Windows.Forms.Padding(7);
+            this.adShowPanel1.Name = "adShowPanel1";
+            this.adShowPanel1.Size = new System.Drawing.Size(854, 480);
+            this.adShowPanel1.TabIndex = 15;
+            // 
+            // adFullTimer
+            // 
+            this.adFullTimer.Interval = 3000;
+            this.adFullTimer.Tick += new System.EventHandler(this.adFullTimer_Tick);
+            // 
             // MainPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.adShowPanel1);
             this.Controls.Add(this.lbWelcomeName);
             this.Controls.Add(this.lbWelcome3);
             this.Controls.Add(this.lbWelcome1);
@@ -220,7 +226,6 @@
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnUserTaste);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.picShowMovies);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MainPanel";
             this.Load += new System.EventHandler(this.MainPanel_Load);
@@ -230,7 +235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLoginPassport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuickRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUserTaste)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain2)).EndInit();
             this.ResumeLayout(false);
@@ -240,8 +244,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picShowMovies;
-        private System.Windows.Forms.Timer timerShowMovie;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox btnUserTaste;
         private System.Windows.Forms.PictureBox btnQuickRegister;
@@ -254,6 +256,8 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbWelcomeName;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbWelcome3;
         private System.Windows.Forms.PictureBox picToMaintain2;
+        private HiPiaoTerminal.UserControlEx.AdShowPanel adShowPanel1;
+        private System.Windows.Forms.Timer adFullTimer;
         
     }
 }

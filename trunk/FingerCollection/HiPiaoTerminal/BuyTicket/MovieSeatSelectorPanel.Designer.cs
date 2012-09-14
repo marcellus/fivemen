@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieSeatSelectorPanel));
-            this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.lbMovieName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbMovieDetail = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbPrice = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
+            this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.panelSeat = new System.Windows.Forms.Panel();
             this.panelSelectedSeat = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbPlanInfo = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -46,10 +49,8 @@
             this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnPay = new System.Windows.Forms.PictureBox();
-            this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
-            this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.panelSeat = new System.Windows.Forms.Panel();
+            this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
+            this.btnDoubleToFullScreen = new System.Windows.Forms.PictureBox();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -62,10 +63,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDoubleToFullScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.btnDoubleToFullScreen);
             this.panelContent.Controls.Add(this.panelSeat);
             this.panelContent.Controls.Add(this.lbProcessHint);
             this.panelContent.Controls.Add(this.processPanel1);
@@ -94,17 +97,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
             this.splitContainer1.SplitterDistance = 827;
-            // 
-            // showWelcomePanel1
-            // 
-            this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
-            this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
-            this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
-            this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.showWelcomePanel1.Name = "showWelcomePanel1";
-            this.showWelcomePanel1.Size = new System.Drawing.Size(527, 80);
-            this.showWelcomePanel1.TabIndex = 4;
             // 
             // lbMovieName
             // 
@@ -140,6 +132,46 @@
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "{0}元/张";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
+            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(124, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(813, 29);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.label3.TabIndex = 7;
+            this.label3.Text = "屏幕";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // processPanel1
+            // 
+            this.processPanel1.Location = new System.Drawing.Point(551, 10);
+            this.processPanel1.Name = "processPanel1";
+            this.processPanel1.Size = new System.Drawing.Size(179, 23);
+            this.processPanel1.TabIndex = 8;
+            // 
+            // lbProcessHint
+            // 
+            this.lbProcessHint.AutoSize = true;
+            this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbProcessHint.Location = new System.Drawing.Point(237, 5);
+            this.lbProcessHint.Name = "lbProcessHint";
+            this.lbProcessHint.Size = new System.Drawing.Size(323, 32);
+            this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbProcessHint.TabIndex = 9;
+            this.lbProcessHint.Text = "正在加载座位图，请稍候";
+            // 
+            // panelSeat
+            // 
+            this.panelSeat.AutoScroll = true;
+            this.panelSeat.Location = new System.Drawing.Point(124, 124);
+            this.panelSeat.Name = "panelSeat";
+            this.panelSeat.Size = new System.Drawing.Size(813, 555);
+            this.panelSeat.TabIndex = 10;
+            this.panelSeat.DoubleClick += new System.EventHandler(this.panelSeat_DoubleClick);
             // 
             // panelSelectedSeat
             // 
@@ -281,44 +313,27 @@
             this.btnPay.TabStop = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // label3
+            // showWelcomePanel1
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
-            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(124, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(813, 29);
-            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.label3.TabIndex = 7;
-            this.label3.Text = "屏幕";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
+            this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
+            this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
+            this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.showWelcomePanel1.Name = "showWelcomePanel1";
+            this.showWelcomePanel1.Size = new System.Drawing.Size(527, 80);
+            this.showWelcomePanel1.TabIndex = 4;
             // 
-            // processPanel1
+            // btnDoubleToFullScreen
             // 
-            this.processPanel1.Location = new System.Drawing.Point(551, 10);
-            this.processPanel1.Name = "processPanel1";
-            this.processPanel1.Size = new System.Drawing.Size(179, 23);
-            this.processPanel1.TabIndex = 8;
-            // 
-            // lbProcessHint
-            // 
-            this.lbProcessHint.AutoSize = true;
-            this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbProcessHint.Location = new System.Drawing.Point(237, 5);
-            this.lbProcessHint.Name = "lbProcessHint";
-            this.lbProcessHint.Size = new System.Drawing.Size(323, 32);
-            this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbProcessHint.TabIndex = 9;
-            this.lbProcessHint.Text = "正在加载座位图，请稍候";
-            // 
-            // panelSeat
-            // 
-            this.panelSeat.AutoScroll = true;
-            this.panelSeat.Location = new System.Drawing.Point(124, 124);
-            this.panelSeat.Name = "panelSeat";
-            this.panelSeat.Size = new System.Drawing.Size(813, 555);
-            this.panelSeat.TabIndex = 10;
+            this.btnDoubleToFullScreen.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_FullScreen_Click;
+            this.btnDoubleToFullScreen.Location = new System.Drawing.Point(1019, 560);
+            this.btnDoubleToFullScreen.Name = "btnDoubleToFullScreen";
+            this.btnDoubleToFullScreen.Size = new System.Drawing.Size(260, 78);
+            this.btnDoubleToFullScreen.TabIndex = 11;
+            this.btnDoubleToFullScreen.TabStop = false;
+            this.btnDoubleToFullScreen.DoubleClick += new System.EventHandler(this.panelSeat_DoubleClick);
+            this.btnDoubleToFullScreen.Click += new System.EventHandler(this.btnDoubleToFullScreen_Click);
             // 
             // MovieSeatSelectorPanel
             // 
@@ -339,6 +354,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDoubleToFullScreen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,6 +382,7 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbProcessHint;
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
         private System.Windows.Forms.Panel panelSeat;
+        private System.Windows.Forms.PictureBox btnDoubleToFullScreen;
 
     }
 }

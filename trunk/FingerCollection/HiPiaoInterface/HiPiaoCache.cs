@@ -140,6 +140,8 @@ namespace HiPiaoInterface
             return obj;
         }
 
+        
+
         public static List<SeatObject> GetSeatList(string planId)
         {
             List<SeatObject> lists = new List<SeatObject>();
@@ -151,6 +153,7 @@ namespace HiPiaoInterface
             {
                 lists.Add(ParseSeatObject(objsNode[i]));
             }
+           // SeatList = lists;
             return lists;
         }
 
