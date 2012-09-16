@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CashCode\CashCodeImporter.cs" />
+    <Compile Include="EncryptKeyboard\KmyImporter.cs" />
+    <Compile Include="EncryptKeyboard\KmyKeyboardTool.cs" />
     <Compile Include="EncryptKeyboard\Zt598Importer.cs" />
     <Compile Include="ETTUtilsSupport\ETTUtilsImporter.cs" />
     <Compile Include="HotPrinter\HotPrinterImporter.cs" />
