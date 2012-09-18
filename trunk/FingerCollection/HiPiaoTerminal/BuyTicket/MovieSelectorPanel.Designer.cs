@@ -150,7 +150,7 @@
             // 
             // MovieSelectorPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "MovieSelectorPanel";
             this.Load += new System.EventHandler(this.MovieSelectorPanel_Load);
             this.panelHeader.ResumeLayout(false);

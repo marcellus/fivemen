@@ -244,11 +244,12 @@
             this.lbReturnMsg.Location = new System.Drawing.Point(324, 270);
             this.lbReturnMsg.Name = "lbReturnMsg";
             this.lbReturnMsg.Size = new System.Drawing.Size(0, 32);
+            this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbReturnMsg.TabIndex = 20;
             // 
             // ManagerAutoClosePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbReturnMsg);
             this.Controls.Add(this.btnCancelSave);
             this.Controls.Add(this.btnKeepSave);

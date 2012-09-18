@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using FT.Windows.Controls.PanelEx;
 
 namespace HiPiaoTerminal.TestForm
 {
@@ -51,6 +52,7 @@ namespace HiPiaoTerminal.TestForm
             this.FormBorderStyle = FormBorderStyle.None;
 
             this.WindowState = FormWindowState.Maximized;
+            
 
            
         }
@@ -60,6 +62,11 @@ namespace HiPiaoTerminal.TestForm
             SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) | WS_EX_TRANSPARENT | WS_EX_LAYERED);
 
             SetLayeredWindowAttributes(Handle, 0, 128, LWA_ALPHA);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

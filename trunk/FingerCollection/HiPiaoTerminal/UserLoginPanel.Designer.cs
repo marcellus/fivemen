@@ -75,7 +75,6 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.SplitterDistance = 824;
             this.splitContainer1.TabIndex = 234;
             // 
             // pictureBox1
@@ -221,8 +220,7 @@
             // 
             // UserLoginPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Margin = new System.Windows.Forms.Padding(27, 21, 27, 21);
             this.Name = "UserLoginPanel";
             this.Load += new System.EventHandler(this.UserLoginPanel_Load);

@@ -379,7 +379,7 @@
             // 
             // ManagerMoreSettingPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbReturnMsg);
             this.Controls.Add(this.txtRefreshCacheTime);
             this.Controls.Add(this.txtUnOperationTime);

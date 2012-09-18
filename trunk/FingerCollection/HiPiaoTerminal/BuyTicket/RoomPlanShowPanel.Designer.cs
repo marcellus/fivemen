@@ -42,6 +42,7 @@
             this.lbTimes.Location = new System.Drawing.Point(15, 14);
             this.lbTimes.Name = "lbTimes";
             this.lbTimes.Size = new System.Drawing.Size(89, 27);
+            this.lbTimes.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTimes.TabIndex = 0;
             this.lbTimes.Text = "label1";
             this.lbTimes.Click += new System.EventHandler(this.lbTimes_Click);
@@ -55,6 +56,7 @@
             this.lbRoomName.Location = new System.Drawing.Point(103, 14);
             this.lbRoomName.Name = "lbRoomName";
             this.lbRoomName.Size = new System.Drawing.Size(81, 27);
+            this.lbRoomName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRoomName.TabIndex = 0;
             this.lbRoomName.Text = "label1";
             this.lbRoomName.Click += new System.EventHandler(this.lbTimes_Click);
@@ -68,14 +70,14 @@
             this.lbPrice.Location = new System.Drawing.Point(15, 50);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(158, 27);
+            this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 0;
             this.lbPrice.Text = "会员价  {0}元";
             this.lbPrice.Click += new System.EventHandler(this.lbTimes_Click);
             // 
             // RoomPlanShowPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_RoomPlan;
             this.Controls.Add(this.lbRoomName);

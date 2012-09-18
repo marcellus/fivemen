@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerModifyPwdPanel));
             this.txtNewPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.lbNewPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txtOldPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.lbOldPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.lbRepeatPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
             this.btnKeepSave = new System.Windows.Forms.PictureBox();
             this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbRepeatPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbNewPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbOldPwd = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
@@ -46,16 +46,33 @@
             // 
             // txtNewPwd
             // 
+            this.txtNewPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtNewPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtNewPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtNewPwd.Hint = "请输入新密码";
+            this.txtNewPwd.IsActive = false;
+            this.txtNewPwd.IsDeleted = false;
+            this.txtNewPwd.KeyboardType = 1;
             this.txtNewPwd.Location = new System.Drawing.Point(454, 434);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNewPwd.MaxInputLength = 32767;
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
             this.txtNewPwd.RelativeLabel = this.lbNewPwd;
             this.txtNewPwd.Size = new System.Drawing.Size(352, 74);
             this.txtNewPwd.TabIndex = 5;
+            // 
+            // lbNewPwd
+            // 
+            this.lbNewPwd.AutoSize = true;
+            this.lbNewPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.lbNewPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.lbNewPwd.Location = new System.Drawing.Point(301, 452);
+            this.lbNewPwd.Name = "lbNewPwd";
+            this.lbNewPwd.Size = new System.Drawing.Size(122, 40);
+            this.lbNewPwd.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbNewPwd.TabIndex = 20;
+            this.lbNewPwd.Text = "新密码";
             // 
             // pictureBox5
             // 
@@ -68,29 +85,64 @@
             // 
             // txtOldPwd
             // 
+            this.txtOldPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtOldPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtOldPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtOldPwd.Hint = "请输入旧密码";
+            this.txtOldPwd.IsActive = false;
+            this.txtOldPwd.IsDeleted = false;
+            this.txtOldPwd.KeyboardType = 1;
             this.txtOldPwd.Location = new System.Drawing.Point(454, 341);
             this.txtOldPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtOldPwd.MaxInputLength = 32767;
             this.txtOldPwd.Name = "txtOldPwd";
             this.txtOldPwd.PasswordChar = '*';
             this.txtOldPwd.RelativeLabel = this.lbOldPwd;
             this.txtOldPwd.Size = new System.Drawing.Size(352, 74);
             this.txtOldPwd.TabIndex = 5;
             // 
+            // lbOldPwd
+            // 
+            this.lbOldPwd.AutoSize = true;
+            this.lbOldPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.lbOldPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.lbOldPwd.Location = new System.Drawing.Point(301, 359);
+            this.lbOldPwd.Name = "lbOldPwd";
+            this.lbOldPwd.Size = new System.Drawing.Size(122, 40);
+            this.lbOldPwd.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbOldPwd.TabIndex = 19;
+            this.lbOldPwd.Text = "旧密码";
+            this.lbOldPwd.Click += new System.EventHandler(this.label3_Click);
+            // 
             // txtRepeatPwd
             // 
+            this.txtRepeatPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
             this.txtRepeatPwd.Hint = "请再次输新密码";
+            this.txtRepeatPwd.IsActive = false;
+            this.txtRepeatPwd.IsDeleted = false;
+            this.txtRepeatPwd.KeyboardType = 1;
             this.txtRepeatPwd.Location = new System.Drawing.Point(454, 520);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRepeatPwd.MaxInputLength = 32767;
             this.txtRepeatPwd.Name = "txtRepeatPwd";
             this.txtRepeatPwd.PasswordChar = '*';
             this.txtRepeatPwd.RelativeLabel = this.lbRepeatPwd;
             this.txtRepeatPwd.Size = new System.Drawing.Size(352, 74);
             this.txtRepeatPwd.TabIndex = 5;
+            // 
+            // lbRepeatPwd
+            // 
+            this.lbRepeatPwd.AutoSize = true;
+            this.lbRepeatPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.lbRepeatPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
+            this.lbRepeatPwd.Location = new System.Drawing.Point(231, 541);
+            this.lbRepeatPwd.Name = "lbRepeatPwd";
+            this.lbRepeatPwd.Size = new System.Drawing.Size(192, 40);
+            this.lbRepeatPwd.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbRepeatPwd.TabIndex = 21;
+            this.lbRepeatPwd.Text = "重复新密码";
             // 
             // btnCancelSave
             // 
@@ -121,45 +173,12 @@
             this.lbReturnMsg.Location = new System.Drawing.Point(313, 288);
             this.lbReturnMsg.Name = "lbReturnMsg";
             this.lbReturnMsg.Size = new System.Drawing.Size(0, 32);
+            this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbReturnMsg.TabIndex = 18;
-            // 
-            // lbRepeatPwd
-            // 
-            this.lbRepeatPwd.AutoSize = true;
-            this.lbRepeatPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
-            this.lbRepeatPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbRepeatPwd.Location = new System.Drawing.Point(231, 541);
-            this.lbRepeatPwd.Name = "lbRepeatPwd";
-            this.lbRepeatPwd.Size = new System.Drawing.Size(192, 40);
-            this.lbRepeatPwd.TabIndex = 21;
-            this.lbRepeatPwd.Text = "重复新密码";
-            // 
-            // lbNewPwd
-            // 
-            this.lbNewPwd.AutoSize = true;
-            this.lbNewPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
-            this.lbNewPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbNewPwd.Location = new System.Drawing.Point(301, 452);
-            this.lbNewPwd.Name = "lbNewPwd";
-            this.lbNewPwd.Size = new System.Drawing.Size(122, 40);
-            this.lbNewPwd.TabIndex = 20;
-            this.lbNewPwd.Text = "新密码";
-            // 
-            // lbOldPwd
-            // 
-            this.lbOldPwd.AutoSize = true;
-            this.lbOldPwd.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
-            this.lbOldPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
-            this.lbOldPwd.Location = new System.Drawing.Point(301, 359);
-            this.lbOldPwd.Name = "lbOldPwd";
-            this.lbOldPwd.Size = new System.Drawing.Size(122, 40);
-            this.lbOldPwd.TabIndex = 19;
-            this.lbOldPwd.Text = "旧密码";
-            this.lbOldPwd.Click += new System.EventHandler(this.label3_Click);
             // 
             // ManagerModifyPwdPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.lbRepeatPwd);
             this.Controls.Add(this.lbNewPwd);

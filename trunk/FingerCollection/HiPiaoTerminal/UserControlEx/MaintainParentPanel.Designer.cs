@@ -44,7 +44,7 @@
             // 
             // MaintainParentPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnReturnMaintain);
             this.Name = "MaintainParentPanel";
             this.Controls.SetChildIndex(this.btnReturnMaintain, 0);

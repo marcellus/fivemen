@@ -111,7 +111,7 @@
             // 
             // ConfirmPayPwdPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirmPay);
             this.Controls.Add(this.txtUserPwd);

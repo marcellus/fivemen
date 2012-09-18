@@ -79,7 +79,7 @@
             // 
             // UserRegisterSuccessPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnQuitAccount);
             this.Controls.Add(this.btnQueryAccount);
             this.Controls.Add(this.btnReturnHome);

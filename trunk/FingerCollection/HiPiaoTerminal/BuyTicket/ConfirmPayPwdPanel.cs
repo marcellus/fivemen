@@ -86,13 +86,13 @@ namespace HiPiaoTerminal.BuyTicket
                     return;
                 }
                 this.FindForm().Close();
-                string retCode="1";
-                //string retCode=HiPiaoCache.UserBuyTicket(GlobalTools.GetLoginUser(), this.lists);
+               // string retCode="1";
+                string retCode=HiPiaoCache.UserBuyTicket(GlobalTools.GetLoginUser(), this.lists);
                 //订购成功
                 if (retCode == "1")
                 {
                     this.FindForm().Close();
-                    GlobalTools.ChangePanel(GlobalTools.MainForm, new WaitTicketPrintPanel(this.lists));
+                    GlobalTools.ChangePanel(GlobalTools.MainForm, new WaitTicketPrintPanel(this.lists,this.movieInfo,this.moviePlan));
                 }
                     //订购失败
                 else if (retCode == "0")

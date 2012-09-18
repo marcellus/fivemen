@@ -32,13 +32,12 @@
             // 
             // SameBackgroudParentPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.SameBackgroud;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Font = new System.Drawing.Font("宋体", 21F);
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "SameBackgroudParentPanel";
             this.Size = new System.Drawing.Size(1280, 960);
             this.ResumeLayout(false);

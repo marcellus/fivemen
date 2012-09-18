@@ -120,7 +120,7 @@
             // 
             // UserNeedKnowInfoPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnSure);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btnRemark);

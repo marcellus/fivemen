@@ -32,8 +32,7 @@
             // 
             // UserRegisterSuccessPanel2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::HiPiaoTerminal.MessagePanelBackImage.Register_SuccessPanel;
             this.Name = "UserRegisterSuccessPanel2";
             this.Size = new System.Drawing.Size(1116, 688);

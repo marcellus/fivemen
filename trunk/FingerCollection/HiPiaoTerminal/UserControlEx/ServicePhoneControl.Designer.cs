@@ -41,6 +41,7 @@
             this.lbServicePhone.Location = new System.Drawing.Point(58, 47);
             this.lbServicePhone.Name = "lbServicePhone";
             this.lbServicePhone.Size = new System.Drawing.Size(150, 28);
+            this.lbServicePhone.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbServicePhone.TabIndex = 3;
             this.lbServicePhone.Text = "440-5566-444";
             // 
@@ -53,13 +54,13 @@
             this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 41);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 2;
             this.label1.Text = "服务热线";
             // 
             // ServicePhoneControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 46F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.lbServicePhone);
             this.Controls.Add(this.label1);

@@ -50,7 +50,7 @@
             // 
             // WaitPrintPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.pictureBox1);
             this.Name = "WaitPrintPanel";
             this.Size = new System.Drawing.Size(600, 400);

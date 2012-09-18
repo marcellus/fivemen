@@ -67,7 +67,7 @@
             // 
             // UIdOrPwdErrorPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnModify);

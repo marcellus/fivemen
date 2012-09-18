@@ -46,10 +46,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HiPiaoTcpTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HiPiaoTcpTestForm.Designer.cs">
+      <DependentUpon>HiPiaoTcpTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KmyPrinterTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KmyPrinterTestForm.Designer.cs">
+      <DependentUpon>KmyPrinterTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HiPiaoTcpTestForm.resx">
+      <DependentUpon>HiPiaoTcpTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KmyPrinterTestForm.resx">
+      <DependentUpon>KmyPrinterTestForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -61,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="KMY350X.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,6 +99,19 @@
       <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
       <Name>FT.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Commons\FT.Device\FT.Device.csproj">
+      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
+      <Name>FT.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HiPiaoInterface\HiPiaoInterface.csproj">
+      <Project>{73224C21-D0F5-4A32-A904-D4F192682659}</Project>
+      <Name>HiPiaoInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KMY350X.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

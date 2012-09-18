@@ -55,8 +55,7 @@
             // 
             // MaintainFirstPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnReturnFirstUserHome);
             this.Controls.Add(this.pictureBox3);
             this.Name = "MaintainFirstPanel";

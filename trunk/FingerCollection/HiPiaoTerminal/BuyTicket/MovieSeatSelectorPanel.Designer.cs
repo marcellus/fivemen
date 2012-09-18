@@ -337,7 +337,7 @@
             // 
             // MovieSeatSelectorPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "MovieSeatSelectorPanel";
             this.Load += new System.EventHandler(this.MovieSeatSelectorPanel_Load);
             this.panelContent.ResumeLayout(false);

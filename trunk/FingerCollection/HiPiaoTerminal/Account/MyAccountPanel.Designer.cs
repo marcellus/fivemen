@@ -162,7 +162,7 @@
             // 
             // MyAccountPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnFeeDetailInfo);
             this.Controls.Add(this.btnModifyPwd);
             this.Controls.Add(this.btnAccountInfo);
