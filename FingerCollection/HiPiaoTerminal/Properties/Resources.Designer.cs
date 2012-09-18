@@ -354,6 +354,20 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BuyTick_CosumeDetail_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_CosumeDetail_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_CosumeDetail_Sure {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_CosumeDetail_Sure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BuyTick_Money_Hint {
             get {
                 object obj = ResourceManager.GetObject("BuyTick_Money_Hint", resourceCulture);
@@ -371,6 +385,62 @@ namespace HiPiaoTerminal.Properties {
         internal static System.Drawing.Bitmap BuyTick_NotifyBindMobile_Back {
             get {
                 object obj = ResourceManager.GetObject("BuyTick_NotifyBindMobile_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_GetPaper {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_GetPaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_Home {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_QueryAccount {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_QueryAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_QuictAccount {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_QuictAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_Return {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_Return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_ReturnHome {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_ReturnHome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_PaySuccess_Site {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_PaySuccess_Site", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_Print_Hint_Process {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_Print_Hint_Process", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -53,6 +53,7 @@
     <Compile Include="HiPiaoCache.cs" />
     <Compile Include="HiPiaoOperator.cs" />
     <Compile Include="HiPiaoOperatorFactory.cs" />
+    <Compile Include="HipiaoTcpHelper.cs" />
     <Compile Include="IHiPiaoOperator.cs" />
     <Compile Include="MockHiPiaoOperator.cs" />
     <Compile Include="MovieObject.cs" />

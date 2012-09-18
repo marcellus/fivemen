@@ -9,6 +9,8 @@ using HiPiaoInterface;
 using HiPiaoTerminal.ConfigModel;
 using FT.Commons.Tools;
 using HiPiaoTerminal.Account;
+using System.Threading;
+using FT.Commons.Win32;
 
 namespace HiPiaoTerminal.BuyTicket
 {
@@ -18,6 +20,7 @@ namespace HiPiaoTerminal.BuyTicket
         public MovieSelectorPanel()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             try
             {
                 DateTime now = System.DateTime.Now;
@@ -43,14 +46,27 @@ namespace HiPiaoTerminal.BuyTicket
         {
            
             DateTime now = System.DateTime.Now;
-            this.InitMovies(now);
+            //this.InitMovies(now);
+            this.InitMoviesThread(now);
             this.SetOperationTime(60);
         }
 
         //private static Font MovieNameColor=new Font("",
 
+        private DateTime tmpDt;
 
-        
+        private void InitMoviesThread(DateTime dt)
+        {
+            this.tmpDt = dt;
+            Thread thread = new Thread(new ThreadStart(InitMovies));
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void InitMovies()
+        {
+            this.InitMovies(tmpDt);
+        }
 
         private void InitMovies(DateTime dt)
         {
@@ -98,9 +114,10 @@ namespace HiPiaoTerminal.BuyTicket
                     lb.Font = new Font("方正兰亭黑简体",18);
                     lb.Text = lists[i].Name;
                     pc.Click += new EventHandler(pc_Click);
-                    
-                    this.panelContent.Controls.Add(pc);
-                    this.panelContent.Controls.Add(lb);
+                    WindowFormDelegate.AddControlTo(this.panelContent, pc);
+                    WindowFormDelegate.AddControlTo(this.panelContent, lb);
+                    //this.panelContent.Controls.Add(pc);
+                    //this.panelContent.Controls.Add(lb);
                 }
             }
         }
@@ -130,7 +147,8 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnThreeDay_Click(object sender, EventArgs e)
         {
-            this.InitMovies(System.DateTime.Now.AddDays(2));
+            this.InitMoviesThread(System.DateTime.Now.AddDays(2));
+           // this.InitMovies(System.DateTime.Now.AddDays(2));
             this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
@@ -138,7 +156,8 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnTomorrow_Click(object sender, EventArgs e)
         {
-            this.InitMovies(System.DateTime.Now.AddDays(1));
+            this.InitMoviesThread(System.DateTime.Now.AddDays(1));
+           // this.InitMovies(System.DateTime.Now.AddDays(1));
             this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
             this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
@@ -146,7 +165,8 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            this.InitMovies(System.DateTime.Now);
+            this.InitMoviesThread(System.DateTime.Now);
+            //this.InitMovies(System.DateTime.Now);
             this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
             this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;

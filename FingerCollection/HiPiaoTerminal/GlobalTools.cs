@@ -17,6 +17,7 @@ using HiPiaoTerminal.ConfigModel;
 using HiPiaoTerminal.UserControlEx;
 using FT.Windows.Controls.TextBoxEx;
 using System.Collections;
+using FT.Commons.Win32;
 
 namespace HiPiaoTerminal
 {
@@ -32,13 +33,25 @@ namespace HiPiaoTerminal
         private static FullAdShowForm fullAdForm = new FullAdShowForm();
         public static void ShowFullAdForm()
         {
-            if (!fullAdForm.Visible)
+            if (!fullAdForm.Visible&&(MainForm.Controls[0] is MainPanel))
             {
 #if DEBUG
                 Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"开始显示全屏广告!");
 #endif
                 fullAdForm.BringToFront();
                 fullAdForm.ShowDialog();
+            }
+        }
+
+        public static void HideFullAdForm()
+        {
+            if (fullAdForm.Visible)
+            {
+#if DEBUG
+                Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "开始隐藏全屏广告!");
+#endif
+                fullAdForm.Hide();
+               // fullAdForm.ShowDialog();
             }
         }
 
@@ -266,7 +279,8 @@ namespace HiPiaoTerminal
                 frm.Width = panel.Width;
                 frm.Height = panel.Height;
                 panel.Dock = DockStyle.Fill;
-                frm.Controls.Add(panel);
+                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+                //frm.Controls.Add(panel);
             }
         }
 
@@ -300,7 +314,7 @@ namespace HiPiaoTerminal
         public static DialogResult PopMask(Control panel,int type)
         {
             InitUnOperationControl(panel);
-            //MyOpaqueLayerTools.ShowOpaqueLayer(MainForm, 60, true);
+           // MyOpaqueLayerTools.ShowOpaqueLayer(MainForm, 60, true);
            // return PopUnMask(panel, type);
            
             NotifyUserForm popForm = new NotifyUserForm(panel);
@@ -871,7 +885,8 @@ namespace HiPiaoTerminal
                 Console.WriteLine("GoPanel开始隐藏小键盘");
 #endif
                 HideAllKeyBoard();
-                parent.Controls.Add(panel);
+                WindowFormDelegate.AddControlTo(parent, panel);
+                //parent.Controls.Add(panel);
                 if (panel is MainPanel)
                 {
                     StopUnOperationCounter();

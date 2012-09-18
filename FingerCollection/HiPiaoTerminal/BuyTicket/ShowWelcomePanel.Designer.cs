@@ -101,8 +101,7 @@
             // 
             // ShowWelcomePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.ShowWelcomeBack;
             this.Controls.Add(this.lbBalance);
             this.Controls.Add(this.lbPoints);

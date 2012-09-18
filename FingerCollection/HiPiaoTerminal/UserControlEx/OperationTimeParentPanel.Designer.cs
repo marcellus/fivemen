@@ -70,7 +70,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.lbTimeSecond);
             this.splitContainer1.Panel2MinSize = 20;
             this.splitContainer1.Size = new System.Drawing.Size(1280, 960);
-            this.splitContainer1.SplitterDistance = 824;
+            this.splitContainer1.SplitterDistance = 827;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -119,8 +119,7 @@
             // 
             // OperationTimeParentPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("方正兰亭黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);

@@ -157,7 +157,7 @@
             // 
             // BindMobilePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.userInputPanel2);
             this.Controls.Add(this.userInputPanel1);

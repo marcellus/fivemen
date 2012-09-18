@@ -240,8 +240,7 @@
             // 
             // ModifyPwdPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 38F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnCancel);

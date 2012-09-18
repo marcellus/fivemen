@@ -57,6 +57,7 @@
             this.label1.Location = new System.Drawing.Point(0, 352);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 36);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 6;
             this.label1.Text = "关机时间：";
             // 
@@ -80,6 +81,7 @@
             this.label2.Location = new System.Drawing.Point(297, 362);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 28);
+            this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 6;
             this.label2.Text = "点";
             // 
@@ -102,6 +104,7 @@
             this.label3.Location = new System.Drawing.Point(475, 362);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 28);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 6;
             this.label3.Text = "分";
             // 
@@ -135,7 +138,7 @@
             // 
             // AutoCloseComputerSettingPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);

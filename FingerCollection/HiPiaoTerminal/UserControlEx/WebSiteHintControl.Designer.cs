@@ -41,6 +41,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 41);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 0;
             this.label1.Text = "网上购票";
             // 
@@ -52,13 +53,13 @@
             this.lbWebSiteUrl.Location = new System.Drawing.Point(29, 43);
             this.lbWebSiteUrl.Name = "lbWebSiteUrl";
             this.lbWebSiteUrl.Size = new System.Drawing.Size(180, 28);
+            this.lbWebSiteUrl.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWebSiteUrl.TabIndex = 1;
             this.lbWebSiteUrl.Text = "www.hipiao.com";
             // 
             // WebSiteHintControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.lbWebSiteUrl);
             this.Controls.Add(this.label1);

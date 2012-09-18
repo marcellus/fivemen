@@ -43,8 +43,7 @@
             // 
             // VitualNumKeyboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(325, 323);
             this.Controls.Add(this.vitualNumKeyBoardPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelBack = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Label();
             this.btnSure = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Label();
             this.panelBack.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,15 +44,6 @@
             this.panelBack.Size = new System.Drawing.Size(892, 568);
             this.panelBack.TabIndex = 0;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Location = new System.Drawing.Point(492, 461);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(279, 96);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnSure
             // 
             this.btnSure.BackColor = System.Drawing.Color.Transparent;
@@ -62,9 +53,18 @@
             this.btnSure.TabIndex = 0;
             this.btnSure.Click += new System.EventHandler(this.btnSure_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Location = new System.Drawing.Point(492, 461);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(279, 96);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // NotifyBindMobilePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panelBack);
             this.Name = "NotifyBindMobilePanel";
             this.Size = new System.Drawing.Size(996, 700);

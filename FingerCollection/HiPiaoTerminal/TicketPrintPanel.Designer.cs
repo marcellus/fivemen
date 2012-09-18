@@ -323,8 +323,7 @@
             // 
             // TicketPrintPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 46F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnPrint);

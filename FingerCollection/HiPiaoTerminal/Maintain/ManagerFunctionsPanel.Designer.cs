@@ -133,7 +133,7 @@
             // 
             // ManagerFunctionsPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.btnMoreSetting);
             this.Controls.Add(this.btnCloseComputer);
             this.Controls.Add(this.btnModifyManagePwd);

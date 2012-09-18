@@ -107,6 +107,12 @@
     <Compile Include="BuyTicket\ConfirmPayPwdPanel.Designer.cs">
       <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyTicket\CosumeDetailPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyTicket\CosumeDetailPanel.Designer.cs">
+      <DependentUpon>CosumeDetailPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyTicket\FullScreenSeatSelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,12 @@
     <Compile Include="TestForm\KeyBoardTestForm.Designer.cs">
       <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestForm\MaskPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\MaskPanelForm.Designer.cs">
+      <DependentUpon>MaskPanelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm\RoundForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +452,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\ConfirmPayPwdPanel.resx">
       <DependentUpon>ConfirmPayPwdPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyTicket\CosumeDetailPanel.resx">
+      <DependentUpon>CosumeDetailPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\FullScreenSeatSelectorForm.resx">
@@ -588,6 +604,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm\KeyBoardTestForm.resx">
       <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\MaskPanelForm.resx">
+      <DependentUpon>MaskPanelForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm\RoundForm.resx">
@@ -1121,6 +1141,16 @@
     <None Include="Resources\Buyticket_QuitAccout_Cancel.png" />
     <None Include="Resources\Buyticket_QuitAccout_Hint.png" />
     <None Include="Resources\Buyticket_QuitAccout_Sure.png" />
+    <None Include="Resources\BuyTick_PaySuccess_Site.png" />
+    <None Include="Resources\BuyTick_PaySuccess_Return.png" />
+    <None Include="Resources\BuyTick_PaySuccess_Home.png" />
+    <None Include="Resources\BuyTick_Print_Hint_Process.png" />
+    <None Include="Resources\BuyTick_PaySuccess_ReturnHome.png" />
+    <None Include="Resources\BuyTick_PaySuccess_QueryAccount.png" />
+    <None Include="Resources\BuyTick_PaySuccess_QuictAccount.png" />
+    <None Include="Resources\BuyTick_PaySuccess_GetPaper.png" />
+    <None Include="Resources\BuyTick_CosumeDetail_Hint.png" />
+    <None Include="Resources\BuyTick_CosumeDetail_Sure.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -51,10 +51,16 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void AdShowPanel_Load(object sender, EventArgs e)
         {
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            adShowTimer.Interval = interval;
-            adShowTimer.Tick += new EventHandler(adShowTimer_Tick);
-            adShowTimer.Start();
+            try
+            {
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+                adShowTimer.Interval = interval;
+                adShowTimer.Tick += new EventHandler(adShowTimer_Tick);
+                adShowTimer.Start();
+            }
+            catch
+            {
+            }
         }
 
         void adShowTimer_Tick(object sender, EventArgs e)

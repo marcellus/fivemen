@@ -30,12 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // YellowNotifyUserPanel
+            // FirstNotifyUserPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Name = "YellowNotifyUserPanel";
+            this.Name = "FirstNotifyUserPanel";
             this.Size = new System.Drawing.Size(678, 474);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.YellowNotifyUserPanel_Paint);
             this.ResumeLayout(false);

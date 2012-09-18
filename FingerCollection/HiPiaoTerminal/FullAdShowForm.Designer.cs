@@ -34,6 +34,7 @@
             // adShowPanel1
             // 
             this.adShowPanel1.AdType = "所有位置";
+            this.adShowPanel1.AutoScroll = true;
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adShowPanel1.Interval = 1000;
@@ -46,8 +47,8 @@
             // 
             // FullAdShowForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1280, 780);
             this.Controls.Add(this.adShowPanel1);
             this.DoubleBuffered = true;

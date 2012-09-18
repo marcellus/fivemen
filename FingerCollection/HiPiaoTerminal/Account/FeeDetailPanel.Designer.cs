@@ -142,6 +142,7 @@
             this.lbRow6Col3.Location = new System.Drawing.Point(1, 28);
             this.lbRow6Col3.Name = "lbRow6Col3";
             this.lbRow6Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow6Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow6Col3.TabIndex = 0;
             this.lbRow6Col3.Text = "消费详情（30）";
             this.lbRow6Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,6 +155,7 @@
             this.lbRow6Col2.Location = new System.Drawing.Point(1, 0);
             this.lbRow6Col2.Name = "lbRow6Col2";
             this.lbRow6Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow6Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow6Col2.TabIndex = 0;
             this.lbRow6Col2.Text = "消费详情（30）";
             this.lbRow6Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,6 +178,7 @@
             this.lbRow5Col3.Location = new System.Drawing.Point(1, 35);
             this.lbRow5Col3.Name = "lbRow5Col3";
             this.lbRow5Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow5Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow5Col3.TabIndex = 0;
             this.lbRow5Col3.Text = "消费详情（30）";
             this.lbRow5Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -188,6 +191,7 @@
             this.lbRow5Col2.Location = new System.Drawing.Point(1, 0);
             this.lbRow5Col2.Name = "lbRow5Col2";
             this.lbRow5Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow5Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow5Col2.TabIndex = 0;
             this.lbRow5Col2.Text = "消费详情（30）";
             this.lbRow5Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,6 +214,7 @@
             this.lbRow4Col3.Location = new System.Drawing.Point(1, 31);
             this.lbRow4Col3.Name = "lbRow4Col3";
             this.lbRow4Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow4Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow4Col3.TabIndex = 0;
             this.lbRow4Col3.Text = "消费详情（30）";
             this.lbRow4Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,6 +227,7 @@
             this.lbRow4Col2.Location = new System.Drawing.Point(1, 1);
             this.lbRow4Col2.Name = "lbRow4Col2";
             this.lbRow4Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow4Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow4Col2.TabIndex = 0;
             this.lbRow4Col2.Text = "消费详情（30）";
             this.lbRow4Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,6 +250,7 @@
             this.lbRow3Col3.Location = new System.Drawing.Point(1, 29);
             this.lbRow3Col3.Name = "lbRow3Col3";
             this.lbRow3Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow3Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow3Col3.TabIndex = 0;
             this.lbRow3Col3.Text = "消费详情（30）";
             this.lbRow3Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -256,6 +263,7 @@
             this.lbRow3Col2.Location = new System.Drawing.Point(1, 1);
             this.lbRow3Col2.Name = "lbRow3Col2";
             this.lbRow3Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow3Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow3Col2.TabIndex = 0;
             this.lbRow3Col2.Text = "消费详情（30）";
             this.lbRow3Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,6 +286,7 @@
             this.lbRow2Col3.Location = new System.Drawing.Point(1, 38);
             this.lbRow2Col3.Name = "lbRow2Col3";
             this.lbRow2Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow2Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow2Col3.TabIndex = 0;
             this.lbRow2Col3.Text = "消费详情（30）";
             this.lbRow2Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,6 +299,7 @@
             this.lbRow2Col2.Location = new System.Drawing.Point(1, 0);
             this.lbRow2Col2.Name = "lbRow2Col2";
             this.lbRow2Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow2Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow2Col2.TabIndex = 0;
             this.lbRow2Col2.Text = "消费详情（30）";
             this.lbRow2Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -312,6 +322,7 @@
             this.lbRow1Col3.Location = new System.Drawing.Point(1, 30);
             this.lbRow1Col3.Name = "lbRow1Col3";
             this.lbRow1Col3.Size = new System.Drawing.Size(623, 35);
+            this.lbRow1Col3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow1Col3.TabIndex = 0;
             this.lbRow1Col3.Text = "消费详情（30）";
             this.lbRow1Col3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -324,6 +335,7 @@
             this.lbRow1Col2.Location = new System.Drawing.Point(1, 3);
             this.lbRow1Col2.Name = "lbRow1Col2";
             this.lbRow1Col2.Size = new System.Drawing.Size(623, 35);
+            this.lbRow1Col2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow1Col2.TabIndex = 0;
             this.lbRow1Col2.Text = "消费详情（30）";
             this.lbRow1Col2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,6 +357,7 @@
             this.lbFeeDetailHeader.Location = new System.Drawing.Point(3, 0);
             this.lbFeeDetailHeader.Name = "lbFeeDetailHeader";
             this.lbFeeDetailHeader.Size = new System.Drawing.Size(623, 66);
+            this.lbFeeDetailHeader.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbFeeDetailHeader.TabIndex = 0;
             this.lbFeeDetailHeader.Text = "消费详情（30）";
             this.lbFeeDetailHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -366,6 +379,7 @@
             this.lbRow6Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow6Col4.Name = "lbRow6Col4";
             this.lbRow6Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow6Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow6Col4.TabIndex = 0;
             this.lbRow6Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -386,6 +400,7 @@
             this.lbRow5Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow5Col4.Name = "lbRow5Col4";
             this.lbRow5Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow5Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow5Col4.TabIndex = 0;
             this.lbRow5Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -406,6 +421,7 @@
             this.lbRow4Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow4Col4.Name = "lbRow4Col4";
             this.lbRow4Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow4Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow4Col4.TabIndex = 0;
             this.lbRow4Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -426,6 +442,7 @@
             this.lbRow3Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow3Col4.Name = "lbRow3Col4";
             this.lbRow3Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow3Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow3Col4.TabIndex = 0;
             this.lbRow3Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -446,6 +463,7 @@
             this.lbRow2Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow2Col4.Name = "lbRow2Col4";
             this.lbRow2Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow2Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow2Col4.TabIndex = 0;
             this.lbRow2Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -466,6 +484,7 @@
             this.lbRow1Col4.Location = new System.Drawing.Point(0, 0);
             this.lbRow1Col4.Name = "lbRow1Col4";
             this.lbRow1Col4.Size = new System.Drawing.Size(216, 66);
+            this.lbRow1Col4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow1Col4.TabIndex = 0;
             this.lbRow1Col4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -486,6 +505,7 @@
             this.lbFeeTotalHeader.Location = new System.Drawing.Point(0, 0);
             this.lbFeeTotalHeader.Name = "lbFeeTotalHeader";
             this.lbFeeTotalHeader.Size = new System.Drawing.Size(216, 66);
+            this.lbFeeTotalHeader.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbFeeTotalHeader.TabIndex = 0;
             this.lbFeeTotalHeader.Text = "消费金额";
             this.lbFeeTotalHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -507,6 +527,7 @@
             this.lbRow6Col1.Location = new System.Drawing.Point(3, 0);
             this.lbRow6Col1.Name = "lbRow6Col1";
             this.lbRow6Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow6Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow6Col1.TabIndex = 0;
             this.lbRow6Col1.Text = "日期/时间";
             this.lbRow6Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -528,6 +549,7 @@
             this.lbRow5Col1.Location = new System.Drawing.Point(3, 0);
             this.lbRow5Col1.Name = "lbRow5Col1";
             this.lbRow5Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow5Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow5Col1.TabIndex = 0;
             this.lbRow5Col1.Text = "日期/时间";
             this.lbRow5Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -549,6 +571,7 @@
             this.lbRow4Col1.Location = new System.Drawing.Point(3, 0);
             this.lbRow4Col1.Name = "lbRow4Col1";
             this.lbRow4Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow4Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow4Col1.TabIndex = 0;
             this.lbRow4Col1.Text = "日期/时间";
             this.lbRow4Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -570,6 +593,7 @@
             this.lbRow3Col1.Location = new System.Drawing.Point(3, 1);
             this.lbRow3Col1.Name = "lbRow3Col1";
             this.lbRow3Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow3Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow3Col1.TabIndex = 0;
             this.lbRow3Col1.Text = "日期/时间";
             this.lbRow3Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -591,6 +615,7 @@
             this.lbRow2Col1.Location = new System.Drawing.Point(3, 0);
             this.lbRow2Col1.Name = "lbRow2Col1";
             this.lbRow2Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow2Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow2Col1.TabIndex = 0;
             this.lbRow2Col1.Text = "日期/时间";
             this.lbRow2Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -612,6 +637,7 @@
             this.lbRow1Col1.Location = new System.Drawing.Point(3, 0);
             this.lbRow1Col1.Name = "lbRow1Col1";
             this.lbRow1Col1.Size = new System.Drawing.Size(209, 66);
+            this.lbRow1Col1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRow1Col1.TabIndex = 0;
             this.lbRow1Col1.Text = "日期/时间";
             this.lbRow1Col1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -633,14 +659,14 @@
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 66);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 0;
             this.label1.Text = "日期/时间";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FeeDetailPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.btnPrePage);

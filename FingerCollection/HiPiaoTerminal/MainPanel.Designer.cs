@@ -17,6 +17,7 @@
             {
                 adFullTimer.Stop();
                 adFullTimer.Enabled = false;
+                GlobalTools.HideFullAdForm();
             }
             if (disposing && (components != null))
             {
@@ -206,7 +207,7 @@
             // 
             // adFullTimer
             // 
-            this.adFullTimer.Interval = 3000;
+            this.adFullTimer.Interval = 30000;
             this.adFullTimer.Tick += new System.EventHandler(this.adFullTimer_Tick);
             // 
             // MainPanel

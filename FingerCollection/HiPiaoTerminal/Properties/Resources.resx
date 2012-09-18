@@ -715,4 +715,34 @@
   <data name="Buyticket_QuitAccout_Sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buyticket_QuitAccout_Sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BuyTick_PaySuccess_Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_Home.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_Return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_Return.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_Site" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_Site.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_GetPaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_GetPaper.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_QueryAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_QueryAccount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_QuictAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_QuictAccount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_PaySuccess_ReturnHome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_PaySuccess_ReturnHome.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_Print_Hint_Process" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_Print_Hint_Process.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_CosumeDetail_Hint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_CosumeDetail_Hint.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuyTick_CosumeDetail_Sure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuyTick_CosumeDetail_Sure.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

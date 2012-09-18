@@ -13,6 +13,8 @@ namespace HiPiaoTerminal
         public FullAdShowForm()
         {
             InitializeComponent();
+            this.Width = 1280;
+            this.Height = 960;
         }
 
         private void adShowPanel1_MouseClick(object sender, MouseEventArgs e)

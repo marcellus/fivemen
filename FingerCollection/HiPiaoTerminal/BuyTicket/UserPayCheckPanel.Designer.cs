@@ -376,7 +376,7 @@
             // 
             // UserPayCheckPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "UserPayCheckPanel";
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();

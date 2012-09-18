@@ -237,7 +237,7 @@
             this.txtMobile.Hint = "请输入手机号";
             this.txtMobile.IsActive = false;
             this.txtMobile.IsDeleted = false;
-            this.txtMobile.KeyboardType = 2;
+            this.txtMobile.KeyboardType = 5;
             this.txtMobile.Location = new System.Drawing.Point(373, 540);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
             this.txtMobile.MaxInputLength = 11;
@@ -307,8 +307,7 @@
             // 
             // QuickRegisterPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 32F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.lbPasswordHint);
             this.Controls.Add(this.lbMobileHint);

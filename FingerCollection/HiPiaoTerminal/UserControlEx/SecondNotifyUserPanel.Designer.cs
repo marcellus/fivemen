@@ -32,8 +32,7 @@
             // 
             // SecondNotifyUserPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "SecondNotifyUserPanel";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SecondNotifyUserPanel_Paint);
             this.ResumeLayout(false);
