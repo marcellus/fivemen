@@ -19,6 +19,14 @@ namespace HiPiaoTerminal
             InitializeComponent();
             this.SetSepartor(false);
             loginSuccessType=type;
+            if (type == 0)
+            {
+                this.userLoginWithMoviePanel1.Visible = false;
+            }
+            else
+            {
+                this.userLoginWithMoviePanel1.Visible = true;
+            }
            
             this.KeyDown += new KeyEventHandler(UserLoginPanel_KeyDown);
             HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
@@ -118,34 +126,15 @@ namespace HiPiaoTerminal
             }
             if (this.txtPwd.Focused)
             {
-                    HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                    if (config.UseHardwareKeyboard)
-                    {
-                        this.panelUseKey.Visible=true;
-                        
-                    }
-                    else
-                    {
-                        this.panelUseKey.Visible = false;
-                    }
-                    this.panelUseRfid.Visible = false;
+                   // this.panelUseRfid.Visible = false;
+                   
 
 
             }
             else if (this.txtUserName.Focused)
             {
-
-                HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                if (config.UseRfid)
-                {
-                    this.panelUseRfid.Visible = true;
-
-                }
-                else
-                {
-                    this.panelUseRfid.Visible = false;
-                }
-                this.panelUseKey.Visible = false;
+              //  this.panelUseKey.Visible = false;
+              
 
             }
 
@@ -188,6 +177,36 @@ namespace HiPiaoTerminal
             {
                 this.btnLogin_Click(null,null);
             }
+        }
+
+        private void txtUserName_Enter(object sender, EventArgs e)
+        {
+            HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseRfid)
+            {
+                this.panelUseRfid.Visible = true;
+
+            }
+            else
+            {
+                this.panelUseRfid.Visible = false;
+            }
+            this.panelUseKey.Visible = false;
+        }
+
+        private void txtPwd_Enter(object sender, EventArgs e)
+        {
+            HiPiaoTerminal.ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.UseHardwareKeyboard)
+            {
+                this.panelUseKey.Visible = true;
+
+            }
+            else
+            {
+                this.panelUseKey.Visible = false;
+            }
+            this.panelUseRfid.Visible = false;
         }
     }
 }

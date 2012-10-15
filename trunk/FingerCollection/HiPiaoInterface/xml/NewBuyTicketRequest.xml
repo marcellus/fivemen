@@ -1,0 +1,10 @@
+﻿开始购票
+拼装字符串=MEMBERID26c52c2e-69ae-102e-8c3d-001a4beef7e4fromclientHPMACHINEmobile13911139181normal1planid93a52440-08c1-11e2-aa59-001bb97ef1a4seatids4b82ca70-f01f-11e0-98ca-001bb97ef1a4
+密码+卡号加密=f56174a3de82dd6016bd5dff2d770682
+最终加密md5(r2+r1)=c11fc71872c0a4fbfa1e5bfb89ad351d
+2012-09-28 12:32:29发送购票内容为：
+MEMBERID=26c52c2e-69ae-102e-8c3d-001a4beef7e4
+&mobile=13911139181&normal=1
+&planId=93a52440-08c1-11e2-aa59-001bb97ef1a4@@6
+&seatids=4b82ca70-f01f-11e0-98ca-001bb97ef1a4
+&fromclient=HPMACHINE&pass=c11fc71872c0a4fbfa1e5bfb89ad351d

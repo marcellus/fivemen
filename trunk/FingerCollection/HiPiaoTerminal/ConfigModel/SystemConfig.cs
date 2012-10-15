@@ -56,5 +56,8 @@ namespace HiPiaoTerminal.ConfigModel
         public string Cinema = "";
         public string CinemaId = "";
 
+
+        public int FullScreenSecond = 5;
+
     }
 }

@@ -64,7 +64,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnThreeDay);
             this.splitContainer1.Panel2.Controls.Add(this.btnToday);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
-            this.splitContainer1.SplitterDistance = 827;
             // 
             // showWelcomePanel1
             // 
@@ -80,7 +79,7 @@
             // btnReturn
             // 
             this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1068, 40);
+            this.btnReturn.Location = new System.Drawing.Point(1057, 40);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(160, 83);
             this.btnReturn.TabIndex = 1;

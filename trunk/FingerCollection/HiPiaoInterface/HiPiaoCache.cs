@@ -18,6 +18,9 @@ namespace HiPiaoInterface
 
 
 
+
+
+
         
 
 
@@ -43,9 +46,35 @@ namespace HiPiaoInterface
             XmlNode node = doc.SelectSingleNode("//order");
             if (node != null)
             {
-                return node.Attributes["res"].Value.ToString();
+               
+                string result=node.Attributes["res"].Value.ToString();
+                if (result == "1")
+                {
+                    //余额消减
+                    int money=tickets.Count*tickets[0].Price;
+                    user.Balance -= money;
+                    string ticketId = node.Attributes["ticketNumber"].Value.ToString();
+                    for (int i = 0; i < tickets.Count; i++)
+                    {
+                        tickets[i].TicketId = ticketId;
+                    }
+                }
+                return result;
             }
             else return "-1";
+        }
+
+        public static bool SmsUserFeeDetail(UserObject user, int fee)
+        {
+            string xml = hiPiaoSrv.SmsUserFeeDetail(user,fee);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node = doc.SelectSingleNode("//sms");
+            if (node != null)
+            {
+                return node.Attributes["stat"].Value.ToString()=="1";
+            }
+            return false;
         }
 
         public static List<CinemaObject> GetCinemas(string province, string city)

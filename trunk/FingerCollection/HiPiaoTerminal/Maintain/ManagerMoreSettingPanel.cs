@@ -41,6 +41,9 @@ namespace HiPiaoTerminal.Maintain
 
                 config.UpdateMovieTime = Convert.ToInt32( this.txtRefreshCacheTime.Text) ;
                 config.PrinterType = this.cbPrinterType.Text;
+
+                config.FullScreenSecond = Convert.ToInt32(this.txtFullScreenSecond.Text);
+
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
 
 
@@ -71,6 +74,7 @@ namespace HiPiaoTerminal.Maintain
                 this.cbCinema.Text = config.Cinema;
                 this.txtRefreshCacheTime.Text = config.UpdateMovieTime.ToString();
                 this.cbPrinterType.Text = config.PrinterType;
+                this.txtFullScreenSecond.Text = config.FullScreenSecond.ToString();
             }
             catch
             {

@@ -72,6 +72,7 @@
     <Compile Include="TicketObject.cs" />
     <Compile Include="TicketPrintObject.cs" />
     <Compile Include="UserObject.cs" />
+    <Content Include="xml\NewBuyTicketRequest.xml" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -96,6 +97,7 @@
     <Content Include="xml\CouponInfoRequest.xml" />
     <Content Include="xml\DeductionInfoRequest.xml" />
     <Content Include="xml\DeductionInfoResponse.xml" />
+    <Content Include="xml\NewBuyTicketResponse.xml" />
     <Content Include="xml\PlancinemaRequest.xml" />
     <Content Include="xml\PlancinemaResponse.xml" />
     <Content Include="xml\ConsumptionDetailRequest.xml" />
@@ -110,6 +112,8 @@
     <Content Include="xml\SiteMapResponseResponse.xml" />
     <Content Include="xml\AdvertisementRequest.xml" />
     <Content Include="xml\AdvertisementResponse.xml" />
+    <Content Include="xml\SmsRequest.xml" />
+    <Content Include="xml\SmsResponse.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

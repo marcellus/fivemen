@@ -172,7 +172,9 @@
             this.Controls.Add(this.btnSure);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FullScreenSeatSelectorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FullScreenSeatSelectorForm";
+            this.TopMost = true;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();

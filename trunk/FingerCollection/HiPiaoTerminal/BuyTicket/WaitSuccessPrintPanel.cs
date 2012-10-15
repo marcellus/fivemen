@@ -17,10 +17,12 @@ namespace HiPiaoTerminal.BuyTicket
         private List<TicketPrintObject> lists;
         private MovieObject movieInfo;
         private MoviePlanObject moviePlan;
+        private int fee = 0;
         public WaitSuccessPrintPanel(List<TicketPrintObject> tickets,MovieObject movie,MoviePlanObject moviePlan)
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+            fee = tickets.Count * tickets[0].Price;
             this.SetSepartor(false);
             this.SetOperationTime(15);
             this.lists = tickets;
@@ -94,6 +96,7 @@ namespace HiPiaoTerminal.BuyTicket
         {
             Thread.Sleep(3000);
            // GlobalTools.Pop(new SuccessBuyTicketPanel());
+            if(HiPiaoCache.SmsUserFeeDetail(GlobalTools.GetLoginUser(), this.fee))
             GlobalTools.Pop(new CosumeDetailPanel(this.lists,this.movieInfo,this.moviePlan));
         }
 

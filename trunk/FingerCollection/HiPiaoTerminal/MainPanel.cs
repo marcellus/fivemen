@@ -48,7 +48,8 @@ namespace HiPiaoTerminal
                 this.btnQuit.Visible = true;
             }
             GlobalTools.CloseAllPopForms();
-            adFullTimer.Start();
+            
+            GlobalTools.SetCursor();
         }
 
         private void btnLoginPassport_Click(object sender, EventArgs e)
@@ -117,9 +118,11 @@ namespace HiPiaoTerminal
            // ControlPaint.DrawButton(Graphics.FromHwnd(this.btnTicketPrint.Handle),
              //   new Rectangle(10, 10, btnTicketPrint.Width - 10, btnTicketPrint.Height - 10),
             //    ButtonState.Pushed);
-
-           
-
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if(config.FullScreenSecond>0)
+             adFullTimer.Interval = config.FullScreenSecond * 1000;
+            adFullTimer.Stop();
+            adFullTimer.Start();
             
         }
 

@@ -84,7 +84,8 @@ namespace HiPiaoTerminal.BuyTicket
                 pic.Height = 374;
                 pic.Location = new Point(274, 42);
                 this.panelContent.Controls.Clear();
-                this.panelContent.Controls.Add(pic);
+                //this.panelContent.Controls.Add(pic);
+                WindowFormDelegate.AddControlTo(this.panelContent, pic);
                 //this.picShowNoPlanHint.Visible = true;
             }
            

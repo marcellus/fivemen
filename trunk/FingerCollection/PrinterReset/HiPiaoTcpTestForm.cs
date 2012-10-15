@@ -40,9 +40,9 @@ namespace PrinterReset
 
         private void btnGetTicket_Click(object sender, EventArgs e)
         {
-            string msgType = "30" + "\t";
+            string msgType = "30";
             string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
-            str = msgType + str;
+            //str = msgType + str;
             //helper.Send(str);
             HipiaoTcpHelper.GetTicket(str);
         }

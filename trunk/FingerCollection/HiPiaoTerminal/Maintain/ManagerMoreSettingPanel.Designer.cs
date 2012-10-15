@@ -56,6 +56,9 @@
             this.simpleLabel4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel5 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.cbPrinterType = new System.Windows.Forms.ComboBox();
+            this.simpleLabel6 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel7 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtFullScreenSecond = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -377,10 +380,53 @@
             this.cbPrinterType.Size = new System.Drawing.Size(122, 36);
             this.cbPrinterType.TabIndex = 23;
             // 
+            // simpleLabel6
+            // 
+            this.simpleLabel6.AutoSize = true;
+            this.simpleLabel6.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel6.Location = new System.Drawing.Point(980, 447);
+            this.simpleLabel6.Name = "simpleLabel6";
+            this.simpleLabel6.Size = new System.Drawing.Size(297, 40);
+            this.simpleLabel6.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel6.TabIndex = 5;
+            this.simpleLabel6.Text = "全屏广告出现时间";
+            // 
+            // simpleLabel7
+            // 
+            this.simpleLabel7.AutoSize = true;
+            this.simpleLabel7.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.simpleLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel7.Location = new System.Drawing.Point(1214, 521);
+            this.simpleLabel7.Name = "simpleLabel7";
+            this.simpleLabel7.Size = new System.Drawing.Size(52, 40);
+            this.simpleLabel7.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel7.TabIndex = 5;
+            this.simpleLabel7.Text = "秒";
+            // 
+            // txtFullScreenSecond
+            // 
+            this.txtFullScreenSecond.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtFullScreenSecond.BackColor = System.Drawing.SystemColors.Window;
+            this.txtFullScreenSecond.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtFullScreenSecond.Hint = null;
+            this.txtFullScreenSecond.IsActive = false;
+            this.txtFullScreenSecond.IsDeleted = false;
+            this.txtFullScreenSecond.KeyboardType = 6;
+            this.txtFullScreenSecond.Location = new System.Drawing.Point(1054, 506);
+            this.txtFullScreenSecond.Margin = new System.Windows.Forms.Padding(0);
+            this.txtFullScreenSecond.MaxInputLength = 32767;
+            this.txtFullScreenSecond.Name = "txtFullScreenSecond";
+            this.txtFullScreenSecond.PasswordChar = '\0';
+            this.txtFullScreenSecond.RelativeLabel = null;
+            this.txtFullScreenSecond.Size = new System.Drawing.Size(132, 74);
+            this.txtFullScreenSecond.TabIndex = 7;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbReturnMsg);
+            this.Controls.Add(this.txtFullScreenSecond);
             this.Controls.Add(this.txtRefreshCacheTime);
             this.Controls.Add(this.txtUnOperationTime);
             this.Controls.Add(this.checkVitualKeyboard);
@@ -390,10 +436,12 @@
             this.Controls.Add(this.checkUseMask);
             this.Controls.Add(this.cbPrinterType);
             this.Controls.Add(this.cbCity);
+            this.Controls.Add(this.simpleLabel7);
             this.Controls.Add(this.simpleLabel4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbCinema);
             this.Controls.Add(this.btnCancelSave);
+            this.Controls.Add(this.simpleLabel6);
             this.Controls.Add(this.simpleLabel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKeepSave);
@@ -422,10 +470,12 @@
             this.Controls.SetChildIndex(this.btnKeepSave, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.simpleLabel3, 0);
+            this.Controls.SetChildIndex(this.simpleLabel6, 0);
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
             this.Controls.SetChildIndex(this.cbCinema, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.simpleLabel4, 0);
+            this.Controls.SetChildIndex(this.simpleLabel7, 0);
             this.Controls.SetChildIndex(this.cbCity, 0);
             this.Controls.SetChildIndex(this.cbPrinterType, 0);
             this.Controls.SetChildIndex(this.checkUseMask, 0);
@@ -435,6 +485,7 @@
             this.Controls.SetChildIndex(this.checkVitualKeyboard, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
             this.Controls.SetChildIndex(this.txtRefreshCacheTime, 0);
+            this.Controls.SetChildIndex(this.txtFullScreenSecond, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).EndInit();
@@ -472,5 +523,8 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel4;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel5;
         private System.Windows.Forms.ComboBox cbPrinterType;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel6;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel7;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtFullScreenSecond;
     }
 }

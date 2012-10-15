@@ -871,6 +871,22 @@ namespace HiPiaoTerminal
             ResetUnOperationTime();
         }
 
+        //隐藏光标
+        public static void SetCursor()
+        {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (!config.AllowShowMouse)
+            {
+               // Cursor.Current= Cursors.Hand;
+                //this.Cursor 
+               Cursor.Hide();
+            }
+            else
+            {
+                Cursor.Show();
+            }
+        }
+
         /// <summary>
         /// 返回主界面
         /// </summary>

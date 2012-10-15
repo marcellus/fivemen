@@ -23,7 +23,8 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void vitualKeyBoardPanel21_Load(object sender, EventArgs e)
         {
-            this.vitualKeyBoardPanel21.ShowWithForm = true;
+           // this.vitualKeyBoardPanel21.ShowWithForm = true;
+            this.vitualKeyBoardPanel31.ShowWithForm = true;
         }
 
 
@@ -31,11 +32,11 @@ namespace HiPiaoTerminal.UserControlEx
         {
             get
             {
-                return this.vitualKeyBoardPanel21.InputTextBox;
+                return this.vitualKeyBoardPanel31.InputTextBox;
             }
             set
             {
-                this.vitualKeyBoardPanel21.InputTextBox=value;
+                this.vitualKeyBoardPanel31.InputTextBox=value;
             }
         }
 

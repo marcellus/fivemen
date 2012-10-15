@@ -40,6 +40,7 @@
             this.btnCancel = new HiPiaoTerminal.UserControlEx.LabelButtonWithActive();
             this.panelUseKey = new System.Windows.Forms.Panel();
             this.panelUseRfid = new System.Windows.Forms.Panel();
+            this.userLoginWithMoviePanel1 = new HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.userLoginWithMoviePanel1);
             this.panelHeader.Controls.Add(this.btnReturn);
             this.panelHeader.Controls.Add(this.pictureBox2);
             this.panelHeader.Controls.Add(this.pictureBox1);
@@ -75,6 +77,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.SplitterDistance = 830;
             this.splitContainer1.TabIndex = 234;
             // 
             // pictureBox1
@@ -140,6 +143,7 @@
             this.txtUserName.Size = new System.Drawing.Size(555, 110);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtPwd
             // 
@@ -159,6 +163,7 @@
             this.txtPwd.Size = new System.Drawing.Size(555, 110);
             this.txtPwd.TabIndex = 2;
             this.txtPwd.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
+            this.txtPwd.Enter += new System.EventHandler(this.txtPwd_Enter);
             // 
             // lbPwd
             // 
@@ -218,6 +223,14 @@
             this.panelUseRfid.Size = new System.Drawing.Size(341, 315);
             this.panelUseRfid.TabIndex = 116;
             // 
+            // userLoginWithMoviePanel1
+            // 
+            this.userLoginWithMoviePanel1.BackColor = System.Drawing.SystemColors.Window;
+            this.userLoginWithMoviePanel1.Location = new System.Drawing.Point(0, 40);
+            this.userLoginWithMoviePanel1.Name = "userLoginWithMoviePanel1";
+            this.userLoginWithMoviePanel1.Size = new System.Drawing.Size(1280, 84);
+            this.userLoginWithMoviePanel1.TabIndex = 2;
+            // 
             // UserLoginPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -250,6 +263,7 @@
         private HiPiaoTerminal.UserControlEx.LabelButtonWithActive btnCancel;
         private System.Windows.Forms.Panel panelUseKey;
         private System.Windows.Forms.Panel panelUseRfid;
+        private HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel userLoginWithMoviePanel1;
 
     }
 }

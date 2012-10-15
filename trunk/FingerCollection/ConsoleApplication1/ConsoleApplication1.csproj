@@ -72,6 +72,10 @@
       <Project>{80096F49-1AFF-4067-81FF-FBDB93A5B4EA}</Project>
       <Name>FT.Windows.Forms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HiPiaoInterface\HiPiaoInterface.csproj">
+      <Project>{73224C21-D0F5-4A32-A904-D4F192682659}</Project>
+      <Name>HiPiaoInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

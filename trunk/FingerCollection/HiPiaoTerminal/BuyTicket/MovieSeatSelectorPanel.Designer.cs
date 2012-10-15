@@ -51,6 +51,7 @@
             this.btnPay = new System.Windows.Forms.PictureBox();
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.btnDoubleToFullScreen = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDoubleToFullScreen)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContent
@@ -73,7 +75,7 @@
             this.panelContent.Controls.Add(this.lbProcessHint);
             this.panelContent.Controls.Add(this.processPanel1);
             this.panelContent.Controls.Add(this.label3);
-            this.panelContent.Controls.Add(this.panelSelectedSeat);
+            this.panelContent.Controls.Add(this.panel4);
             this.panelContent.Controls.Add(this.lbPrice);
             this.panelContent.Controls.Add(this.panel3);
             this.panelContent.Controls.Add(this.lbMovieDetail);
@@ -96,7 +98,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.btnPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
-            this.splitContainer1.SplitterDistance = 827;
             // 
             // lbMovieName
             // 
@@ -177,11 +178,10 @@
             // 
             this.panelSelectedSeat.AutoScroll = true;
             this.panelSelectedSeat.BackColor = System.Drawing.SystemColors.Window;
-            this.panelSelectedSeat.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_SelectedSeat_Panel;
             this.panelSelectedSeat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelSelectedSeat.Location = new System.Drawing.Point(994, 177);
+            this.panelSelectedSeat.Location = new System.Drawing.Point(12, 33);
             this.panelSelectedSeat.Name = "panelSelectedSeat";
-            this.panelSelectedSeat.Size = new System.Drawing.Size(228, 276);
+            this.panelSelectedSeat.Size = new System.Drawing.Size(206, 232);
             this.panelSelectedSeat.TabIndex = 5;
             // 
             // panel3
@@ -335,6 +335,18 @@
             this.btnDoubleToFullScreen.DoubleClick += new System.EventHandler(this.panelSeat_DoubleClick);
             this.btnDoubleToFullScreen.Click += new System.EventHandler(this.btnDoubleToFullScreen_Click);
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_SelectedSeat_Panel;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.panelSelectedSeat);
+            this.panel4.Location = new System.Drawing.Point(994, 117);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(228, 276);
+            this.panel4.TabIndex = 5;
+            // 
             // MovieSeatSelectorPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -355,6 +367,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDoubleToFullScreen)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -383,6 +396,7 @@
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
         private System.Windows.Forms.Panel panelSeat;
         private System.Windows.Forms.PictureBox btnDoubleToFullScreen;
+        private System.Windows.Forms.Panel panel4;
 
     }
 }

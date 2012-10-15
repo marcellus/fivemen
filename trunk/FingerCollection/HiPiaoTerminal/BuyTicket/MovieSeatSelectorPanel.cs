@@ -58,6 +58,7 @@ namespace HiPiaoTerminal.BuyTicket
             this.dt = dt;
             this.moviePlan = moviePlan;
             CheckForIllegalCrossThreadCalls = false;
+            this.SetOperationTime(60);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace HiPiaoTerminal.BuyTicket
                 this.lbPlanInfo.Text = string.Format(this.lbPlanInfo.Text, dt.ToString("yyyy-MM-dd"), roomPlan.Playtime, roomPlan.RoomName);
                 LoadSeat();
             }
-            this.SetOperationTime(60);
+           
         }
         private void LoadSeat()
         {
@@ -176,9 +177,12 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 if (ctr.BackColor.R == (byte)125)
                 {
-                    this.selectedSeat.Add(seat.SeatId, seat);
-                    ctr.BackColor = selectedColor;
-                    this.RefreshSelectedPanel();
+                    if (this.selectedSeat.Count < 8)
+                    {
+                        this.selectedSeat.Add(seat.SeatId, seat);
+                        ctr.BackColor = selectedColor;
+                        this.RefreshSelectedPanel();
+                    }
                 }
                 else if (ctr.BackColor.R == (byte)253)
                 {
@@ -308,6 +312,7 @@ namespace HiPiaoTerminal.BuyTicket
             if (this.panelSeat.Controls.Count > 0)
             {
                 FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,8);
+               // form.StartPosition=F
                 form.ShowDialog();
             }
         }

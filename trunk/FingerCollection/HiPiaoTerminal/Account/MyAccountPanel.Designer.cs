@@ -32,20 +32,20 @@
             this.btnFeeDetailInfo = new FT.Windows.Controls.ButtonEx.ActiveTabButton();
             this.btnModifyPwd = new FT.Windows.Controls.ButtonEx.ActiveTabButton();
             this.btnAccountInfo = new FT.Windows.Controls.ButtonEx.ActiveTabButton();
-            this.btnReturnHome = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnReturn = new System.Windows.Forms.PictureBox();
             this.btnQuitAccount = new System.Windows.Forms.PictureBox();
             this.btnGoBuyTicket = new System.Windows.Forms.PictureBox();
+            this.btnReturn = new System.Windows.Forms.PictureBox();
+            this.btnReturnHome = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuitAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGoBuyTicket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -107,7 +107,38 @@
             this.btnAccountInfo.Size = new System.Drawing.Size(222, 70);
             this.btnAccountInfo.TabIndex = 0;
             this.btnAccountInfo.TabText = "账户信息";
+            this.btnAccountInfo.Load += new System.EventHandler(this.btnAccountInfo_Load);
             this.btnAccountInfo.Click += new System.EventHandler(this.btnAccountInfo_Click);
+            // 
+            // btnQuitAccount
+            // 
+            this.btnQuitAccount.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_QuitAccount;
+            this.btnQuitAccount.Location = new System.Drawing.Point(632, 31);
+            this.btnQuitAccount.Name = "btnQuitAccount";
+            this.btnQuitAccount.Size = new System.Drawing.Size(281, 88);
+            this.btnQuitAccount.TabIndex = 1;
+            this.btnQuitAccount.TabStop = false;
+            this.btnQuitAccount.Click += new System.EventHandler(this.btnQuitAccount_Click);
+            // 
+            // btnGoBuyTicket
+            // 
+            this.btnGoBuyTicket.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_GoBuyTicket;
+            this.btnGoBuyTicket.Location = new System.Drawing.Point(940, 31);
+            this.btnGoBuyTicket.Name = "btnGoBuyTicket";
+            this.btnGoBuyTicket.Size = new System.Drawing.Size(279, 88);
+            this.btnGoBuyTicket.TabIndex = 1;
+            this.btnGoBuyTicket.TabStop = false;
+            this.btnGoBuyTicket.Click += new System.EventHandler(this.btnGoBuyTicket_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
+            this.btnReturn.Location = new System.Drawing.Point(1060, 40);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(160, 83);
+            this.btnReturn.TabIndex = 0;
+            this.btnReturn.TabStop = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnReturnHome
             // 
@@ -130,36 +161,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // btnReturn
-            // 
-            this.btnReturn.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Register_ReturnBack;
-            this.btnReturn.Location = new System.Drawing.Point(1060, 40);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(160, 83);
-            this.btnReturn.TabIndex = 0;
-            this.btnReturn.TabStop = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnQuitAccount
-            // 
-            this.btnQuitAccount.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_QuitAccount;
-            this.btnQuitAccount.Location = new System.Drawing.Point(632, 31);
-            this.btnQuitAccount.Name = "btnQuitAccount";
-            this.btnQuitAccount.Size = new System.Drawing.Size(281, 88);
-            this.btnQuitAccount.TabIndex = 1;
-            this.btnQuitAccount.TabStop = false;
-            this.btnQuitAccount.Click += new System.EventHandler(this.btnQuitAccount_Click);
-            // 
-            // btnGoBuyTicket
-            // 
-            this.btnGoBuyTicket.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_GoBuyTicket;
-            this.btnGoBuyTicket.Location = new System.Drawing.Point(940, 31);
-            this.btnGoBuyTicket.Name = "btnGoBuyTicket";
-            this.btnGoBuyTicket.Size = new System.Drawing.Size(279, 88);
-            this.btnGoBuyTicket.TabIndex = 1;
-            this.btnGoBuyTicket.TabStop = false;
-            this.btnGoBuyTicket.Click += new System.EventHandler(this.btnGoBuyTicket_Click);
-            // 
             // MyAccountPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -177,11 +178,11 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuitAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGoBuyTicket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
