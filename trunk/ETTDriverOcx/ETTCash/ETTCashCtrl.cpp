@@ -148,6 +148,9 @@ BEGIN_DISPATCH_MAP(CETTCashCtrl, COleControl)
 	DISP_FUNCTION_ID(CETTCashCtrl, "ResetEx", dispidResetEx, ResetEx, VT_I2, VTS_NONE)
 	DISP_FUNCTION_ID(CETTCashCtrl, "StartIdentifyV2Ex2", dispidStartIdentifyV2Ex2, StartIdentifyV2Ex2, VT_I2, VTS_BSTR)
 	DISP_FUNCTION_ID(CETTCashCtrl, "StartIdentifyV2Ex", dispidStartIdentifyV2Ex, StartIdentifyV2Ex, VT_I2, VTS_BSTR)
+	DISP_FUNCTION_ID(CETTCashCtrl, "InitCreditcard", dispidInitCreditcard, InitCreditcard, VT_I2, VTS_BSTR VTS_I4 VTS_BSTR)
+	DISP_FUNCTION_ID(CETTCashCtrl, "GetCreditcard", dispidGetCreditcard, GetCreditcard, VT_I2, VTS_NONE)
+	DISP_FUNCTION_ID(CETTCashCtrl, "EndCreditcard", dispidEndCreditcard, EndCreditcard, VT_I2, VTS_NONE)
 END_DISPATCH_MAP()
 
 
@@ -580,5 +583,33 @@ SHORT CETTCashCtrl::StartIdentifyV2Ex(LPCTSTR denominations)
 	ret=StartIdentifyV2("","",denominations,msg);
 	this->m_Message=_com_util::ConvertStringToBSTR(msg);
 
+	return ret;
+}
+
+SHORT CETTCashCtrl::InitCreditcard(LPCTSTR sfzmhm, LONG money, LPCTSTR bz)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	int ret=1;
+	this->m_Message="初始化刷卡成功";
+	return ret;
+}
+
+SHORT CETTCashCtrl::GetCreditcard(void)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	int ret=1;
+	this->m_Message="完成刷卡动作";
+	return ret;
+}
+
+SHORT CETTCashCtrl::EndCreditcard(void)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	int ret=1;
+	this->m_Message="结束刷卡成功";
 	return ret;
 }

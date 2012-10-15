@@ -82,6 +82,9 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidEndCreditcard = 18L,
+		dispidGetCreditcard = 17L,
+		dispidInitCreditcard = 16L,
 		dispidStartIdentifyV2Ex = 15L,
 		dispidStartIdentifyV2Ex2 = 14L,
 		dispidResetEx = 13L,
@@ -116,5 +119,8 @@ protected:
 	SHORT ResetEx(void);
 	SHORT StartIdentifyV2Ex2(LPCTSTR denominations);
 	SHORT StartIdentifyV2Ex(LPCTSTR denominations);
+	SHORT InitCreditcard(LPCTSTR sfzmhm, LONG money, LPCTSTR bz);
+	SHORT GetCreditcard(void);
+	SHORT EndCreditcard(void);
 };
 
