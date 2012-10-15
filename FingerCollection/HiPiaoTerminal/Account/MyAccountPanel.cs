@@ -96,7 +96,12 @@ namespace HiPiaoTerminal.Account
 
         private void MyAccountPanel_Load(object sender, EventArgs e)
         {
+            this.btnModifyPwd.Location = new System.Drawing.Point(629, 154);
+            this.btnModifyPwd.Size = new Size(222, 70);
             btnAccountInfo_Click(null, null);
+            //object obj2=this.btnModifyPwd.Parent;
+            //object obj=this.btnModifyPwd.Location;
+            //this.btnModifyPwd.Visible = true;
         }
 
         private void btnModifyPwd_Load(object sender, EventArgs e)
@@ -105,6 +110,11 @@ namespace HiPiaoTerminal.Account
         }
 
         private void btnFeeDetailInfo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAccountInfo_Load(object sender, EventArgs e)
         {
 
         }

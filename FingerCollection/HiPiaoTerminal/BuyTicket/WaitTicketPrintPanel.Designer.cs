@@ -89,7 +89,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
             this.splitContainer1.Panel2.Controls.Add(this.processPanel1);
-            this.splitContainer1.SplitterDistance = 827;
             // 
             // linkLabel1
             // 
@@ -320,10 +319,10 @@
             this.adShowPanel1.AdType = "所有位置";
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Interval = 500;
-            this.adShowPanel1.Location = new System.Drawing.Point(177, 32);
+            this.adShowPanel1.Location = new System.Drawing.Point(63, 0);
             this.adShowPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.adShowPanel1.Name = "adShowPanel1";
-            this.adShowPanel1.Size = new System.Drawing.Size(3420, 1517);
+            this.adShowPanel1.Size = new System.Drawing.Size(1155, 584);
             this.adShowPanel1.TabIndex = 0;
             // 
             // pictureBox2
@@ -383,6 +382,7 @@
             // WaitTicketPrintPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.Controls.Add(this.linkLabel1);
             this.Margin = new System.Windows.Forms.Padding(27, 21, 27, 21);
             this.Name = "WaitTicketPrintPanel";

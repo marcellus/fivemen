@@ -94,7 +94,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnQuitAccount);
             this.splitContainer1.Panel2.Controls.Add(this.btnQueryAccount);
             this.splitContainer1.Panel2.Controls.Add(this.btnReturnHome);
-            this.splitContainer1.SplitterDistance = 827;
             // 
             // linkLabel1
             // 
@@ -399,6 +398,7 @@
             // WaitSuccessPrintPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.Controls.Add(this.linkLabel1);
             this.Margin = new System.Windows.Forms.Padding(27, 21, 27, 21);
             this.Name = "WaitSuccessPrintPanel";

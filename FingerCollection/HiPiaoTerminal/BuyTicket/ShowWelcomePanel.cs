@@ -21,11 +21,7 @@ namespace HiPiaoTerminal.BuyTicket
             this.Height = 80;
             try
             {
-                UserObject user = GlobalTools.GetLoginUser();
-                this.lbUserName.Text = user.Name;
                 
-                this.lbPoints.Text = string.Format(this.lbPoints.Text, user.RewardPoints.ToString());
-                this.lbBalance.Text = string.Format(this.lbBalance.Text, user.Balance.ToString());
                 Thread thread = new Thread(new ThreadStart(SetValue));
                 thread.IsBackground = true;
                 thread.Start();
@@ -36,8 +32,18 @@ namespace HiPiaoTerminal.BuyTicket
         }
         public void SetValue()
         {
+            try
+            {
             UserObject user = GlobalTools.GetLoginUser();
+            this.lbUserName.Text = user.Name;
+
+            this.lbPoints.Text = string.Format(this.lbPoints.Text, user.RewardPoints.ToString());
+            this.lbBalance.Text = string.Format(this.lbBalance.Text, user.Balance.ToString());
             this.lbCoupons.Text = string.Format(this.lbCoupons.Text, user.CouponNum.ToString(), user.DeductionNum.ToString());
+            }
+            catch
+            {
+            }
         }
 
         private void ShowWelcomePanel_Load(object sender, EventArgs e)

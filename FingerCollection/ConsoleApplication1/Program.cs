@@ -86,6 +86,20 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
+            //HiPiaoInterface.HipiaoTcpHelper.GetTicket();
+            Console.ReadLine();
+
+            /*
+拼装字符串=MEMBERID26c52c2e-69ae-102e-8c3d-001a4beef7e4fromclientHPMACHINEmobile13911139181normal2planIdb8695e80-065b-11e2-a9dc-001bb97ef1a4seatids4b45e880-f01f-11e0-98ca-001bb97ef1a4,4b711730-f01f-11e0-98ca-001bb97ef1a4
+密码+卡号加密=f56174a3de82dd6016bd5dff2d770682
+最终加密md5(r2+r1)=53d1205f9fddc1a3a1fc21f3880a4c84
+             */
+            string rr1 = "f56174a3de82dd6016bd5dff2d770682";
+            string rr2   = "MEMBERID26c52c2e-69ae-102e-8c3d-001a4beef7e4fromclientHPMACHINEmobile13911139181normal2planIdb8695e80-065b-11e2-a9dc-001bb97ef1a4seatids4b45e880-f01f-11e0-98ca-001bb97ef1a4,4b711730-f01f-11e0-98ca-001bb97ef1a4";
+           // string rr2   = "MEMBERID26c52c2e-69ae-102e-8c3d-001a4beef7e4fromclientHPMACHINEmobile13911139181normal2planidb8695e80-065b-11e2-a9dc-001bb97ef1a4seatids4b45e880-f01f-11e0-98ca-001bb97ef1a4,4b711730-f01f-11e0-98ca-001bb97ef1a4";
+                          //MEMBERID26c52c2e-69ae-102e-8c3d-001a4beef7e4fromclientHPMACHINEmobile13911139181normal2planIdb8695e80-065b-11e2-a9dc-001bb97ef1a4seatids4b45e880-f01f-11e0-98ca-001bb97ef1a4,4b711730-f01f-11e0-98ca-001bb97ef1a4
+
+            Console.WriteLine("最终加密结果rr1+rr2为:" + Encrypt(rr2+rr1));
             ISecurity md5 = new MD5Security();
             //1b8dc01720fc2b67ad19a3c526c7bca2
             Console.WriteLine("最终加密结果为:"+Encrypt("789001"));

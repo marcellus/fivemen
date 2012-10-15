@@ -460,6 +460,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\FullScreenSeatSelectorForm.resx">
       <DependentUpon>FullScreenSeatSelectorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyTicket\MoviePlanSelectorPanel.resx">
       <DependentUpon>MoviePlanSelectorPanel.cs</DependentUpon>
@@ -676,6 +677,10 @@
       <DependentUpon>UserInputPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\UserLoginWithMoviePanel.resx">
+      <DependentUpon>UserLoginWithMoviePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlEx\VitualKeyboardForm.resx">
       <DependentUpon>VitualKeyboardForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -771,6 +776,12 @@
     </Compile>
     <Compile Include="UserControlEx\UserInputPanel.Designer.cs">
       <DependentUpon>UserInputPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEx\UserLoginWithMoviePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\UserLoginWithMoviePanel.Designer.cs">
+      <DependentUpon>UserLoginWithMoviePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlEx\VitualKeyboardForm.cs">
       <SubType>Form</SubType>
@@ -1007,7 +1018,6 @@
     <None Include="Resources\Account_Please_Use_Keyboard.png" />
     <None Include="Resources\Account_PrePage_Active.png" />
     <None Include="Resources\Account_PrePage_NotActive.png" />
-    <None Include="Resources\Account_QuitAccount.png" />
     <None Include="Resources\Account_Read_Card_Error.png" />
     <None Include="Resources\Account_ReFlash_Card.png" />
     <None Include="Resources\Account_UidOrPwd_Error.png" />
@@ -1151,6 +1161,10 @@
     <None Include="Resources\BuyTick_PaySuccess_GetPaper.png" />
     <None Include="Resources\BuyTick_CosumeDetail_Hint.png" />
     <None Include="Resources\BuyTick_CosumeDetail_Sure.png" />
+    <None Include="Resources\BuyTick_Login_Home.png" />
+    <None Include="Resources\BuyTick_Login_Return.png" />
+    <None Include="Resources\BuyTick_Login_Site_Hint.png" />
+    <None Include="Resources\Account_QuitAccount.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

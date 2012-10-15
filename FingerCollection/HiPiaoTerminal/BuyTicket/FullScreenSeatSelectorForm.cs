@@ -34,7 +34,23 @@ namespace HiPiaoTerminal.BuyTicket
                 
             }
             this.InitSeat(seatPanel.SeatList);
+            this.RefreshSelectedPanel();
             
+        }
+
+        public void RefreshSelectedPanel()
+        {
+           
+            SeatObject seat = null;
+            System.Collections.IDictionaryEnumerator enumerator = seatPanel.selectedSeat.GetEnumerator();
+            
+            while (enumerator.MoveNext())
+            {
+                seat = enumerator.Value as SeatObject;
+                this.panelSeats.Controls[seat.SeatId].BackColor = seatPanel.selectedColor;
+            }
+            this.selectedSeatTmp = this.seatPanel.selectedSeat.Clone() as Hashtable;
+
         }
 
         private void InitSeat(List<SeatObject> lists)
@@ -43,6 +59,7 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 return;
             }
+            
            
             //75, 78 height=29
             int x = 0;
@@ -99,8 +116,11 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 if (ctr.BackColor.R == (byte)125)
                 {
-                    selectedSeatTmp.Add(seat.SeatId, seat);
-                    ctr.BackColor = seatPanel.selectedColor;
+                    if (this.selectedSeatTmp.Count < 8)
+                    {
+                        selectedSeatTmp.Add(seat.SeatId, seat);
+                        ctr.BackColor = seatPanel.selectedColor;
+                    }
                     //seatPanel.RefreshSelectedPanel();
                 }
                 else if (ctr.BackColor.R == (byte)253)

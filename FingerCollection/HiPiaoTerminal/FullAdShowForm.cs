@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal
 {
@@ -15,6 +16,7 @@ namespace HiPiaoTerminal
             InitializeComponent();
             this.Width = 1280;
             this.Height = 960;
+            GlobalTools.SetCursor();
         }
 
         private void adShowPanel1_MouseClick(object sender, MouseEventArgs e)
@@ -23,6 +25,7 @@ namespace HiPiaoTerminal
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "全屏广告进行了鼠标单击!");
 #endif
             this.Hide();
+            GlobalTools.MainForm.Activate();
             if (GlobalTools.MainForm.Controls[0] is MainPanel)
             {
             }

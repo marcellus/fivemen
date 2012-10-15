@@ -319,12 +319,147 @@ namespace HiPiaoInterface
 
         }
 
+        public string SmsUserFeeDetail(UserObject user, int fee)
+        {
+             string cid="hpmachinesmsuser";
+             string content="您的"+user.Name+"账户于"+System.DateTime.Now.ToString("M月d日")+"以"+user.Mobile+"成功消费"+fee+"元，账户余额"+user.Balance+"元。如有疑问请致电400-601-5566【哈票网】";
+             string mobile=user.Mobile;
+             string key="hpsmscheck!@#";
+             string pass = Encrypt(cid + content + mobile + key);
+
+             string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Sms_Url"];
+             Uri uri = new Uri(url);
+             string query = "cid=" + cid + "&content=" + content + "&mobile=" + mobile  + "&pass=" + pass;
+#if DEBUG
+             Console.WriteLine("调用发送短信接口发送内容为：" + query);
+#endif
+             WebRequest webRequest = WebRequest.Create(uri);
+
+             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            // webRequest.ContentLength = query.Length;
+             webRequest.Method = "POST";
+
+             webRequest.Timeout = GetInterfaceTimeout();
+
+             using (Stream requestStream = webRequest.GetRequestStream())
+             {
+
+                 byte[] paramBytes = Encoding.UTF8.GetBytes(query.ToString());
+
+                 requestStream.Write(paramBytes, 0, paramBytes.Length);
+
+             }
+
+             //响应
+
+             WebResponse webResponse = webRequest.GetResponse();
+
+             using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
+             {
+
+                 string result = "";
+                 result = myStreamReader.ReadToEnd();
+#if DEBUG
+                 Console.WriteLine("调用发送短信接口返回结果为：" + result);
+#endif
+                 return result;
+
+
+             }
+             return string.Empty;
+        }
+
         public string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)
         {
 #if DEBUG
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "开始购票");
 #endif
-            string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Buy_Url"];
+            string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Buy_Machine_Url"];
+            StringBuilder body = new StringBuilder();
+            String fromclient = "HPMACHINE";
+            string seatv = string.Empty;
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                seatv += tickets[i].SeatId + ",";
+            }
+            seatv = seatv.TrimEnd(',');
+            string planid = tickets[0].PlanId;
+           // seatv = "4b45e880-f01f-11e0-98ca-001bb97ef1a4,4b711730-f01f-11e0-98ca-001bb97ef1a4";
+            string planidTmp = tickets[0].PlanId.Substring(0, tickets[0].PlanId.IndexOf("@@")) ;
+           // ISecurity md5 = new MD5Security();
+            String r1 = "MEMBERID" + user.MemberId +
+                        "fromclient" + fromclient +
+                        "mobile" + user.Mobile +
+                        "normal" + tickets.Count.ToString() +
+                        "planid" + planidTmp +
+                        "seatids" + seatv
+
+                        ;
+#if DEBUG
+            Console.WriteLine("拼装字符串=" + r1);
+#endif
+            String r2 = Encrypt(Encrypt(Encrypt(user.Pwd)) + user.HipiaoCard);
+#if DEBUG
+            Console.WriteLine("密码+卡号加密=" + r2);
+#endif
+            String r3 = Encrypt(r1 + r2);
+#if DEBUG
+            Console.WriteLine("最终加密md5(r2+r1)=" + r3);
+#endif
+            String r4 = "MEMBERID=" + user.MemberId + "&mobile="
+                    + user.Mobile + "&normal="
+                    + tickets.Count.ToString() + "&planId="
+                    + planid + "&seatids=" + seatv
+                    + "&fromclient=" + fromclient;
+            String query = r4 + "&pass=" + r3;
+            //String query = r4 + "&pass=" + r2;
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
+#endif
+            Uri uri = new Uri(url);
+
+            WebRequest webRequest = WebRequest.Create(uri);
+
+            webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            webRequest.ContentLength = query.Length;
+            webRequest.Method = "POST";
+
+            webRequest.Timeout = GetInterfaceTimeout();
+
+            using (Stream requestStream = webRequest.GetRequestStream())
+            {
+
+                byte[] paramBytes = Encoding.UTF8.GetBytes(query.ToString());
+
+                requestStream.Write(paramBytes, 0, paramBytes.Length);
+
+            }
+
+            //响应
+
+            WebResponse webResponse = webRequest.GetResponse();
+
+            using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
+            {
+
+                string result = "";
+                result = myStreamReader.ReadToEnd();
+#if DEBUG
+                Console.WriteLine("调用购票接口返回结果为：" + result);
+#endif
+                return result;
+
+
+            }
+            return string.Empty;
+        }
+
+        public string UserBuyTicketWap(UserObject user, List<TicketPrintObject> tickets)
+        {
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "开始购票");
+#endif
+            string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Buy_Wap_Url"];
             StringBuilder body = new StringBuilder();
             String fromclient = "ANDROID";
             string seatv = string.Empty;

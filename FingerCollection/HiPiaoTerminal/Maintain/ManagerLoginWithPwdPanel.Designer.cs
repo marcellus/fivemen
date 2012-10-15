@@ -86,7 +86,7 @@
             this.txtManagePwd.Hint = null;
             this.txtManagePwd.IsActive = true;
             this.txtManagePwd.IsDeleted = false;
-            this.txtManagePwd.KeyboardType = 1;
+            this.txtManagePwd.KeyboardType = 6;
             this.txtManagePwd.Location = new System.Drawing.Point(381, 428);
             this.txtManagePwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtManagePwd.MaxInputLength = 12;

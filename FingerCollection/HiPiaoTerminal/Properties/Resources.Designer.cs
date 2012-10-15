@@ -368,6 +368,27 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BuyTick_Login_Home {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_Login_Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_Login_Return {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_Login_Return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BuyTick_Login_Site_Hint {
+            get {
+                object obj = ResourceManager.GetObject("BuyTick_Login_Site_Hint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BuyTick_Money_Hint {
             get {
                 object obj = ResourceManager.GetObject("BuyTick_Money_Hint", resourceCulture);
