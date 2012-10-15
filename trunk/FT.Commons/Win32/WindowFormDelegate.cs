@@ -11,6 +11,10 @@ namespace FT.Commons.Win32
         {
         }
 
+        public delegate void StringHandler(string info);
+
+        public delegate void ByteHandler(byte info);
+
         public static object GetControlProperty(Control ctr, string property)
         {
             if (ctr.InvokeRequired)
@@ -62,6 +66,19 @@ namespace FT.Commons.Win32
                 parent.Controls.Remove(child);
             }
         }
+
+        public static void AddMainThreadHintText(TextBox txt, string msg)
+        {
+            if (txt.InvokeRequired)
+            {
+                AddMainThreadHintTextDelegate msgCallback = new AddMainThreadHintTextDelegate(WindowFormDelegate.AddMainThreadHintText);
+                txt.Invoke(msgCallback, new object[] { txt, msg });
+            }
+            else
+            {
+                txt.Text += msg;
+            }
+        }
     }
 
     /// <summary>
@@ -93,6 +110,14 @@ namespace FT.Commons.Win32
     /// 设置主线程界面提示
     /// </summary>
     /// <param name="str"></param>
-    public delegate void SetMainThreadHintLabelDelegate(Label label,string msg); 
+    public delegate void SetMainThreadHintLabelDelegate(Label label,string msg);
+
+    /// <summary>
+    /// 设置主线程输入框内容
+    /// </summary>
+    /// <param name="str"></param>
+    public delegate void AddMainThreadHintTextDelegate(TextBox txt, string msg); 
+
+     
 
 }
