@@ -139,6 +139,38 @@ namespace FT.Commons.TcpIp
         #endregion
 
         #region 消息发送部分(已完成)
+
+        public void SendOnlyString(string str)
+        {
+            if (str!=null&&str.Length>0)
+            {
+                
+            }
+            else
+            {
+                return;
+            }
+            //locked.WaitOne();
+            if (this.IsStarted)
+            {
+                
+                byte[] tmp = System.Text.Encoding.UTF8.GetBytes(str);
+                try
+                {
+                    this.tcpClient.Client.BeginSend(tmp, 0, tmp.Length, SocketFlags.None, new AsyncCallback(SendDataEnd), this.tcpClient.Client);
+                }
+                catch (Exception ex)
+                {
+                    this.Stop();
+                    this.Log("Fail远程主机已断开");
+                }
+                //SocketHelper.WriteData(this.tcpClient,info);
+            }
+            else
+            {
+                this.Log("Fail客户端连接还没有正确打开，请确认目标机器可用！");
+            }
+        }
         /// <summary>
         /// 发送一则消息对象
         /// </summary>

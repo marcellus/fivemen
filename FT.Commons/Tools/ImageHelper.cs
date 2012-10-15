@@ -11,6 +11,287 @@ namespace FT.Commons.Tools
 {
     public class ImageHelper:BaseHelper
     {
+        public static Bitmap SetBlur(Bitmap bitmap)
+        {
+
+            if (bitmap == null)
+            {
+                return null;
+            }
+
+            int width = bitmap.Width;
+            int height = bitmap.Height;
+
+            try
+            {
+                Bitmap bmpReturn = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+                BitmapData srcBits = bitmap.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
+                BitmapData targetBits = bmpReturn.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
+
+                unsafe
+                {
+                    byte* pSrcBits = (byte*)srcBits.Scan0.ToPointer();
+                    byte* pTargetBits = (byte*)targetBits.Scan0.ToPointer();
+                    int stride = srcBits.Stride;
+                    byte* pTemp;
+
+                    for (int y = 0; y < height; y++)
+                    {
+                        for (int x = 0; x < width; x++)
+                        {
+                            if (x == 0 || x == width - 1 || y == 0 || y == height - 1)
+                            {
+                                //最边上的像素不处理
+                                pTargetBits[0] = pSrcBits[0];
+                                pTargetBits[1] = pSrcBits[1];
+                                pTargetBits[2] = pSrcBits[2];
+                            }
+                            else
+                            {
+                                //取周围9点的值
+                                int r1, r2, r3, r4, r5, r6, r7, r8, r9;
+                                int g1, g2, g3, g4, g5, g6, g7, g8, g9;
+                                int b1, b2, b3, b4, b5, b6, b7, b8, b9;
+
+                                float fR, fG, fB;
+
+                                //左上
+                                pTemp = pSrcBits - stride - 3;
+                                r1 = pTemp[2];
+                                g1 = pTemp[1];
+                                b1 = pTemp[0];
+
+                                //正上
+                                pTemp = pSrcBits - stride;
+                                r2 = pTemp[2];
+                                g2 = pTemp[1];
+                                b2 = pTemp[0];
+
+                                //右上
+                                pTemp = pSrcBits - stride + 3;
+                                r3 = pTemp[2];
+                                g3 = pTemp[1];
+                                b3 = pTemp[0];
+
+                                //左侧
+                                pTemp = pSrcBits - 3;
+                                r4 = pTemp[2];
+                                g4 = pTemp[1];
+                                b4 = pTemp[0];
+
+                                //右侧
+                                pTemp = pSrcBits + 3;
+                                r5 = pTemp[2];
+                                g5 = pTemp[1];
+                                b5 = pTemp[0];
+
+                                //右下
+                                pTemp = pSrcBits + stride - 3;
+                                r6 = pTemp[2];
+                                g6 = pTemp[1];
+                                b6 = pTemp[0];
+
+                                //正下
+                                pTemp = pSrcBits + stride;
+                                r7 = pTemp[2];
+                                g7 = pTemp[1];
+                                b7 = pTemp[0];
+
+                                //右下
+                                pTemp = pSrcBits + stride + 3;
+                                r8 = pTemp[2];
+                                g8 = pTemp[1];
+                                b8 = pTemp[0];
+
+                                //自己
+                                pTemp = pSrcBits;
+                                r9 = pTemp[2];
+                                g9 = pTemp[1];
+                                b9 = pTemp[0];
+
+                                fR = (float)(r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
+                                fG = (float)(g1 + g2 + g3 + g4 + g5 + g6 + g7 + g8 + g9);
+                                fB = (float)(b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9);
+
+                                fR /= 9;
+                                fG /= 9;
+                                fB /= 9;
+
+                                pTargetBits[0] = (byte)fB;
+                                pTargetBits[1] = (byte)fG;
+                                pTargetBits[2] = (byte)fR;
+
+                            }
+
+                            pSrcBits += 3;
+                            pTargetBits += 3;
+                        }
+
+                        pSrcBits += srcBits.Stride - width * 3;
+                        pTargetBits += srcBits.Stride - width * 3;
+                    }
+                }
+
+                bitmap.UnlockBits(srcBits);
+                bmpReturn.UnlockBits(targetBits);
+
+                return bmpReturn;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+        /// <summary>
+
+        /// 将图像按 3X3 窗口进行卷积转换
+
+        /// </summary>
+
+        /// <param name="srcImage">位图流</param>
+
+        /// <returns></returns>
+
+        public static Bitmap Convolute(Bitmap srcImage)
+        {
+            return null;
+            /*
+            // 避免被零除
+            int scale = 0;
+            if (scale == 0) scale = 1;
+
+            int width = srcImage.Width;
+
+            int height = srcImage.Height;
+
+            Bitmap dstImage = (Bitmap)srcImage.Clone();
+
+            BitmapData srcData = srcImage.LockBits(new Rectangle(0, 0, width, height),
+
+              ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            BitmapData dstData = dstImage.LockBits(new Rectangle(0, 0, width, height),
+
+              ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+            // 图像实际处理区域
+
+            // 图像最外围一圈不处理
+
+            int rectTop = 1;
+
+            int rectBottom = height - 1;
+
+            int rectLeft = 1;
+
+            int rectRight = width - 1;
+
+            unsafe
+            {
+
+                byte* src = (byte*)srcData.Scan0;
+
+                byte* dst = (byte*)dstData.Scan0;
+
+                int stride = srcData.Stride;
+
+                int offset = stride - width * BPP;
+
+                int pixel = 0;
+
+                // 移向第一行
+
+                src += stride;
+
+                dst += stride;
+
+                for (int y = rectTop; y < rectBottom; y++)
+                {
+
+                    // 移向每行第一列
+
+                    src += BPP;
+
+                    dst += BPP;
+
+                    for (int x = rectLeft; x < rectRight; x++)
+                    {
+
+                        // 如果当前像素为透明色，则跳过不处理
+
+                        if (src[3] > 0)
+                        {
+
+                            // 处理 B, G, R 三分量
+
+                            for (int i = 0; i < 3; i++)
+                            {
+
+                                pixel =
+
+                                  src[i - stride - BPP] * topLeft +
+
+                                  src[i - stride] * topMid +
+
+                                  src[i - stride + BPP] * topRight +
+
+                                  src[i - BPP] * midLeft +
+
+                                  src[i] * center +
+
+                                  src[i + BPP] * midRight +
+
+                                  src[i + stride - BPP] * bottomLeft +
+
+                                  src[i + stride] * bottomMid +
+
+                                  src[i + stride + BPP] * bottomRight;
+
+                                pixel = pixel / scale + kernelOffset;
+
+                                if (pixel < 0) pixel = 0;
+
+                                if (pixel > 255) pixel = 255;
+
+                                dst[i] = (byte)pixel;
+
+                            } // i
+
+                        }
+
+                        // 向后移一像素
+
+                        src += BPP;
+
+                        dst += BPP;
+
+                    } // x
+
+                    // 移向下一行
+
+                    // 这里得注意要多移一列，因最右列不处理
+
+                    src += (offset + BPP);
+
+                    dst += (offset + BPP);
+
+                } // y
+
+            }
+
+            srcImage.UnlockBits(srcData);
+
+            dstImage.UnlockBits(dstData);
+
+            srcImage.Dispose();
+
+            return dstImage;
+             * */
+
+        } // end of Convolute
+
         public static void SetSmoothFont(Graphics g)
         {
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;

@@ -7,6 +7,44 @@ namespace FT.Commons.Tools
 {
     public class LPTHelper : BaseHelper, ITerminalPrinter
     {
+        /*
+         
+          int ret = BeiYangOPOS.POS_NETQueryStatus(cookRoomModel.PrinterIPAddress, out res);
+                StringBuilder sb = new StringBuilder();
+                #region 检测打印机状态
+                if ((res & 0x10) == 0x10)
+                {
+                    sb.AppendLine("打印机出错！");
+                }
+                if ((res & 0x02) == 0x02)
+                {
+                    sb.AppendLine("打印机脱机！");
+                }
+                if ((res & 0x04) == 0x04)
+                {
+                    sb.AppendLine("上盖打开！");
+                }
+                if ((res & 0x20) == 0x20)
+                {
+                    sb.AppendLine("切刀出错！");
+                }
+                if ((res & 0x40) == 0x40)
+                {
+                    sb.AppendLine("纸将尽！");
+                }
+                if ((res & 0x80) == 0x80)
+                {
+                    sb.AppendLine("缺纸！");
+                }
+                #endregion
+                if (sb.Length > 0)
+                {
+                    LogManager.WriteLog("Error",
+                               string.Format("'{0}'的打印机处于非正常状态：{1}。请检测打印机配置。",
+                                          cookRoomModel.CookRoomName, sb.ToString()));
+                    return;
+                }
+         */
         public LPTHelper()
         {
         }
