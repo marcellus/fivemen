@@ -54,16 +54,28 @@ namespace FT.Windows.Controls.ButtonEx
             get { return isActive; }
             set
             {
+                
                 isActive = value;
 
                 if (value)
                 {
                     this.BackgroundImage = Properties.Resources.Account_TabActive;
+                    if (isActive != value)
+                    {
+                        this.Width = 230;
+                        this.Location = new Point(this.Location.X - 4, this.Location.Y);
+                    }
+                    
                     this.lbHintText.ForeColor = activeColor;
                 }
                 else
                 {
                     this.BackgroundImage = Properties.Resources.Account_Tab_NotActive;
+                    if (isActive != value)
+                    {
+                        this.Width = 222;
+                        this.Location = new Point(this.Location.X + 4, this.Location.Y);
+                    }
                     this.lbHintText.ForeColor = notActiveColor;
                 }
 

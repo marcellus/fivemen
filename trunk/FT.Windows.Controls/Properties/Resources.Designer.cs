@@ -74,6 +74,13 @@ namespace FT.Windows.Controls.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap AllKeyBoadBack {
+            get {
+                object obj = ResourceManager.GetObject("AllKeyBoadBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Arrow_Down_16_16 {
             get {
                 object obj = ResourceManager.GetObject("Arrow_Down_16_16", resourceCulture);
