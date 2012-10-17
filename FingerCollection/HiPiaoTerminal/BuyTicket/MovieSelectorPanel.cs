@@ -107,20 +107,46 @@ namespace HiPiaoTerminal.BuyTicket
                         pc.Image = Image.FromFile(lists[i].AdImagePath);
                     pc.Location =new Point( x + (i % linecount)*(picWid+colSep),y + (i / linecount) * (picHeight + rowSep));
                     Label lb = new Label();
+                    lb.Tag = lists[i];
                     lb.AutoSize = false;
                     lb.Width = picWid;
+                    //lb.BackColor = Color.Red;
+                    lb.Height = 28;
                     lb.Location = new Point(pc.Location.X,pc.Location.Y + picHeight);
                     lb.ForeColor = Color.FromArgb(69, 68, 68);
                     lb.TextAlign = ContentAlignment.MiddleCenter;
                     lb.Font = new Font("方正兰亭黑简体",18);
-                    lb.Text = lists[i].Name;
+                    //string name = "很长的测试电影名字如果爱琴海岛上没有海盗";
+                    string name = lists[i].Name;
+                    if (name.Length > 6)
+                    {
+                        
+                        lb.Text = name.Substring(0, 6);
+                       
+                    }
+                    else
+                    {
+                         lb.Text = name;
+                    }
+                    lb.MouseHover += new EventHandler(lb_MouseHover);
+                   
                     pc.Click += new EventHandler(pc_Click);
+                    pc.MouseHover += new EventHandler(lb_MouseHover);
                     WindowFormDelegate.AddControlTo(this.panelContent, pc);
                     WindowFormDelegate.AddControlTo(this.panelContent, lb);
                     //this.panelContent.Controls.Add(pc);
                     //this.panelContent.Controls.Add(lb);
                 }
             }
+        }
+
+        void lb_MouseHover(object sender, EventArgs e)
+        {
+            Control ctr=sender as Control;
+            MovieObject movie=ctr.Tag as MovieObject;
+            //this.toolTip1.to
+            this.toolTip1.Tag = movie.Name.ToString();
+             this.toolTip1.SetToolTip(ctr,movie.Name.ToString());
         }
 
         void pc_Click(object sender, EventArgs e)
@@ -171,6 +197,21 @@ namespace HiPiaoTerminal.BuyTicket
             this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
             this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+        }
+
+        Font fontHint = new Font("方正兰亭黑简体", 18);
+
+        private void toolTip1_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+
+            e.Graphics.DrawString(e.ToolTipText, fontHint, Brushes.Black, new PointF(0, 0));
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+            //int x=
+            e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
     }
 }

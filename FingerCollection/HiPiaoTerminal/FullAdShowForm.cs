@@ -16,7 +16,18 @@ namespace HiPiaoTerminal
             InitializeComponent();
             this.Width = 1280;
             this.Height = 960;
-            GlobalTools.SetCursor();
+            try
+            {
+            	if (this.DesignMode)
+            	{
+                	Cursor = Cursors.Default;
+            	}
+            	else
+                	GlobalTools.SetCursor();
+	        }
+	        catch(Exception ex)
+	        {
+	        }
         }
 
         private void adShowPanel1_MouseClick(object sender, MouseEventArgs e)
@@ -26,8 +37,10 @@ namespace HiPiaoTerminal
 #endif
             this.Hide();
             GlobalTools.MainForm.Activate();
-            if (GlobalTools.MainForm.Controls[0] is MainPanel)
+            MainPanel main = GlobalTools.MainForm.Controls[0] as MainPanel;
+            if (main!=null)
             {
+                main.StartAdTimer();
             }
             else
             {
@@ -40,7 +53,7 @@ namespace HiPiaoTerminal
         private void adShowPanel1_MouseMove(object sender, MouseEventArgs e)
         {
 #if DEBUG
-            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "全屏广告有鼠标移过!");
+           // Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "全屏广告有鼠标移过!");
 #endif
             /*
             this.Hide();
@@ -53,6 +66,20 @@ namespace HiPiaoTerminal
             }
             GlobalTools.MainForm.BringToFront();
              * */
+        }
+
+        private void adShowPanel1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FullAdShowForm_Load(object sender, EventArgs e)
+        {
+            MainPanel main=GlobalTools.MainForm.Controls[0] as MainPanel;
+            if (main!=null)
+            {
+                main.StopAdTimer();
+            }
         }
     }
 }

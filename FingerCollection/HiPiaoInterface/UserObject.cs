@@ -260,6 +260,15 @@ namespace HiPiaoInterface
         private bool isQueryBuyRecord = false;
 
         /// <summary>
+        /// 重新获取消费记录和记录数
+        /// </summary>
+        public void NeedRefresh()
+        {
+            this.isQueryBuyRecord = false;
+            this.loadBuyRecordNum = false;
+        }
+
+        /// <summary>
         /// 购买记录数
         /// </summary>
         public List<BuyRecordObject> BuyRecords

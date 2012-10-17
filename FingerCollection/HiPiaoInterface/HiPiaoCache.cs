@@ -496,7 +496,9 @@ namespace HiPiaoInterface
             Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif
             string xmlOrderDetail = string.Empty;
-            XmlNodeList orderNodes = doc.SelectNodes("//consumption");
+            string xpath = "//consumption[@orderformid]";
+            //string xpath = "//consumption";
+            XmlNodeList orderNodes = doc.SelectNodes(xpath);
             return orderNodes.Count;
         }
 
@@ -516,7 +518,9 @@ namespace HiPiaoInterface
             Console.WriteLine("加载返回结果到XmlDocument文档中！" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 #endif
             string xmlOrderDetail = string.Empty;
-            XmlNodeList orderNodes = doc.SelectNodes("//consumption");
+            string xpath = "//consumption[@orderformid]";
+            //string xpath = "//consumption";
+            XmlNodeList orderNodes = doc.SelectNodes(xpath);
             
             string orderid = string.Empty;
             BuyRecordObject obj = null;

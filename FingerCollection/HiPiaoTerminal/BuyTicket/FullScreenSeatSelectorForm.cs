@@ -15,11 +15,31 @@ namespace HiPiaoTerminal.BuyTicket
     {
         private MovieSeatSelectorPanel seatPanel;
         private int addWidth=10;
-        public FullScreenSeatSelectorForm(MovieSeatSelectorPanel seatPanel,int addWidth)
+
+
+        public Hashtable selectedSeatBak = new Hashtable();
+
+        public ArrayList selectedSeatLineBak = new ArrayList();
+
+        public void BackState()
+        {
+            selectedSeatBak = seatPanel.selectedSeat.Clone() as Hashtable;
+            selectedSeatLineBak = seatPanel.selectedSeatLine.Clone() as ArrayList;
+        }
+
+        public void RestoreState()
+        {
+            seatPanel.RemoveAllSelected();
+            seatPanel.selectedSeat = selectedSeatBak.Clone() as Hashtable;
+            seatPanel.selectedSeatLine = selectedSeatLineBak.Clone() as ArrayList;
+        }
+        private bool leftToRight=true;
+        public FullScreenSeatSelectorForm(MovieSeatSelectorPanel seatPanel, int addWidth, bool leftToRight)
         {
             InitializeComponent();
             this.seatPanel = seatPanel;
             this.addWidth = addWidth;
+            this.leftToRight = leftToRight;
             if (seatPanel.Movie != null && seatPanel.MoviePlan != null)
             {
                 this.lbMovieName.Text = seatPanel.Movie.Name;
@@ -35,6 +55,8 @@ namespace HiPiaoTerminal.BuyTicket
             }
             this.InitSeat(seatPanel.SeatList);
             this.RefreshSelectedPanel();
+            this.BackState();
+            GlobalTools.fullScreenSeatSelectorForm = this;
             
         }
 
@@ -49,7 +71,7 @@ namespace HiPiaoTerminal.BuyTicket
                 seat = enumerator.Value as SeatObject;
                 this.panelSeats.Controls[seat.SeatId].BackColor = seatPanel.selectedColor;
             }
-            this.selectedSeatTmp = this.seatPanel.selectedSeat.Clone() as Hashtable;
+            //this.selectedSeatTmp = this.seatPanel.selectedSeat.Clone() as Hashtable;
 
         }
 
@@ -64,6 +86,10 @@ namespace HiPiaoTerminal.BuyTicket
             //75, 78 height=29
             int x = 0;
             int y = 0;
+            if (!this.leftToRight)
+            {
+                x = 200;
+            }
             int lineOneY = lists[0].YPoint;
 #if DEBUG
             Console.WriteLine("第一行" + lists[0].XPoint + "-" + lists[0].YPoint);
@@ -95,7 +121,14 @@ namespace HiPiaoTerminal.BuyTicket
                 lb.TextAlign = ContentAlignment.MiddleCenter;
                 lb.Tag = lists[i];
                 //this.panelContent.Controls.Add(lb);
-                lb.Location = new Point(x + lists[i].XPoint + addWidth * (lists[i].SeatNo - 1), y + lists[i].YPoint + addWidth * (lists[i].RowNum - 1) - lineOneY);
+                if (leftToRight)
+                {
+                    lb.Location = new Point(x + lists[i].XPoint + addWidth * (lists[i].SeatNo - 1), y + lists[i].YPoint + addWidth * (lists[i].RowNum - 1) - lineOneY);
+                }
+                else
+                {
+                    lb.Location = new Point(x + lists[i].XPoint - addWidth * (lists[i].SeatNo - 1), y + lists[i].YPoint + addWidth * (lists[i].RowNum - 1) - lineOneY);
+                }
                 lb.Click += new EventHandler(lb_Click);
                 //  WindowFormDelegate.AddControlTo(this.panelContent,lb);
                 WindowFormDelegate.AddControlTo(this.panelSeats, lb);
@@ -105,7 +138,9 @@ namespace HiPiaoTerminal.BuyTicket
 
         }
 
-        public Hashtable selectedSeatTmp = new Hashtable();
+        //public Hashtable selectedSeatTmp = new Hashtable();
+
+       // public ArrayList selectedSeatLineTmp = new ArrayList();
 
         void lb_Click(object sender, EventArgs e)
         {
@@ -116,16 +151,18 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 if (ctr.BackColor.R == (byte)125)
                 {
-                    if (this.selectedSeatTmp.Count < 8)
+                    if (seatPanel.selectedSeat.Count < 8)
                     {
-                        selectedSeatTmp.Add(seat.SeatId, seat);
+                        seatPanel.AddSeat(seat);
+                       // selectedSeatTmp.Add(seat.SeatId, seat);
                         ctr.BackColor = seatPanel.selectedColor;
                     }
                     //seatPanel.RefreshSelectedPanel();
                 }
                 else if (ctr.BackColor.R == (byte)253)
                 {
-                    selectedSeatTmp.Remove(seat.SeatId);
+                    seatPanel.RemoveSeat(seat.SeatId);
+                    //selectedSeatTmp.Remove(seat.SeatId);
                     ctr.BackColor = seatPanel.emptyColor;
                     //seatPanel.RefreshSelectedPanel();
                 }
@@ -149,14 +186,17 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            GlobalTools.fullScreenSeatSelectorForm = null;
+            this.RestoreState();
+            seatPanel.RefreshSelectedPanel();
             this.Close();
         }
 
         private void btnSure_Click(object sender, EventArgs e)
         {
-            
-            seatPanel.RemoveAllSelected();
-            seatPanel.selectedSeat = this.selectedSeatTmp;
+            GlobalTools.fullScreenSeatSelectorForm = null;
+           // seatPanel.RemoveAllSelected();
+            //seatPanel.selectedSeat = this.selectedSeatTmp;
             seatPanel.RefreshSelectedPanel();
             this.Close();
         }

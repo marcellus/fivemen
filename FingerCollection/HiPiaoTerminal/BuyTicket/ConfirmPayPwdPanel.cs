@@ -91,6 +91,7 @@ namespace HiPiaoTerminal.BuyTicket
                 //订购成功
                 if (retCode == "1")
                 {
+                    GlobalTools.GetLoginUser().NeedRefresh();
                     this.FindForm().Close();
                     GlobalTools.ChangePanel(GlobalTools.MainForm, new WaitTicketPrintPanel(this.lists,this.movieInfo,this.moviePlan));
                 }

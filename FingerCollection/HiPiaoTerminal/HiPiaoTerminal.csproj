@@ -334,6 +334,12 @@
     <Compile Include="TestForm\AdShowTestForm.Designer.cs">
       <DependentUpon>AdShowTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestForm\HideCaretForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\HideCaretForm.Designer.cs">
+      <DependentUpon>HideCaretForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm\KeyBoardTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -601,6 +607,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm\AdShowTestForm.resx">
       <DependentUpon>AdShowTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\HideCaretForm.resx">
+      <DependentUpon>HideCaretForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm\KeyBoardTestForm.resx">

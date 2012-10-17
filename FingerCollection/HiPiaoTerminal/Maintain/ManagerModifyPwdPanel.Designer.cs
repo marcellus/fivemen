@@ -52,7 +52,7 @@
             this.txtNewPwd.Hint = "请输入新密码";
             this.txtNewPwd.IsActive = false;
             this.txtNewPwd.IsDeleted = false;
-            this.txtNewPwd.KeyboardType = 1;
+            this.txtNewPwd.KeyboardType = 6;
             this.txtNewPwd.Location = new System.Drawing.Point(454, 434);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtNewPwd.MaxInputLength = 32767;
@@ -91,7 +91,7 @@
             this.txtOldPwd.Hint = "请输入旧密码";
             this.txtOldPwd.IsActive = false;
             this.txtOldPwd.IsDeleted = false;
-            this.txtOldPwd.KeyboardType = 1;
+            this.txtOldPwd.KeyboardType = 6;
             this.txtOldPwd.Location = new System.Drawing.Point(454, 341);
             this.txtOldPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtOldPwd.MaxInputLength = 32767;
@@ -122,7 +122,7 @@
             this.txtRepeatPwd.Hint = "请再次输新密码";
             this.txtRepeatPwd.IsActive = false;
             this.txtRepeatPwd.IsDeleted = false;
-            this.txtRepeatPwd.KeyboardType = 1;
+            this.txtRepeatPwd.KeyboardType = 6;
             this.txtRepeatPwd.Location = new System.Drawing.Point(454, 520);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtRepeatPwd.MaxInputLength = 32767;

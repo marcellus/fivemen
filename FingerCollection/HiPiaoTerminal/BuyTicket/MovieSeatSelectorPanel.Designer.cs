@@ -98,6 +98,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.btnPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
+            this.splitContainer1.SplitterDistance = 830;
             // 
             // lbMovieName
             // 
@@ -158,7 +159,7 @@
             // 
             this.lbProcessHint.AutoSize = true;
             this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbProcessHint.Location = new System.Drawing.Point(237, 5);
+            this.lbProcessHint.Location = new System.Drawing.Point(237, 1);
             this.lbProcessHint.Name = "lbProcessHint";
             this.lbProcessHint.Size = new System.Drawing.Size(323, 32);
             this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -180,6 +181,7 @@
             this.panelSelectedSeat.BackColor = System.Drawing.SystemColors.Window;
             this.panelSelectedSeat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSelectedSeat.Location = new System.Drawing.Point(12, 33);
+            this.panelSelectedSeat.Margin = new System.Windows.Forms.Padding(0);
             this.panelSelectedSeat.Name = "panelSelectedSeat";
             this.panelSelectedSeat.Size = new System.Drawing.Size(206, 232);
             this.panelSelectedSeat.TabIndex = 5;
@@ -278,6 +280,7 @@
             this.lbTotalNum.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalNum.TabIndex = 0;
             this.lbTotalNum.Text = "{0}张";
+            this.lbTotalNum.Click += new System.EventHandler(this.lbTotalNum_Click);
             // 
             // label2
             // 
@@ -342,7 +345,8 @@
             this.panel4.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_SelectedSeat_Panel;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Controls.Add(this.panelSelectedSeat);
-            this.panel4.Location = new System.Drawing.Point(994, 117);
+            this.panel4.Location = new System.Drawing.Point(1007, 214);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(228, 276);
             this.panel4.TabIndex = 5;

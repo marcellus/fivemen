@@ -42,6 +42,7 @@
             this.adShowPanel1.Name = "adShowPanel1";
             this.adShowPanel1.Size = new System.Drawing.Size(1280, 780);
             this.adShowPanel1.TabIndex = 0;
+            this.adShowPanel1.Load += new System.EventHandler(this.adShowPanel1_Load);
             this.adShowPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.adShowPanel1_MouseMove);
             this.adShowPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.adShowPanel1_MouseClick);
             // 
@@ -55,6 +56,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FullAdShowForm";
             this.Text = "FullAdShowForm";
+            this.Load += new System.EventHandler(this.FullAdShowForm_Load);
             this.ResumeLayout(false);
 
         }

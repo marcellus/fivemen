@@ -22,10 +22,14 @@ namespace HiPiaoTerminal
             if (type == 0)
             {
                 this.userLoginWithMoviePanel1.Visible = false;
+                this.StopOpertionTime();
+                this.SetOperationTime(30);
             }
             else
             {
                 this.userLoginWithMoviePanel1.Visible = true;
+                this.StopOpertionTime();
+                this.SetOperationTime(100);
             }
            
             this.KeyDown += new KeyEventHandler(UserLoginPanel_KeyDown);
