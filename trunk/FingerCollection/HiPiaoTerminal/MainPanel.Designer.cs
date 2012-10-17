@@ -154,7 +154,7 @@
             // 
             this.lbWelcome1.AutoSize = true;
             this.lbWelcome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.lbWelcome1.Location = new System.Drawing.Point(105, 255);
+            this.lbWelcome1.Location = new System.Drawing.Point(-3, 255);
             this.lbWelcome1.Name = "lbWelcome1";
             this.lbWelcome1.Size = new System.Drawing.Size(124, 28);
             this.lbWelcome1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -165,18 +165,19 @@
             // 
             this.lbWelcomeName.AutoSize = true;
             this.lbWelcomeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lbWelcomeName.Location = new System.Drawing.Point(224, 255);
+            this.lbWelcomeName.Location = new System.Drawing.Point(116, 255);
             this.lbWelcomeName.Name = "lbWelcomeName";
-            this.lbWelcomeName.Size = new System.Drawing.Size(124, 28);
+            this.lbWelcomeName.Size = new System.Drawing.Size(264, 28);
             this.lbWelcomeName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcomeName.TabIndex = 14;
-            this.lbWelcomeName.Text = "欢迎回来";
+            this.lbWelcomeName.Text = "helloworld12345678";
             // 
             // lbWelcome3
             // 
             this.lbWelcome3.AutoSize = true;
+            this.lbWelcome3.BackColor = System.Drawing.Color.Transparent;
             this.lbWelcome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.lbWelcome3.Location = new System.Drawing.Point(354, 255);
+            this.lbWelcome3.Location = new System.Drawing.Point(405, 255);
             this.lbWelcome3.Name = "lbWelcome3";
             this.lbWelcome3.Size = new System.Drawing.Size(264, 28);
             this.lbWelcome3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -214,13 +215,13 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.btnTicketPrint);
             this.Controls.Add(this.adShowPanel1);
             this.Controls.Add(this.lbWelcomeName);
             this.Controls.Add(this.lbWelcome3);
             this.Controls.Add(this.lbWelcome1);
             this.Controls.Add(this.picToMaintain2);
             this.Controls.Add(this.picToMaintain);
-            this.Controls.Add(this.btnTicketPrint);
             this.Controls.Add(this.btnBuyTicket);
             this.Controls.Add(this.btnLoginPassport);
             this.Controls.Add(this.btnQuickRegister);

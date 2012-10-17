@@ -108,10 +108,10 @@
             this.lbRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(124)))), ((int)(((byte)(123)))));
             this.lbRoom.Location = new System.Drawing.Point(231, 273);
             this.lbRoom.Name = "lbRoom";
-            this.lbRoom.Size = new System.Drawing.Size(185, 27);
+            this.lbRoom.Size = new System.Drawing.Size(201, 27);
             this.lbRoom.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRoom.TabIndex = 0;
-            this.lbRoom.Text = "影厅/座位:{0}/{1}";
+            this.lbRoom.Text = "影厅/座位：{0}/{1}";
             // 
             // lbAllFee
             // 

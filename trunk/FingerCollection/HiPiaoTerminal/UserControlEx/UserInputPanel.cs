@@ -19,6 +19,7 @@ namespace HiPiaoTerminal.UserControlEx
         public UserInputPanel()
         {
             InitializeComponent();
+            //this.txtMain.Enabled = false;
             this.txtMain.TextChanged += new EventHandler(txtMain_TextChanged);
             this.txtMain.MouseDown += new MouseEventHandler(txtMain_MouseDown);
             this.Click += new EventHandler(UserInputPanel_Click);
@@ -29,6 +30,8 @@ namespace HiPiaoTerminal.UserControlEx
            // this.txtMain.Enabled = false;
            // this.txtMain.KeyDown += new KeyEventHandler(txtMain_KeyDown);
             this.txtMain.KeyPress += new KeyPressEventHandler(txtMain_KeyPress);
+            this.txtMain.TabStop = false;
+            HideCaret(this.txtMain.Handle);
            
            
         }
@@ -38,11 +41,13 @@ namespace HiPiaoTerminal.UserControlEx
         void UserInputPanel_Click(object sender, EventArgs e)
         {
            // this.txtMain.Focus();
-            
+            HideCaret(this.txtMain.Handle);
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (config.UseVirtualKeyboard)
             {
+#if DEBUG
                 Console.WriteLine("用户单击了按钮" + this.Name);
+#endif
                 GlobalTools.HideAllKeyBoard();
               
                 if (this.keyboardType == 1)
@@ -288,8 +293,8 @@ namespace HiPiaoTerminal.UserControlEx
 
         public new void Focus()
         {
-           
-           
+
+            HideCaret(this.txtMain.Handle);
            // this.txtMain.Focus();
            // this.IsActive = true;
            // txtMain_Click(null,null);
@@ -347,19 +352,27 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void UserInputPanel_Enter(object sender, EventArgs e)
         {
+#if DEBUG
             Console.WriteLine("userinputpanel获取焦点"+this.Name);
+#endif
             if (this.Parent != null)
             {
+#if DEBUG
                 Console.WriteLine(this.Name+"的parent为"+this.Parent.Name+"findform="+this.FindForm());
+#endif
             }
             if (this.FindForm() != null)
             {
+#if DEBUG
                 Console.WriteLine("输入框属于窗体");
+#endif
                 this.Focus();
             }
             else
             {
+#if DEBUG
                 Console.WriteLine("输入框不属于窗体了");
+#endif
             }
             
             
@@ -369,12 +382,16 @@ namespace HiPiaoTerminal.UserControlEx
         {
             if (this.FindForm() != null)
             {
+#if DEBUG
                 Console.WriteLine("userinputpanel失去焦点" + this.Name);
+#endif
                 this.UnFocus();
             }
             else
             {
+#if DEBUG
                 Console.WriteLine("输入框不属于窗体了");
+#endif
             }
         }
 
@@ -412,6 +429,7 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void ResizeCompute()
         {
+
             int borderLen = 14;
             int centerHeight=this.Height-2*borderLen;
             int centerWidth=this.Width-2*borderLen;
@@ -435,9 +453,13 @@ namespace HiPiaoTerminal.UserControlEx
             this.panelRightBottonBorder.Location = new Point(centerWidth+borderLen, centerHeight + borderLen);
 
             this.txtMain.Location = new Point(0, 0);
+            this.txtMain.Height = centerHeight;
             FT.Commons.Tools.WinFormHelper.CenterVer(this.txtMain);
+
+            
+            this.picUnderLine.Location = new Point(0, this.panelCenter.Height-3);
            // this.txtMain.Width = this.Size.Width - 2 * this.panelLeftTopBorder.Width - 5;
-            this.picUnderLine.Location = new Point(0, this.txtMain.Height + 2+this.txtMain.Location.Y);
+          //  this.picUnderLine.Location = new Point(0, this.txtMain.Height + 2+this.txtMain.Location.Y);
             if (this.IsDeleted)
             {
                 if (this.Height < 100)
@@ -466,11 +488,73 @@ namespace HiPiaoTerminal.UserControlEx
             //Console.WriteLine("开始执行线程");
             while (true)
             {
+#if DEBUG
+                //Console.WriteLine("隐藏光标显示");
+#endif
+              //  this.txtMain.TabStop = false;
+               // HideCaret(this.txtMain.Handle);
+               // HideCaret(this.txtMain.Handle);
+               // HideCaret(this.txtMain.Handle);
+               // HideCaret(this.txtMain.Handle);
+                try
+                {
+                    //Graphics gc = this.txtMain.CreateGraphics();
+                    Graphics gc = this.CreateGraphics();
+                    int x = 0;
+
+                    string txt=this.txtMain.GetRealText();
+#if DEBUG
+                    Console.WriteLine("转化前下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString()+"文字内容为："+txt);
+#endif
+                    if (this.PasswordChar == '*')
+                    {
+                        if(txt.Length>0)
+                        {
+
+                            int wd = (int)gc.MeasureString(new string('*',txt.Length), txtMain.Font).Width;
+                            x += wd-10;
+                        }
+                        
+                    }
+                    else if (this.txtMain.GetRealText().Length > 0)
+                    {
+                        
+                        x += (int)gc.MeasureString(this.txtMain.GetRealText(), txtMain.Font).Width-10;
+                    }
+                    else
+                    {
+
+                    }
+                    this.picUnderLine.Location = new Point(x, this.picUnderLine.Location.Y);
+                    /*
+#if DEBUG
+                    if (this.picUnderLine.Parent != null)
+                    {
+                        Console.WriteLine("下划线的容器长宽为：长=" + this.panelCenter.Width.ToString() + "=高=" + this.panelCenter.Height.ToString());
+                        Console.WriteLine("输入框长宽为：长=" + this.txtMain.Width.ToString() + "=高=" + this.txtMain.Height.ToString());
+                    }
+                    Console.WriteLine("转化后下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
+#endif
+                     */
+                    this.picUnderLine.Visible = !this.picUnderLine.Visible;
+                    System.Threading.Thread.Sleep(500);
+                   
+                }
+      /*          
                 try
                 {
                     Graphics gc = this.txtMain.CreateGraphics();
+                    
                     int wd = (int)gc.MeasureString("x", txtMain.Font).Width;
+                    if (this.PasswordChar == '*')
+                    {
+                        wd = (int)gc.MeasureString("*", txtMain.Font).Width;
+                    }
+
                     int ht = (int)gc.MeasureString("x", txtMain.Font).Height;
+#if DEBUG
+                    Console.WriteLine("获取的字体的宽度为：" + wd + "高度为" + ht);
+#endif
                     int begin = 0;
                     Point p2=this.txtMain.Location;
                    // bool result = (bool)WindowFormDelegate.GetControlProperty(this.txtMain, "HasValue");
@@ -482,9 +566,15 @@ namespace HiPiaoTerminal.UserControlEx
                             begin = 1;
                         }
                         p2 = txtMain.GetPositionFromCharIndex(begin);
+#if DEBUG
+                        Console.WriteLine("有字符长度存在P2为：X=" + p2.X.ToString() + "=Y=" + p2.Y.ToString());
+#endif
                     }
                     else
                     {
+#if DEBUG
+                        Console.WriteLine("由于没有字符长度存在P2为：X=" + p2.X.ToString() + "=Y=" + p2.Y.ToString());
+#endif
                         begin = 0;
                         p2 = new Point(this.txtMain.Location.X, this.txtMain.Location.Y);
                     }
@@ -492,7 +582,9 @@ namespace HiPiaoTerminal.UserControlEx
                     //Point p = txtMain.Location;
                     // p.X += p.X +wd;
                     // p.Y += p.Y;
-                    //Console.WriteLine("转化前下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
+#if DEBUG
+                    Console.WriteLine("转化前下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
+#endif
                     if (begin != 0)
                     {
                         this.picUnderLine.Location = new Point(p2.X + wd, this.picUnderLine.Location.Y);
@@ -501,11 +593,21 @@ namespace HiPiaoTerminal.UserControlEx
                     {
                         this.picUnderLine.Location = new Point(5, this.picUnderLine.Location.Y);
                     }
+
+                    
                     //this.picUnderLine.Width = wd;
-                    //Console.WriteLine("转化后下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
+#if DEBUG
+                    if (this.picUnderLine.Parent != null)
+                    {
+                        Console.WriteLine("下划线的容器长宽为：长=" + this.panelCenter.Width.ToString() + "=高=" + this.panelCenter.Height.ToString());
+                        Console.WriteLine("输入框长宽为：长=" + this.txtMain.Width.ToString() + "=高=" + this.txtMain.Height.ToString());
+                    }
+                    Console.WriteLine("转化后下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString());
+#endif
                     this.picUnderLine.Visible = !this.picUnderLine.Visible;
                     System.Threading.Thread.Sleep(500);
                 }
+       * */
                 catch(Exception ex)
                 {
                     Console.WriteLine("thread-exception===>"+ex.ToString());
@@ -539,12 +641,15 @@ namespace HiPiaoTerminal.UserControlEx
         {
             if (this.FindForm() != null)
             {
+                
                 this.IsActive = true;
                 txtMain_Click(null, null);
                 SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
                 if (config.UseVirtualKeyboard)
                 {
+#if DEBUG
                     Console.WriteLine("用户定焦了输入框" + this.Name);
+#endif
                     GlobalTools.HideAllKeyBoard();
                     if (this.keyboardType == 1)
                     {
@@ -566,7 +671,9 @@ namespace HiPiaoTerminal.UserControlEx
                 }
 
                 this.picUnderLine.Visible = true;
+#if DEBUG
                 Console.WriteLine(this.Name + "-txtMain获取到焦点");
+#endif
                 if (flashThread != null)
                 {
                     try
@@ -583,11 +690,15 @@ namespace HiPiaoTerminal.UserControlEx
                 flashThread = new Thread(new ThreadStart(FlashUnderLine));
                 flashThread.IsBackground = true;
                 flashThread.Start();
+#if DEBUG
                 Console.WriteLine(this.Name + "-txtMain开启线程闪烁");
+#endif
             }
             else
             {
+#if DEBUG
                 Console.WriteLine("TxtMain-Enter:控件不属于窗体了");
+#endif
             }
             /*
             Console.WriteLine("txtMain获取焦点开始"+flashThread.ThreadState.ToString());
@@ -616,7 +727,9 @@ namespace HiPiaoTerminal.UserControlEx
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (config.UseVirtualKeyboard)
             {
+#if DEBUG
                 Console.WriteLine("TxtMain-Leave开始隐藏小键盘");
+#endif
                 GlobalTools.HideAllKeyBoard();
             }
             else
@@ -629,12 +742,16 @@ namespace HiPiaoTerminal.UserControlEx
             }
             if (flashThread != null)
             {
+#if DEBUG
                 Console.WriteLine(this.Name + "-txtMain失去焦点开始" + flashThread.ThreadState.ToString());
+#endif
                 if (flashThread.ThreadState != ThreadState.StopRequested || flashThread.ThreadState != ThreadState.Stopped)
                 {
                     flashThread.Abort();
                     this.picUnderLine.Visible = false;
+#if DEBUG
                     Console.WriteLine("停止线程闪烁");
+#endif
                 }
             }
 
@@ -665,7 +782,7 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void txtMain_Click(object sender, EventArgs e)
         {
-
+            HideCaret(this.txtMain.Handle);
             if (this.txtMain.HasValue)
             {
 
@@ -711,6 +828,11 @@ namespace HiPiaoTerminal.UserControlEx
         private void btnDelete_Click(object sender, EventArgs e)
         {
             this.txtMain.Text = string.Empty;
+        }
+
+        private void txtMain_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            //HideCaret(this.txtMain.Handle);
         }
 
         

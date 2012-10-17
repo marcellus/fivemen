@@ -46,10 +46,25 @@ namespace HiPiaoTerminal
                 this.lbWelcomeName.Text = GlobalTools.loginUser.Name;
                 this.lbWelcome3.Visible = true;
                 this.btnQuit.Visible = true;
+                this.lbWelcomeName.Location = new Point(this.lbWelcome3.Location.X - this.lbWelcomeName.Width, this.lbWelcome3.Location.Y);
+                this.lbWelcome1.Location = new Point(this.lbWelcomeName.Location.X - this.lbWelcome1.Width,this.lbWelcome3.Location.Y);
+                //FT.Commons.Tools.WinFormHelper.LocationAfter(this.lbWelcomeName, this.lbWelcome3);
             }
             GlobalTools.CloseAllPopForms();
-            
-            GlobalTools.SetCursor();
+	    try
+            {
+            	if (this.DesignMode)
+            	{
+                	Cursor = Cursors.Default;
+            	}
+            	else
+                	GlobalTools.SetCursor();
+
+	    }
+	    catch(Exception ex)
+	    {
+	    }
+                 
         }
 
         private void btnLoginPassport_Click(object sender, EventArgs e)
@@ -118,12 +133,20 @@ namespace HiPiaoTerminal
            // ControlPaint.DrawButton(Graphics.FromHwnd(this.btnTicketPrint.Handle),
              //   new Rectangle(10, 10, btnTicketPrint.Width - 10, btnTicketPrint.Height - 10),
             //    ButtonState.Pushed);
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            if(config.FullScreenSecond>0)
-             adFullTimer.Interval = config.FullScreenSecond * 1000;
-            adFullTimer.Stop();
-            adFullTimer.Start();
-            
+
+
+          
+            if(!adFullTimer.Enabled)
+            {
+                  SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                  if (config.FullScreenSecond > 0)
+                  {
+                      adFullTimer.Interval = config.FullScreenSecond * 1000;
+                      adFullTimer.Stop();
+                      adFullTimer.Start();
+                  }
+            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -201,11 +224,33 @@ namespace HiPiaoTerminal
             }
         }
 
+        public void StopAdTimer()
+        {
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "停止全屏广告计时!时间间隔为：" + adFullTimer.Interval);
+#endif
+            this.adFullTimer.Stop();
+        }
+        public void StartAdTimer()
+        {
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "启动全屏广告计时!时间间隔为："+adFullTimer.Interval);
+#endif
+            this.adFullTimer.Start();
+        }
+
         private void adFullTimer_Tick(object sender, EventArgs e)
         {
-            //adFullTimer.Stop();
-            GlobalTools.ShowFullAdForm();
-           // adFullTimer.Start();
+           
+            if (this.Visible)
+            {
+                adFullTimer.Stop();
+#if DEBUG
+                Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "全屏广告展示时间到：");
+#endif
+                GlobalTools.ShowFullAdForm();
+                adFullTimer.Start();
+            }
         }
 
         

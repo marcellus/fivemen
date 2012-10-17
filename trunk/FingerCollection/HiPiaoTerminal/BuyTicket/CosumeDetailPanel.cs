@@ -49,27 +49,39 @@ namespace HiPiaoTerminal.BuyTicket
 
                 //this.lbRoom.Location = new Point(this.lbTimeHint.Location.X + this.lbTimeHint.Width, this.lbTimeHint.Location.Y);
 
-                int num = 6;
+                int num = 4;
                 string seat = string.Empty;
                 for (int i = 0; i < lists.Count; i++)
                 {
                     if (i != 0 && i % num == 0)
                     {
                         // seat += "\n座位："
-                        seat += "\n          ";
+                        seat += "\n              ";
                     }
-                    seat += lists[i].Seat + "、";
+                    if (i == 0)
+                    {
+                        seat +=  lists[i].Seat;
+                    }
+                    else
+                    {
+                        seat +=  "、"+ lists[i].Seat;
+                    }
 
                 }
-                this.lbRoom.Text = string.Format(this.lbRoom.Text, ticket.RoomName,seat);
+                
                 int totalPrice=(ticket.Price * this.lists.Count);
-                int ye = Convert.ToInt32(GlobalTools.GetLoginUser().Balance) - totalPrice;
-                this.lbAccountMoney.Text = string.Format(this.lbAccountMoney.Text, ye);
+                int ye = Convert.ToInt32(GlobalTools.GetLoginUser().Balance) - 0;
+                
                 // WinFormHelper.LocationAfter(this.lbPrice, this.lbTicketPriceHint);
                 this.lbNum.Text = string.Format(this.lbNum.Text,this.lists.Count.ToString());
                 // WinFormHelper.LocationAfter(this.lbTicketPriceHint, this.lbTicketCount);
                 //WinFormHelper.LocationAfter(this.lbTicketCount, this.lbTicketCountHint);
+                this.lbRoom.Text = string.Format(this.lbRoom.Text, ticket.RoomName, seat);
+                
                 this.lbAllFee.Text = string.Format(this.lbAllFee.Text,totalPrice.ToString());
+                this.lbAccountMoney.Text = string.Format(this.lbAccountMoney.Text, ye);
+                FT.Commons.Tools.WinFormHelper.VerLocationAfter(this.lbRoom, this.lbAllFee, 14);
+                FT.Commons.Tools.WinFormHelper.VerLocationAfter(this.lbAllFee, this.lbAccountMoney, 14);
                 //  WinFormHelper.LocationAfter(this.lbTicketTotalPrice, this.lbTicketTotalPriceHint);
 
             }

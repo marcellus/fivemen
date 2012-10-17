@@ -30,6 +30,8 @@ namespace HiPiaoTerminal
         {
         }
 
+        public static FullScreenSeatSelectorForm fullScreenSeatSelectorForm = null;
+
         private static FullAdShowForm fullAdForm = new FullAdShowForm();
         public static void ShowFullAdForm()
         {
@@ -875,6 +877,7 @@ namespace HiPiaoTerminal
         public static void SetCursor()
         {
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            
             if (!config.AllowShowMouse)
             {
                // Cursor.Current= Cursors.Hand;
@@ -894,9 +897,22 @@ namespace HiPiaoTerminal
         {
             if (MainForm != null)
             {
-               
+                if (GlobalTools.fullScreenSeatSelectorForm != null)
+                {
+                    Form frm = GlobalTools.fullScreenSeatSelectorForm;
+                    GlobalTools.fullScreenSeatSelectorForm = null;
+                    frm.Close();
+                }
                 Control parent = MainForm;
-                parent.Controls.Clear();
+                if (parent.Controls.Count > 0)
+                {
+                    MainPanel oldPanel = parent.Controls[0] as MainPanel;
+                    if (oldPanel != null)
+                    {
+                        oldPanel.StopAdTimer();
+                    }
+                    parent.Controls.Clear();
+                }
 #if DEBUG
                 Console.WriteLine("GoPanel开始隐藏小键盘");
 #endif
@@ -910,6 +926,7 @@ namespace HiPiaoTerminal
                 else if (panel is OperationTimeParentPanel)
                 {
                     StopUnOperationCounter();
+                    
                     InitUnOperationControl(parent.Controls[0]);
                 }
                 else

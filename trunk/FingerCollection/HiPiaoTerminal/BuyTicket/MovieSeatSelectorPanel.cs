@@ -74,6 +74,10 @@ namespace HiPiaoTerminal.BuyTicket
 
         public Hashtable selectedSeat = new Hashtable();
 
+        public ArrayList selectedSeatLine = new ArrayList();
+
+        
+
         public Hashtable SelectedSeat
         {
             get { return selectedSeat; }
@@ -168,6 +172,29 @@ namespace HiPiaoTerminal.BuyTicket
             
         }
 
+        public void AddSeat(SeatObject seat)
+        {
+            this.selectedSeat.Add(seat.SeatId, seat);
+            this.selectedSeatLine.Add(seat);
+            this.panelSeat.Controls[seat.SeatId].BackColor = selectedColor;
+        }
+        
+        public void RemoveSeat(string  seatid)
+        {
+            this.selectedSeat.Remove(seatid);
+            this.panelSeat.Controls[seatid].BackColor = emptyColor;
+            SeatObject tmp=null;
+            for (int i = 0; i < this.selectedSeatLine.Count; i++)
+            {
+                tmp = this.selectedSeatLine[i] as SeatObject;
+                if (tmp.SeatId == seatid)
+                {
+                    this.selectedSeatLine.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
         void lb_Click(object sender, EventArgs e)
         {
             Control ctr=sender as Control;
@@ -179,15 +206,15 @@ namespace HiPiaoTerminal.BuyTicket
                 {
                     if (this.selectedSeat.Count < 8)
                     {
-                        this.selectedSeat.Add(seat.SeatId, seat);
-                        ctr.BackColor = selectedColor;
+                        this.AddSeat(seat);
+                        
                         this.RefreshSelectedPanel();
                     }
                 }
                 else if (ctr.BackColor.R == (byte)253)
                 {
-                    this.selectedSeat.Remove(seat.SeatId);
-                    ctr.BackColor = emptyColor;
+                    this.RemoveSeat(seat.SeatId);
+                    
                     this.RefreshSelectedPanel();
                 }
                 else
@@ -211,7 +238,8 @@ namespace HiPiaoTerminal.BuyTicket
         {
             Control ctr = sender as Control;
             string seatId = ctr.Tag.ToString();
-            this.selectedSeat.Remove(seatId);
+            this.RemoveSeat(seatId);
+            //this.selectedSeat.Remove(seatId);
             this.panelSeat.Controls[seatId].BackColor = emptyColor;
             this.RefreshSelectedPanel();
             
@@ -224,30 +252,36 @@ namespace HiPiaoTerminal.BuyTicket
             this.lbTotalNum.Text = selectedSeat.Count.ToString() + "张";
             //{0:C2}
             this.lbTotalPrice.Text = string.Format("{0}.00",(roomPlan.SPrice * selectedSeat.Count));
-            int sep = 10;
-            int y = 35;
-            int x=10;
+           // int sep =10;
+            //int y = 35;
+           // int x=10;
+
+            int sep = 4;
+            int y = 4;
+            int x = 4;
             SeatObject seat = null;
-            System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
+           // System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
             int i = 0;
-            Font font = new Font("方正兰亭黑简体", 14);
-            while (enumerator.MoveNext())
+            Font font = new Font("方正兰亭黑简体", 12);
+           // while (enumerator.MoveNext())
+            for (int j = 0; j < this.selectedSeatLine.Count;j++ )
             {
-                seat = enumerator.Value as SeatObject;
+                //seat = enumerator.Value as SeatObject;
+                seat = this.selectedSeatLine[j] as SeatObject;
                 this.panelSeat.Controls[seat.SeatId].BackColor = selectedColor;
                 Label lbTmp = new Label();
                 lbTmp.Font = font;
                 lbTmp.ForeColor = Color.FromArgb(80, 79, 79);
                 lbTmp.AutoSize = false;
-                lbTmp.Width = 198;
+                lbTmp.Width = 194;
                 lbTmp.Height = 37;
                 lbTmp.Image = Properties.Resources.BuyTicket_Seat_Select_Hint;
                 lbTmp.TextAlign = ContentAlignment.MiddleLeft;
                 lbTmp.Text = string.Format("座位号：{0}排{1}号", seat.RowNum, seat.SeatNo);
                 lbTmp.Click += new EventHandler(lbTmp_Click);
                 lbTmp.Tag = seat.SeatId;
-                lbTmp.Location = new Point(x, y + (lbTmp.Height+sep) * i);
-                
+                lbTmp.Location = new Point(x, y + (lbTmp.Height + sep) * i);
+
                 this.panelSelectedSeat.Controls.Add(lbTmp);  // Hashtable值
                 i++;
             }
@@ -264,6 +298,8 @@ namespace HiPiaoTerminal.BuyTicket
                 this.panelSeat.Controls[seat.SeatId].BackColor = emptyColor;
             }
             selectedSeat.Clear();
+            this.selectedSeatLine.Clear();
+            this.panelSelectedSeat.Controls.Clear();
         }
 
 
@@ -303,21 +339,50 @@ namespace HiPiaoTerminal.BuyTicket
                 tickets.Add(ticket);
                     
             }
+            //GlobalTools.Pop(new CosumeDetailPanel(tickets, movie, moviePlan));
+            GlobalTools.GoPanel(new UserPayCheckPanel(tickets,movie,moviePlan,roomPlan,dt));
+        }
+
+        /// <summary>
+        /// 检查位置顺序
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckLeftToRight()
+        {
+            if (SeatList.Count > 1)
+            {
+                if (SeatList[0].SeatNo > SeatList[1].SeatNo)
+                {
+                    return SeatList[0].XPoint > SeatList[1].XPoint;
+                }
+                else
+                {
+                    return SeatList[0].XPoint <= SeatList[1].XPoint;
+                }
+            }
+            else
+            {
+                return false;
+            }
             
-                GlobalTools.GoPanel(new UserPayCheckPanel(tickets,movie,moviePlan,roomPlan,dt));
         }
 
         private void panelSeat_DoubleClick(object sender, EventArgs e)
         {
             if (this.panelSeat.Controls.Count > 0)
             {
-                FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,8);
+                FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,8,this.CheckLeftToRight());
                // form.StartPosition=F
                 form.ShowDialog();
             }
         }
 
         private void btnDoubleToFullScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbTotalNum_Click(object sender, EventArgs e)
         {
 
         }

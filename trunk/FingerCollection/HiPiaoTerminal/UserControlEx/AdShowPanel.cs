@@ -68,37 +68,39 @@ namespace HiPiaoTerminal.UserControlEx
             adShowTimer.Stop();
             try
             {
-                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                List<AdvertisementObject> lists = HiPiaoCache.GetAdvertisement(config.Cinema);
-                int len = lists.Count;
-                if (len == 0)
+                if (this.Visible)
                 {
+                    SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                    List<AdvertisementObject> lists = HiPiaoCache.GetAdvertisement(config.Cinema);
+                    int len = lists.Count;
+                    if (len == 0)
+                    {
 
-                    return;
-                }
-                int currentIndex=0;
+                        return;
+                    }
+                    int currentIndex = 0;
 #if DEBUG
-                Console.WriteLine("当前对象的Tag内容为："+this.Tag);
+                    Console.WriteLine("当前对象的Tag内容为：" + this.Tag);
 #endif
-                if (this.Tag == null)
-                {
-                    //this.BackgroundImage = lists[0].AdvPic;
-                    currentIndex = 0;
-                }
-                else
-                {
-                    currentIndex = Convert.ToInt32(this.Tag.ToString());
-                }
-                if (currentIndex == lists.Count - 1)
-                {
-                    currentIndex = 0;
-                }
-                else
-                {
-                    currentIndex += 1;
-                }
+                    if (this.Tag == null)
+                    {
+                        //this.BackgroundImage = lists[0].AdvPic;
+                        currentIndex = 0;
+                    }
+                    else
+                    {
+                        currentIndex = Convert.ToInt32(this.Tag.ToString());
+                    }
+                    if (currentIndex == lists.Count - 1)
+                    {
+                        currentIndex = 0;
+                    }
+                    else
+                    {
+                        currentIndex += 1;
+                    }
 #if DEBUG
-                Console.WriteLine("当前起始的索引为：" + currentIndex);
+                    Console.WriteLine("当前起始的索引为：" + currentIndex);
 #endif
 
                     for (int i = currentIndex; i < lists.Count; i++)
@@ -111,6 +113,7 @@ namespace HiPiaoTerminal.UserControlEx
                             break;
                         }
                     }
+                }
             }
             catch
             {

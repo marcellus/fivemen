@@ -83,6 +83,7 @@
             this.txtMain.TempPasswordChar = '\0';
             this.txtMain.TextChanged += new System.EventHandler(this.txtMain_TextChanged_1);
             this.txtMain.Click += new System.EventHandler(this.txtMain_Click);
+            this.txtMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtMain_MouseDown_1);
             this.txtMain.Enter += new System.EventHandler(this.txtMain_Enter);
             // 
             // btnDelete

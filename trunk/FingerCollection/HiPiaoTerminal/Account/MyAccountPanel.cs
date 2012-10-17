@@ -13,6 +13,8 @@ namespace HiPiaoTerminal.Account
         public MyAccountPanel()
         {
             InitializeComponent();
+            //this.StopOpertionTime();
+           // this.SetOperationTime(30);
         }
 
       
@@ -27,6 +29,8 @@ namespace HiPiaoTerminal.Account
                 UserInfoPanel panel = new UserInfoPanel(GlobalTools.GetLoginUser());
                 
                 ChangePanel(panel);
+                this.StopOpertionTime();
+                this.SetOperationTime(30);
             }
         }
 
@@ -49,7 +53,8 @@ namespace HiPiaoTerminal.Account
                 FeeDetailPanel panel = new FeeDetailPanel();
                 panel.SetBuyLists(GlobalTools.GetLoginUser().BuyRecords);
                 ChangePanel(panel);
-               
+                this.StopOpertionTime();
+                this.SetOperationTime(30);
             }
         }
 
@@ -63,6 +68,8 @@ namespace HiPiaoTerminal.Account
                 ModifyPwdPanel panel = new ModifyPwdPanel();
 
                 ChangePanel(panel);
+                this.StopOpertionTime();
+                this.SetOperationTime(100);
             }
         }
 
@@ -99,6 +106,7 @@ namespace HiPiaoTerminal.Account
             this.btnModifyPwd.Location = new System.Drawing.Point(629, 154);
             this.btnModifyPwd.Size = new Size(222, 70);
             btnAccountInfo_Click(null, null);
+            
             //object obj2=this.btnModifyPwd.Parent;
             //object obj=this.btnModifyPwd.Location;
             //this.btnModifyPwd.Visible = true;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieSelectorPanel));
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.btnReturn = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@
             this.btnTomorrow = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnThreeDay = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnToday = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +66,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnThreeDay);
             this.splitContainer1.Panel2.Controls.Add(this.btnToday);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
+            this.splitContainer1.SplitterDistance = 830;
             // 
             // showWelcomePanel1
             // 
@@ -147,6 +150,12 @@
             this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.OwnerDraw = true;
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.toolTip1.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
+            // 
             // MovieSelectorPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -172,5 +181,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel btnTomorrow;
         private FT.Windows.Controls.LabelEx.SimpleLabel btnThreeDay;
         private FT.Windows.Controls.LabelEx.SimpleLabel btnToday;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
