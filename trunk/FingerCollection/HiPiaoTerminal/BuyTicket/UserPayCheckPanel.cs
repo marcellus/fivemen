@@ -44,7 +44,9 @@ namespace HiPiaoTerminal.BuyTicket
                     this.lbMovieName.Text = ticket.MovieName;
                 }
                 this.lbMovieInfo.Text = string.Format(this.lbMovieInfo.Text, moviePlan.Type, moviePlan.Language, movieInfo.TotalMinutes);
-                DateTime  playDate=Convert.ToDateTime(ticket.PlayDate);
+                //DateTime  playDate=Convert.ToDateTime(ticket.PlayDate);
+               // DateTime playDate = movie.PlayTime;
+                DateTime playDate = dt;
                 this.lbDate.Text = playDate.ToString("MM月dd日")+" "+DateTimeHelper.GetChineseXq(playDate);
                 WinFormHelper.LocationAfter(this.lbDate, this.lbDateHint);
                 

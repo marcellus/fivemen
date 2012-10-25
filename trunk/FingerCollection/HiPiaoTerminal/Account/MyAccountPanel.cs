@@ -85,8 +85,10 @@ namespace HiPiaoTerminal.Account
 
         private void btnQuitAccount_Click(object sender, EventArgs e)
         {
-            if (GlobalTools.QuitAccount())
+            //Form frm=new ConfirmQuitAccountForm();
+            if (GlobalTools.Pop(new QuitAccountConfirmPanel())==DialogResult.OK)
             {
+                GlobalTools.QuitAccount();
                 GlobalTools.ReturnMain();
             }
         }

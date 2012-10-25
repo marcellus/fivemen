@@ -167,17 +167,17 @@
             this.lbWelcomeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbWelcomeName.Location = new System.Drawing.Point(116, 255);
             this.lbWelcomeName.Name = "lbWelcomeName";
-            this.lbWelcomeName.Size = new System.Drawing.Size(264, 28);
+            this.lbWelcomeName.Size = new System.Drawing.Size(292, 28);
             this.lbWelcomeName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcomeName.TabIndex = 14;
-            this.lbWelcomeName.Text = "helloworld12345678";
+            this.lbWelcomeName.Text = "helloworld1234567890";
             // 
             // lbWelcome3
             // 
             this.lbWelcome3.AutoSize = true;
             this.lbWelcome3.BackColor = System.Drawing.Color.Transparent;
             this.lbWelcome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.lbWelcome3.Location = new System.Drawing.Point(405, 255);
+            this.lbWelcome3.Location = new System.Drawing.Point(415, 255);
             this.lbWelcome3.Name = "lbWelcome3";
             this.lbWelcome3.Size = new System.Drawing.Size(264, 28);
             this.lbWelcome3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -197,7 +197,7 @@
             // 
             // adShowPanel1
             // 
-            this.adShowPanel1.AdType = "所有位置";
+            this.adShowPanel1.AdType = "首页";
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Interval = 1000;
             this.adShowPanel1.Location = new System.Drawing.Point(111, 299);

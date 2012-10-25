@@ -20,6 +20,8 @@ namespace HiPiaoTerminal.UserControlEx
             }
             catch (Exception ex)
             {
+
+                Console.WriteLine("执行倒计时界面出现异常："+ex);
             }
         }
 
@@ -49,10 +51,10 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (this.FindForm() == null)
+            if (this.FindForm() == null||this.Parent==null)
             {
 #if DEBUG
-                Console.WriteLine("控件不属于窗体，停止计时器");
+                Console.WriteLine(this.Name+"控件不属于窗体，停止计时器");
 #endif
                 this.timer1.Stop();
                 this.timer1.Enabled = false;
@@ -66,6 +68,7 @@ namespace HiPiaoTerminal.UserControlEx
 #if DEBUG
                 Console.WriteLine(System.DateTime.Now.Second.ToString() + "操作界面倒计时时间：" + this.lbTimeSecond.Text);
 #endif
+                
                 if (count > 1)
                 {
                     this.lbTimeSecond.Text = (count - 1).ToString();

@@ -305,6 +305,20 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BindMobile_SendValidCode_NotActive {
+            get {
+                object obj = ResourceManager.GetObject("BindMobile_SendValidCode_NotActive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BindMobile_Success_BuyTicket {
+            get {
+                object obj = ResourceManager.GetObject("BindMobile_Success_BuyTicket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BindMobile_Sure {
             get {
                 object obj = ResourceManager.GetObject("BindMobile_Sure", resourceCulture);

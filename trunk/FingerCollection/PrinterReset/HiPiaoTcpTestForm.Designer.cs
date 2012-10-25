@@ -61,9 +61,10 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(12, 64);
+            this.txtMessage.Location = new System.Drawing.Point(12, 41);
+            this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(191, 21);
+            this.txtMessage.Size = new System.Drawing.Size(191, 44);
             this.txtMessage.TabIndex = 1;
             // 
             // btnSend

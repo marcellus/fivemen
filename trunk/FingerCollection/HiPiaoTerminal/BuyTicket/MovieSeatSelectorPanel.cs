@@ -310,6 +310,7 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 return;
             }
+
             if (GlobalTools.GetLoginUser().Balance < Convert.ToDouble(this.lbTotalPrice.Text))
             {
                 GlobalTools.Pop(new BuyMoneyHint());
@@ -340,6 +341,7 @@ namespace HiPiaoTerminal.BuyTicket
                     
             }
             //GlobalTools.Pop(new CosumeDetailPanel(tickets, movie, moviePlan));
+           // GlobalTools.GoPanel(new WaitTicketPrintPanel(tickets, movie, moviePlan));
             GlobalTools.GoPanel(new UserPayCheckPanel(tickets,movie,moviePlan,roomPlan,dt));
         }
 

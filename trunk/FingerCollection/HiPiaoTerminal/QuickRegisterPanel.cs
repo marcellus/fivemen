@@ -176,30 +176,36 @@ namespace HiPiaoTerminal
                 if (result)
                 {
                     string retcode = "0";
-                   UserObject user=HiPiaoOperatorFactory.GetHiPiaoOperator().Register(name, pwd, mobile,ref retcode);
-                    if (user!=null)
+                    try
                     {
-                        GlobalTools.loginUser = user;
-                        this.txtPassword.UnFocus();
-                        this.txtRepeatPwd.UnFocus();
-                        this.txtMobile.UnFocus();
-                        this.txtUserName.UnFocus();
-                        GlobalTools.Pop(new UserRegister.UserRegisterSuccessPanel());
-                    }
-                    else if (retcode == "2")
-                    {
-                         this.lbUserNameHint.Text = "你输入的用户名已经存在，请重新输入";
-                        this.picUserNameHint.Visible = true;
-                        this.picUserNameHint.Image = Properties.Resources.Error;
-                        this.txtUserName.Text = string.Empty;
-                      
-                        this.txtPassword.UnFocus();
-                        this.txtRepeatPwd.UnFocus();
-                        this.txtMobile.UnFocus();
-                        this.txtUserName.Focus();
+                        UserObject user = HiPiaoOperatorFactory.GetHiPiaoOperator().Register(name, pwd, mobile, ref retcode);
+                        if (user != null)
+                        {
+                            GlobalTools.loginUser = user;
+                            this.txtPassword.UnFocus();
+                            this.txtRepeatPwd.UnFocus();
+                            this.txtMobile.UnFocus();
+                            this.txtUserName.UnFocus();
+                            GlobalTools.Pop(new UserRegister.UserRegisterSuccessPanel());
+                        }
+                        else if (retcode == "2")
+                        {
+                            this.lbUserNameHint.Text = "你输入的用户名已经存在或者无效，请重新输入";
+                            this.picUserNameHint.Visible = true;
+                            this.picUserNameHint.Image = Properties.Resources.Error;
+                            this.txtUserName.Text = string.Empty;
+                            this.txtPassword.UnFocus();
+                            this.txtRepeatPwd.UnFocus();
+                            this.txtMobile.UnFocus();
+                            this.txtUserName.Focus();
 
+                        }
+                        else
+                        {
+                            GlobalTools.PopNetError();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
                         GlobalTools.PopNetError();
                     }

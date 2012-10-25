@@ -23,7 +23,7 @@ namespace HiPiaoTerminal
             {
                 this.userLoginWithMoviePanel1.Visible = false;
                 this.StopOpertionTime();
-                this.SetOperationTime(30);
+                this.SetOperationTime(100);
             }
             else
             {

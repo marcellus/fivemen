@@ -18,17 +18,19 @@ namespace HiPiaoTerminal.BuyTicket
         private MovieObject movieInfo;
         private MoviePlanObject moviePlan;
         private int fee = 0;
-        public WaitSuccessPrintPanel(List<TicketPrintObject> tickets,MovieObject movie,MoviePlanObject moviePlan)
+        public WaitSuccessPrintPanel(List<TicketPrintObject> tickets, MovieObject movie, MoviePlanObject moviePlan)
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             fee = tickets.Count * tickets[0].Price;
             this.SetSepartor(false);
-            this.SetOperationTime(15);
+            this.AutoScroll = true;
+            
             this.lists = tickets;
             this.movieInfo = movie;
             this.moviePlan = moviePlan;
             this.InitMovieInfo();
+            
         }
 
         private void InitMovieInfo()
@@ -90,6 +92,7 @@ namespace HiPiaoTerminal.BuyTicket
             Thread thread = new Thread(new ThreadStart(PrintTask));
             thread.IsBackground = true;
             thread.Start();
+            this.SetOperationTime(15);
            
         }
         private void PrintTask()
@@ -97,7 +100,7 @@ namespace HiPiaoTerminal.BuyTicket
             Thread.Sleep(3000);
            // GlobalTools.Pop(new SuccessBuyTicketPanel());
             if(HiPiaoCache.SmsUserFeeDetail(GlobalTools.GetLoginUser(), this.fee))
-            GlobalTools.Pop(new CosumeDetailPanel(this.lists,this.movieInfo,this.moviePlan));
+                 GlobalTools.Pop(new CosumeDetailPanel(this.lists,this.movieInfo,this.moviePlan));
         }
 
         private void btnReturnHome_Click(object sender, EventArgs e)

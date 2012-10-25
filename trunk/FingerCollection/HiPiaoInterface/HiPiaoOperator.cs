@@ -43,6 +43,7 @@ namespace HiPiaoInterface
                 user.SessionKey = doc.SelectSingleNode("//sessionkey").InnerText;
                 user.RewardPoints = Convert.ToInt32(doc.SelectSingleNode("//score").InnerText);
                 XmlNode blance = doc.SelectSingleNode("//blance");
+                user.IsBindMobile = doc.SelectSingleNode("//isbanded").InnerText == "1";
                 user.Balance = Convert.ToDouble(blance.InnerText);
                 user.Pwd = pwd;
             }

@@ -361,7 +361,7 @@ namespace HiPiaoTerminal.UserControlEx
                 Console.WriteLine(this.Name+"的parent为"+this.Parent.Name+"findform="+this.FindForm());
 #endif
             }
-            if (this.FindForm() != null)
+            if (this.FindForm() != null&&this.Parent!=null)
             {
 #if DEBUG
                 Console.WriteLine("输入框属于窗体");
@@ -496,14 +496,23 @@ namespace HiPiaoTerminal.UserControlEx
                // HideCaret(this.txtMain.Handle);
                // HideCaret(this.txtMain.Handle);
                // HideCaret(this.txtMain.Handle);
+                
                 try
                 {
                     //Graphics gc = this.txtMain.CreateGraphics();
+                    if (this.FindForm()==null||this.Parent == null||this.Visible==false)
+                    {
+                        break;
+                    }
                     Graphics gc = this.CreateGraphics();
                     int x = 0;
 
                     string txt=this.txtMain.GetRealText();
 #if DEBUG
+                    Form obj = this.FindForm();
+                    string name111 = obj.Name;
+                    Control ctr = this.Parent;
+                    bool ttt=this.Visible;
                     Console.WriteLine("转化前下划线的坐标是：X=" + this.picUnderLine.Location.X.ToString() + "=Y=" + this.picUnderLine.Location.Y.ToString()+"文字内容为："+txt);
 #endif
                     if (this.PasswordChar == '*')

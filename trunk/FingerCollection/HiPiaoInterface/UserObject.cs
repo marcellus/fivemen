@@ -17,6 +17,8 @@ namespace HiPiaoInterface
             get { return name; }
             set { name = value; }
         }
+
+
         private string pwd;
 
         /// <summary>
@@ -39,7 +41,7 @@ namespace HiPiaoInterface
             set { mobile = value; }
         }
 
-        private bool isBindMobile = true;
+        private bool isBindMobile = false;
 
         /// <summary>
         /// 是否绑定手机

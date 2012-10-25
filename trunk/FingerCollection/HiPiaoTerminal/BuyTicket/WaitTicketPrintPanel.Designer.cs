@@ -89,6 +89,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
             this.splitContainer1.Panel2.Controls.Add(this.processPanel1);
+            this.splitContainer1.SplitterDistance = 830;
             // 
             // linkLabel1
             // 
@@ -316,7 +317,7 @@
             // 
             // adShowPanel1
             // 
-            this.adShowPanel1.AdType = "所有位置";
+            this.adShowPanel1.AdType = "购票完成页";
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Interval = 500;
             this.adShowPanel1.Location = new System.Drawing.Point(63, 0);

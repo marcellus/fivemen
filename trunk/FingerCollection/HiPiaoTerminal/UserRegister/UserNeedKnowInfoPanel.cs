@@ -24,6 +24,7 @@ namespace HiPiaoTerminal.UserRegister
             this.btnWebSiteProtocol.IsActive = true;
             this.btnMemberProtocol.IsActive = this.btnPrivatePolicy.IsActive
                 = this.btnRemark.IsActive = false;
+            this.webBrowser1.ScrollBarsEnabled = true;
             this.LoadHtml("UserNeedKnow-WebSiteProtocol.htm");
         }
 
@@ -32,6 +33,7 @@ namespace HiPiaoTerminal.UserRegister
             this.btnMemberProtocol.IsActive = true;
             this.btnWebSiteProtocol.IsActive = this.btnPrivatePolicy.IsActive
                 = this.btnRemark.IsActive =false;
+            this.webBrowser1.ScrollBarsEnabled = true;
             this.LoadHtml("UserNeedKnow-MemberProtocol.htm");
         }
 
@@ -40,6 +42,7 @@ namespace HiPiaoTerminal.UserRegister
             this.btnPrivatePolicy.IsActive = true;
             this.btnWebSiteProtocol.IsActive = this.btnMemberProtocol.IsActive
                = this.btnRemark.IsActive = false;
+            this.webBrowser1.ScrollBarsEnabled = true;
             this.LoadHtml("UserNeedKnow-PrivatePolicy.htm");
         }
 
@@ -48,6 +51,7 @@ namespace HiPiaoTerminal.UserRegister
             this.btnRemark.IsActive = true;
             this.btnWebSiteProtocol.IsActive = this.btnPrivatePolicy.IsActive
                            = this.btnMemberProtocol.IsActive = false;
+            this.webBrowser1.ScrollBarsEnabled = false;
             this.LoadHtml("UserNeedKnow-Remark.htm");
         }
 
@@ -86,6 +90,11 @@ namespace HiPiaoTerminal.UserRegister
             {
                 form.SetAttribute("target", "_self");
             }
+        }
+
+        private void btnRemark_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

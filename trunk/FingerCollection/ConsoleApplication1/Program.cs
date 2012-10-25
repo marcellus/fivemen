@@ -86,6 +86,8 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
+            for (int i = 0; i < 10;i++ )
+                Console.WriteLine("随机产生6位随机码：" + HiPiaoInterface.RandomSmsHelper.GenerateNumberCode(6));
             //HiPiaoInterface.HipiaoTcpHelper.GetTicket();
             Console.ReadLine();
 
