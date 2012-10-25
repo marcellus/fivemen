@@ -290,10 +290,52 @@ namespace HiPiaoTerminal
         {
             return Pop(panel, 1);
         }
+        /// <summary>
+        /// 启动全屏广告的倒计时
+        /// </summary>
+        public static void StartFullTimer()
+        {
+            if (MainForm != null)
+            {
+                if (MainForm.Controls.Count > 0&&popForms.Count==0)
+                {
+                    MainPanel oldPanel = MainForm.Controls[0] as MainPanel;
+                    if (oldPanel != null)
+                    {
+#if DEBUG
+                        Console.WriteLine("启动主界面控件的全屏广告倒计时");
+#endif
+                        oldPanel.StopAdTimer();
+                        oldPanel.StartAdTimer();
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 停止全屏广告的倒计时
+        /// </summary>
+        public static void StopFullTimer()
+        {
+            if (MainForm != null)
+            {
+                if (MainForm.Controls.Count > 0)
+                {
+                    MainPanel oldPanel = MainForm.Controls[0] as MainPanel;
+                    if (oldPanel != null)
+                    {
+#if DEBUG
+                        Console.WriteLine("停止主界面控件的全屏广告倒计时");
+#endif
+                        oldPanel.StopAdTimer();
+                    }
+                }
+            }
+        }
 
 
         public static DialogResult Pop(Control panel,int type)
         {
+            GlobalTools.StopFullTimer();
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<ConfigModel.SystemConfig>();
             if (config.UseVirtualKeyboard)
             {
@@ -319,14 +361,19 @@ namespace HiPiaoTerminal
            // MyOpaqueLayerTools.ShowOpaqueLayer(MainForm, 60, true);
            // return PopUnMask(panel, type);
            
-            NotifyUserForm popForm = new NotifyUserForm(panel);
-            
-            popForm.ColorType = type;
+            NotifyUserForm popForm2 = new NotifyUserForm(panel);
+            //popForm2.FormClosing += new FormClosingEventHandler(popForm2_FormClosing);
+            popForm2.ColorType = type;
            // popForm.Show();
            // return DialogResult.OK;
             
-            return popForm.ShowDialog();
+            return popForm2.ShowDialog();
            
+        }
+
+        static void popForm2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalTools.StartFullTimer();
         }
 
         public static ArrayList popForms = new ArrayList();
@@ -344,6 +391,7 @@ namespace HiPiaoTerminal
 
             }
             popForms.Clear();
+            GlobalTools.StartFullTimer();
         }
 
         public static void popForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -354,6 +402,7 @@ namespace HiPiaoTerminal
                 if (popForms[i] == sender)
                 {
                     popForms.RemoveAt(i);
+                    GlobalTools.StartFullTimer();
                     break;
                 }
 
@@ -364,7 +413,7 @@ namespace HiPiaoTerminal
         {
             InitUnOperationControl(panel);
            // /*
-             
+           // GlobalTools.StopFullTimer();
            Form form =null;
            
            if (type == 1)
@@ -375,6 +424,7 @@ namespace HiPiaoTerminal
            {
                form = new SecondRoundNotifyForm();
            }
+           GlobalTools.popForms.Add(form);
            form.FormClosing += new FormClosingEventHandler(popForm_FormClosing);
                 
                 form.FormBorderStyle = FormBorderStyle.None;
@@ -947,6 +997,7 @@ namespace HiPiaoTerminal
         /// </summary>
         public static void ReturnMain()
         {
+            GlobalTools.CloseAllPopForms();
             GoPanel(new MainPanel());  
         }
         /// <summary>

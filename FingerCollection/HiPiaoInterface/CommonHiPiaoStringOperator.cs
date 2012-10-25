@@ -289,6 +289,16 @@ namespace HiPiaoInterface
             return GetSoapServiceResult(body);
         }
 
+        public string BindMobile(UserObject user,string mobile)
+        {
+             StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:bindUserMobile  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<memberid>" + user.MemberId + "</memberid><bindmobile>" + mobile + "</bindmobile><clintform>ANDROID</clintform></ns2:bindUserMobile>");
+            return GetSoapServiceResult(body,user.SessionKey);
+
+        }
+
 
         public  string  GetCityCinema(string province,string city)
         {
@@ -321,52 +331,63 @@ namespace HiPiaoInterface
 
         public string SmsUserFeeDetail(UserObject user, int fee)
         {
-             string cid="hpmachinesmsuser";
-             string content="您的"+user.Name+"账户于"+System.DateTime.Now.ToString("M月d日")+"以"+user.Mobile+"成功消费"+fee+"元，账户余额"+user.Balance+"元。如有疑问请致电400-601-5566【哈票网】";
-             string mobile=user.Mobile;
-             string key="hpsmscheck!@#";
-             string pass = Encrypt(cid + content + mobile + key);
+            string content = "您的" + user.Name + "账户于" + System.DateTime.Now.ToString("M月d日") + "以" + user.Mobile + "成功消费" + fee + "元，账户余额" + user.Balance + "元。如有疑问请致电400-601-5566";//【哈票网】
+            return SmsUserContent(user, content);
+        }
 
-             string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Sms_Url"];
-             Uri uri = new Uri(url);
-             string query = "cid=" + cid + "&content=" + content + "&mobile=" + mobile  + "&pass=" + pass;
+        public string SmsMobileContent(string mobile, string content)
+        {
+            string cid = "hpmachinesmsuser";
+
+           //string mobile = user.Mobile;
+            string key = "hpsmscheck!@#";
+            string pass = Encrypt(cid + content + mobile + key);
+
+            string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Sms_Url"];
+            Uri uri = new Uri(url);
+            string query = "cid=" + cid + "&content=" + content + "&mobile=" + mobile + "&pass=" + pass;
 #if DEBUG
-             Console.WriteLine("调用发送短信接口发送内容为：" + query);
+            Console.WriteLine("调用发送短信接口发送内容为：" + query);
 #endif
-             WebRequest webRequest = WebRequest.Create(uri);
+            WebRequest webRequest = WebRequest.Create(uri);
 
-             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             // webRequest.ContentLength = query.Length;
-             webRequest.Method = "POST";
+            webRequest.Method = "POST";
 
-             webRequest.Timeout = GetInterfaceTimeout();
+            webRequest.Timeout = GetInterfaceTimeout();
 
-             using (Stream requestStream = webRequest.GetRequestStream())
-             {
+            using (Stream requestStream = webRequest.GetRequestStream())
+            {
 
-                 byte[] paramBytes = Encoding.UTF8.GetBytes(query.ToString());
+                byte[] paramBytes = Encoding.UTF8.GetBytes(query.ToString());
 
-                 requestStream.Write(paramBytes, 0, paramBytes.Length);
+                requestStream.Write(paramBytes, 0, paramBytes.Length);
 
-             }
+            }
 
-             //响应
+            //响应
 
-             WebResponse webResponse = webRequest.GetResponse();
+            WebResponse webResponse = webRequest.GetResponse();
 
-             using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
-             {
+            using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.UTF8))
+            {
 
-                 string result = "";
-                 result = myStreamReader.ReadToEnd();
+                string result = "";
+                result = myStreamReader.ReadToEnd();
 #if DEBUG
-                 Console.WriteLine("调用发送短信接口返回结果为：" + result);
+                Console.WriteLine("调用发送短信接口返回结果为：" + result);
 #endif
-                 return result;
+                return result;
 
 
-             }
-             return string.Empty;
+            }
+            return string.Empty;
+        }
+
+        public string SmsUserContent(UserObject user, string content)
+        {
+            return SmsMobileContent(user.Mobile, content);
         }
 
         public string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)

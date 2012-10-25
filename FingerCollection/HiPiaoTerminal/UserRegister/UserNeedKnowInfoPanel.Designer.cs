@@ -71,6 +71,7 @@
             this.btnRemark.Name = "btnRemark";
             this.btnRemark.Size = new System.Drawing.Size(218, 65);
             this.btnRemark.TabIndex = 2;
+            this.btnRemark.Load += new System.EventHandler(this.btnRemark_Load);
             this.btnRemark.Click += new System.EventHandler(this.btnRemark_Click);
             // 
             // btnPrivatePolicy

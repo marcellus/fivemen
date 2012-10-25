@@ -33,7 +33,7 @@
             // 
             // adShowPanel1
             // 
-            this.adShowPanel1.AdType = "所有位置";
+            this.adShowPanel1.AdType = "屏保";
             this.adShowPanel1.AutoScroll = true;
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;

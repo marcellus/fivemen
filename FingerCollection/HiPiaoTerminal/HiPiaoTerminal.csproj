@@ -53,6 +53,12 @@
     <Compile Include="Account\BindMobilePanel.Designer.cs">
       <DependentUpon>BindMobilePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Account\BindMobileSuccessPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\BindMobileSuccessPanel.Designer.cs">
+      <DependentUpon>BindMobileSuccessPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account\ConfirmQuitAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     </Compile>
     <Compile Include="Account\NotifyBindMobilePanel.Designer.cs">
       <DependentUpon>NotifyBindMobilePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\QuitAccountConfirmPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\QuitAccountConfirmPanel.Designer.cs">
+      <DependentUpon>QuitAccountConfirmPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Account\UIdOrPwdErrorPanel.cs">
       <SubType>UserControl</SubType>
@@ -424,6 +436,10 @@
       <DependentUpon>BindMobilePanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Account\BindMobileSuccessPanel.resx">
+      <DependentUpon>BindMobileSuccessPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Account\ConfirmQuitAccountForm.resx">
       <DependentUpon>ConfirmQuitAccountForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -442,6 +458,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Account\NotifyBindMobilePanel.resx">
       <DependentUpon>NotifyBindMobilePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\QuitAccountConfirmPanel.resx">
+      <DependentUpon>QuitAccountConfirmPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\UIdOrPwdErrorPanel.resx">
@@ -1175,6 +1195,8 @@
     <None Include="Resources\BuyTick_Login_Return.png" />
     <None Include="Resources\BuyTick_Login_Site_Hint.png" />
     <None Include="Resources\Account_QuitAccount.png" />
+    <None Include="Resources\BindMobile_SendValidCode_NotActive.png" />
+    <None Include="Resources\BindMobile_Success_BuyTicket.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

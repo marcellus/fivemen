@@ -64,6 +64,37 @@ namespace HiPiaoInterface
             else return "-1";
         }
 
+        public static bool BindMobile(UserObject user, string mobile)
+        {
+            string xml = hiPiaoSrv.BindMobile(user, mobile);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node = doc.SelectSingleNode("//return");
+            if (node != null)
+            {
+                return node.Attributes["result"].Value.ToString() == "1";
+            }
+            return false;
+        }
+
+        public static bool SmsMobileContent(string mobile, string content)
+        {
+            string xml = hiPiaoSrv.SmsMobileContent(mobile, content);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode node = doc.SelectSingleNode("//sms");
+            if (node != null)
+            {
+                return node.Attributes["stat"].Value.ToString() == "1";
+            }
+            return false;
+        }
+
+        public static bool SmsUserContent(UserObject user, string content)
+        {
+            return SmsMobileContent(user.Mobile, content);
+        }
+
         public static bool SmsUserFeeDetail(UserObject user, int fee)
         {
             string xml = hiPiaoSrv.SmsUserFeeDetail(user,fee);
@@ -686,7 +717,7 @@ namespace HiPiaoInterface
 
                 picurl=objsNode[i].Attributes["picurl"].Value;
 
-                obj.AdImagePath = DownLoad(picurl, downdir+"\\"+obj.Name+"\\"+obj.Id+"\\adimage","shortimg.jpg");
+                obj.AdImagePath = DownLoad(picurl, downdir + "\\" + obj.Name.Replace("?", "") + "\\" + obj.Id + "\\adimage", "shortimg.jpg");
                 if(obj.AdImagePath.Length>0)
                     obj.AdImage = Image.FromFile(obj.AdImagePath);
                 //picurl="http://img.hipiao.com/hipiao15/film/201208/174732921950207b3c903e3.jpg" pixlength="89" pixnumber="05110035"

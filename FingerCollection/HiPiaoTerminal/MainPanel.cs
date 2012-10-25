@@ -151,6 +151,8 @@ namespace HiPiaoTerminal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //GlobalTools.Pop(new UserRegisterSuccessPanel());
+            GlobalTools.Pop(new BindMobilePanel());
             //GlobalTools.ReturnMaintain();
             //GlobalTools.ShowMessage(new QuickPassportPanel());
            // GlobalTools.ShowMessage("网络故障，请向影院工作人员垂询！\r\n或拨打400-601-556！", true);
@@ -161,7 +163,7 @@ namespace HiPiaoTerminal
             //form = new NotifyUserForm();
             //form.Show();
             //GlobalTools.Pop(new UserRegisterSuccessPanel2());
-            GlobalTools.ReturnMaintainWithPwd();
+            //GlobalTools.ReturnMaintainWithPwd();
             //GlobalTools.GoPanel(new ManagerModifyPwdPanel());
             //GlobalTools.Pop(new UserControl1());
            // Form frm = new RoundForm();

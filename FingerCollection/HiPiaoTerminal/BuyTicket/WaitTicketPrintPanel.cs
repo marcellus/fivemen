@@ -21,6 +21,7 @@ namespace HiPiaoTerminal.BuyTicket
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+            this.AutoScroll = true;
             this.lists = tickets;
             this.SetSepartor(false);
             this.movieInfo = movie;
@@ -88,6 +89,7 @@ namespace HiPiaoTerminal.BuyTicket
             Thread thread = new Thread(new ThreadStart(PrintTask));
             thread.IsBackground = true;
             thread.Start();
+            this.panel2.BringToFront();
         }
 
         private void PrintTask()

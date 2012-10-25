@@ -32,6 +32,7 @@
             this.btnQueryAccount = new System.Windows.Forms.PictureBox();
             this.btnReturnHome = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.adShowPanel1 = new HiPiaoTerminal.UserControlEx.AdShowPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuitAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQueryAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).BeginInit();
@@ -77,9 +78,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // adShowPanel1
+            // 
+            this.adShowPanel1.AdType = "注册完成页";
+            this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.adShowPanel1.Interval = 500;
+            this.adShowPanel1.Location = new System.Drawing.Point(219, 217);
+            this.adShowPanel1.Name = "adShowPanel1";
+            this.adShowPanel1.Size = new System.Drawing.Size(673, 298);
+            this.adShowPanel1.TabIndex = 1;
+            // 
             // UserRegisterSuccessPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.adShowPanel1);
             this.Controls.Add(this.btnQuitAccount);
             this.Controls.Add(this.btnQueryAccount);
             this.Controls.Add(this.btnReturnHome);
@@ -100,5 +112,6 @@
         private System.Windows.Forms.PictureBox btnReturnHome;
         private System.Windows.Forms.PictureBox btnQueryAccount;
         private System.Windows.Forms.PictureBox btnQuitAccount;
+        private HiPiaoTerminal.UserControlEx.AdShowPanel adShowPanel1;
     }
 }

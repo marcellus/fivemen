@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoSoft", "PhotoSoft\Phot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterReset", "PrinterReset\PrinterReset.csproj", "{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolTest", "ProtocolTest\ProtocolTest.csproj", "{8945BB2C-A0B8-4AD9-A9D7-7303A8E4BE29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B48FE4-F5EC-468A-95C4-0B84716DAC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8945BB2C-A0B8-4AD9-A9D7-7303A8E4BE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8945BB2C-A0B8-4AD9-A9D7-7303A8E4BE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8945BB2C-A0B8-4AD9-A9D7-7303A8E4BE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8945BB2C-A0B8-4AD9-A9D7-7303A8E4BE29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

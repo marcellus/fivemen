@@ -24,8 +24,7 @@ namespace HiPiaoInterface
                 this.handler = handler;
             }
         }
-
-        public static string GetTicket(string str)
+        public static string GetTicket(byte[] pack)
         {
 #if DEBUG
             Console.WriteLine("客户端开始连接！");
@@ -43,7 +42,7 @@ namespace HiPiaoInterface
 
                 Socket c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建一个Socket
 #if DEBUG
-                Console.WriteLine("开始连接服务器IP："+ip+"，端口"+port+"...");
+                Console.WriteLine("开始连接服务器IP：" + ip + "，端口" + port + "...");
 #endif
 
                 c.Connect(ipe);//连接到服务器
@@ -51,13 +50,13 @@ namespace HiPiaoInterface
                 Console.WriteLine("完成连接服务器...");
 #endif
 
-                string sendStr = str;
+                //string sendStr = str;
 
-                byte[] bs = Encoding.ASCII.GetBytes(sendStr);
+                
 
-                Console.WriteLine("发送取票内容为:"+sendStr);
+                Console.WriteLine("发送取票内容为:" + pack);
 
-                c.Send(bs, bs.Length, 0);//发送测试信息
+                c.Send(pack, pack.Length, 0);//发送测试信息
 
                 string recvStr = "";
 
@@ -72,9 +71,9 @@ namespace HiPiaoInterface
 
                 recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
 #if DEBUG
-                Console.WriteLine("从服务器接收内容长度为："+bytes+" 内容为："+recvStr);
+                Console.WriteLine("从服务器接收内容长度为：" + bytes + " 内容为：" + recvStr);
 #endif
-            //    Console.WriteLine("发送取票获取结果内容为:{0}", recvStr);//显示服务器返回信息
+                //    Console.WriteLine("发送取票获取结果内容为:{0}", recvStr);//显示服务器返回信息
 #if DEBUG
                 Console.WriteLine("开始断开服务器连接...");
 #endif
@@ -105,6 +104,12 @@ namespace HiPiaoInterface
             Console.WriteLine("客户端连接完成！");
 #endif
             return string.Empty;
+        }
+
+        public static string GetTicket(string sendStr)
+        {
+            byte[] content = Encoding.ASCII.GetBytes(sendStr);
+            return GetTicket(content);
         }
 
         private bool IsStarted = false;
@@ -215,6 +220,53 @@ namespace HiPiaoInterface
             {
                 Console.WriteLine("客户端还没有连接！");
                 //locked.ReleaseMutex();
+            }
+        }
+
+        public void Send(byte[] tmp)
+        {
+#if DEBUG
+            Console.WriteLine("客户端开始发送消息！" + tmp);
+#endif
+            if (tmp != null && tmp.Length > 0)
+            {
+
+            }
+            else
+            {
+                return;
+            }
+            //locked.WaitOne();
+            if (this.IsStarted)
+            {
+
+                // = System.Text.Encoding.UTF8.GetBytes(str);
+                try
+                {
+#if DEBUG
+                    Console.WriteLine("客户端开始异步发送消息！" + tmp);
+#endif
+                    this.tcpClient.Client.BeginSend(tmp, 0, tmp.Length, SocketFlags.None, new AsyncCallback(SendDataEnd), this.tcpClient.Client);
+
+#if DEBUG
+                    Console.WriteLine("客户端完成异步发送消息");
+#endif
+                }
+                catch (Exception ex)
+                {
+                    this.Stop();
+#if DEBUG
+                    Console.WriteLine("Fail远程主机已断开");
+#endif
+
+                }
+                //SocketHelper.WriteData(this.tcpClient,info);
+            }
+            else
+            {
+#if DEBUG
+                Console.WriteLine("Fail客户端连接还没有正确打开，请确认目标机器可用！");
+#endif
             }
         }
 

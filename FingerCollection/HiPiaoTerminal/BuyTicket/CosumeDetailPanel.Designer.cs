@@ -36,10 +36,8 @@
             this.lbRoom = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbAllFee = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbAccountMoney = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -137,13 +135,6 @@
             this.lbAccountMoney.TabIndex = 0;
             this.lbAccountMoney.Text = "账户余额：{0}元";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(-15, -15);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
-            this.numericUpDown1.TabIndex = 1;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTick_CosumeDetail_Sure;
@@ -168,7 +159,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lbDate);
             this.Controls.Add(this.lbNum);
             this.Controls.Add(this.lbMovieName);
@@ -179,7 +169,6 @@
             this.Controls.Add(this.simpleLabel1);
             this.Name = "CosumeDetailPanel";
             this.Size = new System.Drawing.Size(875, 594);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -197,7 +186,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbRoom;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbAllFee;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbAccountMoney;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

@@ -44,7 +44,8 @@ namespace PrinterReset
             string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
             //str = msgType + str;
             //helper.Send(str);
-            HipiaoTcpHelper.GetTicket(str);
+            //HipiaoTcpHelper.GetTicket(str);
+            HipiaoTcpHelper.GetTicket(HiPiaoProtocol.PackSend(msgType, str));
         }
     }
 }
