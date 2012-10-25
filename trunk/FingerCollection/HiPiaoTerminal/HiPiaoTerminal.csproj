@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="Account\QuitAccountConfirmPanel.Designer.cs">
       <DependentUpon>QuitAccountConfirmPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\SingleFeeDetailPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account\SingleFeeDetailPanel.Designer.cs">
+      <DependentUpon>SingleFeeDetailPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Account\UIdOrPwdErrorPanel.cs">
       <SubType>UserControl</SubType>
@@ -209,11 +216,17 @@
     <Compile Include="CommonForm\MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonForm\MessagePanel.cs">
+    <Compile Include="CommonForm\MessagePanelFirst.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CommonForm\MessagePanel.Designer.cs">
-      <DependentUpon>MessagePanel.cs</DependentUpon>
+    <Compile Include="CommonForm\MessagePanelFirst.Designer.cs">
+      <DependentUpon>MessagePanelFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm\MessagePanelSecond.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonForm\MessagePanelSecond.Designer.cs">
+      <DependentUpon>MessagePanelSecond.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonForm\NotifyUserForm.cs">
       <SubType>Form</SubType>
@@ -464,6 +477,10 @@
       <DependentUpon>QuitAccountConfirmPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Account\SingleFeeDetailPanel.resx">
+      <DependentUpon>SingleFeeDetailPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Account\UIdOrPwdErrorPanel.resx">
       <DependentUpon>UIdOrPwdErrorPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -540,8 +557,12 @@
       <DependentUpon>MessageForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonForm\MessagePanel.resx">
-      <DependentUpon>MessagePanel.cs</DependentUpon>
+    <EmbeddedResource Include="CommonForm\MessagePanelFirst.resx">
+      <DependentUpon>MessagePanelFirst.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\MessagePanelSecond.resx">
+      <DependentUpon>MessagePanelSecond.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\NotifyUserForm.resx">
@@ -915,12 +936,6 @@
     <None Include="Resources\1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\hint.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1197,6 +1212,16 @@
     <None Include="Resources\Account_QuitAccount.png" />
     <None Include="Resources\BindMobile_SendValidCode_NotActive.png" />
     <None Include="Resources\BindMobile_Success_BuyTicket.png" />
+    <None Include="Resources\btnSure_Second.png" />
+    <None Include="Resources\4_detail.png" />
+    <None Include="Resources\Account_FeeDetail_Back1.png" />
+    <None Include="Resources\Account_FeeDetail_Back2.png" />
+    <None Include="Resources\Account_FeeDetail_Back3.png" />
+    <None Include="Resources\Account_FeeDetail_Back4.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\Account_FeeDetail_Return.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

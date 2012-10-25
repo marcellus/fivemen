@@ -9,9 +9,9 @@ using FT.Commons.Tools;
 
 namespace HiPiaoTerminal.CommonForm
 {
-    public partial class MessagePanel : HiPiaoTerminal.UserControlEx.FirstNotifyUserPanel
+    public partial class MessagePanelFirst : HiPiaoTerminal.UserControlEx.FirstNotifyUserPanel
     {
-         public MessagePanel(string hint)
+         public MessagePanelFirst(string hint)
         {
             InitializeComponent();
             this.lbMsg1.Text = hint;
@@ -21,7 +21,7 @@ namespace HiPiaoTerminal.CommonForm
             WinFormHelper.CenterHor(this.picSure);
         }
 
-        public MessagePanel(string hint,string hint2)
+        public MessagePanelFirst(string hint,string hint2)
         {
             InitializeComponent();
             this.lbMsg1.Text = hint;

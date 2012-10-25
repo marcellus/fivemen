@@ -89,7 +89,16 @@ namespace HiPiaoTerminal.BuyTicket
             
             if (movie != null&&moviePlan!=null)
             {
-                this.lbMovieName.Text = movie.Name;
+                if (movie.Name.Length > 10)
+                {
+                    this.lbMovieName.Text = movie.Name.Substring(0, 10);
+                    this.toolTip1.SetToolTip(this.lbMovieName, movie.Name);
+                }
+                else
+                {
+                    this.lbMovieName.Text = movie.Name;
+                    this.toolTip1.SetToolTip(this.lbMovieName,string.Empty);
+                }
                 this.lbMovieDetail.Text = string.Format(this.lbMovieDetail.Text, moviePlan.Type, moviePlan.Language, movie.TotalMinutes);
                
 
@@ -387,6 +396,19 @@ namespace HiPiaoTerminal.BuyTicket
         private void lbTotalNum_Click(object sender, EventArgs e)
         {
 
+        }
+        Font fontHint = new Font("方正兰亭黑简体", 18);
+
+        private void toolTip1_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+
+            e.Graphics.DrawString(e.ToolTipText, fontHint, Brushes.Black, new PointF(0, 0));
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+            e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
 
        

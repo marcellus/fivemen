@@ -94,7 +94,7 @@ namespace HiPiaoTerminal.PrinterTicket
                 {
                     //retCode = 1;
                     //this.FindForm().Close();
-                    GlobalTools.ChangePanel(this.FindForm(), new MessagePanel("该影票已出过票！"));
+                    GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
                     
                    
                    
@@ -114,7 +114,7 @@ namespace HiPiaoTerminal.PrinterTicket
                 //retCode = 3;
                // this.FindForm().Close();
                // System.Threading.Thread.Sleep(1000);
-                GlobalTools.ChangePanel(this.FindForm(), new MessagePanel("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+                GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
                
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace HiPiaoTerminal.CommonForm
 {
-    partial class MessagePanel
+    partial class MessagePanelFirst
     {
         /// <summary>
         /// 必需的设计器变量。

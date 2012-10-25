@@ -93,7 +93,7 @@ namespace HiPiaoTerminal.Account
                     if (HiPiaoOperatorFactory.GetHiPiaoOperator().UpdatePwd(GlobalTools.GetLoginUser(), pwd))
                     {
                         this.lbNewPwdHint.Text = this.lbOldPwdHint.Text = this.lbRepeatPwdHint.Text = string.Empty;
-                        GlobalTools.Pop("修改密码成功！");
+                        GlobalTools.PopSecond("修改密码成功！");
                     }
                     else
                     {

@@ -35,7 +35,7 @@ namespace HiPiaoTerminal.ConfigModel
         public int UpdateMovieTime = 5;
 
 
-        public bool AllowShowMouse = false;
+        public bool AllowShowMouse = true;
 
 
         public bool UseMaskPanel = true;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieSeatSelectorPanel));
             this.lbMovieName = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbMovieDetail = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -52,6 +53,7 @@
             this.showWelcomePanel1 = new HiPiaoTerminal.BuyTicket.ShowWelcomePanel();
             this.btnDoubleToFullScreen = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -103,7 +105,7 @@
             // lbMovieName
             // 
             this.lbMovieName.AutoSize = true;
-            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbMovieName.Location = new System.Drawing.Point(124, 33);
             this.lbMovieName.Name = "lbMovieName";
@@ -115,10 +117,10 @@
             // lbMovieDetail
             // 
             this.lbMovieDetail.AutoSize = true;
-            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieDetail.Location = new System.Drawing.Point(398, 37);
             this.lbMovieDetail.Name = "lbMovieDetail";
-            this.lbMovieDetail.Size = new System.Drawing.Size(135, 22);
+            this.lbMovieDetail.Size = new System.Drawing.Size(124, 24);
             this.lbMovieDetail.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieDetail.TabIndex = 2;
             this.lbMovieDetail.Text = "{0} {1} {2}分钟";
@@ -126,11 +128,11 @@
             // lbPrice
             // 
             this.lbPrice.AutoSize = true;
-            this.lbPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbPrice.Location = new System.Drawing.Point(820, 33);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(120, 32);
+            this.lbPrice.Size = new System.Drawing.Size(113, 32);
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "{0}元/张";
@@ -138,7 +140,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
-            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(124, 78);
             this.label3.Name = "label3";
@@ -198,7 +200,7 @@
             // lbPlanInfo
             // 
             this.lbPlanInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPlanInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPlanInfo.Location = new System.Drawing.Point(3, 0);
             this.lbPlanInfo.Name = "lbPlanInfo";
             this.lbPlanInfo.Size = new System.Drawing.Size(217, 32);
@@ -264,7 +266,7 @@
             this.lbTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTotalPrice.Location = new System.Drawing.Point(101, 48);
             this.lbTotalPrice.Name = "lbTotalPrice";
-            this.lbTotalPrice.Size = new System.Drawing.Size(75, 32);
+            this.lbTotalPrice.Size = new System.Drawing.Size(71, 32);
             this.lbTotalPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalPrice.TabIndex = 0;
             this.lbTotalPrice.Text = "0.00";
@@ -276,7 +278,7 @@
             this.lbTotalNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTotalNum.Location = new System.Drawing.Point(101, 13);
             this.lbTotalNum.Name = "lbTotalNum";
-            this.lbTotalNum.Size = new System.Drawing.Size(80, 32);
+            this.lbTotalNum.Size = new System.Drawing.Size(77, 32);
             this.lbTotalNum.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalNum.TabIndex = 0;
             this.lbTotalNum.Text = "{0}张";
@@ -319,7 +321,7 @@
             // showWelcomePanel1
             // 
             this.showWelcomePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showWelcomePanel1.BackgroundImage")));
-            this.showWelcomePanel1.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.showWelcomePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.showWelcomePanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(183)))), ((int)(((byte)(0)))));
             this.showWelcomePanel1.Location = new System.Drawing.Point(252, 30);
             this.showWelcomePanel1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
@@ -350,6 +352,11 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(228, 276);
             this.panel4.TabIndex = 5;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.toolTip1.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
             // 
             // MovieSeatSelectorPanel
             // 
@@ -401,6 +408,7 @@
         private System.Windows.Forms.Panel panelSeat;
         private System.Windows.Forms.PictureBox btnDoubleToFullScreen;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }
