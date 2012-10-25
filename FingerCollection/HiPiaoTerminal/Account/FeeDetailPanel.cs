@@ -71,7 +71,7 @@ namespace HiPiaoTerminal.Account
                 }
             }
             this.lbFeeDetailHeader.Text = string.Format("消费详情 （{0}）", buys.Count.ToString());
-
+            this.lbRecordsCount.Text = "(" + buys.Count.ToString() + ")";
             SetPageButton();
         }
 
@@ -130,20 +130,29 @@ namespace HiPiaoTerminal.Account
             }
             Label lb1 = this.Controls["panelRow"+row.ToString()+"Col1"].Controls["lbRow" + row.ToString() + "Col1"] as Label;
             Label lb2 = this.Controls["panelRow" + row.ToString() + "Col2"].Controls["lbRow" + row.ToString() + "Col2"] as Label;
-            Label lb3 = this.Controls["panelRow" + row.ToString() + "Col2"].Controls["lbRow" + row.ToString() + "Col3"] as Label;
-            Label lb4 = this.Controls["panelRow" + row.ToString() + "Col3"].Controls["lbRow" + row.ToString() + "Col4"] as Label;
+            Label lb3 = this.Controls["panelRow" + row.ToString() + "Col3"].Controls["lbRow" + row.ToString() + "Col3"] as Label;
+            //Label lb4 = this.Controls["panelRow" + row.ToString() + "Col3"].Controls["lbRow" + row.ToString() + "Col4"] as Label;
+            Label lb4 = lb1;
+            Panel btn = this.Controls["panelRow" + row.ToString() + "Col4"] as Panel;
             if (record != null&&lb1!=null)
             {
                 lb1.Text =  record.BuyTime.ToString("yyyy-MM-dd HH:mm");
                 //listIndex.ToString() + "-"+
-                lb2.Text = string.Format("《{0}》 {1} 张 {2}元/张",record.Tickets[0].Movie.Name,record.Tickets.Count.ToString(),record.Tickets[0].Price.ToString());
-                lb3.Text = record.Tickets[0].Seat.Room.Name+"-"+record.Tickets[0].Seat.Room.Cinema.Name  ;
-                lb4.Text = record.TotalPrice.ToString();
+               // lb2.Text = string.Format("《{0}》 {1} 张 {2}元/张",record.Tickets[0].Movie.Name,record.Tickets.Count.ToString(),record.Tickets[0].Price.ToString());
+              //  lb3.Text = record.Tickets[0].Seat.Room.Name+"-"+record.Tickets[0].Seat.Room.Cinema.Name  ;
+               // lb4.Text = record.TotalPrice.ToString();
+                lb2.Text = record.Tickets[0].Seat.Room.Cinema.Name;
+                lb3.Text = record.TotalPrice.ToString();
+                btn.BackgroundImage = Properties.Resources.Account_FeeDetail_RowCol4_detail;
+                btn.Tag = record;
+               // lb4.Text = string.Empty;
 
             }
             else
             {
+                btn.Tag = null;
                 lb1.Text = lb2.Text = lb3.Text = lb4.Text = string.Empty;
+                btn.BackgroundImage = Properties.Resources.Account_FeeDetail_RowCol4;
             }
         }
 
@@ -178,6 +187,25 @@ namespace HiPiaoTerminal.Account
             }
            
             SetPageButton();
+        }
+
+        private void FeeDetailPanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelRow1Col4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelRow1Col4_Click(object sender, EventArgs e)
+        {
+            Panel btn = sender as Panel;
+            if (btn.Tag != null)
+            {
+                GlobalTools.Pop(new SingleFeeDetailPanel(btn.Tag as BuyRecordObject));
+            }
         }
     }
 }

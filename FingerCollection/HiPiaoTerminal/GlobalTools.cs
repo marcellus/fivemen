@@ -256,11 +256,19 @@ namespace HiPiaoTerminal
             GlobalTools.Pop("网络故障，请向影院工作人员垂询！", "或拨打400-601-5566");
         }
 
+        public static void PopSecond(string hint1)
+        {
+            // MessageForm form = new MessageForm(hint1);
+            //  form.ShowDialog();
+            MessagePanelSecond panel = new MessagePanelSecond(hint1);
+            Pop(panel, 1);
+        }
+
         public static void Pop(string hint1)
         {
            // MessageForm form = new MessageForm(hint1);
           //  form.ShowDialog();
-            MessagePanel panel=new MessagePanel(hint1);
+            MessagePanelFirst panel=new MessagePanelFirst(hint1);
             Pop(panel,1); 
         }
 
@@ -269,7 +277,7 @@ namespace HiPiaoTerminal
            // MessageForm form = new MessageForm(hint1, hint2);
             //form.ShowDialog();
 
-            MessagePanel panel = new MessagePanel(hint1,hint2);
+            MessagePanelFirst panel = new MessagePanelFirst(hint1,hint2);
             Pop(panel, 1); 
         }
 

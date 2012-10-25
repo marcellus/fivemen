@@ -68,7 +68,7 @@
             // 
             this.btnFeeDetailInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFeeDetailInfo.BackgroundImage")));
             this.btnFeeDetailInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFeeDetailInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
+            this.btnFeeDetailInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
             this.btnFeeDetailInfo.ForeColor = System.Drawing.Color.White;
             this.btnFeeDetailInfo.IsActive = false;
             this.btnFeeDetailInfo.Location = new System.Drawing.Point(357, 154);
@@ -99,7 +99,7 @@
             // 
             this.btnAccountInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAccountInfo.BackgroundImage")));
             this.btnAccountInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAccountInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 28F);
+            this.btnAccountInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
             this.btnAccountInfo.IsActive = false;
             this.btnAccountInfo.Location = new System.Drawing.Point(85, 154);
             this.btnAccountInfo.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);
