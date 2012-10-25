@@ -23,6 +23,12 @@ namespace FT.Commons.Tools
             next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
         }
 
+        public static void VerLocationAfter(Control ctr, Control next,int sep)
+        {
+            next.Location = new Point(ctr.Location.X, ctr.Location.Y+ctr.Height+sep);
+        }
+
+
         public static void InitButtonStyle(Control ctr)
         {
             if (ctr == null)
