@@ -154,8 +154,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				RegisterOutput="true"
-				PerUserRedirection="true"
+				RegisterOutput="false"
+				PerUserRedirection="false"
 				OutputFile="$(OutDir)\$(ProjectName).ocx"
 				LinkIncremental="1"
 				ModuleDefinitionFile=".\ETTDrvA8.def"
@@ -217,6 +217,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\LoadMyLibrary.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\NationItemArray.cpp"
 				>
 			</File>
@@ -260,6 +264,10 @@
 			</File>
 			<File
 				RelativePath=".\ETTDrvA8PropPage.h"
+				>
+			</File>
+			<File
+				RelativePath=".\LoadMyLibrary.h"
 				>
 			</File>
 			<File
