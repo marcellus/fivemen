@@ -4,6 +4,7 @@
 #include "ETTDrvA8.h"
 #include "ETTDrvA8Ctrl.h"
 #include "ETTDrvA8PropPage.h"
+#include "LoadMyLibrary.h"
 
 
 #ifdef _DEBUG
@@ -498,101 +499,105 @@ void CETTDrvA8Ctrl::OnIdCardChanged(void)
 SHORT CETTDrvA8Ctrl::LoadDll(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
-	// TODO: 在此添加调度处理程序代码
-	// AfxMessageBox("准备加载TTCardReaderV2！");
-	SYSCAN_hDrvModule=LoadLibrary(SCANNER_DLL_NAME);
-	//DLLInst=LoadLibrary("TTReadCard.dll");
-	//AfxMessageBox("加载完成TTCardReaderV2！");
-	if(SYSCAN_hDrvModule!=NULL)
-	{
-		//AfxMessageBox("开始加载TTCardReaderV2中的函数！");
-		SYSCAN_HasScanner               = (BOOL(__stdcall *)(char*))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_HasScanner"));
-		SYSCAN_CloseDevice				= (BOOL(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CloseDevice"));
-		SYSCAN_GetButtonStatus          = (SC_STATUS(__stdcall *)(unsigned long *))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetButtonStatus"));
-		SYSCAN_ResetDevice				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule, TEXT("IO_ResetDevice"));
-		SYSCAN_GetDeviceStatus			= (SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule, TEXT("IO_GetDeviceStatus"));
-		//	SYSCAN_SetScanMode				= (SC_STATUS(__cdecl *)(const SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_SetScanMode"));
-		//	SYSCAN_GetScanMode				= (SC_STATUS(__cdecl *)(SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanMode"));
-		//	SYSCAN_BeginScan				= (SC_STATUS(__cdecl *)(SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
-		SYSCAN_CancelScan				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelScan"));
-		SYSCAN_GetScanData				= (SC_STATUS(__stdcall *)(unsigned char* buffer, unsigned long length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanData"));
-		SYSCAN_StartCalib				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartCalib"));
-		SYSCAN_CancelCalib				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelCalib"));
-		//	SYSCAN_CalibrateScanner         = (SC_STATUS(__cdecl *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CalibrateScanner"));
-		//	SYSCAN_GetLines					= (SC_STATUS(__cdecl *)(BYTE *pAreaBuf,unsigned long lines, SC_MODE * mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetLines"));
+	#pragma endregion
+#pragma region 矽感
+	//// TODO: 在此添加调度处理程序代码
+	//// AfxMessageBox("准备加载TTCardReaderV2！");
+	//SYSCAN_hDrvModule=LoadLibrary(SCANNER_DLL_NAME);
+	////DLLInst=LoadLibrary("TTReadCard.dll");
+	////AfxMessageBox("加载完成TTCardReaderV2！");
+	//if(SYSCAN_hDrvModule!=NULL)
+	//{
+	//	//AfxMessageBox("开始加载TTCardReaderV2中的函数！");
+	//	SYSCAN_HasScanner               = (BOOL(__stdcall *)(char*))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_HasScanner"));
+	//	SYSCAN_CloseDevice				= (BOOL(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CloseDevice"));
+	//	SYSCAN_GetButtonStatus          = (SC_STATUS(__stdcall *)(unsigned long *))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetButtonStatus"));
+	//	SYSCAN_ResetDevice				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule, TEXT("IO_ResetDevice"));
+	//	SYSCAN_GetDeviceStatus			= (SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule, TEXT("IO_GetDeviceStatus"));
+	//	//	SYSCAN_SetScanMode				= (SC_STATUS(__cdecl *)(const SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_SetScanMode"));
+	//	//	SYSCAN_GetScanMode				= (SC_STATUS(__cdecl *)(SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanMode"));
+	//	//	SYSCAN_BeginScan				= (SC_STATUS(__cdecl *)(SC_MODE* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
+	//	SYSCAN_CancelScan				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelScan"));
+	//	SYSCAN_GetScanData				= (SC_STATUS(__stdcall *)(unsigned char* buffer, unsigned long length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanData"));
+	//	SYSCAN_StartCalib				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartCalib"));
+	//	SYSCAN_CancelCalib				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelCalib"));
+	//	//	SYSCAN_CalibrateScanner         = (SC_STATUS(__cdecl *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CalibrateScanner"));
+	//	//	SYSCAN_GetLines					= (SC_STATUS(__cdecl *)(BYTE *pAreaBuf,unsigned long lines, SC_MODE * mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetLines"));
 
-		//SYSCAN_BeginScan				= (SC_STATUS(__cdecl *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
-		SYSCAN_BeginScan				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
+	//	//SYSCAN_BeginScan				= (SC_STATUS(__cdecl *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
+	//	SYSCAN_BeginScan				= (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_BeginScan"));
 
-		//	SYSCAN_EndScan  			   = (SC_STATUS(__cdecl *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EndScan"));
-		SYSCAN_EndScan  			   = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EndScan"));	//20080304,delete parameters
+	//	//	SYSCAN_EndScan  			   = (SC_STATUS(__cdecl *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EndScan"));
+	//	SYSCAN_EndScan  			   = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EndScan"));	//20080304,delete parameters
 
-		SYSCAN_StartMotor				= (SC_STATUS(__stdcall *)(unsigned long speed))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartMotor"));
-		SYSCAN_StopMotor               = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StopMotor"));
+	//	SYSCAN_StartMotor				= (SC_STATUS(__stdcall *)(unsigned long speed))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartMotor"));
+	//	SYSCAN_StopMotor               = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StopMotor"));
 
-		/////////////////////////////////////////////////////////////////////////////////////
+	//	/////////////////////////////////////////////////////////////////////////////////////
 
-		SYSCAN_ConfiscateCard =(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_ConfiscateCard"));
-		SYSCAN_EjectCard =(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EjectCard"));
-		SYSCAN_GetSensorStatus=(SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetSensorStatus"));
-		SYSCAN_GetCardStatus=(SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetCardStatus"));
-		SYSCAN_StartSuckCard = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartSuckCard"));
-		SYSCAN_CancelSuckCard = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelSuckCard"));
+	//	SYSCAN_ConfiscateCard =(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_ConfiscateCard"));
+	//	SYSCAN_EjectCard =(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_EjectCard"));
+	//	SYSCAN_GetSensorStatus=(SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetSensorStatus"));
+	//	SYSCAN_GetCardStatus=(SC_STATUS(__stdcall *)(SC_STATUS* status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetCardStatus"));
+	//	SYSCAN_StartSuckCard = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartSuckCard"));
+	//	SYSCAN_CancelSuckCard = (SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CancelSuckCard"));
 
-		SYSCAN_SetScanModeA8 = (SC_STATUS(__stdcall *)(const SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_SetScanModeA8"));
-		SYSCAN_GetScanModeA8 = (SC_STATUS(__stdcall *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanModeA8"));
+	//	SYSCAN_SetScanModeA8 = (SC_STATUS(__stdcall *)(const SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_SetScanModeA8"));
+	//	SYSCAN_GetScanModeA8 = (SC_STATUS(__stdcall *)(SC_MODEA8* mode))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanModeA8"));
 
-		SYSCAN_GetScanDataLength=(SC_STATUS (__stdcall *)(unsigned long * status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanDataLength"));
-		SYSCAN_GetImageBlockA8 = (short(__stdcall *)(VOID * pAreaBuf1, VOID * pAreaBuf2,short line,unsigned long index,unsigned short *usOverFlag))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetImageBlockA8"));
+	//	SYSCAN_GetScanDataLength=(SC_STATUS (__stdcall *)(unsigned long * status))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetScanDataLength"));
+	//	SYSCAN_GetImageBlockA8 = (short(__stdcall *)(VOID * pAreaBuf1, VOID * pAreaBuf2,short line,unsigned long index,unsigned short *usOverFlag))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetImageBlockA8"));
 
-		//Add by chengxiang,20080304
-		SYSCAN_GetChipID=(SC_STATUS(__stdcall *)(UINT * pChipID))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetChipID"));
-		SYSCAN_Beep=(SC_STATUS(__stdcall *)(int time))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_Beep"));
-		SYSCAN_GetVersion=(SC_STATUS(__stdcall *)(char * version))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetVersion"));
-		//End add
+	//	//Add by chengxiang,20080304
+	//	SYSCAN_GetChipID=(SC_STATUS(__stdcall *)(UINT * pChipID))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetChipID"));
+	//	SYSCAN_Beep=(SC_STATUS(__stdcall *)(int time))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_Beep"));
+	//	SYSCAN_GetVersion=(SC_STATUS(__stdcall *)(char * version))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetVersion"));
+	//	//End add
 
-		SYSCAN_GetMagcardDataLength = (SC_STATUS(__stdcall *)(unsigned long track, unsigned long * length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardDataLength"));
-		SYSCAN_GetMagcardData = (SC_STATUS(__stdcall *)(unsigned long track, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardData"));
+	//	SYSCAN_GetMagcardDataLength = (SC_STATUS(__stdcall *)(unsigned long track, unsigned long * length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardDataLength"));
+	//	SYSCAN_GetMagcardData = (SC_STATUS(__stdcall *)(unsigned long track, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardData"));
 
-		SYSCAN_GetMagcardRawDataLength = (SC_STATUS(__stdcall *)(unsigned long track, unsigned long * length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardRawDataLength"));
-		SYSCAN_GetMagcardRawData = (SC_STATUS(__stdcall *)(unsigned long track, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardRawData"));
+	//	SYSCAN_GetMagcardRawDataLength = (SC_STATUS(__stdcall *)(unsigned long track, unsigned long * length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardRawDataLength"));
+	//	SYSCAN_GetMagcardRawData = (SC_STATUS(__stdcall *)(unsigned long track, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetMagcardRawData"));
 
-		SYSCAN_GetCalibData		=	(SC_STATUS(__stdcall *)(SC_CALIBDATA *))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetCalibData"));
-		SYSCAN_GetDeviceError	=	(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetDeviceError"));	
-		SYSCAN_GetImgFromUnit   =   (SC_STATUS(__stdcall *)(unsigned long lDpi,
-			const char *pImgPath1,unsigned long *lImgW1,unsigned long *lImgH1,
-			const char *pImgPath2,unsigned long *lImgW2,unsigned long *lImgH2))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetImgFromUnit"));
-		SYSCAN_GetColorImgFromUnit   =   (SC_STATUS(__stdcall *)(unsigned long lDpi,
-			const char *pImgPath1,unsigned long *lImgW1,unsigned long *lImgH1,
-			const char *pImgPath2,unsigned long *lImgW2,unsigned long *lImgH2))GetProcAddress(SYSCAN_hDrvModule,TEXT("SYSCAN_GetColorImgFromUnit"));
+	//	SYSCAN_GetCalibData		=	(SC_STATUS(__stdcall *)(SC_CALIBDATA *))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetCalibData"));
+	//	SYSCAN_GetDeviceError	=	(SC_STATUS(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetDeviceError"));	
+	//	SYSCAN_GetImgFromUnit   =   (SC_STATUS(__stdcall *)(unsigned long lDpi,
+	//		const char *pImgPath1,unsigned long *lImgW1,unsigned long *lImgH1,
+	//		const char *pImgPath2,unsigned long *lImgW2,unsigned long *lImgH2))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetImgFromUnit"));
+	//	SYSCAN_GetColorImgFromUnit   =   (SC_STATUS(__stdcall *)(unsigned long lDpi,
+	//		const char *pImgPath1,unsigned long *lImgW1,unsigned long *lImgH1,
+	//		const char *pImgPath2,unsigned long *lImgW2,unsigned long *lImgH2))GetProcAddress(SYSCAN_hDrvModule,TEXT("SYSCAN_GetColorImgFromUnit"));
 
-		SYSCAN_GetHeadFromImage =   (SC_STATUS(__stdcall *)(const char *pImgPath1,const char *pImgPath2,const char *pImgHeadPath))
-			GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetHeadFromImage"));
+	//	SYSCAN_GetHeadFromImage =   (SC_STATUS(__stdcall *)(const char *pImgPath1,const char *pImgPath2,const char *pImgHeadPath))
+	//		GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_GetHeadFromImage"));
 
-		//add for rfid
-		SYSCAN_StopRFID                = (long(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StopRFID"));
-		SYSCAN_StartRFID               = (long(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartRFID"));
-		SYSCAN_HaltCard				   = (long(__stdcall *)(const SC_RFID* param))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_HaltCard"));
-		SYSCAN_RequestCard			   = (long(__stdcall *)(unsigned long* type))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_RequestCard"));
-		SYSCAN_ReadCard	               = (long(__stdcall *)(const SC_RFID* param, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_ReadCard"));
-		SYSCAN_ReadRFIDInfo			   = (long(__stdcall *)(id_Card *pIdCard))GetProcAddress(SYSCAN_hDrvModule,"IO_ReadRFIDInfo");
-		//add for rfid end
+	//	//add for rfid
+	//	SYSCAN_StopRFID                = (long(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StopRFID"));
+	//	SYSCAN_StartRFID               = (long(__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_StartRFID"));
+	//	SYSCAN_HaltCard				   = (long(__stdcall *)(const SC_RFID* param))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_HaltCard"));
+	//	SYSCAN_RequestCard			   = (long(__stdcall *)(unsigned long* type))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_RequestCard"));
+	//	SYSCAN_ReadCard	               = (long(__stdcall *)(const SC_RFID* param, unsigned char* buffer, unsigned long* length))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_ReadCard"));
+	//	SYSCAN_ReadRFIDInfo			   = (long(__stdcall *)(id_Card *pIdCard))GetProcAddress(SYSCAN_hDrvModule,"IO_ReadRFIDInfo");
+	//	//add for rfid end
 
-		SYSCAN_CalibBmpFile		=	(void(__stdcall *)(char *pFilePath))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CalibBmpFile"));
-		SYSCAN_BmpToJpeg		=	(int (__stdcall *)(char *srcFileName,char *dstFileName))GetProcAddress(SYSCAN_hDrvModule,"BmpToJpeg");
-		SYSCAN_Dpi600To300		=   (BOOL (__stdcall *)(BYTE *srcbuf,BYTE *dstbuf,int width,int height,BYTE imgMode))GetProcAddress(SYSCAN_hDrvModule,"Dpi600To300");
-		SYSCAN_SetCalibdata=(int (__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,"IO_SetCalibdata");
+	//	SYSCAN_CalibBmpFile		=	(void(__stdcall *)(char *pFilePath))GetProcAddress(SYSCAN_hDrvModule,TEXT("IO_CalibBmpFile"));
+	//	SYSCAN_BmpToJpeg		=	(int (__stdcall *)(char *srcFileName,char *dstFileName))GetProcAddress(SYSCAN_hDrvModule,"BmpToJpeg");
+	//	SYSCAN_Dpi600To300		=   (BOOL (__stdcall *)(BYTE *srcbuf,BYTE *dstbuf,int width,int height,BYTE imgMode))GetProcAddress(SYSCAN_hDrvModule,"Dpi600To300");
+	//	SYSCAN_SetCalibdata=(int (__stdcall *)(void))GetProcAddress(SYSCAN_hDrvModule,"IO_SetCalibdata");
 
-		//AfxMessageBox("加载完成TTCardReaderV2中的函数！");
+	//	//AfxMessageBox("加载完成TTCardReaderV2中的函数！");
 
-	}
-	else
-	{
-		AfxMessageBox("加载动态库A8.dll失败！");
-		exit(0);
-	}
+	//}
+	//else
+	//{
+	//	AfxMessageBox("加载动态库A8.dll失败！");
+	//	exit(0);
+	//}
 
+#pragma endregion
 
 	return 0;
 }
@@ -601,6 +606,9 @@ SHORT CETTDrvA8Ctrl::OpenDeviceEx(SHORT port)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 
+
+#pragma region 是否授权
+	/*
 	HMODULE regLib = LoadLibrary("ETTUtils.dll");
 
 	int (WINAPI *Util_GetMachineKey )(char *strKey);
@@ -620,7 +628,9 @@ SHORT CETTDrvA8Ctrl::OpenDeviceEx(SHORT port)
 		//return 0;
 	}
 /**/
-
+#pragma endregion
+#pragma region 矽感
+	/*
 	if (SYSCAN_HasScanner(SCANNER_NAME))
 	{
 		CString dispinfo;
@@ -650,15 +660,22 @@ SHORT CETTDrvA8Ctrl::OpenDeviceEx(SHORT port)
 	}
 	//bRFIDEnable = FALSE;
 	CalibrationEx();
+	*/
+#pragma endregion
 
 	return 0;
 }
 
+
 SHORT CETTDrvA8Ctrl::CloseDeviceEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+	#pragma region 新北洋
 
+	#pragma endregion
 
+#pragma region 矽感
+	/*
 	// TODO: 在此添加调度处理程序代码
 	if (scan_running)
 	{	
@@ -666,6 +683,8 @@ SHORT CETTDrvA8Ctrl::CloseDeviceEx(void)
 		scan_running = false;
 	}   
 	SYSCAN_CloseDevice();
+	*/
+#pragma endregion
 
 	return 0;
 }
@@ -673,14 +692,20 @@ SHORT CETTDrvA8Ctrl::CloseDeviceEx(void)
 SHORT CETTDrvA8Ctrl::EnterCardEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
-	long lRet = llllllll                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       llllllllllllllllkjjiooooooooooooooooooooooooooooooooooooooooooo[hj                                                                                                                                                                                                                                                                                               hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhihjooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooot	`1``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````();
+	#pragma endregion
+#pragma region 矽感
+	/*
+	long lRet = 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       llllllllllllllllkjjiooooooooooooooooooooooooooooooooooooooooooo[hj                                                                                                                                                                                                                                                                                               hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhihjooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooot	`1``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````();
 	if(lRet==SCS_OK)
 	{
 		this->m_Message="成功";
 		return 0;
 	}
 	this->m_Message="失败";
+	*/
+#pragma endregion
 
 	return -1;
 }
@@ -688,7 +713,11 @@ SHORT CETTDrvA8Ctrl::EnterCardEx(void)
 SHORT CETTDrvA8Ctrl::EjectCardEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
+	#pragma endregion
+#pragma region 矽感
+	/*
 	unsigned long status =  SYSCAN_EjectCard();
 	if(status==SCS_OK)
 	{
@@ -698,6 +727,8 @@ SHORT CETTDrvA8Ctrl::EjectCardEx(void)
 		return 0;
 	}
 	this->m_Message="失败";
+	*/
+#pragma endregion
 
 	return -1;
 }
@@ -705,12 +736,17 @@ SHORT CETTDrvA8Ctrl::EjectCardEx(void)
 SHORT CETTDrvA8Ctrl::DestroyDll(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
+	#pragma endregion
+#pragma region 矽感
+	/*
 	if(SYSCAN_hDrvModule!=NULL)
 	{
 		FreeLibrary(SYSCAN_hDrvModule);
 		SYSCAN_hDrvModule=NULL;
 	}
+	*/
 	/*
 	if(DLLInst2!=NULL)
 	{
@@ -723,6 +759,7 @@ SHORT CETTDrvA8Ctrl::DestroyDll(void)
 	DLLInst3=NULL;
 	}
 	*/
+#pragma endregion
 
 	return 0;
 }
@@ -739,7 +776,11 @@ SHORT CETTDrvA8Ctrl::ReadAndScanEx(void)
 SHORT CETTDrvA8Ctrl::GetDeviceStatusEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
+	#pragma endregion
+#pragma region 矽感
+	/*
 	SC_STATUS Cstatus;                                            
 	SC_STATUS DeviceStatus =  SYSCAN_GetDeviceStatus(&Cstatus);
 	this->m_Message = "error";
@@ -799,7 +840,8 @@ SHORT CETTDrvA8Ctrl::GetDeviceStatusEx(void)
 	//{
 	//m_Message = "SCS_MOTOR";
 	//} 
-
+*/
+#pragma endregion
 
 	return 0;
 }
@@ -807,6 +849,11 @@ SHORT CETTDrvA8Ctrl::GetDeviceStatusEx(void)
 SHORT CETTDrvA8Ctrl::CalibrationEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
+
+	#pragma endregion
+#pragma region 矽感
+	/*
 	modeA8.mode_d = 7;		//
 	modeA8.mode_d_r	= 7;
 	modeA8.mode_u = 7;
@@ -841,6 +888,8 @@ SHORT CETTDrvA8Ctrl::CalibrationEx(void)
 		disdata.Format("Get calibration parameter OK!");
 		return 0;
 	}
+*/
+#pragma endregion
 
 	return 0;
 }
@@ -916,7 +965,12 @@ SHORT CETTDrvA8Ctrl::InitNationArray(void)
 SHORT CETTDrvA8Ctrl::GetCardStatusEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
+	#pragma endregion
+
+#pragma region 矽感
+	/*
 	// TODO: 在此添加调度处理程序代码
 
 	SC_STATUS Cstatus;                                            
@@ -963,10 +1017,12 @@ SHORT CETTDrvA8Ctrl::GetCardStatusEx(void)
 
 	}
 
-
-
-
 	return Cstatus;
+*/
+
+#pragma endregion
+
+return 0;
 }
 
 
@@ -974,305 +1030,312 @@ SHORT CETTDrvA8Ctrl::GetCardStatusEx(void)
 SHORT CETTDrvA8Ctrl::ReadAndScanDpiEx(LONG dpi)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
 
-	// TODO: 在此添加调度处理程序代码
+	#pragma endregion
+#pragma region 矽感
+//	
+//	// TODO: 在此添加调度处理程序代码
+//
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method!");
+//	BOOL bScanOk = FALSE;
+//	//define bitmap file
+//	SC_CALIBDATA * pTempCalibData;
+//	SC_CALIBDATA tempCalibData;
+//	pTempCalibData=&tempCalibData;
+//	*pTempCalibData=CalibData;
+//	//if (MessageBox("Calibrate scan data?","scan",MB_YESNO)==IDNO)
+//	//{
+//	//	(SC_CALIBDATA * )memset(pTempCalibData,0,sizeof(CalibData));
+//	//}
+//
+//	FILE*          pFile1 = NULL;
+//	FILE*          pFile2 = NULL;
+//	FILE*          pFile3 = NULL;
+//	FILE*          pFile4 = NULL;
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method2!");
+//
+//	DWORD dwStart;
+//	const long cntlImgLinePerBlock = 8;//8;//block one change to four //Changed by liqian on 2010-11-08 for test
+//	char ImgFilePath1[260],ImgFilePath2[260],ImgFilePath3[260],ImgFilePath4[260];
+//	char ImgFilePath1Jpg[260],ImgFilePath2Jpg[260],ImgFilePath3Jpg[260],ImgFilePath4Jpg[260];
+//	unsigned char *pBmp1=NULL,*pBmp2=NULL,*pBmp3=NULL,*pBmp4=NULL;
+//
+//	CString disdata;
+//	CString	dispinfo;
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method3!");
+//
+//	//m_staticinfo.SetWindowText(dispinfo);
+//	long			lImgW = const_imgW;
+//	long			lImgH = Const_MaxImageHeight;//const_imgH;
+//	long			lImgLineScaned = 0;
+//	long			lImgLineOfLastBlock = 0;
+//	unsigned char*	pImgBuf = NULL;
+//	int				nBytesPerLine = 0;/*image bytes per scann-line*/
+//	int				nStartScanPos  = 0;
+//	int				nLineBytesForward,nLineBytesReverse;
+//	int				nOffsetForward,nOffsetReverse;
+//	long			lImgLinePerBlock = cntlImgLinePerBlock;//block one change to four
+//	SC_STATUS		status;
+//	SC_STATUS Cstatus; 
+//	BOOL bReadDataForwardOk=FALSE,bReadDataReverseOk=FALSE;
+//	char AA[1024] = {0};
+//	unsigned short mIs_ScanOver = 0;
+//
+//	dispinfo.Format("");
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method4!");
+//
+//	//check device has been opened
+//	if(!scan_running)
+//	{
+//		//AfxMessageBox("Begin Activex ReadAndScanEx Method5!");
+//		//Notice();
+//	}
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method5!");
+//	status = SYSCAN_StartSuckCard();
+//	if (status != SCS_OK)
+//	{
+//		dispinfo.Format("Start suck card failed");
+//		//AfxMessageBox(dispinfo);
+//		return -1;
+//	}
+//	//check card status
+//	/*
+//	DWORD dwEnd;
+//	dwStart = GetTickCount();
+//	//while (1)
+//	//{
+//	dwEnd = GetTickCount();
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method6!");
+//	if (dwEnd - dwStart > 10000)
+//	{
+//		dispinfo.Format("Wait card timeout");
+//		//AfxMessageBox(dispinfo);
+//		status = SYSCAN_CancelSuckCard();
+//		if (status != SCS_OK)
+//		{
+//			dispinfo.Format("Cancel suck card error");
+//			//AfxMessageBox(dispinfo);
+//		}
+//		return -1;
+//	}
+//	*/
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method7!");
+//	status = SYSCAN_GetCardStatus(&Cstatus);
+//	dispinfo.Format("get card Status->%d",status);
+//	//AfxMessageBox(dispinfo);
+//	if(status != SCS_OK)
+//	{
+//		dispinfo.Format("SC_COMMUNICATION_ERR");
+//		//AfxMessageBox(dispinfo);
+//		return -1;
+//	}
+//	if(Cstatus == STATUS_CARD_NONE)
+//	{
+//		dispinfo.Format("please insert card");
+//		//AfxMessageBox(dispinfo);
+//		return -1;
+//	}
+//	else if((Cstatus != STATUS_CARD_F_READY) && (Cstatus != STATUS_CARD_R_READY) && (Cstatus != STATUS_CARD_DONE))
+//	{
+//		dispinfo.Format("scanner is busy");
+//		//AfxMessageBox(dispinfo);
+//		return -1;
+//	}
+//	//else
+//	//{
+//	//AfxMessageBox("Begin Activex ReadAndScanEx Method8!");
+//	//return -1;
+//	//}
+//	//}
+//	//check card status complete
+//	//AfxMessageBox("Begin Read RFID");
+//	//Read RFID
+//	id_Card acard;
+//	memset(&acard,0,sizeof(acard));
+//	//acard->
+//	//AfxMessageBox("Begin SYSCAN_ReadRFIDInfo ");
+//	status = SYSCAN_ReadRFIDInfo(&acard);
+//	dispinfo.Format("SYSCAN_ReadRFIDInfo Status->%d",status);
+//	//AfxMessageBox(dispinfo);
+//	//AfxMessageBox("End Read RFID");
+//	if (status == SCS_OK)
+//	{
+//		char id_Name[30] = {0};			  //姓名	  30   bytes
+//		char id_Sex[4] = {0};				  //性别	  2    bytes
+//		char id_National[4] = {0};		  //民族	  4    bytes
+//		char id_Born[16] = {0};			  //出生	  16   bytes
+//		char id_Home[70] = {0};			  //家庭	  70   bytes
+//		char id_Code[36] = {0};			  //身份证号  36   bytes
+//		char id_RegOrg[30] = {0};		  //机关	  30   bytes
+//		char id_ValidPeriod[32] = {0};	  //有效期限  32   bytes 	 
+//		char id_NewAddr[36] = {0};		  //最新地址  36   bytes
+//
+//
+//		char	strTmp1[300];
+//
+//		LPSTR	lpBmpData = NULL;
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_Name,15,strTmp1,300,NULL,NULL);
+//
+//		strcpy(id_Name, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,&(acard.id_Sex),1,strTmp1,300,NULL,NULL);
+//		if (1==atoi(strTmp1)) 
+//		{
+//			strcpy(id_Sex, "男");
+//			this->m_SexCode=1;
+//		}
+//		else if (2==atoi(strTmp1))
+//		{	strcpy(id_Sex, "女");
+//		this->m_SexCode=2;
+//		}
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_National,2,strTmp1,300,NULL,NULL);
+//		strcpy(id_National, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_Born,8,strTmp1,300,NULL,NULL);
+//		strcpy(id_Born, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_Home,35,strTmp1,/*0*/300,NULL,NULL);
+//		strcpy(id_Home, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_Code,18,strTmp1,/*0*/300,NULL,NULL);
+//		strcpy(id_Code, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_RegOrg,15,strTmp1,/*0*/300,NULL,NULL);
+//		strcpy(id_RegOrg, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_ValidPeriod,16,strTmp1,/*0*/300,NULL,NULL);
+//		strcpy(id_ValidPeriod, strTmp1);
+//
+//		memset(strTmp1,0x00,300);
+//		WideCharToMultiByte(0,0,acard.id_NewAddr,18,strTmp1,/*0*/300,NULL,NULL);
+//		strcpy(id_NewAddr, strTmp1);
+//
+//
+//		char str[1284];
+//		memset(str,0,1284);
+//		this->m_Address=_com_util::ConvertStringToBSTR(id_Home);
+//		this->m_UserName=_com_util::ConvertStringToBSTR(id_Name);
+//		this->m_NationCode=_com_util::ConvertStringToBSTR(id_National);
+//		this->InitNationArray();
+//		this->m_NationName=this->m_nationArray.Get(this->m_NationCode);
+//		this->m_SexName=_com_util::ConvertStringToBSTR(id_Sex);
+//		this->m_Birth=_com_util::ConvertStringToBSTR(id_Born);
+//		this->m_IdCard=_com_util::ConvertStringToBSTR(id_Code);
+//		this->m_Fzjg=_com_util::ConvertStringToBSTR(id_RegOrg);
+//		this->m_YxqxName=_com_util::ConvertStringToBSTR(id_ValidPeriod);
+//
+//
+//		this->bViewBmp = TRUE;
+//		//AfxMessageBox("创建WLT文件开始");
+//		if(! this->CreateWltFile(acard.id_pImage))//CREATE WLT FILE
+//		{
+//			//AfxMessageBox("create WLT file fail");
+//			//AfxMessageBox("创建WLT文件失败");
+//			return SCS_RDTYPE2FILEERR;
+//		}
+//
+//
+//		//LPTSTR   prefpath   =   this->m_ImgPathPreX.GetBuffer(); 
+//		//   在这里添加使用p的代码 
+//		//if(prefpath   !=   NULL)   
+//		//*prefpath   =   _T( '\0 '); 
+//		//this->m_ImgPathPreX.ReleaseBuffer();   //   使用完后及时释放，以便能使用其它的CString成员函数 
+//
+//
+//		GetExePath(ImgFilePath1);
+//		strcat(ImgFilePath1,"Picture1.bmp");
+//		GetExePath(ImgFilePath2);
+//		strcat(ImgFilePath2,"Picture2.bmp");
+//		GetExePath(ImgFilePath1Jpg);
+//		strcat(ImgFilePath1Jpg,"Picture1.jpg");
+//		GetExePath(ImgFilePath2Jpg);
+//		strcat(ImgFilePath2Jpg,"Picture2.jpg");
+//
+//
+///*		GetExePath(ImgFilePath2);
+//		strcat(ImgFilePath2,"Picture2.bmp");
+//		
+//
+//		GetExePath(ImgFilePath3);
+//		strcat(ImgFilePath3,"Picture3.bmp");
+//		GetExePath(ImgFilePath3Jpg);
+//		strcat(ImgFilePath3Jpg,"Picture3.jpg");
+//
+//		GetExePath(ImgFilePath4);
+//		strcat(ImgFilePath4,"Picture4.bmp");
+//		GetExePath(ImgFilePath4Jpg);
+//		strcat(ImgFilePath4Jpg,"Picture4.jpg");
+//		*/
+//
+//		//set bitmap filename complete
+//
+//		//check scan mode
+//		if(modeA8.mode_u == 16)	
+//		{
+//			nLineBytesForward = const_imgW * 3;
+//			nOffsetForward = 54;
+//		}
+//		else
+//		{
+//			nLineBytesForward = const_imgW;    
+//			nOffsetForward = 1078;
+//		}
+//
+//		if(modeA8.mode_u == 16)
+//		{
+//			nLineBytesReverse = const_imgW * 3;
+//			nOffsetReverse = 54;
+//		}
+//		else
+//		{
+//			nLineBytesReverse = const_imgW; 
+//			nOffsetReverse = 1078;
+//		}
+//
+//		int iRet;
+//		unsigned long lImgW1=600,lImgH1=400;
+//		//AfxMessageBox("开始扫描");
+//		iRet=SYSCAN_GetImgFromUnit(dpi,ImgFilePath1,&lImgW1,&lImgH1,ImgFilePath2,&lImgW1,&lImgH1);
+//		//if (this->m_CompressJpg==1)	//判断是否要压缩成JPEG格式
+//		//{
+//			SYSCAN_BmpToJpeg(ImgFilePath1,ImgFilePath1Jpg);
+//			SYSCAN_BmpToJpeg(ImgFilePath2,ImgFilePath2Jpg);
+//			/*if (bReadDataReverseOk)
+//			{
+//			SYSCAN_BmpToJpeg(ImgFilePath3,ImgFilePath3Jpg);
+//			SYSCAN_BmpToJpeg(ImgFilePath4,ImgFilePath4Jpg);
+//			}*/
+//		//}
+//		//iRet=SYSCAN_GetColorImgFromUnit(dpi,ImgFilePath1,&lImgW1,&lImgH1,ImgFilePath2,&lImgW1,&lImgH1);
+//		//AfxMessageBox("结束扫描");
+//		if(iRet == 0)
+//		{
+//			SYSCAN_EjectCard();
+//			//SYSCAN_ResetDevice();
+//			Sleep(100);
+//			//AfxMessageBox("scan success");
+//			//iRet = SYSCAN_GetHeadFromImage(ImgFilePath1,ImgFilePath2,"c:\\imgHead.bmp");
+//		}else {
+//			SYSCAN_EjectCard();
+//			SYSCAN_ResetDevice();
+//			AfxMessageBox("图片扫描异常，设备已复位，请重试");
+//		}
+//
+//		return 0;
+//	}
+//	
+#pragma endregion
 
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method!");
-	BOOL bScanOk = FALSE;
-	//define bitmap file
-	SC_CALIBDATA * pTempCalibData;
-	SC_CALIBDATA tempCalibData;
-	pTempCalibData=&tempCalibData;
-	*pTempCalibData=CalibData;
-	//if (MessageBox("Calibrate scan data?","scan",MB_YESNO)==IDNO)
-	//{
-	//	(SC_CALIBDATA * )memset(pTempCalibData,0,sizeof(CalibData));
-	//}
-
-	FILE*          pFile1 = NULL;
-	FILE*          pFile2 = NULL;
-	FILE*          pFile3 = NULL;
-	FILE*          pFile4 = NULL;
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method2!");
-
-	DWORD dwStart;
-	const long cntlImgLinePerBlock = 8;//8;//block one change to four //Changed by liqian on 2010-11-08 for test
-	char ImgFilePath1[260],ImgFilePath2[260],ImgFilePath3[260],ImgFilePath4[260];
-	char ImgFilePath1Jpg[260],ImgFilePath2Jpg[260],ImgFilePath3Jpg[260],ImgFilePath4Jpg[260];
-	unsigned char *pBmp1=NULL,*pBmp2=NULL,*pBmp3=NULL,*pBmp4=NULL;
-
-	CString disdata;
-	CString	dispinfo;
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method3!");
-
-	//m_staticinfo.SetWindowText(dispinfo);
-	long			lImgW = const_imgW;
-	long			lImgH = Const_MaxImageHeight;//const_imgH;
-	long			lImgLineScaned = 0;
-	long			lImgLineOfLastBlock = 0;
-	unsigned char*	pImgBuf = NULL;
-	int				nBytesPerLine = 0;/*image bytes per scann-line*/
-	int				nStartScanPos  = 0;
-	int				nLineBytesForward,nLineBytesReverse;
-	int				nOffsetForward,nOffsetReverse;
-	long			lImgLinePerBlock = cntlImgLinePerBlock;//block one change to four
-	SC_STATUS		status;
-	SC_STATUS Cstatus; 
-	BOOL bReadDataForwardOk=FALSE,bReadDataReverseOk=FALSE;
-	char AA[1024] = {0};
-	unsigned short mIs_ScanOver = 0;
-
-	dispinfo.Format("");
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method4!");
-
-	//check device has been opened
-	if(!scan_running)
-	{
-		//AfxMessageBox("Begin Activex ReadAndScanEx Method5!");
-		//Notice();
-	}
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method5!");
-	status = SYSCAN_StartSuckCard();
-	if (status != SCS_OK)
-	{
-		dispinfo.Format("Start suck card failed");
-		//AfxMessageBox(dispinfo);
-		return -1;
-	}
-	//check card status
-	/*
-	DWORD dwEnd;
-	dwStart = GetTickCount();
-	//while (1)
-	//{
-	dwEnd = GetTickCount();
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method6!");
-	if (dwEnd - dwStart > 10000)
-	{
-		dispinfo.Format("Wait card timeout");
-		//AfxMessageBox(dispinfo);
-		status = SYSCAN_CancelSuckCard();
-		if (status != SCS_OK)
-		{
-			dispinfo.Format("Cancel suck card error");
-			//AfxMessageBox(dispinfo);
-		}
-		return -1;
-	}
-	*/
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method7!");
-	status = SYSCAN_GetCardStatus(&Cstatus);
-	dispinfo.Format("get card Status->%d",status);
-	//AfxMessageBox(dispinfo);
-	if(status != SCS_OK)
-	{
-		dispinfo.Format("SC_COMMUNICATION_ERR");
-		//AfxMessageBox(dispinfo);
-		return -1;
-	}
-	if(Cstatus == STATUS_CARD_NONE)
-	{
-		dispinfo.Format("please insert card");
-		//AfxMessageBox(dispinfo);
-		return -1;
-	}
-	else if((Cstatus != STATUS_CARD_F_READY) && (Cstatus != STATUS_CARD_R_READY) && (Cstatus != STATUS_CARD_DONE))
-	{
-		dispinfo.Format("scanner is busy");
-		//AfxMessageBox(dispinfo);
-		return -1;
-	}
-	//else
-	//{
-	//AfxMessageBox("Begin Activex ReadAndScanEx Method8!");
-	//return -1;
-	//}
-	//}
-	//check card status complete
-	//AfxMessageBox("Begin Read RFID");
-	//Read RFID
-	id_Card acard;
-	memset(&acard,0,sizeof(acard));
-	//acard->
-	//AfxMessageBox("Begin SYSCAN_ReadRFIDInfo ");
-	status = SYSCAN_ReadRFIDInfo(&acard);
-	dispinfo.Format("SYSCAN_ReadRFIDInfo Status->%d",status);
-	//AfxMessageBox(dispinfo);
-	//AfxMessageBox("End Read RFID");
-	if (status == SCS_OK)
-	{
-		char id_Name[30] = {0};			  //姓名	  30   bytes
-		char id_Sex[4] = {0};				  //性别	  2    bytes
-		char id_National[4] = {0};		  //民族	  4    bytes
-		char id_Born[16] = {0};			  //出生	  16   bytes
-		char id_Home[70] = {0};			  //家庭	  70   bytes
-		char id_Code[36] = {0};			  //身份证号  36   bytes
-		char id_RegOrg[30] = {0};		  //机关	  30   bytes
-		char id_ValidPeriod[32] = {0};	  //有效期限  32   bytes 	 
-		char id_NewAddr[36] = {0};		  //最新地址  36   bytes
-
-
-		char	strTmp1[300];
-
-		LPSTR	lpBmpData = NULL;
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_Name,15,strTmp1,300,NULL,NULL);
-
-		strcpy(id_Name, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,&(acard.id_Sex),1,strTmp1,300,NULL,NULL);
-		if (1==atoi(strTmp1)) 
-		{
-			strcpy(id_Sex, "男");
-			this->m_SexCode=1;
-		}
-		else if (2==atoi(strTmp1))
-		{	strcpy(id_Sex, "女");
-		this->m_SexCode=2;
-		}
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_National,2,strTmp1,300,NULL,NULL);
-		strcpy(id_National, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_Born,8,strTmp1,300,NULL,NULL);
-		strcpy(id_Born, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_Home,35,strTmp1,/*0*/300,NULL,NULL);
-		strcpy(id_Home, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_Code,18,strTmp1,/*0*/300,NULL,NULL);
-		strcpy(id_Code, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_RegOrg,15,strTmp1,/*0*/300,NULL,NULL);
-		strcpy(id_RegOrg, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_ValidPeriod,16,strTmp1,/*0*/300,NULL,NULL);
-		strcpy(id_ValidPeriod, strTmp1);
-
-		memset(strTmp1,0x00,300);
-		WideCharToMultiByte(0,0,acard.id_NewAddr,18,strTmp1,/*0*/300,NULL,NULL);
-		strcpy(id_NewAddr, strTmp1);
-
-
-		char str[1284];
-		memset(str,0,1284);
-		this->m_Address=_com_util::ConvertStringToBSTR(id_Home);
-		this->m_UserName=_com_util::ConvertStringToBSTR(id_Name);
-		this->m_NationCode=_com_util::ConvertStringToBSTR(id_National);
-		this->InitNationArray();
-		this->m_NationName=this->m_nationArray.Get(this->m_NationCode);
-		this->m_SexName=_com_util::ConvertStringToBSTR(id_Sex);
-		this->m_Birth=_com_util::ConvertStringToBSTR(id_Born);
-		this->m_IdCard=_com_util::ConvertStringToBSTR(id_Code);
-		this->m_Fzjg=_com_util::ConvertStringToBSTR(id_RegOrg);
-		this->m_YxqxName=_com_util::ConvertStringToBSTR(id_ValidPeriod);
-
-
-		this->bViewBmp = TRUE;
-		//AfxMessageBox("创建WLT文件开始");
-		if(! this->CreateWltFile(acard.id_pImage))//CREATE WLT FILE
-		{
-			//AfxMessageBox("create WLT file fail");
-			//AfxMessageBox("创建WLT文件失败");
-			return SCS_RDTYPE2FILEERR;
-		}
-
-
-		//LPTSTR   prefpath   =   this->m_ImgPathPreX.GetBuffer(); 
-		//   在这里添加使用p的代码 
-		//if(prefpath   !=   NULL)   
-		//*prefpath   =   _T( '\0 '); 
-		//this->m_ImgPathPreX.ReleaseBuffer();   //   使用完后及时释放，以便能使用其它的CString成员函数 
-
-
-		GetExePath(ImgFilePath1);
-		strcat(ImgFilePath1,"Picture1.bmp");
-		GetExePath(ImgFilePath2);
-		strcat(ImgFilePath2,"Picture2.bmp");
-		GetExePath(ImgFilePath1Jpg);
-		strcat(ImgFilePath1Jpg,"Picture1.jpg");
-		GetExePath(ImgFilePath2Jpg);
-		strcat(ImgFilePath2Jpg,"Picture2.jpg");
-
-
-/*		GetExePath(ImgFilePath2);
-		strcat(ImgFilePath2,"Picture2.bmp");
-		
-
-		GetExePath(ImgFilePath3);
-		strcat(ImgFilePath3,"Picture3.bmp");
-		GetExePath(ImgFilePath3Jpg);
-		strcat(ImgFilePath3Jpg,"Picture3.jpg");
-
-		GetExePath(ImgFilePath4);
-		strcat(ImgFilePath4,"Picture4.bmp");
-		GetExePath(ImgFilePath4Jpg);
-		strcat(ImgFilePath4Jpg,"Picture4.jpg");
-		*/
-
-		//set bitmap filename complete
-
-		//check scan mode
-		if(modeA8.mode_u == 16)	
-		{
-			nLineBytesForward = const_imgW * 3;
-			nOffsetForward = 54;
-		}
-		else
-		{
-			nLineBytesForward = const_imgW;    
-			nOffsetForward = 1078;
-		}
-
-		if(modeA8.mode_u == 16)
-		{
-			nLineBytesReverse = const_imgW * 3;
-			nOffsetReverse = 54;
-		}
-		else
-		{
-			nLineBytesReverse = const_imgW; 
-			nOffsetReverse = 1078;
-		}
-
-		int iRet;
-		unsigned long lImgW1=600,lImgH1=400;
-		//AfxMessageBox("开始扫描");
-		iRet=SYSCAN_GetImgFromUnit(dpi,ImgFilePath1,&lImgW1,&lImgH1,ImgFilePath2,&lImgW1,&lImgH1);
-		//if (this->m_CompressJpg==1)	//判断是否要压缩成JPEG格式
-		//{
-			SYSCAN_BmpToJpeg(ImgFilePath1,ImgFilePath1Jpg);
-			SYSCAN_BmpToJpeg(ImgFilePath2,ImgFilePath2Jpg);
-			/*if (bReadDataReverseOk)
-			{
-			SYSCAN_BmpToJpeg(ImgFilePath3,ImgFilePath3Jpg);
-			SYSCAN_BmpToJpeg(ImgFilePath4,ImgFilePath4Jpg);
-			}*/
-		//}
-		//iRet=SYSCAN_GetColorImgFromUnit(dpi,ImgFilePath1,&lImgW1,&lImgH1,ImgFilePath2,&lImgW1,&lImgH1);
-		//AfxMessageBox("结束扫描");
-		if(iRet == 0)
-		{
-			SYSCAN_EjectCard();
-			//SYSCAN_ResetDevice();
-			Sleep(100);
-			//AfxMessageBox("scan success");
-			//iRet = SYSCAN_GetHeadFromImage(ImgFilePath1,ImgFilePath2,"c:\\imgHead.bmp");
-		}else {
-			SYSCAN_EjectCard();
-			SYSCAN_ResetDevice();
-			AfxMessageBox("图片扫描异常，设备已复位，请重试");
-		}
-
-		return 0;
-	}
 	return 0;
 }
 
@@ -1343,8 +1406,17 @@ void CETTDrvA8Ctrl::OnCompressJpgChanged(void)
 SHORT CETTDrvA8Ctrl::BmpToJpeg(LPCTSTR src, LPCTSTR dest)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
+
+	#pragma endregion
+
+#pragma region 矽感
+	/*
     this->LoadDll();
 	SYSCAN_BmpToJpeg((char*)src,(char*)dest);
 	this->DestroyDll();
+	*/
+#pragma endregion
+
 	return 0;
 }
