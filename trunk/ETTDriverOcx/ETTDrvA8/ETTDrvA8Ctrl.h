@@ -4,10 +4,96 @@
 #include "NationItemArray.h"
 #include "WideString.h"
 #include <vector>
+#include "LoadMyLibrary.h"
 
 #pragma comment(lib,"comsuppw.lib")
 
 #pragma once
+
+
+
+#pragma region 新北洋
+
+unsigned        DevNumber;                              //统计当前设备数量 
+ScannerInfoRec  ScannerInfo[8]  = {0};                  //设备信息
+DEVICESTATUS    DeviceStatus = {0,0,0};                 //设备状态
+unsigned        SecDeviceNum = 0;                       //当前选中机器的内部ID号
+int     Uni_ScanMode        = IDDIGITALCOPIER_SCANNER_WORK_BYMANUAL;  //扫描模式
+int		Uni_ScanLight		= IDDIGITALCOPIER_LIGHT_COLOR;	//扫描光源
+int		Uni_ActionAfterScan = 0;							//扫描后动作
+int		Uni_ReclaimTimeout	= 20;							//吞卡超时
+int		Uni_ImageDPI		= 300;							//图像分辨率
+int		Uni_ImageWeave		= 0;							//图像拼接
+int		Uni_ImageNameNumber	= 1;							//扫描数量
+char	Uni_SaveNewImagePath[MAX_PATH] = {0x00};			//新扫描图像保存路径
+char	Uni_SaveOldImagePath[MAX_PATH] = {0x00};			//原扫描图像保存路径
+int     Uni_loadOCRDll = 0;                                 //是否需要加载OCR动态库
+int     Uni_ReadIDInfo = 0;                                 //是否需要二代证识读
+int     Uni_ReadVehicle = 0;                                //是否需要行驶证识读
+int     Uni_Double_Pic_Info[10] = {0};                      //任意证件输出双面图像
+int     Uni_Card_Enter[10] = {0};                            //入卡方式，前入卡或者后入卡
+CString             Uni_SaveExcelPath;                      //Excel文件保存路径
+extern	HWIDCard    IDCard;									//身份证信息
+extern  IDInfo      mIDInfo;                                //二代证身份证信息
+extern  bool        bToExcelFlag;                           //是否写入Excel
+extern  bool        bOCRIdentifyFlag;                       //是否OCR识别
+extern  bool        bRead2IDInfoFlag;                       //是否进行二代证识读
+extern  bool        bVehicleFlag;                           //是否进行行驶证识别
+
+
+/**********************************************************************************************************************
+* 清空身份证信息结构体
+**********************************************************************************************************************/
+#define NullIdCardInfo()									\
+{															\
+	memset(IDCard.personname, 0, sizeof(IDCard.personname));			\
+	memset(IDCard.sex, 0, sizeof(IDCard.sex));				\
+	memset(IDCard.birthday, 0, sizeof(IDCard.birthday));	\
+	memset(IDCard.nation, 0, sizeof(IDCard.nation));		\
+	memset(IDCard.address, 0, sizeof(IDCard.address));		\
+	memset(IDCard.signDate, 0, sizeof(IDCard.signDate));	\
+	memset(IDCard.timeLimit, 0, sizeof(IDCard.timeLimit));	\
+	memset(IDCard.number, 0, sizeof(IDCard.number));		\
+	memset(IDCard.chDepartment, 0, sizeof(IDCard.chDepartment));	\
+	memset(IDCard.chSignStart, 0, sizeof(IDCard.chSignStart));		\
+	memset(IDCard.chSignEnd, 0, sizeof(IDCard.chSignEnd));			\
+}
+
+/**********************************************************************************************************************
+* 函数声明
+**********************************************************************************************************************/
+extern mEnumScannerDevice	EnumScannerDevice;
+extern mOpenConnection		OpenConnection;
+extern mOpenConnInPath      OpenConnInPath;
+extern mCloseConnection		CloseConnection;
+extern mCheckIdCard			CheckIdCard;
+extern mTakeIDCard			TakeIDCard;
+extern mScanIdCard			ScanIdCard;
+extern mSavePicToStream		SavePicToStream;
+extern mSaveXSZPicToStream	SaveXSZPicToStream;
+extern mSavePicToFile		SavePicToFile;
+extern mSavePicToFileII		SavePicToFileII;
+extern mDistillIDInfo		DistillIDInfo;
+extern mSNBCOrHWDistillIDInfo SNBCOrHWDistillIDInfo;
+extern mGetID2Info          GetID2Info;
+extern mFreeMemory			FreeMemory;
+extern mDirectFeedIdCard	DirectFeedIdCard;
+extern mFeedIdCard			FeedIdCard;
+extern mEjectIdCard			EjectIdCard;
+extern mGetDeviceStatus		GetDeviceStatus;
+extern mSetConfig			SetConfig;
+extern mGetLastErrorCode	GetLastErrorCode;
+extern mGetLastErrorStr		GetLastErrorStr;
+extern mSetScanMode			SetScanMode;
+extern mGetScanMode			GetScanMode;
+extern mWriteToExcel		WriteToExcel;
+extern mEjectIdCardEx	    EjectIdCardEx;
+extern mInitServer		    InitServer;
+extern mExitServer          ExitServer;
+extern mChangeID            ChangeID;
+extern mDistillVehicleInfo  DistillVehicleInfo;
+	#pragma endregion
+
 
 // ETTA8IDCardActiveXCtrl.h : CETTA8IDCardActiveXCtrl ActiveX 控件类的声明。
 

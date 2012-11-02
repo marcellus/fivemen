@@ -377,6 +377,8 @@ void CETTDrvA8Ctrl::OnIsReadedChanged(void)
 	// TODO: 在此添加属性处理程序代码
 
 	SetModifiedFlag();
+
+
 }
 
 void CETTDrvA8Ctrl::OnUserNameChanged(void)
@@ -501,6 +503,14 @@ SHORT CETTDrvA8Ctrl::LoadDll(void)
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
 
+	char ErrorInfo[256] = {0x00};
+	
+	if(!LoadMyLibrary(ErrorInfo))
+	{
+		return -1;
+	}
+	
+
 	#pragma endregion
 #pragma region 矽感
 	//// TODO: 在此添加调度处理程序代码
@@ -605,6 +615,18 @@ SHORT CETTDrvA8Ctrl::LoadDll(void)
 SHORT CETTDrvA8Ctrl::OpenDeviceEx(SHORT port)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+#pragma region 新北洋
+int		                    SuccessFlag = -1; 
+	SuccessFlag = OpenConnection(SecDeviceNum);
+	//SuccessFlag = OpenConnInPath(SecDeviceNum,NULL);
+	if(IDDIGITALCOPIER_NO_ERROR != SuccessFlag)
+	{
+		this->m_Message= "启动扫描失败";
+		return -1;	
+	}
+	return 0;
+
+	#pragma endregion
 
 
 #pragma region 是否授权
@@ -672,6 +694,8 @@ SHORT CETTDrvA8Ctrl::CloseDeviceEx(void)
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 	#pragma region 新北洋
 
+	CloseConnection(SecDeviceNum);
+
 	#pragma endregion
 
 #pragma region 矽感
@@ -693,7 +717,7 @@ SHORT CETTDrvA8Ctrl::EnterCardEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
-
+    
 	#pragma endregion
 #pragma region 矽感
 	/*
@@ -714,7 +738,8 @@ SHORT CETTDrvA8Ctrl::EjectCardEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
-
+    //DirectFeedIdCard(SecDeviceNum);
+	 EjectIdCard(SecDeviceNum);
 	#pragma endregion
 #pragma region 矽感
 	/*
@@ -737,6 +762,10 @@ SHORT CETTDrvA8Ctrl::DestroyDll(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
+if(!UnloadMyLibrary())
+{
+	return -1;
+}
 
 	#pragma endregion
 #pragma region 矽感
@@ -777,7 +806,31 @@ SHORT CETTDrvA8Ctrl::GetDeviceStatusEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
+//DEVICESTATUS    DeviceStatus = {0,0,0};  
+   GetDeviceStatus(SecDeviceNum, &DeviceStatus);
 
+	//设备所处状态
+	switch(DeviceStatus.Status)
+	{
+	case IDDIGITALCOPIER_STATUS_IDLE:
+		m_Message="空闲";
+		break;
+	case IDDIGITALCOPIER_STATUS_SCAN:
+		m_Message="扫描";
+		break;
+	case IDDIGITALCOPIER_STATUS_WAIT:
+		m_Message="等待";
+		break;
+	case IDDIGITALCOPIER_STATUS_RETIRECARD:
+		m_Message="退卡";
+		break;
+	case IDDIGITALCOPIER_STATUS_ERROR:
+		m_Message="错误";
+		break;
+	default :
+		break;
+	}
+   return 0;
 	#pragma endregion
 #pragma region 矽感
 	/*
@@ -840,10 +893,12 @@ SHORT CETTDrvA8Ctrl::GetDeviceStatusEx(void)
 	//{
 	//m_Message = "SCS_MOTOR";
 	//} 
-*/
-#pragma endregion
 
-	return 0;
+
+
+	return 0;*/
+
+	#pragma endregion
 }
 
 SHORT CETTDrvA8Ctrl::CalibrationEx(void)
@@ -962,10 +1017,37 @@ SHORT CETTDrvA8Ctrl::InitNationArray(void)
 	return 0;
 }
 
+
+
 SHORT CETTDrvA8Ctrl::GetCardStatusEx(void)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
+	//DEVICESTATUS    DeviceStatus = {0,0,0};  
+   GetDeviceStatus(SecDeviceNum, &DeviceStatus);
+
+	//设备所处状态
+	switch(DeviceStatus.Status)
+	{
+	case IDDIGITALCOPIER_STATUS_IDLE:
+		m_Message="空闲";
+		break;
+	case IDDIGITALCOPIER_STATUS_SCAN:
+		m_Message="扫描";
+		break;
+	case IDDIGITALCOPIER_STATUS_WAIT:
+		m_Message="等待";
+		break;
+	case IDDIGITALCOPIER_STATUS_RETIRECARD:
+		m_Message="退卡";
+		break;
+	case IDDIGITALCOPIER_STATUS_ERROR:
+		m_Message="错误";
+		break;
+	default :
+		break;
+	}
+   return 0;
 
 	#pragma endregion
 
@@ -1031,6 +1113,125 @@ SHORT CETTDrvA8Ctrl::ReadAndScanDpiEx(LONG dpi)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
+	
+	int		ReturnValue = IDDIGITALCOPIER_NO_ERROR;
+	bool    IsLastCard = false;
+    ReturnValue = TakeIDCard(SecDeviceNum, Uni_ReclaimTimeout);
+		if(ReturnValue == IDDIGITALCOPIER_PORT_ERROR)   //通讯错误
+		{
+			goto EXITPOINT;
+		}
+		else if(ReturnValue == IDDIGITALCOPIER_TIMEOUT_ERROR)  //超时时间未取走卡, 吞卡
+		{
+			if(Uni_ActionAfterScan == 1)
+			{
+				ScanIdCard(SecDeviceNum);
+				FeedIdCard(SecDeviceNum);
+			}
+		}
+		else if (ReturnValue != IDDIGITALCOPIER_NO_ERROR)  //卡未被取走，循环等待
+		{
+		}
+
+		///***************************************************************************************************************
+		//检测卡
+		ReturnValue = CheckIdCard(SecDeviceNum, 1);           //检测1秒
+		if(ReturnValue == IDDIGITALCOPIER_PORT_ERROR)         //通讯错误
+		{
+			goto EXITPOINT;
+		}
+		else if(ReturnValue == IDDIGITALCOPIER_STATUS_COVER_OPENED || ReturnValue == IDDIGITALCOPIER_STATUS_PASSAGE_JAM)  //状态错误
+		{
+			goto StatusError;
+		}
+		else if(ReturnValue == IDDIGITALCOPIER_TIMEOUT_ERROR)    //超时，继续等待
+		{
+			AfxMessageBox("请放入证件扫描...");
+           	Sleep(200);
+		}
+		
+
+		
+	    ///***************************************************************************************************************
+		///启动扫描前设置分辨率
+		if(SetConfig(SecDeviceNum, Uni_ScanLight, Uni_ImageDPI, 80) != IDDIGITALCOPIER_NO_ERROR)
+		{
+			AfxMessageBox("设置图像光源和分辨率失败!");
+			
+		}
+
+		///***************************************************************************************************************
+		//启动扫描
+		AfxMessageBox("正在证件扫描...");
+		
+
+		///***************************************************************************************************************
+		//前入卡机器，首先进行识读，然后进入扫描流程
+		if (true) 
+		{
+			if (Uni_Card_Enter[SecDeviceNum] == 0)
+			{
+				ReturnValue = GetID2Info(SecDeviceNum, &mIDInfo, 1, Uni_SaveNewImagePath);//识别完成后保存头像到Uni_SaveNewImagePath下
+			
+				if (ReturnValue == IDDIGITALCOPIER_NO_ERROR)
+				{
+					//isShowInfo =  true;
+				}
+				else
+				{
+					//isShowInfo = false;
+					AfxMessageBox("获取信息失败!");
+	             	//SendMessage((HWND)(AfxGetApp()->GetMainWnd()->GetSafeHwnd()), WM_SHOWMSG, (LPARAM)0, NULL);
+				}
+			}
+			//前入卡时，首先显示识别信息
+			//SendMessage((HWND)(AfxGetApp()->GetMainWnd()->GetSafeHwnd()), WM_SCANFLOW, (LPARAM)1, NULL);
+		}
+
+		ReturnValue = ScanIdCard(SecDeviceNum);
+		
+		if(ReturnValue == IDDIGITALCOPIER_STATUS_COVER_OPENED || ReturnValue == IDDIGITALCOPIER_STATUS_PASSAGE_JAM)  //状态错误
+		{
+			goto StatusError;
+		}
+		else if(ReturnValue == IDDIGITALCOPIER_PORT_ERROR)
+		{
+			goto EXITPOINT;
+		}
+		else if(ReturnValue == IDDIGITALCOPIER_START_SCAN_FAILED)   //启动扫描失败
+		{
+			//continue;
+		}
+		
+		
+		
+		///***************************************************************************************************************
+		//出卡（Uni_ActionAfterScan == 0正常出卡;Uni_ActionAfterScan == 1 超时退卡）
+		if(Uni_ActionAfterScan == 0)
+		{
+			ReturnValue = DirectFeedIdCard(SecDeviceNum);
+		}
+		else 
+		{
+			ReturnValue = EjectIdCard(SecDeviceNum);
+		}
+		
+		if(ReturnValue == IDDIGITALCOPIER_STATUS_COVER_OPENED || ReturnValue == IDDIGITALCOPIER_STATUS_PASSAGE_JAM)//状态错误引起退卡失败
+		{
+			goto StatusError;
+		}
+		else
+		{
+			AfxMessageBox("扫描完成...");
+			//PostMessage((HWND)(AfxGetApp()->GetMainWnd()->GetSafeHwnd()), WM_SHOWMSG, (LPARAM)1, NULL);
+		}
+		//continue;		
+StatusError:
+		this->m_Message="状态错误，请重新扫描...";
+		Sleep(2500);//延时等待状态恢复
+		
+EXITPOINT:	
+		return -1;
 
 	#pragma endregion
 #pragma region 矽感
