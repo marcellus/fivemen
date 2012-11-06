@@ -53,14 +53,14 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.txtUserName);
+            this.panelContent.Controls.Add(this.txtPwd);
             this.panelContent.Controls.Add(this.panelUseRfid);
             this.panelContent.Controls.Add(this.panelUseKey);
             this.panelContent.Controls.Add(this.btnCancel);
             this.panelContent.Controls.Add(this.btnLogin);
             this.panelContent.Controls.Add(this.lbPwd);
-            this.panelContent.Controls.Add(this.txtPwd);
             this.panelContent.Controls.Add(this.lbUserName);
-            this.panelContent.Controls.Add(this.txtUserName);
             this.panelContent.Location = new System.Drawing.Point(0, 210);
             this.panelContent.Size = new System.Drawing.Size(1280, 503);
             this.panelContent.TabIndex = 242;
@@ -116,11 +116,11 @@
             // 
             this.lbUserName.AutoSize = true;
             this.lbUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
+            this.lbUserName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbUserName.Location = new System.Drawing.Point(150, 65);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(122, 39);
+            this.lbUserName.Size = new System.Drawing.Size(125, 40);
             this.lbUserName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbUserName.TabIndex = 114;
             this.lbUserName.Text = "用户名";
@@ -129,7 +129,7 @@
             // 
             this.txtUserName.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.SmallLetterAndNumber;
             this.txtUserName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtUserName.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtUserName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F);
             this.txtUserName.Hint = "请输入用户名";
             this.txtUserName.IsActive = false;
             this.txtUserName.IsDeleted = false;
@@ -149,7 +149,7 @@
             // 
             this.txtPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtPwd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F);
             this.txtPwd.Hint = "账户密码";
             this.txtPwd.IsActive = false;
             this.txtPwd.IsDeleted = false;
@@ -169,11 +169,11 @@
             // 
             this.lbPwd.AutoSize = true;
             this.lbPwd.BackColor = System.Drawing.Color.Transparent;
-            this.lbPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
+            this.lbPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbPwd.Location = new System.Drawing.Point(150, 205);
             this.lbPwd.Name = "lbPwd";
-            this.lbPwd.Size = new System.Drawing.Size(123, 39);
+            this.lbPwd.Size = new System.Drawing.Size(133, 40);
             this.lbPwd.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPwd.TabIndex = 114;
             this.lbPwd.Text = "密    码";

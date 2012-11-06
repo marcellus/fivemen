@@ -51,6 +51,7 @@
             this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbRow1Col3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbRecordsCount = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbFeeDetailHeader = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelRow6Col3 = new System.Windows.Forms.Panel();
             this.lbRow6Col4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -91,7 +92,6 @@
             this.simpleLabel5 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelRow6Col4 = new System.Windows.Forms.Panel();
             this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.lbRecordsCount = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnNextPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrePage)).BeginInit();
             this.panelRow6Col2.SuspendLayout();
@@ -154,7 +154,7 @@
             // lbRow6Col2
             // 
             this.lbRow6Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow6Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow6Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow6Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow6Col2.Location = new System.Drawing.Point(3, 1);
             this.lbRow6Col2.Name = "lbRow6Col2";
@@ -167,7 +167,7 @@
             // lbRow6Col3
             // 
             this.lbRow6Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow6Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow6Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow6Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow6Col3.Location = new System.Drawing.Point(1, 1);
             this.lbRow6Col3.Name = "lbRow6Col3";
@@ -189,7 +189,7 @@
             // lbRow5Col2
             // 
             this.lbRow5Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow5Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow5Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow5Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow5Col2.Location = new System.Drawing.Point(3, 1);
             this.lbRow5Col2.Name = "lbRow5Col2";
@@ -202,7 +202,7 @@
             // lbRow5Col3
             // 
             this.lbRow5Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow5Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow5Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow5Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow5Col3.Location = new System.Drawing.Point(1, 1);
             this.lbRow5Col3.Name = "lbRow5Col3";
@@ -224,7 +224,7 @@
             // lbRow4Col2
             // 
             this.lbRow4Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow4Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow4Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow4Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow4Col2.Location = new System.Drawing.Point(0, 1);
             this.lbRow4Col2.Name = "lbRow4Col2";
@@ -237,7 +237,7 @@
             // lbRow4Col3
             // 
             this.lbRow4Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow4Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow4Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow4Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow4Col3.Location = new System.Drawing.Point(1, 1);
             this.lbRow4Col3.Name = "lbRow4Col3";
@@ -259,7 +259,7 @@
             // lbRow3Col2
             // 
             this.lbRow3Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow3Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow3Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow3Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow3Col2.Location = new System.Drawing.Point(3, 1);
             this.lbRow3Col2.Name = "lbRow3Col2";
@@ -272,7 +272,7 @@
             // lbRow3Col3
             // 
             this.lbRow3Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow3Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow3Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow3Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow3Col3.Location = new System.Drawing.Point(4, 1);
             this.lbRow3Col3.Name = "lbRow3Col3";
@@ -294,7 +294,7 @@
             // lbRow2Col2
             // 
             this.lbRow2Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow2Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow2Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow2Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow2Col2.Location = new System.Drawing.Point(3, 1);
             this.lbRow2Col2.Name = "lbRow2Col2";
@@ -307,7 +307,7 @@
             // lbRow2Col3
             // 
             this.lbRow2Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow2Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow2Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow2Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow2Col3.Location = new System.Drawing.Point(4, 1);
             this.lbRow2Col3.Name = "lbRow2Col3";
@@ -329,7 +329,7 @@
             // lbRow1Col2
             // 
             this.lbRow1Col2.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow1Col2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow1Col2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow1Col2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow1Col2.Location = new System.Drawing.Point(0, 1);
             this.lbRow1Col2.Name = "lbRow1Col2";
@@ -356,7 +356,7 @@
             // lbRow1Col3
             // 
             this.lbRow1Col3.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow1Col3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRow1Col3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow1Col3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow1Col3.Location = new System.Drawing.Point(1, 1);
             this.lbRow1Col3.Name = "lbRow1Col3";
@@ -375,6 +375,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(476, 66);
             this.panel3.TabIndex = 0;
+            // 
+            // lbRecordsCount
+            // 
+            this.lbRecordsCount.AutoSize = true;
+            this.lbRecordsCount.BackColor = System.Drawing.Color.Transparent;
+            this.lbRecordsCount.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRecordsCount.ForeColor = System.Drawing.Color.White;
+            this.lbRecordsCount.Location = new System.Drawing.Point(301, 13);
+            this.lbRecordsCount.Name = "lbRecordsCount";
+            this.lbRecordsCount.Size = new System.Drawing.Size(286, 41);
+            this.lbRecordsCount.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbRecordsCount.TabIndex = 0;
+            this.lbRecordsCount.Text = "消费详情（30）";
+            this.lbRecordsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbFeeDetailHeader
             // 
@@ -557,7 +571,7 @@
             // lbRow6Col1
             // 
             this.lbRow6Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow6Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow6Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow6Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow6Col1.Location = new System.Drawing.Point(0, 1);
             this.lbRow6Col1.Name = "lbRow6Col1";
@@ -579,7 +593,7 @@
             // lbRow5Col1
             // 
             this.lbRow5Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow5Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow5Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow5Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow5Col1.Location = new System.Drawing.Point(0, 1);
             this.lbRow5Col1.Name = "lbRow5Col1";
@@ -601,7 +615,7 @@
             // lbRow4Col1
             // 
             this.lbRow4Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow4Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow4Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow4Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow4Col1.Location = new System.Drawing.Point(2, 1);
             this.lbRow4Col1.Name = "lbRow4Col1";
@@ -623,7 +637,7 @@
             // lbRow3Col1
             // 
             this.lbRow3Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow3Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow3Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow3Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow3Col1.Location = new System.Drawing.Point(0, 1);
             this.lbRow3Col1.Name = "lbRow3Col1";
@@ -645,7 +659,7 @@
             // lbRow2Col1
             // 
             this.lbRow2Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow2Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow2Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow2Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow2Col1.Location = new System.Drawing.Point(0, 1);
             this.lbRow2Col1.Name = "lbRow2Col1";
@@ -667,7 +681,7 @@
             // lbRow1Col1
             // 
             this.lbRow1Col1.BackColor = System.Drawing.Color.Transparent;
-            this.lbRow1Col1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lbRow1Col1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRow1Col1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbRow1Col1.Location = new System.Drawing.Point(0, 1);
             this.lbRow1Col1.Name = "lbRow1Col1";
@@ -697,6 +711,7 @@
             // panelRow1Col4
             // 
             this.panelRow1Col4.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Account_FeeDetail_DetailBack;
+            this.panelRow1Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow1Col4.Location = new System.Drawing.Point(938, 80);
             this.panelRow1Col4.Name = "panelRow1Col4";
             this.panelRow1Col4.Size = new System.Drawing.Size(154, 66);
@@ -708,6 +723,7 @@
             // 
             this.panelRow2Col4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRow2Col4.BackgroundImage")));
             this.panelRow2Col4.Controls.Add(this.simpleLabel2);
+            this.panelRow2Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow2Col4.Location = new System.Drawing.Point(938, 156);
             this.panelRow2Col4.Name = "panelRow2Col4";
             this.panelRow2Col4.Size = new System.Drawing.Size(154, 66);
@@ -730,6 +746,7 @@
             // 
             this.panelRow3Col4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRow3Col4.BackgroundImage")));
             this.panelRow3Col4.Controls.Add(this.simpleLabel3);
+            this.panelRow3Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow3Col4.Location = new System.Drawing.Point(938, 232);
             this.panelRow3Col4.Name = "panelRow3Col4";
             this.panelRow3Col4.Size = new System.Drawing.Size(154, 66);
@@ -752,6 +769,7 @@
             // 
             this.panelRow4Col4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRow4Col4.BackgroundImage")));
             this.panelRow4Col4.Controls.Add(this.simpleLabel4);
+            this.panelRow4Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow4Col4.Location = new System.Drawing.Point(938, 308);
             this.panelRow4Col4.Name = "panelRow4Col4";
             this.panelRow4Col4.Size = new System.Drawing.Size(154, 66);
@@ -774,6 +792,7 @@
             // 
             this.panelRow5Col4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRow5Col4.BackgroundImage")));
             this.panelRow5Col4.Controls.Add(this.simpleLabel5);
+            this.panelRow5Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow5Col4.Location = new System.Drawing.Point(938, 384);
             this.panelRow5Col4.Name = "panelRow5Col4";
             this.panelRow5Col4.Size = new System.Drawing.Size(154, 66);
@@ -796,6 +815,7 @@
             // 
             this.panelRow6Col4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelRow6Col4.BackgroundImage")));
             this.panelRow6Col4.Controls.Add(this.simpleLabel1);
+            this.panelRow6Col4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRow6Col4.Location = new System.Drawing.Point(939, 459);
             this.panelRow6Col4.Name = "panelRow6Col4";
             this.panelRow6Col4.Size = new System.Drawing.Size(154, 66);
@@ -813,20 +833,6 @@
             this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.simpleLabel1.TabIndex = 0;
             this.simpleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbRecordsCount
-            // 
-            this.lbRecordsCount.AutoSize = true;
-            this.lbRecordsCount.BackColor = System.Drawing.Color.Transparent;
-            this.lbRecordsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRecordsCount.ForeColor = System.Drawing.Color.White;
-            this.lbRecordsCount.Location = new System.Drawing.Point(301, 13);
-            this.lbRecordsCount.Name = "lbRecordsCount";
-            this.lbRecordsCount.Size = new System.Drawing.Size(281, 40);
-            this.lbRecordsCount.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
-            this.lbRecordsCount.TabIndex = 0;
-            this.lbRecordsCount.Text = "消费详情（30）";
-            this.lbRecordsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FeeDetailPanel
             // 

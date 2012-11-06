@@ -59,11 +59,12 @@
             // lbValidCode
             // 
             this.lbValidCode.AutoSize = true;
+            this.lbValidCode.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbValidCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbValidCode.Location = new System.Drawing.Point(239, 324);
             this.lbValidCode.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.lbValidCode.Name = "lbValidCode";
-            this.lbValidCode.Size = new System.Drawing.Size(125, 46);
+            this.lbValidCode.Size = new System.Drawing.Size(125, 40);
             this.lbValidCode.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbValidCode.TabIndex = 4;
             this.lbValidCode.Text = "验票码";
@@ -71,11 +72,12 @@
             // lbMobileHint
             // 
             this.lbMobileHint.AutoSize = true;
+            this.lbMobileHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMobileHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbMobileHint.Location = new System.Drawing.Point(239, 192);
             this.lbMobileHint.Margin = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.lbMobileHint.Name = "lbMobileHint";
-            this.lbMobileHint.Size = new System.Drawing.Size(125, 46);
+            this.lbMobileHint.Size = new System.Drawing.Size(125, 40);
             this.lbMobileHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMobileHint.TabIndex = 4;
             this.lbMobileHint.Text = "手机号";
@@ -84,7 +86,7 @@
             // 
             this.txtValidCode.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtValidCode.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtValidCode.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtValidCode.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F);
             this.txtValidCode.Hint = "验票码";
             this.txtValidCode.IsActive = false;
             this.txtValidCode.IsDeleted = true;
@@ -103,7 +105,7 @@
             // 
             this.txtMobile.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtMobile.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtMobile.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtMobile.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F);
             this.txtMobile.Hint = "购票所留手机号";
             this.txtMobile.IsActive = false;
             this.txtMobile.IsDeleted = true;

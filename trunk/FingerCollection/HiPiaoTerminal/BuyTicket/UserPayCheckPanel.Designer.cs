@@ -95,7 +95,6 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnConfirmPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
-            this.splitContainer1.SplitterDistance = 827;
             // 
             // showWelcomePanel1
             // 
@@ -149,11 +148,11 @@
             // lbMovieInfo
             // 
             this.lbMovieInfo.AutoSize = true;
-            this.lbMovieInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 14F);
+            this.lbMovieInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbMovieInfo.Location = new System.Drawing.Point(106, 56);
             this.lbMovieInfo.Name = "lbMovieInfo";
-            this.lbMovieInfo.Size = new System.Drawing.Size(125, 22);
+            this.lbMovieInfo.Size = new System.Drawing.Size(136, 22);
             this.lbMovieInfo.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieInfo.TabIndex = 1;
             this.lbMovieInfo.Text = "{0}{1}{2}分钟";
@@ -161,11 +160,11 @@
             // lbRoom
             // 
             this.lbRoom.AutoSize = true;
-            this.lbRoom.Font = new System.Drawing.Font("方正兰亭粗黑简体", 39F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRoom.Font = new System.Drawing.Font("方正兰亭纤黑简体", 39F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbRoom.Location = new System.Drawing.Point(973, 8);
             this.lbRoom.Name = "lbRoom";
-            this.lbRoom.Size = new System.Drawing.Size(129, 60);
+            this.lbRoom.Size = new System.Drawing.Size(133, 61);
             this.lbRoom.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRoom.TabIndex = 1;
             this.lbRoom.Text = "影厅";
@@ -173,11 +172,11 @@
             // lbTime
             // 
             this.lbTime.AutoSize = true;
-            this.lbTime.Font = new System.Drawing.Font("方正兰亭粗黑简体", 39F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTime.Font = new System.Drawing.Font("方正兰亭纤黑简体", 39F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTime.Location = new System.Drawing.Point(659, 8);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(233, 60);
+            this.lbTime.Size = new System.Drawing.Size(239, 61);
             this.lbTime.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTime.TabIndex = 1;
             this.lbTime.Text = "播放时间";
@@ -185,11 +184,11 @@
             // lbDate
             // 
             this.lbDate.AutoSize = true;
-            this.lbDate.Font = new System.Drawing.Font("方正兰亭粗黑简体", 39F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbDate.Font = new System.Drawing.Font("方正兰亭纤黑简体", 39F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbDate.Location = new System.Drawing.Point(372, 8);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(265, 60);
+            this.lbDate.Size = new System.Drawing.Size(272, 61);
             this.lbDate.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbDate.TabIndex = 1;
             this.lbDate.Text = "1播放时间";
@@ -197,11 +196,11 @@
             // lbSeats
             // 
             this.lbSeats.AutoSize = true;
-            this.lbSeats.Font = new System.Drawing.Font("方正兰亭黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSeats.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbSeats.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.lbSeats.Location = new System.Drawing.Point(372, 69);
             this.lbSeats.Name = "lbSeats";
-            this.lbSeats.Size = new System.Drawing.Size(136, 32);
+            this.lbSeats.Size = new System.Drawing.Size(142, 32);
             this.lbSeats.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbSeats.TabIndex = 1;
             this.lbSeats.Text = "座位：{0}";
@@ -209,11 +208,11 @@
             // lbMovieName
             // 
             this.lbMovieName.AutoSize = true;
-            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbMovieName.Location = new System.Drawing.Point(104, 14);
             this.lbMovieName.Name = "lbMovieName";
-            this.lbMovieName.Size = new System.Drawing.Size(351, 32);
+            this.lbMovieName.Size = new System.Drawing.Size(363, 32);
             this.lbMovieName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieName.TabIndex = 1;
             this.lbMovieName.Text = "电影名称电影名称电影名称";
@@ -229,11 +228,11 @@
             // simpleLabel7
             // 
             this.simpleLabel7.AutoSize = true;
-            this.simpleLabel7.Font = new System.Drawing.Font("方正兰亭粗黑简体", 15F);
+            this.simpleLabel7.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(64)))));
             this.simpleLabel7.Location = new System.Drawing.Point(58, 306);
             this.simpleLabel7.Name = "simpleLabel7";
-            this.simpleLabel7.Size = new System.Drawing.Size(290, 23);
+            this.simpleLabel7.Size = new System.Drawing.Size(304, 23);
             this.simpleLabel7.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.simpleLabel7.TabIndex = 1;
             this.simpleLabel7.Text = "温馨提示：一经购买，不可退换";
@@ -241,11 +240,11 @@
             // lbTicketPrice
             // 
             this.lbTicketPrice.AutoSize = true;
-            this.lbTicketPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTicketPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTicketPrice.Location = new System.Drawing.Point(51, 148);
             this.lbTicketPrice.Name = "lbTicketPrice";
-            this.lbTicketPrice.Size = new System.Drawing.Size(118, 69);
+            this.lbTicketPrice.Size = new System.Drawing.Size(114, 70);
             this.lbTicketPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketPrice.TabIndex = 1;
             this.lbTicketPrice.Text = "{0}";
@@ -253,11 +252,11 @@
             // lbTicketPriceHint
             // 
             this.lbTicketPriceHint.AutoSize = true;
-            this.lbTicketPriceHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.lbTicketPriceHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketPriceHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbTicketPriceHint.Location = new System.Drawing.Point(158, 148);
             this.lbTicketPriceHint.Name = "lbTicketPriceHint";
-            this.lbTicketPriceHint.Size = new System.Drawing.Size(249, 69);
+            this.lbTicketPriceHint.Size = new System.Drawing.Size(250, 70);
             this.lbTicketPriceHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketPriceHint.TabIndex = 1;
             this.lbTicketPriceHint.Text = "元/张,共";
@@ -265,11 +264,11 @@
             // lbTicketCount
             // 
             this.lbTicketCount.AutoSize = true;
-            this.lbTicketCount.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.lbTicketCount.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTicketCount.Location = new System.Drawing.Point(413, 148);
             this.lbTicketCount.Name = "lbTicketCount";
-            this.lbTicketCount.Size = new System.Drawing.Size(118, 69);
+            this.lbTicketCount.Size = new System.Drawing.Size(114, 70);
             this.lbTicketCount.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketCount.TabIndex = 1;
             this.lbTicketCount.Text = "{0}";
@@ -277,11 +276,11 @@
             // lbTicketCountHint
             // 
             this.lbTicketCountHint.AutoSize = true;
-            this.lbTicketCountHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.lbTicketCountHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketCountHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbTicketCountHint.Location = new System.Drawing.Point(527, 148);
             this.lbTicketCountHint.Name = "lbTicketCountHint";
-            this.lbTicketCountHint.Size = new System.Drawing.Size(90, 69);
+            this.lbTicketCountHint.Size = new System.Drawing.Size(91, 70);
             this.lbTicketCountHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketCountHint.TabIndex = 1;
             this.lbTicketCountHint.Text = "张";
@@ -289,11 +288,11 @@
             // simpleLabel12
             // 
             this.simpleLabel12.AutoSize = true;
-            this.simpleLabel12.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.simpleLabel12.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.simpleLabel12.Location = new System.Drawing.Point(50, 220);
             this.simpleLabel12.Name = "simpleLabel12";
-            this.simpleLabel12.Size = new System.Drawing.Size(210, 69);
+            this.simpleLabel12.Size = new System.Drawing.Size(213, 70);
             this.simpleLabel12.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.simpleLabel12.TabIndex = 1;
             this.simpleLabel12.Text = "合计：";
@@ -301,11 +300,11 @@
             // lbTicketTotalPrice
             // 
             this.lbTicketTotalPrice.AutoSize = true;
-            this.lbTicketTotalPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.lbTicketTotalPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTicketTotalPrice.Location = new System.Drawing.Point(234, 220);
             this.lbTicketTotalPrice.Name = "lbTicketTotalPrice";
-            this.lbTicketTotalPrice.Size = new System.Drawing.Size(118, 69);
+            this.lbTicketTotalPrice.Size = new System.Drawing.Size(114, 70);
             this.lbTicketTotalPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketTotalPrice.TabIndex = 1;
             this.lbTicketTotalPrice.Text = "{0}";
@@ -313,11 +312,11 @@
             // lbTicketTotalPriceHint
             // 
             this.lbTicketTotalPriceHint.AutoSize = true;
-            this.lbTicketTotalPriceHint.Font = new System.Drawing.Font("方正兰亭粗黑简体", 45F);
+            this.lbTicketTotalPriceHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketTotalPriceHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbTicketTotalPriceHint.Location = new System.Drawing.Point(357, 220);
             this.lbTicketTotalPriceHint.Name = "lbTicketTotalPriceHint";
-            this.lbTicketTotalPriceHint.Size = new System.Drawing.Size(90, 69);
+            this.lbTicketTotalPriceHint.Size = new System.Drawing.Size(91, 70);
             this.lbTicketTotalPriceHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTicketTotalPriceHint.TabIndex = 1;
             this.lbTicketTotalPriceHint.Text = "元";

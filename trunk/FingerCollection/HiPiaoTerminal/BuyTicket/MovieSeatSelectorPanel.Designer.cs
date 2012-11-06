@@ -105,11 +105,11 @@
             // lbMovieName
             // 
             this.lbMovieName.AutoSize = true;
-            this.lbMovieName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbMovieName.Location = new System.Drawing.Point(124, 33);
             this.lbMovieName.Name = "lbMovieName";
-            this.lbMovieName.Size = new System.Drawing.Size(99, 32);
+            this.lbMovieName.Size = new System.Drawing.Size(102, 32);
             this.lbMovieName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieName.TabIndex = 1;
             this.lbMovieName.Text = "电影名";
@@ -117,10 +117,10 @@
             // lbMovieDetail
             // 
             this.lbMovieDetail.AutoSize = true;
-            this.lbMovieDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieDetail.Location = new System.Drawing.Point(398, 37);
             this.lbMovieDetail.Name = "lbMovieDetail";
-            this.lbMovieDetail.Size = new System.Drawing.Size(124, 24);
+            this.lbMovieDetail.Size = new System.Drawing.Size(148, 22);
             this.lbMovieDetail.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieDetail.TabIndex = 2;
             this.lbMovieDetail.Text = "{0} {1} {2}分钟";
@@ -128,11 +128,11 @@
             // lbPrice
             // 
             this.lbPrice.AutoSize = true;
-            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbPrice.Location = new System.Drawing.Point(820, 33);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(113, 32);
+            this.lbPrice.Size = new System.Drawing.Size(122, 32);
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 4;
             this.lbPrice.Text = "{0}元/张";
@@ -140,7 +140,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(124, 78);
             this.label3.Name = "label3";
@@ -160,10 +160,11 @@
             // lbProcessHint
             // 
             this.lbProcessHint.AutoSize = true;
+            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbProcessHint.Location = new System.Drawing.Point(237, 1);
             this.lbProcessHint.Name = "lbProcessHint";
-            this.lbProcessHint.Size = new System.Drawing.Size(323, 32);
+            this.lbProcessHint.Size = new System.Drawing.Size(334, 32);
             this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbProcessHint.TabIndex = 9;
             this.lbProcessHint.Text = "正在加载座位图，请稍候";
@@ -200,7 +201,7 @@
             // lbPlanInfo
             // 
             this.lbPlanInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlanInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPlanInfo.Location = new System.Drawing.Point(3, 0);
             this.lbPlanInfo.Name = "lbPlanInfo";
             this.lbPlanInfo.Size = new System.Drawing.Size(217, 32);
@@ -266,7 +267,7 @@
             this.lbTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTotalPrice.Location = new System.Drawing.Point(101, 48);
             this.lbTotalPrice.Name = "lbTotalPrice";
-            this.lbTotalPrice.Size = new System.Drawing.Size(71, 32);
+            this.lbTotalPrice.Size = new System.Drawing.Size(75, 32);
             this.lbTotalPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalPrice.TabIndex = 0;
             this.lbTotalPrice.Text = "0.00";
@@ -278,7 +279,7 @@
             this.lbTotalNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbTotalNum.Location = new System.Drawing.Point(101, 13);
             this.lbTotalNum.Name = "lbTotalNum";
-            this.lbTotalNum.Size = new System.Drawing.Size(77, 32);
+            this.lbTotalNum.Size = new System.Drawing.Size(80, 32);
             this.lbTotalNum.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTotalNum.TabIndex = 0;
             this.lbTotalNum.Text = "{0}张";

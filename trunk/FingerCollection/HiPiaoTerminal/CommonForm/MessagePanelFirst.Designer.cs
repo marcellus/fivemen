@@ -36,7 +36,7 @@
             // 
             // lbMsg2
             // 
-            this.lbMsg2.Font = new System.Drawing.Font("微软雅黑", 33.25F, System.Drawing.FontStyle.Bold);
+            this.lbMsg2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMsg2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbMsg2.Location = new System.Drawing.Point(6, 183);
             this.lbMsg2.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
@@ -49,7 +49,7 @@
             // 
             // lbMsg1
             // 
-            this.lbMsg1.Font = new System.Drawing.Font("微软雅黑", 33.25F, System.Drawing.FontStyle.Bold);
+            this.lbMsg1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMsg1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbMsg1.Location = new System.Drawing.Point(8, 92);
             this.lbMsg1.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
@@ -72,16 +72,15 @@
             this.picSure.TabStop = false;
             this.picSure.Click += new System.EventHandler(this.picSure_Click);
             // 
-            // MessagePanel
+            // MessagePanelFirst
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 38F);
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.lbMsg2);
             this.Controls.Add(this.lbMsg1);
             this.Controls.Add(this.picSure);
             this.Font = new System.Drawing.Font("微软雅黑", 21.75F);
             this.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.Name = "MessagePanel";
+            this.Name = "MessagePanelFirst";
             this.Size = new System.Drawing.Size(804, 492);
             ((System.ComponentModel.ISupportInitialize)(this.picSure)).EndInit();
             this.ResumeLayout(false);

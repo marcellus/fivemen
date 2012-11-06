@@ -47,7 +47,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
-            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(82, 90);
             this.label3.Name = "label3";
@@ -60,11 +60,11 @@
             // lbPrice
             // 
             this.lbPrice.AutoSize = true;
-            this.lbPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbPrice.Location = new System.Drawing.Point(1021, 46);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(120, 32);
+            this.lbPrice.Size = new System.Drawing.Size(122, 32);
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 15;
             this.lbPrice.Text = "{0}元/张";
@@ -73,11 +73,11 @@
             // lbMovieDetail
             // 
             this.lbMovieDetail.AutoSize = true;
-            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieDetail.ForeColor = System.Drawing.Color.White;
             this.lbMovieDetail.Location = new System.Drawing.Point(454, 51);
             this.lbMovieDetail.Name = "lbMovieDetail";
-            this.lbMovieDetail.Size = new System.Drawing.Size(135, 22);
+            this.lbMovieDetail.Size = new System.Drawing.Size(148, 22);
             this.lbMovieDetail.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieDetail.TabIndex = 14;
             this.lbMovieDetail.Text = "{0} {1} {2}分钟";
@@ -85,11 +85,11 @@
             // lbMovieName
             // 
             this.lbMovieName.AutoSize = true;
-            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.White;
             this.lbMovieName.Location = new System.Drawing.Point(186, 46);
             this.lbMovieName.Name = "lbMovieName";
-            this.lbMovieName.Size = new System.Drawing.Size(99, 32);
+            this.lbMovieName.Size = new System.Drawing.Size(102, 32);
             this.lbMovieName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMovieName.TabIndex = 13;
             this.lbMovieName.Text = "电影名";
@@ -97,7 +97,7 @@
             // lbPlanInfo
             // 
             this.lbPlanInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭黑简体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPlanInfo.Location = new System.Drawing.Point(6, 2);
             this.lbPlanInfo.Name = "lbPlanInfo";
             this.lbPlanInfo.Size = new System.Drawing.Size(247, 32);

@@ -37,11 +37,11 @@
             // 
             this.lbTimes.AutoSize = true;
             this.lbTimes.BackColor = System.Drawing.Color.Transparent;
-            this.lbTimes.Font = new System.Drawing.Font("方正兰亭粗黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTimes.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTimes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbTimes.Location = new System.Drawing.Point(15, 14);
             this.lbTimes.Name = "lbTimes";
-            this.lbTimes.Size = new System.Drawing.Size(89, 27);
+            this.lbTimes.Size = new System.Drawing.Size(88, 27);
             this.lbTimes.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbTimes.TabIndex = 0;
             this.lbTimes.Text = "label1";
@@ -51,11 +51,11 @@
             // 
             this.lbRoomName.AutoSize = true;
             this.lbRoomName.BackColor = System.Drawing.Color.Transparent;
-            this.lbRoomName.Font = new System.Drawing.Font("方正兰亭黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRoomName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRoomName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbRoomName.Location = new System.Drawing.Point(103, 14);
             this.lbRoomName.Name = "lbRoomName";
-            this.lbRoomName.Size = new System.Drawing.Size(81, 27);
+            this.lbRoomName.Size = new System.Drawing.Size(82, 27);
             this.lbRoomName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbRoomName.TabIndex = 0;
             this.lbRoomName.Text = "label1";
@@ -65,11 +65,11 @@
             // 
             this.lbPrice.AutoSize = true;
             this.lbPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lbPrice.Font = new System.Drawing.Font("方正兰亭粗黑简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbPrice.Location = new System.Drawing.Point(15, 50);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(158, 27);
+            this.lbPrice.Size = new System.Drawing.Size(164, 27);
             this.lbPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPrice.TabIndex = 0;
             this.lbPrice.Text = "会员价  {0}元";
