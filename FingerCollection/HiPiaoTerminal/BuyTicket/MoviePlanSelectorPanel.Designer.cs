@@ -73,6 +73,7 @@
             this.panelContent.Controls.Add(this.lbOtherName);
             this.panelContent.Controls.Add(this.lbName);
             this.panelContent.Controls.Add(this.picMovieAdImage);
+            this.panelContent.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelContent.Location = new System.Drawing.Point(0, 144);
             this.panelContent.Size = new System.Drawing.Size(1280, 659);
             // 
@@ -108,10 +109,10 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("方正兰亭粗黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbName.Location = new System.Drawing.Point(245, 4);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(102, 32);
+            this.lbName.Size = new System.Drawing.Size(99, 32);
             this.lbName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbName.TabIndex = 1;
             this.lbName.Text = "label1";
@@ -119,10 +120,10 @@
             // lbOtherName
             // 
             this.lbOtherName.AutoSize = true;
-            this.lbOtherName.Font = new System.Drawing.Font("方正兰亭黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbOtherName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbOtherName.Location = new System.Drawing.Point(245, 33);
             this.lbOtherName.Name = "lbOtherName";
-            this.lbOtherName.Size = new System.Drawing.Size(78, 27);
+            this.lbOtherName.Size = new System.Drawing.Size(76, 27);
             this.lbOtherName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbOtherName.TabIndex = 1;
             this.lbOtherName.Text = "label1";
@@ -130,11 +131,11 @@
             // lbDirector
             // 
             this.lbDirector.AutoSize = true;
-            this.lbDirector.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbDirector.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbDirector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbDirector.Location = new System.Drawing.Point(245, 69);
             this.lbDirector.Name = "lbDirector";
-            this.lbDirector.Size = new System.Drawing.Size(78, 18);
+            this.lbDirector.Size = new System.Drawing.Size(93, 22);
             this.lbDirector.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbDirector.TabIndex = 1;
             this.lbDirector.Text = "导演：{0}";
@@ -142,11 +143,11 @@
             // lbScreenWriter
             // 
             this.lbScreenWriter.AutoSize = true;
-            this.lbScreenWriter.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbScreenWriter.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbScreenWriter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbScreenWriter.Location = new System.Drawing.Point(245, 91);
             this.lbScreenWriter.Name = "lbScreenWriter";
-            this.lbScreenWriter.Size = new System.Drawing.Size(78, 18);
+            this.lbScreenWriter.Size = new System.Drawing.Size(93, 22);
             this.lbScreenWriter.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbScreenWriter.TabIndex = 1;
             this.lbScreenWriter.Text = "编剧：{0}";
@@ -154,11 +155,11 @@
             // lbMainActor
             // 
             this.lbMainActor.AutoSize = true;
-            this.lbMainActor.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMainActor.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMainActor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbMainActor.Location = new System.Drawing.Point(245, 113);
             this.lbMainActor.Name = "lbMainActor";
-            this.lbMainActor.Size = new System.Drawing.Size(78, 18);
+            this.lbMainActor.Size = new System.Drawing.Size(93, 22);
             this.lbMainActor.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMainActor.TabIndex = 1;
             this.lbMainActor.Text = "主演：{0}";
@@ -166,11 +167,11 @@
             // lbType
             // 
             this.lbType.AutoSize = true;
-            this.lbType.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbType.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbType.Location = new System.Drawing.Point(245, 135);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(78, 18);
+            this.lbType.Size = new System.Drawing.Size(93, 22);
             this.lbType.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbType.TabIndex = 1;
             this.lbType.Text = "类型：{0}";
@@ -178,11 +179,11 @@
             // lbNational
             // 
             this.lbNational.AutoSize = true;
-            this.lbNational.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbNational.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbNational.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbNational.Location = new System.Drawing.Point(245, 157);
             this.lbNational.Name = "lbNational";
-            this.lbNational.Size = new System.Drawing.Size(78, 18);
+            this.lbNational.Size = new System.Drawing.Size(93, 22);
             this.lbNational.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbNational.TabIndex = 1;
             this.lbNational.Text = "国家：{0}";
@@ -190,11 +191,11 @@
             // lbLanguage
             // 
             this.lbLanguage.AutoSize = true;
-            this.lbLanguage.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbLanguage.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbLanguage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbLanguage.Location = new System.Drawing.Point(245, 179);
             this.lbLanguage.Name = "lbLanguage";
-            this.lbLanguage.Size = new System.Drawing.Size(78, 18);
+            this.lbLanguage.Size = new System.Drawing.Size(93, 22);
             this.lbLanguage.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbLanguage.TabIndex = 1;
             this.lbLanguage.Text = "语言：{0}";
@@ -202,11 +203,11 @@
             // lbLength
             // 
             this.lbLength.AutoSize = true;
-            this.lbLength.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbLength.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbLength.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.lbLength.Location = new System.Drawing.Point(245, 201);
             this.lbLength.Name = "lbLength";
-            this.lbLength.Size = new System.Drawing.Size(110, 18);
+            this.lbLength.Size = new System.Drawing.Size(131, 22);
             this.lbLength.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbLength.TabIndex = 1;
             this.lbLength.Text = "片长：{0}分钟";
@@ -294,10 +295,11 @@
             // lbProcessHint
             // 
             this.lbProcessHint.AutoSize = true;
+            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbProcessHint.Location = new System.Drawing.Point(404, 187);
+            this.lbProcessHint.Location = new System.Drawing.Point(404, 198);
             this.lbProcessHint.Name = "lbProcessHint";
-            this.lbProcessHint.Size = new System.Drawing.Size(351, 32);
+            this.lbProcessHint.Size = new System.Drawing.Size(274, 24);
             this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbProcessHint.TabIndex = 11;
             this.lbProcessHint.Text = "正在加载排期信息，请稍候";

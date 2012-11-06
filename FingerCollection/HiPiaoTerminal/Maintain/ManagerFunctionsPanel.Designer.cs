@@ -49,7 +49,7 @@
             // 
             // btnAutoCloseComputer
             // 
-            this.btnAutoCloseComputer.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAutoCloseComputer.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.btnAutoCloseComputer.ForeColor = System.Drawing.Color.White;
             this.btnAutoCloseComputer.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.btnAutoCloseComputer.Location = new System.Drawing.Point(190, 388);
@@ -63,7 +63,7 @@
             // 
             // btnReturnDesktop
             // 
-            this.btnReturnDesktop.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReturnDesktop.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.btnReturnDesktop.ForeColor = System.Drawing.Color.White;
             this.btnReturnDesktop.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.btnReturnDesktop.Location = new System.Drawing.Point(190, 610);
@@ -77,7 +77,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.label2.Location = new System.Drawing.Point(518, 388);
@@ -91,7 +91,7 @@
             // 
             // btnCloseComputer
             // 
-            this.btnCloseComputer.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCloseComputer.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.btnCloseComputer.ForeColor = System.Drawing.Color.White;
             this.btnCloseComputer.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.btnCloseComputer.Location = new System.Drawing.Point(518, 610);
@@ -105,7 +105,7 @@
             // 
             // btnMoreSetting
             // 
-            this.btnMoreSetting.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMoreSetting.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.btnMoreSetting.ForeColor = System.Drawing.Color.White;
             this.btnMoreSetting.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.btnMoreSetting.Location = new System.Drawing.Point(846, 610);
@@ -119,7 +119,7 @@
             // 
             // btnModifyManagePwd
             // 
-            this.btnModifyManagePwd.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnModifyManagePwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 35.25F);
             this.btnModifyManagePwd.ForeColor = System.Drawing.Color.White;
             this.btnModifyManagePwd.Image = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_FunctionBack;
             this.btnModifyManagePwd.Location = new System.Drawing.Point(846, 388);

@@ -38,11 +38,11 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 36F);
+            this.lbUserName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbUserName.Location = new System.Drawing.Point(268, 277);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(279, 55);
+            this.lbUserName.Size = new System.Drawing.Size(286, 56);
             this.lbUserName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbUserName.TabIndex = 2;
             this.lbUserName.Text = "用户名：{0}";
@@ -50,11 +50,11 @@
             // lbMobile
             // 
             this.lbMobile.AutoSize = true;
-            this.lbMobile.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 36F);
+            this.lbMobile.Font = new System.Drawing.Font("方正兰亭纤黑简体", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.lbMobile.Location = new System.Drawing.Point(268, 339);
             this.lbMobile.Name = "lbMobile";
-            this.lbMobile.Size = new System.Drawing.Size(279, 55);
+            this.lbMobile.Size = new System.Drawing.Size(286, 56);
             this.lbMobile.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMobile.TabIndex = 2;
             this.lbMobile.Text = "手机号：{0}";
@@ -62,11 +62,11 @@
             // simpleLabel3
             // 
             this.simpleLabel3.AutoSize = true;
-            this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭粗黑简体", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(121)))));
             this.simpleLabel3.Location = new System.Drawing.Point(186, 80);
             this.simpleLabel3.Name = "simpleLabel3";
-            this.simpleLabel3.Size = new System.Drawing.Size(623, 110);
+            this.simpleLabel3.Size = new System.Drawing.Size(629, 111);
             this.simpleLabel3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.simpleLabel3.TabIndex = 2;
             this.simpleLabel3.Text = "手机绑定成功";

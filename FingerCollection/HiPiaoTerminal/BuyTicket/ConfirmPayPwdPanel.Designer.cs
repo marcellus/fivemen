@@ -39,11 +39,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("方正兰亭粗黑简体", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.label1.Location = new System.Drawing.Point(127, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 49);
+            this.label1.Size = new System.Drawing.Size(330, 49);
             this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 0;
             this.label1.Text = "请输入账户密码";
@@ -63,7 +63,7 @@
             // 
             this.txtUserPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtUserPwd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUserPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtUserPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtUserPwd.Hint = "账户密码";
             this.txtUserPwd.IsActive = true;
             this.txtUserPwd.IsDeleted = true;

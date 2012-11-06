@@ -45,132 +45,144 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label1.Location = new System.Drawing.Point(125, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 39);
+            this.label1.Size = new System.Drawing.Size(197, 40);
+            this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 0;
             this.label1.Text = "账户名称：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label2.Location = new System.Drawing.Point(125, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 39);
+            this.label2.Size = new System.Drawing.Size(197, 40);
+            this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 0;
             this.label2.Text = "账户余额：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label3.Location = new System.Drawing.Point(123, 189);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 39);
+            this.label3.Size = new System.Drawing.Size(205, 40);
+            this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 0;
             this.label3.Text = "优  惠  券：";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label4.Location = new System.Drawing.Point(125, 255);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 39);
+            this.label4.Size = new System.Drawing.Size(197, 40);
+            this.label4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label4.TabIndex = 0;
             this.label4.Text = "消费记录：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label5.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label5.Location = new System.Drawing.Point(125, 321);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 39);
+            this.label5.Size = new System.Drawing.Size(197, 40);
+            this.label5.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label5.TabIndex = 0;
             this.label5.Text = "账户积分：";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.label6.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.label6.Location = new System.Drawing.Point(121, 387);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(191, 39);
+            this.label6.Size = new System.Drawing.Size(213, 40);
+            this.label6.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label6.TabIndex = 0;
             this.label6.Text = "邮        箱：";
             // 
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbUserName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbUserName.Location = new System.Drawing.Point(306, 57);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(187, 39);
+            this.lbUserName.Size = new System.Drawing.Size(197, 40);
+            this.lbUserName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbUserName.TabIndex = 0;
             this.lbUserName.Text = "账户名称：";
             // 
             // lbBalance
             // 
             this.lbBalance.AutoSize = true;
-            this.lbBalance.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbBalance.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbBalance.Location = new System.Drawing.Point(306, 123);
             this.lbBalance.Name = "lbBalance";
-            this.lbBalance.Size = new System.Drawing.Size(187, 39);
+            this.lbBalance.Size = new System.Drawing.Size(197, 40);
+            this.lbBalance.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbBalance.TabIndex = 0;
             this.lbBalance.Text = "账户余额：";
             // 
             // lbCoupon
             // 
             this.lbCoupon.AutoSize = true;
-            this.lbCoupon.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbCoupon.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbCoupon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbCoupon.Location = new System.Drawing.Point(306, 189);
             this.lbCoupon.Name = "lbCoupon";
-            this.lbCoupon.Size = new System.Drawing.Size(189, 39);
+            this.lbCoupon.Size = new System.Drawing.Size(205, 40);
+            this.lbCoupon.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbCoupon.TabIndex = 0;
             this.lbCoupon.Text = "优  惠  券：";
             // 
             // lbBuyRecord
             // 
             this.lbBuyRecord.AutoSize = true;
-            this.lbBuyRecord.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbBuyRecord.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbBuyRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbBuyRecord.Location = new System.Drawing.Point(306, 255);
             this.lbBuyRecord.Name = "lbBuyRecord";
-            this.lbBuyRecord.Size = new System.Drawing.Size(187, 39);
+            this.lbBuyRecord.Size = new System.Drawing.Size(197, 40);
+            this.lbBuyRecord.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbBuyRecord.TabIndex = 0;
             this.lbBuyRecord.Text = "消费记录：";
             // 
             // lbPoint
             // 
             this.lbPoint.AutoSize = true;
-            this.lbPoint.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbPoint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPoint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbPoint.Location = new System.Drawing.Point(306, 321);
             this.lbPoint.Name = "lbPoint";
-            this.lbPoint.Size = new System.Drawing.Size(187, 39);
+            this.lbPoint.Size = new System.Drawing.Size(197, 40);
+            this.lbPoint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbPoint.TabIndex = 0;
             this.lbPoint.Text = "账户积分：";
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Font = new System.Drawing.Font("方正兰亭黑简体", 25.25F);
+            this.lbEmail.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(181)))), ((int)(((byte)(41)))));
             this.lbEmail.Location = new System.Drawing.Point(306, 387);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(191, 39);
+            this.lbEmail.Size = new System.Drawing.Size(213, 40);
+            this.lbEmail.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbEmail.TabIndex = 0;
             this.lbEmail.Text = "邮        箱：";
             // 

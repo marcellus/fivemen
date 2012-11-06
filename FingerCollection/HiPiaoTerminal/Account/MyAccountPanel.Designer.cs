@@ -68,7 +68,7 @@
             // 
             this.btnFeeDetailInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFeeDetailInfo.BackgroundImage")));
             this.btnFeeDetailInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFeeDetailInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.btnFeeDetailInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnFeeDetailInfo.ForeColor = System.Drawing.Color.White;
             this.btnFeeDetailInfo.IsActive = false;
             this.btnFeeDetailInfo.Location = new System.Drawing.Point(357, 154);
@@ -84,6 +84,7 @@
             // 
             this.btnModifyPwd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnModifyPwd.BackgroundImage")));
             this.btnModifyPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModifyPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnModifyPwd.ForeColor = System.Drawing.Color.White;
             this.btnModifyPwd.IsActive = false;
             this.btnModifyPwd.Location = new System.Drawing.Point(629, 154);
@@ -99,7 +100,7 @@
             // 
             this.btnAccountInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAccountInfo.BackgroundImage")));
             this.btnAccountInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAccountInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.btnAccountInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAccountInfo.IsActive = false;
             this.btnAccountInfo.Location = new System.Drawing.Point(85, 154);
             this.btnAccountInfo.Margin = new System.Windows.Forms.Padding(243, 149, 243, 149);

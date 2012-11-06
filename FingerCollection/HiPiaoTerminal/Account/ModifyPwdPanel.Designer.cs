@@ -104,7 +104,7 @@
             // lbOldPwdHint
             // 
             this.lbOldPwdHint.AutoSize = true;
-            this.lbOldPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbOldPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbOldPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbOldPwdHint.Location = new System.Drawing.Point(374, 150);
             this.lbOldPwdHint.Name = "lbOldPwdHint";
@@ -115,7 +115,7 @@
             // lbNewPwdHint
             // 
             this.lbNewPwdHint.AutoSize = true;
-            this.lbNewPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbNewPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbNewPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbNewPwdHint.Location = new System.Drawing.Point(374, 292);
             this.lbNewPwdHint.Name = "lbNewPwdHint";
@@ -126,7 +126,7 @@
             // lbRepeatPwdHint
             // 
             this.lbRepeatPwdHint.AutoSize = true;
-            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRepeatPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
             this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 435);
             this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
@@ -137,11 +137,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.label2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.label2.Location = new System.Drawing.Point(131, 357);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 40);
+            this.label2.Size = new System.Drawing.Size(197, 40);
             this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label2.TabIndex = 9;
             this.label2.Text = "重复新密码";
@@ -149,11 +149,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.label1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.label1.Location = new System.Drawing.Point(131, 217);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 40);
+            this.label1.Size = new System.Drawing.Size(197, 40);
             this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label1.TabIndex = 9;
             this.label1.Text = "设定新密码";
@@ -161,11 +161,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("方正兰亭黑简体", 26F);
+            this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.label3.Location = new System.Drawing.Point(201, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 40);
+            this.label3.Size = new System.Drawing.Size(125, 40);
             this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 9;
             this.label3.Text = "旧密码";
@@ -185,7 +185,7 @@
             // 
             this.txtOldPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtOldPwd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtOldPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtOldPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtOldPwd.Hint = "请输入6位数字密码";
             this.txtOldPwd.IsActive = false;
             this.txtOldPwd.IsDeleted = true;
@@ -204,7 +204,7 @@
             // 
             this.txtNewPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtNewPwd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNewPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtNewPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtNewPwd.Hint = "请输入6位数字新密码";
             this.txtNewPwd.IsActive = false;
             this.txtNewPwd.IsDeleted = true;
@@ -223,7 +223,7 @@
             // 
             this.txtRepeatPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
             this.txtRepeatPwd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRepeatPwd.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtRepeatPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtRepeatPwd.Hint = "请再次输入6位数字密码";
             this.txtRepeatPwd.IsActive = false;
             this.txtRepeatPwd.IsDeleted = true;
