@@ -89,9 +89,9 @@ namespace HiPiaoTerminal.BuyTicket
             
             if (movie != null&&moviePlan!=null)
             {
-                if (movie.Name.Length > 10)
+                if (movie.Name.Length >8)
                 {
-                    this.lbMovieName.Text = movie.Name.Substring(0, 10);
+                    this.lbMovieName.Text = movie.Name.Substring(0, 8);
                     this.toolTip1.SetToolTip(this.lbMovieName, movie.Name);
                 }
                 else
@@ -147,7 +147,7 @@ namespace HiPiaoTerminal.BuyTicket
 
                 int picWid = 25;
                 int picHeight = 25;
-                Font font=new Font("宋体",9);
+                Font font = new Font("方正兰亭纤黑简体", 9,FontStyle.Bold);
                 for (int i = 0; i < lists.Count; i++)
                 {
                     Label lb = new Label();
@@ -271,7 +271,7 @@ namespace HiPiaoTerminal.BuyTicket
             SeatObject seat = null;
            // System.Collections.IDictionaryEnumerator enumerator = selectedSeat.GetEnumerator();
             int i = 0;
-            Font font = new Font("方正兰亭黑简体", 12);
+            Font font = new Font("方正兰亭纤黑简体", 12,FontStyle.Bold);
            // while (enumerator.MoveNext())
             for (int j = 0; j < this.selectedSeatLine.Count;j++ )
             {
@@ -397,7 +397,7 @@ namespace HiPiaoTerminal.BuyTicket
         {
 
         }
-        Font fontHint = new Font("方正兰亭黑简体", 18);
+        Font fontHint = new Font("方正兰亭纤黑简体", 18,FontStyle.Bold);
 
         private void toolTip1_Draw(object sender, DrawToolTipEventArgs e)
         {
@@ -408,6 +408,7 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
+            if (this.toolTip1.Tag!=null)
             e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
 

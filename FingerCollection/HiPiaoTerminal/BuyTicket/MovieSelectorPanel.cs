@@ -115,7 +115,7 @@ namespace HiPiaoTerminal.BuyTicket
                     lb.Location = new Point(pc.Location.X,pc.Location.Y + picHeight);
                     lb.ForeColor = Color.FromArgb(69, 68, 68);
                     lb.TextAlign = ContentAlignment.MiddleCenter;
-                    lb.Font = new Font("方正兰亭黑简体",18);
+                    lb.Font = new Font("方正兰亭纤黑简体", 18,FontStyle.Bold);
                     //string name = "很长的测试电影名字如果爱琴海岛上没有海盗";
                     string name = lists[i].Name;
                     if (name.Length > 6)
@@ -211,6 +211,7 @@ namespace HiPiaoTerminal.BuyTicket
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
             //int x=
+            if (this.toolTip1.Tag!=null)
             e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
     }
