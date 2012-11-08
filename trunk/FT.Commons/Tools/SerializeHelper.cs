@@ -99,7 +99,7 @@ namespace FT.Commons.Tools
                 if (stream != null)
                     stream.Close();
                 Info(ex);
-                throw ex;
+                //throw ex;
             }
             return obj;
 
