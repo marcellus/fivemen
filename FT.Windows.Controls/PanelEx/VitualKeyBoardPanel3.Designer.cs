@@ -445,7 +445,9 @@
             // VitualKeyBoardPanel3
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = global::FT.Windows.Controls.Properties.Resources.AllKeyBoadBack;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::FT.Windows.Controls.Properties.Resources.AllKeyBoadBack2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.btnCharZ);
             this.Controls.Add(this.btnCharA);
             this.Controls.Add(this.btnNum9);
@@ -487,7 +489,7 @@
             this.Controls.Add(this.btnNum2);
             this.Controls.Add(this.btnNum1);
             this.Name = "VitualKeyBoardPanel3";
-            this.Size = new System.Drawing.Size(955, 338);
+            this.Size = new System.Drawing.Size(955, 337);
             this.Load += new System.EventHandler(this.VitualKeyBoardPanel3_Load);
             this.ResumeLayout(false);
 
