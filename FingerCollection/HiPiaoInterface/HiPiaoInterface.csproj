@@ -33,6 +33,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json.Net20, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Commons\commons-dlls\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -50,6 +54,7 @@
     <Compile Include="CommonHiPiaoStringOperator.cs" />
     <Compile Include="CouponObject.cs" />
     <Compile Include="DeductionObject.cs" />
+    <Compile Include="DingXinResponseObject.cs" />
     <Compile Include="HiPiaoCache.cs" />
     <Compile Include="HiPiaoOperator.cs" />
     <Compile Include="HiPiaoOperatorFactory.cs" />

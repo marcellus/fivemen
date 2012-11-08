@@ -32,9 +32,11 @@ namespace HiPiaoInterface
             try
             {
 
-                int port = 2908;
+               // int port = 2908;
+              //  string host = "119.10.114.212";
 
-                string host = "119.10.114.212";
+                string host = "58.62.144.227";
+                int port = 2907;
 
                 IPAddress ip = IPAddress.Parse(host);
 

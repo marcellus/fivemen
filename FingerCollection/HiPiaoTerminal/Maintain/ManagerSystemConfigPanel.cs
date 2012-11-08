@@ -36,6 +36,8 @@ namespace HiPiaoTerminal.Maintain
                 this.checkShow.Checked = config.AllowShowMouse;
                 this.checkHide.Checked = !config.AllowShowMouse;
 
+                this.txtPort.Text = config.CinemaServerPort.ToString();
+
             }
             catch
             {
@@ -52,6 +54,7 @@ namespace HiPiaoTerminal.Maintain
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             config.HiPiaoInterfaceUrl = this.txtInterfaceUrl.Text.Trim();
             config.CinemaServerIp = this.GetIp();
+            config.CinemaServerPort = Convert.ToInt32(this.txtPort.Text);
             config.AllowShowMouse = this.checkShow.Checked;
             FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
             this.lbReturnMsg.Text = "修改成功！";

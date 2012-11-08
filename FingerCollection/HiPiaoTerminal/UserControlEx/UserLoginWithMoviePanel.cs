@@ -17,6 +17,7 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void btnReturnHome_Click(object sender, EventArgs e)
         {
+            
             GlobalTools.ReturnMain();
         }
 

@@ -30,6 +30,12 @@ namespace HiPiaoTerminal
         {
         }
 
+
+        public static void InitInterface(string url)
+        {
+            CommonHiPiaoStringOperator.InitInterface(url);
+        }
+
         public static FullScreenSeatSelectorForm fullScreenSeatSelectorForm = null;
 
         private static FullAdShowForm fullAdForm = new FullAdShowForm();
@@ -522,8 +528,10 @@ namespace HiPiaoTerminal
 
         public static void InitAll(Form form)
         {
-            RefreshMovieShowList();
+            
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            GlobalTools.InitInterface(config.HiPiaoInterfaceUrl);
+            RefreshMovieShowList();
             AutoCloseComputerTimer = new Timer();
             AutoCloseComputerTimer.Interval = 6000;
             AutoCloseComputerTimer.Tick += new EventHandler(AutoCloseComputerTimer_Tick);

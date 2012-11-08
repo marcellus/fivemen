@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserLoginPanel));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -41,6 +42,7 @@
             this.panelUseKey = new System.Windows.Forms.Panel();
             this.panelUseRfid = new System.Windows.Forms.Panel();
             this.userLoginWithMoviePanel1 = new HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel();
+            this.timerReadCard = new System.Windows.Forms.Timer(this.components);
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -230,6 +232,12 @@
             this.userLoginWithMoviePanel1.Name = "userLoginWithMoviePanel1";
             this.userLoginWithMoviePanel1.Size = new System.Drawing.Size(1280, 84);
             this.userLoginWithMoviePanel1.TabIndex = 2;
+            this.userLoginWithMoviePanel1.Load += new System.EventHandler(this.userLoginWithMoviePanel1_Load);
+            // 
+            // timerReadCard
+            // 
+            this.timerReadCard.Interval = 500;
+            this.timerReadCard.Tick += new System.EventHandler(this.timerReadCard_Tick);
             // 
             // UserLoginPanel
             // 
@@ -264,6 +272,7 @@
         private System.Windows.Forms.Panel panelUseKey;
         private System.Windows.Forms.Panel panelUseRfid;
         private HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel userLoginWithMoviePanel1;
+        private System.Windows.Forms.Timer timerReadCard;
 
     }
 }

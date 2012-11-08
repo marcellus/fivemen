@@ -44,6 +44,9 @@ namespace HiPiaoTerminal.Maintain
 
                 config.FullScreenSecond = Convert.ToInt32(this.txtFullScreenSecond.Text);
 
+                config.AllowNumberKeyboard = this.checkAllowNumberKeyboard.Checked;
+                config.IsDingXin = this.checkIsDingXin.Checked;
+
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
 
 
@@ -75,6 +78,9 @@ namespace HiPiaoTerminal.Maintain
                 this.txtRefreshCacheTime.Text = config.UpdateMovieTime.ToString();
                 this.cbPrinterType.Text = config.PrinterType;
                 this.txtFullScreenSecond.Text = config.FullScreenSecond.ToString();
+
+                this.checkAllowNumberKeyboard.Checked=config.AllowNumberKeyboard;
+                this.checkIsDingXin.Checked = config.IsDingXin;
             }
             catch
             {

@@ -34,20 +34,22 @@
             // 
             // vitualKeyBoardPanel31
             // 
-            this.vitualKeyBoardPanel31.AutoScroll = true;
+            this.vitualKeyBoardPanel31.BackColor = System.Drawing.Color.White;
             this.vitualKeyBoardPanel31.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vitualKeyBoardPanel31.BackgroundImage")));
+            this.vitualKeyBoardPanel31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.vitualKeyBoardPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vitualKeyBoardPanel31.InputTextBox = null;
             this.vitualKeyBoardPanel31.Location = new System.Drawing.Point(0, 0);
             this.vitualKeyBoardPanel31.Name = "vitualKeyBoardPanel31";
             this.vitualKeyBoardPanel31.ShowWithForm = true;
-            this.vitualKeyBoardPanel31.Size = new System.Drawing.Size(955, 338);
+            this.vitualKeyBoardPanel31.Size = new System.Drawing.Size(955, 337);
             this.vitualKeyBoardPanel31.TabIndex = 0;
             // 
             // VitualKeyboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(955, 338);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(955, 337);
             this.Controls.Add(this.vitualKeyBoardPanel31);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VitualKeyboardForm";
@@ -55,6 +57,7 @@
             this.ShowInTaskbar = false;
             this.Text = "VitualKeyboardForm";
             this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.White;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VitualKeyboardForm_Paint);
             this.ResumeLayout(false);
 
@@ -63,6 +66,7 @@
         #endregion
 
         private FT.Windows.Controls.PanelEx.VitualKeyBoardPanel3 vitualKeyBoardPanel31;
+
 
     }
 }

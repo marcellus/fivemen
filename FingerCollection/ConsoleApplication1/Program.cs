@@ -8,6 +8,7 @@ using System.Data.OracleClient;
 using FT.DAL;
 using FT.DAL.Oracle;
 using System.Security.Cryptography;
+using HiPiaoInterface;
 
 namespace ConsoleApplication1
 {
@@ -89,6 +90,8 @@ namespace ConsoleApplication1
             for (int i = 0; i < 10;i++ )
                 Console.WriteLine("随机产生6位随机码：" + HiPiaoInterface.RandomSmsHelper.GenerateNumberCode(6));
             //HiPiaoInterface.HipiaoTcpHelper.GetTicket();
+            HiPiaoCache.GetDingXinTicket();
+           // DingXinResponseObject.Parse("");
             Console.ReadLine();
 
             /*

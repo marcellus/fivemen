@@ -47,12 +47,12 @@
             this.numButton2 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.numButton1 = new HiPiaoTerminal.UserControlEx.NumButton();
             this.picReturn = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureHint = new System.Windows.Forms.PictureBox();
             this.picReturnHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnClearAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturnHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,15 +301,15 @@
             this.picReturn.TabStop = false;
             this.picReturn.Click += new System.EventHandler(this.picReturn_Click);
             // 
-            // pictureBox2
+            // pictureHint
             // 
-            this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Site_Hint;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 40);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(812, 83);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.pictureHint.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Print_Site_Hint;
+            this.pictureHint.Location = new System.Drawing.Point(244, 40);
+            this.pictureHint.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.pictureHint.Name = "pictureHint";
+            this.pictureHint.Size = new System.Drawing.Size(812, 83);
+            this.pictureHint.TabIndex = 2;
+            this.pictureHint.TabStop = false;
             // 
             // picReturnHome
             // 
@@ -345,7 +345,7 @@
             this.Controls.Add(this.lbValidCode);
             this.Controls.Add(this.lbMobileHint);
             this.Controls.Add(this.picReturn);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureHint);
             this.Controls.Add(this.picReturnHome);
             this.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
@@ -355,7 +355,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClearAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReturnHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -365,7 +365,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picReturnHome;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureHint;
         private System.Windows.Forms.PictureBox picReturn;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbMobileHint;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbValidCode;
