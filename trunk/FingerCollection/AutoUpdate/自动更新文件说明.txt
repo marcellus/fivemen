@@ -1,0 +1,17 @@
+﻿1、主要配置如下
+ <Updater>
+    <!--更新文件主路径，下载路径依据主路径+Files中File下的Name的相对路径-->
+    <Url>http://192.168.17.128/AppStore/HiPiaoTerminal/</Url>
+    <LastUpdateTime>2012-07-31</LastUpdateTime>
+  </Updater>
+  <Application applicationId="HiPiaoTerminal">
+    <!--下载完毕后启动的应用程序-->
+    <EntryPoint>HiPiaoTerminal.exe</EntryPoint>
+    <Location>.</Location>
+    <Version>1.0.0.0</Version>
+  </Application>
+  <Files>
+    <File Ver="4.0.2.13623" Name="Newtonsoft.Json.Net20.dll" />
+    <File Ver="3.0.0.0" Name="config/SystemConfig.cfg"/>
+  </Files>
+</AutoUpdater>

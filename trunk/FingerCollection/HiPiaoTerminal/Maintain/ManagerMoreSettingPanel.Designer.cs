@@ -59,6 +59,10 @@
             this.simpleLabel6 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel7 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtFullScreenSecond = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.simpleLabel8 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.checkIsDingXin = new FT.Windows.Controls.ButtonEx.CheckButton();
+            this.simpleLabel9 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.checkAllowNumberKeyboard = new FT.Windows.Controls.ButtonEx.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -426,6 +430,52 @@
             this.txtFullScreenSecond.Size = new System.Drawing.Size(132, 74);
             this.txtFullScreenSecond.TabIndex = 7;
             // 
+            // simpleLabel8
+            // 
+            this.simpleLabel8.AutoSize = true;
+            this.simpleLabel8.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel8.Location = new System.Drawing.Point(873, 375);
+            this.simpleLabel8.Name = "simpleLabel8";
+            this.simpleLabel8.Size = new System.Drawing.Size(161, 40);
+            this.simpleLabel8.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel8.TabIndex = 5;
+            this.simpleLabel8.Text = "鼎新取票";
+            // 
+            // checkIsDingXin
+            // 
+            this.checkIsDingXin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkIsDingXin.BackgroundImage")));
+            this.checkIsDingXin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkIsDingXin.Checked = false;
+            this.checkIsDingXin.Location = new System.Drawing.Point(810, 377);
+            this.checkIsDingXin.Name = "checkIsDingXin";
+            this.checkIsDingXin.Size = new System.Drawing.Size(38, 38);
+            this.checkIsDingXin.TabIndex = 6;
+            this.checkIsDingXin.UseVisualStyleBackColor = true;
+            // 
+            // simpleLabel9
+            // 
+            this.simpleLabel9.AutoSize = true;
+            this.simpleLabel9.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel9.Location = new System.Drawing.Point(1077, 375);
+            this.simpleLabel9.Name = "simpleLabel9";
+            this.simpleLabel9.Size = new System.Drawing.Size(197, 40);
+            this.simpleLabel9.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel9.TabIndex = 5;
+            this.simpleLabel9.Text = "密码软键盘";
+            // 
+            // checkAllowNumberKeyboard
+            // 
+            this.checkAllowNumberKeyboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkAllowNumberKeyboard.BackgroundImage")));
+            this.checkAllowNumberKeyboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkAllowNumberKeyboard.Checked = false;
+            this.checkAllowNumberKeyboard.Location = new System.Drawing.Point(1033, 377);
+            this.checkAllowNumberKeyboard.Name = "checkAllowNumberKeyboard";
+            this.checkAllowNumberKeyboard.Size = new System.Drawing.Size(38, 38);
+            this.checkAllowNumberKeyboard.TabIndex = 6;
+            this.checkAllowNumberKeyboard.UseVisualStyleBackColor = true;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -434,6 +484,8 @@
             this.Controls.Add(this.txtRefreshCacheTime);
             this.Controls.Add(this.txtUnOperationTime);
             this.Controls.Add(this.checkVitualKeyboard);
+            this.Controls.Add(this.checkAllowNumberKeyboard);
+            this.Controls.Add(this.checkIsDingXin);
             this.Controls.Add(this.checkAllowRfid);
             this.Controls.Add(this.checkUseHardKeyboard);
             this.Controls.Add(this.cbProvince);
@@ -450,6 +502,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnKeepSave);
             this.Controls.Add(this.simpleLabel2);
+            this.Controls.Add(this.simpleLabel9);
+            this.Controls.Add(this.simpleLabel8);
             this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
@@ -470,6 +524,8 @@
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.simpleLabel1, 0);
+            this.Controls.SetChildIndex(this.simpleLabel8, 0);
+            this.Controls.SetChildIndex(this.simpleLabel9, 0);
             this.Controls.SetChildIndex(this.simpleLabel2, 0);
             this.Controls.SetChildIndex(this.btnKeepSave, 0);
             this.Controls.SetChildIndex(this.label4, 0);
@@ -486,6 +542,8 @@
             this.Controls.SetChildIndex(this.cbProvince, 0);
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
             this.Controls.SetChildIndex(this.checkAllowRfid, 0);
+            this.Controls.SetChildIndex(this.checkIsDingXin, 0);
+            this.Controls.SetChildIndex(this.checkAllowNumberKeyboard, 0);
             this.Controls.SetChildIndex(this.checkVitualKeyboard, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
             this.Controls.SetChildIndex(this.txtRefreshCacheTime, 0);
@@ -530,5 +588,9 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel6;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel7;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtFullScreenSecond;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel8;
+        private FT.Windows.Controls.ButtonEx.CheckButton checkIsDingXin;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel9;
+        private FT.Windows.Controls.ButtonEx.CheckButton checkAllowNumberKeyboard;
     }
 }

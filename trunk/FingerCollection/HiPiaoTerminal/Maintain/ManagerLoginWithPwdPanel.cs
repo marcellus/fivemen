@@ -20,15 +20,17 @@ namespace HiPiaoTerminal.Maintain
         private void btnManagerLogin_Click(object sender, EventArgs e)
         {
             string inputPwd = this.txtManagePwd.Text.Trim();
+             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             if (inputPwd.Length == 0)
             {
                 this.lbReturnMsg.Text = "请输入登陆密码再点击登陆！";
                 this.txtManagePwd.Text = string.Empty;
                 this.txtManagePwd.Focus();
-               // GlobalTools.SetAllKeyBoardWithForm(this.txtManagePwd, 1);
+               // if(config.AllowNumberKeyboard)
+                   // GlobalTools.SetAllKeyBoardWithForm(this.tx, 1);
                 return;
             }
-            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+           
             if (config.ManagePwd == inputPwd)
             {
                 GlobalTools.ErrorManagePwdTimes = 0;

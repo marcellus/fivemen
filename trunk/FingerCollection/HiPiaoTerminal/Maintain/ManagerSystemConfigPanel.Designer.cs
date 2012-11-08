@@ -54,6 +54,8 @@
             this.btnCancelSave = new System.Windows.Forms.PictureBox();
             this.lbReturnMsg = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnTestConnection = new System.Windows.Forms.PictureBox();
+            this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtPort = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -148,7 +150,7 @@
             // txtIp1
             // 
             this.txtIp1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIp1.Font = new System.Drawing.Font("宋体", 28F);
+            this.txtIp1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtIp1.Location = new System.Drawing.Point(10, 13);
             this.txtIp1.Name = "txtIp1";
             this.txtIp1.Size = new System.Drawing.Size(93, 43);
@@ -166,7 +168,7 @@
             // txtInterfaceUrl
             // 
             this.txtInterfaceUrl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtInterfaceUrl.Font = new System.Drawing.Font("宋体", 28F);
+            this.txtInterfaceUrl.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtInterfaceUrl.Location = new System.Drawing.Point(17, 18);
             this.txtInterfaceUrl.Name = "txtInterfaceUrl";
             this.txtInterfaceUrl.Size = new System.Drawing.Size(556, 43);
@@ -184,7 +186,7 @@
             // txtIp3
             // 
             this.txtIp3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIp3.Font = new System.Drawing.Font("宋体", 28F);
+            this.txtIp3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtIp3.Location = new System.Drawing.Point(10, 13);
             this.txtIp3.Name = "txtIp3";
             this.txtIp3.Size = new System.Drawing.Size(93, 43);
@@ -202,7 +204,7 @@
             // txtIp2
             // 
             this.txtIp2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIp2.Font = new System.Drawing.Font("宋体", 28F);
+            this.txtIp2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtIp2.Location = new System.Drawing.Point(9, 13);
             this.txtIp2.Name = "txtIp2";
             this.txtIp2.Size = new System.Drawing.Size(93, 43);
@@ -220,7 +222,7 @@
             // txtIp4
             // 
             this.txtIp4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIp4.Font = new System.Drawing.Font("宋体", 28F);
+            this.txtIp4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtIp4.Location = new System.Drawing.Point(9, 13);
             this.txtIp4.Name = "txtIp4";
             this.txtIp4.Size = new System.Drawing.Size(93, 43);
@@ -303,16 +305,47 @@
             // btnTestConnection
             // 
             this.btnTestConnection.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Manager_AutoClose_Test;
-            this.btnTestConnection.Location = new System.Drawing.Point(914, 368);
+            this.btnTestConnection.Location = new System.Drawing.Point(1137, 368);
             this.btnTestConnection.Name = "btnTestConnection";
             this.btnTestConnection.Size = new System.Drawing.Size(130, 62);
             this.btnTestConnection.TabIndex = 20;
             this.btnTestConnection.TabStop = false;
             this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
+            // simpleLabel1
+            // 
+            this.simpleLabel1.AutoSize = true;
+            this.simpleLabel1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel1.Location = new System.Drawing.Point(892, 377);
+            this.simpleLabel1.Name = "simpleLabel1";
+            this.simpleLabel1.Size = new System.Drawing.Size(102, 32);
+            this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel1.TabIndex = 21;
+            this.simpleLabel1.Text = "端口：";
+            // 
+            // txtPort
+            // 
+            this.txtPort.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtPort.BackColor = System.Drawing.Color.Transparent;
+            this.txtPort.Font = new System.Drawing.Font("宋体", 21F);
+            this.txtPort.Hint = null;
+            this.txtPort.IsActive = false;
+            this.txtPort.IsDeleted = false;
+            this.txtPort.KeyboardType = 6;
+            this.txtPort.Location = new System.Drawing.Point(997, 356);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPort.MaxInputLength = 32767;
+            this.txtPort.Name = "txtPort";
+            this.txtPort.PasswordChar = '\0';
+            this.txtPort.RelativeLabel = null;
+            this.txtPort.Size = new System.Drawing.Size(131, 74);
+            this.txtPort.TabIndex = 22;
+            // 
             // ManagerSystemConfigPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.btnTestConnection);
             this.Controls.Add(this.lbReturnMsg);
             this.Controls.Add(this.btnCancelSave);
@@ -355,6 +388,8 @@
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             this.Controls.SetChildIndex(this.btnTestConnection, 0);
+            this.Controls.SetChildIndex(this.simpleLabel1, 0);
+            this.Controls.SetChildIndex(this.txtPort, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -409,5 +444,7 @@
         private System.Windows.Forms.TextBox txtIp4;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbReturnMsg;
         private System.Windows.Forms.PictureBox btnTestConnection;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtPort;
     }
 }

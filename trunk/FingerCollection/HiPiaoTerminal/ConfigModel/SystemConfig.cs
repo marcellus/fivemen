@@ -20,8 +20,9 @@ namespace HiPiaoTerminal.ConfigModel
         public int AutoOpenComputerHour = 8;
         public int AutoOpenComputerMinitues = 0;
 
-        public string CinemaServerIp="192.168.0.1";
-        public string HiPiaoInterfaceUrl = "http://jk.hipiao.com/xxx";
+        public string CinemaServerIp="192.168.0.1";//影院前置机IP地址
+        public int CinemaServerPort = 2987;//影院前置机端口
+        public string HiPiaoInterfaceUrl = "http://iphone.51cp.com:8080/ws/hpcinema";
 
         public string ManagePwd="qqqqqq";
 
@@ -33,6 +34,10 @@ namespace HiPiaoTerminal.ConfigModel
         /// 定时更新电影信息时间
         /// </summary>
         public int UpdateMovieTime = 5;
+
+        public bool AllowNumberKeyboard = false;//是否允许数字的时候也弹出键盘
+
+        public bool IsDingXin = false;//是否鼎新取票
 
 
         public bool AllowShowMouse = true;

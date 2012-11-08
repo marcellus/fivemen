@@ -42,8 +42,8 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void VitualKeyboardForm_Paint(object sender, PaintEventArgs e)
         {
-            Color color = Color.FromArgb(241, 241, 241);
-            WinFormHelper.PaintRound(sender, color, 1, e);
+          //  Color color = Color.FromArgb(241, 241, 241);
+          //  WinFormHelper.PaintRound(sender, color, 1, e);
         }
     }
 }

@@ -788,6 +788,20 @@ namespace HiPiaoTerminal.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap DingXin_GetTicket_Back1 {
+            get {
+                object obj = ResourceManager.GetObject("DingXin_GetTicket_Back1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap DingXin_GetTicket_Back2 {
+            get {
+                object obj = ResourceManager.GetObject("DingXin_GetTicket_Back2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Down {
             get {
                 object obj = ResourceManager.GetObject("Down", resourceCulture);
@@ -1211,6 +1225,13 @@ namespace HiPiaoTerminal.Properties {
         internal static System.Drawing.Bitmap NumKey_Not_Active {
             get {
                 object obj = ResourceManager.GetObject("NumKey_Not_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap PopTest {
+            get {
+                object obj = ResourceManager.GetObject("PopTest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

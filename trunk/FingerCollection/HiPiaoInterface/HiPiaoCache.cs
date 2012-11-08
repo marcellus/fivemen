@@ -20,7 +20,33 @@ namespace HiPiaoInterface
 
 
 
-
+        public static void GetDingXinTicket()
+        {
+            string test = "{"
+   + " \"res\": {"
+    + "   \"status\": 1,"
+     + "   \"errorMessage\":null,"
+     + "  \"errorCode\": null,"
+     + "   \"data\": {"
+      + "      \"printed\":\"1\","
+      + "      \"printTime\":\"2012-10-18 13:56:12\","
+      + "      \"cinemaName\":\"南昌万达\","
+      + "      \"movieName\":\"生化危机5\","
+      + "      \"movieLanguage\":\"英语\","
+      + "      \"movieSubtitle\":\"中文\","
+      + "      \"movieStart\":\"2012-10-18 16:00:45\","
+      + "      \"movieEnd\":\"2012-10-18 18:00:45\","
+      + "      \"item\":{"
+      + "          \"no\":\"5000006\","
+      + "          \"hallName\":\"3号IMAX厅\","
+      + "          \"row\":\"8排\","
+      + "          \"column\":\"10号\","
+      + "          \"type\":\"半价票\","
+      + "          \"price\":\"60\","
+      + "          \"handleFee\":\"5\" }}}}";
+           // string test2=@"";
+            DingXinResponseObject response = DingXinResponseObject.Parse(test);
+        }
         
 
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoTerminal.UserControlEx;
 using HiPiaoTerminal.PrinterTicket;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal
 {
@@ -16,6 +17,14 @@ namespace HiPiaoTerminal
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.IsDingXin)
+            {
+                this.picReturnHome.Image = Properties.Resources.DingXin_GetTicket_Back1;
+                this.pictureHint.Image = Properties.Resources.DingXin_GetTicket_Back2;
+                this.lbMobileHint.Text = "序列号";
+                this.txtMobile.Hint = "购票序列号";
+            }
         }
 
         private void TicketPrintPanel_Load(object sender, EventArgs e)
@@ -171,6 +180,11 @@ namespace HiPiaoTerminal
             if (allowPrint)
             {
                 GlobalTools.Pop(new WaitValidPanel(this.txtMobile.Text, this.txtValidCode.Text));
+
+                 SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                 if (config.IsDingXin)
+                 {
+                 }
             }
         }
 

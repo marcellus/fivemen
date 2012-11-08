@@ -16,6 +16,11 @@ namespace HiPiaoInterface
 
         private static string Interface_Url = string.Empty;
         private static int Interface_Timeout = 0;
+
+        public static void InitInterface(string url)
+        {
+            Interface_Url = url;
+        }
         public static string GetInterfaceUrl()
         {
             if (Interface_Url.Length == 0)

@@ -524,8 +524,9 @@ namespace AutoUpdate
                 catch (WebException ex)
                 {
                     //MessageBox.Show("更新文件下载失败！" + ex.Message.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    isFinish = false;
-                    break;
+                  //  isFinish = false;
+                   // continue;
+                    Console.WriteLine("下载异常："+ex.ToString());
                 }
                 finally
                 {
@@ -624,6 +625,7 @@ namespace AutoUpdate
             }
             catch (Exception ex)
             {
+                Console.WriteLine("线程拷贝出现异常:"+ex.ToString());
                 //MessageBox.Show(ex.Message.ToString());
             }
             finally

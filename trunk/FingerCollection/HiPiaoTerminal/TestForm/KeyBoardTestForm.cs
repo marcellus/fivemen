@@ -20,12 +20,12 @@ namespace HiPiaoTerminal.TestForm
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            GlobalTools.SetAllKeyBoard(this.textBox1);
+            GlobalTools.SetAllKeyBoardWithForm(this.textBox1,1);
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            GlobalTools.SetAllKeyBoard(this.textBox2);
+            GlobalTools.SetAllKeyBoardWithForm(this.textBox2, 1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,6 +42,17 @@ namespace HiPiaoTerminal.TestForm
         private void textBox2_Leave(object sender, EventArgs e)
         {
             //GlobalTools.HideAllKeyBoard();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form frm = new TestPopForm();
+            frm.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

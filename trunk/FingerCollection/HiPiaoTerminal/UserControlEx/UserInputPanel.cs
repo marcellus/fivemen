@@ -43,6 +43,11 @@ namespace HiPiaoTerminal.UserControlEx
            // this.txtMain.Focus();
             HideCaret(this.txtMain.Handle);
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.AllowNumberKeyboard)
+            {
+                this.keyboardType = 1;
+            }
+
             if (config.UseVirtualKeyboard)
             {
 #if DEBUG

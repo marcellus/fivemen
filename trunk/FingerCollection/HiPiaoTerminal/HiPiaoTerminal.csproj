@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v7.3, Version=7.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
@@ -401,6 +403,12 @@
     <Compile Include="TestForm\RoundForm.Designer.cs">
       <DependentUpon>RoundForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestForm\TestPopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\TestPopForm.Designer.cs">
+      <DependentUpon>TestPopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -684,6 +692,10 @@
       <DependentUpon>RoundForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\TestPopForm.resx">
+      <DependentUpon>TestPopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TestResource.Designer.cs</LastGenOutput>
@@ -960,6 +972,10 @@
     <None Include="Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dcrf32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="favicon.ico" />
     <Content Include="HelpDoc\main.css" />
     <Content Include="HelpDoc\UserNeedKnow-WebSiteProtocol.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1241,6 +1257,9 @@
     <None Include="Resources\3.png" />
     <None Include="Resources\4.png" />
     <None Include="Resources\Account_FeeDetail_Return.png" />
+    <None Include="Resources\PopTest.png" />
+    <None Include="Resources\DingXin-GetTicket-Back1.png" />
+    <None Include="Resources\DingXin-GetTicket-Back2.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1248,15 +1267,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TextFile1.txt" />
-    <Content Include="UpdateList.xml" />
+    <Content Include="UpdateList.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="使用说明.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommonCode\" />
-    <Folder Include="MovieShows\" />
-    <Folder Include="Wpf\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -1274,6 +1290,11 @@
       <ProductName>.NET Framework 3.5</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonCode\" />
+    <Folder Include="MovieShows\" />
+    <Folder Include="Wpf\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
