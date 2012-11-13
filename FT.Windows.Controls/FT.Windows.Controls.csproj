@@ -235,8 +235,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />
-    <None Include="Resources\AllKeyBoadBack2.png" />
     <None Include="Resources\AllKeyBoadBack.png" />
+    <None Include="Resources\AllKeyBoadBack2.png" />
     <None Include="Resources\Account_TabActive.png" />
     <None Include="Resources\Account_TabActive.png.png" />
     <None Include="Resources\Keyboard_Z.png" />
