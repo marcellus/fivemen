@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using FT.Commons.WindowsService.SystemInfo;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace FT.Commons.Tools
 {
@@ -13,19 +15,69 @@ namespace FT.Commons.Tools
         private WinFormHelper()
         {
         }
-      /*  public static void LocationAfter(Control ctr, Control ctr...)
+        #region （注：该方法可以屏蔽win和alt+F4但是不能屏蔽ctrl+alt+del）
+        // 安装钩子
+        [DllImport("user32.dll")]
+        public static extern int SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hInstance, int threadId);
+        // 卸载钩子
+        [DllImport("user32.dll")]
+        public static extern bool UnhookWindowsHookEx(int idHook);
+        // 继续下一个钩子
+        [DllImport("user32.dll")]
+        public static extern int CallNextHookEx(int idHook, int nCode, Int32 wParam, IntPtr lParam);
+        //声明定义
+        public delegate int HookProc(int nCode, Int32 wParam, IntPtr lParam);
+        static int hKeyboardHook = 0;
+        static HookProc KeyboardHookProcedure;
+
+        // 安装钩子
+        public static void HookStart()
         {
-            next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
+            if (hKeyboardHook == 0)
+            {
+                // 创建HookProc实例
+                KeyboardHookProcedure = new HookProc(KeyboardHookProc);
+                //定义全局钩子
+                hKeyboardHook = SetWindowsHookEx(13, KeyboardHookProcedure, Marshal.GetHINSTANCE(Assembly.GetExecutingAssembly().GetModules()[0]), 0);
+                if (hKeyboardHook == 0)
+                {
+                    HookStop(hKeyboardHook);
+                    throw new Exception("SetWindowsHookEx failed.");
+                }
+            }
         }
-       * */
+        //钩子子程就是钩子所要做的事情。
+        private static int KeyboardHookProc(int nCode, Int32 wParam, IntPtr lParam)
+        {
+            //这里可以添加别的功能的代码
+            return 1;
+        }
+        // 卸载钩子
+        public static void HookStop(int handler)
+        {
+            bool retKeyboard = true;
+            if (hKeyboardHook != 0)
+            {
+                retKeyboard = UnhookWindowsHookEx(hKeyboardHook);
+                hKeyboardHook = 0;
+            }
+            if (!(retKeyboard)) throw new Exception("UnhookWindowsHookEx failed.");
+        }
+        #endregion
+
+        /*  public static void LocationAfter(Control ctr, Control ctr...)
+          {
+              next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
+          }
+         * */
         public static void LocationAfter(Control ctr, Control next)
         {
             next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
         }
 
-        public static void VerLocationAfter(Control ctr, Control next,int sep)
+        public static void VerLocationAfter(Control ctr, Control next, int sep)
         {
-            next.Location = new Point(ctr.Location.X, ctr.Location.Y+ctr.Height+sep);
+            next.Location = new Point(ctr.Location.X, ctr.Location.Y + ctr.Height + sep);
         }
 
 
@@ -37,9 +89,9 @@ namespace FT.Commons.Tools
             }
             ctr.MouseHover += new EventHandler(ctr_MouseHover);
             ctr.MouseLeave += new EventHandler(ctr_Click);
-            ctr.Click+=new EventHandler(ctr_Click);
-            
-            
+            ctr.Click += new EventHandler(ctr_Click);
+
+
         }
 
         static void ctr_MouseHover(object sender, EventArgs e)
@@ -78,7 +130,7 @@ namespace FT.Commons.Tools
 
                 btn.BorderStyle = BorderStyle.None;
             }
-           else if (sender is Button)
+            else if (sender is Button)
             {
                 Button btn = sender as Button;
                 btn.FlatStyle = FlatStyle.Flat;
@@ -86,7 +138,7 @@ namespace FT.Commons.Tools
             else if (sender is Label)
             {
                 Label btn = sender as Label;
-                
+
                 btn.BorderStyle = BorderStyle.None;
             }
         }
@@ -106,7 +158,7 @@ namespace FT.Commons.Tools
             {
                 Button btn = sender as Button;
                 btn.FlatStyle = FlatStyle.Standard;
-               
+
             }
             else if (sender is Label)
             {
@@ -214,88 +266,88 @@ namespace FT.Commons.Tools
                               borderWidth,
                               ButtonBorderStyle.Solid);
             // * */
-           
-          //  PaintPath(e.Graphics,ctr, borderColor, borderWidth);
-       }
 
-        private static void PaintPath(Graphics graphics,Control ctr, Color borderColor, int borderWidth)
+            //  PaintPath(e.Graphics,ctr, borderColor, borderWidth);
+        }
+
+        private static void PaintPath(Graphics graphics, Control ctr, Color borderColor, int borderWidth)
         {
             Pen pen = new Pen(borderColor, borderWidth);
             pen.DashStyle = DashStyle.Solid;
-             List<Point> list = new List<Point>();
-               int width = ctr.Width;
-               int height = ctr.Height;
-             list.Add(new Point(0, 47));
-             list.Add(new Point(1, 42));
-             list.Add(new Point(2, 38));
-             list.Add(new Point(3, 36));
-             list.Add(new Point(4, 33));
-             list.Add(new Point(5, 32));
-             list.Add(new Point(6, 29));
-             list.Add(new Point(7, 27));
-             list.Add(new Point(8, 26));
-             list.Add(new Point(9, 24));
-             list.Add(new Point(10, 22));
-             list.Add(new Point(11, 21));
-             list.Add(new Point(12, 20));
-             list.Add(new Point(13, 19));
-             list.Add(new Point(14, 17));
-             list.Add(new Point(15, 16));
-             list.Add(new Point(16, 15));
-             list.Add(new Point(17, 14));
-             list.Add(new Point(19, 13));
-             list.Add(new Point(20, 12));
-             list.Add(new Point(21, 11));
-             list.Add(new Point(22, 10));
-             list.Add(new Point(24, 9));
-             list.Add(new Point(26, 8));
-             list.Add(new Point(27, 7));
-             list.Add(new Point(29, 6));
-             list.Add(new Point(32, 5));
-             list.Add(new Point(33, 4));
-             list.Add(new Point(36, 3));
-             list.Add(new Point(38, 2));
-             list.Add(new Point(42, 1));
-             list.Add(new Point(47, 0));
- 
-             //右上  
-             list.Add(new Point(width - 47, 0));
-             list.Add(new Point(width - 42, 1));
-             list.Add(new Point(width - 38, 2));
-             list.Add(new Point(width - 36, 3));
-             list.Add(new Point(width - 33, 4));
-             list.Add(new Point(width - 32, 5));
-             list.Add(new Point(width - 29, 6));
-             list.Add(new Point(width - 27, 7));
-             list.Add(new Point(width - 26, 8));
-             list.Add(new Point(width - 24, 9));
-             list.Add(new Point(width - 22, 10));
-             list.Add(new Point(width - 21, 11));
-             list.Add(new Point(width - 20, 12));
-             list.Add(new Point(width - 19, 13));
-             list.Add(new Point(width - 17, 14));
-             list.Add(new Point(width - 16, 15));
-             list.Add(new Point(width - 15, 16));
-             list.Add(new Point(width - 14, 17));
-             list.Add(new Point(width - 13, 19));
-             list.Add(new Point(width - 12, 20));
-             list.Add(new Point(width - 11, 21));
-             list.Add(new Point(width - 10, 22));
-             list.Add(new Point(width - 9, 24));
-             list.Add(new Point(width - 8, 26));
-             list.Add(new Point(width - 7, 27));
-             list.Add(new Point(width - 6, 29));
-             list.Add(new Point(width - 5, 32));
-             list.Add(new Point(width - 4, 33));
-             list.Add(new Point(width - 3, 36));
-             list.Add(new Point(width - 2, 38));
-             list.Add(new Point(width - 1, 42));
-             list.Add(new Point(width - 0, 47));
- 
-             //右下  
-             list.Add(new Point(width - 0, height - 47));
-             list.Add(new Point(width - 1, height - 42));
-             list.Add(new Point(width - 2, height - 38));
+            List<Point> list = new List<Point>();
+            int width = ctr.Width;
+            int height = ctr.Height;
+            list.Add(new Point(0, 47));
+            list.Add(new Point(1, 42));
+            list.Add(new Point(2, 38));
+            list.Add(new Point(3, 36));
+            list.Add(new Point(4, 33));
+            list.Add(new Point(5, 32));
+            list.Add(new Point(6, 29));
+            list.Add(new Point(7, 27));
+            list.Add(new Point(8, 26));
+            list.Add(new Point(9, 24));
+            list.Add(new Point(10, 22));
+            list.Add(new Point(11, 21));
+            list.Add(new Point(12, 20));
+            list.Add(new Point(13, 19));
+            list.Add(new Point(14, 17));
+            list.Add(new Point(15, 16));
+            list.Add(new Point(16, 15));
+            list.Add(new Point(17, 14));
+            list.Add(new Point(19, 13));
+            list.Add(new Point(20, 12));
+            list.Add(new Point(21, 11));
+            list.Add(new Point(22, 10));
+            list.Add(new Point(24, 9));
+            list.Add(new Point(26, 8));
+            list.Add(new Point(27, 7));
+            list.Add(new Point(29, 6));
+            list.Add(new Point(32, 5));
+            list.Add(new Point(33, 4));
+            list.Add(new Point(36, 3));
+            list.Add(new Point(38, 2));
+            list.Add(new Point(42, 1));
+            list.Add(new Point(47, 0));
+
+            //右上  
+            list.Add(new Point(width - 47, 0));
+            list.Add(new Point(width - 42, 1));
+            list.Add(new Point(width - 38, 2));
+            list.Add(new Point(width - 36, 3));
+            list.Add(new Point(width - 33, 4));
+            list.Add(new Point(width - 32, 5));
+            list.Add(new Point(width - 29, 6));
+            list.Add(new Point(width - 27, 7));
+            list.Add(new Point(width - 26, 8));
+            list.Add(new Point(width - 24, 9));
+            list.Add(new Point(width - 22, 10));
+            list.Add(new Point(width - 21, 11));
+            list.Add(new Point(width - 20, 12));
+            list.Add(new Point(width - 19, 13));
+            list.Add(new Point(width - 17, 14));
+            list.Add(new Point(width - 16, 15));
+            list.Add(new Point(width - 15, 16));
+            list.Add(new Point(width - 14, 17));
+            list.Add(new Point(width - 13, 19));
+            list.Add(new Point(width - 12, 20));
+            list.Add(new Point(width - 11, 21));
+            list.Add(new Point(width - 10, 22));
+            list.Add(new Point(width - 9, 24));
+            list.Add(new Point(width - 8, 26));
+            list.Add(new Point(width - 7, 27));
+            list.Add(new Point(width - 6, 29));
+            list.Add(new Point(width - 5, 32));
+            list.Add(new Point(width - 4, 33));
+            list.Add(new Point(width - 3, 36));
+            list.Add(new Point(width - 2, 38));
+            list.Add(new Point(width - 1, 42));
+            list.Add(new Point(width - 0, 47));
+
+            //右下  
+            list.Add(new Point(width - 0, height - 47));
+            list.Add(new Point(width - 1, height - 42));
+            list.Add(new Point(width - 2, height - 38));
             list.Add(new Point(width - 3, height - 36));
             list.Add(new Point(width - 4, height - 33));
             list.Add(new Point(width - 5, height - 32));
@@ -360,9 +412,9 @@ namespace FT.Commons.Tools
             list.Add(new Point(1, height - 42));
             list.Add(new Point(0, height - 47));
 
-                Point[] points = list.ToArray();
-                GraphicsPath path = new GraphicsPath();
-                path.AddLines(points);
+            Point[] points = list.ToArray();
+            GraphicsPath path = new GraphicsPath();
+            path.AddLines(points);
 
             graphics.DrawPath(pen, path);
         }
@@ -384,7 +436,7 @@ namespace FT.Commons.Tools
 
         public static void PaintSecondRound(object sender, PaintEventArgs e)
         {
-            PaintRound(sender,secondBorderColor, yellowBorderWidth, e);
+            PaintRound(sender, secondBorderColor, yellowBorderWidth, e);
         }
 
 
@@ -462,19 +514,19 @@ namespace FT.Commons.Tools
         }
 
         public static void PaintRound(object sender, Color borderColor, int borderWidth, PaintEventArgs e)
-       {
-           Control form = ((Control)sender);
+        {
+            Control form = ((Control)sender);
 #if DEBUG
-            Console.WriteLine("控件："+form.Name+"画椭圆边框");
+            Console.WriteLine("控件：" + form.Name + "画椭圆边框");
 #endif
-          
-           //if (shape == null)
-          // {
-               List<Point> list = new List<Point>();
-               int width = form.Width;
-               int height = form.Height;
-               #region 边框有锯齿的
-              /*
+
+            //if (shape == null)
+            // {
+            List<Point> list = new List<Point>();
+            int width = form.Width;
+            int height = form.Height;
+            #region 边框有锯齿的
+            /*
 
                //左上
                list.Add(new Point(0, 5));
@@ -518,10 +570,10 @@ namespace FT.Commons.Tools
                list.Add(new Point(0, height - 5));
 
               */
-               #endregion
+            #endregion
 
-                        #region 四个圆角
- /*
+            #region 四个圆角
+            /*
              //左上  
              list.Add(new Point(0, 47));
              list.Add(new Point(1, 42));
@@ -659,8 +711,8 @@ namespace FT.Commons.Tools
             list.Add(new Point(0, height - 47));
 */
             #endregion
-               #region 临时
-               /*
+            #region 临时
+            /*
                 Point[] points = list.ToArray();
 
                 GraphicsPath shape = new GraphicsPath();
@@ -687,19 +739,19 @@ namespace FT.Commons.Tools
                                  borderWidth,
                                  ButtonBorderStyle.Solid);
  */
-               // }
-               #endregion
-               int r = 17;
-               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
-               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
-               DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
-               GraphicsPath shape = getRoundRectangle(form.ClientRectangle, r);
+            // }
+            #endregion
+            int r = 17;
+            DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+            DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+            DrawRoundRectangle(e.Graphics, form.ClientRectangle, borderColor, borderWidth, r);
+            GraphicsPath shape = getRoundRectangle(form.ClientRectangle, r);
             //将控件的显示区域设为GraphicsPath的实例 
             form.Region = new System.Drawing.Region(shape);
 
-            
 
-           
+
+
         }
 
 
