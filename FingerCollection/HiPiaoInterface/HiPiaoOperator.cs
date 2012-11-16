@@ -24,6 +24,34 @@ namespace HiPiaoInterface
             throw new NotImplementedException();
         }
 
+        public UserObject Login(string memberId)
+        {
+            string xml = hiPiaoSrv.LoginUserMemberId(memberId);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode ret = doc.SelectSingleNode("//result");
+            UserObject user = null;
+            string returnCode = ret.InnerText;
+
+            if (ret.InnerText == "1")
+            {
+                user = new UserObject();
+                user.Name = doc.SelectSingleNode("//nickname").InnerText;
+                user.Mobile = doc.SelectSingleNode("//phone").InnerText;
+                user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
+                user.HipiaoCard = doc.SelectSingleNode("//hipiaocard").InnerText;
+                user.SessionKey = doc.SelectSingleNode("//sessionkey").InnerText;
+                user.RewardPoints = Convert.ToInt32(doc.SelectSingleNode("//score").InnerText);
+                XmlNode blance = doc.SelectSingleNode("//blance");
+                user.IsBindMobile = doc.SelectSingleNode("//isbanded").InnerText == "1";
+                user.Balance = Convert.ToDouble(blance.InnerText);
+                user.Email = doc.SelectSingleNode("//mail").InnerText;
+                user.Pwd = string.Empty;
+            }
+
+
+            return user;
+        }
         public UserObject Login(string name, string pwd)
         {
             string xml = hiPiaoSrv.LoginUser(name, pwd);
@@ -45,6 +73,7 @@ namespace HiPiaoInterface
                 XmlNode blance = doc.SelectSingleNode("//blance");
                 user.IsBindMobile = doc.SelectSingleNode("//isbanded").InnerText == "1";
                 user.Balance = Convert.ToDouble(blance.InnerText);
+                user.Email = doc.SelectSingleNode("//mail").InnerText;
                 user.Pwd = pwd;
             }
 

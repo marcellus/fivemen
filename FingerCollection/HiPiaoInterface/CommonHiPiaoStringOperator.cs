@@ -207,6 +207,25 @@ namespace HiPiaoInterface
             return GetSoapServiceResult(body, user.SessionKey);
         }
 
+        public string LoginUserMemberId(string memberId)
+        {
+            /*
+             <ns2:getHpCardResult xmlns:ns2="http://service.server.com">
+<username>bisheng</username>
+<clintform>HpMachine</clintform>
+<!--
+username：卡号 必须10位数字
+clintform：HpMachine 哈票机
+-->
+</ns2:getHpCardResult>
+             */
+            StringBuilder body = new StringBuilder();
+
+            body.Append("<ns2:getHpCardResult  xmlns:ns2=\"http://service.server.com\">");
+            body.Append("<username>" + memberId + "</username><clintform>HpMachine</clintform></ns2:getHpCardResult>");
+            return GetSoapServiceResult(body);
+        }
+
         public string LoginUser(string name, string pwd)
         {
             StringBuilder body = new StringBuilder();

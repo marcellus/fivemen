@@ -1,0 +1,18 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns1:HpCardResultResponse xmlns:ns1="http://service.server.com">
+      <return xmlns:ns2="http://service.server.com/">
+        <blance>26.0</blance>
+        <hipiaocard>0100407991</hipiaocard>
+        <isbanded>0</isbanded>
+        <mail>12sasdas3@3.com</mail>
+        <memberId>a146833a-69a9-102e-8c3d-001a4beef7e4</memberId>
+        <nickname>cs0001</nickname>
+        <phone>15910606127</phone>
+        <result>1</result>
+        <score>3</score>
+        <sessionkey>zmgqq9wlai9asnk8onl61352871945769</sessionkey>
+      </return>
+    </ns1:HpCardResultResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -32,11 +32,14 @@ namespace HiPiaoInterface
             try
             {
 
-               // int port = 2908;
-              //  string host = "119.10.114.212";
+                int port = 2908;
+                string host = "119.10.114.212";
 
-                string host = "58.62.144.227";
-                int port = 2907;
+               // string host = "58.62.144.227";
+             //   int port = 2907;
+
+               // string host = "10.12.23.216";
+                //   int port = 2907;
 
                 IPAddress ip = IPAddress.Parse(host);
 
@@ -57,6 +60,7 @@ namespace HiPiaoInterface
                 
 
                 Console.WriteLine("发送取票内容为:" + pack);
+                Console.WriteLine("Hex输出为:"+GetHexOutput(pack));
 
                 c.Send(pack, pack.Length, 0);//发送测试信息
 
@@ -68,14 +72,28 @@ namespace HiPiaoInterface
 
 #if DEBUG
                 Console.WriteLine("开始从服务器接收内容...");
-#endif
-                bytes = c.Receive(recvBytes, recvBytes.Length, 0);//从服务器端接受返回信息
 
-                recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-#if DEBUG
-                Console.WriteLine("从服务器接收内容长度为：" + bytes + " 内容为：" + recvStr);
 #endif
-                //    Console.WriteLine("发送取票获取结果内容为:{0}", recvStr);//显示服务器返回信息
+                int readTime=0;
+                while (readTime < 6)
+                {
+                   // bytes = c.Receive(recvBytes, recvBytes.Length, 0);//从服务器端接受返回信息
+                    //c.Receive(
+                    bytes = c.Receive(recvBytes);
+
+
+                    byte[] data = new byte[bytes];
+                    Array.Copy(recvBytes, data, data.Length);
+
+                    recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
+#if DEBUG
+                    Console.WriteLine("从服务器接收内容长度为：" + bytes + " 内容为：" + recvStr);
+                    Console.WriteLine("Hex输出为:" + GetHexOutput(data));
+#endif
+                    //    Console.WriteLine("发送取票获取结果内容为:{0}", recvStr);//显示服务器返回信息
+
+                    readTime++;
+                }
 #if DEBUG
                 Console.WriteLine("开始断开服务器连接...");
 #endif
@@ -106,6 +124,47 @@ namespace HiPiaoInterface
             Console.WriteLine("客户端连接完成！");
 #endif
             return string.Empty;
+        }
+
+        /// <summary>
+        /// 把指定的二进制值显示为适合记入日志的文本串
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static  string GetHexOutput(byte[] data)
+        {
+            if (data == null) return "";
+            string result = "";
+            int start = 0;
+            while (start < data.Length)
+            {
+                if (!result.Equals("")) result += "\r\n";
+                int len = data.Length - start;
+                if (len > 16) len = 16;
+                string strByte = BitConverter.ToString(data, start, len);
+                strByte = strByte.Replace('-', ' ');
+                if (len > 8)
+                {
+                    strByte = strByte.Substring(0, 23) + "-" + strByte.Substring(24);
+                }
+                if (len < 16)
+                {
+                    strByte += new string(' ', (16 - len) * 3);
+                }
+                strByte += "  ";
+                for (int i = 0; i < len; i++)
+                {
+                    char c = Convert.ToChar(data[start + i]);
+                    if (char.IsControl(c))
+                    {
+                        c = '.';
+                    }
+                    strByte += c;
+                }
+                result += strByte;
+                start += len;
+            }
+            return result;
         }
 
         public static string GetTicket(string sendStr)
