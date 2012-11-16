@@ -44,6 +44,7 @@
             this.vitualKeyBoardPanel31.ShowWithForm = true;
             this.vitualKeyBoardPanel31.Size = new System.Drawing.Size(955, 337);
             this.vitualKeyBoardPanel31.TabIndex = 0;
+            this.vitualKeyBoardPanel31.KeyDown += new System.Windows.Forms.KeyEventHandler(this.vitualKeyBoardPanel31_KeyDown);
             // 
             // VitualKeyboardForm
             // 
@@ -58,7 +59,9 @@
             this.Text = "VitualKeyboardForm";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.VitualKeyboardForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VitualKeyboardForm_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VitualKeyboardForm_KeyDown);
             this.ResumeLayout(false);
 
         }
@@ -66,6 +69,7 @@
         #endregion
 
         private FT.Windows.Controls.PanelEx.VitualKeyBoardPanel3 vitualKeyBoardPanel31;
+
 
 
     }

@@ -17,7 +17,7 @@ namespace HiPiaoTerminal.Account
 
         private void btnSure_Click(object sender, EventArgs e)
         {
-
+            GlobalTools.QuitAccount();
             this.FindForm().DialogResult = DialogResult.OK;
             this.FindForm().Close();
         }

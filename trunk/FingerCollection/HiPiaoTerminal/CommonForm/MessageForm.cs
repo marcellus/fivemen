@@ -19,6 +19,7 @@ namespace HiPiaoTerminal.CommonForm
             this.lbMsg2.Visible = false;
             this.lbMsg2.Text = string.Empty;
             WinFormHelper.CenterHor(this.picSure);
+            GlobalTools.MaskFormKeyDown(this);
         }
 
         public MessageForm(string hint,string hint2)

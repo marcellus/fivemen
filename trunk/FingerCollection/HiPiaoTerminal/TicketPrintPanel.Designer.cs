@@ -90,7 +90,7 @@
             this.txtValidCode.Hint = "验票码";
             this.txtValidCode.IsActive = false;
             this.txtValidCode.IsDeleted = true;
-            this.txtValidCode.KeyboardType = 5;
+            this.txtValidCode.KeyboardType = 7;
             this.txtValidCode.Location = new System.Drawing.Point(361, 293);
             this.txtValidCode.Margin = new System.Windows.Forms.Padding(0);
             this.txtValidCode.MaxInputLength = 6;
@@ -109,7 +109,7 @@
             this.txtMobile.Hint = "购票所留手机号";
             this.txtMobile.IsActive = false;
             this.txtMobile.IsDeleted = true;
-            this.txtMobile.KeyboardType = 5;
+            this.txtMobile.KeyboardType = 7;
             this.txtMobile.Location = new System.Drawing.Point(363, 161);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(0);
             this.txtMobile.MaxInputLength = 11;

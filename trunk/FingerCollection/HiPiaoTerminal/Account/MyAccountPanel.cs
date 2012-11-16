@@ -29,6 +29,8 @@ namespace HiPiaoTerminal.Account
                 UserInfoPanel panel = new UserInfoPanel(GlobalTools.GetLoginUser());
                 
                 ChangePanel(panel);
+               // this.btnFeeDetailInfo.TabText += "(" + GlobalTools.GetLoginUser().BuyRecords.Count.ToString() + ")";
+                this.btnFeeDetailInfo.TabText = "消费记录(88)";
                 this.StopOpertionTime();
                 this.SetOperationTime(30);
             }

@@ -42,6 +42,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
             this.ResumeLayout(false);
 
         }

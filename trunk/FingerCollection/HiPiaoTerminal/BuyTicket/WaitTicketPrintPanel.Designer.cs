@@ -323,10 +323,10 @@
             this.adShowPanel1.AdType = "购票完成页";
             this.adShowPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.adShowPanel1.Interval = 500;
-            this.adShowPanel1.Location = new System.Drawing.Point(63, 0);
+            this.adShowPanel1.Location = new System.Drawing.Point(63, 3);
             this.adShowPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.adShowPanel1.Name = "adShowPanel1";
-            this.adShowPanel1.Size = new System.Drawing.Size(1155, 584);
+            this.adShowPanel1.Size = new System.Drawing.Size(1155, 580);
             this.adShowPanel1.TabIndex = 0;
             // 
             // pictureBox2

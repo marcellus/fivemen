@@ -53,6 +53,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.btnConfirmPay = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.cinemaNamePanel1 = new HiPiaoTerminal.UserControlEx.CinemaNamePanel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.cinemaNamePanel1);
             this.panelContent.Controls.Add(this.panelDetail);
             this.panelContent.Controls.Add(this.simpleLabel7);
             this.panelContent.Controls.Add(this.lbTicketCount);
@@ -95,6 +97,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnConfirmPay);
             this.splitContainer1.Panel2.Controls.Add(this.showWelcomePanel1);
+            this.splitContainer1.SplitterDistance = 830;
             // 
             // showWelcomePanel1
             // 
@@ -120,7 +123,7 @@
             this.panelDetail.Controls.Add(this.lbSeats);
             this.panelDetail.Controls.Add(this.lbMovieName);
             this.panelDetail.Controls.Add(this.picAdImage);
-            this.panelDetail.Location = new System.Drawing.Point(62, 0);
+            this.panelDetail.Location = new System.Drawing.Point(62, 67);
             this.panelDetail.Name = "panelDetail";
             this.panelDetail.Size = new System.Drawing.Size(1163, 140);
             this.panelDetail.TabIndex = 0;
@@ -230,7 +233,7 @@
             this.simpleLabel7.AutoSize = true;
             this.simpleLabel7.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(64)))));
-            this.simpleLabel7.Location = new System.Drawing.Point(58, 306);
+            this.simpleLabel7.Location = new System.Drawing.Point(58, 373);
             this.simpleLabel7.Name = "simpleLabel7";
             this.simpleLabel7.Size = new System.Drawing.Size(304, 23);
             this.simpleLabel7.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -242,7 +245,7 @@
             this.lbTicketPrice.AutoSize = true;
             this.lbTicketPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
-            this.lbTicketPrice.Location = new System.Drawing.Point(51, 148);
+            this.lbTicketPrice.Location = new System.Drawing.Point(51, 215);
             this.lbTicketPrice.Name = "lbTicketPrice";
             this.lbTicketPrice.Size = new System.Drawing.Size(114, 70);
             this.lbTicketPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -254,7 +257,7 @@
             this.lbTicketPriceHint.AutoSize = true;
             this.lbTicketPriceHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketPriceHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.lbTicketPriceHint.Location = new System.Drawing.Point(158, 148);
+            this.lbTicketPriceHint.Location = new System.Drawing.Point(160, 217);
             this.lbTicketPriceHint.Name = "lbTicketPriceHint";
             this.lbTicketPriceHint.Size = new System.Drawing.Size(250, 70);
             this.lbTicketPriceHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -266,7 +269,7 @@
             this.lbTicketCount.AutoSize = true;
             this.lbTicketCount.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
-            this.lbTicketCount.Location = new System.Drawing.Point(413, 148);
+            this.lbTicketCount.Location = new System.Drawing.Point(413, 215);
             this.lbTicketCount.Name = "lbTicketCount";
             this.lbTicketCount.Size = new System.Drawing.Size(114, 70);
             this.lbTicketCount.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -278,7 +281,7 @@
             this.lbTicketCountHint.AutoSize = true;
             this.lbTicketCountHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketCountHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.lbTicketCountHint.Location = new System.Drawing.Point(527, 148);
+            this.lbTicketCountHint.Location = new System.Drawing.Point(527, 215);
             this.lbTicketCountHint.Name = "lbTicketCountHint";
             this.lbTicketCountHint.Size = new System.Drawing.Size(91, 70);
             this.lbTicketCountHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -290,7 +293,7 @@
             this.simpleLabel12.AutoSize = true;
             this.simpleLabel12.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.simpleLabel12.Location = new System.Drawing.Point(50, 220);
+            this.simpleLabel12.Location = new System.Drawing.Point(50, 287);
             this.simpleLabel12.Name = "simpleLabel12";
             this.simpleLabel12.Size = new System.Drawing.Size(213, 70);
             this.simpleLabel12.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -302,7 +305,7 @@
             this.lbTicketTotalPrice.AutoSize = true;
             this.lbTicketTotalPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
-            this.lbTicketTotalPrice.Location = new System.Drawing.Point(234, 220);
+            this.lbTicketTotalPrice.Location = new System.Drawing.Point(234, 287);
             this.lbTicketTotalPrice.Name = "lbTicketTotalPrice";
             this.lbTicketTotalPrice.Size = new System.Drawing.Size(114, 70);
             this.lbTicketTotalPrice.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -314,7 +317,7 @@
             this.lbTicketTotalPriceHint.AutoSize = true;
             this.lbTicketTotalPriceHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbTicketTotalPriceHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.lbTicketTotalPriceHint.Location = new System.Drawing.Point(357, 220);
+            this.lbTicketTotalPriceHint.Location = new System.Drawing.Point(357, 287);
             this.lbTicketTotalPriceHint.Name = "lbTicketTotalPriceHint";
             this.lbTicketTotalPriceHint.Size = new System.Drawing.Size(91, 70);
             this.lbTicketTotalPriceHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -349,6 +352,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(814, 83);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnHome
             // 
@@ -372,6 +376,17 @@
             this.btnConfirmPay.TabIndex = 1;
             this.btnConfirmPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnConfirmPay.Click += new System.EventHandler(this.btnConfirmPay_Click);
+            // 
+            // cinemaNamePanel1
+            // 
+            this.cinemaNamePanel1.LeftAlign = true;
+            this.cinemaNamePanel1.Location = new System.Drawing.Point(120, 21);
+            this.cinemaNamePanel1.LocationX = 40;
+            this.cinemaNamePanel1.LocationY = 8;
+            this.cinemaNamePanel1.Margin = new System.Windows.Forms.Padding(729, 397, 729, 397);
+            this.cinemaNamePanel1.Name = "cinemaNamePanel1";
+            this.cinemaNamePanel1.Size = new System.Drawing.Size(14457, 133);
+            this.cinemaNamePanel1.TabIndex = 2;
             // 
             // UserPayCheckPanel
             // 
@@ -420,5 +435,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel12;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbTicketTotalPrice;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbTicketTotalPriceHint;
+        private HiPiaoTerminal.UserControlEx.CinemaNamePanel cinemaNamePanel1;
     }
 }

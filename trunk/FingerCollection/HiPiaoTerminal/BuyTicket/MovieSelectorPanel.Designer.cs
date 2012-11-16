@@ -38,6 +38,7 @@
             this.btnThreeDay = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnToday = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cinemaNamePanel1 = new HiPiaoTerminal.UserControlEx.CinemaNamePanel();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.cinemaNamePanel1);
             this.panelHeader.Controls.Add(this.pictureBox2);
             this.panelHeader.Controls.Add(this.btnReturn);
             this.panelHeader.Controls.Add(this.pictureBox1);
@@ -97,6 +99,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -156,6 +159,17 @@
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             this.toolTip1.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
             // 
+            // cinemaNamePanel1
+            // 
+            this.cinemaNamePanel1.LeftAlign = true;
+            this.cinemaNamePanel1.Location = new System.Drawing.Point(111, 373);
+            this.cinemaNamePanel1.LocationX = 37;
+            this.cinemaNamePanel1.LocationY = 140;
+            this.cinemaNamePanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.cinemaNamePanel1.Name = "cinemaNamePanel1";
+            this.cinemaNamePanel1.Size = new System.Drawing.Size(966, 163);
+            this.cinemaNamePanel1.TabIndex = 3;
+            // 
             // MovieSelectorPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -182,5 +196,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel btnThreeDay;
         private FT.Windows.Controls.LabelEx.SimpleLabel btnToday;
         private System.Windows.Forms.ToolTip toolTip1;
+        private HiPiaoTerminal.UserControlEx.CinemaNamePanel cinemaNamePanel1;
     }
 }

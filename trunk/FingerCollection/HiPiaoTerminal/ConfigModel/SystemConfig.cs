@@ -58,11 +58,16 @@ namespace HiPiaoTerminal.ConfigModel
 
         public string CityId = "7100d410-7b1d-102a-84c8-00188b381bbb";
 
-        public string Cinema = "";
+        public string Cinema = "默认影院";
         public string CinemaId = "";
 
 
         public int FullScreenSecond = 5;
+
+        /// <summary>
+        /// 广告替换的时间 毫秒
+        /// </summary>
+        public int AdSeconds = 2000;
 
     }
 }

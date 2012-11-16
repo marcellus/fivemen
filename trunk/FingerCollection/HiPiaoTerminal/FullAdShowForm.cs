@@ -28,6 +28,7 @@ namespace HiPiaoTerminal
 	        catch(Exception ex)
 	        {
 	        }
+            GlobalTools.MaskFormKeyDown(this);
         }
 
         private void adShowPanel1_MouseClick(object sender, MouseEventArgs e)

@@ -63,6 +63,9 @@
             this.checkIsDingXin = new FT.Windows.Controls.ButtonEx.CheckButton();
             this.simpleLabel9 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.checkAllowNumberKeyboard = new FT.Windows.Controls.ButtonEx.CheckButton();
+            this.simpleLabel10 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel11 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtAdSeconds = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -476,10 +479,53 @@
             this.checkAllowNumberKeyboard.TabIndex = 6;
             this.checkAllowNumberKeyboard.UseVisualStyleBackColor = true;
             // 
+            // simpleLabel10
+            // 
+            this.simpleLabel10.AutoSize = true;
+            this.simpleLabel10.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel10.Location = new System.Drawing.Point(980, 606);
+            this.simpleLabel10.Name = "simpleLabel10";
+            this.simpleLabel10.Size = new System.Drawing.Size(233, 40);
+            this.simpleLabel10.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel10.TabIndex = 5;
+            this.simpleLabel10.Text = "广告时间间隔";
+            // 
+            // simpleLabel11
+            // 
+            this.simpleLabel11.AutoSize = true;
+            this.simpleLabel11.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel11.Location = new System.Drawing.Point(1214, 680);
+            this.simpleLabel11.Name = "simpleLabel11";
+            this.simpleLabel11.Size = new System.Drawing.Size(89, 40);
+            this.simpleLabel11.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel11.TabIndex = 5;
+            this.simpleLabel11.Text = "毫秒";
+            // 
+            // txtAdSeconds
+            // 
+            this.txtAdSeconds.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtAdSeconds.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAdSeconds.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAdSeconds.Hint = null;
+            this.txtAdSeconds.IsActive = false;
+            this.txtAdSeconds.IsDeleted = false;
+            this.txtAdSeconds.KeyboardType = 6;
+            this.txtAdSeconds.Location = new System.Drawing.Point(1054, 665);
+            this.txtAdSeconds.Margin = new System.Windows.Forms.Padding(0);
+            this.txtAdSeconds.MaxInputLength = 32767;
+            this.txtAdSeconds.Name = "txtAdSeconds";
+            this.txtAdSeconds.PasswordChar = '\0';
+            this.txtAdSeconds.RelativeLabel = null;
+            this.txtAdSeconds.Size = new System.Drawing.Size(132, 74);
+            this.txtAdSeconds.TabIndex = 7;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbReturnMsg);
+            this.Controls.Add(this.txtAdSeconds);
             this.Controls.Add(this.txtFullScreenSecond);
             this.Controls.Add(this.txtRefreshCacheTime);
             this.Controls.Add(this.txtUnOperationTime);
@@ -491,11 +537,13 @@
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.checkUseMask);
             this.Controls.Add(this.cbPrinterType);
+            this.Controls.Add(this.simpleLabel11);
             this.Controls.Add(this.cbCity);
             this.Controls.Add(this.simpleLabel7);
             this.Controls.Add(this.simpleLabel4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbCinema);
+            this.Controls.Add(this.simpleLabel10);
             this.Controls.Add(this.btnCancelSave);
             this.Controls.Add(this.simpleLabel6);
             this.Controls.Add(this.simpleLabel3);
@@ -532,11 +580,13 @@
             this.Controls.SetChildIndex(this.simpleLabel3, 0);
             this.Controls.SetChildIndex(this.simpleLabel6, 0);
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
+            this.Controls.SetChildIndex(this.simpleLabel10, 0);
             this.Controls.SetChildIndex(this.cbCinema, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.simpleLabel4, 0);
             this.Controls.SetChildIndex(this.simpleLabel7, 0);
             this.Controls.SetChildIndex(this.cbCity, 0);
+            this.Controls.SetChildIndex(this.simpleLabel11, 0);
             this.Controls.SetChildIndex(this.cbPrinterType, 0);
             this.Controls.SetChildIndex(this.checkUseMask, 0);
             this.Controls.SetChildIndex(this.cbProvince, 0);
@@ -548,6 +598,7 @@
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
             this.Controls.SetChildIndex(this.txtRefreshCacheTime, 0);
             this.Controls.SetChildIndex(this.txtFullScreenSecond, 0);
+            this.Controls.SetChildIndex(this.txtAdSeconds, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).EndInit();
@@ -592,5 +643,8 @@
         private FT.Windows.Controls.ButtonEx.CheckButton checkIsDingXin;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel9;
         private FT.Windows.Controls.ButtonEx.CheckButton checkAllowNumberKeyboard;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel10;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel11;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtAdSeconds;
     }
 }

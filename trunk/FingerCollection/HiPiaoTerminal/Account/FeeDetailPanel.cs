@@ -70,7 +70,7 @@ namespace HiPiaoTerminal.Account
                     this.SetRow(i, null,-1);
                 }
             }
-            this.lbFeeDetailHeader.Text = string.Format("消费详情 （{0}）", buys.Count.ToString());
+            this.lbFeeDetailHeader.Text = string.Format("消费详情", buys.Count.ToString());
             this.lbRecordsCount.Text = "(" + buys.Count.ToString() + ")";
             SetPageButton();
         }

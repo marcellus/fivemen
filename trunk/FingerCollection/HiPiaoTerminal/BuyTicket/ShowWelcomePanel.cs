@@ -36,7 +36,7 @@ namespace HiPiaoTerminal.BuyTicket
             {
             UserObject user = GlobalTools.GetLoginUser();
             this.lbUserName.Text = user.Name;
-
+            FT.Commons.Tools.WinFormHelper.LocationAfter(this.label2, this.lbUserName);
             this.lbPoints.Text = string.Format(this.lbPoints.Text, user.RewardPoints.ToString());
             this.lbBalance.Text = string.Format(this.lbBalance.Text, user.Balance.ToString());
             this.lbCoupons.Text = string.Format(this.lbCoupons.Text, user.CouponNum.ToString(), user.DeductionNum.ToString());

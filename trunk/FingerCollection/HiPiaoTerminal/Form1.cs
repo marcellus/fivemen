@@ -11,7 +11,7 @@ using HiPiaoInterface;
 
 namespace HiPiaoTerminal
 {
-    public partial class Form1 : Form
+    public partial class Form1 : HiPiaoTerminal.CommonForm.BaseMaskKeyForm
     {
        
 
@@ -30,6 +30,7 @@ namespace HiPiaoTerminal
             this.Height = 960;
             HiPiaoCache.DeSerializedCache();
             GlobalTools.InitAll(this);
+            GlobalTools.MaskFormKeyDown(this);
             //HiPiaoCache.DeSerializedCache();
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
@@ -66,6 +67,12 @@ namespace HiPiaoTerminal
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             HiPiaoCache.SerializedCache();
+        }
+
+        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+           
+
         }
 
       

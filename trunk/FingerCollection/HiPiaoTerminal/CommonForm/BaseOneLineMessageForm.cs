@@ -14,6 +14,7 @@ namespace HiPiaoTerminal.CommonForm
         public BaseOneLineMessageForm()
         {
             InitializeComponent();
+            GlobalTools.MaskFormKeyDown(this);
         }
 
         private void BaseOneLineMessageForm_Paint(object sender, PaintEventArgs e)

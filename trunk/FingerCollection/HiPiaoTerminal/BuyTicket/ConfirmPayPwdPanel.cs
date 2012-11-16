@@ -80,6 +80,19 @@ namespace HiPiaoTerminal.BuyTicket
         {
             if (allowPay)
             {
+                if (GlobalTools.GetLoginUser().Pwd.Length == 0)
+                {
+                   UserObject user= HiPiaoOperatorFactory.GetHiPiaoOperator().Login(GlobalTools.GetLoginUser().Name, this.txtUserPwd.Text);
+                   if (user != null)
+                   {
+                       GlobalTools.loginUser = user;
+                   }
+                   else
+                   {
+                       this.lbMsg.Text = "密码输入错误！";
+                       return;
+                   }
+                }
                 if (this.txtUserPwd.Text != GlobalTools.GetLoginUser().Pwd)
                 {
                     this.lbMsg.Text = "密码输入错误！";

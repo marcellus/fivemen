@@ -127,7 +127,7 @@ namespace HiPiaoTerminal
         {
             string uid = this.txtUserName.Text;
             string pwd = this.txtPwd.Text;
-            if (uid.Length > 0 && pwd.Length ==6)
+            if (uid.Length > 0 && pwd.Length>=6)
             {
                 allowLogin = true;
                 this.btnLogin.IsActived = true;
@@ -323,7 +323,14 @@ namespace HiPiaoTerminal
                 card += sdata2[i*2-1].ToString();
             }
             this.txtUserName.Text = card;// +"|" + CardSerialNo;
-            this.txtPwd.Focus();
+            ///TODO:是否自动登陆
+            if (card.Length == 10)
+            {
+                this.LoginWithMember(this.txtUserName.Text);
+            }
+            else
+            {
+                this.txtPwd.Focus();
 
                 #region 测试通过的代码
                 /*
@@ -402,6 +409,7 @@ namespace HiPiaoTerminal
              * */
                 #endregion
                 this.timerReadCard.Start();
+            }
         }
 
         /// <summary>
@@ -419,6 +427,47 @@ namespace HiPiaoTerminal
         private void userLoginWithMoviePanel1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnFlashCard_Click(object sender, EventArgs e)
+        {
+            this.LoginWithMember(this.txtUserName.Text);
+        }
+
+
+        public void LoginWithMember(string memberCard)
+        {
+            try
+            {
+
+                if (GlobalTools.LoginAccount(this.txtUserName.Text))
+                {
+                    if (loginSuccessType == 0)
+                    {
+                        this.QuitReadCard();
+                        GlobalTools.ReturnUserAccout();
+                    }
+                    else if (loginSuccessType == 1)
+                    {
+                        this.QuitReadCard();
+                        GlobalTools.QuickBuyTicket();
+                    }
+                }
+                else
+                {
+                    GlobalTools.Pop(new UIdOrPwdErrorPanel());
+
+                }
+            }
+            catch (Exception ex)
+            {
+                GlobalTools.PopNetError();
+            }
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -43,6 +43,7 @@
             this.panelUseRfid = new System.Windows.Forms.Panel();
             this.userLoginWithMoviePanel1 = new HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel();
             this.timerReadCard = new System.Windows.Forms.Timer(this.components);
+            this.btnFlashCard = new System.Windows.Forms.Button();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.btnFlashCard);
             this.panelContent.Controls.Add(this.txtUserName);
             this.panelContent.Controls.Add(this.txtPwd);
             this.panelContent.Controls.Add(this.panelUseRfid);
@@ -76,6 +78,7 @@
             this.panelHeader.Controls.Add(this.pictureBox1);
             this.panelHeader.Size = new System.Drawing.Size(1280, 185);
             this.panelHeader.TabIndex = 23131;
+            this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
             // splitContainer1
             // 
@@ -149,7 +152,7 @@
             // 
             // txtPwd
             // 
-            this.txtPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtPwd.BackColor = System.Drawing.SystemColors.Window;
             this.txtPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F);
             this.txtPwd.Hint = "账户密码";
@@ -158,7 +161,7 @@
             this.txtPwd.KeyboardType = 5;
             this.txtPwd.Location = new System.Drawing.Point(276, 168);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPwd.MaxInputLength = 6;
+            this.txtPwd.MaxInputLength = 15;
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.RelativeLabel = this.lbPwd;
@@ -239,6 +242,17 @@
             this.timerReadCard.Interval = 500;
             this.timerReadCard.Tick += new System.EventHandler(this.timerReadCard_Tick);
             // 
+            // btnFlashCard
+            // 
+            this.btnFlashCard.Location = new System.Drawing.Point(27, 254);
+            this.btnFlashCard.Name = "btnFlashCard";
+            this.btnFlashCard.Size = new System.Drawing.Size(163, 54);
+            this.btnFlashCard.TabIndex = 117;
+            this.btnFlashCard.Text = "刷卡登陆";
+            this.btnFlashCard.UseVisualStyleBackColor = true;
+            this.btnFlashCard.Visible = false;
+            this.btnFlashCard.Click += new System.EventHandler(this.btnFlashCard_Click);
+            // 
             // UserLoginPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -273,6 +287,7 @@
         private System.Windows.Forms.Panel panelUseRfid;
         private HiPiaoTerminal.UserControlEx.UserLoginWithMoviePanel userLoginWithMoviePanel1;
         private System.Windows.Forms.Timer timerReadCard;
+        private System.Windows.Forms.Button btnFlashCard;
 
     }
 }

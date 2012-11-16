@@ -212,6 +212,12 @@
     <Compile Include="BuyTicket\WaitTicketPrintPanel.Designer.cs">
       <DependentUpon>WaitTicketPrintPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonForm\BaseMaskKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm\BaseMaskKeyForm.Designer.cs">
+      <DependentUpon>BaseMaskKeyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForm\BaseOneLineMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +397,12 @@
     <Compile Include="TestForm\KeyBoardTestForm.Designer.cs">
       <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestForm\MaskKeyDownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm\MaskKeyDownForm.Designer.cs">
+      <DependentUpon>MaskKeyDownForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm\MaskPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +433,12 @@
       <DependentUpon>AdShowPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlEx\AllowInputEnum.cs" />
+    <Compile Include="UserControlEx\CinemaNamePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEx\CinemaNamePanel.Designer.cs">
+      <DependentUpon>CinemaNamePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlEx\LabelButtonWithActive.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -567,6 +585,10 @@
       <DependentUpon>WaitTicketPrintPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\BaseMaskKeyForm.resx">
+      <DependentUpon>BaseMaskKeyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\BaseOneLineMessageForm.resx">
       <DependentUpon>BaseOneLineMessageForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -684,6 +706,10 @@
       <DependentUpon>KeyBoardTestForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestForm\MaskKeyDownForm.resx">
+      <DependentUpon>MaskKeyDownForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestForm\MaskPanelForm.resx">
       <DependentUpon>MaskPanelForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -703,6 +729,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlEx\AdShowPanel.resx">
       <DependentUpon>AdShowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEx\CinemaNamePanel.resx">
+      <DependentUpon>CinemaNamePanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlEx\MaintainFirstPanel.resx">

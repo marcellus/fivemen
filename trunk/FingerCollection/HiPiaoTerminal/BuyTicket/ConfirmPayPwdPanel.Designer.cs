@@ -61,7 +61,7 @@
             // 
             // txtUserPwd
             // 
-            this.txtUserPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtUserPwd.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.AllowAll;
             this.txtUserPwd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtUserPwd.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtUserPwd.Hint = "账户密码";
@@ -70,7 +70,7 @@
             this.txtUserPwd.KeyboardType = 5;
             this.txtUserPwd.Location = new System.Drawing.Point(125, 132);
             this.txtUserPwd.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUserPwd.MaxInputLength = 6;
+            this.txtUserPwd.MaxInputLength = 15;
             this.txtUserPwd.Name = "txtUserPwd";
             this.txtUserPwd.PasswordChar = '*';
             this.txtUserPwd.RelativeLabel = null;
