@@ -38,14 +38,28 @@ namespace PrinterReset
             helper.Send(this.txtMessage.Text.Trim());
         }
 
+        //手机号：15910606127
+//取票码：865672
+        //554042
+
         private void btnGetTicket_Click(object sender, EventArgs e)
         {
             string msgType = "30";
-            string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
+            //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
+            string str = "1,2,3,4,5,6,7\r1,2,3\r" + this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t1\n";
             //str = msgType + str;
             //helper.Send(str);
             //HipiaoTcpHelper.GetTicket(str);
             HipiaoTcpHelper.GetTicket(HiPiaoProtocol.PackSend(msgType, str));
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+             Point p2 = textBox1.GetPositionFromCharIndex(textBox1.Text.Length - 1);
+            Console.WriteLine("坐标为:"+p2.X+"  Y="+p2.Y);
+            this.label1.BringToFront();
+            this.label1.BackColor = this.textBox1.BackColor;
+            this.label1.Location = new Point(p2.X+8, p2.Y);
         }
     }
 }

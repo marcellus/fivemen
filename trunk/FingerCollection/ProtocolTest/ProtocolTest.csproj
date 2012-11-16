@@ -41,16 +41,24 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="CharConvertTools.aspx" />
+    <Content Include="SocketProtocolTest.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="CharConvertTools.aspx.cs">
+      <DependentUpon>CharConvertTools.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="CharConvertTools.aspx.designer.cs">
+      <DependentUpon>CharConvertTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SocketProtocolTest.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SocketProtocolTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SocketProtocolTest.aspx.designer.cs">
+      <DependentUpon>SocketProtocolTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,7 +80,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>22899</DevelopmentServerPort>
+          <DevelopmentServerPort>6948</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
