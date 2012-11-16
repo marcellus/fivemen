@@ -20,6 +20,13 @@ namespace HiPiaoInterface
         UserObject Login(string uid, string pwd);
 
         /// <summary>
+        /// 会员卡登陆
+        /// </summary>
+        /// <param name="memberId">会员卡号</param>
+        /// <returns></returns>
+        UserObject Login(string memberId);
+
+        /// <summary>
         /// 查询用户账户信息
         /// </summary>
         /// <param name="user"></param>

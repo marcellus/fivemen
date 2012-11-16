@@ -123,6 +123,8 @@
     <Content Include="xml\SmsResponse.xml" />
     <Content Include="xml\BindMobileRequest.xml" />
     <Content Include="xml\BindMobileResponse.xml" />
+    <Content Include="xml\HpCardResultRequest.xml" />
+    <Content Include="xml\HpCardResultResponse.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

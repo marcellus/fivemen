@@ -194,6 +194,16 @@ namespace HiPiaoInterface
             return seat;
         }
 
+        public UserObject Login(string uid)
+        {
+            if (uid == "admin")
+            {
+                return this.MockUser();
+            }
+            return null;
+        }
+
+
         public UserObject Login(string uid, string pwd)
         {
             if (uid == "admin" && pwd == "qqqqqq")
