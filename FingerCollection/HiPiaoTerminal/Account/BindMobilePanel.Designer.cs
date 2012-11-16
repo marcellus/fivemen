@@ -122,7 +122,7 @@
             this.simpleLabel3.AutoSize = true;
             this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(119)))), ((int)(((byte)(8)))));
-            this.simpleLabel3.Location = new System.Drawing.Point(331, 266);
+            this.simpleLabel3.Location = new System.Drawing.Point(302, 266);
             this.simpleLabel3.Name = "simpleLabel3";
             this.simpleLabel3.Size = new System.Drawing.Size(657, 27);
             this.simpleLabel3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;

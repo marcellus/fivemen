@@ -48,6 +48,7 @@
             this.btnToday = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbProcessHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.processPanel1 = new FT.Windows.Controls.PanelEx.ProcessPanel();
+            this.cinemaNamePanel1 = new HiPiaoTerminal.UserControlEx.CinemaNamePanel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.cinemaNamePanel1);
             this.panelContent.Controls.Add(this.lbProcessHint);
             this.panelContent.Controls.Add(this.processPanel1);
             this.panelContent.Controls.Add(this.lbLength);
@@ -74,8 +76,8 @@
             this.panelContent.Controls.Add(this.lbName);
             this.panelContent.Controls.Add(this.picMovieAdImage);
             this.panelContent.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panelContent.Location = new System.Drawing.Point(0, 144);
-            this.panelContent.Size = new System.Drawing.Size(1280, 659);
+            this.panelContent.Location = new System.Drawing.Point(0, 126);
+            this.panelContent.Size = new System.Drawing.Size(1280, 677);
             // 
             // panelHeader
             // 
@@ -109,10 +111,10 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbName.Location = new System.Drawing.Point(245, 4);
+            this.lbName.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbName.Location = new System.Drawing.Point(245, 28);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(99, 32);
+            this.lbName.Size = new System.Drawing.Size(101, 32);
             this.lbName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbName.TabIndex = 1;
             this.lbName.Text = "label1";
@@ -120,10 +122,10 @@
             // lbOtherName
             // 
             this.lbOtherName.AutoSize = true;
-            this.lbOtherName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbOtherName.Location = new System.Drawing.Point(245, 33);
+            this.lbOtherName.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbOtherName.Location = new System.Drawing.Point(245, 57);
             this.lbOtherName.Name = "lbOtherName";
-            this.lbOtherName.Size = new System.Drawing.Size(76, 27);
+            this.lbOtherName.Size = new System.Drawing.Size(78, 27);
             this.lbOtherName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbOtherName.TabIndex = 1;
             this.lbOtherName.Text = "label1";
@@ -131,9 +133,9 @@
             // lbDirector
             // 
             this.lbDirector.AutoSize = true;
-            this.lbDirector.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbDirector.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbDirector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbDirector.Location = new System.Drawing.Point(245, 69);
+            this.lbDirector.Location = new System.Drawing.Point(245, 93);
             this.lbDirector.Name = "lbDirector";
             this.lbDirector.Size = new System.Drawing.Size(93, 22);
             this.lbDirector.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -143,9 +145,9 @@
             // lbScreenWriter
             // 
             this.lbScreenWriter.AutoSize = true;
-            this.lbScreenWriter.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbScreenWriter.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbScreenWriter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbScreenWriter.Location = new System.Drawing.Point(245, 91);
+            this.lbScreenWriter.Location = new System.Drawing.Point(245, 115);
             this.lbScreenWriter.Name = "lbScreenWriter";
             this.lbScreenWriter.Size = new System.Drawing.Size(93, 22);
             this.lbScreenWriter.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -155,9 +157,9 @@
             // lbMainActor
             // 
             this.lbMainActor.AutoSize = true;
-            this.lbMainActor.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMainActor.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMainActor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbMainActor.Location = new System.Drawing.Point(245, 113);
+            this.lbMainActor.Location = new System.Drawing.Point(245, 137);
             this.lbMainActor.Name = "lbMainActor";
             this.lbMainActor.Size = new System.Drawing.Size(93, 22);
             this.lbMainActor.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -167,9 +169,9 @@
             // lbType
             // 
             this.lbType.AutoSize = true;
-            this.lbType.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbType.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbType.Location = new System.Drawing.Point(245, 135);
+            this.lbType.Location = new System.Drawing.Point(245, 159);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(93, 22);
             this.lbType.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -179,9 +181,9 @@
             // lbNational
             // 
             this.lbNational.AutoSize = true;
-            this.lbNational.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbNational.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbNational.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbNational.Location = new System.Drawing.Point(245, 157);
+            this.lbNational.Location = new System.Drawing.Point(245, 181);
             this.lbNational.Name = "lbNational";
             this.lbNational.Size = new System.Drawing.Size(93, 22);
             this.lbNational.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -191,9 +193,9 @@
             // lbLanguage
             // 
             this.lbLanguage.AutoSize = true;
-            this.lbLanguage.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbLanguage.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbLanguage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbLanguage.Location = new System.Drawing.Point(245, 179);
+            this.lbLanguage.Location = new System.Drawing.Point(245, 203);
             this.lbLanguage.Name = "lbLanguage";
             this.lbLanguage.Size = new System.Drawing.Size(93, 22);
             this.lbLanguage.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -203,9 +205,9 @@
             // lbLength
             // 
             this.lbLength.AutoSize = true;
-            this.lbLength.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbLength.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbLength.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.lbLength.Location = new System.Drawing.Point(245, 201);
+            this.lbLength.Location = new System.Drawing.Point(245, 225);
             this.lbLength.Name = "lbLength";
             this.lbLength.Size = new System.Drawing.Size(131, 22);
             this.lbLength.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -215,7 +217,7 @@
             // picMovieAdImage
             // 
             this.picMovieAdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picMovieAdImage.Location = new System.Drawing.Point(64, 11);
+            this.picMovieAdImage.Location = new System.Drawing.Point(64, 29);
             this.picMovieAdImage.Name = "picMovieAdImage";
             this.picMovieAdImage.Size = new System.Drawing.Size(177, 240);
             this.picMovieAdImage.TabIndex = 0;
@@ -249,6 +251,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnTomorrow
             // 
@@ -295,9 +298,9 @@
             // lbProcessHint
             // 
             this.lbProcessHint.AutoSize = true;
-            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbProcessHint.Location = new System.Drawing.Point(404, 198);
+            this.lbProcessHint.Location = new System.Drawing.Point(404, 222);
             this.lbProcessHint.Name = "lbProcessHint";
             this.lbProcessHint.Size = new System.Drawing.Size(274, 24);
             this.lbProcessHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -306,10 +309,21 @@
             // 
             // processPanel1
             // 
-            this.processPanel1.Location = new System.Drawing.Point(743, 192);
+            this.processPanel1.Location = new System.Drawing.Point(684, 223);
             this.processPanel1.Name = "processPanel1";
             this.processPanel1.Size = new System.Drawing.Size(179, 23);
             this.processPanel1.TabIndex = 10;
+            // 
+            // cinemaNamePanel1
+            // 
+            this.cinemaNamePanel1.LeftAlign = false;
+            this.cinemaNamePanel1.Location = new System.Drawing.Point(7461, 85);
+            this.cinemaNamePanel1.LocationX = 1217;
+            this.cinemaNamePanel1.LocationY = 3;
+            this.cinemaNamePanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.cinemaNamePanel1.Name = "cinemaNamePanel1";
+            this.cinemaNamePanel1.Size = new System.Drawing.Size(3510, 341);
+            this.cinemaNamePanel1.TabIndex = 12;
             // 
             // MoviePlanSelectorPanel
             // 
@@ -351,5 +365,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbLength;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbProcessHint;
         private FT.Windows.Controls.PanelEx.ProcessPanel processPanel1;
+        private HiPiaoTerminal.UserControlEx.CinemaNamePanel cinemaNamePanel1;
     }
 }

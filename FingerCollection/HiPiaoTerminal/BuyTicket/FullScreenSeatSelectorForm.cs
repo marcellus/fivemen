@@ -57,6 +57,7 @@ namespace HiPiaoTerminal.BuyTicket
             this.RefreshSelectedPanel();
             this.BackState();
             GlobalTools.fullScreenSeatSelectorForm = this;
+            GlobalTools.MaskFormKeyDown(this);
             
         }
 

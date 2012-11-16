@@ -98,5 +98,27 @@ namespace HiPiaoTerminal.BuyTicket
         {
             GlobalTools.GoPanel(new MovieSeatSelectorPanel(this.roomPlan,this.movieInfo,this.moviePlan,dt));
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Point pt = MousePosition;
+            pt = pictureBox1.PointToClient(pt);
+#if DEBUG
+            Console.WriteLine("点击横幅区域为X：" + pt.X + "---Y:" + pt.Y.ToString());
+#endif
+            //点击的是选影片
+            if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
+            {
+                //btnReturn_Click(null, null);
+
+                GlobalTools.GoPanel(new MovieSelectorPanel());
+                // MovieSelectorPanel(
+            }
+
+            if (pt.X > 318 && pt.X < 456 && pt.Y > 9 && pt.Y < 69)
+            {
+               btnReturn_Click(null, null);               
+            }
+        }
     }
 }

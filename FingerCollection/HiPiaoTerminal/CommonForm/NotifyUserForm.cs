@@ -22,6 +22,7 @@ namespace HiPiaoTerminal.CommonForm
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
             this.UpdateStyles();
+            GlobalTools.MaskFormKeyDown(this);
             //this.BackColor = Color.White;
             //this.TransparencyKey = Color.White; 
         }

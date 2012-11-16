@@ -206,5 +206,22 @@ namespace HiPiaoTerminal.BuyTicket
             this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
             this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Point pt = MousePosition;
+            pt = pictureBox1.PointToClient(pt);
+#if DEBUG
+            Console.WriteLine("点击横幅区域为X：" + pt.X + "---Y:" + pt.Y.ToString());
+#endif
+            //点击的是选影片
+            if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
+            {
+                //btnReturn_Click(null, null);
+
+                GlobalTools.GoPanel(new MovieSelectorPanel());
+                // MovieSelectorPanel(
+            }
+        }
     }
 }

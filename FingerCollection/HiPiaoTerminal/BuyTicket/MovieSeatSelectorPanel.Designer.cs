@@ -105,7 +105,7 @@
             // lbMovieName
             // 
             this.lbMovieName.AutoSize = true;
-            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieName.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.lbMovieName.Location = new System.Drawing.Point(124, 33);
             this.lbMovieName.Name = "lbMovieName";
@@ -117,7 +117,7 @@
             // lbMovieDetail
             // 
             this.lbMovieDetail.AutoSize = true;
-            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭纤黑简体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMovieDetail.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMovieDetail.Location = new System.Drawing.Point(398, 37);
             this.lbMovieDetail.Name = "lbMovieDetail";
             this.lbMovieDetail.Size = new System.Drawing.Size(148, 22);
@@ -128,7 +128,7 @@
             // lbPrice
             // 
             this.lbPrice.AutoSize = true;
-            this.lbPrice.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPrice.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
             this.lbPrice.Location = new System.Drawing.Point(820, 33);
             this.lbPrice.Name = "lbPrice";
@@ -140,7 +140,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
-            this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(124, 78);
             this.label3.Name = "label3";
@@ -160,7 +160,7 @@
             // lbProcessHint
             // 
             this.lbProcessHint.AutoSize = true;
-            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbProcessHint.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbProcessHint.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbProcessHint.Location = new System.Drawing.Point(237, 1);
             this.lbProcessHint.Name = "lbProcessHint";
@@ -201,7 +201,7 @@
             // lbPlanInfo
             // 
             this.lbPlanInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭纤黑简体", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPlanInfo.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPlanInfo.Location = new System.Drawing.Point(3, 0);
             this.lbPlanInfo.Name = "lbPlanInfo";
             this.lbPlanInfo.Size = new System.Drawing.Size(217, 32);
@@ -242,11 +242,13 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Select_Position;
+            this.pictureBox1.Image = global::HiPiaoTerminal.Properties.Resources.BuyTicket_Site_Select_Position;
             this.pictureBox1.Location = new System.Drawing.Point(243, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(815, 83);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel2
             // 

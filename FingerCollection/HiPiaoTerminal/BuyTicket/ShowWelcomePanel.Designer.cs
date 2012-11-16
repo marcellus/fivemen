@@ -96,7 +96,7 @@
             this.lbUserName.AutoSize = true;
             this.lbUserName.BackColor = System.Drawing.Color.Transparent;
             this.lbUserName.Font = new System.Drawing.Font("方正兰亭纤黑简体", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbUserName.Location = new System.Drawing.Point(119, 13);
+            this.lbUserName.Location = new System.Drawing.Point(129, 13);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(82, 27);

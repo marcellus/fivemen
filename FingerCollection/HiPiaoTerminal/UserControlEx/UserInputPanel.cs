@@ -22,6 +22,7 @@ namespace HiPiaoTerminal.UserControlEx
             //this.txtMain.Enabled = false;
             this.txtMain.TextChanged += new EventHandler(txtMain_TextChanged);
             this.txtMain.MouseDown += new MouseEventHandler(txtMain_MouseDown);
+            this.txtMain.GotFocus += new EventHandler(txtMain_GotFocus);
             this.Click += new EventHandler(UserInputPanel_Click);
             this.txtMain.Click += new EventHandler(UserInputPanel_Click);
             CheckForIllegalCrossThreadCalls = false;
@@ -30,10 +31,19 @@ namespace HiPiaoTerminal.UserControlEx
            // this.txtMain.Enabled = false;
            // this.txtMain.KeyDown += new KeyEventHandler(txtMain_KeyDown);
             this.txtMain.KeyPress += new KeyPressEventHandler(txtMain_KeyPress);
-            this.txtMain.TabStop = false;
+           // this.txtMain.TabStop = false;
+          //  HideCaret(this.txtMain.Handle);
+           
+           
+        }
+
+        void txtMain_GotFocus(object sender, EventArgs e)
+        {
+#if DEBUG 
+            Console.WriteLine("TxtMain获取到焦点,隐藏插入标记");
+#endif
             HideCaret(this.txtMain.Handle);
-           
-           
+
         }
 
       
@@ -41,9 +51,9 @@ namespace HiPiaoTerminal.UserControlEx
         void UserInputPanel_Click(object sender, EventArgs e)
         {
            // this.txtMain.Focus();
-            HideCaret(this.txtMain.Handle);
+           // HideCaret(this.txtMain.Handle);
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            if (config.AllowNumberKeyboard)
+            if (config.AllowNumberKeyboard&&this.keyboardType!=7)
             {
                 this.keyboardType = 1;
             }
@@ -299,12 +309,13 @@ namespace HiPiaoTerminal.UserControlEx
         public new void Focus()
         {
 
-            HideCaret(this.txtMain.Handle);
+           // HideCaret(this.txtMain.Handle);
            // this.txtMain.Focus();
            // this.IsActive = true;
            // txtMain_Click(null,null);
            // txtMain_Enter(null, null);
             this.txtMain.Focus();
+          //  HideCaret(this.txtMain.Handle);
             
             
         }
@@ -325,6 +336,7 @@ namespace HiPiaoTerminal.UserControlEx
         {
             //this.IsActive = false;
             this.User_Leave(null, null);
+          //  HideCaret(this.txtMain.Handle);
             
             //this.txtMain.FindForm().Focus();
         }
@@ -357,6 +369,7 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void UserInputPanel_Enter(object sender, EventArgs e)
         {
+          //  HideCaret(this.txtMain.Handle);
 #if DEBUG
             Console.WriteLine("userinputpanel获取焦点"+this.Name);
 #endif
@@ -540,6 +553,48 @@ namespace HiPiaoTerminal.UserControlEx
 
                     }
                     this.picUnderLine.Location = new Point(x, this.picUnderLine.Location.Y);
+#if DEBUG
+
+                   // Console.WriteLine("FlashUnderLine中隐藏插入标记" + "文字内容为：" + txt);
+#endif
+                  //  HideCaret(this.txtMain.Handle);
+
+//                    if (maskLabel == null)
+//                    {
+//                        maskLabel = new Label();
+//                        maskLabel.AutoSize = false;
+//                        maskLabel.Text = " ";
+//                        maskLabel.Height = this.txtMain.Height - 2;
+//                        maskLabel.Width = 3;
+//                        maskLabel.BackColor = Color.Red;
+//                        FT.Commons.Win32.WindowFormDelegate.AddControlTo(this.panelCenter, maskLabel);
+//                        //this.panelCenter.Controls.Add(maskLabel);
+                        
+//                    }
+//                    else
+//                    {
+//                        maskLabel.BringToFront();
+//                        //Point pMouse=Control.MousePosition;
+//                       // int from = 0;
+//                       // if (this.txtMain.Text.Length > 0)
+//                       // {
+//                            //from = this.txtMain.Text.Length ;
+//                       // }
+//                        Point pMouse = txtMain.GetPositionFromCharIndex(this.txtMain.GetRealText().Length-1); 
+//                        Point pClient=this.txtMain.PointToClient(pMouse);
+//                        int maskX = (int)gc.MeasureString(this.txtMain.GetRealText(), txtMain.Font).Width;
+//#if DEBUG
+//                        Console.WriteLine("maskX坐标为:" + maskX);
+//                        Console.WriteLine("光标屏幕坐标为:" + pMouse.X + "  Y=" + pMouse.Y);
+//                        Console.WriteLine("转换光标坐标为:" + pClient.X + "  Y=" + pClient.Y);
+//#endif
+//                        //maskLabel.lo
+//                        maskLabel.Location = new Point(maskX-10, this.picUnderLine.Location.Y - this.maskLabel.Height - 8);
+//                    }
+
+
+
+
                     /*
 #if DEBUG
                     if (this.picUnderLine.Parent != null)
@@ -630,6 +685,8 @@ namespace HiPiaoTerminal.UserControlEx
             }
            // return p;
         }
+
+        private Label maskLabel;
 
         protected override void OnTextChanged(EventArgs e)
         {
@@ -796,7 +853,7 @@ namespace HiPiaoTerminal.UserControlEx
 
         private void txtMain_Click(object sender, EventArgs e)
         {
-            HideCaret(this.txtMain.Handle);
+          //  HideCaret(this.txtMain.Handle);
             if (this.txtMain.HasValue)
             {
 

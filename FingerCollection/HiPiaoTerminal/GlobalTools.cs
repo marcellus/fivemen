@@ -30,6 +30,89 @@ namespace HiPiaoTerminal
         {
         }
 
+        public static void MaskFormKeyDown(Form maskKeyForm)
+        {
+          //  maskKeyForm.FormClosing += new FormClosingEventHandler(maskKeyForm_FormClosing);
+          //  maskKeyForm.Load += new EventHandler(maskKeyForm_Load);
+            //  ctr.PreviewKeyDown += new PreviewKeyDownEventHandler(ctr_PreviewKeyDown);
+        }
+
+        static void maskKeyForm_Load(object sender, EventArgs e)
+        {
+            WinFormHelper.HookStart();
+        }
+
+        static void maskKeyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            WinFormHelper.HookStop(0);
+        }
+
+
+        public static void MaskFormKeyDownControl(Control ctr)
+        {
+            ctr.KeyDown += new KeyEventHandler(GlobalTools.ctr_KeyDown);
+          //  ctr.PreviewKeyDown += new PreviewKeyDownEventHandler(ctr_PreviewKeyDown);
+        }
+
+        static void ctr_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.F4 && e.Modifiers == Keys.Alt)
+            {
+               //e.k
+            }
+            else if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.F1
+                || e.KeyCode == Keys.F2
+                || e.KeyCode == Keys.F3
+                || e.KeyCode == Keys.F4
+                || e.KeyCode == Keys.F5
+                || e.KeyCode == Keys.F6
+                || e.KeyCode == Keys.F7
+                || e.KeyCode == Keys.F8
+                || e.KeyCode == Keys.F9
+                || e.KeyCode == Keys.F10
+                || e.KeyCode == Keys.F11
+                || e.KeyCode == Keys.F12
+                || e.KeyCode == Keys.LWin
+                || e.KeyCode == Keys.RWin
+                || e.KeyCode == Keys.Alt
+                || e.KeyCode == Keys.Control
+                )
+            {
+                //e.Handled = true;
+            }
+        }
+
+       public static void ctr_KeyDown(object sender, KeyEventArgs e)
+        {
+             if (e.KeyCode == Keys.F4 && e.Modifiers == Keys.Alt)
+             {
+　　             e.Handled = true;
+　           }
+             else if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.F1
+                 || e.KeyCode == Keys.F2
+                 || e.KeyCode == Keys.F3
+                 || e.KeyCode == Keys.F4
+                 || e.KeyCode == Keys.F5
+                 || e.KeyCode == Keys.F6
+                 || e.KeyCode == Keys.F7
+                 || e.KeyCode == Keys.F8
+                 || e.KeyCode == Keys.F9
+                 || e.KeyCode == Keys.F10
+                 || e.KeyCode == Keys.F11
+                 || e.KeyCode == Keys.F12
+                 || e.KeyCode==Keys.LWin
+                 || e.KeyCode == Keys.RWin
+                 || e.KeyCode == Keys.Alt
+                 || e.KeyCode == Keys.Control
+                 )
+             {
+                 e.Handled = true;
+             }
+        }
+        
+        // 屏蔽按键需求
+           // CTRL 、ALT、windows、ESC、F1到F12
+
 
         public static void InitInterface(string url)
         {
@@ -72,6 +155,10 @@ namespace HiPiaoTerminal
 
         public static void SetAllKeyBoardWithForm(TextBox txt, int keyboardType)
         {
+            if (keyboardType == 7)
+            {
+                return;
+            }
             Form frm=null;
             if (keyboardType == 1)
             {
@@ -296,6 +383,8 @@ namespace HiPiaoTerminal
                 frm.Height = panel.Height;
                 panel.Dock = DockStyle.Fill;
                 FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+                //frm.StartPosition = FormStartPosition.CenterScreen;
+                WinFormHelper.CenterForm(frm);
                 //frm.Controls.Add(panel);
             }
         }
@@ -478,6 +567,29 @@ namespace HiPiaoTerminal
             }
             return loginUser;
         }
+
+        /// <summary>
+        /// 登陆账户
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="pwd"></param>
+        public static bool LoginAccount(string memberId)
+        {
+
+            UserObject obj = HiPiaoInterface.HiPiaoOperatorFactory.GetHiPiaoOperator().Login(memberId);
+            if (obj != null)
+            {
+                loginUser = obj;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
         /// <summary>
         /// 登陆账户
         /// </summary>
@@ -755,6 +867,9 @@ namespace HiPiaoTerminal
             {
                 try
                 {
+#if DEBUG
+                    Console.WriteLine("定时刷新热门电影和广告缓存"+System.DateTime.Now.ToString());
+#endif
                     SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
                    
                     HiPiaoCache.RefreshHotMovie(config.Province, config.City);
@@ -1022,11 +1137,12 @@ namespace HiPiaoTerminal
 
         public static void QuickBuyTicket()
         {
+            //GlobalTools.GetLoginUser().IsBindMobile = false;
             if (!GlobalTools.GetLoginUser().IsBindMobile)
             {
                 if (GlobalTools.Pop(new NotifyBindMobilePanel()) == DialogResult.OK)
                 {
-                    GoPanel(new MovieSelectorPanel());
+                   // GoPanel(new MovieSelectorPanel());
                 }
             }
             else

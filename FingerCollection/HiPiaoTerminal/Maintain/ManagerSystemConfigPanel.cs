@@ -52,7 +52,7 @@ namespace HiPiaoTerminal.Maintain
         private void btnKeepSave_Click(object sender, EventArgs e)
         {
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            config.HiPiaoInterfaceUrl = this.txtInterfaceUrl.Text.Trim();
+           // config.HiPiaoInterfaceUrl = this.txtInterfaceUrl.Text.Trim();
             config.CinemaServerIp = this.GetIp();
             config.CinemaServerPort = Convert.ToInt32(this.txtPort.Text);
             config.AllowShowMouse = this.checkShow.Checked;

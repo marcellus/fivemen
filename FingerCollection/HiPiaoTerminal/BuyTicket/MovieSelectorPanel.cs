@@ -214,5 +214,10 @@ namespace HiPiaoTerminal.BuyTicket
             if (this.toolTip1.Tag!=null)
             e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace HiPiaoTerminal.CommonForm
         {
             InitializeComponent();
             this.lbMsg2.Text = hint;
+            GlobalTools.MaskFormKeyDown(this);
         }
 
         private void ConfirmForm_Paint(object sender, PaintEventArgs e)

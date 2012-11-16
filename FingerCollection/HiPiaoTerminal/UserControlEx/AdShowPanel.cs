@@ -54,7 +54,9 @@ namespace HiPiaoTerminal.UserControlEx
             try
             {
                 this.BackgroundImageLayout = ImageLayout.Stretch;
-                adShowTimer.Interval = interval;
+                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                adShowTimer.Interval = config.AdSeconds ;
+               // adShowTimer.Interval = interval;
                 adShowTimer.Tick += new EventHandler(adShowTimer_Tick);
                 adShowTimer.Start();
             }
@@ -90,23 +92,32 @@ namespace HiPiaoTerminal.UserControlEx
                     else
                     {
                         currentIndex = Convert.ToInt32(this.Tag.ToString());
+                        if (currentIndex == lists.Count - 1)
+                        {
+                            currentIndex = 0;
+                        }
+                       // else if (currentIndex != 0)
+                        else
+                        {
+                            currentIndex += 1;
+                        }
                     }
-                    if (currentIndex == lists.Count - 1)
-                    {
-                        currentIndex = 0;
-                    }
-                    else if(currentIndex!=0)
-                    //else
-                    {
-                        currentIndex += 1;
-                    }
+                   
 #if DEBUG
                     //Console.WriteLine("当前广告起始的索引为：" + currentIndex);
 #endif
 
                     for (int i = currentIndex; i < lists.Count; i++)
                     {
-                        if (true)
+                        //if (true)
+                        if (i == lists.Count - 1 && lists[i].AdvWeizhiOne != adType)
+                        {
+#if DEBUG
+                           // Console.WriteLine("最后一个广告索引都不是位置：" + adType);
+#endif
+                            i = 0;
+                            continue;
+                        }
                         if(lists[i].AdvWeizhiOne==adType)
                         {
                             this.BackgroundImage = lists[i].AdvPic;
