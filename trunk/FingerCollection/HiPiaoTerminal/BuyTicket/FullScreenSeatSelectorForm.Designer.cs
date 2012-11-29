@@ -38,6 +38,7 @@
             this.btnCancel = new System.Windows.Forms.PictureBox();
             this.btnSure = new System.Windows.Forms.PictureBox();
             this.panelSeats = new System.Windows.Forms.Panel();
+            this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
@@ -156,11 +157,24 @@
             this.panelSeats.Size = new System.Drawing.Size(1040, 488);
             this.panelSeats.TabIndex = 20;
             // 
+            // simpleLabel1
+            // 
+            this.simpleLabel1.AutoSize = true;
+            this.simpleLabel1.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(24)))));
+            this.simpleLabel1.Location = new System.Drawing.Point(468, 123);
+            this.simpleLabel1.Name = "simpleLabel1";
+            this.simpleLabel1.Size = new System.Drawing.Size(348, 18);
+            this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel1.TabIndex = 21;
+            this.simpleLabel1.Text = "请连续选择座位，不要留下单个的空闲座位！";
+            // 
             // FullScreenSeatSelectorForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(1272, 746);
+            this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.panelSeats);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -174,7 +188,6 @@
             this.Name = "FullScreenSeatSelectorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FullScreenSeatSelectorForm";
-            this.TopMost = true;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
@@ -196,5 +209,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbPlanInfo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelSeats;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
     }
 }

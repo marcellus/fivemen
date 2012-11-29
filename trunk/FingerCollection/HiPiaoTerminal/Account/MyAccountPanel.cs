@@ -24,13 +24,14 @@ namespace HiPiaoTerminal.Account
             Console.WriteLine("用户点击了账户信息按钮！");
             if (!this.btnAccountInfo.IsActive)
             {
+                this.lbFeeCounter.Visible = false;
                 this.btnFeeDetailInfo.IsActive = this.btnModifyPwd.IsActive = false;
                 this.btnAccountInfo.IsActive = true;
                 UserInfoPanel panel = new UserInfoPanel(GlobalTools.GetLoginUser());
                 
                 ChangePanel(panel);
                // this.btnFeeDetailInfo.TabText += "(" + GlobalTools.GetLoginUser().BuyRecords.Count.ToString() + ")";
-                this.btnFeeDetailInfo.TabText = "消费记录(88)";
+                this.btnFeeDetailInfo.TabText = "消费记录";
                 this.StopOpertionTime();
                 this.SetOperationTime(30);
             }
@@ -50,6 +51,8 @@ namespace HiPiaoTerminal.Account
             Console.WriteLine("用户点击了消费信息按钮！");
             if (!this.btnFeeDetailInfo.IsActive)
             {
+                this.lbFeeCounter.Text = "(" + GlobalTools.GetLoginUser().BuyRecords.Count.ToString() + ")";
+                this.lbFeeCounter.Visible = true;
                 this.btnAccountInfo.IsActive = this.btnModifyPwd.IsActive = false;
                 this.btnFeeDetailInfo.IsActive = true;
                 FeeDetailPanel panel = new FeeDetailPanel();
@@ -65,6 +68,7 @@ namespace HiPiaoTerminal.Account
             Console.WriteLine("用户点击了修改密码按钮！");
             if (!this.btnModifyPwd.IsActive)
             {
+                this.lbFeeCounter.Visible = false;
                 this.btnFeeDetailInfo.IsActive = this.btnAccountInfo.IsActive = false;
                 this.btnModifyPwd.IsActive = true;
                 ModifyPwdPanel panel = new ModifyPwdPanel();

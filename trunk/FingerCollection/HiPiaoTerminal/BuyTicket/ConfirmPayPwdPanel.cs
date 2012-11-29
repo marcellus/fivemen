@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using HiPiaoInterface;
+using System.Threading;
 
 namespace HiPiaoTerminal.BuyTicket
 {
@@ -73,6 +74,7 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            GlobalTools.HideAllKeyBoard();
             this.FindForm().Close();
         }
 
@@ -126,6 +128,17 @@ namespace HiPiaoTerminal.BuyTicket
                 
                 
             }
+        }
+
+        private void ConfirmPayPwdPanel_Load(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(new ThreadStart(FocusText));
+            thread.Start();
+        }
+        public void FocusText()
+        {
+            System.Threading.Thread.Sleep(500);
+            this.txtUserPwd.Focus();
         }
     }
 }

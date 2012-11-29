@@ -37,6 +37,7 @@
             this.btnReturn = new System.Windows.Forms.PictureBox();
             this.btnReturnHome = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lbFeeCounter = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,11 +49,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
+            // panelContent
+            // 
+            this.panelContent.Location = new System.Drawing.Point(0, 252);
+            this.panelContent.Size = new System.Drawing.Size(1280, 551);
+            // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.lbFeeCounter);
             this.panelHeader.Controls.Add(this.btnReturn);
             this.panelHeader.Controls.Add(this.btnReturnHome);
             this.panelHeader.Controls.Add(this.pictureBox2);
+            this.panelHeader.Size = new System.Drawing.Size(1280, 252);
             this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
             // splitContainer1
@@ -162,6 +170,18 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // lbFeeCounter
+            // 
+            this.lbFeeCounter.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbFeeCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            this.lbFeeCounter.Location = new System.Drawing.Point(371, 219);
+            this.lbFeeCounter.Name = "lbFeeCounter";
+            this.lbFeeCounter.Size = new System.Drawing.Size(197, 33);
+            this.lbFeeCounter.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.lbFeeCounter.TabIndex = 1;
+            this.lbFeeCounter.Text = "（202）";
+            this.lbFeeCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MyAccountPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -198,6 +218,7 @@
         private System.Windows.Forms.PictureBox btnReturn;
         private System.Windows.Forms.PictureBox btnQuitAccount;
         private System.Windows.Forms.PictureBox btnGoBuyTicket;
+        private FT.Windows.Controls.LabelEx.SimpleLabel lbFeeCounter;
 
     }
 }

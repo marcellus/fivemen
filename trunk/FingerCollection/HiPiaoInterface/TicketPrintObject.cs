@@ -25,6 +25,12 @@ namespace HiPiaoInterface
 
         public int Price;
 
+        public string MiddleFee;
+
+        public string ChangCi;
+
+        public string UniqueId;
+
 
         public bool IsPrinted;
 

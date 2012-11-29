@@ -119,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ConfirmPayPwdPanel";
             this.Size = new System.Drawing.Size(805, 490);
+            this.Load += new System.EventHandler(this.ConfirmPayPwdPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -69,5 +69,8 @@ namespace HiPiaoTerminal.ConfigModel
         /// </summary>
         public int AdSeconds = 2000;
 
+        //全屏选座座位扩大距离
+        public int FullScreenAddWidth = 0;
+
     }
 }

@@ -54,6 +54,7 @@
             this.btnDoubleToFullScreen = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.panelContent.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.simpleLabel1);
             this.panelContent.Controls.Add(this.btnDoubleToFullScreen);
             this.panelContent.Controls.Add(this.panelSeat);
             this.panelContent.Controls.Add(this.lbProcessHint);
@@ -142,7 +144,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(175)))), ((int)(((byte)(17)))));
             this.label3.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(124, 78);
+            this.label3.Location = new System.Drawing.Point(124, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(813, 29);
             this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -361,6 +363,18 @@
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             this.toolTip1.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
             // 
+            // simpleLabel1
+            // 
+            this.simpleLabel1.AutoSize = true;
+            this.simpleLabel1.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(24)))));
+            this.simpleLabel1.Location = new System.Drawing.Point(368, 105);
+            this.simpleLabel1.Name = "simpleLabel1";
+            this.simpleLabel1.Size = new System.Drawing.Size(348, 18);
+            this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel1.TabIndex = 12;
+            this.simpleLabel1.Text = "请连续选择座位，不要留下单个的空闲座位！";
+            // 
             // MovieSeatSelectorPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -412,6 +426,7 @@
         private System.Windows.Forms.PictureBox btnDoubleToFullScreen;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ToolTip toolTip1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
 
     }
 }

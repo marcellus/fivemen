@@ -14,7 +14,8 @@ namespace HiPiaoTerminal.BuyTicket
     public partial class FullScreenSeatSelectorForm : Form
     {
         private MovieSeatSelectorPanel seatPanel;
-        private int addWidth=10;
+        //private int addWidth=10;
+        private int addWidth = 10;
 
 
         public Hashtable selectedSeatBak = new Hashtable();
@@ -87,6 +88,11 @@ namespace HiPiaoTerminal.BuyTicket
             //75, 78 height=29
             int x = 0;
             int y = 0;
+            if (addWidth == 0)
+            {
+                x = 75;
+                y = 29;
+            }
             if (!this.leftToRight)
             {
                 x = 200;
@@ -154,18 +160,32 @@ namespace HiPiaoTerminal.BuyTicket
                 {
                     if (seatPanel.selectedSeat.Count < 8)
                     {
-                        seatPanel.AddSeat(seat);
-                       // selectedSeatTmp.Add(seat.SeatId, seat);
-                        ctr.BackColor = seatPanel.selectedColor;
+                        if (seatPanel.CheckAddSeat(seat))
+                        {
+                            seatPanel.AddSeat(seat);
+                            // selectedSeatTmp.Add(seat.SeatId, seat);
+                            ctr.BackColor = seatPanel.selectedColor;
+                        }
+                        else
+                        {
+                            GlobalTools.PopSeatSelectHint();
+                        }
                     }
                     //seatPanel.RefreshSelectedPanel();
                 }
                 else if (ctr.BackColor.R == (byte)253)
                 {
-                    seatPanel.RemoveSeat(seat.SeatId);
-                    //selectedSeatTmp.Remove(seat.SeatId);
-                    ctr.BackColor = seatPanel.emptyColor;
-                    //seatPanel.RefreshSelectedPanel();
+                    if (seatPanel.CheckRemoveSeat(seat.SeatId))
+                    {
+                        seatPanel.RemoveSeat(seat.SeatId);
+                        //selectedSeatTmp.Remove(seat.SeatId);
+                        ctr.BackColor = seatPanel.emptyColor;
+                        //seatPanel.RefreshSelectedPanel();
+                    }
+                    else
+                    {
+                        GlobalTools.PopSeatSelectHint();
+                    }
                 }
                 else
                 {

@@ -95,7 +95,7 @@
             this.txtValidCode.Name = "txtValidCode";
             this.txtValidCode.Size = new System.Drawing.Size(47, 21);
             this.txtValidCode.TabIndex = 3;
-            this.txtValidCode.Text = "865672";
+            this.txtValidCode.Text = "235193";
             // 
             // txtMobile
             // 

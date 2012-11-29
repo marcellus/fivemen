@@ -181,10 +181,7 @@ namespace HiPiaoTerminal
             {
                 GlobalTools.Pop(new WaitValidPanel(this.txtMobile.Text, this.txtValidCode.Text));
 
-                 SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                 if (config.IsDingXin)
-                 {
-                 }
+                
             }
         }
 

@@ -31,6 +31,7 @@
             this.picRepeatPwdHint = new System.Windows.Forms.PictureBox();
             this.picNewPwdHint = new System.Windows.Forms.PictureBox();
             this.picOldPwdHint = new System.Windows.Forms.PictureBox();
+            this.btnClearAll = new System.Windows.Forms.PictureBox();
             this.btnCancel = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.btnSure = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.lbOldPwdHint = new FT.Windows.Controls.LabelEx.SimpleLabel();
@@ -39,7 +40,6 @@
             this.label2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.label1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.label3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
-            this.btnClearAll = new System.Windows.Forms.PictureBox();
             this.txtOldPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtNewPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
@@ -51,7 +51,7 @@
             // 
             // picRepeatPwdHint
             // 
-            this.picRepeatPwdHint.Location = new System.Drawing.Point(983, 395);
+            this.picRepeatPwdHint.Location = new System.Drawing.Point(983, 366);
             this.picRepeatPwdHint.Name = "picRepeatPwdHint";
             this.picRepeatPwdHint.Size = new System.Drawing.Size(28, 31);
             this.picRepeatPwdHint.TabIndex = 12;
@@ -59,7 +59,7 @@
             // 
             // picNewPwdHint
             // 
-            this.picNewPwdHint.Location = new System.Drawing.Point(983, 253);
+            this.picNewPwdHint.Location = new System.Drawing.Point(983, 224);
             this.picNewPwdHint.Name = "picNewPwdHint";
             this.picNewPwdHint.Size = new System.Drawing.Size(28, 31);
             this.picNewPwdHint.TabIndex = 11;
@@ -67,18 +67,29 @@
             // 
             // picOldPwdHint
             // 
-            this.picOldPwdHint.Location = new System.Drawing.Point(983, 112);
+            this.picOldPwdHint.Location = new System.Drawing.Point(983, 83);
             this.picOldPwdHint.Name = "picOldPwdHint";
             this.picOldPwdHint.Size = new System.Drawing.Size(28, 31);
             this.picOldPwdHint.TabIndex = 10;
             this.picOldPwdHint.TabStop = false;
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.UserInput_ClearAll;
+            this.btnClearAll.Location = new System.Drawing.Point(1066, 5);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(179, 81);
+            this.btnClearAll.TabIndex = 15;
+            this.btnClearAll.TabStop = false;
+            this.btnClearAll.Visible = false;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = global::HiPiaoTerminal.Properties.Resources.Account_btn_Active;
-            this.btnCancel.Location = new System.Drawing.Point(712, 464);
+            this.btnCancel.Location = new System.Drawing.Point(712, 451);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(268, 95);
             this.btnCancel.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -92,7 +103,7 @@
             this.btnSure.Font = new System.Drawing.Font("方正兰亭黑简体", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnSure.ForeColor = System.Drawing.Color.White;
             this.btnSure.Image = global::HiPiaoTerminal.Properties.Resources.Account_btn_Not_Active;
-            this.btnSure.Location = new System.Drawing.Point(381, 464);
+            this.btnSure.Location = new System.Drawing.Point(381, 451);
             this.btnSure.Name = "btnSure";
             this.btnSure.Size = new System.Drawing.Size(268, 95);
             this.btnSure.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -106,7 +117,7 @@
             this.lbOldPwdHint.AutoSize = true;
             this.lbOldPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbOldPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbOldPwdHint.Location = new System.Drawing.Point(374, 150);
+            this.lbOldPwdHint.Location = new System.Drawing.Point(374, 127);
             this.lbOldPwdHint.Name = "lbOldPwdHint";
             this.lbOldPwdHint.Size = new System.Drawing.Size(0, 32);
             this.lbOldPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -117,7 +128,7 @@
             this.lbNewPwdHint.AutoSize = true;
             this.lbNewPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbNewPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbNewPwdHint.Location = new System.Drawing.Point(374, 292);
+            this.lbNewPwdHint.Location = new System.Drawing.Point(374, 271);
             this.lbNewPwdHint.Name = "lbNewPwdHint";
             this.lbNewPwdHint.Size = new System.Drawing.Size(0, 32);
             this.lbNewPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -128,7 +139,7 @@
             this.lbRepeatPwdHint.AutoSize = true;
             this.lbRepeatPwdHint.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbRepeatPwdHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(109)))), ((int)(((byte)(31)))));
-            this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 435);
+            this.lbRepeatPwdHint.Location = new System.Drawing.Point(374, 417);
             this.lbRepeatPwdHint.Name = "lbRepeatPwdHint";
             this.lbRepeatPwdHint.Size = new System.Drawing.Size(0, 32);
             this.lbRepeatPwdHint.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -139,7 +150,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label2.Location = new System.Drawing.Point(131, 357);
+            this.label2.Location = new System.Drawing.Point(131, 334);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 40);
             this.label2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -151,7 +162,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label1.Location = new System.Drawing.Point(131, 217);
+            this.label1.Location = new System.Drawing.Point(131, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 40);
             this.label1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -163,23 +174,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label3.Location = new System.Drawing.Point(201, 75);
+            this.label3.Location = new System.Drawing.Point(201, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 40);
             this.label3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.label3.TabIndex = 9;
             this.label3.Text = "旧密码";
-            // 
-            // btnClearAll
-            // 
-            this.btnClearAll.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.UserInput_ClearAll;
-            this.btnClearAll.Location = new System.Drawing.Point(1066, 5);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(179, 81);
-            this.btnClearAll.TabIndex = 15;
-            this.btnClearAll.TabStop = false;
-            this.btnClearAll.Visible = false;
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // txtOldPwd
             // 
@@ -190,7 +190,7 @@
             this.txtOldPwd.IsActive = false;
             this.txtOldPwd.IsDeleted = true;
             this.txtOldPwd.KeyboardType = 5;
-            this.txtOldPwd.Location = new System.Drawing.Point(368, 40);
+            this.txtOldPwd.Location = new System.Drawing.Point(368, 17);
             this.txtOldPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtOldPwd.MaxInputLength = 6;
             this.txtOldPwd.Name = "txtOldPwd";
@@ -209,7 +209,7 @@
             this.txtNewPwd.IsActive = false;
             this.txtNewPwd.IsDeleted = true;
             this.txtNewPwd.KeyboardType = 5;
-            this.txtNewPwd.Location = new System.Drawing.Point(368, 182);
+            this.txtNewPwd.Location = new System.Drawing.Point(368, 159);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtNewPwd.MaxInputLength = 6;
             this.txtNewPwd.Name = "txtNewPwd";
@@ -228,7 +228,7 @@
             this.txtRepeatPwd.IsActive = false;
             this.txtRepeatPwd.IsDeleted = true;
             this.txtRepeatPwd.KeyboardType = 5;
-            this.txtRepeatPwd.Location = new System.Drawing.Point(368, 326);
+            this.txtRepeatPwd.Location = new System.Drawing.Point(368, 303);
             this.txtRepeatPwd.Margin = new System.Windows.Forms.Padding(0);
             this.txtRepeatPwd.MaxInputLength = 6;
             this.txtRepeatPwd.Name = "txtRepeatPwd";
@@ -260,7 +260,7 @@
             this.Font = new System.Drawing.Font("方正兰亭黑简体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ModifyPwdPanel";
-            this.Size = new System.Drawing.Size(1280, 570);
+            this.Size = new System.Drawing.Size(1280, 551);
             ((System.ComponentModel.ISupportInitialize)(this.picRepeatPwdHint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNewPwdHint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOldPwdHint)).EndInit();

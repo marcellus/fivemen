@@ -21,6 +21,19 @@ namespace HiPiaoTerminal.CommonForm
             WinFormHelper.CenterHor(this.picSure);
         }
 
+         public MessagePanelFirst(string hint,int width,int height)
+         {
+             InitializeComponent();
+             this.Width = width;
+             this.Height = height;
+             this.lbMsg1.Text = hint;
+             this.lbMsg1.Location = new Point(this.lbMsg1.Location.X, this.lbMsg1.Location.Y + 30);
+             this.lbMsg2.Visible = false;
+             this.lbMsg2.Text = string.Empty;
+             WinFormHelper.CenterHor(this.picSure);
+         }
+
+
         public MessagePanelFirst(string hint,string hint2)
         {
             InitializeComponent();

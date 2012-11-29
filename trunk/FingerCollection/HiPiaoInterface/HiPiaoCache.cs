@@ -737,7 +737,10 @@ namespace HiPiaoInterface
                 obj.OtherName = objsNode[i].Attributes["enname"].Value;
                 obj.ShowDate = Convert.ToDateTime(objsNode[i].Attributes["fshowtime"].Value);
                 obj.MainActors = objsNode[i].Attributes["leadrole"].Value;
-                obj.TotalMinutes = Convert.ToInt32(objsNode[i].Attributes["pixlength"].Value);
+                if (objsNode[i].Attributes["pixlength"].Value.Length > 0)
+                    obj.TotalMinutes = Convert.ToInt32(objsNode[i].Attributes["pixlength"].Value.Replace("分钟", ""));
+                else
+                    obj.TotalMinutes = 0;
                 obj.Id = objsNode[i].Attributes["pixnumber"].Value;
                 obj.Type = objsNode[i].Attributes["pixtype"].Value;
 
