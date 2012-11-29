@@ -30,6 +30,48 @@ namespace HiPiaoTerminal
         {
         }
 
+        public static void PrintTickets(List<TicketPrintObject> lists)
+        {
+            if (lists != null)
+            {
+               // MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
+                GlobalHardwareTools.OpenHotPrinter();
+                for (int i = 0; i < lists.Count; i++)
+                {
+                    GlobalHardwareTools.PrintTicket(lists[i]);
+                }
+                GlobalHardwareTools.CloseHotPrinter();
+
+            }
+        }
+
+        public static void PrintTickets(string mobile, string validCode)
+        {
+            string msgType = "30";
+            //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
+            string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t1\n";
+            //str = msgType + str;
+            //helper.Send(str);
+            //HipiaoTcpHelper.GetTicket(str);
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            PrintTickets(HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str)));
+        }
+
+       // public 
+
+        public static void PrintTickets(TicketPrintObject ticket)
+        {
+            if (ticket != null)
+            {
+                // MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
+                GlobalHardwareTools.OpenHotPrinter();
+                GlobalHardwareTools.PrintTicket(ticket);
+                
+                GlobalHardwareTools.CloseHotPrinter();
+
+            }
+        }
+
         public static void MaskFormKeyDown(Form maskKeyForm)
         {
           //  maskKeyForm.FormClosing += new FormClosingEventHandler(maskKeyForm_FormClosing);
@@ -200,10 +242,17 @@ namespace HiPiaoTerminal
             Console.WriteLine("转化前键盘的坐标是：X=" + frm.Location.X.ToString() + "=Y=" + frm.Location.Y.ToString()+"-txt所在窗体的宽度为："+txt.FindForm().Width.ToString());
 #endif
             int tmpx = point.X;
-            if (txt.FindForm().Width < tmpx + frm.Width)
+
+            int SH = Screen.PrimaryScreen.Bounds.Height;
+            int SW = Screen.PrimaryScreen.Bounds.Width;
+            if (SW< tmpx + frm.Width)
             {
-                tmpx = txt.FindForm().Width - frm.Width - 30;
+                tmpx =SW - frm.Width - 30;
             }
+           // if (txt.FindForm().Width < tmpx + frm.Width)
+          //  {
+                //tmpx = txt.FindForm().Width - frm.Width - 30;
+           // }
             
            
 
@@ -365,6 +414,23 @@ namespace HiPiaoTerminal
             Pop(panel,1); 
         }
 
+        public static void PopSeatSelectHint()
+        {
+            // MessageForm form = new MessageForm(hint1);
+            //  form.ShowDialog();
+            SelectSeatMessageFirst panel = new SelectSeatMessageFirst();
+            Pop(panel, 1);
+        }
+
+        public static void PopFlashCardError()
+        {
+            // MessageForm form = new MessageForm(hint1);
+            //  form.ShowDialog();
+            SelectSeatMessageFirst panel = new SelectSeatMessageFirst("刷卡错误，请重试！");
+            Pop(panel, 1);
+        }
+
+
         public static void Pop(string hint1, string hint2)
         {
            // MessageForm form = new MessageForm(hint1, hint2);
@@ -469,7 +535,7 @@ namespace HiPiaoTerminal
             popForm2.ColorType = type;
            // popForm.Show();
            // return DialogResult.OK;
-            
+            popForm2.BringToFront();
             return popForm2.ShowDialog();
            
         }
@@ -541,6 +607,7 @@ namespace HiPiaoTerminal
                 //form.TransparencyKey = Color.FromArgb(117, 117, 117);
                 //form.BackgroundImage = TestResource.TestRegister;
                 form.Controls.Add(panel);
+                form.BringToFront();
                // form.FormClosing += new FormClosingEventHandler(form_FormClosing);
               return  form.ShowDialog();
             // */
@@ -904,8 +971,9 @@ namespace HiPiaoTerminal
 
                    
                 }
-                catch
+                catch(Exception ex)
                 {
+                    Console.WriteLine("定时刷新出现异常："+ex.ToString());
                     GlobalTools.PopNetError();
                 }
             }
@@ -1076,48 +1144,56 @@ namespace HiPiaoTerminal
         /// </summary>
         public static void GoPanel(Control panel)
         {
-            if (MainForm != null)
+            try
             {
-                if (GlobalTools.fullScreenSeatSelectorForm != null)
+                if (MainForm != null)
                 {
-                    Form frm = GlobalTools.fullScreenSeatSelectorForm;
-                    GlobalTools.fullScreenSeatSelectorForm = null;
-                    frm.Close();
-                }
-                Control parent = MainForm;
-                if (parent.Controls.Count > 0)
-                {
-                    MainPanel oldPanel = parent.Controls[0] as MainPanel;
-                    if (oldPanel != null)
+                    if (GlobalTools.fullScreenSeatSelectorForm != null)
                     {
-                        oldPanel.StopAdTimer();
+                        Form frm = GlobalTools.fullScreenSeatSelectorForm;
+                        GlobalTools.fullScreenSeatSelectorForm = null;
+                        frm.Close();
                     }
-                    parent.Controls.Clear();
-                }
+                    Control parent = MainForm;
+                    if (parent.Controls.Count > 0)
+                    {
+                        MainPanel oldPanel = parent.Controls[0] as MainPanel;
+                        if (oldPanel != null)
+                        {
+                            oldPanel.StopAdTimer();
+                        }
+                        parent.Controls.Clear();
+                    }
 #if DEBUG
                 Console.WriteLine("GoPanel开始隐藏小键盘");
 #endif
-                HideAllKeyBoard();
-                WindowFormDelegate.AddControlTo(parent, panel);
-                //parent.Controls.Add(panel);
-                if (panel is MainPanel)
-                {
-                    StopUnOperationCounter();
+                    HideAllKeyBoard();
+                    WindowFormDelegate.AddControlTo(parent, panel);
+                    //parent.Controls.Add(panel);
+                    if (panel is MainPanel)
+                    {
+                        StopUnOperationCounter();
+                    }
+                    else if (panel is OperationTimeParentPanel)
+                    {
+                        StopUnOperationCounter();
+
+                        InitUnOperationControl(parent.Controls[0]);
+                    }
+                    else
+                    {
+                        ResetUnOperationTime();
+                        StopUnOperationCounter();
+                        StartUnOperationCounter();
+                        InitUnOperationControl(parent.Controls[0]);
+                    }
+
                 }
-                else if (panel is OperationTimeParentPanel)
-                {
-                    StopUnOperationCounter();
-                    
-                    InitUnOperationControl(parent.Controls[0]);
-                }
-                else
-                {
-                    ResetUnOperationTime();
-                    StopUnOperationCounter();
-                    StartUnOperationCounter();
-                    InitUnOperationControl(parent.Controls[0]);
-                }
-               
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("切换界面出现异常："+ex.ToString());
             }
 
         }

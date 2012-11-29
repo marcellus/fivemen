@@ -66,6 +66,9 @@
             this.simpleLabel10 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel11 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtAdSeconds = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.simpleLabel12 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel13 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.txtFullScreenAddWidth = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +113,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label4.Location = new System.Drawing.Point(180, 447);
+            this.label4.Location = new System.Drawing.Point(180, 444);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(449, 40);
             this.label4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -148,7 +151,7 @@
             this.txtUnOperationTime.IsActive = false;
             this.txtUnOperationTime.IsDeleted = false;
             this.txtUnOperationTime.KeyboardType = 2;
-            this.txtUnOperationTime.Location = new System.Drawing.Point(187, 506);
+            this.txtUnOperationTime.Location = new System.Drawing.Point(187, 489);
             this.txtUnOperationTime.Margin = new System.Windows.Forms.Padding(0);
             this.txtUnOperationTime.MaxInputLength = 32767;
             this.txtUnOperationTime.Name = "txtUnOperationTime";
@@ -162,7 +165,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.label5.Location = new System.Drawing.Point(456, 521);
+            this.label5.Location = new System.Drawing.Point(456, 506);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 40);
             this.label5.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -333,7 +336,7 @@
             this.txtRefreshCacheTime.IsActive = false;
             this.txtRefreshCacheTime.IsDeleted = false;
             this.txtRefreshCacheTime.KeyboardType = 2;
-            this.txtRefreshCacheTime.Location = new System.Drawing.Point(619, 506);
+            this.txtRefreshCacheTime.Location = new System.Drawing.Point(619, 489);
             this.txtRefreshCacheTime.Margin = new System.Windows.Forms.Padding(0);
             this.txtRefreshCacheTime.MaxInputLength = 32767;
             this.txtRefreshCacheTime.Name = "txtRefreshCacheTime";
@@ -347,7 +350,7 @@
             this.simpleLabel3.AutoSize = true;
             this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel3.Location = new System.Drawing.Point(623, 447);
+            this.simpleLabel3.Location = new System.Drawing.Point(623, 444);
             this.simpleLabel3.Name = "simpleLabel3";
             this.simpleLabel3.Size = new System.Drawing.Size(305, 40);
             this.simpleLabel3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -359,7 +362,7 @@
             this.simpleLabel4.AutoSize = true;
             this.simpleLabel4.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel4.Location = new System.Drawing.Point(887, 521);
+            this.simpleLabel4.Location = new System.Drawing.Point(887, 506);
             this.simpleLabel4.Name = "simpleLabel4";
             this.simpleLabel4.Size = new System.Drawing.Size(89, 40);
             this.simpleLabel4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -396,7 +399,7 @@
             this.simpleLabel6.AutoSize = true;
             this.simpleLabel6.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel6.Location = new System.Drawing.Point(980, 447);
+            this.simpleLabel6.Location = new System.Drawing.Point(980, 444);
             this.simpleLabel6.Name = "simpleLabel6";
             this.simpleLabel6.Size = new System.Drawing.Size(305, 40);
             this.simpleLabel6.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -408,7 +411,7 @@
             this.simpleLabel7.AutoSize = true;
             this.simpleLabel7.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel7.Location = new System.Drawing.Point(1214, 521);
+            this.simpleLabel7.Location = new System.Drawing.Point(1200, 506);
             this.simpleLabel7.Name = "simpleLabel7";
             this.simpleLabel7.Size = new System.Drawing.Size(53, 40);
             this.simpleLabel7.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -424,7 +427,7 @@
             this.txtFullScreenSecond.IsActive = false;
             this.txtFullScreenSecond.IsDeleted = false;
             this.txtFullScreenSecond.KeyboardType = 6;
-            this.txtFullScreenSecond.Location = new System.Drawing.Point(1054, 506);
+            this.txtFullScreenSecond.Location = new System.Drawing.Point(1044, 489);
             this.txtFullScreenSecond.Margin = new System.Windows.Forms.Padding(0);
             this.txtFullScreenSecond.MaxInputLength = 32767;
             this.txtFullScreenSecond.Name = "txtFullScreenSecond";
@@ -484,7 +487,7 @@
             this.simpleLabel10.AutoSize = true;
             this.simpleLabel10.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel10.Location = new System.Drawing.Point(980, 606);
+            this.simpleLabel10.Location = new System.Drawing.Point(980, 571);
             this.simpleLabel10.Name = "simpleLabel10";
             this.simpleLabel10.Size = new System.Drawing.Size(233, 40);
             this.simpleLabel10.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -496,7 +499,7 @@
             this.simpleLabel11.AutoSize = true;
             this.simpleLabel11.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.simpleLabel11.Location = new System.Drawing.Point(1214, 680);
+            this.simpleLabel11.Location = new System.Drawing.Point(1191, 629);
             this.simpleLabel11.Name = "simpleLabel11";
             this.simpleLabel11.Size = new System.Drawing.Size(89, 40);
             this.simpleLabel11.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
@@ -512,7 +515,7 @@
             this.txtAdSeconds.IsActive = false;
             this.txtAdSeconds.IsDeleted = false;
             this.txtAdSeconds.KeyboardType = 6;
-            this.txtAdSeconds.Location = new System.Drawing.Point(1054, 665);
+            this.txtAdSeconds.Location = new System.Drawing.Point(1044, 615);
             this.txtAdSeconds.Margin = new System.Windows.Forms.Padding(0);
             this.txtAdSeconds.MaxInputLength = 32767;
             this.txtAdSeconds.Name = "txtAdSeconds";
@@ -521,10 +524,53 @@
             this.txtAdSeconds.Size = new System.Drawing.Size(132, 74);
             this.txtAdSeconds.TabIndex = 7;
             // 
+            // simpleLabel12
+            // 
+            this.simpleLabel12.AutoSize = true;
+            this.simpleLabel12.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel12.Location = new System.Drawing.Point(980, 693);
+            this.simpleLabel12.Name = "simpleLabel12";
+            this.simpleLabel12.Size = new System.Drawing.Size(233, 40);
+            this.simpleLabel12.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel12.TabIndex = 5;
+            this.simpleLabel12.Text = "全屏选座距离";
+            // 
+            // simpleLabel13
+            // 
+            this.simpleLabel13.AutoSize = true;
+            this.simpleLabel13.Font = new System.Drawing.Font("方正兰亭纤黑简体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.simpleLabel13.Location = new System.Drawing.Point(1188, 760);
+            this.simpleLabel13.Name = "simpleLabel13";
+            this.simpleLabel13.Size = new System.Drawing.Size(89, 40);
+            this.simpleLabel13.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel13.TabIndex = 5;
+            this.simpleLabel13.Text = "像素";
+            // 
+            // txtFullScreenAddWidth
+            // 
+            this.txtFullScreenAddWidth.AllowInputType = HiPiaoTerminal.UserControlEx.AllowInputEnum.Number;
+            this.txtFullScreenAddWidth.BackColor = System.Drawing.SystemColors.Window;
+            this.txtFullScreenAddWidth.Font = new System.Drawing.Font("方正兰亭纤黑简体", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtFullScreenAddWidth.Hint = null;
+            this.txtFullScreenAddWidth.IsActive = false;
+            this.txtFullScreenAddWidth.IsDeleted = false;
+            this.txtFullScreenAddWidth.KeyboardType = 6;
+            this.txtFullScreenAddWidth.Location = new System.Drawing.Point(1044, 740);
+            this.txtFullScreenAddWidth.Margin = new System.Windows.Forms.Padding(0);
+            this.txtFullScreenAddWidth.MaxInputLength = 32767;
+            this.txtFullScreenAddWidth.Name = "txtFullScreenAddWidth";
+            this.txtFullScreenAddWidth.PasswordChar = '\0';
+            this.txtFullScreenAddWidth.RelativeLabel = null;
+            this.txtFullScreenAddWidth.Size = new System.Drawing.Size(132, 74);
+            this.txtFullScreenAddWidth.TabIndex = 7;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.lbReturnMsg);
+            this.Controls.Add(this.txtFullScreenAddWidth);
             this.Controls.Add(this.txtAdSeconds);
             this.Controls.Add(this.txtFullScreenSecond);
             this.Controls.Add(this.txtRefreshCacheTime);
@@ -536,12 +582,14 @@
             this.Controls.Add(this.checkUseHardKeyboard);
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.checkUseMask);
+            this.Controls.Add(this.simpleLabel13);
             this.Controls.Add(this.cbPrinterType);
             this.Controls.Add(this.simpleLabel11);
             this.Controls.Add(this.cbCity);
             this.Controls.Add(this.simpleLabel7);
             this.Controls.Add(this.simpleLabel4);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.simpleLabel12);
             this.Controls.Add(this.cbCinema);
             this.Controls.Add(this.simpleLabel10);
             this.Controls.Add(this.btnCancelSave);
@@ -582,12 +630,14 @@
             this.Controls.SetChildIndex(this.btnCancelSave, 0);
             this.Controls.SetChildIndex(this.simpleLabel10, 0);
             this.Controls.SetChildIndex(this.cbCinema, 0);
+            this.Controls.SetChildIndex(this.simpleLabel12, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.simpleLabel4, 0);
             this.Controls.SetChildIndex(this.simpleLabel7, 0);
             this.Controls.SetChildIndex(this.cbCity, 0);
             this.Controls.SetChildIndex(this.simpleLabel11, 0);
             this.Controls.SetChildIndex(this.cbPrinterType, 0);
+            this.Controls.SetChildIndex(this.simpleLabel13, 0);
             this.Controls.SetChildIndex(this.checkUseMask, 0);
             this.Controls.SetChildIndex(this.cbProvince, 0);
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
@@ -599,6 +649,7 @@
             this.Controls.SetChildIndex(this.txtRefreshCacheTime, 0);
             this.Controls.SetChildIndex(this.txtFullScreenSecond, 0);
             this.Controls.SetChildIndex(this.txtAdSeconds, 0);
+            this.Controls.SetChildIndex(this.txtFullScreenAddWidth, 0);
             this.Controls.SetChildIndex(this.lbReturnMsg, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).EndInit();
@@ -646,5 +697,8 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel10;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel11;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtAdSeconds;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel12;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel13;
+        private HiPiaoTerminal.UserControlEx.UserInputPanel txtFullScreenAddWidth;
     }
 }

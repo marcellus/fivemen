@@ -34,10 +34,6 @@
             this.picPasswordHint = new System.Windows.Forms.PictureBox();
             this.picUserNameHint = new System.Windows.Forms.PictureBox();
             this.btnViewProtocol = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReturnButton = new System.Windows.Forms.PictureBox();
             this.btnReturnHome = new System.Windows.Forms.PictureBox();
@@ -49,16 +45,16 @@
             this.txtRepeatPwd = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtPassword = new HiPiaoTerminal.UserControlEx.UserInputPanel();
             this.txtUserName = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.simpleLabel1 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel2 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel3 = new FT.Windows.Controls.LabelEx.SimpleLabel();
+            this.simpleLabel4 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgreeAndRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMobileHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRepeatPwdHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPasswordHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserNameHint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnViewProtocol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).BeginInit();
@@ -119,42 +115,6 @@
             this.btnViewProtocol.TabIndex = 1;
             this.btnViewProtocol.TabStop = false;
             this.btnViewProtocol.Click += new System.EventHandler(this.btnViewProtocol_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Rigister_Mobile_Hint;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 542);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(351, 70);
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Rigister_PasswordRepeat_Hint;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 427);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(351, 70);
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Rigister_Password_Hint;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 312);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(351, 70);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Rigister_UserName_Hint;
-            this.pictureBox2.Location = new System.Drawing.Point(-12, 197);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(352, 70);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -305,10 +265,58 @@
             this.txtUserName.TabIndex = 1;
             this.txtUserName.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtUserName_onSubTextChanged);
             // 
+            // simpleLabel1
+            // 
+            this.simpleLabel1.AutoSize = true;
+            this.simpleLabel1.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 26F, System.Drawing.FontStyle.Bold);
+            this.simpleLabel1.Location = new System.Drawing.Point(213, 214);
+            this.simpleLabel1.Name = "simpleLabel1";
+            this.simpleLabel1.Size = new System.Drawing.Size(125, 40);
+            this.simpleLabel1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel1.TabIndex = 5;
+            this.simpleLabel1.Text = "用户名";
+            // 
+            // simpleLabel2
+            // 
+            this.simpleLabel2.AutoSize = true;
+            this.simpleLabel2.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 26F, System.Drawing.FontStyle.Bold);
+            this.simpleLabel2.Location = new System.Drawing.Point(249, 327);
+            this.simpleLabel2.Name = "simpleLabel2";
+            this.simpleLabel2.Size = new System.Drawing.Size(89, 40);
+            this.simpleLabel2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel2.TabIndex = 5;
+            this.simpleLabel2.Text = "密码";
+            // 
+            // simpleLabel3
+            // 
+            this.simpleLabel3.AutoSize = true;
+            this.simpleLabel3.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 26F, System.Drawing.FontStyle.Bold);
+            this.simpleLabel3.Location = new System.Drawing.Point(177, 442);
+            this.simpleLabel3.Name = "simpleLabel3";
+            this.simpleLabel3.Size = new System.Drawing.Size(161, 40);
+            this.simpleLabel3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel3.TabIndex = 5;
+            this.simpleLabel3.Text = "确认密码";
+            // 
+            // simpleLabel4
+            // 
+            this.simpleLabel4.AutoSize = true;
+            this.simpleLabel4.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 26F, System.Drawing.FontStyle.Bold);
+            this.simpleLabel4.Location = new System.Drawing.Point(213, 557);
+            this.simpleLabel4.Name = "simpleLabel4";
+            this.simpleLabel4.Size = new System.Drawing.Size(125, 40);
+            this.simpleLabel4.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
+            this.simpleLabel4.TabIndex = 5;
+            this.simpleLabel4.Text = "手机号";
+            // 
             // QuickRegisterPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.simpleLabel4);
+            this.Controls.Add(this.simpleLabel3);
+            this.Controls.Add(this.simpleLabel2);
+            this.Controls.Add(this.simpleLabel1);
             this.Controls.Add(this.lbPasswordHint);
             this.Controls.Add(this.lbMobileHint);
             this.Controls.Add(this.lbRepeatPwdHint);
@@ -323,10 +331,6 @@
             this.Controls.Add(this.picPasswordHint);
             this.Controls.Add(this.picUserNameHint);
             this.Controls.Add(this.btnViewProtocol);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnReturnButton);
             this.Controls.Add(this.btnReturnHome);
@@ -341,10 +345,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPasswordHint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserNameHint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnViewProtocol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReturnHome)).EndInit();
@@ -358,10 +358,6 @@
         private System.Windows.Forms.PictureBox btnReturnHome;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnReturnButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox btnViewProtocol;
         private System.Windows.Forms.PictureBox btnAgreeAndRegister;
         private System.Windows.Forms.PictureBox picUserNameHint;
@@ -376,6 +372,10 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel lbPasswordHint;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbRepeatPwdHint;
         private FT.Windows.Controls.LabelEx.SimpleLabel lbMobileHint;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel1;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel2;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel3;
+        private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel4;
 
     }
 }

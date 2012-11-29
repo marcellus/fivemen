@@ -55,6 +55,7 @@
     <Compile Include="CouponObject.cs" />
     <Compile Include="DeductionObject.cs" />
     <Compile Include="DingXinResponseObject.cs" />
+    <Compile Include="GetTicketPrintObject.cs" />
     <Compile Include="HiPiaoCache.cs" />
     <Compile Include="HiPiaoOperator.cs" />
     <Compile Include="HiPiaoOperatorFactory.cs" />

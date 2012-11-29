@@ -13,16 +13,23 @@ namespace HiPiaoTerminal
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-           // Application.Run(new FullAdShowForm());
-            //Application.Run(new HideCaretForm());
-           // Application.Run(new MaskPanelForm());
-           // Application.Run(new KeyBoardTestForm());
-          //  Application.Run(new AdShowTestForm());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
+                // Application.Run(new FullAdShowForm());
+                //Application.Run(new HideCaretForm());
+                // Application.Run(new MaskPanelForm());
+                // Application.Run(new KeyBoardTestForm());
+                //  Application.Run(new AdShowTestForm());
 
-           // Application.Run(new MaskKeyDownForm());
+                // Application.Run(new MaskKeyDownForm());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             
         }
     }

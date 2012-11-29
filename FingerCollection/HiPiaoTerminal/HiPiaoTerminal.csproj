@@ -266,6 +266,12 @@
     <Compile Include="CommonForm\SecondRoundNotifyForm.Designer.cs">
       <DependentUpon>SecondRoundNotifyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonForm\SelectSeatMessageFirst.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonForm\SelectSeatMessageFirst.Designer.cs">
+      <DependentUpon>SelectSeatMessageFirst.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForm\UnLockPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -619,6 +625,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\SecondRoundNotifyForm.resx">
       <DependentUpon>SecondRoundNotifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm\SelectSeatMessageFirst.resx">
+      <DependentUpon>SelectSeatMessageFirst.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForm\UnLockPanel.resx">
@@ -1290,6 +1300,7 @@
     <None Include="Resources\PopTest.png" />
     <None Include="Resources\DingXin-GetTicket-Back1.png" />
     <None Include="Resources\DingXin-GetTicket-Back2.png" />
+    <None Include="Resources\HomeFlashCardHint.png" />
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

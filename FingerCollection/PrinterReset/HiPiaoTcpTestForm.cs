@@ -50,7 +50,9 @@ namespace PrinterReset
             //str = msgType + str;
             //helper.Send(str);
             //HipiaoTcpHelper.GetTicket(str);
-            HipiaoTcpHelper.GetTicket(HiPiaoProtocol.PackSend(msgType, str));
+            int port = 2908;
+            string host = "119.10.114.212";
+            HipiaoTcpHelper.GetTicket(host,port,HiPiaoProtocol.PackSend(msgType, str));
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

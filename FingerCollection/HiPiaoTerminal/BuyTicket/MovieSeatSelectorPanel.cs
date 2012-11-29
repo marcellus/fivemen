@@ -181,18 +181,91 @@ namespace HiPiaoTerminal.BuyTicket
             
         }
 
+        public bool CheckAddSeat(SeatObject seat)
+        {
+            SeatObject tmp = null;
+
+            List<SeatObject> rowSelectList = new List<SeatObject>();
+            for (int i = 0; i < this.SeatList.Count; i++)
+            {
+                tmp = this.SeatList[i];
+                if (tmp.RowNum == seat.RowNum && this.panelSeat.Controls[tmp.SeatId].BackColor.R == (byte)253)
+                {
+                    rowSelectList.Add(tmp);
+                }
+            }
+            if (rowSelectList.Count > 0)
+            {
+                bool gapSelect = true;
+                for (int i = 0; i < rowSelectList.Count; i++)
+                {
+                    tmp = rowSelectList[i];
+                    if (tmp.SeatNo == seat.SeatNo + 1 || tmp.SeatNo == seat.SeatNo - 1)
+                    {
+                        gapSelect = false;
+                        break;
+                    }
+                }
+                if (gapSelect)
+                {
+                    //GlobalTools.PopSeatSelectHint();
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void AddSeat(SeatObject seat)
         {
+            // if (ctr.BackColor.R == (byte)125)//未选中
+            //else if (ctr.BackColor.R == (byte)253)//已经选中
+           
             this.selectedSeat.Add(seat.SeatId, seat);
             this.selectedSeatLine.Add(seat);
             this.panelSeat.Controls[seat.SeatId].BackColor = selectedColor;
         }
+
+        public bool CheckRemoveSeat(string seatid)
+        {
+            SeatObject tmp = null;
+            SeatObject seat = this.panelSeat.Controls[seatid].Tag as SeatObject;
+            List<SeatObject> rowSelectList = new List<SeatObject>();
+            for (int i = 0; i < this.SeatList.Count; i++)
+            {
+                tmp = this.SeatList[i];
+                if (tmp.RowNum == seat.RowNum && this.panelSeat.Controls[tmp.SeatId].BackColor.R == (byte)253)
+                {
+                    rowSelectList.Add(tmp);
+                }
+            }
+            if (rowSelectList.Count > 0)
+            {
+                int gapSelect = 0;
+
+                for (int i = 0; i < rowSelectList.Count; i++)
+                {
+                    tmp = rowSelectList[i];
+                    if (tmp.SeatNo == seat.SeatNo + 1 || tmp.SeatNo == seat.SeatNo - 1)
+                    {
+                        gapSelect++;
+                        // break;
+                    }
+                }
+                if (gapSelect == 2)
+                {
+                   // GlobalTools.PopSeatSelectHint();
+                    return false;
+                }
+            }
+            return true;
+        }
         
         public void RemoveSeat(string  seatid)
         {
+            SeatObject tmp = null;
             this.selectedSeat.Remove(seatid);
             this.panelSeat.Controls[seatid].BackColor = emptyColor;
-            SeatObject tmp=null;
+           // SeatObject tmp=null;
             for (int i = 0; i < this.selectedSeatLine.Count; i++)
             {
                 tmp = this.selectedSeatLine[i] as SeatObject;
@@ -211,20 +284,34 @@ namespace HiPiaoTerminal.BuyTicket
             //253,208,0
             if (seat.LockState == "0")
             {
-                if (ctr.BackColor.R == (byte)125)
+                if (ctr.BackColor.R == (byte)125)//未选中
                 {
                     if (this.selectedSeat.Count < 8)
                     {
-                        this.AddSeat(seat);
-                        
-                        this.RefreshSelectedPanel();
+                        if (this.CheckAddSeat(seat))
+                        {
+                            this.AddSeat(seat);
+
+                            this.RefreshSelectedPanel();
+                        }
+                        else
+                        {
+                            GlobalTools.PopSeatSelectHint();
+                        }
                     }
                 }
-                else if (ctr.BackColor.R == (byte)253)
+                else if (ctr.BackColor.R == (byte)253)//已经选中
                 {
-                    this.RemoveSeat(seat.SeatId);
-                    
-                    this.RefreshSelectedPanel();
+                    if (this.CheckRemoveSeat(seat.SeatId))
+                    {
+                        this.RemoveSeat(seat.SeatId);
+
+                        this.RefreshSelectedPanel();
+                    }
+                    else
+                    {
+                        GlobalTools.PopSeatSelectHint();
+                    }
                 }
                 else
                 {
@@ -247,10 +334,17 @@ namespace HiPiaoTerminal.BuyTicket
         {
             Control ctr = sender as Control;
             string seatId = ctr.Tag.ToString();
-            this.RemoveSeat(seatId);
-            //this.selectedSeat.Remove(seatId);
-            this.panelSeat.Controls[seatId].BackColor = emptyColor;
-            this.RefreshSelectedPanel();
+            if (this.CheckRemoveSeat(seatId))
+            {
+                this.RemoveSeat(seatId);
+                //this.selectedSeat.Remove(seatId);
+                this.panelSeat.Controls[seatId].BackColor = emptyColor;
+                this.RefreshSelectedPanel();
+            }
+            else
+            {
+                GlobalTools.PopSeatSelectHint();
+            }
             
         }
 
@@ -382,9 +476,11 @@ namespace HiPiaoTerminal.BuyTicket
         {
             if (this.panelSeat.Controls.Count > 0)
             {
-                FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,8,this.CheckLeftToRight());
+                int addWidth = 0;
+                FullScreenSeatSelectorForm form = new FullScreenSeatSelectorForm(this,addWidth,this.CheckLeftToRight());
                // form.StartPosition=F
-                form.ShowDialog();
+                //form.ShowDialog();
+                form.Show();
             }
         }
 

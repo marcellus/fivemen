@@ -48,6 +48,8 @@ namespace HiPiaoTerminal.Maintain
                 config.IsDingXin = this.checkIsDingXin.Checked;
                 config.AdSeconds = Convert.ToInt32(this.txtAdSeconds.Text);
 
+                config.FullScreenAddWidth = Convert.ToInt32(this.txtFullScreenAddWidth.Text);
+
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
 
 
@@ -83,6 +85,7 @@ namespace HiPiaoTerminal.Maintain
                 this.checkAllowNumberKeyboard.Checked=config.AllowNumberKeyboard;
                 this.checkIsDingXin.Checked = config.IsDingXin;
                 this.txtAdSeconds.Text = config.AdSeconds.ToString();
+                this.txtFullScreenAddWidth.Text = config.FullScreenAddWidth.ToString();
             }
             catch
             {

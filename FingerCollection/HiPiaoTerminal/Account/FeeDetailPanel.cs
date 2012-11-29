@@ -71,7 +71,8 @@ namespace HiPiaoTerminal.Account
                 }
             }
             this.lbFeeDetailHeader.Text = string.Format("消费详情", buys.Count.ToString());
-            this.lbRecordsCount.Text = "(" + buys.Count.ToString() + ")";
+            this.lbRecordsCount.Text = string.Empty;
+            //this.lbRecordsCount.Text = "(" + buys.Count.ToString() + ")";
             SetPageButton();
         }
 

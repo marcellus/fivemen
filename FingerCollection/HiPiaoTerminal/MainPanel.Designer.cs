@@ -49,6 +49,8 @@
             this.picToMaintain2 = new System.Windows.Forms.PictureBox();
             this.adShowPanel1 = new HiPiaoTerminal.UserControlEx.AdShowPanel();
             this.adFullTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelFlashCardHint = new System.Windows.Forms.Panel();
+            this.timerReadCard = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picToMaintain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTicketPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuyTicket)).BeginInit();
@@ -153,10 +155,11 @@
             // lbWelcome1
             // 
             this.lbWelcome1.AutoSize = true;
+            this.lbWelcome1.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbWelcome1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.lbWelcome1.Location = new System.Drawing.Point(-3, 255);
             this.lbWelcome1.Name = "lbWelcome1";
-            this.lbWelcome1.Size = new System.Drawing.Size(124, 28);
+            this.lbWelcome1.Size = new System.Drawing.Size(127, 32);
             this.lbWelcome1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcome1.TabIndex = 14;
             this.lbWelcome1.Text = "欢迎回来";
@@ -164,10 +167,11 @@
             // lbWelcomeName
             // 
             this.lbWelcomeName.AutoSize = true;
+            this.lbWelcomeName.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbWelcomeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lbWelcomeName.Location = new System.Drawing.Point(116, 255);
             this.lbWelcomeName.Name = "lbWelcomeName";
-            this.lbWelcomeName.Size = new System.Drawing.Size(292, 28);
+            this.lbWelcomeName.Size = new System.Drawing.Size(321, 32);
             this.lbWelcomeName.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcomeName.TabIndex = 14;
             this.lbWelcomeName.Text = "helloworld1234567890";
@@ -176,10 +180,11 @@
             // 
             this.lbWelcome3.AutoSize = true;
             this.lbWelcome3.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome3.Font = new System.Drawing.Font("方正兰亭细黑_GBK", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbWelcome3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.lbWelcome3.Location = new System.Drawing.Point(415, 255);
             this.lbWelcome3.Name = "lbWelcome3";
-            this.lbWelcome3.Size = new System.Drawing.Size(264, 28);
+            this.lbWelcome3.Size = new System.Drawing.Size(267, 32);
             this.lbWelcome3.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbWelcome3.TabIndex = 14;
             this.lbWelcome3.Text = "，请选择您的操作：";
@@ -211,10 +216,24 @@
             this.adFullTimer.Interval = 30000;
             this.adFullTimer.Tick += new System.EventHandler(this.adFullTimer_Tick);
             // 
+            // panelFlashCardHint
+            // 
+            this.panelFlashCardHint.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.HomeFlashCardHint;
+            this.panelFlashCardHint.Location = new System.Drawing.Point(-3, 206);
+            this.panelFlashCardHint.Name = "panelFlashCardHint";
+            this.panelFlashCardHint.Size = new System.Drawing.Size(656, 92);
+            this.panelFlashCardHint.TabIndex = 16;
+            // 
+            // timerReadCard
+            // 
+            this.timerReadCard.Interval = 500;
+            this.timerReadCard.Tick += new System.EventHandler(this.timerReadCard_Tick);
+            // 
             // MainPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.panelFlashCardHint);
             this.Controls.Add(this.btnTicketPrint);
             this.Controls.Add(this.adShowPanel1);
             this.Controls.Add(this.lbWelcomeName);
@@ -260,6 +279,8 @@
         private System.Windows.Forms.PictureBox picToMaintain2;
         private HiPiaoTerminal.UserControlEx.AdShowPanel adShowPanel1;
         private System.Windows.Forms.Timer adFullTimer;
+        private System.Windows.Forms.Panel panelFlashCardHint;
+        private System.Windows.Forms.Timer timerReadCard;
         
     }
 }

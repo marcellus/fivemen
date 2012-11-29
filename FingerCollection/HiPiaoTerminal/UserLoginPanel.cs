@@ -279,6 +279,7 @@ namespace HiPiaoTerminal
             {
                // this.listBox1.Items.Add("寻卡 失败!");
                 this.timerReadCard.Start();
+
                 return;
             }
            // this.listBox1.Items.Add("寻卡成功!");
@@ -297,6 +298,7 @@ namespace HiPiaoTerminal
             {
                 //this.listBox1.Items.Add("扇区3校验密码失败!");
                 this.timerReadCard.Start();
+                GlobalTools.PopFlashCardError();
                 return;
             }
             //this.listBox1.Items.Add("扇区3校验密码 OK!");
@@ -314,6 +316,7 @@ namespace HiPiaoTerminal
             {
                 //this.listBox1.Items.Add("块3的Hex方式读值 dc_read error!");
                 this.timerReadCard.Start();
+                GlobalTools.PopFlashCardError();
                 return;
             }
            // this.listBox1.Items.Add(" 块3的值（Hex方式）为：" + sdata2);

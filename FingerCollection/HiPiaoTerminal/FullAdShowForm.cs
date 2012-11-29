@@ -37,6 +37,7 @@ namespace HiPiaoTerminal
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "全屏广告进行了鼠标单击!");
 #endif
             this.Hide();
+            GlobalTools.HideAllKeyBoard();
             GlobalTools.MainForm.Activate();
             MainPanel main = GlobalTools.MainForm.Controls[0] as MainPanel;
             if (main!=null)

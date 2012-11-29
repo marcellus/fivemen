@@ -7,18 +7,19 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoInterface;
 using HiPiaoTerminal.CommonForm;
+using HiPiaoTerminal.ConfigModel;
 
 namespace HiPiaoTerminal.PrinterTicket
 {
     public partial class WaitValidPanel : HiPiaoTerminal.UserControlEx.SecondNotifyUserPanel
     {
         private string mobile;
-        private string valid;
+        private string validCode;
         public WaitValidPanel(string mobile,string valid)
         {
             InitializeComponent();
             this.mobile = mobile;
-            this.valid = valid;
+            this.validCode = valid;
         }
 
         private void WaitValidPanel_Load(object sender, EventArgs e)
@@ -75,12 +76,22 @@ namespace HiPiaoTerminal.PrinterTicket
         {
             timer1.Stop();
             try{
-            TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
-            GlobalHardwareTools.ticket = ticket;
-            
-            if (ticket != null)
+
+
+                string msgType = "30";
+                //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
+                string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t1\n";
+                //str = msgType + str;
+                //helper.Send(str);
+                //HipiaoTcpHelper.GetTicket(str);
+                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                 List<TicketPrintObject> tickets=HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str));
+            //TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
+           // GlobalHardwareTools.ticket = ticket;
+
+            if (tickets != null && tickets.Count>0)
             {
-                if (ticket.IsPrinted == false)
+                if (tickets[0].IsPrinted == false)
                 {
                     //this.pictureBox1.Image = Properties.Resources.Print_Wait_Print;
                     //this.un
@@ -88,7 +99,7 @@ namespace HiPiaoTerminal.PrinterTicket
                    // this.pictureBox1.Image = Properties.Resources.Print_Wait_Success;
                   //  System.Threading.Thread.Sleep(2000);
                    // this.FindForm().Close();
-                    GlobalTools.ChangePanel(this.FindForm(), new WaitPrintPanel());
+                    GlobalTools.ChangePanel(this.FindForm(), new WaitPrintPanel(tickets));
                 }
                 else
                 {

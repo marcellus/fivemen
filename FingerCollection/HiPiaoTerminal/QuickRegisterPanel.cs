@@ -86,6 +86,26 @@ namespace HiPiaoTerminal
                 string repeatPwd = this.txtRepeatPwd.Text.Trim();
                 string mobile = this.txtMobile.Text.Trim();
                 bool result = true;
+
+                if (!ValidatorHelper.ValidateMobile(mobile, false))
+                {
+                    this.lbMobileHint.Text = "手机号输入错误";
+                    this.picMobileHint.Visible = true;
+                    this.picMobileHint.Image = Properties.Resources.Error;
+
+                    this.txtPassword.UnFocus();
+                    this.txtRepeatPwd.UnFocus();
+                    this.txtUserName.UnFocus();
+                    this.txtMobile.Focus();
+                    result = false;
+                    // return;
+
+                }
+                else
+                {
+                    this.lbMobileHint.Text = string.Empty;
+                    this.picMobileHint.Image = Properties.Resources.Right;
+                }
                 /*
                 if (!HiPiaoOperatorFactory.GetHiPiaoOperator().CheckUserName(name))
                 {
@@ -144,20 +164,7 @@ namespace HiPiaoTerminal
                     this.picRepeatPwdHint.Image = Properties.Resources.Right;
                 }
 
-                if (!ValidatorHelper.ValidateMobile(mobile, false))
-                {
-                    this.lbMobileHint.Text = "手机号输入错误";
-                    this.picMobileHint.Visible = true;
-                    this.picMobileHint.Image = Properties.Resources.Error;
-                   
-                    this.txtPassword.UnFocus();
-                    this.txtRepeatPwd.UnFocus();
-                    this.txtUserName.UnFocus();
-                    this.txtMobile.Focus();
-                    result = false;
-                    return;
-
-                }
+               
                     /*
                 else if (!HiPiaoOperatorFactory.GetHiPiaoOperator().CheckMobile(mobile))
                 {
@@ -216,7 +223,7 @@ namespace HiPiaoTerminal
         private void txtUserName_onSubTextChanged()
         {
             string name = this.txtUserName.Text.Trim();
-            this.txtUserName.Text = this.txtUserName.Text.ToLower();
+            this.txtUserName.Text = this.txtUserName.Text.ToLower().Replace(" ","");
             string pwd = this.txtPassword.Text.Trim();
             string repeatPwd = this.txtRepeatPwd.Text.Trim();
             string mobile = this.txtMobile.Text.Trim();

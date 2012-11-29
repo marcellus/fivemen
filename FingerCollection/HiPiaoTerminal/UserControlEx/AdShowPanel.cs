@@ -110,10 +110,10 @@ namespace HiPiaoTerminal.UserControlEx
                     for (int i = currentIndex; i < lists.Count; i++)
                     {
                         //if (true)
-                        if (i == lists.Count - 1 && lists[i].AdvWeizhiOne != adType)
+                        if (i>0&&i == lists.Count - 1 && lists[i].AdvWeizhiOne != adType)
                         {
 #if DEBUG
-                           // Console.WriteLine("最后一个广告索引都不是位置：" + adType);
+                            Console.WriteLine(System.DateTime.Now.ToString()+"最后一个广告索引都不是位置：" + adType);
 #endif
                             i = 0;
                             continue;
