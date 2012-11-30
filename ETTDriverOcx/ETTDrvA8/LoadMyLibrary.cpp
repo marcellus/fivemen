@@ -81,7 +81,8 @@ BOOL LoadMyLibrary(char*ErrorInfo)
 		goto ExitLine;
 	}
 
-	sprintf(TempFilePath, "%s\\IDDigitalCopierDll.dll", CurrentDir);
+	//sprintf(TempFilePath, "%s\\IDDigitalCopierDll.dll", CurrentDir);
+	sprintf(TempFilePath, "IDDigitalCopierDll.dll");
 	Uni_hIDDigitalCopierLib = LoadLibrary(TempFilePath);//path
 	if(!Uni_hIDDigitalCopierLib)
 	{

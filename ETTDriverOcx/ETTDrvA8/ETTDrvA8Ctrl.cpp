@@ -616,15 +616,83 @@ SHORT CETTDrvA8Ctrl::OpenDeviceEx(SHORT port)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 #pragma region 新北洋
-int		                    SuccessFlag = -1; 
-	SuccessFlag = OpenConnection(SecDeviceNum);
-	//SuccessFlag = OpenConnInPath(SecDeviceNum,NULL);
-	if(IDDIGITALCOPIER_NO_ERROR != SuccessFlag)
+	CString dispinfo;
+	bool bflag = true;
+	if (EnumScannerDevice(ScannerInfo, &DevNumber) != IDDIGITALCOPIER_NO_ERROR)
 	{
-		this->m_Message= "启动扫描失败";
+		this->m_Message= "获取设备失败!";
+		return -1;
+	}
+	else
+	{
+		if (DevNumber == 0)
+		{
+			this->m_Message="无设备!";
+			return -1;
+		}
+		else if (DevNumber == 1)  //如果当前只有一台设备，则以当前设备打开
+		{
+			SecDeviceNum = ScannerInfo[0].DeviceID;
+			//AfxMessageBox("获取到设备号！");
+		}
+		else
+		{
+			for (unsigned int jj = 0; jj < DevNumber; jj++)
+			{
+				if (SecDeviceNum == ScannerInfo[jj].DeviceID)
+				{
+					bflag = false;
+					break;
+				}
+			}
+			if (bflag != false)
+			{
+                SecDeviceNum = ScannerInfo[0].DeviceID;
+			}
+		}
+	}
+
+	
+	//AfxMessage(SecDeviceNum);
+     int	SuccessFlag = -2; 
+     SuccessFlag=OpenConnection(ScannerInfo[0].DeviceID);
+	 dispinfo.Format("OpenConnection->%d",SuccessFlag);
+    AfxMessageBox(dispinfo);
+	//SuccessFlag = OpenConnection(SecDeviceNum);
+	//SuccessFlag = OpenConnInPath(ScannerInfo[0].DeviceID,NULL);
+	 if(IDDIGITALCOPIER_INVALID_ARGUMENT==SuccessFlag)
+	{
+		this->m_Message= "无效参数";
 		return -1;	
 	}
-	return 0;
+	else if(IDDIGITALCOPIER_TABPAR_NONE==SuccessFlag)
+	{
+		this->m_Message= "参数文件错误";
+		return -1;	
+	}
+	else if(IDDIGITALCOPIER_NO_DEVICE==SuccessFlag)
+	{
+		this->m_Message= "无设备";
+		return -1;	
+	}
+
+	else if(IDDIGITALCOPIER_NO_ERROR == SuccessFlag)
+	{
+		this->m_Message= "启动扫描成功";
+		return 0;	
+	}
+
+
+	
+         
+
+    
+
+         
+
+    
+
+	return SuccessFlag;
 
 	#pragma endregion
 

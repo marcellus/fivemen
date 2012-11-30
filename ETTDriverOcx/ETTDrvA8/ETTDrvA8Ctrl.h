@@ -92,6 +92,27 @@ extern mInitServer		    InitServer;
 extern mExitServer          ExitServer;
 extern mChangeID            ChangeID;
 extern mDistillVehicleInfo  DistillVehicleInfo;
+
+extern mWriteToExcel		WriteToExcel;
+extern mInitServer          InitServer;
+extern mExitServer          ExitServer;
+extern mGetID2Info          GetID2Info;
+
+extern  int     Uni_loadOCRDll;                             //是否需要加载OCR动态库
+extern  int     Uni_ReadIDInfo;                             //是否需要二代证识读
+extern  int     Uni_ReadVehicle;                            //是否需要行驶证识读
+extern		int		Uni_ImageNameNumber;					//扫描数量
+extern		char	Uni_SaveNewImagePath[MAX_PATH];			//图像保存路径
+extern		char	Uni_SaveOldImagePath[MAX_PATH];			//图像保存路径
+static		char	Uni_ViewImageName[MAX_PATH] = {0x00};	//显示图像
+HWIDCard    IDCard;											//身份证信息
+IDInfo      mIDInfo;                                        //二代证身份证信息
+bool bToExcelFlag = false;                                  //是否写入Excel
+bool bOCRIdentifyFlag = false;                              //是否进行OCR识别
+bool bRead2IDInfoFlag = false;                              //是否进行二代证识读
+bool bVehicleFlag = false;                                  //是否进行行驶证识别
+extern CString    Uni_SaveExcelPath;                        //Excel文件保存路径
+extern unsigned   SecDeviceNum;
 	#pragma endregion
 
 
