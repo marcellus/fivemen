@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Thu Nov 01 15:50:08 2012
+/* at Fri Nov 02 14:37:45 2012
  */
 /* Compiler settings for .\ETTDrvA8.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
