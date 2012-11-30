@@ -1,5 +1,7 @@
 #pragma once
 
+#include "BankUtil\\ZTKeyboardImporter.h"
+
 // ETTCashCodeActiveXCtrl.h : CETTCashCodeActiveXCtrl ActiveX 控件类的声明。
 
 
@@ -20,10 +22,16 @@ int (__stdcall *Identify)(char* Message);
 int (__stdcall *IdentifyV2)(int iMaxBillValue,char* Message);
 int (__stdcall *Reset)(char* Message);
 
-
+HINSTANCE g_598Dll=NULL;
 
 #include <objsafe.h>//导入安全接口
 #include "windows.h"
+
+typedef struct MyData {
+	LPCTSTR sfxmbm;
+	LONG	money;
+	LPCTSTR bz;
+} MYDATA, *PMYDATA;
 
 // ETTCashCtrl.h : CETTCashCtrl ActiveX 控件类的声明。
 
@@ -82,6 +90,7 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidLoadZTDll = 19L,
 		dispidEndCreditcard = 18L,
 		dispidGetCreditcard = 17L,
 		dispidInitCreditcard = 16L,
@@ -120,7 +129,14 @@ protected:
 	SHORT StartIdentifyV2Ex2(LPCTSTR denominations);
 	SHORT StartIdentifyV2Ex(LPCTSTR denominations);
 	SHORT InitCreditcard(LPCTSTR sfzmhm, LONG money, LPCTSTR bz);
-	SHORT GetCreditcard(void);
+	LPCTSTR GetCreditcard(void);
 	SHORT EndCreditcard(void);
+
+private:
+    PMYDATA pData;
+    DWORD   dwThreadId;
+    HANDLE  hThread;
+protected:
+	SHORT LoadZTDll(void);
 };
 

@@ -54,6 +54,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="4"
+				DisableSpecificWarnings="4996"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -70,8 +71,10 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="true"
+				AdditionalDependencies="M100_DLL.lib"
 				OutputFile="$(OutDir)\$(ProjectName).ocx"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories=".\lib"
 				ModuleDefinitionFile=".\ETTCash.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -139,6 +142,7 @@
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				DebugInformationFormat="3"
+				DisableSpecificWarnings="4996"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -155,9 +159,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="true"
-				PerUserRedirection="true"
+				PerUserRedirection="false"
+				AdditionalDependencies="M100_DLL.lib"
 				OutputFile="$(OutDir)\$(ProjectName).ocx"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories=".\lib"
 				ModuleDefinitionFile=".\ETTCash.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -278,6 +284,78 @@
 			</File>
 			<File
 				RelativePath=".\ETTCashCtrl.bmp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="BankUtil"
+			>
+			<File
+				RelativePath=".\BankUtil\BalanceInquiry.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\BalanceInquiry.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\convert.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\convert.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\ISO8583.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\ISO8583.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\LogFile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\M100_DLL.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Payment.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Payment.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Register.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Register.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\ReversalTransaction.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\ReversalTransaction.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Socket.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\Socket.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BankUtil\ZTKeyboardImporter.h"
 				>
 			</File>
 		</Filter>

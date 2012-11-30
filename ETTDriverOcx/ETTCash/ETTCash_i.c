@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Tue Oct 16 03:38:26 2012
+/* at Sat Nov 24 23:14:14 2012
  */
 /* Compiler settings for .\ETTCash.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

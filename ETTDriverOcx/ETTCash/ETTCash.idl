@@ -39,8 +39,9 @@ library ETTCashLib
 		[id(14), helpstring("方法StartIdentifyV2Ex2")] SHORT StartIdentifyV2Ex2(BSTR denominations);
 		[id(15), helpstring("方法StartIdentifyV2Ex")] SHORT StartIdentifyV2Ex(BSTR denominations);
 		[id(16), helpstring("方法InitCreditcard")] SHORT InitCreditcard(BSTR sfzmhm, LONG money, BSTR bz);
-		[id(17), helpstring("方法GetCreditcard")] SHORT GetCreditcard(void);
+		[id(17), helpstring("方法GetCreditcard")] LPCTSTR GetCreditcard(void);
 		[id(18), helpstring("方法EndCreditcard")] SHORT EndCreditcard(void);
+		[id(19), helpstring("方法LoadZTDll")] SHORT LoadZTDll(void);
 	};
 
 	//  CETTCashCtrl 的事件调度接口
