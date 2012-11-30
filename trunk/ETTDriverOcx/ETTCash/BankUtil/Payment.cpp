@@ -103,10 +103,10 @@ int CPayment::SendPaymentData(LPCTSTR sfxm,LONG Money,LPCTSTR bz)
 
 	//组包
 	CIso8583Package *package = new CIso8583Package();
-	if (package != 0) 
+	if (package == NULL) 
 	{
 		szPayState = "E7";
-		return -1;   //组包不成功，返回错误码
+		return -1;   //不成功，返回错误码
 	}
 	char c48Field[255];
 	memset(c48Field,0,sizeof(c48Field));
