@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using HiPiaoInterface;
 using HiPiaoTerminal.CommonForm;
 using HiPiaoTerminal.ConfigModel;
+using System.Collections;
 
 namespace HiPiaoTerminal.PrinterTicket
 {
@@ -85,13 +86,12 @@ namespace HiPiaoTerminal.PrinterTicket
                 //helper.Send(str);
                 //HipiaoTcpHelper.GetTicket(str);
                 SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                 List<TicketPrintObject> tickets=HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str));
+                ArrayList tickets=HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str));
             //TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
            // GlobalHardwareTools.ticket = ticket;
-
             if (tickets != null && tickets.Count>0)
             {
-                if (tickets[0].IsPrinted == false)
+                if (((TicketPrintObject)tickets[0]).IsPrinted == false)
                 {
                     //this.pictureBox1.Image = Properties.Resources.Print_Wait_Print;
                     //this.un

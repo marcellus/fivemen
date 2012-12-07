@@ -98,12 +98,15 @@ namespace HiPiaoTerminal.BuyTicket
             if (this.lists != null)
             {
                 MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
+                /*
                 GlobalHardwareTools.OpenHotPrinter();
                 for (int i = 0; i < lists.Count; i++)
                 {
                     GlobalHardwareTools.PrintTicket(lists[i]);
                 }
                 GlobalHardwareTools.CloseHotPrinter();
+                 * */
+                GlobalTools.PrintTickets(this.lists[0].Phone, this.lists[1].ValidCode);
 
             }
             GlobalTools.ChangePanel(this.FindForm(), new WaitSuccessPrintPanel(this.lists,this.movieInfo,this.moviePlan));

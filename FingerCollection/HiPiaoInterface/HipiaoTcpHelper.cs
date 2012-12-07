@@ -6,6 +6,9 @@ using FT.Commons.Tools;
 using FT.Commons.Win32;
 using System.Net.Sockets;
 using System.Net;
+using System.Windows.Forms;
+using System.Collections;
+using System.IO;
 
 namespace HiPiaoInterface
 {
@@ -73,11 +76,51 @@ namespace HiPiaoInterface
             return false;
         }
 
+        public static ArrayList GetTicket(string host, int port, byte[] pack)
+        {
+            return GetTicket(host, port, pack,null);
+        }
 
-        public static List<TicketPrintObject> GetTicket(string host,int port,byte[] pack)
+        public static StringBuilder sbTmp = new StringBuilder();
+
+        public static void WriteLog(string str,TextBox txt)
         {
 #if DEBUG
-            Console.WriteLine("客户端开始连接！");
+            Console.WriteLine(str);
+            sbTmp.Append("\r\n"+str);
+          //  MessageBox.Show(str);
+            if(txt!=null)
+                 txt.AppendText(str+"\n");
+#endif
+
+        }
+
+        private static void WriteAllString(string str)
+        {
+            FileInfo file = new FileInfo("log.txt");
+            StreamWriter sw = new StreamWriter("log.txt", false); 
+            sw.Write(str);
+            sw.Flush();
+            sw.Close();//写入            
+            
+        }
+
+        private static string ReadAllString()
+        {
+            string str;
+            StreamReader sr = new StreamReader("log.txt", false);
+            str = sr.ReadToEnd().ToString();
+            sr.Close();
+            return str;
+        }
+
+
+        public static ArrayList GetTicket(string host, int port, byte[] pack, TextBox txt)
+        {
+            sbTmp = new StringBuilder();
+#if DEBUG
+            WriteLog("客户端开始连接！",txt);
+           
 #endif
             try
             {
@@ -97,20 +140,26 @@ namespace HiPiaoInterface
 
                 Socket c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建一个Socket
 #if DEBUG
-                Console.WriteLine("开始连接服务器IP：" + ip + "，端口" + port + "...");
+                WriteLog("开始连接服务器IP：" + ip + "，端口" + port + "...",txt);
+                
 #endif
 
                 c.Connect(ipe);//连接到服务器
 #if DEBUG
-                Console.WriteLine("完成连接服务器...");
-#endif
+                WriteLog("完成连接服务器...",txt);
+               
+
 
                 //string sendStr = str;
 
                 
 
-                Console.WriteLine("发送取票内容为:" + pack);
-                Console.WriteLine("Hex输出为:"+GetHexOutput(pack));
+                WriteLog("发送取票内容为:" + pack,txt);
+                
+                WriteLog("Hex输出为:"+GetHexOutput(pack),txt);
+               
+
+#endif
 
                 c.Send(pack, pack.Length, 0);//发送测试信息
 
@@ -121,35 +170,115 @@ namespace HiPiaoInterface
                 int bytes;
 
 #if DEBUG
-                Console.WriteLine("开始从服务器接收内容...");
+                WriteLog("开始从服务器接收内容...",txt);
+               
 
 #endif
                 int readTime=0;
                 byte[] heads1=new byte[5];
                 byte[] heads2 = new byte[22];
-                c.Receive(heads1, heads1.Length, SocketFlags.None);
-                c.Receive(heads2, heads2.Length, SocketFlags.None);
+                bool beginAccept = true;
+                int acceptByte = 0;
+                while (beginAccept)
+                {
+                    acceptByte=c.Receive(heads1, heads1.Length, SocketFlags.None);
+#if DEBUG
+                    WriteLog("尝试接收5字节，实际接收结果为：" + acceptByte.ToString(), txt);
+#endif
+                    if (acceptByte == 5)
+                    {
+                        break;
+                    }
+                }
+                while (beginAccept)
+                {
+                    acceptByte = c.Receive(heads2, heads2.Length, SocketFlags.None);
+#if DEBUG
+                    WriteLog("尝试接收22字节，实际接收结果为："+acceptByte.ToString(),txt);
+#endif
+                    if (acceptByte == 22)
+                    {
+                        break;
+                    }
+                }
                 byte[] lens=new byte[4];
                 Array.Copy(heads2,1, lens,0, lens.Length);
                 int len = HiPiaoProtocol.GetDataPackageLen(lens);
 #if DEBUG
                 byte[] dataLength = BitConverter.GetBytes(1484);
-                Console.WriteLine("changdu:" + GetHexOutput(dataLength));
-                Console.WriteLine("Hex输出为:" + GetHexOutput(heads1));
-                Console.WriteLine("获取报文包头并解析的长度为" + len );
-                Console.WriteLine("Hex输出为:" + GetHexOutput(heads2));
+                WriteLog("changdu:" + GetHexOutput(dataLength),txt);
+               
+                WriteLog("Hex输出为:" + GetHexOutput(heads1),txt);
+                
+                WriteLog("获取报文包头并解析的长度为" + len ,txt);
+                
+                WriteLog("Hex输出为:" + GetHexOutput(heads2),txt);
+               
 #endif
                 byte[] allpackage = new byte[len];
-                c.Receive(allpackage);
+                while (beginAccept)
+                {
+                    acceptByte=c.Receive(allpackage);
+#if DEBUG
+                    WriteLog("尝试接收" + len.ToString()+ "字节，实际接收结果为：" + acceptByte.ToString(), txt);
+#endif
+                    if (acceptByte>0)
+                    {
+
+                        break;
+                    }
+
+                }
+               // acceptByte = c.Receive(allpackage);
+#if DEBUG
+             //   WriteLog("尝试接收2字节，实际接收结果为：" + acceptByte.ToString(), txt);
+#endif
+#if DEBUG
+
+                WriteLog("开始断开服务器连接...", txt);
+#endif
+                c.Close();
+#if DEBUG
+                WriteLog("完成断开服务器连接", txt);
+#endif
+               // List<TicketPrintObject> tickets = new List<TicketPrintObject>();
+                ArrayList tickets = new ArrayList();
 
                 string tmpstr = Encoding.GetEncoding("GBK").GetString(allpackage, 0, len);
+#if DEBUG
+               // WriteLog("最终取票结果的字符串为："+tmpstr, txt);
+              //  WriteAllString(tmpstr);
+               // string tmpstr7ttt = ReadAllString();
+                
+#endif
+                if (tmpstr.StartsWith("取票失败："))
+                {
+                    TicketPrintObject tmpTicket1 = new TicketPrintObject();
+                    tmpTicket1.IsPrinted = true;
+                    tickets.Add(tmpTicket1);
+                    return tickets;
+                   
+                }
                 string[] tmpstr1 = tmpstr.Split('\r');
                 string[] tmpstr2 = tmpstr1[1].Split('\n');
-                GetTicketPrintObject[] ticketsObjects=new GetTicketPrintObject[(tmpstr2.Length/16)*16];
+                GetTicketPrintObject[] ticketsObjects=new GetTicketPrintObject[tmpstr2.Length];
                 GetTicketPrintObject tmpTicket = null;
                 for (int i = 0; i < tmpstr2.Length; i++)
                 {
                     string[] tmpstr3 = tmpstr2[i].Split('\t');
+#if DEBUG
+                    if (tmpstr3.Length == 7)
+                    {
+                        WriteLog("票据唯一标识:" + tmpstr3[0], txt);
+                        WriteLog("正副券标识:" + tmpstr3[1], txt);
+                        WriteLog("打印X坐标:" + tmpstr3[2], txt);
+                        WriteLog("打印Y坐标:" + tmpstr3[3], txt);
+                        WriteLog("字体大小:" + tmpstr3[4], txt);
+                        WriteLog("是否加粗:" + tmpstr3[5], txt);
+                        WriteLog("打印项内容:" + tmpstr3[6], txt);
+                    }
+
+#endif
                     if (tmpstr3.Length != 7)
                     {
                         break;
@@ -166,23 +295,11 @@ namespace HiPiaoInterface
                         tmpTicket.Content=tmpstr3[6];
                         ticketsObjects[i] = tmpTicket;
                     }
-                    #if DEBUG
-                    if (tmpstr3.Length == 7)
-                    {
-                        Console.WriteLine("票据唯一标识:" + tmpstr3[0]);
-                        Console.WriteLine("正副券标识:" + tmpstr3[1]);
-                        Console.WriteLine("打印X坐标:" + tmpstr3[2]);
-                        Console.WriteLine("打印Y坐标:" + tmpstr3[3]);
-                        Console.WriteLine("字体大小:" + tmpstr3[4]);
-                        Console.WriteLine("是否加粗:" + tmpstr3[5]);
-                        Console.WriteLine("打印项内容:" + tmpstr3[6]);
-                    }
-                   
-                    #endif
+                    
                 }
 #if DEBUG
-                Console.WriteLine("从服务器接收内容长度为：" + allpackage + " 内容为：" + tmpstr);
-                Console.WriteLine("Hex输出为:" + GetHexOutput(allpackage));
+                WriteLog("从服务器接收内容长度为：" + allpackage + " 内容为：" + tmpstr,txt);
+                WriteLog("Hex输出为:" + GetHexOutput(allpackage),txt);
 #endif
                // for()
                 /*
@@ -208,51 +325,97 @@ namespace HiPiaoInterface
                     readTime++;
                 }
                  * * */
-#if DEBUG
 
-                Console.WriteLine("开始断开服务器连接...");
-#endif
-                c.Close();
-#if DEBUG
-                Console.WriteLine("完成断开服务器连接");
-#endif
                // return recvStr;
+                //int count = tmpstr.Split("出票时间".ToCharArray()).Length-1;
 
-                List<TicketPrintObject> tickets = new List<TicketPrintObject>();
+                string strReplaced = tmpstr.Replace("出票时间", "");
+
+
+
+                int count= (tmpstr.Length - strReplaced.Length) / "出票时间".Length; 
+
+
+              
                 TicketPrintObject ticketPrintObject = null;
+                SellProductPrinter sellProduct = null;
                 int startindex = 0;
+                string tmpid1=string.Empty;
+                int num = 16;
+                int sellcount = 0;
+                int ticketcount = 0;
 
-                for (int i = 0; i < tmpstr2.Length / 16; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    startindex = i * 16;
-                    ticketPrintObject = new TicketPrintObject();
-                    ticketPrintObject.Cinema = ticketsObjects[startindex + 0].Content;
-                    ticketPrintObject.UniqueId = ticketsObjects[startindex + 0].Id;
-                    ticketPrintObject.IsPrinted = false;
-                    ticketPrintObject.MovieName = ticketsObjects[startindex + 1].Content.Substring(3);
-                    ticketPrintObject.TicketId = ticketsObjects[startindex + 2].Content.Substring(3) ;
-                   // string ttt = ticketsObjects[startindex + 3].Content.Substring(4);
-                    
-                    ticketPrintObject.Price =Convert.ToInt32( Convert.ToDouble(ticketsObjects[startindex + 3].Content.Substring(4)));
+                   
+                    //if (tmpstr2[startindex].IndexOf("出票时间")!=-1)
+                    if (tmpid1.Length > 0 && ticketsObjects[startindex].Content.StartsWith("名称"))
+                    {
+                        //startindex +=sellcount*8;
+                        sellProduct = new SellProductPrinter();
 
-                    ticketPrintObject.PlayTime = ticketsObjects[startindex + 4].Content;
+                        sellProduct.Id = ticketsObjects[startindex + 0].Id;
+                        sellProduct.Id2 = ticketsObjects[startindex + 0].Id2;
+                        sellProduct.ProductName = ticketsObjects[startindex + 0].Content.Substring(3);
+                        sellProduct.Price = ticketsObjects[startindex + 1].Content.Substring(3);
+                        sellProduct.PlayDate = ticketsObjects[startindex + 2].Content.Substring(4);
 
-                    ticketPrintObject.RoomName = ticketsObjects[startindex + 6].Content.Substring(3);
+                        sellProduct.PlayTime = ticketsObjects[startindex + 3].Content.Substring(5);
+                        sellProduct.Content = ticketsObjects[startindex + 4].Content.Substring(3);
+                        sellProduct.Cinema = ticketsObjects[startindex + 5].Content;
 
-                    ticketPrintObject.Seat = ticketsObjects[startindex + 7].Content.Substring(3);
+                        sellProduct.HipiaoCard = ticketsObjects[startindex + 6].Content.Substring(4);
+                        sellProduct.PrintTime = ticketsObjects[startindex + 7].Content.Substring(5);
 
-                    ticketPrintObject.PlayDate = ticketsObjects[startindex + 8].Content.Substring(3);
+                        tickets.Add(sellProduct);
+                        sellcount++;
+                        startindex += 8;
+                        continue;
+                    }
+                    else
+                    {
+                        tmpid1 = ticketsObjects[startindex + 0].Id;
+                       // startindex += ticketcount * 16;
 
-                    ticketPrintObject.PrintTime = ticketsObjects[startindex + 15].Content.Substring(5);
 
-                    ticketPrintObject.MiddleFee = ticketsObjects[startindex + 14].Content.Substring(5);
 
-                    ticketPrintObject.ChangCi = ticketsObjects[startindex + 13].Content;
+                        ticketPrintObject = new TicketPrintObject();
+                        ticketPrintObject.Cinema = ticketsObjects[startindex + 0].Content;
+                        ticketPrintObject.UniqueId = tmpid1;
+                        ticketPrintObject.IsPrinted = false;
+                        ticketPrintObject.MovieName = ticketsObjects[startindex + 1].Content.Substring(3);
+                        ticketPrintObject.TicketId = ticketsObjects[startindex + 2].Content.Substring(3);
+                        // string ttt = ticketsObjects[startindex + 3].Content.Substring(4);
 
-                    ticketPrintObject.SeatId = string.Empty;
-                    
-                    tickets.Add(ticketPrintObject);
+                        ticketPrintObject.Price = Convert.ToInt32(Convert.ToDouble(ticketsObjects[startindex + 3].Content.Substring(4)));
+
+                        ticketPrintObject.PlayTime = ticketsObjects[startindex + 4].Content;
+
+                        ticketPrintObject.RoomName = ticketsObjects[startindex + 6].Content.Substring(3);
+
+                        ticketPrintObject.Seat = ticketsObjects[startindex + 7].Content.Substring(3);
+
+                        ticketPrintObject.PlayDate = ticketsObjects[startindex + 8].Content.Substring(3);
+
+                        ticketPrintObject.PrintTime = ticketsObjects[startindex + 15].Content.Substring(5);
+
+                        ticketPrintObject.MiddleFee = ticketsObjects[startindex + 14].Content.Substring(5);
+
+                        ticketPrintObject.ChangCi = ticketsObjects[startindex + 13].Content;
+
+                        ticketPrintObject.SeatId = string.Empty;
+
+                        tickets.Add(ticketPrintObject);
+                        ticketcount++;
+                        startindex += 16;
+                        continue;
+                    }
                 }
+#if DEBUG
+                WriteLog("获取票的个数为："+tickets.Count.ToString(), txt);
+                WriteAllString(sbTmp.ToString());
+#endif
+               
                 return tickets;
 
 
@@ -260,8 +423,8 @@ namespace HiPiaoInterface
 
             catch (ArgumentNullException e)
             {
-
-                Console.WriteLine("ArgumentNullException: {0}", e);
+                
+                WriteLog(string.Format("ArgumentNullException: {0}", e),txt);
                 return null;
 
             }
@@ -269,14 +432,14 @@ namespace HiPiaoInterface
             catch (SocketException e)
             {
 
-                Console.WriteLine("SocketException: {0}", e);
+                WriteLog(string.Format("SocketException: {0}", e),txt);
                 return null;
 
             }
 
 
 #if DEBUG
-            Console.WriteLine("客户端连接完成！");
+            WriteLog("客户端连接完成！",txt);
 #endif
             return null;
         }
@@ -322,7 +485,7 @@ namespace HiPiaoInterface
             return result;
         }
 
-        public static List<TicketPrintObject> GetTicket(string host,int port,string sendStr)
+        public static ArrayList GetTicket(string host,int port,string sendStr)
         {
             byte[] content = Encoding.ASCII.GetBytes(sendStr);
             return GetTicket(host,port,content);

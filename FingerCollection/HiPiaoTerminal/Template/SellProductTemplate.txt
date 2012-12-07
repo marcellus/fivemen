@@ -1,0 +1,18 @@
+﻿cmd:29|40|70|4|0|1|0|32|0
+cmd:29|40|70|4|0|2|0|32|0
+cmd:10|10
+field:         #Cinema#
+cmd:10|10
+field:  名称：#ProductName#
+cmd:10|10
+field:    内容：#Content#
+cmd:10|10
+field:    放映日：#PlayDate#  放映时间：#PlayTime#
+cmd:10|10
+field:  哈票卡：#HipiaoCard#
+cmd:10|10
+field:                 价格：#Price#.00
+cmd:10|10
+field:   出票时间：#PrintTime# 
+cmd:10|10
+cmd:29|86|66|1

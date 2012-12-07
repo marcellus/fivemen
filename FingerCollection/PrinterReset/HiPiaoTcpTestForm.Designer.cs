@@ -40,6 +40,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtIp = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +90,8 @@
             this.txtRecieve.Location = new System.Drawing.Point(12, 130);
             this.txtRecieve.Multiline = true;
             this.txtRecieve.Name = "txtRecieve";
-            this.txtRecieve.Size = new System.Drawing.Size(256, 124);
+            this.txtRecieve.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtRecieve.Size = new System.Drawing.Size(499, 124);
             this.txtRecieve.TabIndex = 2;
             // 
             // txtValidCode
@@ -95,7 +100,7 @@
             this.txtValidCode.Name = "txtValidCode";
             this.txtValidCode.Size = new System.Drawing.Size(47, 21);
             this.txtValidCode.TabIndex = 3;
-            this.txtValidCode.Text = "235193";
+            this.txtValidCode.Text = "246947";
             // 
             // txtMobile
             // 
@@ -103,7 +108,8 @@
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(75, 21);
             this.txtMobile.TabIndex = 3;
-            this.txtMobile.Text = "15910606127";
+            this.txtMobile.Text = "18618405975";
+            this.txtMobile.TextChanged += new System.EventHandler(this.txtMobile_TextChanged);
             // 
             // txtFlag
             // 
@@ -125,7 +131,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 19);
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 21);
             this.textBox1.TabIndex = 4;
@@ -144,16 +150,54 @@
             // 
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(310, 158);
+            this.panel1.Location = new System.Drawing.Point(311, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 43);
             this.panel1.TabIndex = 6;
+            // 
+            // txtIp
+            // 
+            this.txtIp.Location = new System.Drawing.Point(235, 13);
+            this.txtIp.Name = "txtIp";
+            this.txtIp.Size = new System.Drawing.Size(100, 21);
+            this.txtIp.TabIndex = 7;
+            this.txtIp.Text = "119.10.114.212";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(383, 12);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(100, 21);
+            this.txtPort.TabIndex = 7;
+            this.txtPort.Text = "2907";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(207, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "IP";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "端口";
             // 
             // HiPiaoTcpTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 266);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtIp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtFlag);
@@ -166,6 +210,7 @@
             this.Controls.Add(this.btnConnect);
             this.Name = "HiPiaoTcpTestForm";
             this.Text = "HiPiaoTcpTestForm";
+            this.Load += new System.EventHandler(this.HiPiaoTcpTestForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -187,5 +232,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtIp;
+        private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -46,13 +46,15 @@ namespace PrinterReset
         {
             string msgType = "30";
             //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
-            string str = "1,2,3,4,5,6,7\r1,2,3\r" + this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t1\n";
+            string str = "1,2,3,4,5,6,7\r1,2,3\r" + this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t"+txtFlag.Text.Trim()+"\n";
             //str = msgType + str;
             //helper.Send(str);
             //HipiaoTcpHelper.GetTicket(str);
-            int port = 2908;
-            string host = "119.10.114.212";
-            HipiaoTcpHelper.GetTicket(host,port,HiPiaoProtocol.PackSend(msgType, str));
+           // int port = 2908;
+           //string host = "119.10.114.212";
+            int port = Convert.ToInt32(this.txtPort.Text.Trim());
+            string host = this.txtIp.Text.Trim();
+            HipiaoTcpHelper.GetTicket(host, port, HiPiaoProtocol.PackSend(msgType, str), this.txtRecieve);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -62,6 +64,16 @@ namespace PrinterReset
             this.label1.BringToFront();
             this.label1.BackColor = this.textBox1.BackColor;
             this.label1.Location = new Point(p2.X+8, p2.Y);
+        }
+
+        private void txtMobile_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HiPiaoTcpTestForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
