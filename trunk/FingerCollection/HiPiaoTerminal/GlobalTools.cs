@@ -30,15 +30,32 @@ namespace HiPiaoTerminal
         {
         }
 
-        public static void PrintTickets(List<TicketPrintObject> lists)
+        
+
+        public static void PrintTickets(ArrayList lists)
         {
+#if DEBUG
+
+           // MessageBox.Show("准备打印的影票个数为："+lists.Count.ToString());
+#endif
             if (lists != null)
             {
                // MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
                 GlobalHardwareTools.OpenHotPrinter();
                 for (int i = 0; i < lists.Count; i++)
                 {
-                    GlobalHardwareTools.PrintTicket(lists[i]);
+#if DEBUG
+
+                 //   MessageBox.Show("正在打印第"+i+"个影票");
+#endif              
+                    if (lists[i] is TicketPrintObject)
+                    {
+                        GlobalHardwareTools.PrintTicket(lists[i] as TicketPrintObject);
+                    }
+                    else
+                    {
+                        GlobalHardwareTools.PrintSellProduct(lists[i] as SellProductPrinter);
+                    }
                 }
                 GlobalHardwareTools.CloseHotPrinter();
 

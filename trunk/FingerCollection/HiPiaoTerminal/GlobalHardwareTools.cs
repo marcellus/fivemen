@@ -118,6 +118,20 @@ namespace HiPiaoTerminal
             PrintTicket(ticket);
         }
 
+        public static void PrintSellProduct(SellProductPrinter ticketTmp)
+        {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.PrinterType == "Windows")
+            {
+                PrintWindowsTemplate(ticketTmp, "SellProductTemplate-Windows.txt");
+            }
+            else
+            {
+
+                PrintTemplate(ticketTmp, "SellProduct.txt");
+            }
+        }
+
         public static void PrintTicket(TicketPrintObject ticketTmp)
         {
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();

@@ -440,6 +440,7 @@ namespace HiPiaoTerminal.BuyTicket
                 ticket.PlanId = roomPlan.PlanId;
                 //ticket.PlanId = roomPlan.PlanId.Substring(0, 16);
                 ticket.SeatId = seat.SeatId;
+                ticket.Phone = GlobalTools.GetLoginUser().Mobile;
                 tickets.Add(ticket);
                     
             }

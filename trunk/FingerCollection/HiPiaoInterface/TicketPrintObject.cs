@@ -31,6 +31,10 @@ namespace HiPiaoInterface
 
         public string UniqueId;
 
+        public string ValidCode;
+
+        public string Phone;
+
 
         public bool IsPrinted;
 

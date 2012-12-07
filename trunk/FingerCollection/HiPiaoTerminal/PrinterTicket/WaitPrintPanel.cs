@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoTerminal.ConfigModel;
 using HiPiaoInterface;
+using System.Collections;
 
 namespace HiPiaoTerminal.PrinterTicket
 {
@@ -16,8 +17,8 @@ namespace HiPiaoTerminal.PrinterTicket
         {
             InitializeComponent();
         }
-        private List<TicketPrintObject> tickets;
-        public WaitPrintPanel(List<TicketPrintObject> tickets)
+        private ArrayList tickets;
+        public WaitPrintPanel(ArrayList tickets)
         {
             InitializeComponent();
             this.tickets = tickets;

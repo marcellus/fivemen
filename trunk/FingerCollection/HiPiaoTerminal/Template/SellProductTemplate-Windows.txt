@@ -1,0 +1,16 @@
+﻿
+
+
+field:         #Cinema#
+
+field:  名称：#ProductName#
+
+field:    内容：#Content#
+
+field:    放映日：#PlayDate#  放映时间：#PlayTime#
+
+field:  哈票卡：#HipiaoCard#
+
+field:                 价格：#Price#.00
+
+field:   出票时间：#PrintTime# 

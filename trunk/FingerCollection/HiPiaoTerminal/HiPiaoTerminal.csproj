@@ -1307,6 +1307,12 @@
     <Content Include="Template\TicketTemplate-Windows.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Template\SellProductTemplate-Windows.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\SellProductTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TextFile1.txt" />
     <Content Include="UpdateList.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

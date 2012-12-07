@@ -82,7 +82,8 @@ namespace HiPiaoInterface
                     string ticketId = node.Attributes["ticketNumber"].Value.ToString();
                     for (int i = 0; i < tickets.Count; i++)
                     {
-                        tickets[i].TicketId = ticketId;
+                        tickets[i].ValidCode=tickets[i].TicketId = ticketId;
+                        
                     }
                 }
                 return result;

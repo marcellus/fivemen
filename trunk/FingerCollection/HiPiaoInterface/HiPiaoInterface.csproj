@@ -77,6 +77,7 @@
     <Compile Include="ReturnObject.cs" />
     <Compile Include="RoomObject.cs" />
     <Compile Include="SeatObject.cs" />
+    <Compile Include="SellProductPrinter.cs" />
     <Compile Include="TicketObject.cs" />
     <Compile Include="TicketPrintObject.cs" />
     <Compile Include="UserObject.cs" />
