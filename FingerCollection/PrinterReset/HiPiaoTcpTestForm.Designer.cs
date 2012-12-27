@@ -100,7 +100,7 @@
             this.txtValidCode.Name = "txtValidCode";
             this.txtValidCode.Size = new System.Drawing.Size(47, 21);
             this.txtValidCode.TabIndex = 3;
-            this.txtValidCode.Text = "246947";
+            this.txtValidCode.Text = "188504";
             // 
             // txtMobile
             // 
@@ -108,7 +108,7 @@
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(75, 21);
             this.txtMobile.TabIndex = 3;
-            this.txtMobile.Text = "18618405975";
+            this.txtMobile.Text = "13269402753";
             this.txtMobile.TextChanged += new System.EventHandler(this.txtMobile_TextChanged);
             // 
             // txtFlag

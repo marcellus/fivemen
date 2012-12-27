@@ -164,7 +164,7 @@ namespace HiPiaoInterface
               StringBuilder body = new StringBuilder();
 
             body.Append("<ns2:getPlanVii  xmlns:ns2=\"http://service.server.com\">");
-            body.Append("<province>"+province+"</province><city>"+city+"</city><pixnumber>"+pixnumber+"</pixnumber><date>"+date.ToString("MM月dd日")+"</date><version>2</version><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlanVii>");         
+            body.Append("<province>" + province + "</province><city>" + city + "</city><pixnumber>" + pixnumber + "</pixnumber><date>" + date.ToString("MM月dd日") + "</date><version>2</version><clintform>HPMACHINE</clintform></ns2:getPlanVii>");         
            return GetSoapServiceResult(body);
 
         }
@@ -286,12 +286,12 @@ clintform：HpMachine 哈票机
         }
 
 
-        public string GetDayMovie(string cinema,DateTime day)
+        public string GetDayMovie(string city, string cinema, DateTime day)
         {
             StringBuilder body = new StringBuilder();
 
             body.Append("<ns2:getPlancinemaVii xmlns:ns2=\"http://service.server.com\">");
-            body.Append("<cinemanumber>" + cinema + "</cinemanumber><date>" + day.ToString("MM月dd日") + "</date><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinemaVii>");
+            body.Append("<cinemanumber>" + cinema + "</cinemanumber><date>" + day.ToString("MM月dd日") + "</date><city>"+city+"</city><clintform>ANDROID/IPHONE/IPAD</clintform></ns2:getPlancinemaVii>");
             return GetSoapServiceResult(body);
         }
 
@@ -373,6 +373,14 @@ clintform：HpMachine 哈票机
 #if DEBUG
             Console.WriteLine("调用发送短信接口发送内容为：" + query);
 #endif
+            if (url.StartsWith("https"))
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+                ServicePointManager.ServerCertificateValidationCallback =
+                                        new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
+
+            }
             WebRequest webRequest = WebRequest.Create(uri);
 
             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
@@ -413,6 +421,16 @@ clintform：HpMachine 哈票机
         {
             return SmsMobileContent(user.Mobile, content);
         }
+
+        public static bool CheckValidationResult(object sender,
+                                System.Security.Cryptography.X509Certificates.X509Certificate certificate,
+                                System.Security.Cryptography.X509Certificates.X509Chain chain,
+                                System.Net.Security.SslPolicyErrors errors)
+        {
+            //直接确认，不然打不开   
+            return true;
+        }  
+
 
         public string UserBuyTicket(UserObject user, List<TicketPrintObject> tickets)
         {
@@ -462,8 +480,17 @@ clintform：HpMachine 哈票机
             Console.WriteLine(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "发送购票内容为：" + query);
 #endif
             Uri uri = new Uri(url);
+            if (url.StartsWith("https"))
+            {
+                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+ServicePointManager.ServerCertificateValidationCallback =
+                        new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+          
 
+            }
             WebRequest webRequest = WebRequest.Create(uri);
+           // webRequest.AuthenticationLevel = System.Net.Security.AuthenticationLevel.None;
+           // webRequest.
 
             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             webRequest.ContentLength = query.Length;
@@ -538,6 +565,15 @@ clintform：HpMachine 哈票机
 #endif
             Uri uri = new Uri(url);
 
+            if (url.StartsWith("https"))
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+                ServicePointManager.ServerCertificateValidationCallback =
+                                        new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
+
+            }
+
             WebRequest webRequest = WebRequest.Create(uri);
 
             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
@@ -581,6 +617,14 @@ clintform：HpMachine 哈票机
            //发起请求
  
 　　　　    Uri uri = new Uri(url);
+            if (url.StartsWith("https"))
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+                ServicePointManager.ServerCertificateValidationCallback =
+                                        new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
+
+            }
  
 　　　　    WebRequest webRequest = WebRequest.Create(uri);
  

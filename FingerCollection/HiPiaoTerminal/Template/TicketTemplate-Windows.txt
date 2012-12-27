@@ -11,6 +11,6 @@ field:    日期：#PlayDate#  时间：#PlayTime#    #PlayDate#
 
 field:                                     #PlayTime#
 
-field:    手续费：￥0.00    票价：￥#Price#.00  #TicketId#
+field:    手续费：￥#MiddleFee#    票价：￥#Price#.00  #TicketId#
 
 field:   出票时间：#PrintTime# 

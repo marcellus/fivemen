@@ -252,8 +252,9 @@ namespace AutoUpdate
                     result = true;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                throw ex;
             }
             finally
             {

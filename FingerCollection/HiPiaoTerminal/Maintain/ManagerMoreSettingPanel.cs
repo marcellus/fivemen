@@ -49,6 +49,7 @@ namespace HiPiaoTerminal.Maintain
                 config.AdSeconds = Convert.ToInt32(this.txtAdSeconds.Text);
 
                 config.FullScreenAddWidth = Convert.ToInt32(this.txtFullScreenAddWidth.Text);
+                config.AllowFullScreen = this.checkAllowFullScreen.Checked;
 
                 FT.Commons.Cache.StaticCacheManager.SaveConfig<SystemConfig>(config);
 
@@ -86,6 +87,9 @@ namespace HiPiaoTerminal.Maintain
                 this.checkIsDingXin.Checked = config.IsDingXin;
                 this.txtAdSeconds.Text = config.AdSeconds.ToString();
                 this.txtFullScreenAddWidth.Text = config.FullScreenAddWidth.ToString();
+
+                this.checkAllowFullScreen.Checked = config.AllowFullScreen;
+
             }
             catch
             {

@@ -18,25 +18,8 @@ namespace HiPiaoTerminal.Account
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            if (user != null)
-            {
-                this.Visible = true;
-                this.userInfo = user;
-                this.lbUserName.Text = user.Name;
-                this.lbPoint.Text = user.RewardPoints.ToString();
-                this.lbEmail.Text = user.Email;
-                this.lbCoupon.Text = this.lbBuyRecord.Text = "正在加载...";
-               
-                this.lbBalance.Text = user.Balance.ToString();
-               // this.lbBuyRecord.Text = user.BuyRecords.Count.ToString();
-                Thread thread = new Thread(new ThreadStart(SetValue));
-                thread.IsBackground = true;
-                thread.Start();
-            }
-            else
-            {
-                this.Visible = false;
-            }
+            this.userInfo = user;
+            
 
         }
 
@@ -44,6 +27,38 @@ namespace HiPiaoTerminal.Account
         {
             this.lbCoupon.Text = this.userInfo.CouponNum.ToString();
             this.lbBuyRecord.Text = userInfo.BuyRecordNum.ToString();
+        }
+
+        private void UserInfoPanel_Load(object sender, EventArgs e)
+        {
+           
+            try
+            {
+
+                if (userInfo != null)
+                {
+                    this.Visible = true;
+                  //  this.userInfo = userInfo;
+                    this.lbUserName.Text = userInfo.Name;
+                    this.lbPoint.Text = userInfo.RewardPoints.ToString();
+                    this.lbEmail.Text = userInfo.Email;
+                    this.lbCoupon.Text = this.lbBuyRecord.Text = "正在加载...";
+
+                    this.lbBalance.Text = userInfo.Balance.ToString();
+                    // this.lbBuyRecord.Text = user.BuyRecords.Count.ToString();
+
+                }
+                else
+                {
+                    this.Visible = false;
+                }
+                Thread thread = new Thread(new ThreadStart(SetValue));
+                thread.IsBackground = true;
+                thread.Start();
+            }
+            catch
+            {
+            }
         }
 
         

@@ -69,6 +69,7 @@
             this.simpleLabel12 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.simpleLabel13 = new FT.Windows.Controls.LabelEx.SimpleLabel();
             this.txtFullScreenAddWidth = new HiPiaoTerminal.UserControlEx.UserInputPanel();
+            this.checkAllowFullScreen = new FT.Windows.Controls.ButtonEx.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeepSave)).BeginInit();
             this.SuspendLayout();
@@ -566,6 +567,17 @@
             this.txtFullScreenAddWidth.Size = new System.Drawing.Size(132, 74);
             this.txtFullScreenAddWidth.TabIndex = 7;
             // 
+            // checkAllowFullScreen
+            // 
+            this.checkAllowFullScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkAllowFullScreen.BackgroundImage")));
+            this.checkAllowFullScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkAllowFullScreen.Checked = false;
+            this.checkAllowFullScreen.Location = new System.Drawing.Point(938, 444);
+            this.checkAllowFullScreen.Name = "checkAllowFullScreen";
+            this.checkAllowFullScreen.Size = new System.Drawing.Size(38, 38);
+            this.checkAllowFullScreen.TabIndex = 6;
+            this.checkAllowFullScreen.UseVisualStyleBackColor = true;
+            // 
             // ManagerMoreSettingPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -577,6 +589,7 @@
             this.Controls.Add(this.txtUnOperationTime);
             this.Controls.Add(this.checkVitualKeyboard);
             this.Controls.Add(this.checkAllowNumberKeyboard);
+            this.Controls.Add(this.checkAllowFullScreen);
             this.Controls.Add(this.checkIsDingXin);
             this.Controls.Add(this.checkAllowRfid);
             this.Controls.Add(this.checkUseHardKeyboard);
@@ -643,6 +656,7 @@
             this.Controls.SetChildIndex(this.checkUseHardKeyboard, 0);
             this.Controls.SetChildIndex(this.checkAllowRfid, 0);
             this.Controls.SetChildIndex(this.checkIsDingXin, 0);
+            this.Controls.SetChildIndex(this.checkAllowFullScreen, 0);
             this.Controls.SetChildIndex(this.checkAllowNumberKeyboard, 0);
             this.Controls.SetChildIndex(this.checkVitualKeyboard, 0);
             this.Controls.SetChildIndex(this.txtUnOperationTime, 0);
@@ -700,5 +714,6 @@
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel12;
         private FT.Windows.Controls.LabelEx.SimpleLabel simpleLabel13;
         private HiPiaoTerminal.UserControlEx.UserInputPanel txtFullScreenAddWidth;
+        private FT.Windows.Controls.ButtonEx.CheckButton checkAllowFullScreen;
     }
 }

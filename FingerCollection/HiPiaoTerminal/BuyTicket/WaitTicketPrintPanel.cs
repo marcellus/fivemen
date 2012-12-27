@@ -106,7 +106,7 @@ namespace HiPiaoTerminal.BuyTicket
                 }
                 GlobalHardwareTools.CloseHotPrinter();
                  * */
-                GlobalTools.PrintTickets(this.lists[0].Phone, this.lists[1].ValidCode);
+                GlobalTools.PrintTickets(this.lists[0].Phone, this.lists[0].ValidCode);
 
             }
             GlobalTools.ChangePanel(this.FindForm(), new WaitSuccessPrintPanel(this.lists,this.movieInfo,this.moviePlan));

@@ -204,6 +204,7 @@ namespace HiPiaoInterface
                 byte[] lens=new byte[4];
                 Array.Copy(heads2,1, lens,0, lens.Length);
                 int len = HiPiaoProtocol.GetDataPackageLen(lens);
+                len -= 22;
 #if DEBUG
                 byte[] dataLength = BitConverter.GetBytes(1484);
                 WriteLog("changdu:" + GetHexOutput(dataLength),txt);
@@ -215,9 +216,11 @@ namespace HiPiaoInterface
                 WriteLog("Hex输出为:" + GetHexOutput(heads2),txt);
                
 #endif
+                /*
                 byte[] allpackage = new byte[len];
                 while (beginAccept)
                 {
+                  
                     acceptByte=c.Receive(allpackage);
 #if DEBUG
                     WriteLog("尝试接收" + len.ToString()+ "字节，实际接收结果为：" + acceptByte.ToString(), txt);
@@ -227,6 +230,32 @@ namespace HiPiaoInterface
 
                         break;
                     }
+
+                }
+                 */
+                byte[] allpackage = new byte[len];
+                byte[] bufferTmp=new byte[1024];
+                int needAcceptLen = len<1024?len:1024;
+                int acceptLen = 0;
+               // bool needAccept=true;
+                while (needAcceptLen>0)
+                {
+
+                    acceptByte = c.Receive(allpackage,acceptLen,needAcceptLen,SocketFlags.None);
+#if DEBUG
+                    WriteLog("尝试接收" + needAcceptLen.ToString() + "字节，实际接收结果为：" + acceptByte.ToString(), txt);
+#endif
+                    acceptLen += acceptByte;
+                    if (acceptLen < len)
+                    {
+                        needAcceptLen = len - acceptLen < 1024 ? len - acceptLen : 1024;
+                    }
+                    else
+                    {
+                        needAcceptLen = 0;
+                        break;
+                    }
+                    
 
                 }
                // acceptByte = c.Receive(allpackage);
@@ -246,8 +275,12 @@ namespace HiPiaoInterface
 
                 string tmpstr = Encoding.GetEncoding("GBK").GetString(allpackage, 0, len);
 #if DEBUG
-               // WriteLog("最终取票结果的字符串为："+tmpstr, txt);
-              //  WriteAllString(tmpstr);
+                if (tmpstr.StartsWith("取票失败："))
+                {
+                    WriteLog("最终取票结果的字符串为："+tmpstr, txt);
+                }
+                WriteAllString(sbTmp.ToString());
+                sbTmp = new StringBuilder();
                // string tmpstr7ttt = ReadAllString();
                 
 #endif
@@ -397,10 +430,25 @@ namespace HiPiaoInterface
 
                         ticketPrintObject.PlayDate = ticketsObjects[startindex + 8].Content.Substring(3);
 
-                        ticketPrintObject.PrintTime = ticketsObjects[startindex + 15].Content.Substring(5);
+                        if (ticketsObjects[startindex + 14].Content.StartsWith("出票时间"))
+                        {
+                            ticketPrintObject.PrintTime = ticketsObjects[startindex + 14].Content.Substring(5);
+                        }
+                        else if (ticketsObjects[startindex + 14].Content.StartsWith("手续费"))
+                        {
+                            ticketPrintObject.MiddleFee = ticketsObjects[startindex + 14].Content.Substring(5);
+                        }
 
-                        ticketPrintObject.MiddleFee = ticketsObjects[startindex + 14].Content.Substring(5);
+                        if (ticketsObjects[startindex + 15].Content.StartsWith("出票时间"))
+                        {
 
+                            ticketPrintObject.PrintTime = ticketsObjects[startindex + 15].Content.Substring(5);
+                        }
+                        else if (ticketsObjects[startindex + 15].Content.StartsWith("手续费"))
+                        {
+                            ticketPrintObject.MiddleFee = ticketsObjects[startindex + 15].Content.Substring(5);
+                        }
+                       
                         ticketPrintObject.ChangCi = ticketsObjects[startindex + 13].Content;
 
                         ticketPrintObject.SeatId = string.Empty;
@@ -425,6 +473,9 @@ namespace HiPiaoInterface
             {
                 
                 WriteLog(string.Format("ArgumentNullException: {0}", e),txt);
+                sbTmp.Append("\r\n");
+                sbTmp.Append(e.ToString());
+                WriteAllString(sbTmp.ToString());
                 return null;
 
             }
@@ -433,13 +484,18 @@ namespace HiPiaoInterface
             {
 
                 WriteLog(string.Format("SocketException: {0}", e),txt);
-                return null;
+                sbTmp.Append("\r\n");
+                sbTmp.Append(e.ToString());
+                WriteAllString(sbTmp.ToString());
+                throw e;
+               // return null;
 
             }
 
 
 #if DEBUG
             WriteLog("客户端连接完成！",txt);
+            WriteAllString(sbTmp.ToString());
 #endif
             return null;
         }

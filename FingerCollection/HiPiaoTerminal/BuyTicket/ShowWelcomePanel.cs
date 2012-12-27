@@ -19,16 +19,8 @@ namespace HiPiaoTerminal.BuyTicket
             CheckForIllegalCrossThreadCalls = false;
             this.Width = 527;
             this.Height = 80;
-            try
-            {
-                
-                Thread thread = new Thread(new ThreadStart(SetValue));
-                thread.IsBackground = true;
-                thread.Start();
-            }
-            catch
-            {
-            }
+            this.lbCoupons.Text = "兑换券：... 抵扣券：...";
+            
         }
         public void SetValue()
         {
@@ -39,7 +31,7 @@ namespace HiPiaoTerminal.BuyTicket
             FT.Commons.Tools.WinFormHelper.LocationAfter(this.label2, this.lbUserName);
             this.lbPoints.Text = string.Format(this.lbPoints.Text, user.RewardPoints.ToString());
             this.lbBalance.Text = string.Format(this.lbBalance.Text, user.Balance.ToString());
-            this.lbCoupons.Text = string.Format(this.lbCoupons.Text, user.CouponNum.ToString(), user.DeductionNum.ToString());
+            this.lbCoupons.Text = string.Format("兑换券：{0} 抵扣券：{1}", user.CouponNum.ToString(), user.DeductionNum.ToString());
             }
             catch
             {
@@ -48,7 +40,16 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void ShowWelcomePanel_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+                Thread thread = new Thread(new ThreadStart(SetValue));
+                thread.IsBackground = true;
+                thread.Start();
+            }
+            catch
+            {
+            }
         }
     }
 }

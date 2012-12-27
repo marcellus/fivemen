@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HiPiaoTerminal.ConfigModel;
 using FT.Commons.Tools;
+using HiPiaoInterface;
 
 namespace HiPiaoTerminal.Maintain
 {
@@ -52,7 +53,7 @@ namespace HiPiaoTerminal.Maintain
         private void btnKeepSave_Click(object sender, EventArgs e)
         {
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-           // config.HiPiaoInterfaceUrl = this.txtInterfaceUrl.Text.Trim();
+            //config.HiPiaoInterfaceUrl = this.txtInterfaceUrl.Text.Trim();
             config.CinemaServerIp = this.GetIp();
             config.CinemaServerPort = Convert.ToInt32(this.txtPort.Text);
             config.AllowShowMouse = this.checkShow.Checked;
@@ -78,7 +79,8 @@ namespace HiPiaoTerminal.Maintain
 
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
-            if(WindowExHelper.CanConnectionTo(this.GetIp()))
+            //if(WindowExHelper.CanConnectionTo(this.GetIp()))
+            if (HipiaoTcpHelper.CheckSocket(this.GetIp(),Convert.ToInt32(this.txtPort.Text.Trim())))
             {
                 this.lbReturnMsg.Text = "网络连接成功！";
             }

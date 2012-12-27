@@ -205,6 +205,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserInfoPanel";
             this.Size = new System.Drawing.Size(1258, 566);
+            this.Load += new System.EventHandler(this.UserInfoPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

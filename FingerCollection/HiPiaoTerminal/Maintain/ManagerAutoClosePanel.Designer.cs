@@ -72,7 +72,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(341, 462);
+            this.pictureBox2.Location = new System.Drawing.Point(341, 494);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(345, 55);
             this.pictureBox2.TabIndex = 6;
@@ -82,7 +82,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(341, 270);
+            this.pictureBox4.Location = new System.Drawing.Point(341, 302);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(345, 55);
             this.pictureBox4.TabIndex = 6;
@@ -91,7 +91,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(283, 357);
+            this.pictureBox5.Location = new System.Drawing.Point(283, 389);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(180, 80);
             this.pictureBox5.TabIndex = 6;
@@ -100,7 +100,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(282, 538);
+            this.pictureBox6.Location = new System.Drawing.Point(282, 570);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(180, 80);
             this.pictureBox6.TabIndex = 6;
@@ -110,7 +110,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(480, 552);
+            this.pictureBox7.Location = new System.Drawing.Point(480, 584);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(13, 40);
             this.pictureBox7.TabIndex = 6;
@@ -121,7 +121,7 @@
             // 
             this.txtOpenMinute.BackColor = System.Drawing.SystemColors.Window;
             this.txtOpenMinute.Font = new System.Drawing.Font("宋体", 29F);
-            this.txtOpenMinute.Location = new System.Drawing.Point(726, 534);
+            this.txtOpenMinute.Location = new System.Drawing.Point(726, 566);
             this.txtOpenMinute.Margin = new System.Windows.Forms.Padding(10);
             this.txtOpenMinute.MaxNum = 60;
             this.txtOpenMinute.MinNum = 0;
@@ -135,7 +135,7 @@
             // 
             this.txtCloseHour.BackColor = System.Drawing.SystemColors.Window;
             this.txtCloseHour.Font = new System.Drawing.Font("宋体", 29F);
-            this.txtCloseHour.Location = new System.Drawing.Point(506, 357);
+            this.txtCloseHour.Location = new System.Drawing.Point(506, 389);
             this.txtCloseHour.Margin = new System.Windows.Forms.Padding(10);
             this.txtCloseHour.MaxNum = 24;
             this.txtCloseHour.MinNum = 0;
@@ -148,7 +148,7 @@
             // 
             this.txtCloseMinute.BackColor = System.Drawing.SystemColors.Window;
             this.txtCloseMinute.Font = new System.Drawing.Font("宋体", 29F);
-            this.txtCloseMinute.Location = new System.Drawing.Point(726, 357);
+            this.txtCloseMinute.Location = new System.Drawing.Point(726, 389);
             this.txtCloseMinute.Margin = new System.Windows.Forms.Padding(10);
             this.txtCloseMinute.MaxNum = 60;
             this.txtCloseMinute.MinNum = 0;
@@ -162,7 +162,7 @@
             this.checkClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkClose.BackgroundImage")));
             this.checkClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.checkClose.Checked = false;
-            this.checkClose.Location = new System.Drawing.Point(282, 276);
+            this.checkClose.Location = new System.Drawing.Point(282, 308);
             this.checkClose.Name = "checkClose";
             this.checkClose.Size = new System.Drawing.Size(38, 38);
             this.checkClose.TabIndex = 9;
@@ -173,7 +173,7 @@
             this.checkOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkOpen.BackgroundImage")));
             this.checkOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.checkOpen.Checked = false;
-            this.checkOpen.Location = new System.Drawing.Point(283, 472);
+            this.checkOpen.Location = new System.Drawing.Point(283, 504);
             this.checkOpen.Name = "checkOpen";
             this.checkOpen.Size = new System.Drawing.Size(38, 38);
             this.checkOpen.TabIndex = 9;
@@ -184,7 +184,7 @@
             // 
             this.txtOpenHour.BackColor = System.Drawing.SystemColors.Window;
             this.txtOpenHour.Font = new System.Drawing.Font("宋体", 29F);
-            this.txtOpenHour.Location = new System.Drawing.Point(506, 534);
+            this.txtOpenHour.Location = new System.Drawing.Point(506, 566);
             this.txtOpenHour.Margin = new System.Windows.Forms.Padding(10);
             this.txtOpenHour.MaxNum = 24;
             this.txtOpenHour.MinNum = 0;
@@ -197,7 +197,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.Location = new System.Drawing.Point(700, 552);
+            this.pictureBox8.Location = new System.Drawing.Point(700, 584);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(13, 40);
             this.pictureBox8.TabIndex = 6;
@@ -207,7 +207,7 @@
             // pictureBox9
             // 
             this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.Location = new System.Drawing.Point(480, 374);
+            this.pictureBox9.Location = new System.Drawing.Point(480, 406);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(13, 40);
             this.pictureBox9.TabIndex = 6;
@@ -216,7 +216,7 @@
             // pictureBox10
             // 
             this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
-            this.pictureBox10.Location = new System.Drawing.Point(700, 374);
+            this.pictureBox10.Location = new System.Drawing.Point(700, 406);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(13, 40);
             this.pictureBox10.TabIndex = 6;
@@ -248,7 +248,7 @@
             this.lbReturnMsg.BackColor = System.Drawing.SystemColors.Window;
             this.lbReturnMsg.Font = new System.Drawing.Font("方正兰亭黑简体", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbReturnMsg.ForeColor = System.Drawing.Color.Maroon;
-            this.lbReturnMsg.Location = new System.Drawing.Point(324, 270);
+            this.lbReturnMsg.Location = new System.Drawing.Point(287, 264);
             this.lbReturnMsg.Name = "lbReturnMsg";
             this.lbReturnMsg.Size = new System.Drawing.Size(0, 32);
             this.lbReturnMsg.Skin = FT.Windows.Controls.SimpleSkinType.Custom;

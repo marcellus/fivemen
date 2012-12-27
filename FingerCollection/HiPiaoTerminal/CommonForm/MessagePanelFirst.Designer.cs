@@ -38,10 +38,10 @@
             // 
             this.lbMsg2.Font = new System.Drawing.Font("方正兰亭纤黑简体", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMsg2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbMsg2.Location = new System.Drawing.Point(6, 183);
+            this.lbMsg2.Location = new System.Drawing.Point(27, 183);
             this.lbMsg2.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.lbMsg2.Name = "lbMsg2";
-            this.lbMsg2.Size = new System.Drawing.Size(792, 64);
+            this.lbMsg2.Size = new System.Drawing.Size(750, 64);
             this.lbMsg2.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMsg2.TabIndex = 8;
             this.lbMsg2.Text = "label1";
@@ -51,10 +51,10 @@
             // 
             this.lbMsg1.Font = new System.Drawing.Font("方正兰亭纤黑简体", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMsg1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lbMsg1.Location = new System.Drawing.Point(8, 92);
+            this.lbMsg1.Location = new System.Drawing.Point(27, 92);
             this.lbMsg1.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.lbMsg1.Name = "lbMsg1";
-            this.lbMsg1.Size = new System.Drawing.Size(790, 63);
+            this.lbMsg1.Size = new System.Drawing.Size(750, 63);
             this.lbMsg1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMsg1.TabIndex = 9;
             this.lbMsg1.Text = "网络故障，请向影院工作人员垂询！";

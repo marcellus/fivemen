@@ -556,8 +556,24 @@ namespace AutoUpdate
 
         private void StartMainApplication()
         {
+            
+            if (!File.Exists(mainAppExe))
+            {
+                MessageBox.Show("无法运行程序，" + mainAppExe + "更新失败！","提示");
+
+            }
+            else
+            {
+                try
+                {
+                    Process.Start(mainAppExe);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("无法开启程序！\r\n" + ex.ToString());
+                }
+            }
             this.Close();
-            Process.Start(mainAppExe);
         }
 
 		//创建目录

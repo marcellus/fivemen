@@ -61,9 +61,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -1016,14 +1013,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="HelpDoc\main.css" />
-    <Content Include="HelpDoc\UserNeedKnow-WebSiteProtocol.htm">
+    <Content Include="ConfigModel\HelpDoc\main.css" />
+    <Content Include="ConfigModel\HelpDoc\UserNeedKnow-WebSiteProtocol.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="HelpDoc\UserNeedKnow-PrivatePolicy.htm">
+    <Content Include="ConfigModel\HelpDoc\UserNeedKnow-PrivatePolicy.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="HelpDoc\UserNeedKnow-MemberProtocol.htm">
+    <Content Include="ConfigModel\HelpDoc\UserNeedKnow-MemberProtocol.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />
@@ -1058,7 +1055,7 @@
     <None Include="Resources\Register-Success.png" />
     <None Include="Resources\Return-MainPanel.png" />
     <None Include="Resources\ReturnHome.png" />
-    <Content Include="HelpDoc\AutoCloseComputerSettingPanel.htm">
+    <Content Include="ConfigModel\HelpDoc\AutoCloseComputerSettingPanel.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Manager_Home_Hint.png" />
@@ -1101,7 +1098,7 @@
     <None Include="Resources\TimeBack.png" />
     <None Include="Resources\Manager_AutoClose_Test.png" />
     <None Include="Resources\TestRegister.png" />
-    <Content Include="HelpDoc\UserNeedKnow-Remark.htm">
+    <Content Include="ConfigModel\HelpDoc\UserNeedKnow-Remark.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Register-Success.png">
@@ -1301,6 +1298,9 @@
     <None Include="Resources\DingXin-GetTicket-Back1.png" />
     <None Include="Resources\DingXin-GetTicket-Back2.png" />
     <None Include="Resources\HomeFlashCardHint.png" />
+    <Content Include="log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Template\GlobalHotPrinterSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

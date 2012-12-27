@@ -19,6 +19,7 @@ namespace HiPiaoTerminal.Account
                 if (GlobalTools.GetLoginUser() != null)
                 {
                     this.lbUserName.Text = "用户名：" + GlobalTools.GetLoginUser().Name;
+                    this.pictureBox1.BackgroundImage = Properties.Resources.BindMobile_SendValidCode_NotActive;
                 }
                 
             }
@@ -46,6 +47,12 @@ namespace HiPiaoTerminal.Account
 
         private void btnSure_Click(object sender, EventArgs e)
         {
+            string mobile = this.txtMobile.Text.Trim();
+            if (!FT.Commons.Tools.ValidatorHelper.ValidateMobile(mobile, false))
+            {
+                GlobalTools.Pop("手机号码输入有误！");
+                return;
+            }
             if (RandomSmsHelper.IsRight(this.txtCode.Text))
             {
                 if (HiPiaoCache.BindMobile(GlobalTools.GetLoginUser(), this.txtMobile.Text))
@@ -91,7 +98,7 @@ namespace HiPiaoTerminal.Account
 
             }
              * */
-            if (allowSend)
+            if (allowSend&&this.txtMobile.Text.Length==11)
             {
                 this.lbHint.Text = string.Empty;
                 // string content = "您的" + user.Name + "账户于" + System.DateTime.Now.ToString("M月d日") + "以" + user.Mobile + "成功消费" + fee + "元，账户余额" + user.Balance + "元。如有疑问请致电400-601-5566【哈票网】";
@@ -113,6 +120,23 @@ namespace HiPiaoTerminal.Account
             allowSend = true;
             this.pictureBox1.BackgroundImage = Properties.Resources.BindMobile_SendValidCode;
            
+        }
+
+        private void txtMobile_onSubTextChanged()
+        {
+            if (allowSend)
+            {
+                if (this.txtMobile.Text.Length == 11&&FT.Commons.Tools.ValidatorHelper.ValidateMobile(this.txtMobile.Text.Trim(),false))
+                {
+                    //this.allowSend = true;
+                    this.pictureBox1.BackgroundImage = Properties.Resources.BindMobile_SendValidCode;
+                }
+                else
+                {
+                    //  this.allowSend = false;
+                    this.pictureBox1.BackgroundImage = Properties.Resources.BindMobile_SendValidCode_NotActive;
+                }
+            }
         }
     }
 }

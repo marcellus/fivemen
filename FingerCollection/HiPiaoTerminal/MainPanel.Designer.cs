@@ -233,6 +233,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelFlashCardHint);
             this.Controls.Add(this.btnTicketPrint);
             this.Controls.Add(this.adShowPanel1);
@@ -246,7 +247,6 @@
             this.Controls.Add(this.btnQuickRegister);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnUserTaste);
-            this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MainPanel";
             this.Load += new System.EventHandler(this.MainPanel_Load);

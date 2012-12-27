@@ -101,9 +101,17 @@ namespace HiPiaoTerminal.UserControlEx
         {
 #if DEBUG
             Console.WriteLine("用户输入的keychar为"+e.KeyChar);
+            string tttt = e.KeyChar.ToString();
 #endif
-            if (e.KeyChar == 8 || e.KeyChar == 9 || e.KeyChar == 13 || e.KeyChar == 32)
+            //
+            if (e.KeyChar == '\b')
             {
+                e.Handled = false;
+                return;
+            }
+           if (e.KeyChar == 8 || e.KeyChar == 9 || e.KeyChar == 13 || e.KeyChar == 32)
+            {
+                e.Handled = true;
             }
          
             else if (this.allowInputType == AllowInputEnum.LargeLetter)
@@ -161,6 +169,9 @@ namespace HiPiaoTerminal.UserControlEx
                 {
                     e.Handled = true;
                 }
+            }
+            else
+            {
             }
         }
 
@@ -606,6 +617,7 @@ namespace HiPiaoTerminal.UserControlEx
 #endif
                      */
                     this.picUnderLine.Visible = !this.picUnderLine.Visible;
+                    gc.Dispose();
                     System.Threading.Thread.Sleep(500);
                    
                 }
@@ -679,7 +691,9 @@ namespace HiPiaoTerminal.UserControlEx
        * */
                 catch(Exception ex)
                 {
+#if DEBUG
                     Console.WriteLine("thread-exception===>"+ex.ToString());
+#endif
                     return;
                 }
             }

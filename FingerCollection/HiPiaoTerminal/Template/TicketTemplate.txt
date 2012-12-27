@@ -11,7 +11,7 @@ field:    日期：#PlayDate#  时间：#PlayTime#    #PlayDate#
 cmd:10|10
 field:                                     #PlayTime#
 cmd:10|10
-field:    手续费：￥0.00    票价：￥#Price#.00  #TicketId#
+field:    手续费：￥#MiddleFee#    票价：￥#Price#.00  #TicketId#
 cmd:10|10
 field:   出票时间：#PrintTime# 
 cmd:10|10

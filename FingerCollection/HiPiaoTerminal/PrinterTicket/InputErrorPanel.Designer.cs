@@ -40,7 +40,7 @@
             // 
             this.btnModify.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.Modify;
             this.btnModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnModify.Location = new System.Drawing.Point(41, 240);
+            this.btnModify.Location = new System.Drawing.Point(44, 240);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(225, 81);
             this.btnModify.TabIndex = 1;
@@ -50,7 +50,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HiPiaoTerminal.Properties.Resources.Print_Input_Error;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(570, 152);
             this.pictureBox1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.btnCancel.BackgroundImage = global::HiPiaoTerminal.Properties.Resources.btnCancel;
             this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancel.Location = new System.Drawing.Point(334, 240);
+            this.btnCancel.Location = new System.Drawing.Point(337, 240);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(225, 81);
             this.btnCancel.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.pictureBox1);
             this.Name = "InputErrorPanel";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(614, 400);
             ((System.ComponentModel.ISupportInitialize)(this.btnModify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
