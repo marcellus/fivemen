@@ -22,9 +22,9 @@ namespace HiPiaoTerminal.ConfigModel
 
         public string CinemaServerIp="192.168.0.1";//影院前置机IP地址
         public int CinemaServerPort = 2987;//影院前置机端口
-        public string HiPiaoInterfaceUrl = "http://iphone.51cp.com:8080/ws/hpcinema";
+        public string HiPiaoInterfaceUrl = "http://open.hipiao.com:8080/ws/hpcinema";
 
-        public string ManagePwd="qqqqqq";
+        public string ManagePwd="123456";
 
         public int UnOperationTime = 20;
 
@@ -63,6 +63,8 @@ namespace HiPiaoTerminal.ConfigModel
 
 
         public int FullScreenSecond = 5;
+
+        public bool AllowFullScreen = true;
 
         /// <summary>
         /// 广告替换的时间 毫秒

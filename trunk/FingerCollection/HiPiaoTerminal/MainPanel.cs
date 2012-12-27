@@ -153,7 +153,7 @@ namespace HiPiaoTerminal
             if(!adFullTimer.Enabled)
             {
                   SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                  if (config.FullScreenSecond > 0)
+                  if (config.AllowFullScreen&&config.FullScreenSecond > 0)
                   {
                       adFullTimer.Interval = config.FullScreenSecond * 1000;
                       adFullTimer.Stop();
@@ -166,15 +166,18 @@ namespace HiPiaoTerminal
         private void button1_Click(object sender, EventArgs e)
         {
             //GlobalTools.Pop(new UserRegisterSuccessPanel());
-
-            if (GlobalTools.LoginAccount("0100407983"))
+            //0109990101  0100407983 0102500008
+            //0102500005 cs0002
+         /*   if (GlobalTools.LoginAccount("0102500005"))
             {
+                string name = GlobalTools.GetLoginUser().Name;
 
                 this.QuitReadCard();
                 GlobalTools.ReturnUserAccout();
             }
-            
-            //GlobalTools.Pop(new BindMobilePanel());
+          * */
+            GlobalTools.LoginAccount("0102500005");
+            GlobalTools.Pop(new BindMobilePanel());
 
             //GlobalTools.ReturnMaintain();
             //GlobalTools.ShowMessage(new QuickPassportPanel());

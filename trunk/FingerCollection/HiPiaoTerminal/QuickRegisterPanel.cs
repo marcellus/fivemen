@@ -86,6 +86,7 @@ namespace HiPiaoTerminal
                 string repeatPwd = this.txtRepeatPwd.Text.Trim();
                 string mobile = this.txtMobile.Text.Trim();
                 bool result = true;
+                this.lbMobileHint.Text = this.lbPasswordHint.Text = this.lbRepeatPwdHint.Text = this.lbUserNameHint.Text = string.Empty;
 
                 if (!ValidatorHelper.ValidateMobile(mobile, false))
                 {

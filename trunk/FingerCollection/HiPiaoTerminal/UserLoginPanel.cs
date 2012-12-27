@@ -118,6 +118,7 @@ namespace HiPiaoTerminal
                 }
                 catch (Exception ex)
                 {
+                    GlobalTools.Log(ex);
                     GlobalTools.PopNetError();
                 }
             }
@@ -464,6 +465,7 @@ namespace HiPiaoTerminal
             }
             catch (Exception ex)
             {
+                GlobalTools.Log(ex);
                 GlobalTools.PopNetError();
             }
         }

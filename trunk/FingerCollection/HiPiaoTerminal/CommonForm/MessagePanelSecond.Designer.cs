@@ -54,7 +54,7 @@
             this.lbMsg1.Location = new System.Drawing.Point(8, 92);
             this.lbMsg1.Margin = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.lbMsg1.Name = "lbMsg1";
-            this.lbMsg1.Size = new System.Drawing.Size(790, 63);
+            this.lbMsg1.Size = new System.Drawing.Size(752, 63);
             this.lbMsg1.Skin = FT.Windows.Controls.SimpleSkinType.Custom;
             this.lbMsg1.TabIndex = 12;
             this.lbMsg1.Text = "网络故障，请向影院工作人员垂询！";

@@ -18,6 +18,7 @@ using HiPiaoTerminal.UserControlEx;
 using FT.Windows.Controls.TextBoxEx;
 using System.Collections;
 using FT.Commons.Win32;
+using log4net;
 
 namespace HiPiaoTerminal
 {
@@ -66,7 +67,7 @@ namespace HiPiaoTerminal
         {
             string msgType = "30";
             //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
-            string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t1\n";
+            string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t0\n";
             //str = msgType + str;
             //helper.Send(str);
             //HipiaoTcpHelper.GetTicket(str);
@@ -462,12 +463,21 @@ namespace HiPiaoTerminal
             if (frm != null && panel != null)
             {
                 frm.Controls.Clear();
+                frm.MaximizeBox = true;
+                frm.MinimizeBox = true;
+                frm.FormBorderStyle = FormBorderStyle.Sizable;
+                frm.WindowState = FormWindowState.Normal;
+               
+
+                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
                 frm.Width = panel.Width;
                 frm.Height = panel.Height;
+                frm.Size = new Size(panel.Width, panel.Height);
+               // frm.BackColor = Color.Red;
                 panel.Dock = DockStyle.Fill;
-                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
                 //frm.StartPosition = FormStartPosition.CenterScreen;
                 WinFormHelper.CenterForm(frm);
+                frm.FormBorderStyle = FormBorderStyle.None;
                 //frm.Controls.Add(panel);
             }
         }
@@ -674,6 +684,17 @@ namespace HiPiaoTerminal
 
         }
 
+        protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
+
+
+        public static void Log(object obj)
+        {
+            if (log.IsDebugEnabled)
+            {
+                log.Debug(obj);
+            }
+        }
+
         /// <summary>
         /// 登陆账户
         /// </summary>
@@ -738,7 +759,9 @@ namespace HiPiaoTerminal
             UpdateTimer.Start();
             UnOperationTimer = new Timer();
             
-            UnOperationTimer.Interval = config.UnOperationTime*1000;
+            //UnOperationTimer.Interval = config.UnOperationTime*1000;
+            UnOperationTimer.Interval = 1000;
+            UnOperationMaxSecond = config.UnOperationTime;
             UnOperationTimer.Tick += new EventHandler(UnOperationTimer_Tick);
             UnOperationTimer.Start();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
@@ -874,7 +897,11 @@ namespace HiPiaoTerminal
                 }
                 else
                 {
+
                     UnOperationLeaveSecond--;
+#if DEBUG
+                    Console.WriteLine("未操作时间剩余" + UnOperationLeaveSecond.ToString());
+#endif
                     if (UpdateUnOperationTime != null)
                     {
                         UpdateUnOperationTime();
@@ -920,14 +947,26 @@ namespace HiPiaoTerminal
         {
             //throw new NotImplementedException();
             UpdateTimer.Stop();
-            //DoSomeThing
-            UpdateMovieShows();
+            if (!FirstStart)
+            {
+                //DoSomeThing
+                UpdateMovieShows();
+            }
+            else
+            {
+                FirstStart = false;
+            }
 
             UpdateTimer.Start();
         }
         public static List<MovieObject> MovieShowList = new List<MovieObject>();
 
         private static readonly object synObj = new object();
+
+        /// <summary>
+        /// 是否程序初启动
+        /// </summary>
+        private static bool FirstStart = true;
 
         /// <summary>
         /// 定时更新影片显示内容。内容见于下载到MovieShows目录下
@@ -990,6 +1029,7 @@ namespace HiPiaoTerminal
                 }
                 catch(Exception ex)
                 {
+                    GlobalTools.Log(ex);
                     Console.WriteLine("定时刷新出现异常："+ex.ToString());
                     GlobalTools.PopNetError();
                 }
@@ -1165,6 +1205,7 @@ namespace HiPiaoTerminal
             {
                 if (MainForm != null)
                 {
+                    MainForm.AutoScroll = true;
                     if (GlobalTools.fullScreenSeatSelectorForm != null)
                     {
                         Form frm = GlobalTools.fullScreenSeatSelectorForm;
@@ -1185,6 +1226,7 @@ namespace HiPiaoTerminal
                 Console.WriteLine("GoPanel开始隐藏小键盘");
 #endif
                     HideAllKeyBoard();
+                    
                     WindowFormDelegate.AddControlTo(parent, panel);
                     //parent.Controls.Add(panel);
                     if (panel is MainPanel)
@@ -1209,7 +1251,7 @@ namespace HiPiaoTerminal
             }
             catch (Exception ex)
             {
-                
+                GlobalTools.Log(ex);
                 MessageBox.Show("切换界面出现异常："+ex.ToString());
             }
 

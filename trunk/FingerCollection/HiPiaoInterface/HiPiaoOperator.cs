@@ -36,7 +36,8 @@ namespace HiPiaoInterface
             if (ret.InnerText == "1")
             {
                 user = new UserObject();
-                user.Name = doc.SelectSingleNode("//nickname").InnerText;
+                //user.Name = doc.SelectSingleNode("//nickname").InnerText;
+                user.Name = memberId;
                 user.Mobile = doc.SelectSingleNode("//phone").InnerText;
                 user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
                 user.HipiaoCard = doc.SelectSingleNode("//hipiaocard").InnerText;
@@ -64,7 +65,8 @@ namespace HiPiaoInterface
             if (ret.InnerText == "1")
             {
                 user = new UserObject();
-                user.Name = doc.SelectSingleNode("//nickname").InnerText;
+                user.Name = name;
+               // user.Name = doc.SelectSingleNode("//nickname").InnerText;
                 user.Mobile = doc.SelectSingleNode("//phone").InnerText;
                 user.MemberId = doc.SelectSingleNode("//memberId").InnerText;
                 user.HipiaoCard = doc.SelectSingleNode("//hipiaocard").InnerText;

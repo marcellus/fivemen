@@ -16,10 +16,37 @@ namespace HiPiaoTerminal.BuyTicket
     public partial class MoviePlanSelectorPanel : HiPiaoTerminal.UserControlEx.OperationTimeParentPanel
     {
         private MovieObject movie;
+        private DateTime dt;
         public MoviePlanSelectorPanel(MovieObject movie)
         {
             InitializeComponent();
             this.movie = movie;
+            this.dt = System.DateTime.Now;
+            CheckForIllegalCrossThreadCalls = false;
+        }
+
+        public MoviePlanSelectorPanel(MovieObject movie,DateTime dt)
+        {
+            InitializeComponent();
+            this.movie = movie;
+            this.dt = dt;
+
+            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            TimeSpan ts=dt.Subtract(System.DateTime.Now.AddHours(-1));
+            if (ts.Days == 0)
+            {
+                btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            }
+            else if (ts.Days ==1)
+            {
+                btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            }
+            else
+            {
+                btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            }
             CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -32,18 +59,21 @@ namespace HiPiaoTerminal.BuyTicket
             this.btnThreeDay.Text = string.Format(this.btnThreeDay.Text, now.AddDays(2).ToString("MM月dd日"));
             this.SetSepartor(false);
             this.SetMoiveInfo();
-            this.GetPlan(System.DateTime.Now);
+            //if()
+            this.GetPlan(dt);
             this.SetOperationTime(60);
 
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.ReturnMain();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.GoPanel(new MovieSelectorPanel());
         }
 
@@ -125,24 +155,46 @@ namespace HiPiaoTerminal.BuyTicket
             {
                 //this.panelContent.Controls.Clear();
                 int x = 57;
-                int y = 274;
+                int y = 274; 
                 int linecount = 5;
                 int picWid = 195;
                 int picHeight = 88;
                 int colSep = 14;
                 int rowSep = 14;
+                int controlCount = 0;
+                bool isToday=this.planDt.Day==System.DateTime.Now.Day;
+                int hourNow=System.DateTime.Now.Hour;
+                int minuteNow=System.DateTime.Now.Minute+5;
+                
                 for (int i = 0; i < lists.Count; i++)
                 {
+
+                    try
+                    {
+                        string tttt = lists[i].Playtime;
+                        string[] times = tttt.Split(':');
+                        int hour = Convert.ToInt32(times[0]);
+                        int minute = Convert.ToInt32(times[1]);
+                        if (isToday && (hour == hourNow && minute < minuteNow))
+                        {
+                            continue;
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        GlobalTools.Log(ex);
+                    }
                     RoomPlanShowPanel pc = new RoomPlanShowPanel(lists[i]);
                     pc.AutoScaleMode = AutoScaleMode.None;
                     pc.Width = picWid;
                     pc.Height = picHeight;
                     pc.Tag = lists[i];
-                    pc.Location = new Point(x + (i % linecount) * (picWid + colSep), y + (i / linecount) * (picHeight + rowSep));
+                    pc.Location = new Point(x + (controlCount % linecount) * (picWid + colSep), y + (controlCount / linecount) * (picHeight + rowSep));
                     pc.Click += new EventHandler(pc_Click);
 
                     //this.panelContent.Controls.Add(pc);
                     WindowFormDelegate.AddControlTo(this.panelContent, pc);
+                    controlCount++;
                 }
             }
         }
@@ -157,10 +209,23 @@ namespace HiPiaoTerminal.BuyTicket
         }
 
         private DateTime planDt=System.DateTime.Now;
+        private Thread thread;
+
+        private void ExitThread()
+        {
+            try
+            {
+                thread.Abort();
+            }
+            catch
+            {
+            }
+        }
         private void GetPlan(DateTime dt)
         {
+            this.ExitThread();
             this.planDt = dt;
-            Thread thread = new Thread(new ThreadStart(ThreadGetPlan));
+            thread = new Thread(new ThreadStart(ThreadGetPlan));
             thread.IsBackground = true;
             thread.Start();
            
@@ -218,7 +283,7 @@ namespace HiPiaoTerminal.BuyTicket
             if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
             {
                 //btnReturn_Click(null, null);
-
+                this.ExitThread();
                 GlobalTools.GoPanel(new MovieSelectorPanel());
                 // MovieSelectorPanel(
             }

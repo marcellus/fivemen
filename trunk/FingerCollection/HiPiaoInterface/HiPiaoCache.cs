@@ -86,6 +86,10 @@ namespace HiPiaoInterface
                         
                     }
                 }
+                else
+                {
+                    result += node.Attributes["stat"].Value.ToString()+"，" + node.Attributes["text"].Value.ToString();
+                }
                 return result;
             }
             else return "-1";
@@ -626,10 +630,10 @@ namespace HiPiaoInterface
         }
 
 
-        public static List<MovieObject> GetDayMovie(string cinema, DateTime day,List<MovieObject> all)
+        public static List<MovieObject> GetDayMovie(string city,string cinema, DateTime day,List<MovieObject> all)
         {
             List<MovieObject> lists = new List<MovieObject>();
-            string xml = hiPiaoSrv.GetDayMovie(cinema, day);
+            string xml = hiPiaoSrv.GetDayMovie(city,cinema, day);
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
             XmlNodeList objsNode = doc.SelectNodes("//movieInfo");

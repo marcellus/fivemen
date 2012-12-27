@@ -98,6 +98,7 @@
             this.txtMobile.RelativeLabel = null;
             this.txtMobile.Size = new System.Drawing.Size(434, 72);
             this.txtMobile.TabIndex = 2;
+            this.txtMobile.onSubTextChanged += new HiPiaoTerminal.UserControlEx.UserInputPanel.OnSubTextChanged(this.txtMobile_onSubTextChanged);
             // 
             // txtCode
             // 

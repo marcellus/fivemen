@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using HiPiaoTerminal.ConfigModel;
+using System.Threading;
 
 namespace HiPiaoTerminal
 {
@@ -14,13 +15,16 @@ namespace HiPiaoTerminal
         public UserTastePanel()
         {
             InitializeComponent();
+            this.VScroll = false;
+            
+           
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-           //this.webBrowser1.Refresh();
-            ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            this.webBrowser1.Navigate(config.TastUrl);
+           this.webBrowser1.Refresh();
+           // ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+          //  this.webBrowser1.Navigate(config.TastUrl);
         }
 
         private void btnReturnHome_Click(object sender, EventArgs e)
@@ -64,10 +68,7 @@ namespace HiPiaoTerminal
             //设置不用浏览器打开新窗体
             e.Cancel = true;
         }
-
-        
-
-        private void UserTastePanel_Load(object sender, EventArgs e)
+        public void LoadHtml()
         {
             //GlobalTools.RegistUpdateUnOperationTime(UpdateUnOperationTime);
             this.webBrowser1.ScriptErrorsSuppressed = true;
@@ -75,6 +76,30 @@ namespace HiPiaoTerminal
             //this.webBrowser1.sc
             ConfigModel.SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             this.webBrowser1.Navigate(config.TastUrl);
+        }
+
+        public void ToIndex()
+        {
+
+        }
+        
+
+        private void UserTastePanel_Load(object sender, EventArgs e)
+        {
+           
+            try{
+             Thread thread = new Thread(new ThreadStart(LoadHtml));
+                thread.IsBackground = true;
+                thread.Start();
+                Form frm = this.FindForm();
+                if (frm != null)
+                {
+                    frm.AutoScroll = false;
+                }
+            }
+            catch
+            {
+            }
             
         }
 
@@ -96,6 +121,11 @@ namespace HiPiaoTerminal
             }
             else
             GlobalTools.QuickBuyTicket();
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

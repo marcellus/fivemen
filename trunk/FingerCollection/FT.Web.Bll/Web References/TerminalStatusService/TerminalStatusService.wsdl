@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineMac">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachineMacResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineMacResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMachineCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotPrinterStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetHotPrinterStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotPrinterStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoicePrinterStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInvoicePrinterStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoicePrinterStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineMacSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineMac" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineMacSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineMacResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineCode" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotPrinterStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotPrinterStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetHotPrinterStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotPrinterStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicePrinterStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoicePrinterStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoicePrinterStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoicePrinterStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TerminalStatusServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineMac">
+      <wsdl:input message="tns:GetMachineMacSoapIn" />
+      <wsdl:output message="tns:GetMachineMacSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineCode">
+      <wsdl:input message="tns:GetMachineCodeSoapIn" />
+      <wsdl:output message="tns:GetMachineCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotPrinterStatus">
+      <wsdl:input message="tns:GetHotPrinterStatusSoapIn" />
+      <wsdl:output message="tns:GetHotPrinterStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePrinterStatus">
+      <wsdl:input message="tns:GetInvoicePrinterStatusSoapIn" />
+      <wsdl:output message="tns:GetInvoicePrinterStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TerminalStatusServiceSoap" type="tns:TerminalStatusServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineMac">
+      <soap:operation soapAction="http://tempuri.org/GetMachineMac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineCode">
+      <soap:operation soapAction="http://tempuri.org/GetMachineCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotPrinterStatus">
+      <soap:operation soapAction="http://tempuri.org/GetHotPrinterStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePrinterStatus">
+      <soap:operation soapAction="http://tempuri.org/GetInvoicePrinterStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TerminalStatusServiceSoap12" type="tns:TerminalStatusServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineMac">
+      <soap12:operation soapAction="http://tempuri.org/GetMachineMac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineCode">
+      <soap12:operation soapAction="http://tempuri.org/GetMachineCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotPrinterStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetHotPrinterStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePrinterStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetInvoicePrinterStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TerminalStatusService">
+    <wsdl:port name="TerminalStatusServiceSoap" binding="tns:TerminalStatusServiceSoap">
+      <soap:address location="http://localhost:4991/TerminalStatusService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TerminalStatusServiceSoap12" binding="tns:TerminalStatusServiceSoap12">
+      <soap12:address location="http://localhost:4991/TerminalStatusService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

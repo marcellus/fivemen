@@ -82,6 +82,10 @@ namespace HiPiaoTerminal.BuyTicket
         {
             if (allowPay)
             {
+#if DEBUG
+                UserObject usertmp = GlobalTools.GetLoginUser();
+                string pwdtmp = usertmp.Pwd;
+#endif
                 if (GlobalTools.GetLoginUser().Pwd.Length == 0)
                 {
                    UserObject user= HiPiaoOperatorFactory.GetHiPiaoOperator().Login(GlobalTools.GetLoginUser().Name, this.txtUserPwd.Text);
@@ -103,6 +107,7 @@ namespace HiPiaoTerminal.BuyTicket
                 this.FindForm().Close();
                 //string retCode="1";
                 string retCode=HiPiaoCache.UserBuyTicket(GlobalTools.GetLoginUser(), this.lists);
+                //<?xml version="1.0" encoding="utf-8"?><root><order res="0" stat="购票失败"  text="场次过期"  phone="4001-099-088" ></order></root>
                 //订购成功
                 if (retCode == "1")
                 {
@@ -112,13 +117,14 @@ namespace HiPiaoTerminal.BuyTicket
                     
                 }
                     //订购失败
-                else if (retCode == "0")
+                else if (retCode.StartsWith("0"))
                 {
                     this.FindForm().Close();
-                    GlobalTools.PopNetError();
+                    GlobalTools.Pop(retCode.Substring(1));
+                    //GlobalTools.PopNetError();
                 }
                     //座位已售出，重新刷座位图
-                else if (retCode == "2")
+                else if (retCode.StartsWith( "2"))
                 {
                     this.FindForm().Close();
                    this.lbMsg.Text="座位已售出，重新选择座位！";

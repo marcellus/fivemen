@@ -55,10 +55,24 @@ namespace HiPiaoTerminal.BuyTicket
 
         private DateTime tmpDt;
 
+        private Thread thread;
+
+        private void ExitThread()
+        {
+            try
+            {
+                thread.Abort();
+            }
+            catch
+            {
+            }
+        }
+
         private void InitMoviesThread(DateTime dt)
         {
+            this.ExitThread();
             this.tmpDt = dt;
-            Thread thread = new Thread(new ThreadStart(InitMovies));
+            thread = new Thread(new ThreadStart(InitMovies));
             thread.IsBackground = true;
             thread.Start();
         }
@@ -73,7 +87,7 @@ namespace HiPiaoTerminal.BuyTicket
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
             List<MovieObject> all = HiPiaoCache.GetHotMovie(config.Province, config.City);
 
-            List<MovieObject> lists= HiPiaoCache.GetDayMovie(config.CinemaId, dt,all);
+            List<MovieObject> lists= HiPiaoCache.GetDayMovie(config.City,config.CinemaId, dt,all);
             if (lists == null || lists.Count == 0)
             {
                 //274, 42
@@ -153,7 +167,7 @@ namespace HiPiaoTerminal.BuyTicket
         {
             PictureBox pic=sender as PictureBox;
             MovieObject movie = pic.Tag as MovieObject;
-            GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie));
+            GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie, tmpDt));
         }
 
         private static int colSep = 20;
@@ -164,11 +178,13 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.ReturnMain();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.ReturnMain();
         }
 

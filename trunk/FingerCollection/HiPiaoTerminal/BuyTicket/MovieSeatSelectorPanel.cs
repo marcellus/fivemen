@@ -63,11 +63,13 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie));
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            this.ExitThread();
             GlobalTools.ReturnMain();
         }
 
@@ -112,9 +114,21 @@ namespace HiPiaoTerminal.BuyTicket
             }
            
         }
+        private void ExitThread()
+        {
+            try
+            {
+                thread.Abort();
+            }
+            catch
+            {
+            }
+        }
+        private Thread thread;
         private void LoadSeat()
         {
-            Thread thread = new Thread(new ThreadStart(ThreadLoadSeat));
+            this.ExitThread();
+            thread = new Thread(new ThreadStart(ThreadLoadSeat));
             thread.Start();
         }
 
@@ -509,6 +523,8 @@ namespace HiPiaoTerminal.BuyTicket
             e.ToolTipSize = e.AssociatedControl.CreateGraphics().MeasureString(this.toolTip1.Tag.ToString(), fontHint).ToSize();
         }
 
+        
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Point pt = MousePosition;
@@ -520,7 +536,7 @@ namespace HiPiaoTerminal.BuyTicket
             if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
             {
                 //btnReturn_Click(null, null);
-
+                this.ExitThread();
                 GlobalTools.GoPanel(new MovieSelectorPanel());
                // MovieSelectorPanel(
             }
