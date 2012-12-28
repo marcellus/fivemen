@@ -176,8 +176,8 @@ namespace HiPiaoTerminal
                 GlobalTools.ReturnUserAccout();
             }
           * */
-            GlobalTools.LoginAccount("0102500005");
-            GlobalTools.Pop(new BindMobilePanel());
+           // GlobalTools.LoginAccount("0102500005");
+          //  GlobalTools.Pop(new BindMobilePanel());
 
             //GlobalTools.ReturnMaintain();
             //GlobalTools.ShowMessage(new QuickPassportPanel());

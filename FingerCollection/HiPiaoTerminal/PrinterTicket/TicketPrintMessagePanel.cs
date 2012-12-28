@@ -7,16 +7,16 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
 
-namespace HiPiaoTerminal.CommonForm
+namespace HiPiaoTerminal.PrinterTicket
 {
-    public partial class MessagePanelSecond : HiPiaoTerminal.UserControlEx.SecondNotifyUserPanel
+    public partial class TicketPrintMessagePanel : HiPiaoTerminal.UserControlEx.FirstNotifyUserPanel
     {
-        public MessagePanelSecond()
+        public TicketPrintMessagePanel()
         {
             InitializeComponent();
         }
 
-         public MessagePanelSecond(string hint)
+         public TicketPrintMessagePanel(string hint)
         {
             InitializeComponent();
             this.lbMsg1.Text = hint;
@@ -26,25 +26,21 @@ namespace HiPiaoTerminal.CommonForm
             WinFormHelper.CenterHor(this.picSure);
         }
 
-         public MessagePanelSecond(string hint, string hint2)
+        public TicketPrintMessagePanel(string hint, string hint2)
         {
             InitializeComponent();
             this.lbMsg1.Text = hint;
             this.lbMsg2.Text = hint2;
         }
 
+        private void lbMsg2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void picSure_Click(object sender, EventArgs e)
         {
             this.FindForm().Close();
-        }
-
-        private void MessagePanelSecond_Load(object sender, EventArgs e)
-        {
-            Control frm = this.Parent;
-            if (frm != null)
-            {
-                frm.Size = new Size(this.Width, this.Height);
-            }
         }
     }
 }

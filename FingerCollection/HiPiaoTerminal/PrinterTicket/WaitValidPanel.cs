@@ -9,6 +9,7 @@ using HiPiaoInterface;
 using HiPiaoTerminal.CommonForm;
 using HiPiaoTerminal.ConfigModel;
 using System.Collections;
+using FT.Commons.Tools;
 
 namespace HiPiaoTerminal.PrinterTicket
 {
@@ -71,19 +72,53 @@ namespace HiPiaoTerminal.PrinterTicket
         private void ChangePanel(Control panel)
         {
             Form frm = this.FindForm();
-            frm.Controls.Remove(this);
+            
+            frm.MaximizeBox = true;
+            frm.MinimizeBox = true;
+            frm.FormBorderStyle = FormBorderStyle.Sizable;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.WindowState = FormWindowState.Normal;
+            frm.Parent = null;
+            // MessageBox.Show("1-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+            frm.MaximumSize = new Size(panel.Width, panel.Height);
+            frm.MinimumSize = new Size(panel.Width, panel.Height);
+            frm.Width = panel.Width;
+            frm.Height = panel.Height;
+            frm.Controls.Clear();
             frm.Controls.Add(panel);
+            panel.Dock = DockStyle.Fill;
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+
+            WinFormHelper.CenterForm(frm);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Hide();
+            frm.Show();
         }
+
+        private void ChangeHint(string msg1, string msg2)
+        {
+            GlobalTools.ChangePanel(this.FindForm(),new TicketPrintMessagePanel(msg1,msg2));
+
+        }
+
+        private void ChangeHint(string msg1)
+        {
+            GlobalTools.ChangePanel(this.FindForm(), new TicketPrintMessagePanel(msg1));
+
+        }
+
 
         private int retCode = 0;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+            //this.ChangeHint("该影票已出过票！");
+            //this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
           //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
           //  GlobalTools.ChangePanel(this.FindForm(), new InputErrorPanel());
          //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
-         //   return;
+          //  return;
             try{
 
 
@@ -113,7 +148,8 @@ namespace HiPiaoTerminal.PrinterTicket
                 {
                     //retCode = 1;
                     //this.FindForm().Close();
-                    GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
+                    this.ChangeHint("该影票已出过票！");
+                  //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
                     
                    
                    
@@ -133,7 +169,9 @@ namespace HiPiaoTerminal.PrinterTicket
                 //retCode = 3;
                // this.FindForm().Close();
                // System.Threading.Thread.Sleep(1000);
-                GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+               // this.ChangePanel(new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+              //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+                this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
                
             }
         }

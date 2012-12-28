@@ -50,9 +50,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HiPiaoTerminal.Properties.Resources.Print_Input_Error;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(570, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(559, 152);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -75,7 +75,7 @@
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.pictureBox1);
             this.Name = "InputErrorPanel";
-            this.Size = new System.Drawing.Size(614, 400);
+            this.Size = new System.Drawing.Size(600, 400);
             ((System.ComponentModel.ISupportInitialize)(this.btnModify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
