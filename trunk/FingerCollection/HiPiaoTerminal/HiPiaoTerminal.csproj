@@ -367,6 +367,12 @@
     <Compile Include="PrinterTicket\SuccessPrintPanel.Designer.cs">
       <DependentUpon>SuccessPrintPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrinterTicket\TicketPrintMessagePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrinterTicket\TicketPrintMessagePanel.Designer.cs">
+      <DependentUpon>TicketPrintMessagePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrinterTicket\WaitPrintPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -691,6 +697,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterTicket\SuccessPrintPanel.resx">
       <DependentUpon>SuccessPrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterTicket\TicketPrintMessagePanel.resx">
+      <DependentUpon>TicketPrintMessagePanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterTicket\WaitPrintPanel.resx">

@@ -143,7 +143,9 @@ namespace HiPiaoInterface
                 WriteLog("开始连接服务器IP：" + ip + "，端口" + port + "...",txt);
                 
 #endif
-
+               // c.ReceiveTimeout = 100;
+               // c.SendTimeout = 1000;
+               // c.Connect(ipe,
                 c.Connect(ipe);//连接到服务器
 #if DEBUG
                 WriteLog("完成连接服务器...",txt);

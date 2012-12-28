@@ -45,5 +45,19 @@ namespace HiPiaoTerminal.CommonForm
         {
             this.FindForm().Close();
         }
+
+        private void lbMsg2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MessagePanelFirst_Load(object sender, EventArgs e)
+        {
+            Control frm = this.Parent;
+            if (frm != null)
+            {
+                frm.Size = new Size(this.Width,this.Height);
+            }
+        }
     }
 }

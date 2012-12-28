@@ -126,7 +126,8 @@ namespace HiPiaoTerminal.Account
         {
             if (allowSend)
             {
-                if (this.txtMobile.Text.Length == 11&&FT.Commons.Tools.ValidatorHelper.ValidateMobile(this.txtMobile.Text.Trim(),false))
+                //&&FT.Commons.Tools.ValidatorHelper.ValidateMobile(this.txtMobile.Text.Trim(),false)
+                if (this.txtMobile.Text.Length == 11)
                 {
                     //this.allowSend = true;
                     this.pictureBox1.BackgroundImage = Properties.Resources.BindMobile_SendValidCode;

@@ -46,6 +46,7 @@
             this.lbMsg2.TabIndex = 8;
             this.lbMsg2.Text = "label1";
             this.lbMsg2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbMsg2.Click += new System.EventHandler(this.lbMsg2_Click);
             // 
             // lbMsg1
             // 
@@ -82,6 +83,7 @@
             this.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.Name = "MessagePanelFirst";
             this.Size = new System.Drawing.Size(804, 492);
+            this.Load += new System.EventHandler(this.MessagePanelFirst_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSure)).EndInit();
             this.ResumeLayout(false);
 

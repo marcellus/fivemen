@@ -466,18 +466,34 @@ namespace HiPiaoTerminal
                 frm.MaximizeBox = true;
                 frm.MinimizeBox = true;
                 frm.FormBorderStyle = FormBorderStyle.Sizable;
+                frm.StartPosition = FormStartPosition.Manual;
                 frm.WindowState = FormWindowState.Normal;
-               
-
-                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+                frm.Parent = null;
+               // MessageBox.Show("1-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+                frm.MaximumSize = new Size(panel.Width, panel.Height);
+                frm.MinimumSize = new Size(panel.Width, panel.Height);
                 frm.Width = panel.Width;
                 frm.Height = panel.Height;
-                frm.Size = new Size(panel.Width, panel.Height);
+                //frm.WindowState = FormWindowState.Maximized;
+                //System.Threading.Thread.Sleep(1000);
+                
+                //frm.
+               // MessageBox.Show("2-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+               // frm.Size = new Size(panel.Width, panel.Height);
+              
                // frm.BackColor = Color.Red;
                 panel.Dock = DockStyle.Fill;
                 //frm.StartPosition = FormStartPosition.CenterScreen;
+               
                 WinFormHelper.CenterForm(frm);
+                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+
                 frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Invalidate();
+               // frm.ResumeLayout(true);
+               // frm.PerformLayout();
+                //MessageBox.Show("3-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+               
                 //frm.Controls.Add(panel);
             }
         }
