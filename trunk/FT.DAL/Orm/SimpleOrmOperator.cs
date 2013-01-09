@@ -108,7 +108,12 @@ namespace FT.DAL.Orm
             }
             if(value is DateTime)
             {
-                return ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
+                string result= ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
+                if (result.StartsWith("0001"))
+                {
+                    return System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                return result;
             }
             /*if (value is Enum)
             {
@@ -471,6 +476,10 @@ namespace FT.DAL.Orm
                 else if (typeof(int) == fieldType)
                 {
                     field.SetValue(obj, Convert.ToInt32(value));
+                }
+                else if (typeof(double) == fieldType)
+                {
+                    field.SetValue(obj, Convert.ToDouble(value));
                 }
                 else if (typeof(bool) == fieldType)
                 {

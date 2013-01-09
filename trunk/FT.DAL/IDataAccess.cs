@@ -47,18 +47,18 @@ namespace FT.DAL
         /// 创建命令Builder
         /// </summary>
         /// <returns>命令Builder</returns>
-        DbCommandBuilder CreateCommandBuilder(DbDataAdapter adapter);
+       DbCommandBuilder CreateCommandBuilder(DbDataAdapter adapter);
         /// <summary>
         /// 创建DataAdapter
         /// </summary>
         /// <returns>返回的DataAdapter</returns>
-        DbDataAdapter CreateAdapter();
+        IDbDataAdapter CreateAdapter();
         /// <summary>
         /// 创建一个数据命令
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>DbCommand</returns>
-        DbCommand CreateCommand(string sql);
+        IDbCommand CreateCommand(string sql);
         /// <summary>
         /// 打开数据库连接
         /// </summary>
@@ -80,13 +80,13 @@ namespace FT.DAL
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>未关闭的DbDataReader</returns>
-        DbDataReader SelectDR(string sql);
+        IDataReader SelectDR(string sql);
         /// <summary>
         /// 返回一个已关闭的DbDataReader
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>关闭的DbDataReader</returns>
-        DbDataReader SelectDRClosing(string sql);
+        IDataReader SelectDRClosing(string sql);
         /// <summary>
         /// 根据sql语句返回一个DataSet
         /// </summary>

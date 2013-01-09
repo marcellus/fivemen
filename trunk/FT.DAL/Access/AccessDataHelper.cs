@@ -42,7 +42,7 @@ namespace FT.DAL.Access
         /// </summary>
         /// <param name="connString">连接字符串</param>
         /// <returns>创建一个DbConnection</returns>
-        public override DbConnection CreateConn(string connString)
+        public override IDbConnection CreateConn(string connString)
         {
             return new OleDbConnection(connString);
         }
@@ -51,7 +51,7 @@ namespace FT.DAL.Access
         /// 根据链接创建一个DbDataAdapter
         /// </summary>
         /// <returns>创建一个DbDataAdapter</returns>
-        public override DbDataAdapter CreateAdapter()
+        public override IDbDataAdapter CreateAdapter()
         {
             return new System.Data.OleDb.OleDbDataAdapter();
         }

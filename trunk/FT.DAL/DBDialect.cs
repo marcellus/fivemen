@@ -10,6 +10,7 @@ namespace FT.DAL
         SqlServer,
         Oracle,
         Mysql,
-        DB2
+        DB2,
+        Sqlite
     }
 }

@@ -122,10 +122,12 @@ namespace FT.Windows.Controls.PanelEx
             if (this.showWithForm)
             {
                 this.FindForm().Hide();
+                this.inputTextBox.Focus();
             }
             else
             {
                 this.Hide();
+                this.inputTextBox.Focus();
             }
         }
 
