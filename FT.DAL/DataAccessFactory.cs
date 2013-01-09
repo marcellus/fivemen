@@ -19,6 +19,9 @@ namespace FT.DAL
                  return new SqlServer.SqlServerDataHelper();
              if (ConfigurationManager.AppSettings["DefaultDbTpe"].ToLower() == "oracle")
                  return new Oracle.OracleDataHelper();
+             if (ConfigurationManager.AppSettings["DefaultDbTpe"].ToLower() == "sqlite")
+                 return new Sqlite.SqliteDataHelper(ConfigurationManager.AppSettings["DefaultConnString"]);
+
              return null;
              //return new SqlServer.SqlServerDataHelper();
         }

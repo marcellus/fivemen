@@ -22,13 +22,22 @@ namespace FT.DAL
         /// 根据默认的配置DefaultConnString 创建一个DbConnection
         /// </summary>
         /// <returns>创建一个DbConnection</returns>
-        protected DbConnection CreateConn()
+        protected IDbConnection CreateConn()
         {
             if (connStr.Length == 0)
             {
+                object encrypt = System.Configuration.ConfigurationManager.AppSettings["DefaultDbEncrypt"];
+                bool isEncrypt = Convert.ToBoolean(encrypt==null?"true":encrypt.ToString());
                 string tmp = System.Configuration.ConfigurationManager.AppSettings["DefaultConnString"];
                 log.Debug("DefaultConnString is:" + tmp);
-                connStr = FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(tmp);
+                if (isEncrypt)
+                {
+                    connStr = FT.Commons.Security.SecurityFactory.GetSecurity().Decrypt(tmp);
+                }
+                else
+                {
+                    connStr = tmp;
+                }
             }
            
             return this.CreateConn(connStr);
@@ -64,13 +73,13 @@ namespace FT.DAL
         /// </summary>
         /// <param name="connString">连接字符串</param>
         /// <returns>创建一个DbConnection</returns>
-        public abstract DbConnection CreateConn(string connString);
+        public abstract IDbConnection CreateConn(string connString);
 
         /// <summary>
         /// 根据链接创建一个DbDataAdapter
         /// </summary>
         /// <returns>创建一个DbDataAdapter</returns>
-        public abstract DbDataAdapter CreateAdapter();
+        public abstract IDbDataAdapter CreateAdapter();
 
         /// <summary>
         /// 获取数据库方言
@@ -89,9 +98,9 @@ namespace FT.DAL
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>DbCommand</returns>
-        public DbCommand CreateCommand(string sql)
+        public IDbCommand CreateCommand(string sql)
         {
-           DbCommand command= conn.CreateCommand();
+           IDbCommand command= conn.CreateCommand();
            command.CommandText = sql;
             
            return command;
@@ -99,7 +108,7 @@ namespace FT.DAL
          /// <summary>
         /// Sql连接
         /// </summary>
-        protected DbConnection conn;
+        protected IDbConnection conn;
         /// <summary>
         /// 默认构造函数
         /// </summary>
@@ -188,13 +197,13 @@ namespace FT.DAL
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>返回一个DataReader对象或者null</returns>
-        public DbDataReader SelectDR(string sql)
+        public IDataReader SelectDR(string sql)
         {
             log.Debug("SelectDR sql is:" + sql);
-            DbDataReader dr = null;
+            IDataReader dr = null;
             try
             {
-                DbCommand cmd = conn.CreateCommand();
+                IDbCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 dr = cmd.ExecuteReader();
             }
@@ -211,14 +220,14 @@ namespace FT.DAL
         /// </summary>
         /// <param name="sql">sql语句</param>
         /// <returns>返回一个SqlDataReader对象或者null</returns>
-        public DbDataReader SelectDRClosing(string sql)
+        public IDataReader SelectDRClosing(string sql)
         {
             log.Debug("SelectDRClosing sql is:" + sql );
-            DbDataReader dr = null;
+            IDataReader dr = null;
             this.Open();
             try
             {
-                DbCommand cmd = conn.CreateCommand();
+                IDbCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
@@ -258,22 +267,24 @@ namespace FT.DAL
         {
             // if (Tools.ValidSQL(sql) == false) return (null);
             log.Debug("SelectDataTable sql is:" + sql+" tableName is:"+tableName);
-            DataTable dt = new DataTable(tableName);
+           // DataTable dt = new DataTable(tableName);
+            DataSet ds = new DataSet();
+          
             try
             {
-                DbDataAdapter oradp = this.CreateAdapter();
-                DbCommand command = conn.CreateCommand();
+                IDbDataAdapter oradp = this.CreateAdapter();
+                IDbCommand command = conn.CreateCommand();
                 command.CommandText = sql;
                 //command.CommandText = sql.Replace("\r\n","");
                 oradp.SelectCommand = command;
-                oradp.Fill(dt);
+                oradp.Fill(ds);
             }
             catch (Exception e)
             {
                 log.Info("查询sql执行出错->" + sql + "异常信息->" + e);
                 return null;
             }
-            return dt;
+            return ds.Tables[0];
         }
 
         /// <summary>
@@ -286,7 +297,7 @@ namespace FT.DAL
         {
             log.Debug("ExecuteSql sql is:" + cmdText);
             this.Open();
-            DbCommand _Command = conn.CreateCommand();
+            IDbCommand _Command = conn.CreateCommand();
             _Command.CommandText = cmdText;
             try
             {
@@ -322,7 +333,7 @@ namespace FT.DAL
         {
             log.Debug("ExecuteProcedure procedure name is:" + cmdText);
             this.Open();
-            DbCommand _Command = conn.CreateCommand();
+            IDbCommand _Command = conn.CreateCommand();
             _Command.CommandType = CommandType.StoredProcedure;
             _Command.CommandText = cmdText;
             int iRow = 0, iRet = 0;
@@ -330,14 +341,16 @@ namespace FT.DAL
             {
                 if (cmdParms != null)
                 {
+                    _Command.Parameters.Clear();
                     foreach (DbParameter parm in cmdParms)
                     {
-                        log.Debug("param " + parm.ParameterName + " value is:" + parm.Value.ToString());
+                       // log.Debug("param " + parm.ParameterName + " direction:"+parm.Direction.ToString()+" value is:" +parm.Value!=null? parm.Value.ToString():"null");
                         _Command.Parameters.Add(parm);
                     }
                 }
 
                 iRow = _Command.ExecuteNonQuery();
+                /*
                 if (cmdParms != null && cmdParms.Length > 1)
                 {
                     iRet = (int)cmdParms[cmdParms.Length - 1].Value;
@@ -348,7 +361,7 @@ namespace FT.DAL
                         // return false;
                     }
                 }
-                _Command.Parameters.Clear();
+               */
                 this.Close();
             }
             catch (Exception e)
@@ -372,7 +385,7 @@ namespace FT.DAL
         public DataSet SelectDSByProcedure(string cmdText, params DbParameter[] cmdParms)
         {
             log.Debug("SelectDSByProcedure procedure name is:" + cmdText);
-            DbCommand _Command = conn.CreateCommand();
+            IDbCommand _Command = conn.CreateCommand();
             _Command.CommandType = CommandType.StoredProcedure;
             _Command.CommandText = cmdText;
             if (cmdParms != null)
@@ -390,14 +403,14 @@ namespace FT.DAL
                     _Command.Parameters.Add(parm);
                 }
             }
-            DbDataAdapter da = this.CreateAdapter();
+            IDbDataAdapter da = this.CreateAdapter();
             da.SelectCommand = _Command;
             //da.SelectCommand=_Command;
 
             DataSet ds = new DataSet();
             try
             {
-                da.Fill(ds, "temp");
+                da.Fill(ds);
             }
             catch (Exception e)
             {
@@ -426,7 +439,7 @@ namespace FT.DAL
             StringBuilder sb = new StringBuilder(sql);
 
             int iRow = 0;
-            DbCommand cmd = conn.CreateCommand();
+            IDbCommand cmd = conn.CreateCommand();
             try
             {
                 cmd.CommandText = sb.Replace("\r\n", "").ToString();
@@ -457,8 +470,8 @@ namespace FT.DAL
                 return false;
             }
             this.Open();
-            DbTransaction OraTrans = conn.BeginTransaction();
-            DbCommand cmd = conn.CreateCommand();
+            IDbTransaction OraTrans = conn.BeginTransaction();
+            IDbCommand cmd = conn.CreateCommand();
             cmd.Transaction = OraTrans;
             try
             {
@@ -496,7 +509,7 @@ namespace FT.DAL
             object result;
             try
             {
-                DbCommand cmd = conn.CreateCommand();
+                IDbCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
                 result = cmd.ExecuteScalar();
                 this.Close();
@@ -516,6 +529,20 @@ namespace FT.DAL
 
 
         #region IDataAccess 成员
+
+        protected string GetPageSqlByLimit(string sql, Pager pager, string order, bool isDesc)
+        {
+            string result = string.Empty;
+            if (sql.StartsWith("select", true, System.Globalization.CultureInfo.CurrentCulture))
+            {
+                sql = sql.Substring(6);
+            }
+            int pageSize = pager.PageSize;
+            int offset = (pager.CurrentPage - 1) * pager.PageSize;
+            sql = "select " + sql + " order by " + order + " " + ((isDesc) ? "desc" : "asc") + " limit "+pager.PageSize.ToString()+","+offset.ToString();
+          
+            return result;
+        }
 
 
         public abstract string GetPageSql(string sql, Pager pager,string order,bool isDesc);

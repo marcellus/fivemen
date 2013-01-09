@@ -10,6 +10,7 @@ using System.Text;
 using System.Drawing;
 using System.Data.OracleClient;
 using FT.DAL;
+using System.Data.SqlClient;
 
 namespace WebControls
 {
@@ -708,6 +709,7 @@ namespace WebControls
 
 		private DataTable DataProvider()
 		{
+            DataSet ds = null;
 			IDataAccess ob;
             //.SelectDSByProcedure
 			if(this.ConnString!=string.Empty)
@@ -721,60 +723,166 @@ namespace WebControls
 				//ob=new OracleBase();
                 ob = FT.DAL.DataAccessFactory.GetDataAccess();
 			}
-		
-			//ob.Open();
-            System.Data.OracleClient.OracleParameter[] cmdparams=new OracleParameter[9];
-			System.Data.OracleClient.OracleParameter p1=new OracleParameter("TbName",OracleType.VarChar,50);
-			p1.Value=this.TableName;
-			
-			
+            if (ob.GetDialectType() == DBDialect.Oracle)
+            {
 
-			System.Data.OracleClient.OracleParameter p2=new OracleParameter("FieldStr",OracleType.VarChar,3000);
-			p2.Value=this.FieldString;
+                //ob.Open();
+                System.Data.OracleClient.OracleParameter[] cmdparams = new OracleParameter[9];
+                System.Data.OracleClient.OracleParameter p1 = new OracleParameter("TbName", OracleType.VarChar, 50);
+                p1.Value = this.TableName;
 
-			System.Data.OracleClient.OracleParameter p3=new OracleParameter("RowFilter",OracleType.VarChar,3000);
-			p3.Value=this.RowFilter;
 
-			System.Data.OracleClient.OracleParameter p4=new OracleParameter("SortStr",OracleType.VarChar,3000);
-			p4.Value=this.SortString;
 
-			System.Data.OracleClient.OracleParameter p5=new OracleParameter("Pagesize",OracleType.Number);
-			p5.Value=this.PageSize;
+                System.Data.OracleClient.OracleParameter p2 = new OracleParameter("FieldStr", OracleType.VarChar, 3000);
+                p2.Value = this.FieldString;
 
-			System.Data.OracleClient.OracleParameter p6=new OracleParameter("Currentindex",OracleType.Number);
-			p6.Value=this.CurrentPageIndex;
-			
+                System.Data.OracleClient.OracleParameter p3 = new OracleParameter("RowFilter", OracleType.VarChar, 3000);
+                p3.Value = this.RowFilter;
 
-			System.Data.OracleClient.OracleParameter p7=new OracleParameter("TotalCount",OracleType.Number);
-			p7.Value=0;
-			p7.Direction=System.Data.ParameterDirection.Output;
+                System.Data.OracleClient.OracleParameter p4 = new OracleParameter("SortStr", OracleType.VarChar, 3000);
+                p4.Value = this.SortString;
 
-			System.Data.OracleClient.OracleParameter p8=new OracleParameter("MaxPageSize",OracleType.Number);
-			p8.Value=this.MaxPageSize;
+                System.Data.OracleClient.OracleParameter p5 = new OracleParameter("Pagesize", OracleType.Number);
+                p5.Value = this.PageSize;
 
-			System.Data.OracleClient.OracleParameter p9=new OracleParameter("returncur",OracleType.Cursor);
-			p9.Direction=System.Data.ParameterDirection.Output;
-			cmdparams[0]=p1;
-			cmdparams[1]=p2;
-			cmdparams[2]=p3;
-			cmdparams[3]=p4;
-			cmdparams[4]=p5;
-			cmdparams[5]=p6;
-			cmdparams[6]=p7;
-			cmdparams[7]=p8;
-			cmdparams[8]=p9;
-			for(int i=0;i<7;i++)
-			{
-                Debug.WriteLine(cmdparams[i].Value.ToString());
-			}
+                System.Data.OracleClient.OracleParameter p6 = new OracleParameter("Currentindex", OracleType.Number);
+                p6.Value = this.CurrentPageIndex;
 
-			Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
-			DataSet ds=ob.SelectDSByProcedure("ProcedurePager.Per_QuickPage",cmdparams);
-			Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
-			this.TrueRecordSize=Convert.ToInt32(p7.Value);
-			this.TotalRecordSize=this.TrueRecordSize>this.PageSize*this.MaxPageSize?this.PageSize*this.MaxPageSize:this.TrueRecordSize;
-			
-            
+
+                System.Data.OracleClient.OracleParameter p7 = new OracleParameter("TotalCount", OracleType.Number);
+                p7.Value = 0;
+                p7.Direction = System.Data.ParameterDirection.Output;
+
+                System.Data.OracleClient.OracleParameter p8 = new OracleParameter("MaxPageSize", OracleType.Number);
+                p8.Value = this.MaxPageSize;
+
+                System.Data.OracleClient.OracleParameter p9 = new OracleParameter("returncur", OracleType.Cursor);
+                p9.Direction = System.Data.ParameterDirection.Output;
+                cmdparams[0] = p1;
+                cmdparams[1] = p2;
+                cmdparams[2] = p3;
+                cmdparams[3] = p4;
+                cmdparams[4] = p5;
+                cmdparams[5] = p6;
+                cmdparams[6] = p7;
+                cmdparams[7] = p8;
+                cmdparams[8] = p9;
+                for (int i = 0; i < 7; i++)
+                {
+                    Debug.WriteLine(cmdparams[i].Value.ToString());
+                }
+
+                Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
+                ds = ob.SelectDSByProcedure("ProcedurePager.Per_QuickPage", cmdparams);
+                Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
+                this.TrueRecordSize = Convert.ToInt32(p7.Value);
+                this.TotalRecordSize = this.TrueRecordSize > this.PageSize * this.MaxPageSize ? this.PageSize * this.MaxPageSize : this.TrueRecordSize;
+
+            }
+            else if (ob.GetDialectType() == DBDialect.SqlServer)
+            {
+                /*--asp.net读取数据public DataSet GetList(int PageSize,int PageIndex,string strWhere,string ziduan)
+086
+{
+087
+SqlParameter[] parameters = {
+088
+new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+089
+new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+090
+new SqlParameter("@PageSize", SqlDbType.Int),
+091
+new SqlParameter("@PageIndex", SqlDbType.Int),
+092
+new SqlParameter("@IsReCount", SqlDbType.Bit),
+093
+new SqlParameter("@OrderType", SqlDbType.Bit),
+094
+new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
+095
+};
+096
+parameters[0].Value = "azj_zxgsinfo";
+097
+  parameters[1].Value = ziduan;//snow [2012-7-20 10:21:51]
+098
+parameters[2].Value = PageSize;
+099
+parameters[3].Value = PageIndex;
+100
+parameters[4].Value = 0;
+101
+parameters[5].Value = 1;
+102
+parameters[6].Value = strWhere;
+103
+  return DbHelperSQL.RunProcedure("UP_GetRecordByPage", parameters, "ds");
+104
+}
+*/
+                //ob.Open();
+                System.Data.SqlClient.SqlParameter[] cmdparams = new SqlParameter[11];
+                System.Data.SqlClient.SqlParameter p1 = new SqlParameter("@TableName", SqlDbType.VarChar, 255);
+                p1.Value = this.TableName;
+
+
+
+                System.Data.SqlClient.SqlParameter p2 = new SqlParameter("@FieldList", SqlDbType.VarChar, 1000);
+                p2.Value = this.FieldString;
+
+                System.Data.SqlClient.SqlParameter p3 = new SqlParameter("@PageSize", SqlDbType.Int);
+                p3.Value = this.PageSize;
+
+                System.Data.SqlClient.SqlParameter p4 = new SqlParameter("@PageIndex", SqlDbType.Int);
+                p4.Value = this.CurrentPageIndex;
+
+                System.Data.SqlClient.SqlParameter p5 = new SqlParameter("@RecorderCount", SqlDbType.Int);
+                p5.Value = 0;
+
+                System.Data.SqlClient.SqlParameter p6 = new SqlParameter("@Where", SqlDbType.VarChar, 1000);
+                p6.Value = this.RowFilter;
+
+
+                System.Data.SqlClient.SqlParameter p7 = new SqlParameter("@TotalCount", SqlDbType.Int);
+               // p7.Value = 1;
+                p7.Direction = System.Data.ParameterDirection.Output;
+
+                System.Data.SqlClient.SqlParameter p8 = new SqlParameter("@Order", SqlDbType.VarChar, 1000);
+                p8.Value = this.SortString;
+
+                
+
+                System.Data.SqlClient.SqlParameter p9 = new SqlParameter("@TotalPageCount", SqlDbType.Int);
+                p9.Direction = System.Data.ParameterDirection.Output;
+
+                System.Data.SqlClient.SqlParameter p10 = new SqlParameter("@SortType", SqlDbType.Int);
+                p10.Value = 3;
+
+
+
+                System.Data.SqlClient.SqlParameter p11 = new SqlParameter("@PrimaryKey", SqlDbType.VarChar, 100);
+                p11.Value = string.Empty;
+                cmdparams[0] = p1;
+                cmdparams[1] = p2;
+                cmdparams[2] = p3;
+                cmdparams[3] = p4;
+                cmdparams[4] = p5;
+                cmdparams[5] = p6;
+                cmdparams[6] = p7;
+                cmdparams[7] = p8;
+                cmdparams[8] = p9;
+                cmdparams[9] = p10;
+                cmdparams[10] = p11;
+                
+
+                Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
+                ds = ob.SelectDSByProcedure("P_viewPage", cmdparams);
+                Debug.WriteLine(System.DateTime.Now.ToShortTimeString());
+                this.TrueRecordSize = Convert.ToInt32(p7.Value);
+                this.TotalRecordSize = this.TrueRecordSize > this.PageSize * this.MaxPageSize ? this.PageSize * this.MaxPageSize : this.TrueRecordSize;
+
+            }
 			return ds==null?null:ds.Tables[0];
 		}
 
@@ -965,6 +1073,20 @@ namespace WebControls
 							return;
 						}
 					}
+                    else if (sender is GridView)
+                    {
+                        GridView list = (GridView)sender;
+                        DataTable dt = this.PreData();
+                        if (dt != null)
+                        {
+                            list.DataSource = dt;
+                            list.DataBind();
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
 					else
 					{
 						throw new ArgumentException("绑定的控件仅支持DataGrid,DataList,Repeater");
