@@ -211,6 +211,9 @@ namespace FT.Commons.Tools
         /// <returns>合适的类型对象</returns>
         private static object ParseFieldInfo(FieldInfo field, object data)
         {
+#if DEBUG
+            string tt=field.Name;
+#endif
             if (field.FieldType == typeof(Int32))
             {
                 try
@@ -250,6 +253,10 @@ namespace FT.Commons.Tools
             }
             if (field.FieldType == typeof(DateTime))
             {
+                if (data.ToString().Length == 0)
+                {
+                    return null;
+                }
                 return Convert.ToDateTime(data.ToString());
             }
             if (field.FieldType == typeof(Boolean))
@@ -391,6 +398,12 @@ namespace FT.Commons.Tools
         /// <param name="value">具体的值</param>
         private static void SetControlValue(Control ctr, object value)
         {
+            /*
+            if (value is double)
+            {
+                value = string.Format("{0:N2}", value);
+            }
+             * */
             if (value == null)
             {
                 return;

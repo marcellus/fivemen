@@ -70,6 +70,16 @@ namespace FT.Commons.Tools
               next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);
           }
          * */
+
+        public static void CenterForm(Form frm)
+        {
+            int SH = Screen.PrimaryScreen.Bounds.Height;
+
+            int SW = Screen.PrimaryScreen.Bounds.Width;
+
+            frm.Location = new Point((SW - frm.Width) / 2,(SH-frm.Height)/2);
+
+        }
         public static void LocationAfter(Control ctr, Control next)
         {
             next.Location = new Point(ctr.Location.X + ctr.Width, ctr.Location.Y);

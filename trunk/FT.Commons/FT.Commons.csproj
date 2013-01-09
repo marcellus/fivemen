@@ -42,6 +42,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -87,6 +88,10 @@
       <HintPath>..\commons-dlls\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Newtonsoft.Json.Net20, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\commons-dlls\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -137,6 +142,8 @@
     <Compile Include="CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtendServices\Weather\WeatherHelper.cs" />
+    <Compile Include="ExtendServices\Weather\WeatherObject.cs" />
     <Compile Include="PrinterEx\BatchPrintConfig.cs" />
     <Compile Include="PrinterEx\IPrinter.cs" />
     <Compile Include="PrinterEx\ObjectPrinter.cs" />
@@ -219,6 +226,7 @@
     <Compile Include="Tools\ComboBoxHelper.cs" />
     <Compile Include="Tools\ConfigLoader.cs" />
     <Compile Include="Tools\CrcTools.cs" />
+    <Compile Include="Tools\CrcTools2.cs" />
     <Compile Include="Tools\DateTimeHelper.cs" />
     <Compile Include="Tools\Dragger.cs" />
     <Compile Include="Tools\EmailHelper.cs" />
@@ -228,10 +236,12 @@
     <Compile Include="Tools\FormHelper.cs" />
     <Compile Include="Tools\FTPHelper.cs" />
     <Compile Include="Tools\HardwareManager.cs" />
+    <Compile Include="Tools\HttpMockRequestHelper.cs" />
     <Compile Include="Tools\IDCardHelper.cs" />
     <Compile Include="Tools\IISHelper.cs" />
     <Compile Include="Tools\ImageHelper.cs" />
     <Compile Include="Tools\ITerminalPrinter.cs" />
+    <Compile Include="Tools\JsonHelper.cs" />
     <Compile Include="Tools\LPTHelper.cs" />
     <Compile Include="Tools\MathHelper.cs" />
     <Compile Include="Tools\MessageBoxHelper.cs" />
@@ -279,6 +289,7 @@
     </Compile>
     <Compile Include="WebCatcher\SimpleCatcher.cs" />
     <Compile Include="Web\Tools\FileExportHelper.cs" />
+    <Compile Include="Web\Tools\WebToolsHelper.cs" />
     <Compile Include="Win32\SetWindowEnv.cs">
       <SubType>Form</SubType>
     </Compile>
