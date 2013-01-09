@@ -67,6 +67,19 @@ namespace FT.Commons.Win32
             }
         }
 
+        public static void RemoveAllControlFrom(Control parent)
+        {
+            if (parent.InvokeRequired)
+            {
+                RemoveAllControlToDelegate msgCallback = new RemoveAllControlToDelegate(WindowFormDelegate.RemoveAllControlFrom);
+                parent.Invoke(msgCallback, new object[] { parent});
+            }
+            else
+            {
+                parent.Controls.Clear();
+            }
+        }
+
         public static void AddMainThreadHintText(TextBox txt, string msg)
         {
             if (txt.InvokeRequired)
@@ -92,6 +105,12 @@ namespace FT.Commons.Win32
     /// </summary>
     /// <param name="str"></param>
     public delegate void RemoveControlToDelegate(Control parent, Control child);
+
+    /// <summary>
+    /// 移除所有控件委托
+    /// </summary>
+    /// <param name="str"></param>
+    public delegate void RemoveAllControlToDelegate(Control parent);
 
 
     /// <summary>

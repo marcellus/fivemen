@@ -347,6 +347,23 @@ namespace FT.Commons.Print
         }
 
         /// <summary>
+        /// Draws the string ver.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="font">The font.</param>
+        /// <param name="p">The p.</param>
+        protected void DrawImage(string path, Point p)
+        {
+            myGraphics.DrawImage(Image.FromFile(path), p);
+        }
+
+        protected void DrawImage(Image image, Point p)
+        {
+            myGraphics.DrawImage(image, p);
+        }
+
+
+        /// <summary>
         /// 画出水平的字符串
         /// </summary>
         /// <param name="text">需要描绘的字符串</param>

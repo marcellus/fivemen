@@ -128,6 +128,29 @@ namespace FT.Commons.Tools
             }
         }
 
+        public static int GetNumberWeekDay(DateTime dt)
+        {
+            switch (dt.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return 1;
+                case DayOfWeek.Tuesday:
+                    return 2;
+                case DayOfWeek.Wednesday:
+                    return 3;
+                case DayOfWeek.Thursday:
+                    return 4;
+                case DayOfWeek.Friday:
+                    return 5;
+                case DayOfWeek.Saturday:
+                    return 6;
+                case DayOfWeek.Sunday:
+                    return 7;
+                default:
+                    return -1;
+            }
+        }
+
         public static string GetChineseXq(int i)
         {
             switch (i)
@@ -257,6 +280,23 @@ namespace FT.Commons.Tools
         public static Boolean fnIsBetweenTime(DateTime dt, int fromHH, int fromMM, int toHH, int toMM) {
 
             return (!fnIsBeforeTime(dt, fromHH, fromMM)) && (fnIsBeforeTime(dt, toHH, toMM));
+        }
+
+        public static string DtToLongString(DateTime dateTime)
+        {
+            if (dateTime == null)
+            {
+                return string.Empty;
+            }
+            return dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+        public static string DtToShortString(DateTime dateTime)
+        {
+            if (dateTime == null)
+            {
+                return string.Empty;
+            }
+            return dateTime.ToString("yyyy-MM-dd");
         }
 
 
