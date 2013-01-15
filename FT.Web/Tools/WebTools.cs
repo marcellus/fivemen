@@ -10,6 +10,8 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Data;
+using FT.Commons.Com.Excels;
+using System.IO;
 
 namespace FT.Web.Tools
 {
@@ -249,6 +251,24 @@ namespace FT.Web.Tools
 			}			
 			System.Web.HttpContext.Current.Response.End();
 		}
+
+        /// <summary>
+        /// ListExcel导出名叫reportname的excel报表
+        /// </summary>
+        /// <param name="reportname">报表名字带xls后缀</param>
+        /// <param name="listExcel">ListExcel</param>
+        public static void ExportExcelReport(string reportname,ListExcel listExcel)
+        {
+            System.Web.HttpContext.Current.Response.Clear();
+            System.Web.HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+            System.Web.HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(reportname));
+            System.Web.HttpContext.Current.Response.ContentType = "application/ms-excel";
+            string filename = listExcel.GetExcelReport();
+            FileInfo file = new FileInfo(filename);
+            System.Web.HttpContext.Current.Response.AddHeader("Content-Length", file.Length.ToString());//添加头文件，指定文件的大小，让浏览器显示文件下载的速度
+            System.Web.HttpContext.Current.Response.WriteFile(file.FullName);// 把文件流发送到客户端
+            System.Web.HttpContext.Current.Response.End();
+        }
 
         /// <summary>
         /// 根据datatable导出名叫reportname的excel报表

@@ -86,6 +86,10 @@
     <Content Include="ProcedurePager.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FT.Commons\FT.Commons.csproj">
+      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
+      <Name>FT.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
       <Project>{28F66C9B-578D-409B-9314-02E213917C04}</Project>
       <Name>FT.DAL</Name>
