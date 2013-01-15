@@ -15,6 +15,7 @@ namespace FT.Commons.Com.Excels
 {
     public class ListExcel : SimpleExcel
     {
+        
         private System.Data.DataTable dt;
 
         /// <summary>
@@ -92,10 +93,18 @@ namespace FT.Commons.Com.Excels
                         {
                             try
                             {
-                                objData[row, col] = "'" + Convert.ToDateTime(dt.Rows[row][col]).ToString("yyyy-MM-dd");
+#if DEBUG
+                                string text = dt.Rows[row][col].ToString();
+#endif
+                                objData[row, col] = "'" + DateTime.ParseExact(text, "yyyyMMdd", System.Threading.Thread.CurrentThread.CurrentCulture).ToString("yyyyMMdd");
+                               // objData[row, col] = "'" + Convert.ToDateTime(dt.Rows[row][col].ToString()).ToString("yyyyMMdd");
+#if DEBUG
+                                string text2 = objData[row, col].ToString();
+#endif
                             }
-                            catch
+                            catch(Exception ex)
                             {
+                                Console.WriteLine(ex.ToString());
                             }
 
                         }
@@ -129,13 +138,29 @@ namespace FT.Commons.Com.Excels
         /// deadshot123 modify at 2007-4-10 13:55
         protected override void DrawFooter()
         {
-            //设置整个excel体的格式
-            Range body = this.GetRange(3, 1, this.CurrentRowIndex, this.ColLength);
-            this.SetFont(body, BodyFont);
-            this.SetRangAlign(body, ExcelAlign.Center);
-            this.SetRangBorderDefault(body);
-            this.CurrentRowIndex++;
-            base.DrawFooter();
+            if (this.HasHeader)
+            {
+                //设置整个excel体的格式
+                Range body = this.GetRange(3, 1, this.CurrentRowIndex, this.ColLength);
+                this.SetFont(body, BodyFont);
+                this.SetRangAlign(body, ExcelAlign.Center);
+                this.SetRangBorderDefault(body);
+            }
+            else
+            {
+                Range body = this.GetRange(2, 1, this.CurrentRowIndex, this.ColLength);
+                this.SetFont(body, BodyFont);
+                this.SetRangAlign(body, ExcelAlign.Center);
+                this.SetRangBorderDefault(body);
+            }
+            if (this.HasFooter)
+            {
+               
+                this.CurrentRowIndex++;
+                base.DrawFooter();
+            }
+            
+            
         }
 
         /// <summary>
@@ -144,6 +169,7 @@ namespace FT.Commons.Com.Excels
         /// deadshot123 modify at 2007-4-10 13:55
         protected override void DrawHeader()
         {
+            
             base.DrawHeader();
             //Range rang = this.GetRange(3, 1, 3, 5);
             //this.MergeCells(rang);

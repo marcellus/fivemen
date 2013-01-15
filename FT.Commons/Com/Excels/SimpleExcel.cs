@@ -84,6 +84,20 @@ namespace FT.Commons.Com.Excels
             set { headerWidth = value; }
         }
 
+        protected bool m_HasFooter = true;
+
+        public bool HasFooter
+        {
+            get
+            {
+                return this.m_HasFooter;
+            }
+            set
+            {
+                this.m_HasFooter = value;
+            }
+        }
+
         protected string m_bottom = bottom;
         /// <summary>
         /// Gets or sets the bottom.
@@ -389,21 +403,38 @@ namespace FT.Commons.Com.Excels
             #endregion
 
         }
+
+        protected bool m_HasHeader = true;
+
+        public bool HasHeader
+        {
+            get
+            {
+                return this.m_HasHeader;
+            }
+            set
+            {
+                this.m_HasHeader = value;
+            }
+        } 
         #region 子类必须实现的
         /// <summary>
         /// 画Excel的头部
         /// </summary>
         protected virtual void DrawHeader()
         {
-            Range rang = this.GetRange(1, 1, 1, this.ColLength);
-            this.MergeCells(rang);
-            this.SetRowHeight(1, this.HeaderHeight);
-            this.SetRangBorderDefault(rang);
-            this.SetRangBackColor(rang, 7);
-            this.SetFont(rang, FirstTitle, 1);
-            this.SetRangeText(rang, this.Title);
+            if (HasHeader)
+            {
+                Range rang = this.GetRange(1, 1, 1, this.ColLength);
+                this.MergeCells(rang);
+                this.SetRowHeight(1, this.HeaderHeight);
+                this.SetRangBorderDefault(rang);
+                this.SetRangBackColor(rang, 7);
+                this.SetFont(rang, FirstTitle, 1);
+                this.SetRangeText(rang, this.Title);
 
-            this.CurrentRowIndex++;
+                this.CurrentRowIndex++;
+            }
         }
         /// <summary>
         /// 画Excel的内容
@@ -416,24 +447,50 @@ namespace FT.Commons.Com.Excels
         /// </summary>
         protected virtual void DrawFooter()
         {
-            Range rang = this.GetRange(this.CurrentRowIndex, 1, this.CurrentRowIndex, this.ColLength);
-            this.SetRangBorderDefault(rang);
-            this.SetRowHeight(this.CurrentRowIndex, this.BottomHeight);
-            this.SetFont(rang, BodyFont);
-            this.SetRangBackColor(rang, 15);
-            this.MergeCells(rang);
-            rang.HorizontalAlignment = Constants.xlRight;
-            this.SetRangeText(rang, string.Format(this.Bottom, System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
+            if (this.HasFooter)
+            {
+                Range rang = this.GetRange(this.CurrentRowIndex, 1, this.CurrentRowIndex, this.ColLength);
+                this.SetRangBorderDefault(rang);
+                this.SetRowHeight(this.CurrentRowIndex, this.BottomHeight);
+                this.SetFont(rang, BodyFont);
+                this.SetRangBackColor(rang, 15);
+                this.MergeCells(rang);
+                rang.HorizontalAlignment = Constants.xlRight;
+                this.SetRangeText(rang, string.Format(this.Bottom, System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
+            }
+            else
+            {
+                //Range rang = this.GetRange(this.CurrentRowIndex, 1, this.CurrentRowIndex, this.ColLength);
+                //this.SetRangBorderDefault(rang);
+                //this.SetRowHeight(this.CurrentRowIndex, this.BottomHeight);
+                //this.SetFont(rang, BodyFont);
+                //this.SetRangBackColor(rang, 15);
+                //this.MergeCells(rang);
+                //rang.HorizontalAlignment = Constants.xlRight;
+               // this.SetRangeText(rang, string.Format(this.Bottom, System.DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
+            }
         }
 
         #endregion
+
+        private bool isReplaceReport = false;
+
+        /// <summary>
+        /// 是否存在文件并覆盖
+        /// </summary>
+        public bool IsReplaceReport
+        {
+            get { return isReplaceReport; }
+            set { isReplaceReport = value; }
+        }
+            
         /// <summary>
         /// 获取文件绝对路径
         /// </summary>
         /// <returns>文件路径</returns>
         public string GetExcelReport()
         {
-            if (File.Exists(this.fileName))
+            if (!this.IsReplaceReport&&File.Exists(this.fileName))
             {
 
             }
