@@ -513,7 +513,14 @@ namespace FT.DAL
                 cmd.CommandText = sql;
                 result = cmd.ExecuteScalar();
                 this.Close();
-                log.Debug("SelectScalar result:" + result == null ? " is null" : result.ToString());
+                if (result == null || result is DBNull)
+                {
+                    log.Debug("SelectScalar result: is null");
+                }
+                else
+                {
+                    log.Debug("SelectScalar result:" +result.ToString());
+                }
                 return result;
             }
             catch (Exception e)
