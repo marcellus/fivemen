@@ -63,13 +63,17 @@ namespace HiPiaoTerminal
                 this.txtValidCode.Focus();
                 return;
             }
-            if (mobile.Length == 11 && validCode.Length > 0)
+            if (mobile.Length == 11 && validCode.Length == 6)
             {
                 //this.btnPrint2.IsActived = true;
+                this.allowPrint = true;
+                this.btnPrint.Image = Properties.Resources.Print_Ticket_Num_GetTicket_Active;
             }
             else
             {
                 //this.btnPrint2.IsActived = false;
+                this.allowPrint = false;
+                this.btnPrint.Image = Properties.Resources.Print_Ticket_Num_GetTicket_Not_Active;
             }
             //string validCode=
         }
@@ -189,6 +193,8 @@ namespace HiPiaoTerminal
         {
             this.txtMobile.Text=this.txtValidCode.Text = string.Empty;
             this.txtMobile.Focus();
+            this.allowPrint = false;
+            this.btnPrint.Image = Properties.Resources.Print_Ticket_Num_GetTicket_Not_Active;
         }
     }
 }

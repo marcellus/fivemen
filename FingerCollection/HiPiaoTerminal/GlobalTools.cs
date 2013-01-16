@@ -33,7 +33,7 @@ namespace HiPiaoTerminal
 
         
 
-        public static void PrintTickets(ArrayList lists)
+        public static bool PrintTickets(ArrayList lists)
         {
 #if DEBUG
 
@@ -42,28 +42,37 @@ namespace HiPiaoTerminal
             if (lists != null)
             {
                // MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
-                GlobalHardwareTools.OpenHotPrinter();
-                for (int i = 0; i < lists.Count; i++)
+                if (!GlobalHardwareTools.OpenHotPrinter())
                 {
+                    GlobalTools.Pop("打印机打开错误，请检查！");
+                    return false;
+                }
+                else
+                {
+                    for (int i = 0; i < lists.Count; i++)
+                    {
 #if DEBUG
 
                  //   MessageBox.Show("正在打印第"+i+"个影票");
-#endif              
-                    if (lists[i] is TicketPrintObject)
-                    {
-                        GlobalHardwareTools.PrintTicket(lists[i] as TicketPrintObject);
+#endif
+                        if (lists[i] is TicketPrintObject)
+                        {
+                            GlobalHardwareTools.PrintTicket(lists[i] as TicketPrintObject);
+                        }
+                        else
+                        {
+                            GlobalHardwareTools.PrintSellProduct(lists[i] as SellProductPrinter);
+                        }
                     }
-                    else
-                    {
-                        GlobalHardwareTools.PrintSellProduct(lists[i] as SellProductPrinter);
-                    }
+                    GlobalHardwareTools.CloseHotPrinter();
+                    return true;
                 }
-                GlobalHardwareTools.CloseHotPrinter();
 
             }
+            return false;
         }
 
-        public static void PrintTickets(string mobile, string validCode)
+        public static bool PrintTickets(string mobile, string validCode)
         {
             string msgType = "30";
             //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
@@ -72,7 +81,7 @@ namespace HiPiaoTerminal
             //helper.Send(str);
             //HipiaoTcpHelper.GetTicket(str);
             SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-            PrintTickets(HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str)));
+           return  PrintTickets(HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str)));
         }
 
        // public 
@@ -460,42 +469,47 @@ namespace HiPiaoTerminal
 
         public static void ChangePanel(Form frm,Control panel)
         {
-            if (frm != null && panel != null)
-            {
-                frm.Controls.Clear();
-                frm.MaximizeBox = true;
-                frm.MinimizeBox = true;
-                frm.FormBorderStyle = FormBorderStyle.Sizable;
-                frm.StartPosition = FormStartPosition.Manual;
-                frm.WindowState = FormWindowState.Normal;
-                frm.Parent = null;
-               // MessageBox.Show("1-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
-                frm.MaximumSize = new Size(panel.Width, panel.Height);
-                frm.MinimumSize = new Size(panel.Width, panel.Height);
-                frm.Width = panel.Width;
-                frm.Height = panel.Height;
-                //frm.WindowState = FormWindowState.Maximized;
-                //System.Threading.Thread.Sleep(1000);
-                
-                //frm.
-               // MessageBox.Show("2-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
-               // frm.Size = new Size(panel.Width, panel.Height);
-              
-               // frm.BackColor = Color.Red;
-                panel.Dock = DockStyle.Fill;
-                //frm.StartPosition = FormStartPosition.CenterScreen;
-               
-                WinFormHelper.CenterForm(frm);
-                FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+           
+                if (frm != null && panel != null)
+                {
 
-                frm.FormBorderStyle = FormBorderStyle.None;
-                frm.Invalidate();
-               // frm.ResumeLayout(true);
-               // frm.PerformLayout();
-                //MessageBox.Show("3-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
-               
-                //frm.Controls.Add(panel);
-            }
+                    FT.Commons.Win32.WindowFormDelegate.RemoveAllControlFrom(frm);
+                   
+                   
+                    frm.MaximizeBox = true;
+                    frm.MinimizeBox = true;
+                    frm.FormBorderStyle = FormBorderStyle.Sizable;
+                    frm.StartPosition = FormStartPosition.Manual;
+                    frm.WindowState = FormWindowState.Normal;
+                    frm.Parent = null;
+                    // MessageBox.Show("1-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+                    frm.MaximumSize = new Size(panel.Width, panel.Height);
+                    frm.MinimumSize = new Size(panel.Width, panel.Height);
+                    frm.Width = panel.Width;
+                    frm.Height = panel.Height;
+                    //frm.WindowState = FormWindowState.Maximized;
+                    //System.Threading.Thread.Sleep(1000);
+
+                    //frm.
+                    // MessageBox.Show("2-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+                    // frm.Size = new Size(panel.Width, panel.Height);
+
+                    // frm.BackColor = Color.Red;
+                    panel.Dock = DockStyle.Fill;
+                    //frm.StartPosition = FormStartPosition.CenterScreen;
+
+                    WinFormHelper.CenterForm(frm);
+                    FT.Commons.Win32.WindowFormDelegate.AddControlTo(frm, panel);
+
+                    frm.FormBorderStyle = FormBorderStyle.None;
+                    frm.Invalidate();
+                    // frm.ResumeLayout(true);
+                    // frm.PerformLayout();
+                    //MessageBox.Show("3-现有窗体宽度为Width：" + frm.Width.ToString() + ":Height:" + frm.Height.ToString());
+
+                    //frm.Controls.Add(panel);
+                }
+            
         }
 
         public static DialogResult Pop(Control panel)

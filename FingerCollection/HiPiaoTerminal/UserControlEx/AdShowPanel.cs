@@ -106,23 +106,46 @@ namespace HiPiaoTerminal.UserControlEx
 #if DEBUG
                     //Console.WriteLine("当前广告起始的索引为：" + currentIndex);
 #endif
-
-                    for (int i = currentIndex; i < lists.Count; i++)
+                    int count = 0;
+                    int countindex=0;
+                    for (int i = 0; i < lists.Count; i++)
                     {
-                        //if (true)
-                        if (i>0&&i == lists.Count - 1 && lists[i].AdvWeizhiOne != adType)
+                        if (lists[i].AdvWeizhiOne == adType)
                         {
-#if DEBUG
-                            Console.WriteLine(System.DateTime.Now.ToString()+"最后一个广告索引都不是位置：" + adType);
-#endif
-                            i = 0;
-                            continue;
+                            count++;
+                            countindex = i;
                         }
-                        if(lists[i].AdvWeizhiOne==adType)
+                    }
+                    if (count == 0)
+                    {
+                        this.BackgroundImage = lists[0].AdvPic;
+                        this.Tag ="0";
+                    }
+                    else if (count == 1)
+                    {
+                        this.BackgroundImage = lists[countindex].AdvPic;
+                        this.Tag = countindex.ToString();
+                    }
+                    else if (count > 1)
+                    {
+                        for (int i = currentIndex; i < lists.Count; i++)
                         {
-                            this.BackgroundImage = lists[i].AdvPic;
-                            this.Tag = i.ToString();
-                            break;
+                            //if (true)
+                            if (i > 0 && i == lists.Count - 1 && lists[i].AdvWeizhiOne != adType)
+                            {
+#if DEBUG
+                                Console.WriteLine(System.DateTime.Now.ToString() + "最后一个广告索引都不是位置：" + adType);
+#endif
+                                i = 0;
+
+                                continue;
+                            }
+                            if (lists[i].AdvWeizhiOne == adType)
+                            {
+                                this.BackgroundImage = lists[i].AdvPic;
+                                this.Tag = i.ToString();
+                                break;
+                            }
                         }
                     }
                 }

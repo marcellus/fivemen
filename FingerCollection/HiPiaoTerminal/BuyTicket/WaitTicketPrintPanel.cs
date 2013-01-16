@@ -95,6 +95,7 @@ namespace HiPiaoTerminal.BuyTicket
         private void PrintTask()
         {
             Thread.Sleep(3000);
+            bool result = false;
             if (this.lists != null)
             {
                 MyOpaqueLayerTools.ShowOpaqueLayer(this.panelHeader, 60, true);
@@ -106,11 +107,20 @@ namespace HiPiaoTerminal.BuyTicket
                 }
                 GlobalHardwareTools.CloseHotPrinter();
                  * */
-                GlobalTools.PrintTickets(this.lists[0].Phone, this.lists[0].ValidCode);
+               result= GlobalTools.PrintTickets(this.lists[0].Phone, this.lists[0].ValidCode);
 
             }
-            GlobalTools.ChangePanel(this.FindForm(), new WaitSuccessPrintPanel(this.lists,this.movieInfo,this.moviePlan));
+            if (result)
+            {
+                GlobalTools.ChangePanel(this.FindForm(), new WaitSuccessPrintPanel(this.lists, this.movieInfo, this.moviePlan));
+            }
+            else
+            {
+                GlobalTools.ReturnMain();
+            }
         }
+
+        
 
         private void btnHome_Click(object sender, EventArgs e)
         {

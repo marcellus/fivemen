@@ -67,14 +67,20 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.ReturnMain();
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.ReturnMain();
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.GoPanel(new MovieSelectorPanel());
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.GoPanel(new MovieSelectorPanel());
+            }
         }
 
       
@@ -201,9 +207,12 @@ namespace HiPiaoTerminal.BuyTicket
 
         void pc_Click(object sender, EventArgs e)
         {
-            RoomPlanShowPanel ctr=sender as RoomPlanShowPanel;
-            RoomPlanObject roomPlan = ctr.Tag as RoomPlanObject;
-            GlobalTools.GoPanel(new MovieSeatSelectorPanel(roomPlan,movie, moviePlan, planDt));
+            if (this.loaded)
+            {
+                RoomPlanShowPanel ctr = sender as RoomPlanShowPanel;
+                RoomPlanObject roomPlan = ctr.Tag as RoomPlanObject;
+                GlobalTools.GoPanel(new MovieSeatSelectorPanel(roomPlan, movie, moviePlan, planDt));
+            }
             //MessageBoxHelper.Show("准备选座！");
             //throw new NotImplementedException();
         }
@@ -223,17 +232,23 @@ namespace HiPiaoTerminal.BuyTicket
         }
         private void GetPlan(DateTime dt)
         {
-            this.ExitThread();
-            this.planDt = dt;
-            thread = new Thread(new ThreadStart(ThreadGetPlan));
-            thread.IsBackground = true;
-            thread.Start();
+            if (loaded)
+            {
+                this.ExitThread();
+                this.loaded = false;
+                this.planDt = dt;
+                thread = new Thread(new ThreadStart(ThreadGetPlan));
+                thread.IsBackground = true;
+                thread.Start();
+            }
            
         }
 
+        private bool loaded = true;
+
         private void ThreadGetPlan()
         {
-
+            
             this.lbProcessHint.Visible = true;
             this.processPanel1.Visible = true;
             this.processPanel1.StartProcess();
@@ -245,47 +260,60 @@ namespace HiPiaoTerminal.BuyTicket
             this.processPanel1.StopProcess();
             this.lbProcessHint.Visible = false;
             this.processPanel1.Visible = false;
+            this.loaded = true;
         }
 
         private void btnTomorrow_Click(object sender, EventArgs e)
         {
-            GetPlan(System.DateTime.Now.AddDays(1));
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            if (this.loaded)
+            {
+                GetPlan(System.DateTime.Now.AddDays(1));
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            }
             
         }
 
         private void btnThreeDay_Click(object sender, EventArgs e)
         {
-            GetPlan(System.DateTime.Now.AddDays(2));
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            if (this.loaded)
+            {
+                GetPlan(System.DateTime.Now.AddDays(2));
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            }
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            GetPlan(System.DateTime.Now);
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today; 
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            if (this.loaded)
+            {
+                GetPlan(System.DateTime.Now);
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Point pt = MousePosition;
-            pt = pictureBox1.PointToClient(pt);
+            if (this.loaded)
+            {
+                Point pt = MousePosition;
+                pt = pictureBox1.PointToClient(pt);
 #if DEBUG
             Console.WriteLine("点击横幅区域为X：" + pt.X + "---Y:" + pt.Y.ToString());
 #endif
-            //点击的是选影片
-            if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
-            {
-                //btnReturn_Click(null, null);
-                this.ExitThread();
-                GlobalTools.GoPanel(new MovieSelectorPanel());
-                // MovieSelectorPanel(
+                //点击的是选影片
+                if (pt.X > 144 && pt.X < 295 && pt.Y > 5 && pt.Y < 74)
+                {
+                    //btnReturn_Click(null, null);
+                    this.ExitThread();
+                    GlobalTools.GoPanel(new MovieSelectorPanel());
+                    // MovieSelectorPanel(
+                }
             }
         }
     }
