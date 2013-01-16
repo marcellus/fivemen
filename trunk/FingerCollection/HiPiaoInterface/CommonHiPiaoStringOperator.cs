@@ -610,6 +610,46 @@ ServicePointManager.ServerCertificateValidationCallback =
             return string.Empty;
         }
 
+        public static string GetPageReSource(string url, string charset)
+        {
+
+            //发起请求
+
+            Uri uri = new Uri(url);
+            if (url.StartsWith("https"))
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+                ServicePointManager.ServerCertificateValidationCallback =
+                                        new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
+
+
+            }
+
+            WebRequest webRequest = WebRequest.Create(uri);
+
+            webRequest.ContentType = "application/json; charset=" + charset;
+
+            webRequest.Method = "GET";
+
+            webRequest.Timeout = GetInterfaceTimeout();
+
+         
+            //响应
+
+            WebResponse webResponse = webRequest.GetResponse();
+
+            using (StreamReader myStreamReader = new StreamReader(webResponse.GetResponseStream(), Encoding.GetEncoding(charset)))
+            {
+
+                string result = "";
+
+                return result = myStreamReader.ReadToEnd();
+
+
+            }
+
+        }
+
         public static string GetSOAPReSource(string url, string datastr)
  
         {

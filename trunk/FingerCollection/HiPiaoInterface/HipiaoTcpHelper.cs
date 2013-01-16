@@ -9,6 +9,8 @@ using System.Net;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
+using FT.Commons.Security;
+using System.Security.Cryptography;
 
 namespace HiPiaoInterface
 {
@@ -74,6 +76,74 @@ namespace HiPiaoInterface
 
             }
             return false;
+        }
+
+        public static ArrayList GetDingxinTicket(string cinemaid,string mobile, string num)
+        {
+            string url = "https://119.10.114.212/buy/ticketPrint/?";
+           // string url = "https://member.hipiao.com/buy/ticketPrint/?";
+           // &sig=4767a67b88fb92a37a619e9ab01287
+           // "cid=1&mobile=13269402753&num=694540&print=1"
+            string param =string.Format( "cid={0}&mobile={1}&num={2}&print=1",cinemaid,mobile,num);
+            string authCode = "4fjrh0t9o5mygjb8";
+            string temp = "e99a18c428cb38d5f260853678922e03";
+            string temp2 ="e99a18c428cb38d5f260853678922e3";
+            string aaa = md5("abc123");
+            //MD5Security md5=new MD5Security();
+            string sig = md5(md5(authCode+param)+authCode);
+            string result = CommonHiPiaoStringOperator.GetPageReSource(url + param + "&sig=" + sig, "utf-8");
+            Console.WriteLine("调用鼎新接口" + url + param + "&sig=" + sig + "返回结果为：" + result);
+            DingXinResponseObject response = DingXinResponseObject.Parse(result);
+            ArrayList tickets = new ArrayList();
+            TicketPrintObject ticketPrintObject = null;
+            string printtime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            if (response.res.data.item.Count > 0)
+            {
+                ItemObject item = null;
+                for (int i = 0; i < response.res.data.item.Count; i++)
+                {
+                    ticketPrintObject = new TicketPrintObject();
+                    item = response.res.data.item[i];
+                    ticketPrintObject.Cinema = response.res.data.CNAME;
+                    ticketPrintObject.MovieName = response.res.data.CHNAME;
+                    ticketPrintObject.RoomName = response.res.data.hName;
+                    ticketPrintObject.PlayDate = response.res.data.start.Substring(0,10);
+                    ticketPrintObject.PlayTime = response.res.data.start.Substring(11, 8);
+                    ticketPrintObject.PrintTime = printtime;
+                    ticketPrintObject.Price =Convert.ToInt32( Convert.ToDecimal(item.price));
+                    ticketPrintObject.Seat = item.seat;
+                    ticketPrintObject.MiddleFee = item.handleFee;
+                    ticketPrintObject.TicketId = item.no;
+                    ticketPrintObject.IsPrinted = item.printed == "1";
+                    tickets.Add(ticketPrintObject);
+                }
+            }
+            //string ttt = "";
+           // return null;
+            return tickets;
+        }
+
+        public static string md5(string str)
+        {
+             
+             string cl = str;
+             string pwd = "";
+             string temp = "";
+              MD5 md5 = MD5.Create();//实例化一个md5对像
+             // 加密后是一个字节类型的数组，这里要注意编码UTF8/Unicode等的选择　
+             byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(cl));
+             // 通过使用循环，将字节类型的数组转换为字符串，此字符串是常规字符格式化所得
+             for (int i = 0; i < s.Length; i++)
+             {
+                 // 将得到的字符串使用十六进制类型格式。格式后的字符是小写的字母，如果使用大写（X）则格式后的字符是大写字符 
+                 temp = s[i].ToString("x");
+                 if (temp.Length < 2)
+                     temp = "0" + temp;
+                 pwd = pwd + temp;
+                 //pwd = pwd + s[i].ToString("x");
+                 
+              }
+             return pwd;
         }
 
         public static ArrayList GetTicket(string host, int port, byte[] pack)
