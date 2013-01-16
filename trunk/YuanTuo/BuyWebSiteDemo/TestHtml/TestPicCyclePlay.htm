@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+ <head>
+
+  <title> New Document </title>
+
+    <style type="text/css">
+
+        *{margin:0;padding:0;}
+
+        ul{list-style:none outside none}
+
+        .box{width:200px;border:1px solid orange;margin:55px auto}
+
+        .box1{height:200px;background:orange}
+
+        .box2{width:200px;height:200px;overflow:hidden;position:relative}
+
+        .box2 li{float:left;width:200px;height:200px;background:red;}
+
+        .box2 .list{height:200px;position:absolute;top:0;left:0;width:40000%}
+
+                 
+
+    </style>
+
+ </head>
+
+ <body>
+
+        <div class="box">
+
+            <div class="box1" style="display:none"></div>
+
+            <div class="box2" id="box2">
+
+                    <ul class="list" >
+
+                        <li><img alt="1"  src="1.jpg" width="200" height="200" /></li>
+
+                        <li><img alt="2"  src="2.jpg" width="200" height="200" /></li>
+
+                        <li><img alt="3"  src="3.jpg" width="200" height="200" /></li>
+
+                       
+
+                    </ul>
+
+            </div>
+
+        </div>
+
+         
+
+   
+
+    <script type="text/javascript">
+
+    window.onload=function(){
+
+        var box2=document.getElementById('box2');
+
+        var oUl=box2.getElementsByTagName('ul')[0];
+
+        var aLi=oUl.getElementsByTagName('li');
+
+        var len=aLi.length;
+
+        var w=aLi[0].offsetWidth;
+
+        var index=0;
+
+        var b=true;
+
+        var timer=null;
+
+        function next(){
+
+            b?index++:index--;
+
+            (index==0 || index==len-1) && (b=!b);
+
+            startMove(-index*w);
+
+        }
+
+         
+
+        setInterval(next,2000);
+
+        function doMove(iTarget){
+
+            var iSpeed=(iTarget-oUl.offsetLeft)/14;
+
+            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);        
+
+            oUl.offsetLeft == iTarget ? clearInterval(timer) : oUl.style.left = oUl.offsetLeft + iSpeed + "px";
+
+        };
+
+        function startMove(iTarget){//alert(1);
+
+            clearInterval(timer);
+
+            timer=setInterval(function(){
+
+                doMove(iTarget);
+
+            },30)
+
+        };
+
+    };
+
+    </script>
+
+ </body>
+
+</html>

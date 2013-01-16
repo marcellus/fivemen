@@ -1,0 +1,243 @@
+/*
+	date:2010-09-06
+	仿ext分页显示CSS文件
+*/
+ .pager{
+ 	color:#15527b;
+ }
+ .pager a {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+}
+.pager a.pageA{
+background:url("../images/grid/page.png") no-repeat  left 0px transparent;
+display:inline-block;
+font-size:14px;
+margin:0 3px;
+padding-left:6px;
+text-align:center;
+vertical-align:bottom;
+height:auto;
+width:auto;
+cursor:pointer;
+}
+.pager a.pageA span{
+background:url("../images/grid/page.png") no-repeat  right 0px transparent;
+display:inline-block;
+height:24px;
+line-height:22px;
+padding-right:6px;
+}
+.pager a.pageActive{
+background:url("../images/grid/page.png") no-repeat  left -24px transparent;
+}
+.pager a.pageActive span{
+background:url("../images/grid/page.png") no-repeat  right -24px transparent;
+color:#CD0000;
+font-size:bolder;
+}
+ .pager a.go{
+ 	background:url(/egs/images/demo/surego.gif) no-repeat;
+	border:1px solid #c6c6c6;
+	width:35px;
+	text-align:center;
+	line-height:16px;
+ }
+ .pager .pager_first {
+    background: url(../images/grid/page-first.png) no-repeat;
+}
+
+ .pager .pager_last {
+    background: url(../images/grid/page-last.png) no-repeat;
+}
+
+ .pager .pager_prev {
+    background: url(../images/grid/page-prev.png) no-repeat;
+}
+
+ .pager .pager_next {
+    background: url(../images/grid/page-next.png) no-repeat;
+}
+
+.input_page {
+    margin-top: 5px;
+    float: left;
+}
+
+ .pager .input_page input {
+    height: 12px;
+    width: 30px;
+	line-height:12px;
+}
+.overlay{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:100;
+	background:url(../imagess/grid/load-bg.png) repeat;
+}
+.imagepre {
+    background: url(../imagess/grid/loading.png) no-repeat;
+    width: 89px;
+    height: 35px;
+	  padding-left:40px;
+    position: absolute;
+    z-index: 101;
+    line-height: 35px;
+}
+/*表格CSS结束*/
+div.tableContent{
+	margin:10px;
+	position:relative;
+}
+p.tips{
+  position:absolute;
+  width:100px;
+  height:20px;
+  background:#499c41;
+  color:#fff;
+  top:20px;
+  left:40%;
+  display:none;
+}
+p.tips span{
+  background:url(../images/grid/loading.gif) no-repeat;
+  width:20px;
+  height:100%;
+  float:left;
+  margin-left:5px;
+  margin-top:2px;
+}
+ h2.title,div.pagerBar{
+	background: url(../images/title.gif) no-repeat;
+	height:25px;
+}
+div.pagerBar{
+	/*margin-top:10px;*/
+	margin-top:0;
+	background:#f8f8f8;
+	border:1px solid #c6c6c6;
+	border-top-color:#fff;
+}
+div.pagerBar span{
+	
+	background:none;
+}
+ h2.title span/*,div.pagerBar span*/{
+	float:right;
+	background: url(../images/title.gif) top right no-repeat;
+	width:3px;
+	height:25px;
+	margin-right:-2px;
+	_margin-right:0;
+}
+ h2.title label{
+	padding-left:20px;
+	color:#15527b;
+	float:left;
+}
+div.tableData{
+	padding:3px;
+	background:#f8f8f8;
+	/*background:#daeffc;
+	border:1px solid #0b9cfc;*/
+	margin-top:10px;
+	border:1px solid #c6c6c6;
+	-moz-border-radius:2px 2px 0 0;
+}
+table{
+	border:1px solid #c6c6c6
+	border-width:1px 0px 0px 1px;
+	width:100%;
+	background:#fff;
+}
+
+table td,table th{
+	border:1px solid #ebebeb;
+	height:25px;
+	text-align: left;
+	padding-left:10px;
+	cursor:pointer;
+	padding-right:10px;
+}
+table thead th{
+	background:#fff url(../images/grid/thbak.png)  repeat-x;
+	/*color:#2e92d0;*/
+	color:#666;
+	border-bottom:none;
+}
+table tr.tdHover{
+	background: #fbfbfb;
+}
+table td.thClick{
+		background:#fbfbfb;
+}
+td a.edit{
+float:left;
+padding-left:20px;
+background:url(/egs/images/others/edit.png) no-repeat;
+color:#666;
+}
+td a.del{
+float:left;
+padding-left:20px;
+background:url(/egs/images/others/del.png) no-repeat;
+color:#666;
+}
+tbody span.alert{
+	width:300px;
+	margin:5px auto;
+	height:25px;
+	font-size:14px;
+	float:left;
+	padding-left:30px;
+	background:url("../images/demo/alert.png") no-repeat  transparent;
+}
+th.top{
+	text-align:center;
+	color:#666;
+	font-size:14px;
+}
+th.top label{
+	color:#108433;
+}
+th.top input{
+	font-size:12px;
+	float:left;
+	*margin-top:-12px;
+}
+div.line{
+	margin-top:10px;
+	margin-bottom:-11px;
+	padding:0;
+	height:18px;
+	width:50px;
+	border:1px solid #ccc;
+	text-align:center;
+	cursor:pointer;
+	background:#fff;
+	position:relative;
+	z-index:500;
+	border-bottom:0;
+	color:#2e92d0;
+	font-weight:bolder;
+}
+/*div.line + div{
+	border-top-color:#a6dafd;
+}*/
+form{
+	padding-bottom:3px;
+}
+#form{
+	display:none;
+}
+#export{
+	width:83px;
+	height:21px;
+	background:url(/egs/images/demo/export.gif) no-repeat;
+	border:0;
+	text-indent:-9999px;
+}

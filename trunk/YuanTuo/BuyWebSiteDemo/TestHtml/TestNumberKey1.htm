@@ -1,0 +1,84 @@
+﻿<HTML> 
+<HEAD> 
+<TITLE> New Document </TITLE> 
+
+<BODY> 
+<input type="button" style="width:60px;height:40px" name="btn" value="开始订购" onclick="showKeyboard(this);">
+<div  id="numberkeyboard" style="background-color:Olive;width:200px;display:none">
+<TABLE border="0"> 
+<TR> 
+<TD colspan="3" align="left">
+购买数量：
+<br />
+<input type="text" name="txtOrderNum" id="txtOrderNum" value="" style=" background-color:Olive;font-size:20pt; border:0px; border-bottom:solid 1px black;width:190px" readonly style="text-align:left" /></TD> 
+</TR> 
+<TR> 
+<TD align="center"><input type="button" style="width:60px;height:40px" name="btn" value=" 7 " onclick="funKey('7');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 8 " onclick="funKey('8');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 9 " onclick="funKey('9');"></TD> 
+</TR> 
+<TR> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 4 " onclick="funKey('4');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 5 " onclick="funKey('5');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 6 " onclick="funKey('6');"></TD> 
+
+</TR> 
+<TR> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 1 " onclick="funKey('1');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 2 " onclick="funKey('2');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 3 " onclick="funKey('3');"></TD> 
+
+</TR> 
+<TR> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value=" 0 " onclick="funKey('0');"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value="订购" onclick="orderNum();"></TD> 
+<TD align="center"><input type="button" style="width:60px;height:40px"  name="btn" value="取消" onclick="cancelKey();"></TD> 
+ 
+</TR> 
+</TABLE> 
+</div>
+<SCRIPT  type="text/javascript"> 
+<!-- 
+var showFlag = false; 
+
+function funKey(cmd){ 
+var obj = document.getElementById("txtOrderNum"); 
+obj.value = obj.value + cmd; 
+} 
+
+function showKeyboard(obj)
+{
+var left = obj.offsetLeft;
+            var top = obj.offsetTop;
+            var width = obj.clientWidth;
+            var height = obj.clientHeight;
+          //   left += width;
+           //     top += height;
+            while(obj = obj.offsetParent){
+                left += obj.offsetLeft;
+                top += obj.offsetTop;
+            }
+var keyboard=document.getElementById("numberkeyboard");
+keyboard.style.display="";
+keyboard.style.left = left;
+    keyboard.style.top = top;
+    keyboard.style.zIndex = 1000;
+document.getElementById("txtOrderNum").value="";
+
+}
+function orderNum()
+{
+alert("ordernum"+document.getElementById("txtOrderNum").value);
+}
+function cancelKey()
+{
+var keyboard=document.getElementById("numberkeyboard");
+//alert(keyboard);
+keyboard.style.display="none";
+
+}
+
+//--> 
+</SCRIPT> 
+</BODY> 
+</HTML>

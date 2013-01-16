@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="YuanTuoWebToCustomer.master.cs" Inherits="Layout_YuanTuoWebToCustomer" %>
+
+<%@ Register src="../YuanTuo/UserControlEx/WeatherShowControl.ascx" tagname="WeatherShowControl" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>首页模板</title>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="overflow-x:hidden; overflow-y:hidden; background-color:#c3e6fa" scroll="no">
+    <form id="form1" runat="server">
+   <div id="menu" style="position:fixed; left:10px;top:10px ">
+    <table border="0" cellpadding="0" style="width:100%" cellspacing="5" style="margin:0 0 0 0; padding:0 0 0 0;">
+    <tr style="padding-right:15px; margin-right:15px">
+    <td style="vertical-align:top;padding-top:5px"><img alt="易捷logo" onclick="document.location.href='Index.aspx'"  width="91px" height="116px" src="images/logo.png" /></td>
+    
+   <td >
+        <img alt="热销产品" runat="server" id="menu1" onclick="javascript:document.location.href='ProductList.aspx?type=1';"  width="120" height="151" src="../YuanTuo/images/menu1.png" /></td>
+    <td style="padding-left:25px"><img alt="苹果专区" runat="server" id="menu2" onclick="javascript:document.location.href='ProductList.aspx?type=2';"  width="120" height="151" src="../YuanTuo/images/menu2.png" /></td>
+    <td style="padding-left:25px"> <img alt="汽车用品" runat="server" id="menu3" onclick="javascript:document.location.href='ProductList.aspx?type=3';"  width="120" height="151" src="../YuanTuo/images/menu3.png" /></td>
+    <td style="padding-left:25px"> <img alt="百    货" runat="server" id="menu4" onclick="javascript:document.location.href='ProductList.aspx?type=4';"  width="120" height="151" src="../YuanTuo/images/menu4.png" /></td>
+    <td style="padding-left:25px"><img alt="生活服务" runat="server" id="menu5" onclick="javascript:document.location.href='ProductList.aspx?type=5';"  width="120" height="151" src="../YuanTuo/images/menu5.png" /></td>
+    <td style="padding-left:25px"><img alt="电子产品" runat="server" id="menu6" onclick="javascript:document.location.href='ProductList.aspx?type=6';"  width="120" height="151" src="../YuanTuo/images/menu6.png" /></td>
+    <td style="padding-left:25px"><img alt="其    他" runat="server" id="menu7" onclick="javascript:document.location.href='ProductList.aspx?type=7';"  width="120" height="151" src="../YuanTuo/images/menu7.png" /></td>
+    <td style="padding-left:40px">&nbsp;</td>
+    <td  style="vertical-align:top;  margin-left:5px; margin-top:0px; padding-top:0px"><asp:Panel ID="Panel1" runat="server" Height="151px" Width="120px" BackImageUrl="~/YuanTuo/images/weather-back2.png">
+        <uc1:WeatherShowControl ID="WeatherShowControl1" runat="server" />
+        </asp:Panel>
+    </td>
+    </tr>
+   
+    </table>
+    
+    </div>
+     <div style="height:165px"></div>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
