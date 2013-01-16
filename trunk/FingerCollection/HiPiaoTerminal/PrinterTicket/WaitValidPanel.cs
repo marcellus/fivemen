@@ -113,35 +113,49 @@ namespace HiPiaoTerminal.PrinterTicket
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            //this.ChangeHint("该影票已出过票！");
-            //this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
-          //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
-          //  GlobalTools.ChangePanel(this.FindForm(), new InputErrorPanel());
-         //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
-          //  return;
-            try{
+             try
+                {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            ArrayList tickets = new ArrayList();
+            if (config.IsDingXin)
+            {
+                tickets = HipiaoTcpHelper.GetDingxinTicket("1", "13269402753", "694540");
+               // tickets = HipiaoTcpHelper.GetDingxinTicket(config.CinemaId, mobile, validCode);
+            }
+            else
+            {
+                //this.ChangeHint("该影票已出过票！");
+                //this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
+                //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
+                //  GlobalTools.ChangePanel(this.FindForm(), new InputErrorPanel());
+                //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+                //  return;
+               
 
 
-                string msgType = "30";
-                //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
-                string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t0\n";
-                //str = msgType + str;
-                //helper.Send(str);
-                //HipiaoTcpHelper.GetTicket(str);
-                SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
-                ArrayList tickets=HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str));
-            //TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
-           // GlobalHardwareTools.ticket = ticket;
-            if (tickets != null && tickets.Count>0)
+                    string msgType = "30";
+                    //string str = this.txtMobile.Text.Trim() + "\t" + this.txtValidCode.Text.Trim() + "\t" + this.txtFlag.Text.Trim() + "\n";
+                    string str = "1,2,3,4,5,6,7\r1,2,3\r" + mobile + "\t" + validCode + "\t0\n";
+                    //str = msgType + str;
+                    //helper.Send(str);
+                    //HipiaoTcpHelper.GetTicket(str);
+                    //SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+                   tickets = HipiaoTcpHelper.GetTicket(config.CinemaServerIp, config.CinemaServerPort, HiPiaoProtocol.PackSend(msgType, str));
+                    //TicketPrintObject ticket = HiPiaoInterface.HiPiaoOperatorFactory.GetMockHiPiaoOperator().GetTicket(mobile, valid);
+                    // GlobalHardwareTools.ticket = ticket;
+                   
+
+            }
+            if (tickets != null && tickets.Count > 0 && ((TicketPrintObject)tickets[0]).PrintTime != null)
             {
                 if (((TicketPrintObject)tickets[0]).IsPrinted == false)
                 {
                     //this.pictureBox1.Image = Properties.Resources.Print_Wait_Print;
                     //this.un
-                   // System.Threading.Thread.Sleep(2000);
-                   // this.pictureBox1.Image = Properties.Resources.Print_Wait_Success;
-                  //  System.Threading.Thread.Sleep(2000);
-                   // this.FindForm().Close();
+                    // System.Threading.Thread.Sleep(2000);
+                    // this.pictureBox1.Image = Properties.Resources.Print_Wait_Success;
+                    //  System.Threading.Thread.Sleep(2000);
+                    // this.FindForm().Close();
                     GlobalTools.ChangePanel(this.FindForm(), new WaitPrintPanel(tickets));
                 }
                 else
@@ -149,31 +163,32 @@ namespace HiPiaoTerminal.PrinterTicket
                     //retCode = 1;
                     //this.FindForm().Close();
                     this.ChangeHint("该影票已出过票！");
-                  //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
-                    
-                   
-                   
+                    //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("该影票已出过票！"));
+
+
+
                 }
             }
-            else 
+            else
             {
-               // retCode = 2;
-               // this.FindForm().Close();
+                // retCode = 2;
+                // this.FindForm().Close();
                 GlobalTools.ChangePanel(this.FindForm(), new InputErrorPanel());
-               // GlobalTools.ReturnTicketPrint();
-                
+                // GlobalTools.ReturnTicketPrint();
+
             }
-            }
-            catch
-            {
-                //retCode = 3;
-               // this.FindForm().Close();
-               // System.Threading.Thread.Sleep(1000);
-               // this.ChangePanel(new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
-              //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
-                this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
-               
-            }
+                }
+             catch(Exception ex)
+             {
+                 Console.WriteLine(ex);
+                 //retCode = 3;
+                 // this.FindForm().Close();
+                 // System.Threading.Thread.Sleep(1000);
+                 // this.ChangePanel(new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+                 //  GlobalTools.ChangePanel(this.FindForm(), new MessagePanelFirst("网络故障，请向影院工作人员垂询！", "或拨打400-601-556"));
+                 this.ChangeHint("网络故障，请向影院工作人员垂询！", "或拨打400-601-556");
+
+             }
         }
     }
 }

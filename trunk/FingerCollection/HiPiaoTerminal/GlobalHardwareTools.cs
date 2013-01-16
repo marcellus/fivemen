@@ -37,10 +37,25 @@ namespace HiPiaoTerminal
             
         }
 
-        public static void OpenHotPrinter()
+        public static bool OpenHotPrinter()
         {
-            if (GetTerminalPrinter()!=null)
-            GetTerminalPrinter().Open();
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            if (config.PrinterType == "Windows")
+            {
+                try
+                {
+                    List<string> printers = WindowsPrinterHelper.LoopPrinter();
+                    return printers.Count > 0;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            if (GetTerminalPrinter() != null)
+                return GetTerminalPrinter().Open();
+            else
+                return false;
         }
 
         public static string ConvertPrintTemplate(object obj, string row)

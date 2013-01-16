@@ -68,18 +68,26 @@ namespace HiPiaoTerminal.BuyTicket
             }
         }
 
+        private bool loaded = true;
+
         private void InitMoviesThread(DateTime dt)
         {
-            this.ExitThread();
-            this.tmpDt = dt;
-            thread = new Thread(new ThreadStart(InitMovies));
-            thread.IsBackground = true;
-            thread.Start();
+            if (loaded)
+            {
+               
+                this.ExitThread();
+                this.loaded = false;
+                this.tmpDt = dt;
+                thread = new Thread(new ThreadStart(InitMovies));
+                thread.IsBackground = true;
+                thread.Start();
+            }
         }
 
         private void InitMovies()
         {
             this.InitMovies(tmpDt);
+            this.loaded = true;
         }
 
         private void InitMovies(DateTime dt)
@@ -156,18 +164,24 @@ namespace HiPiaoTerminal.BuyTicket
 
         void lb_MouseHover(object sender, EventArgs e)
         {
-            Control ctr=sender as Control;
-            MovieObject movie=ctr.Tag as MovieObject;
-            //this.toolTip1.to
-            this.toolTip1.Tag = movie.Name.ToString();
-             this.toolTip1.SetToolTip(ctr,movie.Name.ToString());
+            
+                Control ctr = sender as Control;
+                MovieObject movie = ctr.Tag as MovieObject;
+                //this.toolTip1.to
+                this.toolTip1.Tag = movie.Name.ToString();
+                this.toolTip1.SetToolTip(ctr, movie.Name.ToString());
+           
         }
 
         void pc_Click(object sender, EventArgs e)
         {
-            PictureBox pic=sender as PictureBox;
-            MovieObject movie = pic.Tag as MovieObject;
-            GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie, tmpDt));
+            if (loaded)
+            {
+                PictureBox pic=sender as PictureBox;
+                MovieObject movie = pic.Tag as MovieObject;
+               
+                GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie, tmpDt));
+            }
         }
 
         private static int colSep = 20;
@@ -178,41 +192,56 @@ namespace HiPiaoTerminal.BuyTicket
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.ReturnMain();
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.ReturnMain();
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.ReturnMain();
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.ReturnMain();
+            }
         }
 
         private void btnThreeDay_Click(object sender, EventArgs e)
         {
-            this.InitMoviesThread(System.DateTime.Now.AddDays(2));
-           // this.InitMovies(System.DateTime.Now.AddDays(2));
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            if (this.loaded)
+            {
+                this.InitMoviesThread(System.DateTime.Now.AddDays(2));
+                // this.InitMovies(System.DateTime.Now.AddDays(2));
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+            }
         }
 
         private void btnTomorrow_Click(object sender, EventArgs e)
         {
-            this.InitMoviesThread(System.DateTime.Now.AddDays(1));
-           // this.InitMovies(System.DateTime.Now.AddDays(1));
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            if (this.loaded)
+            {
+                this.InitMoviesThread(System.DateTime.Now.AddDays(1));
+                // this.InitMovies(System.DateTime.Now.AddDays(1));
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            }
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            this.InitMoviesThread(System.DateTime.Now);
-            //this.InitMovies(System.DateTime.Now);
-            this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
-            this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
-            this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            if (this.loaded)
+            {
+                this.InitMoviesThread(System.DateTime.Now);
+                //this.InitMovies(System.DateTime.Now);
+                this.btnToday.Image = Properties.Resources.BuyTicket_Select_Day_Today;
+                this.btnTomorrow.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+                this.btnThreeDay.Image = Properties.Resources.BuyTicket_Select_Day_Two;
+            }
         }
 
         Font fontHint = new Font("方正兰亭黑简体", 18);

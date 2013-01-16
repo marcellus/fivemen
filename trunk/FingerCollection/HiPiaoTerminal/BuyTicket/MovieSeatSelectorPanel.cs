@@ -60,17 +60,23 @@ namespace HiPiaoTerminal.BuyTicket
             CheckForIllegalCrossThreadCalls = false;
             this.SetOperationTime(60);
         }
-
+        private bool loaded = true;
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie));
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.GoPanel(new MoviePlanSelectorPanel(movie));
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.ExitThread();
-            GlobalTools.ReturnMain();
+            if (this.loaded)
+            {
+                this.ExitThread();
+                GlobalTools.ReturnMain();
+            }
         }
 
 
@@ -127,9 +133,14 @@ namespace HiPiaoTerminal.BuyTicket
         private Thread thread;
         private void LoadSeat()
         {
-            this.ExitThread();
-            thread = new Thread(new ThreadStart(ThreadLoadSeat));
-            thread.Start();
+            if (this.loaded)
+            {
+               
+                this.ExitThread();
+                this.loaded = false;
+                thread = new Thread(new ThreadStart(ThreadLoadSeat));
+                thread.Start();
+            }
         }
 
         private void ThreadLoadSeat()
@@ -141,6 +152,7 @@ namespace HiPiaoTerminal.BuyTicket
             this.processPanel1.StopProcess();
             this.lbProcessHint.Visible = false;
             this.processPanel1.Visible = false;
+            this.loaded = true;
             
         }
         public List<SeatObject> SeatList;
@@ -293,6 +305,10 @@ namespace HiPiaoTerminal.BuyTicket
 
         void lb_Click(object sender, EventArgs e)
         {
+            if (this.loaded == false)
+            {
+                return;
+            }
             Control ctr=sender as Control;
             SeatObject seat = ctr.Tag as SeatObject;
             //253,208,0

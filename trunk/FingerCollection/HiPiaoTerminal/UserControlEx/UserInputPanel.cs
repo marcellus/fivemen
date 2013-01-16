@@ -913,6 +913,10 @@ namespace HiPiaoTerminal.UserControlEx
         private void btnDelete_Click(object sender, EventArgs e)
         {
             this.txtMain.Text = string.Empty;
+            if (this.onSubTextChanged != null)
+            {
+                this.onSubTextChanged();
+            }
         }
 
         private void txtMain_MouseDown_1(object sender, MouseEventArgs e)

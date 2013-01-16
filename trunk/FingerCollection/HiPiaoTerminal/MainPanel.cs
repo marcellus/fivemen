@@ -165,6 +165,10 @@ namespace HiPiaoTerminal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SystemConfig config = FT.Commons.Cache.StaticCacheManager.GetConfig<SystemConfig>();
+            HipiaoTcpHelper.GetDingxinTicket("1", "13269402753", "694540");
+          // bool result= GlobalHardwareTools.OpenHotPrinter();
+         //  string ttt = string.Empty;
             //GlobalTools.Pop(new UserRegisterSuccessPanel());
             //0109990101  0100407983 0102500008
             //0102500005 cs0002
