@@ -252,6 +252,7 @@
     <Compile Include="Tools\SerializeHelper.cs" />
     <Compile Include="Tools\SerialPortHelper.cs" />
     <Compile Include="Tools\ShortcutHelper.cs" />
+    <Compile Include="Tools\SkypeHelper.cs" />
     <Compile Include="Tools\StringHelper.cs" />
     <Compile Include="Tools\ValidatorHelper.cs" />
     <Compile Include="Tools\WebFormHelper.cs" />
@@ -583,6 +584,14 @@
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SKYPE4COMLib">
+      <Guid>{03282B5D-B38F-469D-849A-09B0A7F4881B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
