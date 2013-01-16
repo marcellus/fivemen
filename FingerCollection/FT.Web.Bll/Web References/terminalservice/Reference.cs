@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace FT.Web.Bll.TerminalStatusService {
+namespace FT.Web.Bll.terminalservice {
     using System.Diagnostics;
     using System.Web.Services;
     using System.ComponentModel;
@@ -31,6 +31,8 @@ namespace FT.Web.Bll.TerminalStatusService {
         
         private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CloseComputerOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetMachineMacOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetMachineCodeOperationCompleted;
@@ -43,7 +45,7 @@ namespace FT.Web.Bll.TerminalStatusService {
         
         /// <remarks/>
         public TerminalStatusService() {
-            this.Url = global::FT.Web.Bll.Properties.Settings.Default.FT_Web_Bll_TerminalStatusService_TerminalStatusService;
+            this.Url = global::FT.Web.Bll.Properties.Settings.Default.FT_Web_Bll_terminalservice_TerminalStatusService;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -81,6 +83,9 @@ namespace FT.Web.Bll.TerminalStatusService {
         public event HelloWorldCompletedEventHandler HelloWorldCompleted;
         
         /// <remarks/>
+        public event CloseComputerCompletedEventHandler CloseComputerCompleted;
+        
+        /// <remarks/>
         public event GetMachineMacCompletedEventHandler GetMachineMacCompleted;
         
         /// <remarks/>
@@ -116,6 +121,32 @@ namespace FT.Web.Bll.TerminalStatusService {
             if ((this.HelloWorldCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CloseComputer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CloseComputer() {
+            this.Invoke("CloseComputer", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void CloseComputerAsync() {
+            this.CloseComputerAsync(null);
+        }
+        
+        /// <remarks/>
+        public void CloseComputerAsync(object userState) {
+            if ((this.CloseComputerOperationCompleted == null)) {
+                this.CloseComputerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCloseComputerOperationCompleted);
+            }
+            this.InvokeAsync("CloseComputer", new object[0], this.CloseComputerOperationCompleted, userState);
+        }
+        
+        private void OnCloseComputerOperationCompleted(object arg) {
+            if ((this.CloseComputerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CloseComputerCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -271,6 +302,10 @@ namespace FT.Web.Bll.TerminalStatusService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.4927")]
+    public delegate void CloseComputerCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.4927")]

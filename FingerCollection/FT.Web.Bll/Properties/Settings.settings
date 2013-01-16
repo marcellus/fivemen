@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FT.Web.Bll.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="FT_Web_Bll_TerminalStatusService_TerminalStatusService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:4991/TerminalStatusService.asmx</Value>
+    <Setting Name="FT_Web_Bll_terminalservice_TerminalStatusService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:4993/TerminalStatusService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

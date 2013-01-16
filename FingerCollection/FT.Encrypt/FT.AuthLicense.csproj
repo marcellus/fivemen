@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8478B3B7-406F-467B-B712-35514DF96A2F}</ProjectGuid>
+    <ProjectGuid>{E8009074-6B19-41AF-B404-026C5B9C2B81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebActiveX</RootNamespace>
-    <AssemblyName>WebActiveX</AssemblyName>
+    <RootNamespace>FT.AuthLicense</RootNamespace>
+    <AssemblyName>FT.AuthLicense</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,8 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,41 +29,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IObjectSafety.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="AuthLicense.cs" />
+    <Compile Include="AuthLicenseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindowsPrinterControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WindowsPrinterControl.Designer.cs">
-      <DependentUpon>WindowsPrinterControl.cs</DependentUpon>
-    </Compile>
-    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Commons\FT.Commons\FT.Commons.csproj">
-      <Project>{BD4D9CFE-3A5A-4D11-A601-A7F161FC266A}</Project>
-      <Name>FT.Commons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.DAL\FT.DAL.csproj">
-      <Project>{24D0A7DC-A65E-4D89-AFEF-EEECAEA6DB0E}</Project>
-      <Name>FT.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Commons\FT.Device\FT.Device.csproj">
-      <Project>{B43D9F80-668C-4291-A1AA-5D2FC6329EC3}</Project>
-      <Name>FT.Device</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,6 +12,12 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="CloseComputer">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseComputerResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetMachineMac">
         <s:complexType />
       </s:element>
@@ -60,6 +66,12 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
+  <wsdl:message name="CloseComputerSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseComputer" />
+  </wsdl:message>
+  <wsdl:message name="CloseComputerSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseComputerResponse" />
+  </wsdl:message>
   <wsdl:message name="GetMachineMacSoapIn">
     <wsdl:part name="parameters" element="tns:GetMachineMac" />
   </wsdl:message>
@@ -89,6 +101,10 @@
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="CloseComputer">
+      <wsdl:input message="tns:CloseComputerSoapIn" />
+      <wsdl:output message="tns:CloseComputerSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetMachineMac">
       <wsdl:input message="tns:GetMachineMacSoapIn" />
       <wsdl:output message="tns:GetMachineMacSoapOut" />
@@ -110,6 +126,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseComputer">
+      <soap:operation soapAction="http://tempuri.org/CloseComputer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -165,6 +190,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CloseComputer">
+      <soap12:operation soapAction="http://tempuri.org/CloseComputer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMachineMac">
       <soap12:operation soapAction="http://tempuri.org/GetMachineMac" style="document" />
       <wsdl:input>
@@ -204,10 +238,10 @@
   </wsdl:binding>
   <wsdl:service name="TerminalStatusService">
     <wsdl:port name="TerminalStatusServiceSoap" binding="tns:TerminalStatusServiceSoap">
-      <soap:address location="http://localhost:4991/TerminalStatusService.asmx" />
+      <soap:address location="http://localhost:4993/TerminalStatusService.asmx" />
     </wsdl:port>
     <wsdl:port name="TerminalStatusServiceSoap12" binding="tns:TerminalStatusServiceSoap12">
-      <soap12:address location="http://localhost:4991/TerminalStatusService.asmx" />
+      <soap12:address location="http://localhost:4993/TerminalStatusService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
