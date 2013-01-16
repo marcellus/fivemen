@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://sms.www.axcantech.cn" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://sms.www.axcantech.cn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://sms.www.axcantech.cn">
+<xsd:element name="addShortMessageUC">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addShortMessageUCResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="unRegisterUC">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="unRegisterUCResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="registerUC">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="registerUCResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="registerUCRequest">
+    <wsdl:part name="parameters" element="tns:registerUC">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerUCResponse">
+    <wsdl:part name="parameters" element="tns:registerUCResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addShortMessageUCRequest">
+    <wsdl:part name="parameters" element="tns:addShortMessageUC">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addShortMessageUCResponse">
+    <wsdl:part name="parameters" element="tns:addShortMessageUCResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unRegisterUCRequest">
+    <wsdl:part name="parameters" element="tns:unRegisterUC">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unRegisterUCResponse">
+    <wsdl:part name="parameters" element="tns:unRegisterUCResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Service1PortType">
+    <wsdl:operation name="addShortMessageUC">
+      <wsdl:input name="addShortMessageUCRequest" message="tns:addShortMessageUCRequest">
+    </wsdl:input>
+      <wsdl:output name="addShortMessageUCResponse" message="tns:addShortMessageUCResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unRegisterUC">
+      <wsdl:input name="unRegisterUCRequest" message="tns:unRegisterUCRequest">
+    </wsdl:input>
+      <wsdl:output name="unRegisterUCResponse" message="tns:unRegisterUCResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerUC">
+      <wsdl:input name="registerUCRequest" message="tns:registerUCRequest">
+    </wsdl:input>
+      <wsdl:output name="registerUCResponse" message="tns:registerUCResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1HttpBinding" type="tns:Service1PortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addShortMessageUC">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addShortMessageUCRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addShortMessageUCResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unRegisterUC">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="unRegisterUCRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="unRegisterUCResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerUC">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="registerUCRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerUCResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1HttpPort" binding="tns:Service1HttpBinding">
+      <wsdlsoap:address location="http://192.168.7.156:800/SmsGateway/services/Service1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,299 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	无标题页
+</title>
+   <style type="text/css">
+   body
+   {
+    font-family:"Verdana";
+    
+   }
+   table
+   {
+   	font-family:"Verdana";
+   }
+   div
+   {
+   	font-family:"Verdana";
+   }
+   </style>
+    
+    </head>
+<body style="overflow-x:hidden; overflow-y:hidden; background-color:#c3e6fa" scroll="no">
+    <form name="aspnetForm" method="post" action="ProductList.aspx?type=1" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE1NzMyOTY5MDgPZBYCZg9kFgICAw9kFhICAQ8WAh4Dc3JjBSEuLi9ZdWFuVHVvL2ltYWdlcy9tZW51MS1jbGljay5wbmdkAgMPFgIfAAUbLi4vWXVhblR1by9pbWFnZXMvbWVudTIucG5nZAIFDxYCHwAFGy4uL1l1YW5UdW8vaW1hZ2VzL21lbnUzLnBuZ2QCBw8WAh8ABRsuLi9ZdWFuVHVvL2ltYWdlcy9tZW51NC5wbmdkAgkPFgIfAAUbLi4vWXVhblR1by9pbWFnZXMvbWVudTUucG5nZAILDxYCHwAFGy4uL1l1YW5UdW8vaW1hZ2VzL21lbnU2LnBuZ2QCDQ8WAh8ABRsuLi9ZdWFuVHVvL2ltYWdlcy9tZW51Ny5wbmdkAg8PZBYCAgEPZBYCZg9kFg4CAQ8PFgIeBFRleHQFBuWMl+S6rGRkAgMPDxYCHghJbWFnZVVybAUjaHR0cDovL20ud2VhdGhlci5jb20uY24vaW1nL2MxOC5naWZkZAIFDw8WAh8BBQow4oSDfi014oSDZGQCBw8PFgIfAQUJMeaciDE05pelZGQCCQ8PFgIfAQUJ5pif5pyf5LiAZGQCCw8PFgIfAQUW5LuK5pel6ZmQ6KGM77yaMSDlkowgNmRkAg8PDxYCHwEFBuW+rumjjmRkAhEPZBYCAgEPDxYCHgdWaXNpYmxlaGRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBSVjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGJ0bk5leHRQYWdl2UymDIl3p8pH7Ad3UTvRv6qrgTI=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwLkpubWDgLIzboxAszj13m0Wm++dvEHKI/EOG9xNXeqxS5ofw==" />
+</div>
+    
+    <div id="menu" style="position:fixed; left:10px;top:10px ">
+    <table border="0" cellpadding="0" style="width:100%" cellspacing="5" style="margin:0 0 0 0; padding:0 0 0 0;">
+    <tr>
+    <td style="vertical-align:top;padding-top:5px"><img alt="易捷logo" onclick="document.location.href='Index.aspx'"  width="91px" height="116px" src="images/logo.png" /></td>
+    
+    <td>
+        <img src="images/menu1-click.png" id="ctl00_menu1" alt="热销产品" onclick="javascript:document.location.href='ProductList.aspx?type=1';" width="120" height="151" /></td>
+        <!--不带文字图标大小为120*113，带文字图标为120*151-->
+    <td>&nbsp;&nbsp;&nbsp;<img src="images/menu2.png" id="ctl00_menu2" alt="苹果专区" onclick="javascript:document.location.href='ProductList.aspx?type=2';" width="120" height="151" /></td>
+    <td>&nbsp;&nbsp;&nbsp;<img src="images/menu3.png" id="ctl00_menu3" alt="汽车用品" onclick="javascript:document.location.href='ProductList.aspx?type=3';" width="120" height="151" /></td>
+    <td>&nbsp;&nbsp;&nbsp; <img src="images/menu4.png" id="ctl00_menu4" alt="百    货" onclick="javascript:document.location.href='ProductList.aspx?type=4';" width="120" height="151" /></td>
+    <td>&nbsp;&nbsp;&nbsp;<img src="images/menu5.png" id="ctl00_menu5" alt="生活服务" onclick="javascript:document.location.href='ProductList.aspx?type=5';" width="120" height="151" /></td>
+    <td>&nbsp;&nbsp;&nbsp;<img src="images/menu6.png" id="ctl00_menu6" alt="电子产品" onclick="javascript:document.location.href='ProductList.aspx?type=6';" width="120" height="151" /></td>
+    <td>&nbsp;&nbsp;&nbsp;<img src="images/menu7.png" id="ctl00_menu7" alt="其    他" onclick="javascript:document.location.href='ProductList.aspx?type=7';" width="120" height="151" /></td>
+    <td>&nbsp;</td>
+    <td  style="vertical-align:top;  margin-left:5px; margin-top:5px; padding-top:3px"><div id="ctl00_Panel1" style="height:113px;width:120px;background-image:url(images/weather-back.png);">
+	
+        <div id="ctl00_WeatherShowControl1_Panel1" style="font-size:10pt;height:113px;width:120px;">
+		
+<div style=" margin-top:8px; padding-top:8px;">
+    &nbsp; &nbsp;<span id="ctl00_WeatherShowControl1_lbCity" style="color:Red;font-size:15pt;font-weight:bold;">北京</span>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img id="ctl00_WeatherShowControl1_img1" src="http://m.weather.com.cn/img/c18.gif" align="bottom" style="height:25px;width:25px;border-width:0px;" />
+    <div style="text-align:right;  margin-right:2px">
+          
+          <span id="ctl00_WeatherShowControl1_lbTemp" style="font-size:12pt;">0℃~-5℃</span>
+    </div>
+    <div style="height:21px; margin-right:2px">
+    <span style="float:left;margin-left:4px"><span id="ctl00_WeatherShowControl1_lbDate" style="font-size:11pt;">1月14日</span></span>
+   <span style="float:right"><span id="ctl00_WeatherShowControl1_lbWeek" style="font-size:11pt;">星期一</span></span>
+   </div>
+   <div style="margin-top:5px; padding-top:5px; margin-left:4px;">
+   <span id="ctl00_WeatherShowControl1_lbTrafficLimit" style="color:White;font-size:10pt;font-weight:bold;">今日限行：1 和 6</span>
+   </div>
+   <div style="display:none">
+    <br />
+    &nbsp;&nbsp; 
+    <br />
+   &nbsp; &nbsp; 
+    </div>
+    </div>
+
+
+
+	</div>
+
+        
+</div>
+    </td>
+    </tr>
+   
+    </table>
+    
+    </div>
+     <div style="height:165px"></div>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+
+
+
+</div>
+<div style="height:20px"></div>
+<div>
+<table border="0" cellpadding="0" cellspacing="0" style="width:1200px;table-layout:fixed">
+<tr><td style="width:1200px; vertical-align:top">
+&nbsp;
+        
+    <input name="ctl00$ContentPlaceHolder1$hidPages" type="hidden" id="ctl00_ContentPlaceHolder1_hidPages" value="1" />
+<table  border="0"  style=" table-layout:fixed" ><tr><td style="width:100px">&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</td>
+<td>
+
+<table width="100%" border="0" align="center" style="vertical-align:top">
+<tr><td rowspan='3' style='vertical-align:top'><table border='0' cellpadding='0' cellspacing='0' style='width:320px'><tr>
+
+<td style='width:280px;height:280px;vertical-align:top; '>
+<div style='width:280px;height:280px; text-align:center; vertical-align:middle;border:solid 1px gray;'>
+<img width='250' height='250' alt='' style='display:block;margin-left:15px;margin-top:15px' onclick='javascript:location.href="ProductDetail.aspx?id=28";'  src='ProductPic/33' />
+</div>
+<div style='height:150px;margin-top:15px ;   font-size:13pt'>
+<span>产品名称：产品29</span>
+<br />
+<span>品   牌： 安奈尔</span>
+<br />
+<span>规   格： 规格</span>
+<br />
+<span>产   地： 中国</span>
+<br />
+<span>浏览次数：18次</span>
+</div>
+<div style='margin-left:0px ; '>
+<span style='color:Red;font-size:20pt'>￥77.00</span>
+<span style=' color:Gray;text-decoration:line-through;font-size:20pt'>￥77.00</span>
+</div>
+</td>
+</tr></table></td></tr><tr><td style='vertical-align:top'><table border='0'  cellpadding='0' cellspacing='0' style='width:360px'><tr>
+
+<td style='width:175px;height:175px;vertical-align:top;'>
+<div style='width:175px;height:175px; text-align:center; vertical-align:middle;border:solid 1px gray; '>
+<img width='145' height='145' style='display:block;margin-left:15px;margin-top:15px'  alt='' onclick='javascript:location.href="ProductDetail.aspx?id=25";'  src='ProductPic/33' />
+</div>
+</td>
+
+<td style='margin-top:0px; padding-top:0px;vertical-align:top'>
+
+
+<div style='height:150px;margin-left:10px ; font-size:13pt'>
+<span>产品名称：产品28</span>
+<br />
+<span>品   牌： 安奈尔</span>
+<br />
+<span>规   格： 规格</span>
+<br />
+<span>产   地： 中国</span>
+<br />
+<span>浏览次数： 11次</span>
+</div>
+<div style='margin-left:10px ; '>
+<span style='color:Red;font-size:15pt'> ￥77.00</span>
+<span style=' color:Gray;text-decoration:line-through;font-size:15pt'>￥77.00</span>
+</div>
+</td>
+</tr></table></td><td style='vertical-align:top'><table border='0'  cellpadding='0' cellspacing='0' style='width:360px'><tr>
+
+<td style='width:175px;height:175px;vertical-align:top;'>
+<div style='width:175px;height:175px; text-align:center; vertical-align:middle;border:solid 1px gray; '>
+<img width='145' height='145' style='display:block;margin-left:15px;margin-top:15px'  alt='' onclick='javascript:location.href="ProductDetail.aspx?id=22";'  src='ProductPic/33' />
+</div>
+</td>
+
+<td style='margin-top:0px; padding-top:0px;vertical-align:top'>
+
+
+<div style='height:150px;margin-left:10px ; font-size:13pt'>
+<span>产品名称：产品27</span>
+<br />
+<span>品   牌： 安奈尔</span>
+<br />
+<span>规   格： 规格</span>
+<br />
+<span>产   地： 中国</span>
+<br />
+<span>浏览次数： 1次</span>
+</div>
+<div style='margin-left:10px ; '>
+<span style='color:Red;font-size:15pt'> ￥77.00</span>
+<span style=' color:Gray;text-decoration:line-through;font-size:15pt'>￥77.00</span>
+</div>
+</td>
+</tr></table></td></tr><tr><td style='vertical-align:top'><table border='0'  cellpadding='0' cellspacing='0' style='width:360px'><tr>
+
+<td style='width:175px;height:175px;vertical-align:top;'>
+<div style='width:175px;height:175px; text-align:center; vertical-align:middle;border:solid 1px gray; '>
+<img width='145' height='145' style='display:block;margin-left:15px;margin-top:15px'  alt='' onclick='javascript:location.href="ProductDetail.aspx?id=19";'  src='ProductPic/33' />
+</div>
+</td>
+
+<td style='margin-top:0px; padding-top:0px;vertical-align:top'>
+
+
+<div style='height:150px;margin-left:10px ; font-size:13pt'>
+<span>产品名称：产品26</span>
+<br />
+<span>品   牌： 安奈尔</span>
+<br />
+<span>规   格： 规格</span>
+<br />
+<span>产   地： 中国</span>
+<br />
+<span>浏览次数： 1次</span>
+</div>
+<div style='margin-left:10px ; '>
+<span style='color:Red;font-size:15pt'> ￥77.00</span>
+<span style=' color:Gray;text-decoration:line-through;font-size:15pt'>￥77.00</span>
+</div>
+</td>
+</tr></table></td><td style='vertical-align:top'><table border='0'  cellpadding='0' cellspacing='0' style='width:360px'><tr>
+
+<td style='width:175px;height:175px;vertical-align:top;'>
+<div style='width:175px;height:175px; text-align:center; vertical-align:middle;border:solid 1px gray; '>
+<img width='145' height='145' style='display:block;margin-left:15px;margin-top:15px'  alt='' onclick='javascript:location.href="ProductDetail.aspx?id=16";'  src='ProductPic/33' />
+</div>
+</td>
+
+<td style='margin-top:0px; padding-top:0px;vertical-align:top'>
+
+
+<div style='height:150px;margin-left:10px ; font-size:13pt'>
+<span>产品名称：产品25</span>
+<br />
+<span>品   牌： 安奈尔</span>
+<br />
+<span>规   格： 规格</span>
+<br />
+<span>产   地： 中国</span>
+<br />
+<span>浏览次数： 0次</span>
+</div>
+<div style='margin-left:10px ; '>
+<span style='color:Red;font-size:15pt'> ￥77.00</span>
+<span style=' color:Gray;text-decoration:line-through;font-size:15pt'>￥77.00</span>
+</div>
+</td>
+</tr></table></td></tr>
+
+
+</table> 
+
+<div style="margin-top:0px">
+<span style="float:left">
+
+</span>
+<span style="float:right">
+<input type="image" name="ctl00$ContentPlaceHolder1$btnNextPage" id="ctl00_ContentPlaceHolder1_btnNextPage" src="images/nextpage.jpg" style="height:45px;width:205px;border-width:0px;" />
+</span>
+
+</div>
+
+</td>
+
+</tr></table>
+
+  
+
+       
+        </td>
+        
+         <td style="width:90px; vertical-align:top; text-align:right; ">
+          <img id="Img1" onclick="javascript:location.href='Index.aspx';"  src="images/home.png" width="90" height="110" alt="hui"/>
+          <br />
+          <br />
+        <img id="btnhome" onclick="javascript:history.go(-1);"  src="images/back.png" width="90" height="110" alt="hui"/>
+        <br />
+        <br />
+          <!-- 
+          onclick="javascript:location.href='Store.aspx';"
+          
+          --><img id="Img2"   src="images/store-disable.png"  width="90" height="110" alt="hui"/>
+          <!-- 
+         onclick="javascript:location.href='Search.aspx';" 
+          
+          -->
+          <br />
+          <br />
+           <img id="Img3"   src="images/search-disable.png" width="90" height="110" alt="hui"/>
+        
+        </td></tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
