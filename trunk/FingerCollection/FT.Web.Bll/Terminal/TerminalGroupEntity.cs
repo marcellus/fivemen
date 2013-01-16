@@ -8,18 +8,27 @@ namespace FT.Web.Bll.Terminal
     /// <summary>
     /// 终端分组对象
     /// </summary>
-    [SimpleTable("table_terminal_group")]
+    [SimpleTable("yuantuo_terminal_group")]
     public class TerminalGroupEntity
     {
         [SimplePK]
         public int Id;
 
-        [SimpleColumn(Column = "c_name")]
+        [SimpleColumn(Column = "name")]
         [Alias("分组名称")]
         public string Name;
 
-        [SimpleColumn(Column = "c_description")]
+        [SimpleColumn(Column = "des")]
         [Alias("分组描述")]
         public string Description;
+
+        [SimpleColumn(Column = "adurl")]
+        [Alias("分组广告地址")]
+        public string AdUrl;
+
+        [SimpleColumn(Column = "adcontent")]
+        [Alias("分组促销信息内容")]
+        public string AdContent;
+        
     }
 }

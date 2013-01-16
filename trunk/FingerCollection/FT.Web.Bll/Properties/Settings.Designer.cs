@@ -26,10 +26,10 @@ namespace FT.Web.Bll.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4991/TerminalStatusService.asmx")]
-        public string FT_Web_Bll_TerminalStatusService_TerminalStatusService {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4993/TerminalStatusService.asmx")]
+        public string FT_Web_Bll_terminalservice_TerminalStatusService {
             get {
-                return ((string)(this["FT_Web_Bll_TerminalStatusService_TerminalStatusService"]));
+                return ((string)(this["FT_Web_Bll_terminalservice_TerminalStatusService"]));
             }
         }
     }

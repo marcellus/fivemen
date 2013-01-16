@@ -36,6 +36,16 @@ namespace TerminalMonitorServices
         }
 
         /// <summary>
+        /// 关机
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public void CloseComputer()
+        {
+             FT.Commons.Tools.WindowExHelper.CloseComputer();
+        }
+
+        /// <summary>
         /// 获取机器代码
         /// </summary>
         /// <returns></returns>

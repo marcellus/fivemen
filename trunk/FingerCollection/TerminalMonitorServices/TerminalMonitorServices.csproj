@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,15 +35,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Web.Extensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -52,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TerminalStatusService.asmx" />
+    <Content Include="testaspx.aspx" />
+    <Content Include="testiis1.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +53,13 @@
     <Compile Include="TerminalStatusService.asmx.cs">
       <DependentUpon>TerminalStatusService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="testaspx.aspx.cs">
+      <DependentUpon>testaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testaspx.aspx.designer.cs">
+      <DependentUpon>testaspx.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +94,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4993</DevelopmentServerPort>
+          <DevelopmentServerPort>4550</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

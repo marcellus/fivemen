@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,21 +40,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Product\ProductDiscountInfo.cs" />
+    <Compile Include="Product\ProductInfo.cs" />
+    <Compile Include="Product\ProductSendInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SystemConfig\SystemConfigEntity.cs" />
     <Compile Include="Terminal\TerminalEntity.cs" />
     <Compile Include="Terminal\TerminalGroupEntity.cs" />
     <Compile Include="Terminal\TerminalOnlineMonitorThread.cs" />
     <Compile Include="Terminal\TerminalStatus.cs" />
-    <Compile Include="Web References\TerminalStatusService\Reference.cs">
+    <Compile Include="Web References\terminalservice\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="WholeBllTools.cs" />
+    <Compile Include="YuanTuo\TerminalGroup.cs" />
+    <Compile Include="YuanTuo\TrafficLimitExtendInfoEntity.cs" />
+    <Compile Include="YuanTuo\TrafficLimitInfoEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Commons\FT.Commons\FT.Commons.csproj">
@@ -77,34 +86,36 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:4991/TerminalStatusService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\TerminalStatusService\</RelPath>
-      <UpdateFromURL>http://localhost:4991/TerminalStatusService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>FT_Web_Bll_TerminalStatusService_TerminalStatusService</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\TerminalStatusService\Reference.map">
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:4993/TerminalStatusService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\terminalservice\</RelPath>
+      <UpdateFromURL>http://localhost:4993/TerminalStatusService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FT_Web_Bll_terminalservice_TerminalStatusService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\terminalservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\TerminalStatusService\TerminalStatusService.disco" />
-    <None Include="Web References\TerminalStatusService\TerminalStatusService.wsdl" />
+    <None Include="Web References\terminalservice\TerminalStatusService.disco" />
+    <None Include="Web References\terminalservice\TerminalStatusService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\" />
-    <Folder Include="Product\" />
+    <Folder Include="Order\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
