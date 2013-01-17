@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using FT.Commons.Tools;
+using FT.Commons.Win32;
 
 namespace TerminalIeForm
 {
@@ -13,6 +15,7 @@ namespace TerminalIeForm
         public YuanTuoForm()
         {
             InitializeComponent();
+            SystemDefine.ShowTaskTools();
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -73,8 +76,8 @@ namespace TerminalIeForm
             {
                 this.SetVerButtons(true);
                 this.timer1.Stop();
+                //this.timer1.Start();
             }
-
             if (this.webBrowser1.Document.Title.IndexOf("无法显示该网页") != -1 || this.webBrowser1.Document.Title.IndexOf("导航已取消")!=-1)
             {
                 this.NavigateNetError();
@@ -168,6 +171,7 @@ namespace TerminalIeForm
             this.timer1.Interval = unoperationTime;
             this.timer1.Start();
             this.NavigateHome();
+            SystemDefine.HideTaskTools();
            // this.webBrowser1.n
             
         }
@@ -189,7 +193,9 @@ namespace TerminalIeForm
 
         private void btnServicePhone_Click(object sender, EventArgs e)
         {
-
+            string phone = System.Configuration.ConfigurationSettings.AppSettings["servicePhone"];
+            SkypeHelper.Call(phone);
+            this.BringToFront();
         }
 
         private void btnMagazine_Click(object sender, EventArgs e)
@@ -201,8 +207,12 @@ namespace TerminalIeForm
         {
             try
             {
-                string skypePath = System.Configuration.ConfigurationSettings.AppSettings["skypePath"];
-                System.Diagnostics.Process.Start(skypePath);
+              //  string skypePath = System.Configuration.ConfigurationSettings.AppSettings["skypePath"];
+               // System.Diagnostics.Process.Start(skypePath);
+              //  SkypeForm form = new SkypeForm();
+            //    form.Show();
+               // form.TopLevel = true;
+                GlobalTools.CallSkype();
             }
             catch (Exception ex)
             {
@@ -297,6 +307,29 @@ namespace TerminalIeForm
 #endif
             this.NavigateHome();
             this.timerConnectNet.Stop();
+        }
+        private int  WeatherDay = System.DateTime.Now.DayOfYear;
+
+        private void timerAnotherDay_Tick(object sender, EventArgs e)
+        {
+
+            this.timerAnotherDay.Stop();
+            DateTime dt=System.DateTime.Now;
+
+            if (dt.DayOfYear > WeatherDay)
+            {
+#if DEBUG
+                Console.WriteLine("夜晚刷新首页！！");
+#endif
+                WeatherDay = dt.DayOfYear;
+                this.NavigateHome();
+            }
+            this.timerAnotherDay.Start();
+        }
+
+        private void YuanTuoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SystemDefine.ShowTaskTools();
         }
     }
 }
