@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Collections;
+using FT.Commons.Tools;
 
 namespace FT.Web.Bll.Terminal
 {
@@ -20,7 +21,7 @@ namespace FT.Web.Bll.Terminal
 
         public static TerminalStatus GetTerminal(string ip)
         {
-            if (lists.Count == 0)
+            if (lists==null||lists.Count == 0)
             {
                 lock (synObject)
                 {
@@ -57,6 +58,11 @@ namespace FT.Web.Bll.Terminal
         {
             lock (synObject)
             {
+                if (lists != null)
+                {
+                    SaveAllOnlineSeconds();
+                }
+                lists = null;
                 lists = FT.DAL.Orm.SimpleOrmOperator.QueryListAll(typeof(TerminalStatus));
             }
         }
@@ -68,6 +74,11 @@ namespace FT.Web.Bll.Terminal
             TerminalStatus terminal = null;
             while (true)
             {
+                if (lists == null)
+                {
+                    System.Threading.Thread.Sleep(3000);
+                    continue;
+                }
                 for (int i = 0; i < lists.Count; i++)
                 {
                     terminal = lists[i] as TerminalStatus;
@@ -99,7 +110,8 @@ namespace FT.Web.Bll.Terminal
                                 terminal.OnlineSeconds += threadMiniSecond / 1000;
 
                             }
-                            FT.DAL.Orm.SimpleOrmOperator.Update(terminal);
+                            FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update yuantuo_terminals set onlineseconds=" + terminal.OnlineSeconds.ToString() + ",date_machine_last_online_time='" + DateTimeHelper.DtToLongString(terminal.LastOnlineTime) + "',date_machine_last_outline_time='" + DateTimeHelper.DtToLongString(terminal.LastOutlineTime) + "' where id=" + terminal.Id.ToString());
+                           // FT.DAL.Orm.SimpleOrmOperator.Update(terminal);
                         }
                         
                     }
@@ -124,6 +136,36 @@ namespace FT.Web.Bll.Terminal
             }
         }
 
+        public static void SaveAllOnlineSeconds()
+        {
+            string newStatus = string.Empty;
+            TerminalStatus terminal = null;
+            for (int i = 0; i < lists.Count; i++)
+            {
+                terminal = lists[i] as TerminalStatus;
+                terminal.LastCheckTime = System.DateTime.Now;
+                bool online = FT.Commons.Tools.WindowExHelper.CanConnectionTo(terminal.MachineIp);
+                newStatus = online ? "在线" : "不在线";
+
+                if (online)
+                {
+                    terminal.LastOnlineTime = System.DateTime.Now;
+
+                }
+                //在线变成不在线状态
+                else if(terminal.OnlineStatus=="在线")
+                {
+                    terminal.LastOutlineTime = System.DateTime.Now;
+
+
+                }
+                FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("update yuantuo_terminals set onlineseconds=" + terminal.OnlineSeconds.ToString() + ",date_machine_last_online_time='" + DateTimeHelper.DtToLongString(terminal.LastOnlineTime) + "',date_machine_last_outline_time='"+DateTimeHelper.DtToLongString(terminal.LastOutlineTime)+"' where id=" + terminal.Id.ToString());
+               // FT.DAL.Orm.SimpleOrmOperator.Update(terminal);
+
+
+            }
+        }
+
         public static void StopThread()
         {
             try
@@ -132,31 +174,7 @@ namespace FT.Web.Bll.Terminal
                 {
                     thread.Abort();
                 }
-                string newStatus = string.Empty;
-                TerminalStatus terminal = null;
-                for (int i = 0; i < lists.Count; i++)
-                {
-                    terminal = lists[i] as TerminalStatus;
-                    terminal.LastCheckTime = System.DateTime.Now;
-                    bool online = FT.Commons.Tools.WindowExHelper.CanConnectionTo(terminal.MachineIp);
-                    newStatus = online ? "在线" : "不在线";
-
-                    if (online)
-                        {
-                            terminal.LastOnlineTime = System.DateTime.Now;
-                           
-                        }
-                        //在线变成不在线状态
-                        else
-                        {
-                            terminal.LastOutlineTime = System.DateTime.Now;
-                           
-
-                        }
-                        FT.DAL.Orm.SimpleOrmOperator.Update(terminal);
-
-                    
-                }
+                SaveAllOnlineSeconds();
 
             }
             catch(Exception ex)
