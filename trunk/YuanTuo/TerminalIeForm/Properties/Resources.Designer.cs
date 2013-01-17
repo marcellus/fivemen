@@ -67,6 +67,34 @@ namespace TerminalIeForm.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap defaultbtnbg {
+            get {
+                object obj = ResourceManager.GetObject("defaultbtnbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap defaultbtnbg2 {
+            get {
+                object obj = ResourceManager.GetObject("defaultbtnbg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap defaultbtnbgactive {
+            get {
+                object obj = ResourceManager.GetObject("defaultbtnbgactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap defaultbtnbgactive2 {
+            get {
+                object obj = ResourceManager.GetObject("defaultbtnbgactive2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FreePhone {
             get {
                 object obj = ResourceManager.GetObject("FreePhone", resourceCulture);
@@ -84,6 +112,13 @@ namespace TerminalIeForm.Properties {
         internal static System.Drawing.Bitmap MemberService {
             get {
                 object obj = ResourceManager.GetObject("MemberService", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap mobileinput {
+            get {
+                object obj = ResourceManager.GetObject("mobileinput", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -57,6 +57,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -165,6 +166,11 @@
     <Content Include="NetError.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\defaultbtnbg.png" />
+    <None Include="Resources\defaultbtnbg2.png" />
+    <None Include="Resources\defaultbtnbgactive.png" />
+    <None Include="Resources\defaultbtnbgactive2.png" />
+    <None Include="Resources\mobileinput.png" />
     <Content Include="Shopping_Cart.ico" />
     <Content Include="Skype4COM.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

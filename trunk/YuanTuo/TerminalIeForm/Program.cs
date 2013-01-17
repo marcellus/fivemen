@@ -13,12 +13,13 @@ namespace TerminalIeForm
         [STAThread]
         static void Main()
         {
+
             try
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new SkypeForm());
-               //  Application.Run(new YuanTuoForm());
+               // Application.Run(new SkypeForm());
+                Application.Run(new YuanTuoForm());
                 //Application.Run(new SingleWebForm());
                 // Application.Run(new Form2());
             }

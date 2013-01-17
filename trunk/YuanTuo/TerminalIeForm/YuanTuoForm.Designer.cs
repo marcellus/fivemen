@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YuanTuoForm));
-            this.webBrowser1 = new TerminalIeForm.WebBrowserEx();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnJiaqu = new System.Windows.Forms.Button();
             this.btnKanke = new System.Windows.Forms.Button();
@@ -45,6 +44,8 @@
             this.btnRealRoadCondition = new System.Windows.Forms.PictureBox();
             this.btnFreePhone = new System.Windows.Forms.PictureBox();
             this.timerConnectNet = new System.Windows.Forms.Timer(this.components);
+            this.timerAnotherDay = new System.Windows.Forms.Timer(this.components);
+            this.webBrowser1 = new TerminalIeForm.WebBrowserEx();
             ((System.ComponentModel.ISupportInitialize)(this.btnMagazine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnServicePhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTickets)).BeginInit();
@@ -52,17 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRealRoadCondition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFreePhone)).BeginInit();
             this.SuspendLayout();
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1366, 768);
-            this.webBrowser1.TabIndex = 2;
-            this.webBrowser1.NewWindow += new System.ComponentModel.CancelEventHandler(this.webBrowser1_NewWindow);
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // timer1
             // 
@@ -200,6 +190,23 @@
             // 
             this.timerConnectNet.Tick += new System.EventHandler(this.timerConnectNet_Tick);
             // 
+            // timerAnotherDay
+            // 
+            this.timerAnotherDay.Enabled = true;
+            this.timerAnotherDay.Interval = 120000;
+            this.timerAnotherDay.Tick += new System.EventHandler(this.timerAnotherDay_Tick);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1366, 768);
+            this.webBrowser1.TabIndex = 2;
+            this.webBrowser1.NewWindow += new System.ComponentModel.CancelEventHandler(this.webBrowser1_NewWindow);
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            // 
             // YuanTuoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -221,8 +228,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "YuanTuoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YuanTuoForm";
             this.Load += new System.EventHandler(this.YuanTuoForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YuanTuoForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.btnMagazine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnServicePhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTickets)).EndInit();
@@ -250,5 +259,6 @@
         private System.Windows.Forms.Button btnJiaqu;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerConnectNet;
+        private System.Windows.Forms.Timer timerAnotherDay;
     }
 }

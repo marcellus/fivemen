@@ -40,10 +40,12 @@ namespace TerminalIeForm
                 message.Send();
             }
 
+            
 
         private void btnDial_Click(object sender, EventArgs e)
         {
-            SkypeHelper.CallTimeLimit( this.txtMobile.Text.Trim(), 10);
+            SkypeHelper.CallTimeLimit( "+86"+this.txtMobile.Text.Trim(), 180);
+            this.TopLevel = true;
             this.BringToFront();
            /*
             SkypeClass skype = new SkypeClass();
@@ -167,8 +169,13 @@ namespace TerminalIeForm
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            this.txtMobile.Text = string.Empty;
-            SkypeHelper.HandOff();
+           // SkypeHelper.HandOff();
+           // this.txtMobile.Text = string.Empty;
+            if (this.txtMobile.Text.Length > 0)
+            {
+                this.txtMobile.Text = this.txtMobile.Text.Substring(0, this.txtMobile.Text.Length - 1);
+            }
+           
         }
 
         private void btnHandOff_Click(object sender, EventArgs e)
@@ -182,6 +189,39 @@ namespace TerminalIeForm
             Button btn=sender as Button;
             //if(this.txtMobile.Text.Trim())
             this.txtMobile.Text += btn.Text;
+        }
+
+        private void btnNum1_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Image = Properties.Resources.defaultbtnbgactive;
+            btn.ForeColor = Color.White;
+        }
+
+        private void btnNum1_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Image = Properties.Resources.defaultbtnbg;
+            btn.ForeColor = Color.Black;
+        }
+
+        private void btnReset_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Image = Properties.Resources.defaultbtnbgactive2;
+            btn.ForeColor = Color.White;
+        }
+
+        private void btnReset_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Image = Properties.Resources.defaultbtnbg2;
+            btn.ForeColor = Color.Black;
+        }
+
+        private void SkypeForm_Load(object sender, EventArgs e)
+        {
+            SkypeHelper.FrmCallForm = this;
         }
     }
 }
