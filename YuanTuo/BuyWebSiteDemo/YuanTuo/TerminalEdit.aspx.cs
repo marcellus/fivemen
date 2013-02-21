@@ -48,7 +48,9 @@ public partial class YuanTuo_TerminalEdit : System.Web.UI.Page
         {
             if (SimpleOrmOperator.Create(entity))
             {
+                TerminalOnlineMonitorThread.InitTerminalList();
                 WebTools.Alert(this, "添加成功！");
+                
             }
             else
             {
@@ -60,7 +62,9 @@ public partial class YuanTuo_TerminalEdit : System.Web.UI.Page
         {
             if (SimpleOrmOperator.Update(entity))
             {
+                TerminalOnlineMonitorThread.InitTerminalList();
                 WebTools.Alert(this, "修改成功！");
+
             }
             else
             {

@@ -51,7 +51,10 @@ public class GobalTools
         string url = System.Configuration.ConfigurationManager.AppSettings["Interface_Sms_Url"];
         service.Url = url;
         string timeout = System.Configuration.ConfigurationManager.AppSettings["Interface_Sms_Interface_Sms_Timeout"];
-        service.Timeout = Convert.ToInt32(timeout);
+        if (timeout.Length > 0 && timeout != "-1")
+        {
+            service.Timeout = Convert.ToInt32(timeout);
+        }
 
         string query = "<?xml version=\"1.0\" encoding=\"utf-8\"?><SMS type=\"send\"><Message><MessageID>" + "UE000" + System.DateTime.Now.ToString("yyyyMMddHHmmss") + "</MessageID><UserID>84469997</UserID><SendNum>84469997</SendNum><RecvNum>" + mobile + "</RecvNum><Report>false</Report><Content>" + smsContent + "</Content><Level>0</Level></Message></SMS>";
 
@@ -115,7 +118,8 @@ public class GobalTools
         }
         else
         {
-            result = SendSmsByWebService(mobile, string.Format("易捷提醒您，您本次订单号{1}购物的验证码为：{0}！", code, orderid));
+
+            result = SendSmsByWebService(mobile, string.Format("中石化北京石油易捷便利店订单号{1}验证码为：{0}", code, orderid));//易捷提醒您，您本次订单号{1}购物的验证码为：{0}！
             if (result)
                 System.Web.HttpContext.Current.Session["smsvalidcode"] = code;
            
