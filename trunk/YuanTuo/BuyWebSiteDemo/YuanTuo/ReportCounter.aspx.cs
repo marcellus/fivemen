@@ -82,7 +82,7 @@ public partial class YuanTuo_ReportCounter : System.Web.UI.Page
         {
             reportFormater += " and terminalid in (select distinct id from yuantuo_terminals where groupid=" + this.ddlGroups.SelectedValue.ToString() + ")";
         }
-        reportFormater += " order by id desc";
+        reportFormater += " order by orderdate desc";
         object obj=FT.DAL.DataAccessFactory.GetDataAccess().SelectScalar(reportFormater.Replace("\r\n", ""));
         if (obj != null)
         {

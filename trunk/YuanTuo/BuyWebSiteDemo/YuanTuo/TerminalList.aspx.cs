@@ -40,6 +40,7 @@ public partial class YuanTuo_TerminalList : System.Web.UI.Page
             int id = Convert.ToInt32(e.CommandArgument);
             FT.DAL.DataAccessFactory.GetDataAccess().ExecuteSql("delete from yuantuo_terminals where id=" + id);
             WebTools.Alert(this, "删除成功！");
+            TerminalOnlineMonitorThread.InitTerminalList();
             this.ProcedurePager1.Changed = true;
         }
         else if (e.CommandName == "Detail")
