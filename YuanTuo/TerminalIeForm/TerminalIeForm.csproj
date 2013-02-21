@@ -153,6 +153,9 @@
     <None Include="Resources\MemberService.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="logo.jpg" />
     <None Include="Resources\本期专题.png" />
     <None Include="Resources\驾趣.png" />

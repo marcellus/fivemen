@@ -15,6 +15,7 @@ namespace TerminalIeForm
         public SkypeForm()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
       //  發送聊天訊息
 
@@ -44,9 +45,10 @@ namespace TerminalIeForm
 
         private void btnDial_Click(object sender, EventArgs e)
         {
-            SkypeHelper.CallTimeLimit( "+86"+this.txtMobile.Text.Trim(), 180);
-            this.TopLevel = true;
-            this.BringToFront();
+            SkypeHelper.CallTimeLimit( "+86"+this.txtMobile.Text.Trim(), 180,GlobalTools.ShowCallingHint,GlobalTools.ShowProcessingHint,GlobalTools.HandOffHint);
+            //this.TopLevel = true;
+           // this.BringToFront();
+            this.Close();
            /*
             SkypeClass skype = new SkypeClass();
             CommandClass cmd = new CommandClass();
@@ -181,6 +183,7 @@ namespace TerminalIeForm
         private void btnHandOff_Click(object sender, EventArgs e)
         {
             SkypeHelper.HandOff();
+            GlobalTools.ShowProcessingHint();
             this.Close();
         }
 
@@ -221,7 +224,9 @@ namespace TerminalIeForm
 
         private void SkypeForm_Load(object sender, EventArgs e)
         {
-            SkypeHelper.FrmCallForm = this;
+           // SkypeHelper.FrmCallForm = this;
+            //SkypeHelper.CloseSkype();
+           // SkypeHelper.StartSkype();
         }
     }
 }

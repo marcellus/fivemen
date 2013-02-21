@@ -6,7 +6,50 @@ namespace TerminalIeForm
 {
     public class GlobalTools
     {
-        private static SkypeForm skypeForm;
+        public  static SkypeForm skypeForm;
+
+        public static YuanTuoForm yuantuoForm;
+
+        public static void ShowCallingHint()
+        {
+#if DEBUG
+            Console.WriteLine("开始显示拨号提示！");
+#endif
+            if (yuantuoForm != null)
+            {
+                yuantuoForm.SetHint("拨号中……");
+            }
+        }
+
+        public static void ShowProcessingHint()
+        {
+#if DEBUG
+            Console.WriteLine("开始显示通话中！");
+#endif
+            if (yuantuoForm != null)
+            {
+                yuantuoForm.SetHint("通话中……");
+            }
+        }
+
+        public static void HandOffHint()
+        {
+#if DEBUG
+            Console.WriteLine("开始隐藏拨号提示！");
+#endif
+            if (yuantuoForm != null)
+            {
+                yuantuoForm.HideHint();
+            }
+        }
+
+        public static void CloseSkypeForm()
+        {
+            if (skypeForm != null)
+            {
+                skypeForm.Close();
+            }
+        }
 
         public static void CallSkype()
         {
@@ -19,7 +62,7 @@ namespace TerminalIeForm
             {
                 skypeForm = new SkypeForm();
             }
-            skypeForm.Show();
+            skypeForm.ShowDialog();
            // skypeForm.ShowDialog();
             skypeForm.BringToFront();
         }

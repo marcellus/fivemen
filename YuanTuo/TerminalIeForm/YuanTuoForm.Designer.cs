@@ -45,13 +45,18 @@
             this.btnFreePhone = new System.Windows.Forms.PictureBox();
             this.timerConnectNet = new System.Windows.Forms.Timer(this.components);
             this.timerAnotherDay = new System.Windows.Forms.Timer(this.components);
+            this.timerTopFirst = new System.Windows.Forms.Timer(this.components);
+            this.btnHint = new System.Windows.Forms.Button();
             this.webBrowser1 = new TerminalIeForm.WebBrowserEx();
+            this.panelHint = new System.Windows.Forms.Panel();
+            this.lbHint = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMagazine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnServicePhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMemberService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRealRoadCondition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFreePhone)).BeginInit();
+            this.panelHint.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -196,6 +201,23 @@
             this.timerAnotherDay.Interval = 120000;
             this.timerAnotherDay.Tick += new System.EventHandler(this.timerAnotherDay_Tick);
             // 
+            // timerTopFirst
+            // 
+            this.timerTopFirst.Interval = 1000;
+            this.timerTopFirst.Tick += new System.EventHandler(this.timerTopFirst_Tick);
+            // 
+            // btnHint
+            // 
+            this.btnHint.Font = new System.Drawing.Font("仿宋", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnHint.ForeColor = System.Drawing.Color.Red;
+            this.btnHint.Location = new System.Drawing.Point(249, 9);
+            this.btnHint.Name = "btnHint";
+            this.btnHint.Size = new System.Drawing.Size(113, 44);
+            this.btnHint.TabIndex = 6;
+            this.btnHint.Text = "挂断";
+            this.btnHint.UseVisualStyleBackColor = true;
+            this.btnHint.Click += new System.EventHandler(this.btnHint_Click);
+            // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,11 +229,33 @@
             this.webBrowser1.NewWindow += new System.ComponentModel.CancelEventHandler(this.webBrowser1_NewWindow);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
+            // panelHint
+            // 
+            this.panelHint.Controls.Add(this.lbHint);
+            this.panelHint.Controls.Add(this.btnHint);
+            this.panelHint.Location = new System.Drawing.Point(433, 682);
+            this.panelHint.Name = "panelHint";
+            this.panelHint.Size = new System.Drawing.Size(389, 61);
+            this.panelHint.TabIndex = 7;
+            this.panelHint.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHint_Paint);
+            // 
+            // lbHint
+            // 
+            this.lbHint.AutoSize = true;
+            this.lbHint.Font = new System.Drawing.Font("仿宋", 28F, System.Drawing.FontStyle.Bold);
+            this.lbHint.ForeColor = System.Drawing.Color.Red;
+            this.lbHint.Location = new System.Drawing.Point(17, 9);
+            this.lbHint.Name = "lbHint";
+            this.lbHint.Size = new System.Drawing.Size(212, 38);
+            this.lbHint.TabIndex = 7;
+            this.lbHint.Text = "拨号中……";
+            // 
             // YuanTuoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.panelHint);
             this.Controls.Add(this.btnJiaqu);
             this.Controls.Add(this.btnKanke);
             this.Controls.Add(this.btnShike);
@@ -230,6 +274,7 @@
             this.Name = "YuanTuoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YuanTuoForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.YuanTuoForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YuanTuoForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.btnMagazine)).EndInit();
@@ -238,6 +283,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMemberService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRealRoadCondition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFreePhone)).EndInit();
+            this.panelHint.ResumeLayout(false);
+            this.panelHint.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -260,5 +307,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerConnectNet;
         private System.Windows.Forms.Timer timerAnotherDay;
+        private System.Windows.Forms.Timer timerTopFirst;
+        private System.Windows.Forms.Button btnHint;
+        private System.Windows.Forms.Panel panelHint;
+        private System.Windows.Forms.Label lbHint;
     }
 }

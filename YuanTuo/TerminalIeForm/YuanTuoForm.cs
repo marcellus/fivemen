@@ -7,11 +7,13 @@ using System.Text;
 using System.Windows.Forms;
 using FT.Commons.Tools;
 using FT.Commons.Win32;
+using log4net;
 
 namespace TerminalIeForm
 {
     public partial class YuanTuoForm : Form
     {
+        protected static ILog log = log4net.LogManager.GetLogger("FT.Commons.Tools");
         public YuanTuoForm()
         {
             InitializeComponent();
@@ -24,8 +26,15 @@ namespace TerminalIeForm
             //导航已取消
             //res://ieframe.dll/navcancl.htm#http://localhost:12346/BuyWebSiteDemo/YuanTuo/Index.aspx
             string urlTmp = this.webBrowser1.Document.Url.AbsoluteUri;
+#if DEBUG
+            if (log.IsDebugEnabled)
+            {
+                log.Debug("访问的地址为："+urlTmp);
+            }
+#endif
             if (urlTmp.StartsWith("res://ieframe.dll"))
             {
+                this.timer1.Stop();
                 this.NavigateNetError();
                 return;
             }
@@ -56,7 +65,7 @@ namespace TerminalIeForm
                                 }
                  * */
             }
-            else if (!urlTmp .StartsWith( urlHome))
+            else if (!urlTmp.StartsWith(urlHome))
             {
 #if DEBUG
                 Console.WriteLine("WebBrowser加载网页完成！");
@@ -66,18 +75,23 @@ namespace TerminalIeForm
                 this.timer1.Start();
                 this.SetVerButtons(false);
                 if (urlTmp.StartsWith(domainPrefix))
+                {
                     this.btnReturnHome.Visible = false;
+                }
                 else
                 {
                     this.btnReturnHome.Visible = true;
                 }
             }
-            else if (urlTmp.StartsWith( urlHome))
+            
+            else if (urlTmp.StartsWith(urlHome))
             {
                 this.SetVerButtons(true);
-                this.timer1.Stop();
+                //if(GlobalTools.skypeForm==null)
+                  //  this.timer1.Stop();
                 //this.timer1.Start();
             }
+           
             if (this.webBrowser1.Document.Title.IndexOf("无法显示该网页") != -1 || this.webBrowser1.Document.Title.IndexOf("导航已取消")!=-1)
             {
                 this.NavigateNetError();
@@ -111,6 +125,13 @@ namespace TerminalIeForm
             //净值
             Console.WriteLine("title:"+this.webBrowser1.Document.Title);
             Console.WriteLine("IsOffline:" + this.webBrowser1.IsOffline);
+
+#endif
+#if DEBUG
+            if (log.IsDebugEnabled)
+            {
+                log.Debug("title:" + this.webBrowser1.Document.Title);
+            }
 #endif
         }
 
@@ -172,9 +193,19 @@ namespace TerminalIeForm
             this.timer1.Start();
             this.NavigateHome();
             SystemDefine.HideTaskTools();
+            SkypeHelper.StartSkype();
+            GlobalTools.yuantuoForm = this;
+            HideHint();
+           string topfirstTimer= System.Configuration.ConfigurationSettings.AppSettings["TopFirstTimer"];
+           if (topfirstTimer == "true")
+           {
+               this.timerTopFirst.Start();
+           }
            // this.webBrowser1.n
             
         }
+
+        
 
         private void btnRealRoadCondition_Click(object sender, EventArgs e)
         {
@@ -202,6 +233,20 @@ namespace TerminalIeForm
         {
             this.NavigateLocation("易捷微刊");
         }
+        public void SetHint(string hint)
+        {
+            if (hint.Length > 0)
+            {
+                this.panelHint.Visible = true;
+            }
+            this.lbHint.Text = hint;
+        }
+
+        public void HideHint()
+        {
+            this.panelHint.Visible = false;
+        }
+        
 
         private void btnFreePhone_Click(object sender, EventArgs e)
         {
@@ -297,7 +342,25 @@ namespace TerminalIeForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.NavigateHome();
+            
+            this.timer1.Stop();
+#if DEBUG
+            Console.WriteLine(DateTimeHelper.DtToLongString(System.DateTime.Now) + "-" + "时间到进行跳转！");
+#endif
+            GlobalTools.CloseSkypeForm();
+            try
+            {
+                string urlTmp = this.webBrowser1.Document.Url.AbsoluteUri;
+                if (!urlTmp.StartsWith(urlHome))
+                {
+                    this.NavigateHome();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+           
+            this.timer1.Start();
         }
 
         private void timerConnectNet_Tick(object sender, EventArgs e)
@@ -305,6 +368,7 @@ namespace TerminalIeForm
 #if DEBUG
             Console.WriteLine(System.DateTime.Now.ToShortTimeString()+"-"+"时间到进行跳转！");
 #endif
+            
             this.NavigateHome();
             this.timerConnectNet.Stop();
         }
@@ -329,7 +393,35 @@ namespace TerminalIeForm
 
         private void YuanTuoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            GlobalTools.yuantuoForm = null;
+            
             SystemDefine.ShowTaskTools();
+            SkypeHelper.CloseSkype();
+            
+        }
+
+        private void timerTopFirst_Tick(object sender, EventArgs e)
+        {
+            this.timerTopFirst.Stop();
+#if DEBUG
+            Console.WriteLine(System.DateTime.Now.ToShortTimeString()+"定时检测拨号窗体是否存在，结果为："+GlobalTools.skypeForm);
+#endif
+            if (GlobalTools.skypeForm == null)
+            {
+                this.BringToFront();
+                SystemDefine.SetWindowTop(this.Handle);
+            }
+            this.timerTopFirst.Start();
+        }
+
+        private void panelHint_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnHint_Click(object sender, EventArgs e)
+        {
+            SkypeHelper.HandOff();
         }
     }
 }
