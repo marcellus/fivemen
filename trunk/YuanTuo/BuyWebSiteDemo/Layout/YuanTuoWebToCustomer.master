@@ -13,10 +13,18 @@
 </head>
 <body style="overflow-x:hidden; overflow-y:hidden; background-color:#c3e6fa" scroll="no">
     <form id="form1" runat="server">
+     <img
+    src="images/hkslogo.png" style="position:absolute;left:10px;top:110px;
+        z-index:999" alt="香港卫视logo" width="108px" height="125px" />
    <div id="menu" style="position:fixed; left:10px;top:10px ">
-    <table border="0" cellpadding="0" style="width:100%" cellspacing="5" style="margin:0 0 0 0; padding:0 0 0 0;">
+  
+   
+    <table border="0" cellpadding="0" style="width:100%" cellspacing="5" style="z-index:-1; margin:0 0 0 0; padding:0 0 0 0;">
     <tr style="padding-right:15px; margin-right:15px">
-    <td style="vertical-align:top;padding-top:5px"><img alt="易捷logo" onclick="document.location.href='Index.aspx'"  width="91px" height="116px" src="images/logo.png" /></td>
+    <td style="vertical-align:top;padding-top:0px"><img alt="易捷logo" onclick="document.location.href='Index.aspx'"  width="101px" height="105px" src="images/shihualogo.png" />
+    
+    
+    </td>
     
    <td >
         <img alt="热销产品" runat="server" id="menu1" onclick="javascript:document.location.href='ProductList.aspx?type=1';"  width="120" height="151" src="../YuanTuo/images/menu1.png" /></td>
