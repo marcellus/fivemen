@@ -157,11 +157,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="logo.jpg" />
-    <None Include="Resources\本期专题.png" />
-    <None Include="Resources\驾趣.png" />
-    <None Include="Resources\看客.png" />
-    <None Include="Resources\食客.png" />
-    <None Include="Resources\微观点.png" />
     <None Include="Resources\shouye.png" />
     <None Include="Resources\search.png" />
     <None Include="Skype4COM.chm" />
@@ -174,6 +169,19 @@
     <None Include="Resources\defaultbtnbgactive.png" />
     <None Include="Resources\defaultbtnbgactive2.png" />
     <None Include="Resources\mobileinput.png" />
+    <None Include="Resources\hksbtn.png" />
+    <None Include="Resources\本期专题.png" />
+    <None Include="Resources\驾趣.png" />
+    <None Include="Resources\看客.png" />
+    <None Include="Resources\食客.png" />
+    <None Include="Resources\微观点.png" />
+    <None Include="Resources\香港卫视.png" />
+    <None Include="Resources\实时路况.png" />
+    <None Include="Resources\易捷微刊.png" />
+    <None Include="Resources\咨询热线.png" />
+    <None Include="Resources\北京石油会员.png" />
+    <None Include="Resources\免费电话.png" />
+    <None Include="Resources\票务.png" />
     <Content Include="Shopping_Cart.ico" />
     <Content Include="Skype4COM.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
