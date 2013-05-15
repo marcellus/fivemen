@@ -184,4 +184,28 @@
   <data name="mobileinput" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mobileinput.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hksbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hksbtn.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="香港卫视" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\香港卫视.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="免费电话" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\免费电话.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="北京石油会员" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\北京石油会员.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="咨询热线" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\咨询热线.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="实时路况" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\实时路况.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="易捷微刊" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\易捷微刊.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="票务" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\票务.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

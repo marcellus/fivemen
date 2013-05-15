@@ -193,7 +193,14 @@ namespace TerminalIeForm
             this.timer1.Start();
             this.NavigateHome();
             SystemDefine.HideTaskTools();
-            SkypeHelper.StartSkype();
+            try
+            {
+                SkypeHelper.StartSkype();
+            }
+            catch
+            {
+                MessageBox.Show("Skype未能正常启动！！");
+            }
             GlobalTools.yuantuoForm = this;
             HideHint();
            string topfirstTimer= System.Configuration.ConfigurationSettings.AppSettings["TopFirstTimer"];
@@ -293,6 +300,7 @@ namespace TerminalIeForm
             this.btnShike.Visible = visible;
             this.btnJiaqu.Visible = visible;
             this.btnReturnHome.Visible = !visible;
+            this.btnHks.Visible = visible;
         }
         private void NavigateWeb(string url)
         {
@@ -422,6 +430,11 @@ namespace TerminalIeForm
         private void btnHint_Click(object sender, EventArgs e)
         {
             SkypeHelper.HandOff();
+        }
+
+        private void btnHks_Click(object sender, EventArgs e)
+        {
+            this.NavigateLocation("香港卫视");
         }
     }
 }

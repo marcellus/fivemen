@@ -109,6 +109,13 @@ namespace TerminalIeForm.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap hksbtn {
+            get {
+                object obj = ResourceManager.GetObject("hksbtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap MemberService {
             get {
                 object obj = ResourceManager.GetObject("MemberService", resourceCulture);
@@ -179,9 +186,44 @@ namespace TerminalIeForm.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap 免费电话 {
+            get {
+                object obj = ResourceManager.GetObject("免费电话", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 北京石油会员 {
+            get {
+                object obj = ResourceManager.GetObject("北京石油会员", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 咨询热线 {
+            get {
+                object obj = ResourceManager.GetObject("咨询热线", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 实时路况 {
+            get {
+                object obj = ResourceManager.GetObject("实时路况", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap 微观点 {
             get {
                 object obj = ResourceManager.GetObject("微观点", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 易捷微刊 {
+            get {
+                object obj = ResourceManager.GetObject("易捷微刊", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -200,9 +242,23 @@ namespace TerminalIeForm.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap 票务 {
+            get {
+                object obj = ResourceManager.GetObject("票务", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap 食客 {
             get {
                 object obj = ResourceManager.GetObject("食客", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 香港卫视 {
+            get {
+                object obj = ResourceManager.GetObject("香港卫视", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
